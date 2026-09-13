@@ -16,6 +16,94 @@
   ],
   "schema:name": "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1",
   "schema:description": "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section (two-volume cell)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "peakFlatnessMethodAndThreshold",
+            "schema:name": "Peak Flatness Method and Threshold",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Optimised during tuning on NIST 610 by adjusting the He and Ar gas flow rates, torch position, RF power and source lens settings 'for maximum sensitivity and optimum peak flatness' (p.3); no numerical acceptance threshold is stated"
+          },
+          {
+            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "filteringApproachDefault",
+            "schema:name": "Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
   "ada:analyticalAccuracy": "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion",
   "schema:instrument": [
@@ -82,44 +170,31 @@
         },
         {
           "schema:additionalType": [
-            "Interface Cone",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/module/ICPMS/configuration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "configuration",
-              "schema:name": "Configuration",
-              "ada:dataType": "string",
-              "ada:fieldScope": "session",
-              "schema:value": "X skimmer cone + Jet sample cone (high-sensitivity configuration)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
             "Collector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:description": "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupArrayConfiguration",
+              "schema:name": "Faraday Cup Array Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Nine Faraday cups fitted with 10¹¹ Ω resistors, plus seven fixed electron multiplier ion counters; the Faraday collector array spans L4 to H3 (p.2)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collector",
+          "schema:name": "missing",
           "ada:collectorConfiguration": [
             {
               "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
@@ -129,7 +204,7 @@
               "schema:valueName": "faradayCupAmplifierResistorValues",
               "schema:name": "Faraday Cup Amplifier Resistor Values",
               "ada:dataType": "string",
-              "schema:defaultValue": "missing"
+              "schema:defaultValue": "10¹¹ Ω on all nine Faraday cups (p.2)"
             },
             {
               "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
@@ -179,6 +254,16 @@
               ]
             },
             {
+              "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "ionCounterDeadTime",
+              "schema:name": "Ion Counter Dead Time",
+              "ada:dataType": "number",
+              "schema:defaultValue": -9999
+            },
+            {
               "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment",
               "@type": [
                 "schema:PropertyValueSpecification"
@@ -186,23 +271,49 @@
               "schema:valueName": "massResolutionAssignment",
               "schema:name": "Mass Resolution Assignment",
               "ada:dataType": "string",
-              "schema:defaultValue": "missing"
+              "schema:defaultValue": "Low resolution for all eight monitored masses — 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout"
             }
-          ],
-          "schema:description": "missing"
+          ]
         },
         {
+          "schema:additionalType": [
+            "Interface Cone",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/configuration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "X skimmer cone + Jet sample cone (high-sensitivity configuration)"
+            }
+          ],
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:name": "Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
         },
         {
@@ -221,19 +332,6 @@
         }
       ],
       "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/laMcicpmsTAPP/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValue"
-          ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laMcicpmsTAPP/detectorConfiguration"
-            }
-          ],
-          "schema:name": "Detector Configuration",
-          "schema:value": "Seven fixed electron multiplier ICs + nine Faraday cups (1011 Ω resistors)"
-        },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
           "@type": [
@@ -263,18 +361,18 @@
           "schema:ProductModel"
         ]
       },
+      "schema:manufacturer": {
+        "schema:name": "Thermo Fisher Scientific",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
       "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName",
-      "schema:manufacturer": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:Organization"
-        ]
-      }
+      "schema:name": "example instrumentName"
     },
     {
       "schema:additionalType": [
@@ -303,19 +401,52 @@
     }
   ],
   "ada:backgroundCountTimeDefault": "30 cycles × 0.524 s ≈ 15.7 s (first 30 cycles of the 120-cycle block with no laser ablation)",
-  "ada:carrierGasFlowRateDefault": "He, 0.90 l min⁻¹ (two-volume cell)",
-  "ada:isobaricInterferenceCorrectionsApplied": "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)",
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Single line scan per location (1 block of 120 cycles at 0.524 s integration)"
+      "schema:value": "Laser-off cycles at the start of the same block — 'the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3); 30 cycles x 0.524 s ≈ 15.7 s"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "massFractionationLaw",
+      "schema:name": "Mass Fractionation Law",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Exponential"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurementDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfBlocksPerMeasurementDefault",
+      "schema:name": "Number of Blocks per Measurement",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1,
+      "schema:description": "1 (Table 1, 'Block number 1'; p.3 'one block of 120 cycles')"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfCyclesPerBlockDefault",
+      "schema:name": "Number of Cycles per Block",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 120,
+      "schema:description": "120 (Table 1, 'Cycles of each block 120'; p.3)"
     },
     {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -341,6 +472,10 @@
       "schema:defaultValue": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
     }
   ],
+  "ada:carrierGasFlowRateDefault": "He, 0.90 l min⁻¹ (two-volume cell)",
+  "ada:constantsAndReferenceValuesUsedDefault": "⁸⁷Rb decay constant 1.393 ± 0.004 x 10⁻¹¹ yr⁻¹ (Nebel et al. 2011), p.1; ⁸⁸Sr/⁸⁶Sr = 8.37520933 for mass fractionation correction (p.4); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for the ⁸⁷Rb/⁸⁶Sr calculation (p.4); natural ⁸⁷Rb/⁸⁵Rb of 0.38571 cited for the interference-correction principle (p.1)",
+  "ada:isobaricInterferenceCorrectionsApplied": "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)",
+  "ada:massBiasCorrectionStrategy": "Internal normalisation to an assumed ⁸⁸Sr/⁸⁶Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The ⁸⁷Rb isobaric correction on ⁸⁷Sr uses the ⁸⁵Rb signal and a user-specified ⁸⁷Rb/⁸⁵Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known ⁸⁷Sr/⁸⁶Sr (p.4)",
   "schema:object": [
     {
       "@type": [
@@ -366,72 +501,7 @@
       "schema:name": "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section (two-volume cell)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Signal-smoothing device used downstream from ablation cell (model not specified); significantly reduced short-term signal variability"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "filteringApproachDefault",
-            "schema:name": "Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Cycles with 87Rb/86Sr >1 deleted (invalid Rb interference correction); cycles with 88Sr signal <0.2 V discarded (poor precision); SUIA method applied to heterogeneous minerals"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:samplingUnitSelectionCriteriaDefault": "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)",
   "ada:withinSessionPrecision": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1",
   "schema:measurementTechnique": [
     {
@@ -473,19 +543,29 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnit": "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)"
     }
   ],
+  "ada:analyticalMode": [
+    "Transect"
+  ],
+  "ada:reportedProperties": [
+    "⁸⁷Sr/⁸⁶Sr (dimensionless ratio); ⁸⁷Rb/⁸⁶Sr (dimensionless ratio); Rb–Sr isochron age (Ma); initial ⁸⁷Sr/⁸⁶Sr (dimensionless ratio) — Tables 2 and 3"
+  ],
   "ada:ablationSamplingMode": [
     "Transect (continuous line scan at 2–6 µm s⁻¹)"
   ],
   "ada:internalStandardApproach": "No conventional IS; external calibration only (Rb/Sr elemental fractionation corrected by series of reference glasses; 87Sr/86Sr mass bias corrected by exponential law using 88Sr/86Sr = 8.37521)",
+  "ada:sampleIntroduction": "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)",
   "ada:elementalFractionationCorrection": [
     "Femtosecond laser substantially reduces elemental fractionation; no explicit downhole correction; Rb/Sr elemental fractionation corrected externally by analyzing series of reference glasses; exponential law for Sr isotope mass bias (88Sr/86Sr = 8.37521)"
   ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "Sr, ⁸⁸Sr/⁸⁶Sr = 8.37520933, exponential law (Russell et al. 1978), p.4",
+  "ada:uncertaintyLevel": "2SD for reference-material mean values (Table 2); within-run repeatability quoted as U_SD and U_SE at 95% confidence (Eqs. 1-2, p.5); isochron ages quoted with IsoplotR and Monte Carlo uncertainties (Table 3)",
   "ada:blankBackgroundCorrectionMethod": "First 30 cycles (no laser ablation) used for background collection; background Kr⁺ signals removed by correction; no additional Kr peak stripping applied",
   "ada:internalStandardElement": "No conventional IS; ⁸⁵Rb used to calculate ⁸⁷Rb/⁸⁶Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses",
   "ada:signalIntegrationIntervalMethod": "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle",
@@ -493,19 +573,17 @@
     "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation"
   ],
   "ada:primaryStandardNameDefault": "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:betweenSessionPrecision": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
-  "ada:massBiasCorrectionStrategy": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
-  "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }

@@ -16,9 +16,10 @@
   "ada:workingDistanceDefault",
   "ada:dwellTimePerPixelDefault",
   "ada:edsAcquisitionMode",
-  "ada:analyteDefault",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredElements",
   "ada:reportedVariablesAndUnits",
-  "ada:techniquePerAnalyte",
+  "ada:techniquePerTargetSpecies",
   "ada:xRayLine",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
@@ -93,7 +94,7 @@
   "sem_workingDistance",
   "sem_chamberPressure",
   "sem_dwellTimePerPixel",
-  "sem_analyte",
+  "sem_targetSpecies",
   "sem_edsLiveTimePerPointOrPixel",
   "sem_stepSizePixelSize",
   "sem_peakCountingTime",
@@ -168,7 +169,8 @@
   "ada:beamCurrentDefault",
   "ada:workingDistanceDefault",
   "ada:edsAcquisitionMode",
-  "ada:analyteDefault",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredElements",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
   "ada:clAcquisitionMode",
@@ -302,10 +304,17 @@
    "required": true
   },
   {
-   "key": "ada:analyteDefault",
-   "item": "Analyte",
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
    "jtype": "string",
    "cov": 2,
+   "required": true
+  },
+  {
+   "key": "ada:monitoredElements",
+   "item": "Monitored Elements",
+   "jtype": "string",
+   "cov": 35,
    "required": true
   },
   {
@@ -316,8 +325,8 @@
    "required": false
   },
   {
-   "key": "ada:techniquePerAnalyte",
-   "item": "Technique per Analyte",
+   "key": "ada:techniquePerTargetSpecies",
+   "item": "Technique per Target Species",
    "jtype": "string",
    "cov": 0,
    "required": false

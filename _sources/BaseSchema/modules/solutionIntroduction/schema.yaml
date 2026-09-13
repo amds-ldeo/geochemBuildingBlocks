@@ -143,38 +143,6 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  Param_Procedure_numberOfDigestionSteps:
-    title: Number of Digestion Steps
-    description: Total number of distinct acid digestion steps required to dissolve the sample. Some procedures
-      require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed
-      by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux
-      to destroy fluoride complexes.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: numberOfDigestionSteps
-      schema:name:
-        const: Number of Digestion Steps
-      ada:dataType:
-        const: integer
-      ada:fieldScope:
-        const: session
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: R
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
   Param_Procedure_digestionVesselType:
     title: Digestion Vessel Type
     description: Type of vessel used for acid digestion.

@@ -32,6 +32,7 @@
   "ada:plasmaThermalMode",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
+  "ada:targetSpeciesDefault",
   "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:signalCollectionMode",
@@ -42,9 +43,11 @@
   "ada:dwellTimePerMassDefault",
   "ada:totalIntegrationTimePerOutputDataPointDefault",
   "ada:backgroundCountTimeDefault",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:internalStandardApproach",
   "ada:internalStandardElement",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:elementalFractionationCorrection",
   "ada:massBiasCorrectionStrategy",
   "ada:uncertaintyLevel",
@@ -132,6 +135,7 @@
   "laQicpmsUPb_doublyChargedSpeciesMonitor",
   "laQicpmsUPb_doublyChargedSpeciesProduction",
   "laQicpmsUPb_analysisSequence",
+  "laQicpmsUPb_targetSpecies",
   "laQicpmsUPb_ionCounterDeadTime",
   "laQicpmsUPb_collisionGasFlowRate",
   "laQicpmsUPb_cellExitDiscriminationVoltage",
@@ -209,6 +213,7 @@
   "ada:rfPowerDefault",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
+  "ada:targetSpeciesDefault",
   "ada:dwellTimePerMassDefault",
   "ada:backgroundCountTimeDefault",
   "ada:internalStandardApproach",
@@ -452,6 +457,13 @@
    "required": true
   },
   {
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
+   "jtype": "string",
+   "cov": 4,
+   "required": true
+  },
+  {
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
@@ -522,6 +534,20 @@
    "required": true
   },
   {
+   "key": "ada:acquisitionPass",
+   "item": "Acquisition Pass",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:numberOfAcquisitionPasses",
+   "item": "Number of Acquisition Passes",
+   "jtype": "integer",
+   "cov": 0,
+   "required": false
+  },
+  {
    "key": "ada:internalStandardApproach",
    "item": "Internal Standard Approach",
    "jtype": "string",
@@ -536,8 +562,8 @@
    "required": true
   },
   {
-   "key": "ada:perAnalyteCalibrationStrategy",
-   "item": "Per-Analyte Calibration Strategy",
+   "key": "ada:calibrationStrategyPerTargetSpecies",
+   "item": "Calibration Strategy per Target Species",
    "jtype": "string",
    "cov": 0,
    "required": false

@@ -4,6 +4,662 @@
     "description": "Registry of reusable schema:PropertyValueSpecification method-parameter templates derived from technique TAPP spreadsheets. Each $def constrains one method-level (readOnly:true) parameter template (e.g. DriftCorrection, massAbsorptionCoefficients). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>) so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
     "type": "object",
     "$defs": {
+        "aiva_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/aivaTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "aiva_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/aivaTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ams_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/amsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ams_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/amsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "argt_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/argtTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "argt_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/argtTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "capd_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/capdTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "capd_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/capdTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "cpd_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/cpdTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "cpd_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/cpdTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "dsc_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/dscTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "dsc_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/dscTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "dssm_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/dssmTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "dssm_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/dssmTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eairms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/eairmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "eairms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/eairmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
         "empa_analyticalAccuracyDefault": {
             "title": "Analytical Accuracy",
             "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
@@ -255,7 +911,7 @@
         },
         "empa_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -296,7 +952,7 @@
         },
         "empa_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -584,6 +1240,744 @@
                 "ada:fieldScope"
             ]
         },
+        "finesse_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/finesseTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "finesse_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/finesseTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "fticrms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/fticrmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "fticrms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/fticrmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "gcCIrms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/gcCIrmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "gcCIrms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/gcCIrmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "gcms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/gcmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "gcms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/gcmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "gpyc_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/gpycTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "gpyc_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/gpycTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "icMs_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/icMsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "icMs_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/icMsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ic_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/icTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ic_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/icTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "icpoes_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/icpoesTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "icpoes_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/icpoesTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "l2ms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/l2msTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "l2ms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/l2msTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
         "laMcicpmsUPb_ageDatumReferenceEpochDefault": {
             "title": "Age Datum / Reference Epoch",
             "description": "The zero point from which the reported age is measured, where this is not the present day, and the date it corresponds to. Record 'Present day' where the conventional datum applies. Where the datum is not the present, record it explicitly: year of sample collection for luminescence, end of irradiation for 40Ar/39Ar decay corrections.",
@@ -709,7 +2103,7 @@
         },
         "laMcicpmsUPb_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -750,7 +2144,7 @@
         },
         "laMcicpmsUPb_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -794,7 +2188,7 @@
         },
         "laMcicpmsUPb_doubleSpikeMixingRatioDefault": {
             "title": "Double-Spike Mixing Ratio",
-            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+            "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1831,7 +3225,7 @@
         },
         "laMcicpms_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1872,7 +3266,7 @@
         },
         "laMcicpms_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -1916,7 +3310,7 @@
         },
         "laMcicpms_doubleSpikeMixingRatioDefault": {
             "title": "Double-Spike Mixing Ratio",
-            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+            "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2950,7 +4344,7 @@
         },
         "laQicpmsUPb_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -2991,7 +4385,7 @@
         },
         "laQicpmsUPb_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -3659,7 +5053,7 @@
         },
         "laQicpmsUPb_pulseAnalogDetectorNonlinearityCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -4072,7 +5466,7 @@
         },
         "laQicpms_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -4113,7 +5507,7 @@
         },
         "laQicpms_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -4737,7 +6131,7 @@
         },
         "laQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -5150,7 +6544,7 @@
         },
         "laSficpmsUPb_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -5191,7 +6585,7 @@
         },
         "laSficpmsUPb_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -5859,7 +7253,7 @@
         },
         "laSficpmsUPb_pulseAnalogDetectorNonlinearityCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -6187,7 +7581,7 @@
         },
         "laSficpms_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -6228,7 +7622,7 @@
         },
         "laSficpms_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -6852,7 +8246,7 @@
         },
         "laSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -8010,6 +9404,744 @@
                 "ada:fieldScope"
             ]
         },
+        "laf_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/lafTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "laf_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/lafTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "lcms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/lcmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "lcms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/lcmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "lit_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/litTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "lit_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/litTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "nanoir_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/nanoirTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "nanoir_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/nanoirTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "nanosims_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/nanosimsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "nanosims_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/nanosimsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ngnsms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/ngnsmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ngnsms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/ngnsmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "niMi_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/niMiTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "niMi_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/niMiTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "pcdAfm_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/pcdAfmTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "pcdAfm_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/pcdAfmTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "psfd_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/psfdTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "psfd_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/psfdTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
         "qris_preAnalysisImagingAndScreeningDefault": {
             "title": "Pre-Analysis Imaging and Screening",
             "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
@@ -8140,6 +10272,252 @@
             "properties": {
                 "@id": {
                     "const": "ada:parameter/ramanTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ritofngms_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/ritofngmsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "ritofngms_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/ritofngmsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sXrf_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/sXrfTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sXrf_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/sXrfTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "semCl_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semClTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "semCl_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/semClTAPP/samplePersistentIdentifierDefault"
                 },
                 "@type": {
                     "const": [
@@ -8469,7 +10847,7 @@
         },
         "semComposition_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -8510,7 +10888,7 @@
         },
         "semComposition_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -9512,7 +11890,7 @@
         },
         "sem_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -9553,7 +11931,7 @@
         },
         "sem_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -9970,6 +12348,170 @@
                 "ada:fieldScope"
             ]
         },
+        "sims_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/simsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sims_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/simsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sls_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/slsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sls_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/slsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
         "solutionMcicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethodDefault": {
             "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
             "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
@@ -10054,7 +12596,7 @@
         },
         "solutionMcicpms_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10095,7 +12637,7 @@
         },
         "solutionMcicpms_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10139,7 +12681,7 @@
         },
         "solutionMcicpms_doubleSpikeMixingRatioDefault": {
             "title": "Double-Spike Mixing Ratio",
-            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+            "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10155,6 +12697,88 @@
                 },
                 "schema:name": {
                     "const": "Double-Spike Mixing Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "solutionMcicpms_doublyChargedSpeciesMonitorDefault": {
+            "title": "Doubly-Charged Species Monitor",
+            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doublyChargedSpeciesMonitorDefault"
+                },
+                "schema:name": {
+                    "const": "Doubly-Charged Species Monitor"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "solutionMcicpms_doublyChargedSpeciesProductionDefault": {
+            "title": "Doubly-Charged Species Production",
+            "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "doublyChargedSpeciesProductionDefault"
+                },
+                "schema:name": {
+                    "const": "Doubly-Charged Species Production"
                 },
                 "ada:dataType": {
                     "const": "string"
@@ -10848,7 +13472,7 @@
         },
         "solutionQicpms_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10889,7 +13513,7 @@
         },
         "solutionQicpms_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -10933,7 +13557,7 @@
         },
         "solutionQicpms_doublyChargedSpeciesMonitorDefault": {
             "title": "Doubly-Charged Species Monitor",
-            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
+            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11346,7 +13970,7 @@
         },
         "solutionQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11680,7 +14304,7 @@
         },
         "solutionSficpms_countingStatisticsErrorDefault": {
             "title": "Counting Statistics Error",
-            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+            "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11721,7 +14345,7 @@
         },
         "solutionSficpms_detectionLimitDefault": {
             "title": "Detection Limit",
-            "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+            "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -11765,7 +14389,7 @@
         },
         "solutionSficpms_doublyChargedSpeciesMonitorDefault": {
             "title": "Doubly-Charged Species Monitor",
-            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
+            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -12178,7 +14802,7 @@
         },
         "solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault": {
             "title": "Pulse/Analog Detector Nonlinearity Correction",
-            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+            "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -12425,6 +15049,252 @@
                 "ada:fieldScope"
             ]
         },
+        "sthmAfm_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/sthmAfmTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "sthmAfm_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/sthmAfmTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "svruec_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/svruecTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "svruec_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/svruecTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "tdm_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/tdmTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "tdm_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/tdmTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
         "tem_diffractionCalibrationReferenceDefault": {
             "title": "Diffraction Calibration Reference",
             "description": "Reference material or internal standard used to calibrate the electron diffraction camera constant (camera length × electron wavelength), enabling conversion of pixel distances to d-spacings.",
@@ -12550,7 +15420,7 @@
         },
         "tem_edsDetectionLimitDefault": {
             "title": "EDS Detection Limit",
-            "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per analyte, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
+            "description": "Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).",
             "type": "object",
             "properties": {
                 "@id": {
@@ -13618,6 +16488,334 @@
                 },
                 "ada:dataType": {
                     "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "tims_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/timsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "tims_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/timsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "tofsims_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/tofsimsTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "tofsims_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/tofsimsTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "uvfm_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/uvfmTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "uvfm_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/uvfmTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "vlm_preAnalysisImagingAndScreeningDefault": {
+            "title": "Pre-Analysis Imaging and Screening",
+            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vlmTAPP/preAnalysisImagingAndScreeningDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "preAnalysisImagingAndScreeningDefault"
+                },
+                "schema:name": {
+                    "const": "Pre-Analysis Imaging and Screening"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "ada:fieldScope": {
+                    "const": "session"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "ada:fieldScope"
+            ]
+        },
+        "vlm_samplePersistentIdentifierDefault": {
+            "title": "Sample Persistent Identifier",
+            "description": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:parameter/vlmTAPP/samplePersistentIdentifierDefault"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "samplePersistentIdentifierDefault"
+                },
+                "schema:name": {
+                    "const": "Sample Persistent Identifier"
+                },
+                "ada:dataType": {
+                    "const": "uri"
                 },
                 "ada:fieldScope": {
                     "const": "session"

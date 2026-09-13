@@ -3,9 +3,8 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "dqv": "http://www.w3.org/ns/dqv#"
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:argtTAPP-P0",
   "@type": [
@@ -15,22 +14,20 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example procedureName",
-  "ada:targetMaterial": "Silicate mineral",
-  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
-  "ada:instrumentManufacturer": "WITec",
-  "ada:instrumentModel": "example instrumentModel",
-  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
+  "schema:name": "argt protocol — P0",
+  "schema:description": "argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Thermo Fisher ARGUS VI (publication column of ARGT_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Thermo Fisher Scientific",
+  "ada:instrumentModel": "Thermo Fisher ARGUS VI",
   "schema:measurementTechnique": [
     {
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "example technique"
+      "schema:termCode": "40Ar/39Ar geochronology and thermochronology"
     }
   ],
   "schema:creator": {
-    "schema:name": "example procedureAuthor",
+    "schema:name": "Jourdan, Fred",
     "@type": [
       "schema:Person"
     ]
@@ -39,24 +36,49 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
+    "schema:name": "Curtin University"
   },
-  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "example fundingSourceForProcedureDevelopment"
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:samplingUnit": "Whole sample",
-  "ada:analyticalMode": [
-    "Point spectrum"
-  ],
-  "ada:reportedProperties": [
-    "example reportedVariablesAndUnits"
-  ],
-  "schema:description": "example additionalNotes"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
 }

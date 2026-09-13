@@ -155,16 +155,14 @@
           "schema:defaultValue": "Low resolution (M/ΔM = 300)"
         },
         {
-          "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Triple mode detector (pulse counting, analog, Faraday)"
         },
         {
@@ -277,12 +275,12 @@
             "schema:defaultValue": "None"
           },
           {
-            "@id": "ada:parameter/laSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied (same as spot)"
@@ -394,7 +392,6 @@
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
   "ada:oxideProductionMethodAndThreshold": "missing",

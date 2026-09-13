@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P10",
-  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -106,8 +106,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 °C for the 10 M HCl Cr(VI) speciation step; 720 °C for the NaOH fusion"
+            "schema:defaultValue": 150,
+            "schema:description": "150 deg C for 1 day then 210 deg C for 2 days (Parr bomb); hotplate for the aqua regia step; 720 deg C for the NaOH fusion (Si route). The 130 deg C 10 M HCl step previously recorded here is Cr(VI) speciation during column chemistry, not a digestion."
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -118,7 +118,7 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "3 h (Cr(VI) speciation), >1 week at room temperature (Cr(III) speciation), 13 min (NaOH fusion)"
+            "schema:defaultValue": "3 days in the Parr bomb (1 + 2 days) then 2 days in aqua regia; 13 min for the NaOH fusion. The 3 h and >1 week previously recorded here are Cr speciation during column chemistry."
           }
         ],
         "bios:reagent": [
@@ -393,7 +393,6 @@
   ],
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

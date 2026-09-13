@@ -74,66 +74,6 @@
                         ]
                     }
                 },
-                "schema:distribution": {
-                    "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a SOLUTIONMCICPMS-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
-                    "type": "array",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "type": "object",
-                                "required": [
-                                    "ada:componentType"
-                                ],
-                                "properties": {
-                                    "ada:componentType": {
-                                        "type": "string",
-                                        "anyOf": [
-                                            {
-                                                "$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType"
-                                            },
-                                            {
-                                                "enum": [
-                                                    "ada:SolutionICPMSTabular"
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                }
-                            },
-                            {
-                                "type": "object",
-                                "required": [
-                                    "schema:hasPart"
-                                ],
-                                "properties": {
-                                    "schema:hasPart": {
-                                        "items": {
-                                            "type": "object",
-                                            "anyOf": [
-                                                {
-                                                    "$ref": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch"
-                                                },
-                                                {
-                                                    "properties": {
-                                                        "ada:componentType": {
-                                                            "type": "string",
-                                                            "enum": [
-                                                                "ada:SolutionICPMSTabular"
-                                                            ]
-                                                        }
-                                                    },
-                                                    "required": [
-                                                        "ada:componentType"
-                                                    ]
-                                                }
-                                            ]
-                                        }
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                },
                 "schema:subjectOf": {
                     "properties": {
                         "dcterms:conformsTo": {

@@ -1,14 +1,13 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
 description: Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current
-  TAPPs/Solution_MC-ICP-MS_TAPP_v67.csv via the path-driven pipeline.
+  TAPPs/Solution_MC-ICP-MS_TAPP_v79.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
-- $ref: ../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -99,16 +98,11 @@ allOf:
                     items:
                       anyOf:
                       - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature
                       - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration
                     allOf:
                     - contains:
                         $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -467,25 +461,25 @@ allOf:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
             - &id001
-              title: Per-Analyte Calibration Strategy
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
-                specifically any case where different analytes or analyte groups within one procedure
-                are calibrated differently - different primary standards for different mass ranges or
-                phases, or one element serving as internal standard while others are externally calibrated.
-                Where a single strategy applies to all analytes, record that strategy. Where the procedure
-                reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios
-                only)'.
+                specifically any case where different target species or target species groups within one
+                procedure are calibrated differently - different primary standards for different mass
+                ranges or phases, or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all target species, record that strategy.
+                Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable
+                (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -661,9 +655,10 @@ allOf:
               - schema:defaultValue
             - &id010
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte may be acquired at more
-                than one resolution, so the assignment is per acquired mass rather than per element. The
-                overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+              description: Mass resolution mode used for acquisition. One target species may be acquired
+                at more than one resolution, so the assignment is per acquired mass rather than per element.
+                The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
+                3).
               type: object
               properties:
                 '@id':

@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P3",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v67.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv).",
   "schema:object": [
     {
       "@type": [
@@ -98,17 +98,6 @@
         "schema:name": "Sample digestion",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "numberOfDigestionSteps",
-            "schema:name": "Number of Digestion Steps",
-            "ada:dataType": "integer",
-            "ada:fieldScope": "session",
-            "schema:value": "Two (\"These steps were performed twice\")"
-          },
-          {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -117,7 +106,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Hot plate, temperature not stated"
+            "schema:defaultValue": 160,
+            "schema:description": "160 deg C (hot plate)"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -128,12 +118,12 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "1 week per step, performed twice"
+            "schema:defaultValue": "2 weeks for the HF-HNO3-HClO4 step and 1 week for the HCl-HNO3 step, the pair performed twice"
           }
         ],
         "bios:reagent": [
           {
-            "schema:name": "\"redissolved in a 2:1 mixture of HCl:HNO3 for 1 week on a hot plate ... These steps were performed twice\"; dried and dissolved in concentrated HNO3, diluted in 3 M HNO3",
+            "schema:name": "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08.",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -314,7 +304,6 @@
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"

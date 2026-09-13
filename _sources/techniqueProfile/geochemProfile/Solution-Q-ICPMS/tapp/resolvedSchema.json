@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)",
-  "description": "Solution quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v73.csv via the path-driven pipeline.",
+  "description": "Solution quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v82.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -2783,7 +2783,7 @@
       "type": "object",
       "properties": {
         "schema:name": {
-          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",
+          "description": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — target species, material, or feature.",
           "type": "string"
         },
         "schema:measurementTechnique": {
@@ -3097,7 +3097,7 @@
                 "then": {
                   "properties": {
                     "schema:defaultValue": {
-                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself.",
+                      "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -3230,46 +3230,10 @@
       ]
     },
     {
-      "title": "Analyte on the procedure",
-      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
-      "type": "object",
-      "properties": {
-        "ada:analyteTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:defaultAnalytes": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
       "title": "ICPMS on the procedure",
       "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
-        "ada:ionCounterDeadTimeDefault": {
-          "description": "Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:uncertaintyLevel": {
           "description": "The convention at which reported uncertainties are quoted — 1-sigma, 2-sigma, or a 95% confidence interval — and whether a measured spread is reported as a standard error or a standard deviation. State the convention applying to all values reported under this procedure, and state each separately where different reported quantities use different conventions. Distinct from Uncertainty Propagation Method, which addresses how component uncertainties are combined rather than how the result is quoted.",
           "type": "string"
@@ -3440,7 +3404,7 @@
           "type": "string"
         },
         "ada:internalStandardElement": {
-          "description": "Element(s) used as the internal standard, the monitored isotope, and how the internal-standard concentration was established for unknowns. Where the element serves isotope-ratio work it must have a known isotopic composition and a mass close to the analyte's. Record 'None' together with the alternative used where no internal standard is applied.",
+          "description": "Element(s) used as the internal standard, the monitored isotope, and how the internal-standard concentration was established for unknowns. Where the element serves isotope-ratio work it must have a known isotopic composition and a mass close to the target species's. Record 'None' together with the alternative used where no internal standard is applied.",
           "type": "string"
         },
         "ada:signalIntegrationIntervalMethod": {
@@ -3457,7 +3421,6 @@
         "ada:blankBackgroundCorrectionMethod",
         "ada:calibrationMeasurementFrequency",
         "ada:internalStandardElement",
-        "ada:ionCounterDeadTimeDefault",
         "ada:oxideProductionMethodAndThreshold",
         "ada:signalIntegrationIntervalMethod",
         "ada:uncertaintyLevel"
@@ -3487,7 +3450,7 @@
                 "then": {
                   "properties": {
                     "schema:defaultValue": {
-                      "description": "Detection limit, one per reported concentration variable (one per analyte, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
+                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -3943,47 +3906,6 @@
                                 ]
                               },
                               {
-                                "title": "Number of Digestion Steps",
-                                "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "numberOfDigestionSteps"
-                                  },
-                                  "schema:name": {
-                                    "const": "Number of Digestion Steps"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "integer"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": true
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              {
                                 "title": "Digestion Temperature",
                                 "description": "Temperature at which acid digestion was carried out (°C).",
                                 "type": "object",
@@ -4093,51 +4015,6 @@
                                   },
                                   "ada:dataType": {
                                     "const": "string"
-                                  },
-                                  "ada:fieldScope": {
-                                    "const": "session"
-                                  },
-                                  "schema:readonlyValue": {
-                                    "const": true
-                                  },
-                                  "ada:tier": {
-                                    "const": "R"
-                                  }
-                                },
-                                "required": [
-                                  "@id",
-                                  "@type",
-                                  "schema:valueName",
-                                  "schema:name",
-                                  "ada:dataType",
-                                  "ada:fieldScope"
-                                ]
-                              },
-                              "minContains": 0,
-                              "maxContains": 1
-                            },
-                            {
-                              "contains": {
-                                "title": "Number of Digestion Steps",
-                                "description": "Total number of distinct acid digestion steps required to dissolve the sample. Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "const": "ada:parameter/module/SolutionIntroduction/numberOfDigestionSteps"
-                                  },
-                                  "@type": {
-                                    "const": [
-                                      "schema:PropertyValueSpecification"
-                                    ]
-                                  },
-                                  "schema:valueName": {
-                                    "const": "numberOfDigestionSteps"
-                                  },
-                                  "schema:name": {
-                                    "const": "Number of Digestion Steps"
-                                  },
-                                  "ada:dataType": {
-                                    "const": "integer"
                                   },
                                   "ada:fieldScope": {
                                     "const": "session"
@@ -4384,12 +4261,12 @@
                           "items": {
                             "anyOf": [
                               {
-                                "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+                                "title": "Pulse Analog Detector Nonlinearity Correction",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                                    "const": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4400,7 +4277,7 @@
                                     "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
+                                    "const": "Pulse Analog Detector Nonlinearity Correction"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -4552,12 +4429,12 @@
                           "allOf": [
                             {
                               "contains": {
-                                "title": "Pulse/Analog Detector Nonlinearity Correction",
-                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the analytes affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
+                                "title": "Pulse Analog Detector Nonlinearity Correction",
+                                "description": "Whether a correction was applied for nonlinear detector response at the transition between pulse-counting and analog (and Faraday, for triple-mode instruments) detection modes. Cross-calibration factors between detector modes must be confirmed, typically measured each session. Record 'Applied' and describe the method, the detector modes involved and the target species affected; 'None' where a crossover exists on this instrument but no correction was made, giving the reason; and 'N/A' where the detector is pulse-counting only and no crossover exists.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/solutionQicpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault"
+                                    "const": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4568,7 +4445,7 @@
                                     "const": "pulseAnalogDetectorNonlinearityCorrectionDefault"
                                   },
                                   "schema:name": {
-                                    "const": "Pulse/Analog Detector Nonlinearity Correction"
+                                    "const": "Pulse Analog Detector Nonlinearity Correction"
                                   },
                                   "ada:dataType": {
                                     "const": "string"
@@ -4859,7 +4736,7 @@
                           },
                           {
                             "title": "Mass Resolution Setting",
-                            "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual analytes are assigned to different modes, state each.",
+                            "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual target species are assigned to different modes, state each.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -4900,39 +4777,44 @@
                           },
                           {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. The pulse-to-analog cross-calibration correction is documented in Group 5.",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used: pulse counting, analog and, on some sector-field instruments, Faraday. The cross-calibration between detector modes is recorded in Pulse/Analog Detector Nonlinearity Correction (Group 5).",
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                                "const": "ada:parameter/module/SingleCollector/detectorConfiguration"
                               },
                               "@type": {
                                 "const": [
-                                  "schema:PropertyValue"
+                                  "schema:PropertyValueSpecification"
                                 ]
                               },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
-                                  }
-                                ]
+                              "schema:valueName": {
+                                "const": "detectorConfiguration"
                               },
                               "schema:name": {
                                 "const": "Detector Configuration"
                               },
-                              "schema:value": {
-                                "type": "string"
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": true
+                              },
+                              "ada:tier": {
+                                "const": "R"
                               }
                             },
                             "required": [
                               "@id",
                               "@type",
-                              "schema:propertyID",
+                              "schema:valueName",
                               "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
                           },
                           {
                             "title": "Make-up Gas and Flow Rate",
@@ -4980,7 +4862,7 @@
                           },
                           {
                             "title": "Doubly-Charged Species Monitor",
-                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
+                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -5152,7 +5034,7 @@
                         {
                           "contains": {
                             "title": "Mass Resolution Setting",
-                            "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual analytes are assigned to different modes, state each.",
+                            "description": "Operating mass resolution of the mass analyser. Where the analyser permits selection, state the mode; where individual target species are assigned to different modes, state each.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -5197,39 +5079,44 @@
                         {
                           "contains": {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and whether dual pulse-counting/analog mode is used. The pulse-to-analog cross-calibration correction is documented in Group 5.",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used: pulse counting, analog and, on some sector-field instruments, Faraday. The cross-calibration between detector modes is recorded in Pulse/Analog Detector Nonlinearity Correction (Group 5).",
                             "type": "object",
                             "properties": {
                               "@id": {
-                                "const": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
+                                "const": "ada:parameter/module/SingleCollector/detectorConfiguration"
                               },
                               "@type": {
                                 "const": [
-                                  "schema:PropertyValue"
+                                  "schema:PropertyValueSpecification"
                                 ]
                               },
-                              "schema:propertyID": {
-                                "const": [
-                                  {
-                                    "@id": "ada:parameter/solutionQicpmsTAPP/detectorConfiguration"
-                                  }
-                                ]
+                              "schema:valueName": {
+                                "const": "detectorConfiguration"
                               },
                               "schema:name": {
                                 "const": "Detector Configuration"
                               },
-                              "schema:value": {
-                                "type": "string"
+                              "ada:dataType": {
+                                "const": "string"
+                              },
+                              "ada:fieldScope": {
+                                "const": "session"
+                              },
+                              "schema:readonlyValue": {
+                                "const": true
+                              },
+                              "ada:tier": {
+                                "const": "R"
                               }
                             },
                             "required": [
                               "@id",
                               "@type",
-                              "schema:propertyID",
+                              "schema:valueName",
                               "schema:name",
-                              "schema:value"
-                            ],
-                            "readOnly": true
+                              "ada:dataType",
+                              "ada:fieldScope"
+                            ]
                           },
                           "minContains": 0,
                           "maxContains": 1
@@ -5285,7 +5172,7 @@
                         {
                           "contains": {
                             "title": "Doubly-Charged Species Monitor",
-                            "description": "Mass ratio monitored to estimate doubly-charged ion (M2+) formation during instrument tuning.",
+                            "description": "The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -6615,7 +6502,7 @@
                                       },
                                       {
                                         "title": "Cell Exit Discrimination Voltage",
-                                        "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between analyte ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
+                                        "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between target species ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
                                         "type": "object",
                                         "properties": {
                                           "@id": {
@@ -6841,7 +6728,7 @@
                                     {
                                       "contains": {
                                         "title": "Cell Exit Discrimination Voltage",
-                                        "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between analyte ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
+                                        "description": "Bias voltage applied at the collision/reaction cell exit to discriminate between target species ions and low-energy polyatomic interferences in KED mode, in volts (V). Record 'None' if the cell is in STD mode, and 'N/A' where Collision/Reaction Cell (CRC) Configuration does not include KED or the instrument has no cell.",
                                         "type": "object",
                                         "properties": {
                                           "@id": {
@@ -7969,12 +7856,12 @@
                     ]
                   },
                   {
-                    "title": "Per-Analyte Calibration Strategy",
-                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "title": "Calibration Strategy per Target Species",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy"
+                        "const": "ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -7982,10 +7869,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "perAnalyteCalibrationStrategy"
+                        "const": "calibrationStrategyPerTargetSpecies"
                       },
                       "schema:name": {
-                        "const": "Per-Analyte Calibration Strategy"
+                        "const": "Calibration Strategy per Target Species"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -8136,12 +8023,12 @@
               "allOf": [
                 {
                   "contains": {
-                    "title": "Per-Analyte Calibration Strategy",
-                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different analytes or analyte groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all analytes, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "title": "Calibration Strategy per Target Species",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy"
+                        "const": "ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -8149,10 +8036,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "perAnalyteCalibrationStrategy"
+                        "const": "calibrationStrategyPerTargetSpecies"
                       },
                       "schema:name": {
-                        "const": "Per-Analyte Calibration Strategy"
+                        "const": "Calibration Strategy per Target Species"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -8825,7 +8712,7 @@
                             ]
                           },
                           {
-                            "$ref": "#/$defs/cdifConcept"
+                            "$ref": "#/$defs/Concept"
                           }
                         ]
                       }
@@ -9780,18 +9667,8 @@
                   },
                   {
                     "type": "object",
-                    "description": "DCAT Relationship surface added on top of the schema.org labeled link construct.",
+                    "description": "DCAT Relationship surface added on top of the schema.org labeled link construct. This block is an allOf of labeledLink and this surface, so a \"@type\" with contains: dcat:Relationship here applied to EVERY cdifReference -- alongside labeledLink's contains: schema:CreativeWork -- making the two co-types mandatory and the block unsatisfiable for an ordinary labeled link. schema:license recommends exactly such a link (\"recommend using schema:CreativeWork to provide a label (name) for the license\"), and every example that followed that advice failed. The co-type mandate is therefore gone: @type is governed solely by labeledLink, which already requires schema:CreativeWork and permits dcat:Relationship alongside it. This matches rules.shacl, where cdifReferenceShape targets dcat:Relationship as a class -- the relation rules apply to nodes that declare it, rather than forcing every labeled link to.",
                     "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "dcat:Relationship"
-                        },
-                        "minItems": 1
-                      },
                       "dcat:hadRole": {
                         "title": "CDIF Concept-or-Term-or-String",
                         "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot).",
@@ -9959,7 +9836,7 @@
                                 ]
                               },
                               {
-                                "$ref": "#/$defs/cdifConcept"
+                                "$ref": "#/$defs/Concept"
                               }
                             ]
                           }
@@ -10474,7 +10351,7 @@
               ]
             },
             {
-              "$ref": "#/$defs/cdifConcept"
+              "$ref": "#/$defs/Concept"
             }
           ]
         }
@@ -10922,19 +10799,47 @@
         }
       ]
     },
-    "cdifConcept": {
+    "Concept": {
       "type": "object",
       "properties": {
         "@context": {
           "description": "JSON-LD context declaring the skos namespace prefix. May be a single object or an array of strings and objects.",
-          "type": "object",
-          "properties": {
-            "skos": {
-              "const": "http://www.w3.org/2004/02/skos/core#"
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "skos": {
+                  "const": "http://www.w3.org/2004/02/skos/core#"
+                }
+              },
+              "required": [
+                "skos"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              },
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "skos": {
+                    "const": "http://www.w3.org/2004/02/skos/core#"
+                  }
+                },
+                "required": [
+                  "skos"
+                ]
+              }
             }
-          },
-          "required": [
-            "skos"
           ]
         },
         "@id": {
@@ -10996,8 +10901,104 @@
             }
           ]
         },
+        "skos:scopeNote": {
+          "description": "Note clarifying meaning and/or intended use.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/LanguageTaggedValue"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/LanguageTaggedValue"
+                  }
+                ]
+              }
+            }
+          ]
+        },
         "skos:note": {
           "description": "General note about this concept.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/LanguageTaggedValue"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/LanguageTaggedValue"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "skos:historyNote": {
+          "description": "Note about past state or use.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/LanguageTaggedValue"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/LanguageTaggedValue"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "skos:changeNote": {
+          "description": "Note documenting a change.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/LanguageTaggedValue"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/LanguageTaggedValue"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "skos:editorialNote": {
+          "description": "Note for editors and maintainers.",
           "anyOf": [
             {
               "type": "string"
@@ -11052,6 +11053,38 @@
             }
           ]
         },
+        "skos:topConceptOf": {
+          "description": "Concept scheme(s) for which this is a top concept.",
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id"
+                ]
+              }
+            }
+          ]
+        },
         "skos:broader": {
           "description": "Broader (parent) concepts in the hierarchy. Items are inline concept objects or @id references.",
           "type": "array",
@@ -11060,7 +11093,7 @@
               {
                 "type": "object",
                 "additionalProperties": false,
-                "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
+                "description": "A reference to a SKOS Concept by URI.",
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -11072,7 +11105,7 @@
                 ]
               },
               {
-                "$ref": "#/$defs/cdifConcept"
+                "$ref": "#/$defs/Concept"
               }
             ]
           }
@@ -11085,7 +11118,7 @@
               {
                 "type": "object",
                 "additionalProperties": false,
-                "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
+                "description": "A reference to a SKOS Concept by URI.",
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -11097,7 +11130,7 @@
                 ]
               },
               {
-                "$ref": "#/$defs/cdifConcept"
+                "$ref": "#/$defs/Concept"
               }
             ]
           }
@@ -11105,7 +11138,9 @@
       },
       "required": [
         "@type",
-        "skos:prefLabel"
+        "skos:prefLabel",
+        "skos:definition",
+        "skos:inScheme"
       ]
     },
     "WorkflowStep": {
@@ -12267,7 +12302,7 @@
     },
     "LanguageTaggedValue": {
       "type": "object",
-      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object. Inlined from skosConcept (the resolver does not preserve cross-file '#/$defs/...' fragment refs).",
+      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object.",
       "properties": {
         "@value": {
           "type": "string",
@@ -12279,7 +12314,8 @@
         }
       },
       "required": [
-        "@value"
+        "@value",
+        "@language"
       ]
     }
   }

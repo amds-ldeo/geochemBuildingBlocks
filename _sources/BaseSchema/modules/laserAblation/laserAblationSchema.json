@@ -1013,47 +1013,6 @@
                 "schema:value"
             ]
         },
-        "Param_Procedure_multiRunSequentialAnalysisDesign": {
-            "title": "Multi Run Sequential Analysis Design",
-            "description": "Whether the procedure uses a single acquisition pass or multiple sequential runs on the same sample location, each optimized for different analytical objectives. For multi-run designs, describe the number of runs, their purpose, key laser and instrument settings per run, and how outputs of one run feed into data reduction of another. Not applicable to raster mapping, where each spatial location is visited exactly once.",
-            "type": "object",
-            "properties": {
-                "@id": {
-                    "const": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign"
-                },
-                "@type": {
-                    "const": [
-                        "schema:PropertyValueSpecification"
-                    ]
-                },
-                "schema:valueName": {
-                    "const": "multiRunSequentialAnalysisDesign"
-                },
-                "schema:name": {
-                    "const": "Multi Run Sequential Analysis Design"
-                },
-                "ada:dataType": {
-                    "const": "string"
-                },
-                "ada:fieldScope": {
-                    "const": "session"
-                },
-                "schema:readonlyValue": {
-                    "const": true
-                },
-                "ada:tier": {
-                    "const": "R"
-                }
-            },
-            "required": [
-                "@id",
-                "@type",
-                "schema:valueName",
-                "schema:name",
-                "ada:dataType",
-                "ada:fieldScope"
-            ]
-        },
         "Param_Analysis_signalSmoothing": {
             "title": "Signal Smoothing",
             "description": "Description of any signal smoothing device or approach installed between the ablation cell and the ICP-MS to reduce pulse-to-pulse signal variability. For mapping analyses, report \"None\" explicitly.",

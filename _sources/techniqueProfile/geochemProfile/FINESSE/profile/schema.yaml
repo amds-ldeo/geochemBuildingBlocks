@@ -1,0 +1,56 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: ADA FINESSE Product Profile
+description: Path-driven technique-specific profile for ADA FINESSE Product Profile. Extends the base
+  ADA product profile with the FINESSE analysis-instance detail on the schema:Dataset root, narrows prov:used
+  to the finesseTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
+allOf:
+- $ref: ../../../../BaseSchema/geochemProduct/schema.yaml
+- $ref: ../detail/schema.yaml
+- type: object
+  properties:
+    prov:wasGeneratedBy:
+      description: 'Pin the finesseTAPP definition and the instrument where prov:used carries them. Constraint-only
+        if/then, never a narrowed anyOf: prov:used items are role-keyed wrappers, and an anyOf here would
+        allOf-merge with the base union and exclude item shapes the base allows.'
+      type: array
+      items:
+        type: object
+        properties:
+          prov:used:
+            type: array
+            items:
+              allOf:
+              - if:
+                  type: object
+                  required:
+                  - schema:instrument
+                then:
+                  properties:
+                    schema:instrument:
+                      type: array
+                      minItems: 1
+                      items:
+                        $ref: ../../../../BaseSchema/instrument/schema.yaml
+              - if:
+                  type: object
+                  properties:
+                    '@type':
+                      contains:
+                        const: ada:TAPPDefinition
+                  required:
+                  - '@type'
+                then:
+                  $ref: ../tapp/schema.yaml
+    schema:additionalType:
+      description: Must include a FINESSE product type identifier.
+      contains:
+        enum:
+        - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)
+    schema:subjectOf:
+      properties:
+        dcterms:conformsTo:
+          contains:
+            type: object
+            properties:
+              '@id':
+                const: https://w3id.org/geochem/metadata/profiles/adaFINESSE

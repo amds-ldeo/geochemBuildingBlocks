@@ -4,7 +4,7 @@
   "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
-  "ada:numberOfDigestionSteps",
+  "ada:digestionStep",
   "ada:digestionTemperatureDefault",
   "ada:digestionDurationDefault",
   "ada:finalSolutionMatrix",
@@ -28,6 +28,8 @@
   "ada:auxiliaryGasFlowRateDefault",
   "ada:nebulizerGasFlowRateDefault",
   "ada:plasmaThermalMode",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:massResolutionAssignment",
   "ada:collectorConfiguration",
@@ -44,13 +46,15 @@
   "ada:oxideProductionMethodAndThreshold",
   "ada:peakFlatnessMethodAndThreshold",
   "ada:ionCounterDeadTimeDefault",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:massBiasCorrectionStrategy",
   "ada:massFractionationLaw",
   "ada:doubleSpikeIsotopePair",
   "ada:doubleSpikeInversionAlgorithm",
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:isotopeRatioReported",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod",
   "ada:spectralInterferenceCorrectionsApplied",
@@ -78,6 +82,8 @@
   "solutionMcicpms_icpTuningDefault",
   "solutionMcicpms_reactionGasFlowRateDefault",
   "solutionMcicpms_collisionReactionGasMixtureRatioDefault",
+  "solutionMcicpms_doublyChargedSpeciesMonitorDefault",
+  "solutionMcicpms_doublyChargedSpeciesProductionDefault",
   "solutionMcicpms_doubleSpikeMixingRatioDefault",
   "solutionMcicpms_spikeOutlierFilteringApproachDefault",
   "solutionMcicpms_memoryEffectMitigationDefault",
@@ -110,6 +116,7 @@
   "solutionMcicpms_makeUpGasAndFlowRate",
   "solutionMcicpms_icpTuning",
   "solutionMcicpms_instrumentSensitivity",
+  "solutionMcicpms_targetSpecies",
   "solutionMcicpms_numberOfBlocksPerMeasurement",
   "solutionMcicpms_numberOfCyclesPerBlock",
   "solutionMcicpms_integrationTimePerCycle",
@@ -119,6 +126,8 @@
   "solutionMcicpms_reactionGasFlowRate",
   "solutionMcicpms_ionCounterDeadTime",
   "solutionMcicpms_collisionReactionGasMixtureRatio",
+  "solutionMcicpms_doublyChargedSpeciesMonitor",
+  "solutionMcicpms_doublyChargedSpeciesProduction",
   "solutionMcicpms_doubleSpikeMixingRatio",
   "solutionMcicpms_spikeOutlierFilteringApproach",
   "solutionMcicpms_memoryEffectMitigation",
@@ -164,7 +173,7 @@
   "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
-  "ada:numberOfDigestionSteps",
+  "ada:digestionStep",
   "ada:digestionTemperatureDefault",
   "ada:digestionDurationDefault",
   "ada:finalSolutionMatrix",
@@ -187,6 +196,8 @@
   "ada:auxiliaryGasFlowRateDefault",
   "ada:nebulizerGasFlowRateDefault",
   "ada:plasmaThermalMode",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:collectorConfiguration",
   "ada:numberOfBlocksPerMeasurementDefault",
@@ -204,7 +215,7 @@
   "ada:doubleSpikeInversionAlgorithm",
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:isotopeRatioReported",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:blankBackgroundCorrectionMethod",
   "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
@@ -249,10 +260,10 @@
    "required": true
   },
   {
-   "key": "ada:numberOfDigestionSteps",
-   "item": "Number of Digestion Steps",
-   "jtype": "integer",
-   "cov": 3,
+   "key": "ada:digestionStep",
+   "item": "Digestion Step",
+   "jtype": "string",
+   "cov": 14,
    "required": true
   },
   {
@@ -315,7 +326,7 @@
    "key": "ada:faradayCupArrayConfiguration",
    "item": "Faraday Cup Array Configuration",
    "jtype": "string",
-   "cov": 2,
+   "cov": 4,
    "required": true
   },
   {
@@ -414,6 +425,20 @@
    "item": "Plasma Thermal Mode",
    "jtype": "string",
    "cov": 4,
+   "required": true
+  },
+  {
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
+   "jtype": "string",
+   "cov": 14,
+   "required": true
+  },
+  {
+   "key": "ada:monitoredMasses",
+   "item": "Monitored Masses",
+   "jtype": "string",
+   "cov": 14,
    "required": true
   },
   {
@@ -529,6 +554,20 @@
    "required": false
   },
   {
+   "key": "ada:acquisitionPass",
+   "item": "Acquisition Pass",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:numberOfAcquisitionPasses",
+   "item": "Number of Acquisition Passes",
+   "jtype": "integer",
+   "cov": 0,
+   "required": false
+  },
+  {
    "key": "ada:massBiasCorrectionStrategy",
    "item": "Mass Bias Correction Strategy",
    "jtype": "string",
@@ -571,8 +610,8 @@
    "required": true
   },
   {
-   "key": "ada:perAnalyteCalibrationStrategy",
-   "item": "Per-Analyte Calibration Strategy",
+   "key": "ada:calibrationStrategyPerTargetSpecies",
+   "item": "Calibration Strategy per Target Species",
    "jtype": "string",
    "cov": 3,
    "required": true

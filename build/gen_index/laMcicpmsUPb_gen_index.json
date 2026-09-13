@@ -10,7 +10,6 @@
   "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
   "ada:massResolutionSettingDefault",
-  "ada:detectorConfiguration",
   "ada:collisionReactionCellConfiguration",
   "ada:laserWavelengthAndType",
   "ada:dataProcessingSoftwareDefault",
@@ -35,6 +34,7 @@
   "ada:plasmaThermalMode",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
+  "ada:targetSpeciesDefault",
   "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:massResolutionAssignment",
@@ -49,9 +49,11 @@
   "ada:integrationTimePerCycleDefault",
   "ada:baselineMeasurementApproach",
   "ada:peakFlatnessMethodAndThreshold",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:internalStandardApproach",
   "ada:internalStandardElement",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:elementalFractionationCorrection",
   "ada:massBiasCorrectionStrategy",
   "ada:uncertaintyLevel",
@@ -143,6 +145,7 @@
   "laMcicpmsUPb_doublyChargedSpeciesMonitor",
   "laMcicpmsUPb_doublyChargedSpeciesProduction",
   "laMcicpmsUPb_analysisSequence",
+  "laMcicpmsUPb_targetSpecies",
   "laMcicpmsUPb_ionCounterDeadTime",
   "laMcicpmsUPb_collisionGasFlowRate",
   "laMcicpmsUPb_cellExitDiscriminationVoltage",
@@ -268,13 +271,6 @@
   {
    "key": "ada:massResolutionSettingDefault",
    "item": "Mass Resolution Setting",
-   "jtype": "string",
-   "cov": 0,
-   "required": false
-  },
-  {
-   "key": "ada:detectorConfiguration",
-   "item": "Detector Configuration",
    "jtype": "string",
    "cov": 0,
    "required": false
@@ -448,6 +444,13 @@
    "required": false
   },
   {
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
@@ -546,6 +549,20 @@
    "required": false
   },
   {
+   "key": "ada:acquisitionPass",
+   "item": "Acquisition Pass",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:numberOfAcquisitionPasses",
+   "item": "Number of Acquisition Passes",
+   "jtype": "integer",
+   "cov": 0,
+   "required": false
+  },
+  {
    "key": "ada:internalStandardApproach",
    "item": "Internal Standard Approach",
    "jtype": "string",
@@ -560,8 +577,8 @@
    "required": false
   },
   {
-   "key": "ada:perAnalyteCalibrationStrategy",
-   "item": "Per-Analyte Calibration Strategy",
+   "key": "ada:calibrationStrategyPerTargetSpecies",
+   "item": "Calibration Strategy per Target Species",
    "jtype": "string",
    "cov": 0,
    "required": false

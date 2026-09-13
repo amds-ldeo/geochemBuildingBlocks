@@ -1,6 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: ADA EMPA Product Profile
-description: Path-driven technique-specific profile for ADA EMPA Product Profile. Extends the base ADA
+title: ADA EPMA Product Profile
+description: Path-driven technique-specific profile for ADA EPMA Product Profile. Extends the base ADA
   product profile with the EMPA analysis-instance detail on the schema:Dataset root, narrows prov:used
   to the empaTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
 allOf:
@@ -47,43 +47,6 @@ allOf:
         enum:
         - Electron Microprobe Analysis (EMPA)
         - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
-    schema:distribution:
-      description: Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType
-        is a EMPA-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart
-        members each carry such a componentType (the ADA/SAMIS archive form).
-      type: array
-      items:
-        anyOf:
-        - type: object
-          required:
-          - ada:componentType
-          properties:
-            ada:componentType:
-              type: string
-              anyOf:
-              - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentType
-              - enum: &id001
-                - ada:EMPAImage
-                - ada:EMPAImageMap
-                - ada:EMPAQEATabular
-                - ada:EMPAImageCollection
-                - ada:EMPAESPCTabular
-                - ada:EMPAESPCPlot
-        - type: object
-          required:
-          - schema:hasPart
-          properties:
-            schema:hasPart:
-              items:
-                type: object
-                anyOf:
-                - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch
-                - properties:
-                    ada:componentType:
-                      type: string
-                      enum: *id001
-                  required:
-                  - ada:componentType
     schema:subjectOf:
       properties:
         dcterms:conformsTo:

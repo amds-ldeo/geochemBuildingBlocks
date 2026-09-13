@@ -133,12 +133,12 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
               - &id001
                 title: Monitored Masses
-                description: Specific masses monitored in this procedure, grouped by the analyte element
-                  they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts
-                  an analyte onto a different mass, the product mass actually measured. Includes interference-monitor
-                  and internal-standard masses, which serve no analyte and so have no parent element.
-                  The analyte list is given by the Analyte field and is never inferred from the element
-                  symbols appearing here.
+                description: Specific masses monitored in this procedure, grouped by the target species
+                  element they serve where they serve one. Covers atomic isotopes and, where a reaction
+                  cell shifts an target species onto a different mass, the product mass actually measured.
+                  Includes interference-monitor and internal-standard masses, which serve no target species
+                  and so have no parent element. The target species list is given by the Target Species
+                  field and is never inferred from the element symbols appearing here.
                 type: object
                 properties:
                   '@id':
@@ -159,9 +159,39 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_ionCounterDeadTime
-              - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_backgroundCountTime
               - &id002
+                title: Ion Counter Dead Time
+                description: Dead time of the ion-counting detector(s), used in the dead-time correction
+                  applied to high count rates. Distinct from pulse/analog cross-calibration, which relates
+                  the two detector modes rather than correcting counting losses within the pulse-counting
+                  mode.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laMcicpmsUPbTAPP/ionCounterDeadTime
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laMcicpmsUPbTAPP/ionCounterDeadTime
+                  schema:name:
+                    const: Ion Counter Dead Time
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_backgroundCountTime
+              - &id003
                 title: Number of Replicates
                 description: Number of replicate measurements performed on the same sample, or on the
                   same nominal location where the technique is spatially resolved. For spot analysis this
@@ -197,7 +227,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
               - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
-              - &id003
+              - &id004
                 title: Error Correlation Between Reported Quantities
                 description: The correlation coefficient between pairs of reported quantities whose uncertainties
                   are not independent, together with the pair it applies to and how it was obtained.
@@ -254,15 +284,14 @@ allOf:
             - contains: *id001
               minContains: 0
               maxContains: 1
-            - contains:
-                $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_ionCounterDeadTime
+            - contains: *id002
               minContains: 0
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_backgroundCountTime
               minContains: 0
               maxContains: 1
-            - contains: *id002
+            - contains: *id003
               minContains: 0
               maxContains: 1
             - contains:
@@ -293,7 +322,7 @@ allOf:
                 $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
               minContains: 0
               maxContains: 1
-            - contains: *id003
+            - contains: *id004
               minContains: 0
               maxContains: 1
           prov:used:
@@ -430,7 +459,7 @@ allOf:
                                     anyOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    - &id004
+                                    - &id005
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. The monitor species
@@ -456,7 +485,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id005
+                                    - &id006
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -492,10 +521,10 @@ allOf:
                                       $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id004
+                                  - contains: *id005
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id005
+                                  - contains: *id006
                                     minContains: 0
                                     maxContains: 1
                                   - contains:

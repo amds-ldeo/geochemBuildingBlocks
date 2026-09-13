@@ -51,7 +51,7 @@
                                                         "then": {
                                                             "properties": {
                                                                 "schema:description": {
-                                                                    "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the analyte each position serves. Lists the mass number monitored in each collector position with its analyte element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no analyte)'. Interference-monitor and internal-standard positions serve no analyte and carry no parent element; the analyte list itself is given by the Analyte field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                                                    "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
                                                                     "anyOf": [
                                                                         {
                                                                             "type": "string"
@@ -475,7 +475,7 @@
         },
         "Param_Analysis_integrationTimePerCycle": {
             "title": "Integration Time per Cycle",
-            "description": "Duration of signal integration per measurement cycle (seconds). Where different isotope channels use different integration schemes, record the time for each channel.",
+            "description": "Duration of signal integration per measurement cycle (seconds).",
             "type": "object",
             "properties": {
                 "@id": {
@@ -521,7 +521,7 @@
         },
         "Param_Procedure_integrationTimePerCycle": {
             "title": "Integration Time per Cycle",
-            "description": "Duration of signal integration per measurement cycle (seconds). Where different isotope channels use different integration schemes, record the time for each channel.",
+            "description": "Duration of signal integration per measurement cycle (seconds).",
             "type": "object",
             "properties": {
                 "@id": {
@@ -688,7 +688,7 @@
         },
         "Param_Analysis_doubleSpikeMixingRatio": {
             "title": "Double Spike Mixing Ratio",
-            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+            "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
             "type": "object",
             "properties": {
                 "@id": {
@@ -723,7 +723,7 @@
         },
         "Param_Procedure_doubleSpikeMixingRatio": {
             "title": "Double Spike Mixing Ratio",
-            "description": "Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
+            "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
             "type": "object",
             "properties": {
                 "@id": {

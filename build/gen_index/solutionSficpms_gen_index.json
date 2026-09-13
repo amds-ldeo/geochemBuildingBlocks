@@ -4,7 +4,7 @@
   "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
-  "ada:numberOfDigestionSteps",
+  "ada:digestionStep",
   "ada:digestionTemperatureDefault",
   "ada:digestionDurationDefault",
   "ada:finalSolutionMatrix",
@@ -25,6 +25,7 @@
   "ada:auxiliaryGasFlowRateDefault",
   "ada:nebulizerGasFlowRateDefault",
   "ada:plasmaThermalMode",
+  "ada:targetSpeciesDefault",
   "ada:reportedVariablesAndUnits",
   "ada:monitoredMasses",
   "ada:massResolutionAssignment",
@@ -35,8 +36,10 @@
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
   "ada:ionCounterDeadTimeDefault",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:driftCorrectionMethod",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod",
   "ada:spectralInterferenceCorrectionsApplied",
@@ -96,6 +99,7 @@
   "solutionSficpms_makeUpGasAndFlowRate",
   "solutionSficpms_icpTuning",
   "solutionSficpms_instrumentSensitivity",
+  "solutionSficpms_targetSpecies",
   "solutionSficpms_dwellTimePerMass",
   "solutionSficpms_analysisSequence",
   "solutionSficpms_doublyChargedSpeciesMonitor",
@@ -144,7 +148,7 @@
   "ada:samplePreparationMethodDefault",
   "ada:digestionAcid",
   "ada:digestionVesselType",
-  "ada:numberOfDigestionSteps",
+  "ada:digestionStep",
   "ada:digestionTemperatureDefault",
   "ada:digestionDurationDefault",
   "ada:finalSolutionMatrix",
@@ -163,6 +167,7 @@
   "ada:auxiliaryGasFlowRateDefault",
   "ada:nebulizerGasFlowRateDefault",
   "ada:plasmaThermalMode",
+  "ada:targetSpeciesDefault",
   "ada:reportedVariablesAndUnits",
   "ada:monitoredMasses",
   "ada:massResolutionAssignment",
@@ -173,7 +178,7 @@
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
   "ada:driftCorrectionMethod",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:blankBackgroundCorrectionMethod",
   "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
@@ -220,10 +225,10 @@
    "required": true
   },
   {
-   "key": "ada:numberOfDigestionSteps",
-   "item": "Number of Digestion Steps",
-   "jtype": "integer",
-   "cov": 2,
+   "key": "ada:digestionStep",
+   "item": "Digestion Step",
+   "jtype": "string",
+   "cov": 5,
    "required": true
   },
   {
@@ -367,6 +372,13 @@
    "required": true
   },
   {
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
+   "jtype": "string",
+   "cov": 6,
+   "required": true
+  },
+  {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
@@ -437,6 +449,20 @@
    "required": false
   },
   {
+   "key": "ada:acquisitionPass",
+   "item": "Acquisition Pass",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:numberOfAcquisitionPasses",
+   "item": "Number of Acquisition Passes",
+   "jtype": "integer",
+   "cov": 0,
+   "required": false
+  },
+  {
    "key": "ada:driftCorrectionMethod",
    "item": "Drift Correction Method",
    "jtype": "string",
@@ -444,8 +470,8 @@
    "required": true
   },
   {
-   "key": "ada:perAnalyteCalibrationStrategy",
-   "item": "Per-Analyte Calibration Strategy",
+   "key": "ada:calibrationStrategyPerTargetSpecies",
+   "item": "Calibration Strategy per Target Species",
    "jtype": "string",
    "cov": 6,
    "required": true

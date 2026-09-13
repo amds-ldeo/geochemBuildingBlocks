@@ -9,7 +9,6 @@
   "ada:interfaceConeConfiguration",
   "ada:guardElectrode",
   "ada:massResolutionSettingDefault",
-  "ada:detectorConfiguration",
   "ada:collisionReactionCellConfiguration",
   "ada:laserWavelengthAndType",
   "ada:dataProcessingSoftwareDefault",
@@ -34,6 +33,7 @@
   "ada:plasmaThermalMode",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
+  "ada:targetSpeciesDefault",
   "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:massResolutionAssignment",
@@ -48,9 +48,11 @@
   "ada:integrationTimePerCycleDefault",
   "ada:baselineMeasurementApproach",
   "ada:peakFlatnessMethodAndThreshold",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:internalStandardApproach",
   "ada:internalStandardElement",
-  "ada:perAnalyteCalibrationStrategy",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:elementalFractionationCorrection",
   "ada:massBiasCorrectionStrategy",
   "ada:uncertaintyLevel",
@@ -136,6 +138,7 @@
   "laMcicpms_doublyChargedSpeciesMonitor",
   "laMcicpms_doublyChargedSpeciesProduction",
   "laMcicpms_analysisSequence",
+  "laMcicpms_targetSpecies",
   "laMcicpms_ionCounterDeadTime",
   "laMcicpms_collisionGasFlowRate",
   "laMcicpms_cellExitDiscriminationVoltage",
@@ -192,15 +195,21 @@
  ],
  "basic_required": [
   "ada:sampleFormAnalyticalSubstrateDefault",
+  "ada:samplingUnit",
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:laserManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
   "ada:massResolutionSettingDefault",
-  "ada:detectorConfiguration",
+  "ada:collisionReactionCellConfiguration",
   "ada:laserWavelengthAndType",
   "ada:dataProcessingSoftwareDefault",
   "ada:ablationCellType",
+  "ada:sampleIntroduction",
+  "ada:faradayCupArrayConfiguration",
+  "ada:faradayCupAmplifierResistorValues",
+  "ada:analyticalMode",
   "ada:laserSpotGeometryDefault",
   "ada:laserSpotPathAblationMode",
   "ada:laserFluenceDefault",
@@ -211,16 +220,35 @@
   "ada:auxiliaryGasFlowRateDefault",
   "ada:rfPowerDefault",
   "ada:analysisSequenceDefault",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredMasses",
+  "ada:reportedVariablesAndUnits",
+  "ada:massResolutionAssignment",
   "ada:backgroundCountTimeDefault",
+  "ada:collectorConfiguration",
+  "ada:numberOfBlocksPerMeasurementDefault",
+  "ada:numberOfCyclesPerBlockDefault",
   "ada:integrationTimePerCycleDefault",
+  "ada:baselineMeasurementApproach",
+  "ada:peakFlatnessMethodAndThreshold",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:internalStandardApproach",
   "ada:internalStandardElement",
+  "ada:calibrationStrategyPerTargetSpecies",
   "ada:elementalFractionationCorrection",
+  "ada:massBiasCorrectionStrategy",
+  "ada:uncertaintyLevel",
   "ada:signalIntegrationIntervalMethod",
   "ada:blankBackgroundCorrectionMethod",
   "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
+  "ada:calibrationFactorAndDeterminationMethodDefault",
+  "ada:analysisInclusionAndRejectionCriteria",
+  "ada:massFractionationLaw",
+  "ada:internalNormalizationElementAndIsotopeRatio",
+  "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -238,8 +266,8 @@
    "key": "ada:samplingUnit",
    "item": "Sampling Unit",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:samplePreparationMethodDefault",
@@ -252,8 +280,8 @@
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:laserManufacturerModel",
@@ -291,18 +319,11 @@
    "required": true
   },
   {
-   "key": "ada:detectorConfiguration",
-   "item": "Detector Configuration",
-   "jtype": "string",
-   "cov": 1,
-   "required": true
-  },
-  {
    "key": "ada:collisionReactionCellConfiguration",
    "item": "Collision/Reaction Cell (CRC) Configuration",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:laserWavelengthAndType",
@@ -329,22 +350,22 @@
    "key": "ada:sampleIntroduction",
    "item": "Sample Introduction",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:faradayCupArrayConfiguration",
    "item": "Faraday Cup Array Configuration",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:faradayCupAmplifierResistorValues",
    "item": "Faraday Cup Amplifier Resistor Values",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:faradayCupGainCalibrationMethod",
@@ -357,8 +378,8 @@
    "key": "ada:analyticalMode",
    "item": "Analytical Mode",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:laserSpotGeometryDefault",
@@ -466,25 +487,32 @@
    "required": true
   },
   {
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
+   "jtype": "string",
+   "cov": 1,
+   "required": true
+  },
+  {
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:massResolutionAssignment",
    "item": "Mass Resolution Assignment",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:ionCounterDeadTimeDefault",
@@ -525,22 +553,22 @@
    "key": "ada:collectorConfiguration",
    "item": "Collector Configuration",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:numberOfBlocksPerMeasurementDefault",
    "item": "Number of Blocks per Measurement",
    "jtype": "integer",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:numberOfCyclesPerBlockDefault",
    "item": "Number of Cycles per Block",
    "jtype": "integer",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:integrationTimePerCycleDefault",
@@ -553,15 +581,29 @@
    "key": "ada:baselineMeasurementApproach",
    "item": "Baseline Measurement Approach",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:peakFlatnessMethodAndThreshold",
    "item": "Peak Flatness Method and Threshold",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
+  },
+  {
+   "key": "ada:acquisitionPass",
+   "item": "Acquisition Pass",
+   "jtype": "string",
+   "cov": 1,
+   "required": true
+  },
+  {
+   "key": "ada:numberOfAcquisitionPasses",
+   "item": "Number of Acquisition Passes",
+   "jtype": "integer",
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:internalStandardApproach",
@@ -578,11 +620,11 @@
    "required": true
   },
   {
-   "key": "ada:perAnalyteCalibrationStrategy",
-   "item": "Per-Analyte Calibration Strategy",
+   "key": "ada:calibrationStrategyPerTargetSpecies",
+   "item": "Calibration Strategy per Target Species",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:elementalFractionationCorrection",
@@ -595,15 +637,15 @@
    "key": "ada:massBiasCorrectionStrategy",
    "item": "Mass Bias Correction Strategy",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:uncertaintyLevel",
    "item": "Uncertainty Level",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:signalIntegrationIntervalMethod",
@@ -651,29 +693,29 @@
    "key": "ada:calibrationFactorAndDeterminationMethodDefault",
    "item": "Calibration Factor and Determination Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:massFractionationLaw",
    "item": "Mass Fractionation Law",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:internalNormalizationElementAndIsotopeRatio",
    "item": "Internal Normalization Element and Isotope Ratio",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:doubleSpikeIsotopePair",
@@ -693,8 +735,8 @@
    "key": "ada:constantsAndReferenceValuesUsedDefault",
    "item": "Constants and Reference Values Used",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:primaryCalibrationStandardNameDefault",

@@ -1,13 +1,12 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
 description: Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated
-  from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v69.csv via the path-driven pipeline.
+  from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v78.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
-- $ref: ../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
@@ -189,8 +188,10 @@ allOf:
                   anyOf:
                   - &id001
                     title: Doubly-Charged Species Monitor
-                    description: Mass ratio monitored to estimate doubly-charged ion (M2+) formation during
-                      instrument tuning.
+                    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
+                      during instrument tuning. The monitor species and the mass positions monitored should
+                      be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide
+                      monitoring.
                     type: object
                     properties:
                       '@id':
@@ -217,31 +218,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer and the detection
-                      mode(s) used. The cross-calibration correction between detector modes is documented
-                      in Group 5.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                  - $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - &id002
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
@@ -282,31 +259,7 @@ allOf:
                   minContains: 0
                   maxContains: 1
                 - contains:
-                    title: Detector Configuration
-                    description: Type(s) of detector(s) installed in the mass spectrometer and the detection
-                      mode(s) used. The cross-calibration correction between detector modes is documented
-                      in Group 5.
-                    type: object
-                    properties:
-                      '@id':
-                        const: ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      '@type':
-                        const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/solutionSficpmsTAPP/detectorConfiguration
-                      schema:name:
-                        const: Detector Configuration
-                      schema:value:
-                        type: string
-                    required:
-                    - '@id'
-                    - '@type'
-                    - schema:propertyID
-                    - schema:name
-                    - schema:value
-                    readOnly: true
+                    $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   minContains: 0
                   maxContains: 1
                 - contains: *id002
@@ -423,16 +376,11 @@ allOf:
                     items:
                       anyOf:
                       - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionDuration
                       - $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionTemperature
                     allOf:
                     - contains:
                         $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_digestionVesselType
-                      minContains: 0
-                      maxContains: 1
-                    - contains:
-                        $ref: ../../../../BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_numberOfDigestionSteps
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -472,47 +420,13 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id003
-                        title: Pulse/Analog Detector Nonlinearity Correction
-                        description: Whether a correction was applied for nonlinear detector response
-                          at the transition between pulse-counting and analog (and Faraday, for triple-mode
-                          instruments) detection modes. Cross-calibration factors between detector modes
-                          must be confirmed, typically measured each session. Record 'Applied' and describe
-                          the method, the detector modes involved and the analytes affected; 'None' where
-                          a crossover exists on this instrument but no correction was made, giving the
-                          reason; and 'N/A' where the detector is pulse-counting only and no crossover
-                          exists.
-                        type: object
-                        properties:
-                          '@id':
-                            const: ada:parameter/solutionSficpmsTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault
-                          '@type':
-                            const:
-                            - schema:PropertyValueSpecification
-                          schema:valueName:
-                            const: pulseAnalogDetectorNonlinearityCorrectionDefault
-                          schema:name:
-                            const: Pulse/Analog Detector Nonlinearity Correction
-                          ada:dataType:
-                            const: string
-                          ada:fieldScope:
-                            const: session
-                          schema:readonlyValue:
-                            const: false
-                          ada:tier:
-                            const: R
-                        required:
-                        - '@id'
-                        - '@type'
-                        - schema:valueName
-                        - schema:name
-                        - ada:dataType
-                        - ada:fieldScope
+                      - $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id003
+                    - contains:
+                        $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -686,14 +600,14 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id004
+            - &id003
               title: Monitored Masses
-              description: Specific masses monitored in this procedure, grouped by the analyte element
-                they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts
-                an analyte onto a different mass, the product mass actually measured. Includes interference-monitor
-                and internal-standard masses, which serve no analyte and so have no parent element. The
-                analyte list is given by the Analyte field and is never inferred from the element symbols
-                appearing here.
+              description: Specific masses monitored in this procedure, grouped by the target species
+                element they serve where they serve one. Covers atomic isotopes and, where a reaction
+                cell shifts an target species onto a different mass, the product mass actually measured.
+                Includes interference-monitor and internal-standard masses, which serve no target species
+                and so have no parent element. The target species list is given by the Target Species
+                field and is never inferred from the element symbols appearing here.
               type: object
               properties:
                 '@id':
@@ -720,7 +634,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id005
+            - &id004
               title: Dwell Time per Mass
               description: Count (dwell) time at the mass position, in milliseconds. Where the procedure
                 defines it per sweep or per scan rather than per measurement, state that basis.
@@ -752,26 +666,26 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id006
-              title: Per-Analyte Calibration Strategy
+            - &id005
+              title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
-                specifically any case where different analytes or analyte groups within one procedure
-                are calibrated differently - different primary standards for different mass ranges or
-                phases, or one element serving as internal standard while others are externally calibrated.
-                Where a single strategy applies to all analytes, record that strategy. Where the procedure
-                reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios
-                only)'.
+                specifically any case where different target species or target species groups within one
+                procedure are calibrated differently - different primary standards for different mass
+                ranges or phases, or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all target species, record that strategy.
+                Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable
+                (isotope ratios only)'.
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionSficpmsTAPP/perAnalyteCalibrationStrategy
+                  const: ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: perAnalyteCalibrationStrategy
+                  const: calibrationStrategyPerTargetSpecies
                 schema:name:
-                  const: Per-Analyte Calibration Strategy
+                  const: Calibration Strategy per Target Species
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -787,7 +701,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id007
+            - &id006
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -819,7 +733,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id007
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -851,7 +765,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id008
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -884,7 +798,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id009
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -918,7 +832,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id010
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -949,7 +863,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id012
+            - &id011
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -984,6 +898,9 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
+          - contains: *id003
+            minContains: 0
+            maxContains: 1
           - contains: *id004
             minContains: 0
             maxContains: 1
@@ -1008,9 +925,6 @@ allOf:
           - contains: *id011
             minContains: 0
             maxContains: 1
-          - contains: *id012
-            minContains: 0
-            maxContains: 1
     ada:channelTemplate:
       type: object
       properties:
@@ -1019,11 +933,12 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
-            - &id014
+            - &id013
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One analyte may be acquired at more
-                than one resolution, so the assignment is per acquired mass rather than per element. The
-                overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+              description: Mass resolution mode used for acquisition. One target species may be acquired
+                at more than one resolution, so the assignment is per acquired mass rather than per element.
+                The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
+                3).
               type: object
               properties:
                 '@id':
@@ -1043,10 +958,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id013
+                  - &id012
                     type: string
                   - type: array
-                    items: *id013
+                    items: *id012
               required:
               - '@id'
               - '@type'
@@ -1055,7 +970,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id014
+          - contains: *id013
             minContains: 0
             maxContains: 1
     ada:numberOfScansPerReplicate:

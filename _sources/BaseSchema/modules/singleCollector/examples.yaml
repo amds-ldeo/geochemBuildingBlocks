@@ -1,0 +1,66 @@
+- title: SingleCollector published parameter (Param_Procedure_detectorConfiguration)
+  content: 'A parameter the SingleCollector module publishes for the procedure side. The module places
+    no root fields, so its parameters are what it contributes: a consuming TAPP unions this branch into
+    its own additionalProperty anyOf.'
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "detectorConfiguration",
+        "schema:name": "Detector Configuration",
+        "ada:dataType": "string",
+        "ada:fieldScope": "session",
+        "schema:readonlyValue": true,
+        "ada:tier": "R"
+      }
+- title: SingleCollector published parameter (Param_Analysis_pulseAnalogDetectorNonlinearityCorrection)
+  content: 'A parameter the SingleCollector module publishes for the analysis side. The module places
+    no root fields, so its parameters are what it contributes: a consuming TAPP unions this branch into
+    its own additionalProperty anyOf.'
+  prefixes:
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection",
+        "@type": [
+          "schema:PropertyValue"
+        ],
+        "schema:propertyID": [
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection"
+          }
+        ],
+        "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+        "schema:value": "example value"
+      }
+- title: SingleCollector published parameter (Param_Procedure_pulseAnalogDetectorNonlinearityCorrection)
+  content: 'A parameter the SingleCollector module publishes for the procedure side. The module places
+    no root fields, so its parameters are what it contributes: a consuming TAPP unions this branch into
+    its own additionalProperty anyOf.'
+  prefixes:
+    ada: https://ada.astromat.org/metadata/
+    schema: http://schema.org/
+  snippets:
+  - language: json
+    code: |-
+      {
+        "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+        "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+        "ada:dataType": "string",
+        "ada:fieldScope": "session",
+        "schema:readonlyValue": false,
+        "ada:tier": "R"
+      }

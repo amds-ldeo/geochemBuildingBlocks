@@ -9,8 +9,10 @@
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
   "ada:beamDiameterDefault",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredElements",
   "ada:reportedVariablesAndUnits",
-  "ada:epmaTechniquePerAnalyte",
+  "ada:epmaTechniquePerTargetSpecies",
   "ada:xRayLine",
   "ada:diffractingCrystal",
   "ada:peakCountingTimeDefault",
@@ -62,6 +64,7 @@
   "empa_beamRasterDimensions",
   "empa_beamDamageMinimization",
   "empa_driftCorrection",
+  "empa_targetSpecies",
   "empa_peakCountingTime",
   "empa_backgroundCountingTime",
   "empa_backgroundPosition",
@@ -109,12 +112,18 @@
  ],
  "basic_required": [
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnit",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
+  "ada:analyticalMode",
   "ada:beamMode",
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
   "ada:beamDiameterDefault",
-  "ada:epmaTechniquePerAnalyte",
+  "ada:targetSpeciesDefault",
+  "ada:monitoredElements",
+  "ada:reportedVariablesAndUnits",
+  "ada:epmaTechniquePerTargetSpecies",
   "ada:xRayLine",
   "ada:diffractingCrystal",
   "ada:peakCountingTimeDefault",
@@ -125,84 +134,99 @@
   "ada:xRayBackgroundCorrectionMethodDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
-  "ada:xRayLineOverlapCorrectionsApplied"
+  "ada:xRayLineOverlapCorrectionsApplied",
+  "ada:detectionLimitMethod"
  ],
  "basic_props": [
   {
    "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
-   "cov": 12,
+   "cov": 13,
    "required": true
   },
   {
    "key": "ada:samplingUnit",
    "item": "Sampling Unit",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:dataProcessingSoftwareDefault",
    "item": "Data Processing Software(s)",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:analyticalMode",
    "item": "Analytical Mode",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:beamMode",
    "item": "Beam Mode",
    "jtype": "string",
-   "cov": 13,
+   "cov": 14,
    "required": true
   },
   {
    "key": "ada:acceleratingVoltageDefault",
    "item": "Accelerating Voltage",
    "jtype": "number",
-   "cov": 14,
+   "cov": 15,
    "required": true
   },
   {
    "key": "ada:beamCurrentDefault",
    "item": "Beam Current",
    "jtype": "number",
-   "cov": 13,
+   "cov": 14,
    "required": true
   },
   {
    "key": "ada:beamDiameterDefault",
    "item": "Beam Diameter",
    "jtype": "number",
+   "cov": 14,
+   "required": true
+  },
+  {
+   "key": "ada:targetSpeciesDefault",
+   "item": "Target Species",
+   "jtype": "string",
    "cov": 13,
+   "required": true
+  },
+  {
+   "key": "ada:monitoredElements",
+   "item": "Monitored Elements",
+   "jtype": "string",
+   "cov": 15,
    "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
-   "key": "ada:epmaTechniquePerAnalyte",
-   "item": "EPMA Technique per Analyte",
+   "key": "ada:epmaTechniquePerTargetSpecies",
+   "item": "EPMA Technique per Target Species",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -223,14 +247,14 @@
    "key": "ada:peakCountingTimeDefault",
    "item": "Peak Counting Time",
    "jtype": "number",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:backgroundCountingTimeDefault",
    "item": "Background Counting Time",
    "jtype": "number",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -251,21 +275,21 @@
    "key": "ada:dwellTimePerPixelDefault",
    "item": "Dwell Time per Pixel",
    "jtype": "number",
-   "cov": 1,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:stepSizePixelSizeDefault",
    "item": "Step Size / Pixel Size",
    "jtype": "number",
-   "cov": 1,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:matrixCorrectionMethod",
    "item": "Matrix Correction Method",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -279,7 +303,7 @@
    "key": "ada:xRayBackgroundCorrectionMethodDefault",
    "item": "X-ray Background Correction Method",
    "jtype": "string",
-   "cov": 3,
+   "cov": 4,
    "required": true
   },
   {
@@ -314,7 +338,7 @@
    "key": "ada:primaryCalibrationStandardNameDefault",
    "item": "Primary Calibration Standard Name",
    "jtype": "string",
-   "cov": 11,
+   "cov": 12,
    "required": true
   },
   {
@@ -335,8 +359,8 @@
    "key": "ada:detectionLimitMethod",
    "item": "Detection Limit Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   }
  ]
 }

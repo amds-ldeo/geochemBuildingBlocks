@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)",
-    "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v60.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+    "description": "Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v68.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
     "allOf": [
         {
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -14,9 +14,6 @@
         },
         {
             "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification"
-        },
-        {
-            "$ref": "../../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification"
         },
         {
             "$ref": "../../../../BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification"
@@ -355,12 +352,12 @@
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
                                     },
                                     {
-                                        "title": "Analyte Estimation Method",
+                                        "title": "Target Species Estimation Method",
                                         "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
-                                                "const": "ada:analyteColumn/empaTAPP/analyteEstimationMethod"
+                                                "const": "ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod"
                                             },
                                             "@type": {
                                                 "const": [
@@ -368,10 +365,10 @@
                                                 ]
                                             },
                                             "schema:valueName": {
-                                                "const": "analyteEstimationMethod"
+                                                "const": "targetSpeciesEstimationMethod"
                                             },
                                             "schema:name": {
-                                                "const": "Analyte Estimation Method"
+                                                "const": "Target Species Estimation Method"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -517,7 +514,7 @@
                                     },
                                     {
                                         "title": "Beam Current",
-                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
+                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -605,7 +602,7 @@
                                     },
                                     {
                                         "title": "Counting Statistics Error",
-                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -644,12 +641,12 @@
                                         ]
                                     },
                                     {
-                                        "title": "EPMA Technique per Analyte",
+                                        "title": "EPMA Technique per Target Species",
                                         "description": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
-                                                "const": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte"
+                                                "const": "ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies"
                                             },
                                             "@type": {
                                                 "const": [
@@ -657,10 +654,10 @@
                                                 ]
                                             },
                                             "schema:valueName": {
-                                                "const": "epmaTechniquePerAnalyte"
+                                                "const": "epmaTechniquePerTargetSpecies"
                                             },
                                             "schema:name": {
-                                                "const": "EPMA Technique per Analyte"
+                                                "const": "EPMA Technique per Target Species"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -850,12 +847,12 @@
                             "allOf": [
                                 {
                                     "contains": {
-                                        "title": "Analyte Estimation Method",
+                                        "title": "Target Species Estimation Method",
                                         "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
-                                                "const": "ada:analyteColumn/empaTAPP/analyteEstimationMethod"
+                                                "const": "ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod"
                                             },
                                             "@type": {
                                                 "const": [
@@ -863,10 +860,10 @@
                                                 ]
                                             },
                                             "schema:valueName": {
-                                                "const": "analyteEstimationMethod"
+                                                "const": "targetSpeciesEstimationMethod"
                                             },
                                             "schema:name": {
-                                                "const": "Analyte Estimation Method"
+                                                "const": "Target Species Estimation Method"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -1028,7 +1025,7 @@
                                 {
                                     "contains": {
                                         "title": "Beam Current",
-                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or analyte; record the procedure-standard value(s).",
+                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -1124,7 +1121,7 @@
                                 {
                                     "contains": {
                                         "title": "Counting Statistics Error",
-                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the analyte together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -1167,12 +1164,12 @@
                                 },
                                 {
                                     "contains": {
-                                        "title": "EPMA Technique per Analyte",
+                                        "title": "EPMA Technique per Target Species",
                                         "description": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
-                                                "const": "ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte"
+                                                "const": "ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies"
                                             },
                                             "@type": {
                                                 "const": [
@@ -1180,10 +1177,10 @@
                                                 ]
                                             },
                                             "schema:valueName": {
-                                                "const": "epmaTechniquePerAnalyte"
+                                                "const": "epmaTechniquePerTargetSpecies"
                                             },
                                             "schema:name": {
-                                                "const": "EPMA Technique per Analyte"
+                                                "const": "EPMA Technique per Target Species"
                                             },
                                             "ada:dataType": {
                                                 "const": "string"
@@ -1749,7 +1746,7 @@
                                     },
                                     {
                                         "title": "Sequence",
-                                        "description": "Order in which spectrometer assignments are acquired during point analysis. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                                        "description": "Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -2288,7 +2285,7 @@
                                 {
                                     "contains": {
                                         "title": "Sequence",
-                                        "description": "Order in which spectrometer assignments are acquired during point analysis. Not applicable to X-ray mapping, where all assigned spectrometers collect simultaneously at each pixel.",
+                                        "description": "Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
                                         "type": "object",
                                         "properties": {
                                             "@id": {
@@ -3278,6 +3275,14 @@
                         }
                     ],
                     "readOnly": true
+                },
+                "ada:monitoredEleemnts": {
+                    "type": "array",
+                    "items": {
+                        "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
+                        "type": "string",
+                        "readOnly": true
+                    }
                 },
                 "ada:analyticalMode": {
                     "type": "array",

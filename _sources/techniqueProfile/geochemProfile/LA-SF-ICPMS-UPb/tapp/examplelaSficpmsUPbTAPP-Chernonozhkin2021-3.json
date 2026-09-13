@@ -166,16 +166,14 @@
           "schema:defaultValue": "Low resolution (M/ΔM = 300)"
         },
         {
-          "@id": "ada:parameter/laSficpmsUPbTAPP/detectorConfiguration",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/laSficpmsUPbTAPP/detectorConfiguration"
-            }
-          ],
+          "schema:valueName": "detectorConfiguration",
           "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
           "schema:value": "Triple mode detection"
         },
         {
@@ -259,17 +257,6 @@
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.96,
       "schema:description": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
-    },
-    {
-      "@id": "ada:parameter/module/LaserAblation/multiRunSequentialAnalysisDesign",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "multiRunSequentialAnalysisDesign",
-      "schema:name": "Multi Run Sequential Analysis Design",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
     }
   ],
   "schema:actionProcess": {
@@ -324,12 +311,12 @@
             "schema:defaultValue": "Anomalous time steps excluded during manual inspection"
           },
           {
-            "@id": "ada:parameter/laSficpmsUPbTAPP/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
             "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse/Analog Detector Nonlinearity Correction",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection"
@@ -417,7 +404,6 @@
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
-  "ada:ionCounterDeadTimeDefault": -9999,
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
   "ada:massesMeasuredDefault": "missing",
