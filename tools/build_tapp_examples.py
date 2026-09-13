@@ -998,7 +998,18 @@ def sentinel_pinned_members(inst, resolved_schema):
                 for leaf, sub in leaves.items():
                     if leaf in n:
                         continue
-                    val = sentinel_for(_deref(sub, resolved_schema), root=resolved_schema)
+                    d = _deref(sub, resolved_schema)
+                    # A leaf the schema PINS is not a transcription gap -- it has one legal value.
+                    # Writing a sentinel over a const produced invalid examples: 'missing' where
+                    # schema:valueName had to be 'guardElectrode'. Use the const; leave enum-pinned
+                    # leaves to conform_nested_enums, which knows the allowed set.
+                    if isinstance(d, dict) and "const" in d:
+                        n[leaf] = d["const"]
+                        filled += 1
+                        continue
+                    if isinstance(d, dict) and "enum" in d:
+                        continue
+                    val = sentinel_for(d, root=resolved_schema)
                     if val is not None:
                         n[leaf] = val
                         filled += 1
@@ -1007,7 +1018,24 @@ def sentinel_pinned_members(inst, resolved_schema):
         elif isinstance(n, list):
             for v in n:
                 apply(v)
+    # GUARD. The fill is schema-driven but not schema-complete: a member can belong to a
+    # DISCRIMINATED UNION, where the legal value of each leaf depends on which parameter the member
+    # is, and filling those generically produced
+    #   {'schema:valueName': 'missing', 'schema:name': 'missing', ...}
+    # which matches no branch -- 28 previously-passing examples broke that way. Rather than try to
+    # recognise every such shape, the pass is reverted wholesale if it makes the instance worse.
+    # Evidence beats cleverness here: the only thing that matters is that an example does not get
+    # worse, and the validator can answer that directly.
+    from jsonschema import Draft202012Validator as _V
+    before = len(list(_V(resolved_schema).iter_errors(inst)))
+    snapshot = json.loads(json.dumps(inst))
     apply(inst)
+    after = len(list(_V(resolved_schema).iter_errors(inst)))
+    if after > before:
+        inst.clear()
+        inst.update(snapshot)
+        print(f"      sentinel_pinned_members: reverted ({before} -> {after} errors)")
+        return 0
     return filled
 
 
