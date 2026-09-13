@@ -614,7 +614,7 @@ PROFILES = {
         "product_types": [
             "XANESImageStack", "XANESStackOverviewImage",
             "XANESRawTabular", "XANESProcessedTabular",
-            "XANESimage", "XANESCollection",
+            "XANESImage", "XANESCollection",
         ],
         "additional_type_labels": [
             "X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)",
@@ -623,7 +623,7 @@ PROFILES = {
         "component_types": [
             "XANESImageStack", "XANESStackOverviewImage",
             "XANESRawTabular", "XANESProcessedTabular",
-            "XANESimage", "XANESCollection",
+            "XANESImage", "XANESCollection",
         ],
         "detail": None,
         "tags": ["xanes", "x-ray-absorption-spectroscopy"],

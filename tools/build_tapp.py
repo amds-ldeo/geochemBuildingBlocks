@@ -153,7 +153,7 @@ TAPP_CONFIGS = {
         "prefix": "xanes",
         "component_types": ["ada:XANESCollection", "ada:XANESImageStack",
                             "ada:XANESProcessedTabular", "ada:XANESRawTabular",
-                            "ada:XANESStackOverviewImage", "ada:XANESimage"],
+                            "ada:XANESStackOverviewImage", "ada:XANESImage"],
         "base_items": _IDENTITY_COMMON,
         "analyte_map": {},
         "conditional_mode": "",
