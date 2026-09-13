@@ -128,5 +128,5 @@ Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,module,covered by a co
 Counting Statistics Error,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
 Internal (Within-Measurement) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),,flagged,,new in this revision (needs mapping),sample > sampling unit x reported property
 Digestion Step,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),defines: preparation step
-Acquisition Pass,Basic,Read-Only,Text (free),,flagged,,new in this revision (needs mapping),defines: acquisition pass
+Acquisition Pass,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:description,authored,,"definer: the Data acquisition step's description, per the settled mapping. Emits only when the cell has a value; empty in 56 of 57 publication columns, and an empty cell never reaches the emitter",defines: acquisition pass
 Number of Acquisition Passes,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfAcquisitionPasses,authored,,"count of the passes enumerated in Acquisition Pass; keyed (none), so it needs no pass identifier and is placeable ahead of the rest of the pass family",
