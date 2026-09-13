@@ -1033,16 +1033,16 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "example crossValidationOutcome" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "example ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "example signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "example ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "example beamHardeningArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "example crossValidationOutcome" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "example metalStreakArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "example beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
             dqv:value "example partialVolumeEffectAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
