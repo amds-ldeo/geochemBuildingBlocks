@@ -270,7 +270,7 @@ A TAPP definition is a **plan** — a reusable procedure that *prescribes* an an
 - **Parameters** (`schema:additionalProperty`, top level and per step — **replaces the retired `ada:methodParameters`**) — each entry is one of two shapes:
   - `MethodParameter`, a `schema:PropertyValueSpecification` for an **editable** parameter: `schema:defaultValue` plus `schema:valueRequired`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet`, and the required `ada:fieldScope` (method/session/element) and `ada:dataType` (string/number/integer/boolean/date/uri)
   - `MethodParameterValue`, a `schema:PropertyValue` for a **read-only** parameter, carrying the fixed protocol value in `schema:value`
-- **Analyte template** (`ada:targetSpeciesTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows. Exactly one column must be the `AnalyteIdentifierColumn`: `schema:valueName` = `analyte`, pinned to `ada:dataType: string`, `readonlyValue: true`, `valueRequired: true`, `ada:tier: M`.
+- **Analyte template** (`ada:targetSpeciesTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows. Exactly one column must be the `TargetSpeciesIdentifierColumn`: `schema:valueName` = `analyte`, pinned to `ada:dataType: string`, `readonlyValue: true`, `valueRequired: true`, `ada:tier: M`.
 - **Quality metrics** (`dqv:hasQualityMeasurement`) — at method level and on workflow steps
 - **`@context`** — required, and the `schema` / `ada` / `cdi` prefixes are pinned to exact values (note `schema` is `http://schema.org/`, not https)
 

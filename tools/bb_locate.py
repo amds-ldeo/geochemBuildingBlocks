@@ -37,6 +37,31 @@ def _tech(token: str) -> str:
     return _ALIAS.get(token.lower(), token)
 
 
+def _norm(s: str) -> str:
+    return s.replace("-", "").replace("_", "").lower()
+
+
+def _tech_scan(token: str, tp) -> str | None:
+    """The technique directory whose name matches `token` ignoring case and hyphens.
+
+    _ALIAS is a hand-maintained table and it rots: 20 of the technique directories had no entry
+    when this was added (every LA-*, Solution-MC-ICPMS, CAPD, TIMS, S-XRF and the rest), so a
+    lookup for e.g. adaSolutionMCICPMS fell through to None and its caller quietly used a laxer
+    schema. Scanning the directories themselves cannot fall behind them. _ALIAS is still consulted
+    first, since it also encodes deliberate REDIRECTS (basemap -> Basemap, empaprofile -> EMPA)
+    that are not simple spelling differences.
+    """
+    want = _norm(token)
+    for root in ("geochemProfile", "adaProfile"):
+        d = tp / root
+        if not d.is_dir():
+            continue
+        for cand in d.iterdir():
+            if cand.is_dir() and _norm(cand.name) == want:
+                return cand.name
+    return None
+
+
 def find_bb_dir(name: str, sources) -> Path | None:
     """Return the BB directory for `name` under `sources` (the _sources root), or None."""
     sources = Path(sources)
@@ -51,6 +76,11 @@ def find_bb_dir(name: str, sources) -> Path | None:
         for root in ("geochemProfile", "adaProfile"):
             if (hit := ok(tp / root / tech / role)):
                 return hit
+        scanned = _tech_scan(tech, tp)
+        if scanned and scanned != tech:
+            for root in ("geochemProfile", "adaProfile"):
+                if (hit := ok(tp / root / scanned / role)):
+                    return hit
         return None
 
     # 1. identity-named BB anywhere (adaProduct, tappDefinition, registry catalogs, BaseSchema helpers)
@@ -68,7 +98,17 @@ def find_bb_dir(name: str, sources) -> Path | None:
             return hit
     # 4. generic ada<X> profile
     if name.startswith("ada"):
-        if (hit := at(_tech(name[3:]), "profile-ada")):
+        tech = _tech(name[3:])
+        if (hit := at(tech, "profile-ada")):
+            return hit
+        # A technique may publish its ada<X> name from the PATH-DRIVEN profile/ instead of a
+        # generic profile-ada/ -- the three Solution ICP-MS techniques do. Without this fallback
+        # adaSolutionQICPMS, adaSolutionSFICPMS and adaSolutionMCICPMS all resolved to None, so
+        # validate_instance fell back to the default adaProduct and every solution-specific
+        # constraint went unenforced -- silently, since a record that validates against a laxer
+        # schema still passes. Measured on exampleadaSolutionMCICPMS-ETHZ-20240903.json, which
+        # names adaSolutionMCICPMS in dcterms:conformsTo and was being checked against adaProduct.
+        if (hit := at(tech, "profile")):
             return hit
     # 5. path-driven geochem product profile (by dir/technique name)
     if (hit := at(_tech(name), "profile")):

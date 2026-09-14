@@ -10,7 +10,7 @@ mass, a Faraday cup, an energy-loss edge, an X-ray line. **Each monitored specie
 and its configuration properties come from three different places. Today only two of those three
 have a home.
 
-The base already anticipates this. `tappDefinition.ChannelIdentifierColumn` carries
+The base already anticipates this. `tappDefinition.MonitoredPropertyIdentifierColumn` carries
 `ada:cdifPropertyPath: "#/schema:variableMeasured/schema:name"` and says the variable list "is
 shared across a procedure's table parts rather than owned by any one of them". So "a channel is a
 variable" is the stated intent; it is simply not built.

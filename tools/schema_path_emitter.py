@@ -109,7 +109,7 @@ WRAPPER_ITEM_REF = {
 # ada:targetSpeciesColumns used to be listed here too, which silently dropped every technique's analyte
 # columns. Each such row ends at "…ada:targetSpeciesColumns[]" carrying a SCALAR Data Type (the column's
 # value type), so falling through to Leaf(leaf_schema) would emit items:{type:string} — wrong,
-# since items are AnalyteColumn objects — and with every row writing the same append, last-one-wins.
+# since items are TargetSpeciesColumn objects — and with every row writing the same append, last-one-wins.
 # It is now handled by ANALYTE_COLUMN_ARRAY below, which turns each row into a generated column def
 # rather than consuming the row's leaf.
 BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
@@ -128,8 +128,8 @@ ANALYTE_COLUMN_ARRAY = "ada:targetSpeciesColumns"
 
 # tappDefinition's mandatory analyte-identifier column, which must stay permissible once the
 # overlay narrows `items` to the technique's own columns.
-ANALYTE_IDENTIFIER_REF = {
-    "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"
+TARGET_SPECIES_IDENTIFIER_REF = {
+    "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn"
 }
 
 # Keyed tables: one row per member of a domain, one column per field whose value repeats over it
@@ -140,15 +140,15 @@ ANALYTE_IDENTIFIER_REF = {
 KEYED_TABLES = {
     "ada:targetSpeciesColumns": {
         "template": "ada:targetSpeciesTemplate",
-        "registry": "analyteColumns",
-        "identifier_ref": ANALYTE_IDENTIFIER_REF,
+        "registry": "targetSpeciesColumns",
+        "identifier_ref": TARGET_SPECIES_IDENTIFIER_REF,
     },
     "ada:monitoredPropertyColumns": {
         "template": "ada:monitoredPropertyTemplate",
-        "registry": "channelColumns",
+        "registry": "monitoredPropertyColumns",
         "identifier_ref": {
             "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
-                    "#/$defs/ChannelIdentifierColumn"
+                    "#/$defs/MonitoredPropertyIdentifierColumn"
         },
     },
     "ada:reportedPropertyColumns": {
@@ -164,7 +164,7 @@ KEYED_TABLES = {
     # identifier column). Channel column @ids use the ada:monitoredPropertyColumn namespace.
     "ada:collectorConfiguration": {
         "template": None,
-        "registry": "channelColumns",
+        "registry": "monitoredPropertyColumns",
         "identifier_ref": None,
     },
 }
@@ -619,7 +619,7 @@ def _is_addl_param(p: spp.ParsedPath) -> bool:
 
 
 def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", prefix="ada:targetSpeciesColumn", as_value=False):
-    """One generated AnalyteColumn $def, mirroring build_tapp.param_template_def.
+    """One generated TargetSpeciesColumn $def, mirroring build_tapp.param_template_def.
 
     Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
     module-global TAPP_NAME (which stays 'empaTAPP' unless the legacy matrix route configured it,
@@ -701,7 +701,7 @@ def build(tapp):
     import schemapath_io
     spec = schemapath_io.load_spec(schemapath_io.csv_path(b.XLSX))
     roots = {"MethodDefinition": Obj(), "Dataset": Obj()}
-    registries = {"parameterTemplates": {}, "parameterValues": {}, "analyteColumns": {}}
+    registries = {"parameterTemplates": {}, "parameterValues": {}, "targetSpeciesColumns": {}}
     required = {"MethodDefinition": [], "Dataset": []}
     # Rows a composed module already supplies. They are dropped from this overlay so a shared field
     # is defined once — otherwise the technique's copy sits alongside the module's and silently wins
@@ -812,7 +812,7 @@ def build(tapp):
                 continue
             if _is_analyte_column(parsed):
                 cfg = KEYED_TABLES[parsed.segments[-1].prop]
-                # One generated AnalyteColumn def per row, referenced as a permitted item of the
+                # One generated TargetSpeciesColumn def per row, referenced as a permitted item of the
                 # array. The defs are INLINED downstream (build_pathdriven) rather than $ref'd to
                 # the shared registry: that registry keys defs by bare name, so a column name used
                 # by two TAPPs (e.g. detectionLimit) would resolve to the other TAPP's def and its
@@ -824,7 +824,7 @@ def build(tapp):
                 # (PropertyValue on $Dataset). Keep them as distinct $defs so one does not overwrite
                 # the other in the shared registry (which made an editable procedure column adopt its
                 # dataset counterpart's PropertyValue form).
-                if cfg["registry"] == "channelColumns" and parsed.root == "Dataset":
+                if cfg["registry"] == "monitoredPropertyColumns" and parsed.root == "Dataset":
                     name = name + "AnalysisValue"
                 # @id namespace per table: analyteColumns -> ada:targetSpeciesColumn, channelColumns ->
                 # ada:monitoredPropertyColumn, reportedPropertyColumns -> ada:reportedPropertyColumn.
@@ -841,7 +841,7 @@ def build(tapp):
                 # unsatisfiable), and did it only for channels: all 282 analyte columns were already
                 # specifications. The value form is right on the $DATASET side alone, where the
                 # member is not a column definition but the value the analysis actually recorded.
-                as_value = (cfg["registry"] == "channelColumns" and parsed.root == "Dataset")
+                as_value = (cfg["registry"] == "monitoredPropertyColumns" and parsed.root == "Dataset")
                 registries.setdefault(cfg["registry"], {})[name] = analyte_column_def(
                     bare, item, m.get("desc", "") or "", b.jtype(m.get("dt", "")), read_only,
                     ptier=(m.get("P") or "").strip(), atier=(m.get("A") or "").strip(),

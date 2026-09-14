@@ -43,7 +43,7 @@ import schema_path_emitter as spe  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REGISTRIES = ("parameterTemplates", "parameterValues",
-              "analyteColumns", "reportedPropertyColumns", "channelColumns")
+              "targetSpeciesColumns", "reportedPropertyColumns", "monitoredPropertyColumns")
 
 
 def _def_id(body):

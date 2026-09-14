@@ -1909,7 +1909,7 @@ def build():
         if b["cov"] > 0:
             basic_required.append(key)
     if acols:
-        ac_refs = [{"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
+        ac_refs = [{"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn"}] + \
                   [{"$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/" + c} for c in acols]
         ac_contains = [{"contains": {"$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/" + c},
                         "minContains": 0, "maxContains": 1} for c in acols]

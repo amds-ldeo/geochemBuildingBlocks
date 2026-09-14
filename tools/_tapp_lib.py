@@ -203,7 +203,7 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
 # entries by $ref. The generator writes catalog files here; per-TAPP schema.yaml files
 # point at them with relative paths (e.g. ../analyteColumns/<name>.json from a TAPP folder).
 TECH_PROTOCOLS = REPO_ROOT / "_sources" / "registry"
-ANALYTE_COLUMNS_DIR = TECH_PROTOCOLS / "analyteColumns"
+TARGET_SPECIES_COLUMNS_DIR = TECH_PROTOCOLS / "targetSpeciesColumns"
 PARAMETER_TEMPLATES_DIR = TECH_PROTOCOLS / "parameterTemplates"
 PARAMETER_VALUES_DIR = TECH_PROTOCOLS / "parameterValues"
 VOCAB_DIR = TECH_PROTOCOLS / "vocab"
@@ -1171,7 +1171,7 @@ def write_analyte_columns_registry(analyte_column_defs: "OrderedDict[str, dict]"
     (schema.yaml#/$defs/<name>) so they resolve locally through the register.
     Existing $defs owned by other TAPPs are preserved (union)."""
     _write_catalog_registry(
-        ANALYTE_COLUMNS_DIR, analyte_column_defs,
+        TARGET_SPECIES_COLUMNS_DIR, analyte_column_defs,
         owned_marker=f"ada:targetSpeciesColumn/{TAPP_NAME}/",
         title="ADA Target-Species-Column Specification Registry",
         description=(
@@ -1417,7 +1417,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
 
     if analyte_column_names:
         anyof = CommentedSeq()
-        anyof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
+        anyof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
             anyof.append({"$ref": f"../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/{col_name}"})
 
@@ -2467,7 +2467,7 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
     # are superseded by schema.yaml $defs. Foreign-owned flat files (other TAPPs
     # not yet migrated) are left untouched. The registry schema.yaml/bblock.json
     # and the generated *Schema.json/resolvedSchema.json are never deleted here.
-    _cleanup_legacy_flat_catalog(ANALYTE_COLUMNS_DIR, "analyteColumns")
+    _cleanup_legacy_flat_catalog(TARGET_SPECIES_COLUMNS_DIR, "targetSpeciesColumns")
     _cleanup_legacy_flat_catalog(PARAMETER_TEMPLATES_DIR, "parameterTemplates")
 
     # Per-publication TAPP examples — pub_filter restricts which to regen

@@ -56,9 +56,9 @@ def _inline_registry_refs(node, registries, cache):
 
 
 _REGISTRY_ID_PREFIX = {
-    "analyteColumns": "ada:targetSpeciesColumn/",
+    "targetSpeciesColumns": "ada:targetSpeciesColumn/",
     "reportedPropertyColumns": "ada:reportedPropertyColumn/",
-    "channelColumns": "ada:monitoredPropertyColumn/",
+    "monitoredPropertyColumns": "ada:monitoredPropertyColumn/",
     "parameterTemplates": "ada:parameter/",
     "parameterValues": "ada:parameter/",
 }
@@ -164,7 +164,7 @@ def registry_diff(tapp):
 
     print(f"registry diff for {tapp} — what replace-by-ownership would do\n")
     total_del = 0
-    for reg_name in ("analyteColumns", "reportedPropertyColumns", "channelColumns",
+    for reg_name in ("targetSpeciesColumns", "reportedPropertyColumns", "monitoredPropertyColumns",
                      "parameterTemplates", "parameterValues"):
         path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
         if not os.path.exists(path):
@@ -212,7 +212,7 @@ def build_pathdriven(tapp, write_registries=True):
     # path-driven route does not regenerate, so publishing there would add a second, namespaced
     # copy of everything alongside them — churn without a decision on converging the two routes.
     if write_registries:
-        for _reg in ("analyteColumns", "reportedPropertyColumns", "channelColumns"):
+        for _reg in ("targetSpeciesColumns", "reportedPropertyColumns", "monitoredPropertyColumns"):
             if registries.get(_reg):
                 _write_registry(_reg, registries[_reg], tapp)
 

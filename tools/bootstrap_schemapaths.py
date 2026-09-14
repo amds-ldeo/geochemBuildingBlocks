@@ -100,7 +100,7 @@ def is_analyte_template(path):
     column is a variableMeasured array that no schemapath row describes.
 
     Editable-vs-read-only is still carried, on the column's schema:readonlyValue (54 read-only /
-    29 editable across the registry). AnalyteColumn does have a schema:defaultValue slot, but it is
+    29 editable across the registry). TargetSpeciesColumn does have a schema:defaultValue slot, but it is
     unused and means something different anyway — a default across ALL analyte rows, where the
     protocol's actual per-element defaults are the ada:defaultTargetSpecies rows themselves.
 

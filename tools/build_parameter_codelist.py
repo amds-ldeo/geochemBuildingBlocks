@@ -28,7 +28,7 @@ import _tapp_lib as _L
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REG = os.path.join(ROOT, "_sources", "registry")
-REGISTRIES = ["parameterValues", "parameterTemplates", "analyteColumns"]
+REGISTRIES = ["parameterValues", "parameterTemplates", "targetSpeciesColumns"]
 SCHEME_ID = "ada:vocab/adaAnalyticalParameters"
 OUT = os.path.join(REG, "vocab", "adaAnalyticalParameters.json")
 
