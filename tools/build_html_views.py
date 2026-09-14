@@ -161,7 +161,7 @@ SECTIONS = [
                   "schema:version", "schema:dateModified", "schema:datePublished",
                   "schema:creativeWorkStatus", "schema:keywords", "schema:license",
                   "schema:conditionsOfAccess", "schema:additionalType",
-                  "schema:measurementTechnique"]),
+                  "schema:measurementTechnique", "schema:isPartOf", "schema:citation"]),
     ("People & funding", ["schema:creator", "schema:contributor", "schema:funding",
                           "schema:publisher", "schema:maintainer"]),
     ("Provenance", ["prov:wasGeneratedBy"]),
@@ -170,7 +170,9 @@ SECTIONS = [
     ("Quality", ["dqv:hasQualityMeasurement"]),
     ("Conformance", ["schema:subjectOf"]),
 ]
-SKIP = {"@context", "@id", "@type"}
+# @schema is the JSON-LD schema-version pointer the ADA records carry; structural like
+# @context, so it belongs in the banner rather than in a content tab.
+SKIP = {"@context", "@id", "@type", "@schema"}
 
 VAR_COLS = [("Name", lambda v: g(v, "schema:name")),
             ("Description", lambda v: g(v, "schema:description")),
@@ -234,6 +236,8 @@ def build_page(doc, css, tapp_href=None, title=None):
     did = doc.get("@id", "")
     url = doc.get("schema:url")
     ids = esc(did)
+    if doc.get("@schema"):
+        ids += ' &middot; <span class="curie">schema</span> %s' % esc(doc["@schema"])
     if url:
         ids += ' &middot; <a href="%s">%s</a>' % (esc(url), esc(url))
     panels, tabs, claimed = [], [], set(SKIP)
@@ -464,6 +468,47 @@ def collector_grid(doc):
     return "".join(out)
 
 
+def ada_records(limit=None, doi=None):
+    """Yield (name, doc) from ada2's json_table -- the real holdings, one row per DOI.
+
+    json_table is written by metadata/loaders/ada_json_loader.py, which renders JSON-LD for every
+    row of `records`. Its documents conform to these same profiles, so the page builder needs no
+    special case; only where the document comes from changes.
+
+    The connection follows the loaders' own convention (ADA_NAME / DB_2024_USER / DB_2024_PASSWORD
+    / DB_2024_HOST / DB_2024_PORT) rather than inventing a second one, so whatever already works
+    for them works here.
+    """
+    try:
+        import psycopg2
+    except ImportError:
+        raise SystemExit("--source ada2 needs psycopg2: pip install psycopg2-binary")
+    miss = [v for v in ("ADA_NAME", "DB_2024_USER", "DB_2024_PASSWORD") if not os.environ.get(v)]
+    if miss:
+        raise SystemExit("--source ada2 needs %s in the environment (the same variables "
+                         "metadata/loaders/ada_json_loader.py uses)" % ", ".join(miss))
+    conn = psycopg2.connect(database=os.environ.get("ADA_NAME"),
+                            user=os.environ.get("DB_2024_USER"),
+                            password=os.environ.get("DB_2024_PASSWORD"),
+                            host=os.environ.get("DB_2024_HOST") or "localhost",
+                            port=os.environ.get("DB_2024_PORT") or 5432)
+    q = "SELECT doi, jsonobject FROM public.json_table"
+    args = []
+    if doi:
+        q += " WHERE doi = %s"
+        args.append(doi)
+    q += " ORDER BY doi"
+    if limit:
+        q += " LIMIT %d" % int(limit)
+    cur = conn.cursor()
+    cur.execute(q, args)
+    for d, obj in cur.fetchall():
+        # the page filename follows the convention the existing htmlViews pages already use
+        yield "metadata_%s" % re.sub(r"[^A-Za-z0-9._-]", "-", d or "unknown"), (
+            obj if isinstance(obj, dict) else json.loads(obj))
+    cur.close(); conn.close()
+
+
 def tapp_page_name(ref_id):
     """`ex:finesseTAPP-P0` -> the filename the TAPP page will be written as. Kept in one place so
     the two generators cannot drift apart on naming."""
@@ -538,59 +583,76 @@ def build_tapp_page(doc, css, back_href=None):
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("example", nargs="?", help="a profile example*.json")
-    ap.add_argument("--all", action="store_true", help="every profile example")
-    ap.add_argument("-o", "--out", help="output file (single-example mode)")
+    ap.add_argument("--source", choices=("examples", "ada2"), default="examples",
+                    help="examples: the profile example*.json in _sources (schema examples, for "
+                         "reviewing what a profile produces). ada2: the real holdings from the "
+                         "database's json_table, one page per DOI. Default: examples")
+    ap.add_argument("example", nargs="?", help="a single profile example*.json (source=examples)")
+    ap.add_argument("--doi", help="a single DOI (source=ada2)")
+    ap.add_argument("--limit", type=int, help="stop after N records (source=ada2)")
+    ap.add_argument("--all", action="store_true", help="every record from the chosen source")
+    ap.add_argument("--no-tapp-pages", action="store_true",
+                    help="skip the TAPP definition pages")
+    ap.add_argument("-o", "--out", help="output file (single-record mode)")
     ap.add_argument("--outdir", default=OUT)
     a = ap.parse_args()
 
-    files = []
-    if a.all:
-        files = sorted(glob.glob(os.path.join(TPROF, "*", "*", "profile*", "example*.json")))
-        tapps = sorted(glob.glob(os.path.join(TPROF, "*", "*", "tapp", "example*.json")))
-    elif a.example:
-        files = [a.example]
-    else:
-        ap.error("give an example, or --all")
+    if a.source == "examples" and not (a.all or a.example):
+        ap.error("source=examples needs an example path, or --all")
+    if a.source == "ada2" and not (a.all or a.doi):
+        ap.error("source=ada2 needs --doi, or --all")
 
     css = house_css()
     os.makedirs(a.outdir, exist_ok=True)
+
+    # Both sources yield (page-name, document); everything downstream is identical, because
+    # json_table's documents conform to the same profiles these examples do.
+    if a.source == "ada2":
+        records = ada_records(limit=a.limit, doi=a.doi)
+    else:
+        files = ([a.example] if a.example and not a.all else
+                 sorted(glob.glob(os.path.join(TPROF, "*", "*", "profile*", "example*.json"))))
+        def _from_files():
+            for f in files:
+                try:
+                    yield os.path.splitext(os.path.basename(f))[0],                           json.loads(open(f, "rb").read().decode("utf-8"))
+                except Exception as e:
+                    print("  UNREADABLE %s: %s" % (f, e))
+        records = _from_files()
+
     n = nolink = 0
-    for f in files:
-        try:
-            doc = json.loads(open(f, "rb").read().decode("utf-8"))
-        except Exception as e:
-            print("  UNREADABLE %s: %s" % (f, e))
-            continue
+    for name, doc in records:
         ref = tapp_ref(doc)
         href = tapp_page_name(ref.get("@id")) if (ref and is_ref(ref)) else None
         if href is None:
             nolink += 1
-        page = build_page(doc, css, tapp_href=href)
-        dest = a.out if (a.out and not a.all) else os.path.join(
-            a.outdir, os.path.splitext(os.path.basename(f))[0] + ".html")
+        dest = a.out if (a.out and not a.all) else os.path.join(a.outdir, name + ".html")
         with open(dest, "w", encoding="utf-8", newline="\n") as fh:
-            fh.write(page)
+            fh.write(build_page(doc, css, tapp_href=href))
         n += 1
         if not a.all:
             print("wrote %s" % dest)
-    if a.all:
-        nt = 0
-        for f in tapps:
+
+    nt = 0
+    if a.all and not a.no_tapp_pages:
+        for f in sorted(glob.glob(os.path.join(TPROF, "*", "*", "tapp", "example*.json"))):
             try:
                 doc = json.loads(open(f, "rb").read().decode("utf-8"))
             except Exception as e:
                 print("  UNREADABLE %s: %s" % (f, e))
                 continue
-            dest = os.path.join(a.outdir, tapp_page_name(doc.get("@id") or
-                                os.path.splitext(os.path.basename(f))[0]))
+            dest = os.path.join(a.outdir, tapp_page_name(
+                doc.get("@id") or os.path.splitext(os.path.basename(f))[0]))
             with open(dest, "w", encoding="utf-8", newline="\n") as fh:
                 fh.write(build_tapp_page(doc, css))
             nt += 1
-        print("wrote %d dataset page(s) and %d TAPP page(s) to %s" % (n, nt, a.outdir))
+
+    if a.all:
+        print("source=%s: wrote %d record page(s)%s to %s"
+              % (a.source, n, (" and %d TAPP page(s)" % nt) if nt else "", a.outdir))
         if nolink:
-            print("  %d of them name no procedure -- prov:used carries no ada:TAPPDefinition "
-                  "reference yet, so those pages have no link to a TAPP." % nolink)
+            print("  %d record(s) name no procedure -- prov:used carries no ada:TAPPDefinition "
+                  "reference, so those pages have no link to a TAPP." % nolink)
     return 0
 
 
