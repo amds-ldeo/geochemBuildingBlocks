@@ -13586,6 +13586,94 @@
                       ]
                     },
                     {
+                      "title": "Number of Cycles per Block",
+                      "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Number of Cycles per Block"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "title": "Integration Time per Cycle",
+                      "description": "Duration of signal integration per measurement cycle (seconds).",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Integration Time per Cycle"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
                       "title": "Double Spike Mixing Ratio",
                       "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
                       "type": "object",
@@ -13607,6 +13695,87 @@
                         },
                         "schema:name": {
                           "const": "Double Spike Mixing Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "title": "Error Correlation Between Reported Quantities",
+                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Error Correlation Between Reported Quantities"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
                         },
                         "schema:value": {
                           "type": "string"
@@ -13721,6 +13890,102 @@
                   },
                   {
                     "contains": {
+                      "title": "Number of Cycles per Block",
+                      "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlock"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Number of Cycles per Block"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Integration Time per Cycle",
+                      "description": "Duration of signal integration per measurement cycle (seconds).",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Integration Time per Cycle"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
                       "title": "Double Spike Mixing Ratio",
                       "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
                       "type": "object",
@@ -13757,15 +14022,109 @@
                     },
                     "minContains": 0,
                     "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Error Correlation Between Reported Quantities",
+                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Error Correlation Between Reported Quantities"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
                   }
                 ]
               },
               "ada:proceduralBlankLevel": {
                 "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
                 "type": "string"
+              },
+              "ada:deltaOrEpsilonValueReferenceStandard": {
+                "description": "International or community-accepted isotopic reference standard used as the zero-delta anchor for expressing isotopic compositions in delta (δ, per mil) or epsilon (ε, per ten thousand) notation: δⁱX = [(ⁱX/ʲX)sample / (ⁱX/ʲX)reference − 1] × 1000‰. The reporting reference is a per-study or per-publication decision. Specify the standard name, lot or batch number where applicable, and the certified or consensus isotope ratio used for normalization.",
+                "type": "string"
               }
             },
             "required": [
+              "ada:deltaOrEpsilonValueReferenceStandard",
               "ada:proceduralBlankLevel",
               "schema:actionProcess"
             ]
@@ -21537,8 +21896,27 @@
                                                     "maxContains": 1
                                                   }
                                                 ]
+                                              },
+                                              "schema:description": {
+                                                "description": "Each distinct acid digestion step applied to dissolve the sample, listed in the order performed and named by its attack. A step is distinct when its acid mixture, vessel, temperature or duration differs from the one before; an evaporation or dry-down that carries no attack of its own is part of the step it follows, and an identical attack repeated on the residue is a repeat of that step rather than a new one. Enumerating the steps is what allows Digestion Acid(s), Digestion Temperature and Digestion Duration to be recorded per step. Record N/A where the sample is introduced without acid digestion.",
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string",
+                                                    "readOnly": true
+                                                  },
+                                                  {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "string",
+                                                      "readOnly": true
+                                                    }
+                                                  }
+                                                ]
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:description"
+                                            ]
                                           }
                                         },
                                         {
@@ -21644,8 +22022,27 @@
                                                     "maxContains": 1
                                                   }
                                                 ]
+                                              },
+                                              "schema:description": {
+                                                "description": "The acquisition passes the procedure is divided into, named and described so that fields keyed by acquisition pass can point at them. A pass is a sub-procedure: a distinct traversal of the measurement with its own configuration, run in sequence on the same material. State what distinguishes each pass — resolution mode, cup or cell configuration, plasma or introduction path, spot size — since that differs by technique. Identical repeats of one configuration are replicates, not passes, and belong in Number of Replicates.",
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string",
+                                                    "readOnly": true
+                                                  },
+                                                  {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "string",
+                                                      "readOnly": true
+                                                    }
+                                                  }
+                                                ]
                                               }
-                                            }
+                                            },
+                                            "required": [
+                                              "schema:description"
+                                            ]
                                           }
                                         },
                                         {
@@ -21774,6 +22171,47 @@
                                                         },
                                                         "schema:readonlyValue": {
                                                           "const": false
+                                                        },
+                                                        "ada:tier": {
+                                                          "const": "R"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:valueName",
+                                                        "schema:name",
+                                                        "ada:dataType",
+                                                        "ada:fieldScope"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "title": "Faraday Cup Gain Calibration Method",
+                                                      "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
+                                                        },
+                                                        "@type": {
+                                                          "const": [
+                                                            "schema:PropertyValueSpecification"
+                                                          ]
+                                                        },
+                                                        "schema:valueName": {
+                                                          "const": "faradayCupGainCalibrationMethod"
+                                                        },
+                                                        "schema:name": {
+                                                          "const": "Faraday Cup Gain Calibration Method"
+                                                        },
+                                                        "ada:dataType": {
+                                                          "const": "string"
+                                                        },
+                                                        "ada:fieldScope": {
+                                                          "const": "session"
+                                                        },
+                                                        "schema:readonlyValue": {
+                                                          "const": true
                                                         },
                                                         "ada:tier": {
                                                           "const": "R"
@@ -21991,6 +22429,51 @@
                                                         },
                                                         "schema:readonlyValue": {
                                                           "const": false
+                                                        },
+                                                        "ada:tier": {
+                                                          "const": "R"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:valueName",
+                                                        "schema:name",
+                                                        "ada:dataType",
+                                                        "ada:fieldScope"
+                                                      ]
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                  },
+                                                  {
+                                                    "contains": {
+                                                      "title": "Faraday Cup Gain Calibration Method",
+                                                      "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
+                                                        },
+                                                        "@type": {
+                                                          "const": [
+                                                            "schema:PropertyValueSpecification"
+                                                          ]
+                                                        },
+                                                        "schema:valueName": {
+                                                          "const": "faradayCupGainCalibrationMethod"
+                                                        },
+                                                        "schema:name": {
+                                                          "const": "Faraday Cup Gain Calibration Method"
+                                                        },
+                                                        "ada:dataType": {
+                                                          "const": "string"
+                                                        },
+                                                        "ada:fieldScope": {
+                                                          "const": "session"
+                                                        },
+                                                        "schema:readonlyValue": {
+                                                          "const": true
                                                         },
                                                         "ada:tier": {
                                                           "const": "R"
@@ -24381,44 +24864,89 @@
                                                       "schema:additionalProperty": {
                                                         "type": "array",
                                                         "items": {
-                                                          "title": "Faraday Cup Array Configuration",
-                                                          "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block.",
-                                                          "type": "object",
-                                                          "properties": {
-                                                            "@id": {
-                                                              "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
-                                                            },
-                                                            "@type": {
-                                                              "const": [
-                                                                "schema:PropertyValueSpecification"
+                                                          "anyOf": [
+                                                            {
+                                                              "title": "Faraday Cup Array Configuration",
+                                                              "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block.",
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "@id": {
+                                                                  "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
+                                                                },
+                                                                "@type": {
+                                                                  "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                  ]
+                                                                },
+                                                                "schema:valueName": {
+                                                                  "const": "faradayCupArrayConfiguration"
+                                                                },
+                                                                "schema:name": {
+                                                                  "const": "Faraday Cup Array Configuration"
+                                                                },
+                                                                "ada:dataType": {
+                                                                  "const": "string"
+                                                                },
+                                                                "ada:fieldScope": {
+                                                                  "const": "session"
+                                                                },
+                                                                "schema:readonlyValue": {
+                                                                  "const": true
+                                                                },
+                                                                "ada:tier": {
+                                                                  "const": "R"
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:valueName",
+                                                                "schema:name",
+                                                                "ada:dataType",
+                                                                "ada:fieldScope"
                                                               ]
                                                             },
-                                                            "schema:valueName": {
-                                                              "const": "faradayCupArrayConfiguration"
-                                                            },
-                                                            "schema:name": {
-                                                              "const": "Faraday Cup Array Configuration"
-                                                            },
-                                                            "ada:dataType": {
-                                                              "const": "string"
-                                                            },
-                                                            "ada:fieldScope": {
-                                                              "const": "session"
-                                                            },
-                                                            "schema:readonlyValue": {
-                                                              "const": true
-                                                            },
-                                                            "ada:tier": {
-                                                              "const": "R"
+                                                            {
+                                                              "title": "Faraday Cup Amplifier Resistor Values",
+                                                              "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "@id": {
+                                                                  "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
+                                                                },
+                                                                "@type": {
+                                                                  "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                  ]
+                                                                },
+                                                                "schema:valueName": {
+                                                                  "const": "faradayCupAmplifierResistorValues"
+                                                                },
+                                                                "schema:name": {
+                                                                  "const": "Faraday Cup Amplifier Resistor Values"
+                                                                },
+                                                                "ada:dataType": {
+                                                                  "const": "string"
+                                                                },
+                                                                "ada:fieldScope": {
+                                                                  "const": "session"
+                                                                },
+                                                                "schema:readonlyValue": {
+                                                                  "const": true
+                                                                },
+                                                                "ada:tier": {
+                                                                  "const": "R"
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:valueName",
+                                                                "schema:name",
+                                                                "ada:dataType",
+                                                                "ada:fieldScope"
+                                                              ]
                                                             }
-                                                          },
-                                                          "required": [
-                                                            "@id",
-                                                            "@type",
-                                                            "schema:valueName",
-                                                            "schema:name",
-                                                            "ada:dataType",
-                                                            "ada:fieldScope"
                                                           ]
                                                         },
                                                         "allOf": [
@@ -24441,6 +24969,51 @@
                                                                 },
                                                                 "schema:name": {
                                                                   "const": "Faraday Cup Array Configuration"
+                                                                },
+                                                                "ada:dataType": {
+                                                                  "const": "string"
+                                                                },
+                                                                "ada:fieldScope": {
+                                                                  "const": "session"
+                                                                },
+                                                                "schema:readonlyValue": {
+                                                                  "const": true
+                                                                },
+                                                                "ada:tier": {
+                                                                  "const": "R"
+                                                                }
+                                                              },
+                                                              "required": [
+                                                                "@id",
+                                                                "@type",
+                                                                "schema:valueName",
+                                                                "schema:name",
+                                                                "ada:dataType",
+                                                                "ada:fieldScope"
+                                                              ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                          },
+                                                          {
+                                                            "contains": {
+                                                              "title": "Faraday Cup Amplifier Resistor Values",
+                                                              "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+                                                              "type": "object",
+                                                              "properties": {
+                                                                "@id": {
+                                                                  "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
+                                                                },
+                                                                "@type": {
+                                                                  "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                  ]
+                                                                },
+                                                                "schema:valueName": {
+                                                                  "const": "faradayCupAmplifierResistorValues"
+                                                                },
+                                                                "schema:name": {
+                                                                  "const": "Faraday Cup Amplifier Resistor Values"
                                                                 },
                                                                 "ada:dataType": {
                                                                   "const": "string"
@@ -24776,6 +25349,91 @@
                                       ]
                                     },
                                     {
+                                      "title": "Number of Cycles per Block",
+                                      "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "numberOfCyclesPerBlockDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Number of Cycles per Block"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "integer"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    {
+                                      "title": "Integration Time per Cycle",
+                                      "description": "Duration of signal integration per measurement cycle (seconds).",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "integrationTimePerCycleDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Integration Time per Cycle"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "number"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "const": "s"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    {
                                       "title": "Baseline Measurement Approach",
                                       "description": "Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from. Three approaches are in use: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank; or collecting a defined number of laser-off cycles at the start of the same block. State which, and how many cycles or how long.",
                                       "type": "object",
@@ -24940,6 +25598,52 @@
                                       ]
                                     },
                                     {
+                                      "title": "Error Correlation Between Reported Quantities",
+                                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Error Correlation Between Reported Quantities"
+                                        },
+                                        "schema:value": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number"
+                                            },
+                                            {
+                                              "type": "string"
+                                            }
+                                          ]
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                      ]
+                                    },
+                                    {
                                       "title": "Instrument Warm up Session Duration Limit",
                                       "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions.",
                                       "type": "object",
@@ -24979,6 +25683,83 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
+                                    },
+                                    {
+                                      "title": "Collision/Reaction Gas Mixture Ratio",
+                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Collision/Reaction Gas Mixture Ratio"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    {
+                                      "title": "Reaction Product Ion / Mass-Shift Transition",
+                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Reaction Product Ion / Mass-Shift Transition"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ],
+                                      "readOnly": true
                                     }
                                   ]
                                 },
@@ -25168,6 +25949,99 @@
                                   },
                                   {
                                     "contains": {
+                                      "title": "Number of Cycles per Block",
+                                      "description": "Number of measurement cycles acquired per block. One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle. Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "numberOfCyclesPerBlockDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Number of Cycles per Block"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "integer"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Integration Time per Cycle",
+                                      "description": "Duration of signal integration per measurement cycle (seconds).",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "integrationTimePerCycleDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Integration Time per Cycle"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "number"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        },
+                                        "schema:unitText": {
+                                          "const": "s"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
                                       "title": "Baseline Measurement Approach",
                                       "description": "Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from. Three approaches are in use: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank; or collecting a defined number of laser-off cycles at the start of the same block. State which, and how many cycles or how long.",
                                       "type": "object",
@@ -25348,6 +26222,56 @@
                                   },
                                   {
                                     "contains": {
+                                      "title": "Error Correlation Between Reported Quantities",
+                                      "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Error Correlation Between Reported Quantities"
+                                        },
+                                        "schema:value": {
+                                          "anyOf": [
+                                            {
+                                              "type": "number"
+                                            },
+                                            {
+                                              "type": "string"
+                                            }
+                                          ]
+                                        },
+                                        "schema:unitText": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value",
+                                        "schema:unitText"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
                                       "title": "Instrument Warm up Session Duration Limit",
                                       "description": "Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions.",
                                       "type": "object",
@@ -25387,6 +26311,91 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Collision/Reaction Gas Mixture Ratio",
+                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Collision/Reaction Gas Mixture Ratio"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Reaction Product Ion / Mass-Shift Transition",
+                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Reaction Product Ion / Mass-Shift Transition"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ],
+                                      "readOnly": true
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -25484,6 +26493,167 @@
                                             "ada:dataType",
                                             "schema:defaultValue"
                                           ]
+                                        },
+                                        {
+                                          "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                                          "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                                          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Counting Statistics Error",
+                                          "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                              "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Within-Session Analytical Precision and Assessment Method",
+                                          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Within-Session Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
                                         }
                                       ]
                                     },
@@ -25552,6 +26722,183 @@
                                             },
                                             "schema:name": {
                                               "const": "Analytical Accuracy and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                                          "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                                          "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Counting Statistics Error",
+                                          "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                              "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Within-Session Analytical Precision and Assessment Method",
+                                          "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Within-Session Analytical Precision and Assessment Method"
                                             },
                                             "ada:dataType": {
                                               "const": "string"
@@ -26020,8 +27367,24 @@
                                         "maxContains": 1
                                       }
                                     ]
+                                  },
+                                  "ada:defaultChannels": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        }
+                                      ]
+                                    }
                                   }
-                                }
+                                },
+                                "required": [
+                                  "ada:defaultChannels"
+                                ]
                               },
                               "ada:massBiasCorrectionStrategy": {
                                 "description": "Primary strategy used to correct for instrumental isotopic mass fractionation. Four main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a mixture of two enriched isotopes of the target species element added before digestion provides an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization: an element of known isotopic composition added to samples and standards; measured ratio of normalizing element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal normalization: both strategies applied simultaneously for redundant bias correction.",
@@ -34323,6 +35686,149 @@
         }
       ]
     },
+    "TappDefinition_DefinedTerm": {
+      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:DefinedTerm"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "text label for the term that is useful to human user"
+        },
+        "schema:identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:PropertyValue"
+                  },
+                  "minItems": 1
+                },
+                "schema:propertyID": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:termCode": {
+          "type": "string",
+          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            },
+            {
+              "required": [
+                "schema:termCode"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "Instrument_Identifier": {
       "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
       "type": "object",
@@ -34661,149 +36167,6 @@
       "required": [
         "@type",
         "schema:name"
-      ]
-    },
-    "TappDefinition_DefinedTerm": {
-      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:DefinedTerm"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "text label for the term that is useful to human user"
-        },
-        "schema:identifier": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:PropertyValue"
-                  },
-                  "minItems": 1
-                },
-                "schema:propertyID": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "required": [
-                        "@id"
-                      ],
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ],
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                },
-                "schema:value": {
-                  "type": "string",
-                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:url"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "schema:inDefinedTermSet": {
-          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:termCode": {
-          "type": "string",
-          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:name"
-              ]
-            },
-            {
-              "required": [
-                "schema:identifier"
-              ]
-            },
-            {
-              "required": [
-                "schema:termCode"
-              ]
-            }
-          ]
-        }
       ]
     },
     "ComputationalTool": {

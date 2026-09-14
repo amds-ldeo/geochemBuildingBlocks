@@ -101,6 +101,31 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
+              - &id002
+                title: Collision/Reaction Gas Mixture Ratio
+                description: Where the collision or reaction cell is supplied with a mixture of gases
+                  rather than a single gas, the identities and proportions of that mixture. Recorded separately
+                  from the gas identity. Record 'N/A' where a single gas is used.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  schema:name:
+                    const: Collision/Reaction Gas Mixture Ratio
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
                 $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
@@ -159,6 +184,9 @@ allOf:
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
+              minContains: 0
+              maxContains: 1
+            - contains: *id002
               minContains: 0
               maxContains: 1
           prov:used:
@@ -267,7 +295,7 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - &id004
+                                              - &id005
                                                 title: Integration Time per Cycle
                                                 description: Duration of signal integration per measurement
                                                   cycle (seconds).
@@ -289,12 +317,12 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - &id002
+                                                    - &id003
                                                       anyOf:
                                                       - type: number
                                                       - type: string
                                                     - type: array
-                                                      items: *id002
+                                                      items: *id003
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -302,7 +330,7 @@ allOf:
                                                 - schema:name
                                                 - ada:dataType
                                                 - schema:value
-                                              - &id005
+                                              - &id006
                                                 title: Ion Counter Dead Time
                                                 description: Dead time of the ion-counting detector(s),
                                                   used in the dead-time correction applied to high count
@@ -327,12 +355,12 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - &id003
+                                                    - &id004
                                                       anyOf:
                                                       - type: number
                                                       - type: string
                                                     - type: array
-                                                      items: *id003
+                                                      items: *id004
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -341,10 +369,10 @@ allOf:
                                                 - ada:dataType
                                                 - schema:value
                                             allOf:
-                                            - contains: *id004
+                                            - contains: *id005
                                               minContains: 0
                                               maxContains: 1
-                                            - contains: *id005
+                                            - contains: *id006
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -395,7 +423,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id006
+                                    - &id007
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. The monitor species
@@ -421,7 +449,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id007
+                                    - &id008
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -451,10 +479,10 @@ allOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
-                                  - contains: *id006
+                                  - contains: *id007
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id007
+                                  - contains: *id008
                                     minContains: 0
                                     maxContains: 1
                                   - contains:

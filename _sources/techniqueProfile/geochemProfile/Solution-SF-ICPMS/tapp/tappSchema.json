@@ -794,8 +794,27 @@
                                                             "maxContains": 1
                                                         }
                                                     ]
+                                                },
+                                                "schema:description": {
+                                                    "description": "Each distinct acid digestion step applied to dissolve the sample, listed in the order performed and named by its attack. A step is distinct when its acid mixture, vessel, temperature or duration differs from the one before; an evaporation or dry-down that carries no attack of its own is part of the step it follows, and an identical attack repeated on the residue is a repeat of that step rather than a new one. Enumerating the steps is what allows Digestion Acid(s), Digestion Temperature and Digestion Duration to be recorded per step. Record N/A where the sample is introduced without acid digestion.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "readOnly": true
+                                                        },
+                                                        {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string",
+                                                                "readOnly": true
+                                                            }
+                                                        }
+                                                    ]
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "schema:description"
+                                            ]
                                         }
                                     },
                                     {
@@ -825,8 +844,27 @@
                                                             "maxContains": 1
                                                         }
                                                     ]
+                                                },
+                                                "schema:description": {
+                                                    "description": "The acquisition passes the procedure is divided into, named and described so that fields keyed by acquisition pass can point at them. A pass is a sub-procedure: a distinct traversal of the measurement with its own configuration, run in sequence on the same material. State what distinguishes each pass — resolution mode, cup or cell configuration, plasma or introduction path, spot size — since that differs by technique. Identical repeats of one configuration are replicates, not passes, and belong in Number of Replicates.",
+                                                    "anyOf": [
+                                                        {
+                                                            "type": "string",
+                                                            "readOnly": true
+                                                        },
+                                                        {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string",
+                                                                "readOnly": true
+                                                            }
+                                                        }
+                                                    ]
                                                 }
-                                            }
+                                            },
+                                            "required": [
+                                                "schema:description"
+                                            ]
                                         }
                                     },
                                     {
@@ -1544,6 +1582,86 @@
                                             "ada:dataType",
                                             "schema:defaultValue"
                                         ]
+                                    },
+                                    {
+                                        "title": "Counting Statistics Error",
+                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                                "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    {
+                                        "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     }
                                 ]
                             },
@@ -1954,6 +2072,94 @@
                                             "schema:name",
                                             "ada:dataType",
                                             "schema:defaultValue"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Counting Statistics Error",
+                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                                "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                },
+                                {
+                                    "contains": {
+                                        "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:analyteColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
                                         ]
                                     },
                                     "minContains": 0,

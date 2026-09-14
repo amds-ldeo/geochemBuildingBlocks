@@ -187,6 +187,30 @@
       "schema:value": "N/A — no added internal standard element"
     },
     {
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfCyclesPerBlockDefault",
+      "schema:name": "Number of Cycles per Block",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 40,
+      "schema:description": "40 cycles"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "integrationTimePerCycleDefault",
+      "schema:name": "Integration Time per Cycle",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8.39,
+      "schema:description": "8.39 s for the first cup configuration and 4.19 s for the second — \"A sample measurement consisted of 40 cycles with 8.39 s integration time for the first configuration and 4.19 s for the second\" (p.8). The 4 s in the same paper is the LLNL procedure's (p.8), not this one"
+    },
+    {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -232,7 +256,8 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "schema:description": "missing"
       },
       {
         "schema:name": "Data reduction",
@@ -272,6 +297,7 @@
       },
       {
         "schema:name": "Sample digestion",
+        "schema:description": "Coordinated dissolution shared with the WUSTL split - see the WUSTL column.",
         "bios:reagent": [
           {
             "schema:name": "Coordinated dissolution shared with the WUSTL split — see the WUSTL column",
@@ -295,6 +321,78 @@
     ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)",
+  "ada:channelTemplate": {
+    "ada:defaultChannels": [
+      "⁴⁶Ti",
+      "⁴⁷Ti",
+      "⁴⁸Ti",
+      "⁴⁹Ti",
+      "⁵⁰Ti (Ti)",
+      "⁴⁴Ca",
+      "⁵¹V",
+      "⁵²Cr",
+      "⁵³Cr (interference monitors, no target species) — \"Titanium isotopes were collected in two cup configurations. First",
+      "all five Ti isotopes and 44Ca were measured enabling correction of the Ca interference on 46Ti and 48Ti. The second configuration included 49Ti",
+      "50Ti",
+      "51V",
+      "52Cr and 53Cr to correct for isobaric interferences from V and Cr on 50Ti\" (p.8). ⁴⁵Sc belongs to the LLNL procedure in the same paper",
+      "not this one"
+    ],
+    "ada:channelColumns": [
+      {
+        "schema:valueName": "channel",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [

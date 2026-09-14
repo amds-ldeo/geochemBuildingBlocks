@@ -31,11 +31,12 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -471,6 +472,19 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
+    },
+    {
+      "@id": "ada:parameter/laMcicpmsTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laMcicpmsTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "Single line scan per location (1 block of 120 cycles at 0.524 s integration)"
     }
   ],
   "ada:carrierGasFlowRateDefault": "He, 0.90 l min⁻¹ (two-volume cell)",

@@ -130,6 +130,23 @@ allOf:
                         $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_guardElectrode
                       minContains: 0
                       maxContains: 1
+                  schema:description:
+                    description: 'The acquisition passes the procedure is divided into, named and described
+                      so that fields keyed by acquisition pass can point at them. A pass is a sub-procedure:
+                      a distinct traversal of the measurement with its own configuration, run in sequence
+                      on the same material. State what distinguishes each pass — resolution mode, cup
+                      or cell configuration, plasma or introduction path, spot size — since that differs
+                      by technique. Identical repeats of one configuration are replicates, not passes,
+                      and belong in Number of Replicates.'
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
+                required:
+                - schema:description
             - if:
                 properties:
                   schema:name:
@@ -190,6 +207,91 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
         - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
+        - &id001
+          title: Collision/Reaction Gas Mixture Ratio
+          description: Where the collision or reaction cell is supplied with a mixture of gases rather
+            than a single gas, the identities and proportions of that mixture. Recorded separately from
+            the gas identity. Record 'N/A' where a single gas is used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: collisionReactionGasMixtureRatioDefault
+            schema:name:
+              const: Collision/Reaction Gas Mixture Ratio
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
+            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
+            relating the mass measured to the target species it reports, which the monitored mass alone
+            does not state. Record 'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              const: Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - title: Inter-Pass Data Dependency
+          description: Which earlier acquisition pass supplied inputs to this one, and what those inputs
+            are — for example a concentration measured in one pass and used as the internal standard for
+            a later pass on the same location. Records the dependency only; the settings of each pass
+            are carried by the fields keyed by acquisition pass, and the passes themselves are enumerated
+            by Acquisition Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+            to raster mapping, where each spatial location is visited exactly once.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/interPassDataDependency
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsTAPP/interPassDataDependency
+            schema:name:
+              const: Inter-Pass Data Dependency
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
       allOf:
       - contains:
           $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
@@ -209,6 +311,69 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
+        minContains: 0
+        maxContains: 1
+      - contains: *id001
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
+            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
+            relating the mass measured to the target species it reports, which the monitored mass alone
+            does not state. Record 'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              const: Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Inter-Pass Data Dependency
+          description: Which earlier acquisition pass supplied inputs to this one, and what those inputs
+            are — for example a concentration measured in one pass and used as the internal standard for
+            a later pass on the same location. Records the dependency only; the settings of each pass
+            are carried by the fields keyed by acquisition pass, and the passes themselves are enumerated
+            by Acquisition Pass. Leave empty for a pass that consumes no earlier output. Not applicable
+            to raster mapping, where each spatial location is visited exactly once.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/interPassDataDependency
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsTAPP/interPassDataDependency
+            schema:name:
+              const: Inter-Pass Data Dependency
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
     schema:instrument:
@@ -246,7 +411,7 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
-                  - &id001
+                  - &id002
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
                       during instrument tuning. The monitor species and the mass positions monitored should
@@ -278,7 +443,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id002
+                  - &id003
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. The acceptable threshold is typically
@@ -327,10 +492,10 @@ allOf:
                     $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
                   minContains: 0
                   maxContains: 1
-                - contains: *id001
+                - contains: *id002
                   minContains: 0
                   maxContains: 1
-                - contains: *id002
+                - contains: *id003
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -567,7 +732,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
-            - &id003
+            - &id004
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the target species
                 element they serve where they serve one. Covers atomic isotopes and, where a reaction
@@ -601,7 +766,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id004
+            - &id005
               title: Dwell Time per Mass
               description: Count (dwell) time at the mass position, in milliseconds. Where the procedure
                 defines it per sweep or per scan rather than per measurement, state that basis.
@@ -633,7 +798,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id005
+            - &id006
               title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
                 specifically any case where different target species or target species groups within one
@@ -668,7 +833,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id006
+            - &id007
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -700,7 +865,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id007
+            - &id008
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -732,7 +897,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id009
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -765,7 +930,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id010
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -799,7 +964,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id011
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -830,7 +995,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id011
+            - &id012
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -864,10 +1029,72 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
+            - &id013
+              title: Counting Statistics Error
+              description: Uncertainty predicted from counting statistics — the theoretical limit set
+                by the Poisson distribution of the counts accumulated — for each reported quantity per
+                analysis, with the sigma level stated. Derived from the counts on the target species together
+                with those on any background or blank subtracted from it. Distinct from the scatter actually
+                observed within a measurement or between repeated measurements, which is recorded separately.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laQicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id014
+              title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+              description: Precision of a single measurement, derived from the scatter of the cycles,
+                sweeps or integrations that make it up, together with the method used to assess it. State
+                the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported
+                quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty
+                predicted from the counts rather than the scatter observed; where a procedure reports
+                both, record the observed value here and the predicted value there.
+              type: object
+              properties:
+                '@id':
+                  const: ada:analyteColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
           allOf:
-          - contains: *id003
-            minContains: 0
-            maxContains: 1
           - contains: *id004
             minContains: 0
             maxContains: 1
@@ -890,6 +1117,15 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id011
+            minContains: 0
+            maxContains: 1
+          - contains: *id012
+            minContains: 0
+            maxContains: 1
+          - contains: *id013
+            minContains: 0
+            maxContains: 1
+          - contains: *id014
             minContains: 0
             maxContains: 1
     ada:signalCollectionMode:
