@@ -13628,52 +13628,6 @@
                       ]
                     },
                     {
-                      "title": "Integration Time per Cycle",
-                      "description": "Duration of signal integration per measurement cycle (seconds).",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Integration Time per Cycle"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    {
                       "title": "Double Spike Mixing Ratio",
                       "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
                       "type": "object",
@@ -13752,41 +13706,6 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
-                      ]
-                    },
-                    {
-                      "title": "Collision/Reaction Gas Mixture Ratio",
-                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Collision/Reaction Gas Mixture Ratio"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
                       ]
                     }
                   ]
@@ -13936,56 +13855,6 @@
                   },
                   {
                     "contains": {
-                      "title": "Integration Time per Cycle",
-                      "description": "Duration of signal integration per measurement cycle (seconds).",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Integration Time per Cycle"
-                        },
-                        "schema:value": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "string"
-                            }
-                          ]
-                        },
-                        "schema:unitText": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value",
-                        "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
                       "title": "Double Spike Mixing Ratio",
                       "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
                       "type": "object",
@@ -14068,45 +13937,6 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Collision/Reaction Gas Mixture Ratio",
-                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Collision/Reaction Gas Mixture Ratio"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
                       ]
                     },
                     "minContains": 0,
@@ -21093,6 +20923,31 @@
                             ]
                           },
                           {
+                            "title": "Analyte on the procedure",
+                            "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+                            "type": "object",
+                            "properties": {
+                              "ada:targetSpeciesTemplate": {
+                                "type": "object",
+                                "properties": {
+                                  "ada:defaultTargetSpecies": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
                             "title": "ICPMS on the procedure",
                             "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
                             "type": "object",
@@ -22286,47 +22141,6 @@
                                                       ]
                                                     },
                                                     {
-                                                      "title": "Faraday Cup Gain Calibration Method",
-                                                      "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "@id": {
-                                                          "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
-                                                        },
-                                                        "@type": {
-                                                          "const": [
-                                                            "schema:PropertyValueSpecification"
-                                                          ]
-                                                        },
-                                                        "schema:valueName": {
-                                                          "const": "faradayCupGainCalibrationMethod"
-                                                        },
-                                                        "schema:name": {
-                                                          "const": "Faraday Cup Gain Calibration Method"
-                                                        },
-                                                        "ada:dataType": {
-                                                          "const": "string"
-                                                        },
-                                                        "ada:fieldScope": {
-                                                          "const": "session"
-                                                        },
-                                                        "schema:readonlyValue": {
-                                                          "const": true
-                                                        },
-                                                        "ada:tier": {
-                                                          "const": "R"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "@id",
-                                                        "@type",
-                                                        "schema:valueName",
-                                                        "schema:name",
-                                                        "ada:dataType",
-                                                        "ada:fieldScope"
-                                                      ]
-                                                    },
-                                                    {
                                                       "title": "Peak Flatness Method and Threshold",
                                                       "description": "Method used to verify that every collector sits on a flat region of its peak top simultaneously, and the acceptance threshold applied before analysis begins. Typically assessed by scanning across the peak plateau, or by comparing ratios measured at slightly offset mass positions.",
                                                       "type": "object",
@@ -22529,51 +22343,6 @@
                                                         },
                                                         "schema:readonlyValue": {
                                                           "const": false
-                                                        },
-                                                        "ada:tier": {
-                                                          "const": "R"
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "@id",
-                                                        "@type",
-                                                        "schema:valueName",
-                                                        "schema:name",
-                                                        "ada:dataType",
-                                                        "ada:fieldScope"
-                                                      ]
-                                                    },
-                                                    "minContains": 0,
-                                                    "maxContains": 1
-                                                  },
-                                                  {
-                                                    "contains": {
-                                                      "title": "Faraday Cup Gain Calibration Method",
-                                                      "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
-                                                      "type": "object",
-                                                      "properties": {
-                                                        "@id": {
-                                                          "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
-                                                        },
-                                                        "@type": {
-                                                          "const": [
-                                                            "schema:PropertyValueSpecification"
-                                                          ]
-                                                        },
-                                                        "schema:valueName": {
-                                                          "const": "faradayCupGainCalibrationMethod"
-                                                        },
-                                                        "schema:name": {
-                                                          "const": "Faraday Cup Gain Calibration Method"
-                                                        },
-                                                        "ada:dataType": {
-                                                          "const": "string"
-                                                        },
-                                                        "ada:fieldScope": {
-                                                          "const": "session"
-                                                        },
-                                                        "schema:readonlyValue": {
-                                                          "const": true
                                                         },
                                                         "ada:tier": {
                                                           "const": "R"
@@ -24964,89 +24733,44 @@
                                                       "schema:additionalProperty": {
                                                         "type": "array",
                                                         "items": {
-                                                          "anyOf": [
-                                                            {
-                                                              "title": "Faraday Cup Array Configuration",
-                                                              "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block.",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValueSpecification"
-                                                                  ]
-                                                                },
-                                                                "schema:valueName": {
-                                                                  "const": "faradayCupArrayConfiguration"
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Faraday Cup Array Configuration"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "string"
-                                                                },
-                                                                "ada:fieldScope": {
-                                                                  "const": "session"
-                                                                },
-                                                                "schema:readonlyValue": {
-                                                                  "const": true
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "R"
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:valueName",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "ada:fieldScope"
+                                                          "title": "Faraday Cup Array Configuration",
+                                                          "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block.",
+                                                          "type": "object",
+                                                          "properties": {
+                                                            "@id": {
+                                                              "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
+                                                            },
+                                                            "@type": {
+                                                              "const": [
+                                                                "schema:PropertyValueSpecification"
                                                               ]
                                                             },
-                                                            {
-                                                              "title": "Faraday Cup Amplifier Resistor Values",
-                                                              "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValueSpecification"
-                                                                  ]
-                                                                },
-                                                                "schema:valueName": {
-                                                                  "const": "faradayCupAmplifierResistorValues"
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Faraday Cup Amplifier Resistor Values"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "string"
-                                                                },
-                                                                "ada:fieldScope": {
-                                                                  "const": "session"
-                                                                },
-                                                                "schema:readonlyValue": {
-                                                                  "const": true
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "R"
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:valueName",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "ada:fieldScope"
-                                                              ]
+                                                            "schema:valueName": {
+                                                              "const": "faradayCupArrayConfiguration"
+                                                            },
+                                                            "schema:name": {
+                                                              "const": "Faraday Cup Array Configuration"
+                                                            },
+                                                            "ada:dataType": {
+                                                              "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                              "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                              "const": true
+                                                            },
+                                                            "ada:tier": {
+                                                              "const": "R"
                                                             }
+                                                          },
+                                                          "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
                                                           ]
                                                         },
                                                         "allOf": [
@@ -25069,51 +24793,6 @@
                                                                 },
                                                                 "schema:name": {
                                                                   "const": "Faraday Cup Array Configuration"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "string"
-                                                                },
-                                                                "ada:fieldScope": {
-                                                                  "const": "session"
-                                                                },
-                                                                "schema:readonlyValue": {
-                                                                  "const": true
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "R"
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:valueName",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "ada:fieldScope"
-                                                              ]
-                                                            },
-                                                            "minContains": 0,
-                                                            "maxContains": 1
-                                                          },
-                                                          {
-                                                            "contains": {
-                                                              "title": "Faraday Cup Amplifier Resistor Values",
-                                                              "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValueSpecification"
-                                                                  ]
-                                                                },
-                                                                "schema:valueName": {
-                                                                  "const": "faradayCupAmplifierResistorValues"
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Faraday Cup Amplifier Resistor Values"
                                                                 },
                                                                 "ada:dataType": {
                                                                   "const": "string"
@@ -25490,50 +25169,6 @@
                                       ]
                                     },
                                     {
-                                      "title": "Integration Time per Cycle",
-                                      "description": "Duration of signal integration per measurement cycle (seconds).",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "integrationTimePerCycleDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Integration Time per Cycle"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "number"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        },
-                                        "schema:unitText": {
-                                          "const": "s"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    {
                                       "title": "Baseline Measurement Approach",
                                       "description": "Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from. Three approaches are in use: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank; or collecting a defined number of laser-off cycles at the start of the same block. State which, and how many cycles or how long.",
                                       "type": "object",
@@ -25783,83 +25418,6 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
-                                    },
-                                    {
-                                      "title": "Collision/Reaction Gas Mixture Ratio",
-                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Collision/Reaction Gas Mixture Ratio"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    {
-                                      "title": "Reaction Product Ion / Mass-Shift Transition",
-                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Reaction Product Ion / Mass-Shift Transition"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ],
-                                      "readOnly": true
                                     }
                                   ]
                                 },
@@ -26094,54 +25652,6 @@
                                   },
                                   {
                                     "contains": {
-                                      "title": "Integration Time per Cycle",
-                                      "description": "Duration of signal integration per measurement cycle (seconds).",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "integrationTimePerCycleDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Integration Time per Cycle"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "number"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        },
-                                        "schema:unitText": {
-                                          "const": "s"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
                                       "title": "Baseline Measurement Approach",
                                       "description": "Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from. Three approaches are in use: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank; or collecting a defined number of laser-off cycles at the start of the same block. State which, and how many cycles or how long.",
                                       "type": "object",
@@ -26411,91 +25921,6 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Collision/Reaction Gas Mixture Ratio",
-                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Collision/Reaction Gas Mixture Ratio"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Reaction Product Ion / Mass-Shift Transition",
-                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Reaction Product Ion / Mass-Shift Transition"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ],
-                                      "readOnly": true
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -27068,17 +26493,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -27119,17 +26534,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -27170,15 +26575,135 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Faraday Cup Amplifier Resistor Values",
+                                          "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupAmplifierResistorValues"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "faradayCupAmplifierResistorValues"
+                                            },
+                                            "schema:name": {
+                                              "const": "Faraday Cup Amplifier Resistor Values"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Faraday Cup Gain Calibration Method",
+                                          "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupGainCalibrationMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "faradayCupGainCalibrationMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Faraday Cup Gain Calibration Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Integration Time per Cycle",
+                                          "description": "Duration of signal integration per measurement cycle (seconds).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/integrationTimePerCycle"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "integrationTimePerCycle"
+                                            },
+                                            "schema:name": {
+                                              "const": "Integration Time per Cycle"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "type": "string"
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -27221,17 +26746,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -27241,6 +26756,86 @@
                                             "schema:name",
                                             "ada:dataType",
                                             "schema:defaultValue"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Collision/Reaction Gas Mixture Ratio",
+                                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "collisionReactionGasMixtureRatio"
+                                            },
+                                            "schema:name": {
+                                              "const": "Collision/Reaction Gas Mixture Ratio"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Reaction Product Ion / Mass-Shift Transition",
+                                          "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "reactionProductIonMassShiftTransition"
+                                            },
+                                            "schema:name": {
+                                              "const": "Reaction Product Ion / Mass-Shift Transition"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
                                           ]
                                         }
                                       ]
@@ -27276,17 +26871,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -27331,17 +26916,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -27386,15 +26961,147 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Faraday Cup Amplifier Resistor Values",
+                                          "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupAmplifierResistorValues"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "faradayCupAmplifierResistorValues"
+                                            },
+                                            "schema:name": {
+                                              "const": "Faraday Cup Amplifier Resistor Values"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Faraday Cup Gain Calibration Method",
+                                          "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupGainCalibrationMethod"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "faradayCupGainCalibrationMethod"
+                                            },
+                                            "schema:name": {
+                                              "const": "Faraday Cup Gain Calibration Method"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Integration Time per Cycle",
+                                          "description": "Duration of signal integration per measurement cycle (seconds).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/integrationTimePerCycle"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "integrationTimePerCycle"
+                                            },
+                                            "schema:name": {
+                                              "const": "Integration Time per Cycle"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "type": "string"
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -27441,17 +27148,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -27461,6 +27158,94 @@
                                             "schema:name",
                                             "ada:dataType",
                                             "schema:defaultValue"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Collision/Reaction Gas Mixture Ratio",
+                                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "collisionReactionGasMixtureRatio"
+                                            },
+                                            "schema:name": {
+                                              "const": "Collision/Reaction Gas Mixture Ratio"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Reaction Product Ion / Mass-Shift Transition",
+                                          "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "reactionProductIonMassShiftTransition"
+                                            },
+                                            "schema:name": {
+                                              "const": "Reaction Product Ion / Mass-Shift Transition"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
                                           ]
                                         },
                                         "minContains": 0,

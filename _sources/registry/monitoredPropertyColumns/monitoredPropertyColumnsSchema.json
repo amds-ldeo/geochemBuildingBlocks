@@ -35,27 +35,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -98,17 +81,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -148,17 +121,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -201,27 +164,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -266,27 +212,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -329,17 +258,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -381,27 +300,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -443,17 +345,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -493,17 +385,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -513,6 +395,126 @@
                 "schema:name",
                 "ada:dataType",
                 "schema:defaultValue"
+            ]
+        },
+        "laMcicpmsUPb_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "collisionReactionGasMixtureRatio"
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "laMcicpmsUPb_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reactionProductIonMassShiftTransition"
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "laMcicpms_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "collisionReactionGasMixtureRatio"
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
             ]
         },
         "laMcicpms_faradayCupAmplifierResistorValues": {
@@ -544,17 +546,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -595,17 +587,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -648,27 +630,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -711,17 +676,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -762,17 +717,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -816,27 +761,10 @@
                 "schema:value": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -879,17 +807,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -899,6 +817,206 @@
                 "schema:name",
                 "ada:dataType",
                 "schema:defaultValue"
+            ]
+        },
+        "laMcicpms_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reactionProductIonMassShiftTransition"
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "laQicpmsUPb_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laQicpmsUPbTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "collisionReactionGasMixtureRatio"
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "laQicpmsUPb_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reactionProductIonMassShiftTransition"
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "laQicpms_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "collisionReactionGasMixtureRatio"
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "laQicpms_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reactionProductIonMassShiftTransition"
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
             ]
         },
         "semComposition_backgroundCountingTime": {
@@ -932,27 +1050,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -995,17 +1096,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1045,17 +1136,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1098,27 +1179,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1163,27 +1227,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1226,17 +1273,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1278,27 +1315,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1340,17 +1360,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1390,17 +1400,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1443,27 +1443,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1506,17 +1489,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1556,17 +1529,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1609,27 +1572,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1674,27 +1620,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1737,17 +1666,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1789,27 +1708,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1851,17 +1753,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1901,15 +1793,175 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionMcicpms_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "collisionReactionGasMixtureRatio"
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
+        "solutionMcicpms_faradayCupAmplifierResistorValues": {
+            "title": "Faraday Cup Amplifier Resistor Values",
+            "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupAmplifierResistorValues"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupAmplifierResistorValues"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Amplifier Resistor Values"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionMcicpms_faradayCupGainCalibrationMethod": {
+            "title": "Faraday Cup Gain Calibration Method",
+            "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupGainCalibrationMethod"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "faradayCupGainCalibrationMethod"
+                },
+                "schema:name": {
+                    "const": "Faraday Cup Gain Calibration Method"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType",
+                "schema:defaultValue"
+            ]
+        },
+        "solutionMcicpms_integrationTimePerCycle": {
+            "title": "Integration Time per Cycle",
+            "description": "Duration of signal integration per measurement cycle (seconds).",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/integrationTimePerCycle"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "integrationTimePerCycle"
+                },
+                "schema:name": {
+                    "const": "Integration Time per Cycle"
+                },
+                "ada:dataType": {
+                    "const": "number"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "M"
+                },
+                "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "type": "string"
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -1952,17 +2004,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2003,17 +2045,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2105,17 +2137,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2125,6 +2147,46 @@
                 "schema:name",
                 "ada:dataType",
                 "schema:defaultValue"
+            ]
+        },
+        "solutionMcicpms_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reactionProductIonMassShiftTransition"
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
             ]
         },
         "solutionMcicpms_spectralInterferenceCorrectionsApplied": {
@@ -2156,17 +2218,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2176,6 +2228,46 @@
                 "schema:name",
                 "ada:dataType",
                 "schema:defaultValue"
+            ]
+        },
+        "solutionQicpms_collisionReactionGasMixtureRatio": {
+            "title": "Collision/Reaction Gas Mixture Ratio",
+            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/collisionReactionGasMixtureRatio"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "collisionReactionGasMixtureRatio"
+                },
+                "schema:name": {
+                    "const": "Collision/Reaction Gas Mixture Ratio"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": false
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
             ]
         },
         "solutionQicpms_dwellTimePerMass": {
@@ -2209,27 +2301,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }
@@ -2272,17 +2347,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2323,17 +2388,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2396,6 +2451,46 @@
                 "schema:defaultValue"
             ]
         },
+        "solutionQicpms_reactionProductIonMassShiftTransition": {
+            "title": "Reaction Product Ion / Mass-Shift Transition",
+            "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+            "type": "object",
+            "properties": {
+                "@id": {
+                    "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+                },
+                "@type": {
+                    "const": [
+                        "schema:PropertyValueSpecification"
+                    ]
+                },
+                "schema:valueName": {
+                    "const": "reactionProductIonMassShiftTransition"
+                },
+                "schema:name": {
+                    "const": "Reaction Product Ion / Mass-Shift Transition"
+                },
+                "ada:dataType": {
+                    "const": "string"
+                },
+                "schema:readonlyValue": {
+                    "const": true
+                },
+                "ada:tier": {
+                    "const": "R"
+                },
+                "schema:defaultValue": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "@id",
+                "@type",
+                "schema:valueName",
+                "schema:name",
+                "ada:dataType"
+            ]
+        },
         "solutionQicpms_spectralInterferenceCorrectionsApplied": {
             "title": "Spectral Interference Corrections Applied",
             "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
@@ -2425,17 +2520,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2476,17 +2561,7 @@
                     "const": "M"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2527,17 +2602,7 @@
                     "const": "R"
                 },
                 "schema:defaultValue": {
-                    "anyOf": [
-                        {
-                            "type": "string"
-                        },
-                        {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -2579,27 +2644,10 @@
                 "schema:defaultValue": {
                     "anyOf": [
                         {
-                            "anyOf": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "string"
-                                }
-                            ]
+                            "type": "number"
                         },
                         {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "type": "number"
-                                    },
-                                    {
-                                        "type": "string"
-                                    }
-                                ]
-                            }
+                            "type": "string"
                         }
                     ]
                 }

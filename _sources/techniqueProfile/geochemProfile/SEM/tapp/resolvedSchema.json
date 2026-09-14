@@ -3150,6 +3150,31 @@
       }
     },
     {
+      "title": "Analyte on the procedure",
+      "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+      "type": "object",
+      "properties": {
+        "ada:targetSpeciesTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultTargetSpecies": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
       "title": "CompositionQC on the procedure",
       "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
@@ -5667,27 +5692,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -5730,17 +5738,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -5780,17 +5778,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -5833,27 +5821,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -5898,27 +5869,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -5961,17 +5915,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6013,27 +5957,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -6075,17 +6002,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6125,17 +6042,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6182,27 +6089,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -6249,17 +6139,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6303,17 +6183,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6360,27 +6230,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -6429,27 +6282,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -6496,17 +6332,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6552,27 +6378,10 @@
                       "schema:defaultValue": {
                         "anyOf": [
                           {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
+                            "type": "number"
                           },
                           {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
+                            "type": "string"
                           }
                         ]
                       }
@@ -6618,17 +6427,7 @@
                         "const": "R"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -6672,17 +6471,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [

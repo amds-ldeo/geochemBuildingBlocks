@@ -19134,6 +19134,31 @@
                             }
                           },
                           {
+                            "title": "Analyte on the procedure",
+                            "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+                            "type": "object",
+                            "properties": {
+                              "ada:targetSpeciesTemplate": {
+                                "type": "object",
+                                "properties": {
+                                  "ada:defaultTargetSpecies": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
                             "title": "CompositionQC on the procedure",
                             "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
                             "type": "object",
@@ -19822,44 +19847,7 @@
                                           ]
                                         },
                                         {
-                                          "title": "Blank Correction",
-                                          "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/blankCorrection"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "blankCorrection"
-                                            },
-                                            "schema:name": {
-                                              "const": "Blank Correction"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_blankCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         {
                                           "title": "Counting Statistics Error",
@@ -19943,44 +19931,7 @@
                                           ]
                                         },
                                         {
-                                          "title": "Interference Correction Standard",
-                                          "description": "Reference material used to quantify and calibrate the interference correction.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "interferenceCorrectionStandard"
-                                            },
-                                            "schema:name": {
-                                              "const": "Interference Correction Standard"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_interferenceCorrectionStandard in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         {
                                           "title": "X-ray Line Overlap Corrections Applied",
@@ -20024,84 +19975,10 @@
                                           ]
                                         },
                                         {
-                                          "title": "Interfering Elements",
-                                          "description": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferingElements"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "interferingElements"
-                                            },
-                                            "schema:name": {
-                                              "const": "Interfering Elements"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_interferingElements in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         {
-                                          "title": "Time-Dependent Intensity Correction",
-                                          "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "timeDependentIntensityCorrection"
-                                            },
-                                            "schema:name": {
-                                              "const": "Time-Dependent Intensity Correction"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_timeDependentIntensityCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         }
                                       ]
                                     },
@@ -20337,44 +20214,7 @@
                                       },
                                       {
                                         "contains": {
-                                          "title": "Blank Correction",
-                                          "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/blankCorrection"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "blankCorrection"
-                                            },
-                                            "schema:name": {
-                                              "const": "Blank Correction"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_blankCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -20470,44 +20310,7 @@
                                       },
                                       {
                                         "contains": {
-                                          "title": "Interference Correction Standard",
-                                          "description": "Reference material used to quantify and calibrate the interference correction.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "interferenceCorrectionStandard"
-                                            },
-                                            "schema:name": {
-                                              "const": "Interference Correction Standard"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_interferenceCorrectionStandard in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -20559,88 +20362,14 @@
                                       },
                                       {
                                         "contains": {
-                                          "title": "Interfering Elements",
-                                          "description": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferingElements"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "interferingElements"
-                                            },
-                                            "schema:name": {
-                                              "const": "Interfering Elements"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_interferingElements in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
                                       },
                                       {
                                         "contains": {
-                                          "title": "Time-Dependent Intensity Correction",
-                                          "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "timeDependentIntensityCorrection"
-                                            },
-                                            "schema:name": {
-                                              "const": "Time-Dependent Intensity Correction"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
+                                          "$comment": "could not resolve fragment /$defs/empa_timeDependentIntensityCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -20690,27 +20419,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -20753,17 +20465,7 @@
                                               "const": "R"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -20803,17 +20505,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -20856,27 +20548,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -20921,27 +20596,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -20984,17 +20642,7 @@
                                               "const": "R"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21036,27 +20684,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -21098,17 +20729,7 @@
                                               "const": "R"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21148,17 +20769,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21205,27 +20816,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -21272,17 +20866,7 @@
                                               "const": "R"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21326,17 +20910,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21383,27 +20957,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -21452,27 +21009,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -21519,17 +21059,7 @@
                                               "const": "R"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21575,27 +21105,10 @@
                                             "schema:defaultValue": {
                                               "anyOf": [
                                                 {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
+                                                  "type": "number"
                                                 },
                                                 {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "anyOf": [
-                                                      {
-                                                        "type": "number"
-                                                      },
-                                                      {
-                                                        "type": "string"
-                                                      }
-                                                    ]
-                                                  }
+                                                  "type": "string"
                                                 }
                                               ]
                                             }
@@ -21641,17 +21154,7 @@
                                               "const": "R"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [
@@ -21695,17 +21198,7 @@
                                               "const": "M"
                                             },
                                             "schema:defaultValue": {
-                                              "anyOf": [
-                                                {
-                                                  "type": "string"
-                                                },
-                                                {
-                                                  "type": "array",
-                                                  "items": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              ]
+                                              "type": "string"
                                             }
                                           },
                                           "required": [

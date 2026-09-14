@@ -31,12 +31,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id001
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id001
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -66,11 +62,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id002
-          type: string
-        - type: array
-          items: *id002
+        type: string
     required:
     - '@id'
     - '@type'
@@ -98,11 +90,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id003
-          type: string
-        - type: array
-          items: *id003
+        type: string
     required:
     - '@id'
     - '@type'
@@ -134,12 +122,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id004
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id004
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -170,12 +154,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id005
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id005
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -204,11 +184,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id006
-          type: string
-        - type: array
-          items: *id006
+        type: string
     required:
     - '@id'
     - '@type'
@@ -241,12 +217,8 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id007
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id007
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -276,11 +248,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id008
-          type: string
-        - type: array
-          items: *id008
+        type: string
     required:
     - '@id'
     - '@type'
@@ -308,11 +276,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id009
-          type: string
-        - type: array
-          items: *id009
+        type: string
     required:
     - '@id'
     - '@type'
@@ -320,6 +284,97 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laMcicpmsUPb_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
+      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
+      Record 'N/A' where a single gas is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpmsUPb_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
+      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
+      the mass measured to the target species it reports, which the monitored mass alone does not state.
+      Record 'N/A' where the target species is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laMcicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
+      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
+      Record 'N/A' where a single gas is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   laMcicpms_faradayCupAmplifierResistorValues:
     title: Faraday Cup Amplifier Resistor Values
     description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard
@@ -343,11 +398,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id010
-          type: string
-        - type: array
-          items: *id010
+        type: string
     required:
     - '@id'
     - '@type'
@@ -381,11 +432,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id011
-          type: string
-        - type: array
-          items: *id011
+        type: string
     required:
     - '@id'
     - '@type'
@@ -415,12 +462,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id012
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id012
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -452,11 +495,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id013
-          type: string
-        - type: array
-          items: *id013
+        type: string
     required:
     - '@id'
     - '@type'
@@ -487,11 +526,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id014
-          type: string
-        - type: array
-          items: *id014
+        type: string
     required:
     - '@id'
     - '@type'
@@ -522,12 +557,8 @@ $defs:
         const: M
       schema:value:
         anyOf:
-        - &id015
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id015
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -558,11 +589,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id016
-          type: string
-        - type: array
-          items: *id016
+        type: string
     required:
     - '@id'
     - '@type'
@@ -570,6 +597,159 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laMcicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
+      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
+      the mass measured to the target species it reports, which the monitored mass alone does not state.
+      Record 'N/A' where the target species is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
+      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
+      Record 'N/A' where a single gas is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laQicpmsUPbTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpmsUPb_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
+      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
+      the mass measured to the target species it reports, which the monitored mass alone does not state.
+      Record 'N/A' where the target species is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
+      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
+      Record 'N/A' where a single gas is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laQicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  laQicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
+      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
+      the mass measured to the target species it reports, which the monitored mass alone does not state.
+      Record 'N/A' where the target species is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laQicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   semComposition_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds, summed across
@@ -593,12 +773,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id017
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id017
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -628,11 +804,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id018
-          type: string
-        - type: array
-          items: *id018
+        type: string
     required:
     - '@id'
     - '@type'
@@ -660,11 +832,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id019
-          type: string
-        - type: array
-          items: *id019
+        type: string
     required:
     - '@id'
     - '@type'
@@ -696,12 +864,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id020
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id020
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -732,12 +896,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id021
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id021
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -766,11 +926,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id022
-          type: string
-        - type: array
-          items: *id022
+        type: string
     required:
     - '@id'
     - '@type'
@@ -803,12 +959,8 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id023
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id023
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -838,11 +990,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id024
-          type: string
-        - type: array
-          items: *id024
+        type: string
     required:
     - '@id'
     - '@type'
@@ -870,11 +1018,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id025
-          type: string
-        - type: array
-          items: *id025
+        type: string
     required:
     - '@id'
     - '@type'
@@ -905,12 +1049,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id026
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id026
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -940,11 +1080,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id027
-          type: string
-        - type: array
-          items: *id027
+        type: string
     required:
     - '@id'
     - '@type'
@@ -972,11 +1108,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id028
-          type: string
-        - type: array
-          items: *id028
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1008,12 +1140,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id029
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id029
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1044,12 +1172,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id030
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id030
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1078,11 +1202,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id031
-          type: string
-        - type: array
-          items: *id031
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1115,12 +1235,8 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id032
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id032
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1150,11 +1266,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id033
-          type: string
-        - type: array
-          items: *id033
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1182,11 +1294,133 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
+      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
+      Record 'N/A' where a single gas is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  solutionMcicpms_faradayCupAmplifierResistorValues:
+    title: Faraday Cup Amplifier Resistor Values
+    description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard
+      amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the
+      resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupAmplifierResistorValues
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: faradayCupAmplifierResistorValues
+      schema:name:
+        const: Faraday Cup Amplifier Resistor Values
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_faradayCupGainCalibrationMethod:
+    title: Faraday Cup Gain Calibration Method
+    description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup
+      amplifier at the start of or during each analytical session. Common approaches: instrument internal
+      gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier
+      rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments
+      with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency
+      (per session, per block, weekly).'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupGainCalibrationMethod
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: faradayCupGainCalibrationMethod
+      schema:name:
+        const: Faraday Cup Gain Calibration Method
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
+  solutionMcicpms_integrationTimePerCycle:
+    title: Integration Time per Cycle
+    description: Duration of signal integration per measurement cycle (seconds).
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/integrationTimePerCycle
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: integrationTimePerCycle
+      schema:name:
+        const: Integration Time per Cycle
+      ada:dataType:
+        const: number
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: M
+      schema:defaultValue:
         anyOf:
-        - &id034
-          type: string
-        - type: array
-          items: *id034
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1218,11 +1452,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id035
-          type: string
-        - type: array
-          items: *id035
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1253,11 +1483,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id036
-          type: string
-        - type: array
-          items: *id036
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1291,10 +1517,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id037
+        - &id001
           type: string
         - type: array
-          items: *id037
+          items: *id001
     required:
     - '@id'
     - '@type'
@@ -1325,11 +1551,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id038
-          type: string
-        - type: array
-          items: *id038
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1337,6 +1559,37 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionMcicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
+      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
+      the mass measured to the target species it reports, which the monitored mass alone does not state.
+      Record 'N/A' where the target species is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   solutionMcicpms_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are
@@ -1361,11 +1614,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id039
-          type: string
-        - type: array
-          items: *id039
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1373,6 +1622,36 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionQicpms_collisionReactionGasMixtureRatio:
+    title: Collision/Reaction Gas Mixture Ratio
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
+      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
+      Record 'N/A' where a single gas is used.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/collisionReactionGasMixtureRatio
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collisionReactionGasMixtureRatio
+      schema:name:
+        const: Collision/Reaction Gas Mixture Ratio
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
     description: Count (dwell) time at the mass position, in milliseconds. Where the procedure defines
@@ -1396,12 +1675,8 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id040
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id040
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1433,11 +1708,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id041
-          type: string
-        - type: array
-          items: *id041
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1468,11 +1739,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id042
-          type: string
-        - type: array
-          items: *id042
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1503,10 +1770,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id043
+        - &id002
           type: string
         - type: array
-          items: *id043
+          items: *id002
     required:
     - '@id'
     - '@type'
@@ -1514,6 +1781,37 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionQicpms_reactionProductIonMassShiftTransition:
+    title: Reaction Product Ion / Mass-Shift Transition
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
+      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
+      the mass measured to the target species it reports, which the monitored mass alone does not state.
+      Record 'N/A' where the target species is measured on its own mass.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/reactionProductIonMassShiftTransition
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: reactionProductIonMassShiftTransition
+      schema:name:
+        const: Reaction Product Ion / Mass-Shift Transition
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
   solutionQicpms_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
     description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are
@@ -1538,11 +1836,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id044
-          type: string
-        - type: array
-          items: *id044
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1573,11 +1867,7 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        anyOf:
-        - &id045
-          type: string
-        - type: array
-          items: *id045
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1607,11 +1897,7 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        anyOf:
-        - &id046
-          type: string
-        - type: array
-          items: *id046
+        type: string
     required:
     - '@id'
     - '@type'
@@ -1641,12 +1927,8 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id047
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id047
+        - type: number
+        - type: string
     required:
     - '@id'
     - '@type'
@@ -1677,10 +1959,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id048
+        - &id003
           type: string
         - type: array
-          items: *id048
+          items: *id003
     required:
     - '@id'
     - '@type'

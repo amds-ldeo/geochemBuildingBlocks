@@ -183,7 +183,7 @@
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
@@ -214,35 +214,27 @@
         "schema:name": "Interference Correction Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/collisionReactionGasMixtureRatio",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "collisionReactionGasMixtureRatio",
+        "schema:name": "Collision/Reaction Gas Mixture Ratio",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/reactionProductIonMassShiftTransition",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "reactionProductIonMassShiftTransition",
+        "schema:name": "Reaction Product Ion / Mass-Shift Transition",
+        "ada:dataType": "string"
       }
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatioDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "collisionReactionGasMixtureRatioDefault",
-      "schema:name": "Collision/Reaction Gas Mixture Ratio",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "He:H2 mixture at 92% : 8%, used to minimise 40Ar37Cl interferences"
-    },
-    {
-      "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
-        }
-      ],
-      "schema:name": "Reaction Product Ion / Mass-Shift Transition",
-      "schema:value": "N/A — on-mass measurement in CCT mode"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [

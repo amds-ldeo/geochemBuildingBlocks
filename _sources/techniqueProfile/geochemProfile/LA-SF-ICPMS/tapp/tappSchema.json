@@ -19,6 +19,9 @@
             "$ref": "../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification"
         },
         {
+            "$ref": "../../../../BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification"
+        },
+        {
             "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification"
         },
         {
@@ -1253,1044 +1256,124 @@
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn"
                                     },
                                     {
-                                        "title": "Monitored Masses",
-                                        "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "monitoredMasses"
-                                            },
-                                            "schema:name": {
-                                                "const": "Monitored Masses"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_monitoredMasses"
                                     },
                                     {
-                                        "title": "Mass Resolution Assignment",
-                                        "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "massResolutionAssignment"
-                                            },
-                                            "schema:name": {
-                                                "const": "Mass Resolution Assignment"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_massResolutionAssignment"
                                     },
                                     {
-                                        "title": "Dwell Time per Mass",
-                                        "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "dwellTimePerMass"
-                                            },
-                                            "schema:name": {
-                                                "const": "Dwell Time per Mass"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_dwellTimePerMass"
                                     },
                                     {
-                                        "title": "Calibration Strategy per Target Species",
-                                        "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "calibrationStrategyPerTargetSpecies"
-                                            },
-                                            "schema:name": {
-                                                "const": "Calibration Strategy per Target Species"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_calibrationStrategyPerTargetSpecies"
                                     },
                                     {
-                                        "title": "Spectral Interference Corrections Applied",
-                                        "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "spectralInterferenceCorrectionsApplied"
-                                            },
-                                            "schema:name": {
-                                                "const": "Spectral Interference Corrections Applied"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_spectralInterferenceCorrectionsApplied"
                                     },
                                     {
-                                        "title": "Interfering Species",
-                                        "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "interferingSpecies"
-                                            },
-                                            "schema:name": {
-                                                "const": "Interfering Species"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_interferingSpecies"
                                     },
                                     {
-                                        "title": "Interference Correction Method",
-                                        "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "interferenceCorrectionMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Interference Correction Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_interferenceCorrectionMethod"
                                     },
                                     {
-                                        "title": "Within-Session Analytical Precision and Assessment Method",
-                                        "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Within-Session Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod"
                                     },
                                     {
-                                        "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                        "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                                     },
                                     {
-                                        "title": "Analytical Accuracy and Assessment Method",
-                                        "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_analyticalAccuracyAndAssessmentMethod"
                                     },
                                     {
-                                        "title": "Counting Statistics Error",
-                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "countingStatisticsError"
-                                            },
-                                            "schema:name": {
-                                                "const": "Counting Statistics Error"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_countingStatisticsError"
                                     },
                                     {
-                                        "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "internalAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_internalAnalyticalPrecisionAndAssessmentMethod"
                                     }
                                 ]
                             },
                             "allOf": [
                                 {
                                     "contains": {
-                                        "title": "Monitored Masses",
-                                        "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "monitoredMasses"
-                                            },
-                                            "schema:name": {
-                                                "const": "Monitored Masses"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_monitoredMasses"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Mass Resolution Assignment",
-                                        "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "massResolutionAssignment"
-                                            },
-                                            "schema:name": {
-                                                "const": "Mass Resolution Assignment"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_massResolutionAssignment"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Dwell Time per Mass",
-                                        "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "dwellTimePerMass"
-                                            },
-                                            "schema:name": {
-                                                "const": "Dwell Time per Mass"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "number"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "anyOf": [
-                                                    {
-                                                        "type": "number"
-                                                    },
-                                                    {
-                                                        "type": "string"
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_dwellTimePerMass"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Calibration Strategy per Target Species",
-                                        "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "calibrationStrategyPerTargetSpecies"
-                                            },
-                                            "schema:name": {
-                                                "const": "Calibration Strategy per Target Species"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_calibrationStrategyPerTargetSpecies"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Spectral Interference Corrections Applied",
-                                        "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "spectralInterferenceCorrectionsApplied"
-                                            },
-                                            "schema:name": {
-                                                "const": "Spectral Interference Corrections Applied"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_spectralInterferenceCorrectionsApplied"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Interfering Species",
-                                        "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "interferingSpecies"
-                                            },
-                                            "schema:name": {
-                                                "const": "Interfering Species"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_interferingSpecies"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Interference Correction Method",
-                                        "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "interferenceCorrectionMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Interference Correction Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": true
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_interferenceCorrectionMethod"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Within-Session Analytical Precision and Assessment Method",
-                                        "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Within-Session Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_withinSessionAnalyticalPrecisionAndAssessmentMethod"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                                        "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Analytical Accuracy and Assessment Method",
-                                        "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "analyticalAccuracyAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Analytical Accuracy and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_analyticalAccuracyAndAssessmentMethod"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Counting Statistics Error",
-                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "countingStatisticsError"
-                                            },
-                                            "schema:name": {
-                                                "const": "Counting Statistics Error"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_countingStatisticsError"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
-                                        "type": "object",
-                                        "properties": {
-                                            "@id": {
-                                                "const": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "@type": {
-                                                "const": [
-                                                    "schema:PropertyValueSpecification"
-                                                ]
-                                            },
-                                            "schema:valueName": {
-                                                "const": "internalAnalyticalPrecisionAndAssessmentMethod"
-                                            },
-                                            "schema:name": {
-                                                "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
-                                            },
-                                            "ada:dataType": {
-                                                "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                                "const": false
-                                            },
-                                            "ada:tier": {
-                                                "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                        ]
+                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/laSficpms_internalAnalyticalPrecisionAndAssessmentMethod"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1

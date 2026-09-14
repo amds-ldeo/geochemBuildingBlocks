@@ -190,41 +190,6 @@
                                         },
                                         {
                                             "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize"
-                                        },
-                                        {
-                                            "title": "Collision/Reaction Gas Mixture Ratio",
-                                            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                            "type": "object",
-                                            "properties": {
-                                                "@id": {
-                                                    "const": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                                                },
-                                                "@type": {
-                                                    "const": [
-                                                        "schema:PropertyValue"
-                                                    ]
-                                                },
-                                                "schema:propertyID": {
-                                                    "const": [
-                                                        {
-                                                            "@id": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:name": {
-                                                    "const": "Collision/Reaction Gas Mixture Ratio"
-                                                },
-                                                "schema:value": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "schema:value"
-                                            ]
                                         }
                                     ]
                                 },
@@ -369,45 +334,6 @@
                                     {
                                         "contains": {
                                             "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize"
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                    },
-                                    {
-                                        "contains": {
-                                            "title": "Collision/Reaction Gas Mixture Ratio",
-                                            "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                            "type": "object",
-                                            "properties": {
-                                                "@id": {
-                                                    "const": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                                                },
-                                                "@type": {
-                                                    "const": [
-                                                        "schema:PropertyValue"
-                                                    ]
-                                                },
-                                                "schema:propertyID": {
-                                                    "const": [
-                                                        {
-                                                            "@id": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                                                        }
-                                                    ]
-                                                },
-                                                "schema:name": {
-                                                    "const": "Collision/Reaction Gas Mixture Ratio"
-                                                },
-                                                "schema:value": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "required": [
-                                                "@id",
-                                                "@type",
-                                                "schema:propertyID",
-                                                "schema:name",
-                                                "schema:value"
-                                            ]
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -595,276 +521,24 @@
                                                                                                                 "items": {
                                                                                                                     "anyOf": [
                                                                                                                         {
-                                                                                                                            "title": "Integration Time per Cycle",
-                                                                                                                            "description": "Duration of signal integration per measurement cycle (seconds).",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Integration Time per Cycle"
-                                                                                                                                },
-                                                                                                                                "ada:dataType": {
-                                                                                                                                    "const": "number"
-                                                                                                                                },
-                                                                                                                                "ada:tier": {
-                                                                                                                                    "const": "M"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "anyOf": [
-                                                                                                                                                {
-                                                                                                                                                    "type": "number"
-                                                                                                                                                },
-                                                                                                                                                {
-                                                                                                                                                    "type": "string"
-                                                                                                                                                }
-                                                                                                                                            ]
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "array",
-                                                                                                                                            "items": {
-                                                                                                                                                "anyOf": [
-                                                                                                                                                    {
-                                                                                                                                                        "type": "number"
-                                                                                                                                                    },
-                                                                                                                                                    {
-                                                                                                                                                        "type": "string"
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "ada:dataType",
-                                                                                                                                "schema:value"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_integrationTimePerCycleAnalysisValue"
                                                                                                                         },
                                                                                                                         {
-                                                                                                                            "title": "Ion Counter Dead Time",
-                                                                                                                            "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Ion Counter Dead Time"
-                                                                                                                                },
-                                                                                                                                "ada:dataType": {
-                                                                                                                                    "const": "number"
-                                                                                                                                },
-                                                                                                                                "ada:tier": {
-                                                                                                                                    "const": "M"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "anyOf": [
-                                                                                                                                                {
-                                                                                                                                                    "type": "number"
-                                                                                                                                                },
-                                                                                                                                                {
-                                                                                                                                                    "type": "string"
-                                                                                                                                                }
-                                                                                                                                            ]
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "array",
-                                                                                                                                            "items": {
-                                                                                                                                                "anyOf": [
-                                                                                                                                                    {
-                                                                                                                                                        "type": "number"
-                                                                                                                                                    },
-                                                                                                                                                    {
-                                                                                                                                                        "type": "string"
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "ada:dataType",
-                                                                                                                                "schema:value"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_ionCounterDeadTimeAnalysisValue"
                                                                                                                         }
                                                                                                                     ]
                                                                                                                 },
                                                                                                                 "allOf": [
                                                                                                                     {
                                                                                                                         "contains": {
-                                                                                                                            "title": "Integration Time per Cycle",
-                                                                                                                            "description": "Duration of signal integration per measurement cycle (seconds).",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Integration Time per Cycle"
-                                                                                                                                },
-                                                                                                                                "ada:dataType": {
-                                                                                                                                    "const": "number"
-                                                                                                                                },
-                                                                                                                                "ada:tier": {
-                                                                                                                                    "const": "M"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "anyOf": [
-                                                                                                                                                {
-                                                                                                                                                    "type": "number"
-                                                                                                                                                },
-                                                                                                                                                {
-                                                                                                                                                    "type": "string"
-                                                                                                                                                }
-                                                                                                                                            ]
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "array",
-                                                                                                                                            "items": {
-                                                                                                                                                "anyOf": [
-                                                                                                                                                    {
-                                                                                                                                                        "type": "number"
-                                                                                                                                                    },
-                                                                                                                                                    {
-                                                                                                                                                        "type": "string"
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "ada:dataType",
-                                                                                                                                "schema:value"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_integrationTimePerCycleAnalysisValue"
                                                                                                                         },
                                                                                                                         "minContains": 0,
                                                                                                                         "maxContains": 1
                                                                                                                     },
                                                                                                                     {
                                                                                                                         "contains": {
-                                                                                                                            "title": "Ion Counter Dead Time",
-                                                                                                                            "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                                                                                                            "type": "object",
-                                                                                                                            "properties": {
-                                                                                                                                "@id": {
-                                                                                                                                    "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                                                                                },
-                                                                                                                                "@type": {
-                                                                                                                                    "const": [
-                                                                                                                                        "schema:PropertyValue"
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:propertyID": {
-                                                                                                                                    "const": [
-                                                                                                                                        {
-                                                                                                                                            "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                },
-                                                                                                                                "schema:name": {
-                                                                                                                                    "const": "Ion Counter Dead Time"
-                                                                                                                                },
-                                                                                                                                "ada:dataType": {
-                                                                                                                                    "const": "number"
-                                                                                                                                },
-                                                                                                                                "ada:tier": {
-                                                                                                                                    "const": "M"
-                                                                                                                                },
-                                                                                                                                "schema:value": {
-                                                                                                                                    "anyOf": [
-                                                                                                                                        {
-                                                                                                                                            "anyOf": [
-                                                                                                                                                {
-                                                                                                                                                    "type": "number"
-                                                                                                                                                },
-                                                                                                                                                {
-                                                                                                                                                    "type": "string"
-                                                                                                                                                }
-                                                                                                                                            ]
-                                                                                                                                        },
-                                                                                                                                        {
-                                                                                                                                            "type": "array",
-                                                                                                                                            "items": {
-                                                                                                                                                "anyOf": [
-                                                                                                                                                    {
-                                                                                                                                                        "type": "number"
-                                                                                                                                                    },
-                                                                                                                                                    {
-                                                                                                                                                        "type": "string"
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                    ]
-                                                                                                                                }
-                                                                                                                            },
-                                                                                                                            "required": [
-                                                                                                                                "@id",
-                                                                                                                                "@type",
-                                                                                                                                "schema:propertyID",
-                                                                                                                                "schema:name",
-                                                                                                                                "ada:dataType",
-                                                                                                                                "schema:value"
-                                                                                                                            ]
+                                                                                                                            "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_ionCounterDeadTimeAnalysisValue"
                                                                                                                         },
                                                                                                                         "minContains": 0,
                                                                                                                         "maxContains": 1

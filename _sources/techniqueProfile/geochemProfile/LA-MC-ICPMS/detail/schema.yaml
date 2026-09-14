@@ -101,31 +101,6 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
-              - &id002
-                title: Collision/Reaction Gas Mixture Ratio
-                description: Where the collision or reaction cell is supplied with a mixture of gases
-                  rather than a single gas, the identities and proportions of that mixture. Recorded separately
-                  from the gas identity. Record 'N/A' where a single gas is used.
-                type: object
-                properties:
-                  '@id':
-                    const: ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
-                  '@type':
-                    const:
-                    - schema:PropertyValue
-                  schema:propertyID:
-                    const:
-                    - '@id': ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
-                  schema:name:
-                    const: Collision/Reaction Gas Mixture Ratio
-                  schema:value:
-                    type: string
-                required:
-                - '@id'
-                - '@type'
-                - schema:propertyID
-                - schema:name
-                - schema:value
             allOf:
             - contains:
                 $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
@@ -184,9 +159,6 @@ allOf:
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
-              minContains: 0
-              maxContains: 1
-            - contains: *id002
               minContains: 0
               maxContains: 1
           prov:used:
@@ -295,84 +267,15 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - &id005
-                                                title: Integration Time per Cycle
-                                                description: Duration of signal integration per measurement
-                                                  cycle (seconds).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  schema:name:
-                                                    const: Integration Time per Cycle
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
-                                                  schema:value:
-                                                    anyOf:
-                                                    - &id003
-                                                      anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items: *id003
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - ada:dataType
-                                                - schema:value
-                                              - &id006
-                                                title: Ion Counter Dead Time
-                                                description: Dead time of the ion-counting detector(s),
-                                                  used in the dead-time correction applied to high count
-                                                  rates. Distinct from pulse/analog cross-calibration,
-                                                  which relates the two detector modes rather than correcting
-                                                  counting losses within the pulse-counting mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
-                                                  schema:name:
-                                                    const: Ion Counter Dead Time
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
-                                                  schema:value:
-                                                    anyOf:
-                                                    - &id004
-                                                      anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items: *id004
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - ada:dataType
-                                                - schema:value
+                                              - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_integrationTimePerCycleAnalysisValue
+                                              - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_ionCounterDeadTimeAnalysisValue
                                             allOf:
-                                            - contains: *id005
+                                            - contains:
+                                                $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_integrationTimePerCycleAnalysisValue
                                               minContains: 0
                                               maxContains: 1
-                                            - contains: *id006
+                                            - contains:
+                                                $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_ionCounterDeadTimeAnalysisValue
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -423,7 +326,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id007
+                                    - &id002
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. The monitor species
@@ -449,7 +352,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id008
+                                    - &id003
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -479,10 +382,10 @@ allOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
-                                  - contains: *id007
+                                  - contains: *id002
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id008
+                                  - contains: *id003
                                     minContains: 0
                                     maxContains: 1
                                   - contains:

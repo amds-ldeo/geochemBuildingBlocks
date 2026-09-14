@@ -2,13 +2,14 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: TEM Technique-Aligned Protocol Profile (temTAPP)
 description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition.
   Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are
-  schema:additionalProperty[] entries; an ada:targetSpeciesTemplate carries per-element columns. Generated from
-  tapp/Current TAPPs/TEM_TAPP_v51.csv by tools/build_tapp.py.'
+  schema:additionalProperty[] entries; an ada:targetSpeciesTemplate carries per-element columns. Generated
+  from tapp/Current TAPPs/TEM_TAPP_v51.csv by tools/build_tapp.py.'
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../../BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -1677,80 +1678,15 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id027
-              title: EELS Background Subtraction Method
-              description: Method used to subtract the background beneath the ionization edge of interest
-                to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic
-                Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/temTAPP/eelsBackgroundSubtractionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: eelsBackgroundSubtractionMethod
-                schema:name:
-                  const: EELS Background Subtraction Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - &id025
-                    type: string
-                  - type: array
-                    items: *id025
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id028
-              title: EELS Detection Limit
-              description: Estimated detection limit or minimum detectable concentration for target edges
-                under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/temTAPP/eelsDetectionLimit
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: eelsDetectionLimit
-                schema:name:
-                  const: EELS Detection Limit
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  anyOf:
-                  - &id026
-                    anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items: *id026
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
+            - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsBackgroundSubtractionMethod
+            - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsDetectionLimit
           allOf:
-          - contains: *id027
+          - contains:
+              $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsBackgroundSubtractionMethod
             minContains: 0
             maxContains: 1
-          - contains: *id028
+          - contains:
+              $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsDetectionLimit
             minContains: 0
             maxContains: 1
     ada:edsCalibrationStandardDefault:

@@ -421,40 +421,10 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - &id001
-              title: Beam Current
-              description: Electron beam probe current. For sub-nA values use decimal notation (e.g.,
-                0.4 nA).
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/semFibsemTAPP/beamCurrent
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: beamCurrent
-                schema:name:
-                  const: Beam Current
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: number
-                  - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
+            - $ref: ../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/semFibsem_beamCurrent
           allOf:
-          - contains: *id001
+          - contains:
+              $ref: ../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/semFibsem_beamCurrent
             minContains: 0
             maxContains: 1
     ada:dwellTimePerPixelDefault:
@@ -481,7 +451,7 @@ allOf:
                 properties:
                   schema:additionalProperty:
                     type: array
-                    items: &id002
+                    items: &id001
                       title: Protective Coating Deposition
                       description: 'Type and deposition conditions of the protective coating applied to
                         the sample surface before FIB milling. E-beam deposition should be applied as
@@ -514,7 +484,7 @@ allOf:
                       - ada:dataType
                       - ada:fieldScope
                     allOf:
-                    - contains: *id002
+                    - contains: *id001
                       minContains: 0
                       maxContains: 1
                   ada:coarseMillingConditionsDefault:
@@ -540,7 +510,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id003
+                      - &id002
                         title: Fine Polishing Conditions
                         description: Ion beam voltage and current for final thinning and surface polishing
                           of the TEM lamella.
@@ -570,7 +540,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id004
+                      - &id003
                         title: Foil Thickness
                         description: Target thickness of the electron-transparent TEM lamella after final
                           FIB polishing, in nanometres. Actual thickness may differ from target.
@@ -626,7 +596,7 @@ allOf:
                         - schema:name
                         - schema:value
                         readOnly: true
-                      - &id005
+                      - &id004
                         title: Slice Thickness
                         description: Thickness of each FIB-milled slice during serial sectioning in nanometres.
                         type: object
@@ -658,10 +628,10 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                     allOf:
-                    - contains: *id003
+                    - contains: *id002
                       minContains: 0
                       maxContains: 1
-                    - contains: *id004
+                    - contains: *id003
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -691,7 +661,7 @@ allOf:
                         readOnly: true
                       minContains: 0
                       maxContains: 1
-                    - contains: *id005
+                    - contains: *id004
                       minContains: 0
                       maxContains: 1
                   schema:description:

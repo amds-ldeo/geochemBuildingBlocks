@@ -11116,43 +11116,7 @@
                                   ]
                                 },
                                 "contains": {
-                                  "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
-                                  "allOf": [
-                                    {
-                                      "$ref": "#/$defs/KeyedTableColumn"
-                                    },
-                                    {
-                                      "type": "object",
-                                      "properties": {
-                                        "schema:valueName": {
-                                          "const": "monitoredProperty"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": true
-                                        },
-                                        "schema:valueRequired": {
-                                          "const": true
-                                        },
-                                        "ada:tier": {
-                                          "const": "M"
-                                        },
-                                        "ada:cdifPropertyPath": {
-                                          "const": "#/schema:variableMeasured/schema:name"
-                                        }
-                                      },
-                                      "required": [
-                                        "schema:valueName",
-                                        "ada:dataType",
-                                        "schema:readonlyValue",
-                                        "schema:valueRequired",
-                                        "ada:tier",
-                                        "ada:cdifPropertyPath"
-                                      ]
-                                    }
-                                  ]
+                                  "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
                                 },
                                 "maxContains": 1
                               },
@@ -12278,41 +12242,6 @@
                         "schema:name",
                         "schema:value"
                       ]
-                    },
-                    {
-                      "title": "Collision/Reaction Gas Mixture Ratio",
-                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Collision/Reaction Gas Mixture Ratio"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
                     }
                   ]
                 },
@@ -12951,45 +12880,6 @@
                         },
                         "schema:name": {
                           "const": "Transect Rate Mapping Rate or Step Size"
-                        },
-                        "schema:value": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@id",
-                        "@type",
-                        "schema:propertyID",
-                        "schema:name",
-                        "schema:value"
-                      ]
-                    },
-                    "minContains": 0,
-                    "maxContains": 1
-                  },
-                  {
-                    "contains": {
-                      "title": "Collision/Reaction Gas Mixture Ratio",
-                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                      "type": "object",
-                      "properties": {
-                        "@id": {
-                          "const": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                        },
-                        "@type": {
-                          "const": [
-                            "schema:PropertyValue"
-                          ]
-                        },
-                        "schema:propertyID": {
-                          "const": [
-                            {
-                              "@id": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
-                            }
-                          ]
-                        },
-                        "schema:name": {
-                          "const": "Collision/Reaction Gas Mixture Ratio"
                         },
                         "schema:value": {
                           "type": "string"
@@ -13705,276 +13595,24 @@
                                                         "items": {
                                                           "anyOf": [
                                                             {
-                                                              "title": "Integration Time per Cycle",
-                                                              "description": "Duration of signal integration per measurement cycle (seconds).",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValue"
-                                                                  ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                  "const": [
-                                                                    {
-                                                                      "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                    }
-                                                                  ]
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Integration Time per Cycle"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "number"
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "M"
-                                                                },
-                                                                "schema:value": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
-                                                              ]
+                                                              "$comment": "could not resolve fragment /$defs/laMcicpms_integrationTimePerCycleAnalysisValue in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\monitoredPropertyColumns\\schema.yaml"
                                                             },
                                                             {
-                                                              "title": "Ion Counter Dead Time",
-                                                              "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValue"
-                                                                  ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                  "const": [
-                                                                    {
-                                                                      "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                    }
-                                                                  ]
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Ion Counter Dead Time"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "number"
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "M"
-                                                                },
-                                                                "schema:value": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
-                                                              ]
+                                                              "$comment": "could not resolve fragment /$defs/laMcicpms_ionCounterDeadTimeAnalysisValue in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\monitoredPropertyColumns\\schema.yaml"
                                                             }
                                                           ]
                                                         },
                                                         "allOf": [
                                                           {
                                                             "contains": {
-                                                              "title": "Integration Time per Cycle",
-                                                              "description": "Duration of signal integration per measurement cycle (seconds).",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValue"
-                                                                  ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                  "const": [
-                                                                    {
-                                                                      "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                    }
-                                                                  ]
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Integration Time per Cycle"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "number"
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "M"
-                                                                },
-                                                                "schema:value": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
-                                                              ]
+                                                              "$comment": "could not resolve fragment /$defs/laMcicpms_integrationTimePerCycleAnalysisValue in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\monitoredPropertyColumns\\schema.yaml"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
                                                           },
                                                           {
                                                             "contains": {
-                                                              "title": "Ion Counter Dead Time",
-                                                              "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                },
-                                                                "@type": {
-                                                                  "const": [
-                                                                    "schema:PropertyValue"
-                                                                  ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                  "const": [
-                                                                    {
-                                                                      "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                                                    }
-                                                                  ]
-                                                                },
-                                                                "schema:name": {
-                                                                  "const": "Ion Counter Dead Time"
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "const": "number"
-                                                                },
-                                                                "ada:tier": {
-                                                                  "const": "M"
-                                                                },
-                                                                "schema:value": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
-                                                              ]
+                                                              "$comment": "could not resolve fragment /$defs/laMcicpms_ionCounterDeadTimeAnalysisValue in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\monitoredPropertyColumns\\schema.yaml"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
@@ -21208,43 +20846,7 @@
                                       ]
                                     },
                                     "contains": {
-                                      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
-                                      "allOf": [
-                                        {
-                                          "$ref": "#/$defs/KeyedTableColumn"
-                                        },
-                                        {
-                                          "type": "object",
-                                          "properties": {
-                                            "schema:valueName": {
-                                              "const": "monitoredProperty"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "schema:valueRequired": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "ada:cdifPropertyPath": {
-                                              "const": "#/schema:variableMeasured/schema:name"
-                                            }
-                                          },
-                                          "required": [
-                                            "schema:valueName",
-                                            "ada:dataType",
-                                            "schema:readonlyValue",
-                                            "schema:valueRequired",
-                                            "ada:tier",
-                                            "ada:cdifPropertyPath"
-                                          ]
-                                        }
-                                      ]
+                                      "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
                                     },
                                     "maxContains": 1
                                   },
@@ -22183,6 +21785,31 @@
                                     }
                                   }
                                 ]
+                              }
+                            }
+                          },
+                          {
+                            "title": "Analyte on the procedure",
+                            "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
+                            "type": "object",
+                            "properties": {
+                              "ada:targetSpeciesTemplate": {
+                                "type": "object",
+                                "properties": {
+                                  "ada:defaultTargetSpecies": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
                               }
                             }
                           },
@@ -24492,17 +24119,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24543,17 +24160,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24596,27 +24203,10 @@
                                                                 "schema:defaultValue": {
                                                                   "anyOf": [
                                                                     {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
+                                                                      "type": "number"
                                                                     },
                                                                     {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
+                                                                      "type": "string"
                                                                     }
                                                                   ]
                                                                 }
@@ -24659,17 +24249,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24710,17 +24290,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24742,11 +24312,15 @@
                                                                 },
                                                                 "@type": {
                                                                   "const": [
-                                                                    "schema:PropertyValueSpecification"
+                                                                    "schema:PropertyValue"
                                                                   ]
                                                                 },
-                                                                "schema:valueName": {
-                                                                  "const": "ionCounterDeadTime"
+                                                                "schema:propertyID": {
+                                                                  "const": [
+                                                                    {
+                                                                      "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                    }
+                                                                  ]
                                                                 },
                                                                 "schema:name": {
                                                                   "const": "Ion Counter Dead Time"
@@ -24754,36 +24328,16 @@
                                                                 "ada:dataType": {
                                                                   "const": "number"
                                                                 },
-                                                                "schema:readonlyValue": {
-                                                                  "const": false
-                                                                },
                                                                 "ada:tier": {
                                                                   "const": "M"
                                                                 },
-                                                                "schema:defaultValue": {
+                                                                "schema:value": {
                                                                   "anyOf": [
                                                                     {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
+                                                                      "type": "number"
                                                                     },
                                                                     {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
+                                                                      "type": "string"
                                                                     }
                                                                   ]
                                                                 }
@@ -24791,10 +24345,10 @@
                                                               "required": [
                                                                 "@id",
                                                                 "@type",
-                                                                "schema:valueName",
+                                                                "schema:propertyID",
                                                                 "schema:name",
                                                                 "ada:dataType",
-                                                                "schema:defaultValue"
+                                                                "schema:value"
                                                               ]
                                                             },
                                                             {
@@ -24826,17 +24380,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24881,17 +24425,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24936,17 +24470,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -24993,27 +24517,10 @@
                                                                 "schema:defaultValue": {
                                                                   "anyOf": [
                                                                     {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
+                                                                      "type": "number"
                                                                     },
                                                                     {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
+                                                                      "type": "string"
                                                                     }
                                                                   ]
                                                                 }
@@ -25060,17 +24567,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -25115,17 +24612,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -25151,11 +24638,15 @@
                                                                 },
                                                                 "@type": {
                                                                   "const": [
-                                                                    "schema:PropertyValueSpecification"
+                                                                    "schema:PropertyValue"
                                                                   ]
                                                                 },
-                                                                "schema:valueName": {
-                                                                  "const": "ionCounterDeadTime"
+                                                                "schema:propertyID": {
+                                                                  "const": [
+                                                                    {
+                                                                      "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                    }
+                                                                  ]
                                                                 },
                                                                 "schema:name": {
                                                                   "const": "Ion Counter Dead Time"
@@ -25163,36 +24654,16 @@
                                                                 "ada:dataType": {
                                                                   "const": "number"
                                                                 },
-                                                                "schema:readonlyValue": {
-                                                                  "const": false
-                                                                },
                                                                 "ada:tier": {
                                                                   "const": "M"
                                                                 },
-                                                                "schema:defaultValue": {
+                                                                "schema:value": {
                                                                   "anyOf": [
                                                                     {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
+                                                                      "type": "number"
                                                                     },
                                                                     {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
+                                                                      "type": "string"
                                                                     }
                                                                   ]
                                                                 }
@@ -25200,10 +24671,10 @@
                                                               "required": [
                                                                 "@id",
                                                                 "@type",
-                                                                "schema:valueName",
+                                                                "schema:propertyID",
                                                                 "schema:name",
                                                                 "ada:dataType",
-                                                                "schema:defaultValue"
+                                                                "schema:value"
                                                               ]
                                                             },
                                                             "minContains": 0,
@@ -25239,17 +24710,7 @@
                                                                   "const": "M"
                                                                 },
                                                                 "schema:defaultValue": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "type": "string"
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
-                                                                  ]
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -27024,83 +26485,6 @@
                                       ]
                                     },
                                     {
-                                      "title": "Collision/Reaction Gas Mixture Ratio",
-                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Collision/Reaction Gas Mixture Ratio"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    {
-                                      "title": "Reaction Product Ion / Mass-Shift Transition",
-                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Reaction Product Ion / Mass-Shift Transition"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ],
-                                      "readOnly": true
-                                    },
-                                    {
                                       "title": "Inter-Pass Data Dependency",
                                       "description": "Which earlier acquisition pass supplied inputs to this one, and what those inputs are — for example a concentration measured in one pass and used as the internal standard for a later pass on the same location. Records the dependency only; the settings of each pass are carried by the fields keyed by acquisition pass, and the passes themselves are enumerated by Acquisition Pass. Leave empty for a pass that consumes no earlier output. Not applicable to raster mapping, where each spatial location is visited exactly once.",
                                       "type": "object",
@@ -27633,91 +27017,6 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Collision/Reaction Gas Mixture Ratio",
-                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValueSpecification"
-                                          ]
-                                        },
-                                        "schema:valueName": {
-                                          "const": "collisionReactionGasMixtureRatioDefault"
-                                        },
-                                        "schema:name": {
-                                          "const": "Collision/Reaction Gas Mixture Ratio"
-                                        },
-                                        "ada:dataType": {
-                                          "const": "string"
-                                        },
-                                        "ada:fieldScope": {
-                                          "const": "session"
-                                        },
-                                        "schema:readonlyValue": {
-                                          "const": false
-                                        },
-                                        "ada:tier": {
-                                          "const": "R"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:valueName",
-                                        "schema:name",
-                                        "ada:dataType",
-                                        "ada:fieldScope"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Reaction Product Ion / Mass-Shift Transition",
-                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Reaction Product Ion / Mass-Shift Transition"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ],
-                                      "readOnly": true
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -28376,6 +27675,191 @@
                               "ada:withinSessionPrecision": {
                                 "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
                                 "type": "string"
+                              },
+                              "ada:monitoredPropertyTemplate": {
+                                "type": "object",
+                                "properties": {
+                                  "ada:monitoredPropertyColumns": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
+                                        },
+                                        {
+                                          "title": "Collision/Reaction Gas Mixture Ratio",
+                                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "collisionReactionGasMixtureRatio"
+                                            },
+                                            "schema:name": {
+                                              "const": "Collision/Reaction Gas Mixture Ratio"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        {
+                                          "title": "Reaction Product Ion / Mass-Shift Transition",
+                                          "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "reactionProductIonMassShiftTransition"
+                                            },
+                                            "schema:name": {
+                                              "const": "Reaction Product Ion / Mass-Shift Transition"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    "allOf": [
+                                      {
+                                        "contains": {
+                                          "title": "Collision/Reaction Gas Mixture Ratio",
+                                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "collisionReactionGasMixtureRatio"
+                                            },
+                                            "schema:name": {
+                                              "const": "Collision/Reaction Gas Mixture Ratio"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      },
+                                      {
+                                        "contains": {
+                                          "title": "Reaction Product Ion / Mass-Shift Transition",
+                                          "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "reactionProductIonMassShiftTransition"
+                                            },
+                                            "schema:name": {
+                                              "const": "Reaction Product Ion / Mass-Shift Transition"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
+                                        },
+                                        "minContains": 0,
+                                        "maxContains": 1
+                                      }
+                                    ]
+                                  }
+                                }
                               },
                               "ada:numberOfAcquisitionPasses": {
                                 "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
@@ -36623,6 +36107,45 @@
           "properties": {
             "schema:valueName": {
               "const": "targetSpecies"
+            },
+            "ada:dataType": {
+              "const": "string"
+            },
+            "schema:readonlyValue": {
+              "const": true
+            },
+            "schema:valueRequired": {
+              "const": true
+            },
+            "ada:tier": {
+              "const": "M"
+            },
+            "ada:cdifPropertyPath": {
+              "const": "#/schema:variableMeasured/schema:name"
+            }
+          },
+          "required": [
+            "schema:valueName",
+            "ada:dataType",
+            "schema:readonlyValue",
+            "schema:valueRequired",
+            "ada:tier",
+            "ada:cdifPropertyPath"
+          ]
+        }
+      ]
+    },
+    "MonitoredPropertyIdentifierColumn": {
+      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/KeyedTableColumn"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema:valueName": {
+              "const": "monitoredProperty"
             },
             "ada:dataType": {
               "const": "string"
@@ -45237,6 +44760,190 @@
         "cdif:isComposedOf"
       ]
     },
+    "KeyedTableColumn": {
+      "type": "object",
+      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValueSpecification"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+        },
+        "schema:valueName": {
+          "type": "string",
+          "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Guidance text for this column."
+        },
+        "schema:propertyID": {
+          "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/PropertyIDValue"
+          }
+        },
+        "schema:inDefinedTermSet": {
+          "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Object reference to a vocabulary defined elsewhere.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            {
+              "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "default": "schema:CreativeWork",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:CreativeWork"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string"
+                },
+                "schema:description": {
+                  "type": "string"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@type",
+                "schema:url"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+              "properties": {
+                "@type": {
+                  "const": "schema:DefinedTermSet"
+                },
+                "schema:hasDefinedTerm": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "schema:termCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:termCode"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "@type",
+                "schema:hasDefinedTerm"
+              ]
+            }
+          ]
+        },
+        "schema:defaultValue": {
+          "description": "Default value for this column (pre-filled per row).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        },
+        "schema:readonlyValue": {
+          "type": "boolean",
+          "description": "true = constant across all analytes (read-only column)."
+        },
+        "schema:valueRequired": {
+          "type": "boolean",
+          "description": "true = must be provided for every analyte row."
+        },
+        "schema:minValue": {
+          "type": "number"
+        },
+        "schema:maxValue": {
+          "type": "number"
+        },
+        "schema:valuePattern": {
+          "type": "string"
+        },
+        "ada:dataType": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "date",
+            "uri"
+          ]
+        },
+        "schema:unitText": {
+          "type": "string"
+        },
+        "ada:tier": {
+          "type": "string",
+          "enum": [
+            "M",
+            "R",
+            "O"
+          ]
+        },
+        "ada:cdifPropertyPath": {
+          "type": "string",
+          "description": "How this column maps into the variableMeasured JSON-LD structure."
+        }
+      },
+      "required": [
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "WorkflowStep": {
       "type": "object",
       "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
@@ -45433,190 +45140,6 @@
         {
           "$ref": "#/$defs/TappDefinition_DefinedTerm"
         }
-      ]
-    },
-    "KeyedTableColumn": {
-      "type": "object",
-      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:PropertyValueSpecification"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
-        },
-        "schema:valueName": {
-          "type": "string",
-          "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Guidance text for this column."
-        },
-        "schema:propertyID": {
-          "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/PropertyIDValue"
-          }
-        },
-        "schema:inDefinedTermSet": {
-          "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "description": "Object reference to a vocabulary defined elsewhere.",
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            },
-            {
-              "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "default": "schema:CreativeWork",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:CreativeWork"
-                  },
-                  "minItems": 1
-                },
-                "schema:name": {
-                  "type": "string"
-                },
-                "schema:description": {
-                  "type": "string"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "required": [
-                "@type",
-                "schema:url"
-              ]
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-              "properties": {
-                "@type": {
-                  "const": "schema:DefinedTermSet"
-                },
-                "schema:hasDefinedTerm": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "const": "schema:DefinedTerm"
-                      },
-                      "schema:termCode": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:termCode"
-                    ]
-                  }
-                }
-              },
-              "required": [
-                "@type",
-                "schema:hasDefinedTerm"
-              ]
-            }
-          ]
-        },
-        "schema:defaultValue": {
-          "description": "Default value for this column (pre-filled per row).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            }
-          ]
-        },
-        "schema:readonlyValue": {
-          "type": "boolean",
-          "description": "true = constant across all analytes (read-only column)."
-        },
-        "schema:valueRequired": {
-          "type": "boolean",
-          "description": "true = must be provided for every analyte row."
-        },
-        "schema:minValue": {
-          "type": "number"
-        },
-        "schema:maxValue": {
-          "type": "number"
-        },
-        "schema:valuePattern": {
-          "type": "string"
-        },
-        "ada:dataType": {
-          "type": "string",
-          "enum": [
-            "string",
-            "number",
-            "integer",
-            "boolean",
-            "date",
-            "uri"
-          ]
-        },
-        "schema:unitText": {
-          "type": "string"
-        },
-        "ada:tier": {
-          "type": "string",
-          "enum": [
-            "M",
-            "R",
-            "O"
-          ]
-        },
-        "ada:cdifPropertyPath": {
-          "type": "string",
-          "description": "How this column maps into the variableMeasured JSON-LD structure."
-        }
-      },
-      "required": [
-        "schema:name",
-        "ada:dataType"
       ]
     },
     "CdifDataStructureComponent_cdifConceptOrTermOrString": {
