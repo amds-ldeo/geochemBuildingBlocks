@@ -20,6 +20,17 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l)." ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (~100 mg; stated section on sample preparation)" ;
                     schema1:name "Sample preparation" ;
@@ -32,18 +43,7 @@ ex:solutionSficpmsTAPP-Willbold2005 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l)." ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation" ;

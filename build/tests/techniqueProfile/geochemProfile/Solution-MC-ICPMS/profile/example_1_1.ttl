@@ -81,15 +81,16 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
     schema1:name "ADA Solution MC-ICP-MS Example Product" ;
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
-    schema1:variableMeasured ex:adaProduct-var-001,
+    schema1:variableMeasured <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeRatioReported>,
+        ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "example oxideProduction" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ] ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess [ a schema1:HowTo ] ;
@@ -199,4 +200,15 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         "ICPMS" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeRatioReported> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Isotope Ratio Reported reported for this dataset. Example value." ;
+    schema1:name "Isotope Ratio Reported" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/isotopeRatioReported> ;
+    schema1:unitText "counts" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
