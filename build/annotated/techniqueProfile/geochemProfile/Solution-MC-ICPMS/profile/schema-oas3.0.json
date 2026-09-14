@@ -1404,12 +1404,206 @@
                                               "schema:additionalProperty": {
                                                 "type": "array",
                                                 "items": {
-                                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_memoryEffectMitigation"
+                                                  "anyOf": [
+                                                    {
+                                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_memoryEffectMitigation"
+                                                    },
+                                                    {
+                                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_icpTuning"
+                                                    },
+                                                    {
+                                                      "title": "Doubly-Charged Species Monitor",
+                                                      "description": "The mass ratio monitored to estimate doubly-charged ion (M\u00b2\u207a) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "enum": [
+                                                            "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                          ]
+                                                        },
+                                                        "@type": {
+                                                          "enum": [
+                                                            [
+                                                              "schema:PropertyValue"
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:propertyID": {
+                                                          "enum": [
+                                                            [
+                                                              {
+                                                                "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:name": {
+                                                          "enum": [
+                                                            "Doubly-Charged Species Monitor"
+                                                          ]
+                                                        },
+                                                        "schema:value": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:propertyID",
+                                                        "schema:name",
+                                                        "schema:value"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "title": "Doubly-Charged Species Production",
+                                                      "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "enum": [
+                                                            "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                          ]
+                                                        },
+                                                        "@type": {
+                                                          "enum": [
+                                                            [
+                                                              "schema:PropertyValue"
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:propertyID": {
+                                                          "enum": [
+                                                            [
+                                                              {
+                                                                "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:name": {
+                                                          "enum": [
+                                                            "Doubly-Charged Species Production"
+                                                          ]
+                                                        },
+                                                        "schema:value": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:propertyID",
+                                                        "schema:name",
+                                                        "schema:value"
+                                                      ]
+                                                    }
+                                                  ]
                                                 },
                                                 "allOf": [
                                                   {
                                                     "contains": {
                                                       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_memoryEffectMitigation"
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                  },
+                                                  {
+                                                    "contains": {
+                                                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_icpTuning"
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                  },
+                                                  {
+                                                    "contains": {
+                                                      "title": "Doubly-Charged Species Monitor",
+                                                      "description": "The mass ratio monitored to estimate doubly-charged ion (M\u00b2\u207a) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "enum": [
+                                                            "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                          ]
+                                                        },
+                                                        "@type": {
+                                                          "enum": [
+                                                            [
+                                                              "schema:PropertyValue"
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:propertyID": {
+                                                          "enum": [
+                                                            [
+                                                              {
+                                                                "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:name": {
+                                                          "enum": [
+                                                            "Doubly-Charged Species Monitor"
+                                                          ]
+                                                        },
+                                                        "schema:value": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:propertyID",
+                                                        "schema:name",
+                                                        "schema:value"
+                                                      ]
+                                                    },
+                                                    "minContains": 0,
+                                                    "maxContains": 1
+                                                  },
+                                                  {
+                                                    "contains": {
+                                                      "title": "Doubly-Charged Species Production",
+                                                      "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@id": {
+                                                          "enum": [
+                                                            "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                          ]
+                                                        },
+                                                        "@type": {
+                                                          "enum": [
+                                                            [
+                                                              "schema:PropertyValue"
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:propertyID": {
+                                                          "enum": [
+                                                            [
+                                                              {
+                                                                "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "schema:name": {
+                                                          "enum": [
+                                                            "Doubly-Charged Species Production"
+                                                          ]
+                                                        },
+                                                        "schema:value": {
+                                                          "type": "string"
+                                                        }
+                                                      },
+                                                      "required": [
+                                                        "@id",
+                                                        "@type",
+                                                        "schema:propertyID",
+                                                        "schema:name",
+                                                        "schema:value"
+                                                      ]
                                                     },
                                                     "minContains": 0,
                                                     "maxContains": 1
@@ -1452,12 +1646,258 @@
                   "schema:additionalProperty": {
                     "type": "array",
                     "items": {
-                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_signalIntegrationTime"
+                      "anyOf": [
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_signalIntegrationTime"
+                        },
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_numberOfBlocksPerMeasurement"
+                        },
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_numberOfCyclesPerBlock"
+                        },
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_integrationTimePerCycle"
+                        },
+                        {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_doubleSpikeMixingRatio"
+                        },
+                        {
+                          "title": "Error Correlation Between Reported Quantities",
+                          "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "enum": [
+                                "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                              ]
+                            },
+                            "@type": {
+                              "enum": [
+                                [
+                                  "schema:PropertyValue"
+                                ]
+                              ]
+                            },
+                            "schema:propertyID": {
+                              "enum": [
+                                [
+                                  {
+                                    "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                                  }
+                                ]
+                              ]
+                            },
+                            "schema:name": {
+                              "enum": [
+                                "Error Correlation Between Reported Quantities"
+                              ]
+                            },
+                            "schema:value": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "schema:unitText": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                          ]
+                        },
+                        {
+                          "title": "Collision/Reaction Gas Mixture Ratio",
+                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "enum": [
+                                "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                              ]
+                            },
+                            "@type": {
+                              "enum": [
+                                [
+                                  "schema:PropertyValue"
+                                ]
+                              ]
+                            },
+                            "schema:propertyID": {
+                              "enum": [
+                                [
+                                  {
+                                    "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                                  }
+                                ]
+                              ]
+                            },
+                            "schema:name": {
+                              "enum": [
+                                "Collision/Reaction Gas Mixture Ratio"
+                              ]
+                            },
+                            "schema:value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                          ]
+                        }
+                      ]
                     },
                     "allOf": [
                       {
                         "contains": {
                           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Analysis_signalIntegrationTime"
+                        },
+                        "minContains": 0,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_numberOfBlocksPerMeasurement"
+                        },
+                        "minContains": 0,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_numberOfCyclesPerBlock"
+                        },
+                        "minContains": 0,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_integrationTimePerCycle"
+                        },
+                        "minContains": 0,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_doubleSpikeMixingRatio"
+                        },
+                        "minContains": 0,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "title": "Error Correlation Between Reported Quantities",
+                          "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "enum": [
+                                "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                              ]
+                            },
+                            "@type": {
+                              "enum": [
+                                [
+                                  "schema:PropertyValue"
+                                ]
+                              ]
+                            },
+                            "schema:propertyID": {
+                              "enum": [
+                                [
+                                  {
+                                    "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                                  }
+                                ]
+                              ]
+                            },
+                            "schema:name": {
+                              "enum": [
+                                "Error Correlation Between Reported Quantities"
+                              ]
+                            },
+                            "schema:value": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "schema:unitText": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value",
+                            "schema:unitText"
+                          ]
+                        },
+                        "minContains": 0,
+                        "maxContains": 1
+                      },
+                      {
+                        "contains": {
+                          "title": "Collision/Reaction Gas Mixture Ratio",
+                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "enum": [
+                                "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                              ]
+                            },
+                            "@type": {
+                              "enum": [
+                                [
+                                  "schema:PropertyValue"
+                                ]
+                              ]
+                            },
+                            "schema:propertyID": {
+                              "enum": [
+                                [
+                                  {
+                                    "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                                  }
+                                ]
+                              ]
+                            },
+                            "schema:name": {
+                              "enum": [
+                                "Collision/Reaction Gas Mixture Ratio"
+                              ]
+                            },
+                            "schema:value": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "schema:propertyID",
+                            "schema:name",
+                            "schema:value"
+                          ]
                         },
                         "minContains": 0,
                         "maxContains": 1
@@ -1467,9 +1907,14 @@
                   "ada:proceduralBlankLevel": {
                     "description": "The measured level of the analytical blank in the session, and \u2014 where the reported quantity is a ratio \u2014 its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
                     "type": "string"
+                  },
+                  "ada:deltaOrEpsilonValueReferenceStandard": {
+                    "description": "International or community-accepted isotopic reference standard used as the zero-delta anchor for expressing isotopic compositions in delta (\u03b4, per mil) or epsilon (\u03b5, per ten thousand) notation: \u03b4\u2071X = [(\u2071X/\u02b2X)sample / (\u2071X/\u02b2X)reference \u2212 1] \u00d7 1000\u2030. The reporting reference is a per-study or per-publication decision. Specify the standard name, lot or batch number where applicable, and the certified or consensus isotope ratio used for normalization.",
+                    "type": "string"
                   }
                 },
                 "required": [
+                  "ada:deltaOrEpsilonValueReferenceStandard",
                   "ada:proceduralBlankLevel",
                   "schema:actionProcess"
                 ]
@@ -1843,8 +2288,27 @@
                                   "maxContains": 1
                                 }
                               ]
+                            },
+                            "schema:description": {
+                              "description": "Each distinct acid digestion step applied to dissolve the sample, listed in the order performed and named by its attack. A step is distinct when its acid mixture, vessel, temperature or duration differs from the one before; an evaporation or dry-down that carries no attack of its own is part of the step it follows, and an identical attack repeated on the residue is a repeat of that step rather than a new one. Enumerating the steps is what allows Digestion Acid(s), Digestion Temperature and Digestion Duration to be recorded per step. Record N/A where the sample is introduced without acid digestion.",
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "readOnly": true
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "readOnly": true
+                                  }
+                                }
+                              ]
                             }
-                          }
+                          },
+                          "required": [
+                            "schema:description"
+                          ]
                         }
                       },
                       {
@@ -1876,8 +2340,27 @@
                                   "maxContains": 1
                                 }
                               ]
+                            },
+                            "schema:description": {
+                              "description": "The acquisition passes the procedure is divided into, named and described so that fields keyed by acquisition pass can point at them. A pass is a sub-procedure: a distinct traversal of the measurement with its own configuration, run in sequence on the same material. State what distinguishes each pass \u2014 resolution mode, cup or cell configuration, plasma or introduction path, spot size \u2014 since that differs by technique. Identical repeats of one configuration are replicates, not passes, and belong in Number of Replicates.",
+                              "anyOf": [
+                                {
+                                  "type": "string",
+                                  "readOnly": true
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "readOnly": true
+                                  }
+                                }
+                              ]
                             }
-                          }
+                          },
+                          "required": [
+                            "schema:description"
+                          ]
                         }
                       },
                       {
@@ -1907,6 +2390,15 @@
                                   },
                                   {
                                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
+                                  },
+                                  {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupGainCalibrationMethod"
+                                  },
+                                  {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_peakFlatnessMethodAndThreshold"
+                                  },
+                                  {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeInversionAlgorithm"
                                   }
                                 ]
                               },
@@ -1928,6 +2420,27 @@
                                 {
                                   "contains": {
                                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
+                                  },
+                                  "minContains": 0,
+                                  "maxContains": 1
+                                },
+                                {
+                                  "contains": {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupGainCalibrationMethod"
+                                  },
+                                  "minContains": 0,
+                                  "maxContains": 1
+                                },
+                                {
+                                  "contains": {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_peakFlatnessMethodAndThreshold"
+                                  },
+                                  "minContains": 0,
+                                  "maxContains": 1
+                                },
+                                {
+                                  "contains": {
+                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeInversionAlgorithm"
                                   },
                                   "minContains": 0,
                                   "maxContains": 1
@@ -2037,6 +2550,115 @@
                               },
                               {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_memoryEffectMitigation"
+                              },
+                              {
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_icpTuning"
+                              },
+                              {
+                                "title": "Doubly-Charged Species Monitor",
+                                "description": "The mass ratio monitored to estimate doubly-charged ion (M\u00b2\u207a) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "enum": [
+                                      "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                                    ]
+                                  },
+                                  "@type": {
+                                    "enum": [
+                                      [
+                                        "schema:PropertyValueSpecification"
+                                      ]
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "enum": [
+                                      "doublyChargedSpeciesMonitorDefault"
+                                    ]
+                                  },
+                                  "schema:name": {
+                                    "enum": [
+                                      "Doubly-Charged Species Monitor"
+                                    ]
+                                  },
+                                  "ada:dataType": {
+                                    "enum": [
+                                      "string"
+                                    ]
+                                  },
+                                  "ada:fieldScope": {
+                                    "enum": [
+                                      "session"
+                                    ]
+                                  },
+                                  "schema:readonlyValue": {},
+                                  "ada:tier": {
+                                    "enum": [
+                                      "R"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              {
+                                "title": "Doubly-Charged Species Production",
+                                "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "enum": [
+                                      "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                                    ]
+                                  },
+                                  "@type": {
+                                    "enum": [
+                                      [
+                                        "schema:PropertyValueSpecification"
+                                      ]
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "enum": [
+                                      "doublyChargedSpeciesProductionDefault"
+                                    ]
+                                  },
+                                  "schema:name": {
+                                    "enum": [
+                                      "Doubly-Charged Species Production"
+                                    ]
+                                  },
+                                  "ada:dataType": {
+                                    "enum": [
+                                      "string"
+                                    ]
+                                  },
+                                  "ada:fieldScope": {
+                                    "enum": [
+                                      "session"
+                                    ]
+                                  },
+                                  "schema:readonlyValue": {},
+                                  "ada:tier": {
+                                    "enum": [
+                                      "R"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               }
                             ]
                           },
@@ -2065,6 +2687,127 @@
                             {
                               "contains": {
                                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_memoryEffectMitigation"
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_icpTuning"
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Doubly-Charged Species Monitor",
+                                "description": "The mass ratio monitored to estimate doubly-charged ion (M\u00b2\u207a) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "enum": [
+                                      "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault"
+                                    ]
+                                  },
+                                  "@type": {
+                                    "enum": [
+                                      [
+                                        "schema:PropertyValueSpecification"
+                                      ]
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "enum": [
+                                      "doublyChargedSpeciesMonitorDefault"
+                                    ]
+                                  },
+                                  "schema:name": {
+                                    "enum": [
+                                      "Doubly-Charged Species Monitor"
+                                    ]
+                                  },
+                                  "ada:dataType": {
+                                    "enum": [
+                                      "string"
+                                    ]
+                                  },
+                                  "ada:fieldScope": {
+                                    "enum": [
+                                      "session"
+                                    ]
+                                  },
+                                  "schema:readonlyValue": {},
+                                  "ada:tier": {
+                                    "enum": [
+                                      "R"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
+                              },
+                              "minContains": 0,
+                              "maxContains": 1
+                            },
+                            {
+                              "contains": {
+                                "title": "Doubly-Charged Species Production",
+                                "description": "Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "enum": [
+                                      "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProductionDefault"
+                                    ]
+                                  },
+                                  "@type": {
+                                    "enum": [
+                                      [
+                                        "schema:PropertyValueSpecification"
+                                      ]
+                                    ]
+                                  },
+                                  "schema:valueName": {
+                                    "enum": [
+                                      "doublyChargedSpeciesProductionDefault"
+                                    ]
+                                  },
+                                  "schema:name": {
+                                    "enum": [
+                                      "Doubly-Charged Species Production"
+                                    ]
+                                  },
+                                  "ada:dataType": {
+                                    "enum": [
+                                      "string"
+                                    ]
+                                  },
+                                  "ada:fieldScope": {
+                                    "enum": [
+                                      "session"
+                                    ]
+                                  },
+                                  "schema:readonlyValue": {},
+                                  "ada:tier": {
+                                    "enum": [
+                                      "R"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "@id",
+                                  "@type",
+                                  "schema:valueName",
+                                  "schema:name",
+                                  "ada:dataType",
+                                  "ada:fieldScope"
+                                ]
                               },
                               "minContains": 0,
                               "maxContains": 1
@@ -2381,6 +3124,56 @@
                                     }
                                   }
                                 }
+                              },
+                              {
+                                "if": {
+                                  "properties": {
+                                    "schema:additionalType": {
+                                      "contains": {
+                                        "enum": [
+                                          "Collector"
+                                        ]
+                                      },
+                                      "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                    }
+                                  },
+                                  "required": [
+                                    "schema:additionalType"
+                                  ]
+                                },
+                                "then": {
+                                  "properties": {
+                                    "schema:additionalProperty": {
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupArrayConfiguration"
+                                          },
+                                          {
+                                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupAmplifierResistorValues"
+                                          }
+                                        ]
+                                      },
+                                      "allOf": [
+                                        {
+                                          "contains": {
+                                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupArrayConfiguration"
+                                          },
+                                          "minContains": 0,
+                                          "maxContains": 1
+                                        },
+                                        {
+                                          "contains": {
+                                            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupAmplifierResistorValues"
+                                          },
+                                          "minContains": 0,
+                                          "maxContains": 1
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
                               }
                             ]
                           },
@@ -2452,11 +3245,54 @@
                                   "schema:additionalType"
                                 ]
                               }
+                            },
+                            {
+                              "contains": {
+                                "properties": {
+                                  "schema:additionalType": {
+                                    "contains": {
+                                      "enum": [
+                                        "Collector"
+                                      ]
+                                    },
+                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
+                                  }
+                                },
+                                "required": [
+                                  "schema:additionalType"
+                                ]
+                              }
                             }
+                          ]
+                        },
+                        "schema:manufacturer": {
+                          "type": "object",
+                          "properties": {
+                            "schema:name": {
+                              "description": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.",
+                              "type": "string",
+                              "enum": [
+                                "Thermo Fisher Scientific",
+                                "Agilent",
+                                "PerkinElmer",
+                                "Nu Instruments",
+                                "Analytik Jena",
+                                "Shimadzu",
+                                "Unknown",
+                                "N/A",
+                                "None",
+                                "missing"
+                              ],
+                              "readOnly": true
+                            }
+                          },
+                          "required": [
+                            "schema:name"
                           ]
                         }
                       },
                       "required": [
+                        "schema:manufacturer",
                         "schema:model"
                       ]
                     }
@@ -2495,6 +3331,181 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_filteringApproach"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_numberOfBlocksPerMeasurement"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_numberOfCyclesPerBlock"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_integrationTimePerCycle"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_baselineMeasurementApproach"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_massFractionationLaw"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeIsotopePair"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeMixingRatio"
+                  },
+                  {
+                    "title": "Error Correlation Between Reported Quantities",
+                    "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValue"
+                          ]
+                        ]
+                      },
+                      "schema:propertyID": {
+                        "enum": [
+                          [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                            }
+                          ]
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Error Correlation Between Reported Quantities"
+                        ]
+                      },
+                      "schema:value": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "schema:unitText": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:propertyID",
+                      "schema:name",
+                      "schema:value",
+                      "schema:unitText"
+                    ]
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
+                  },
+                  {
+                    "title": "Collision/Reaction Gas Mixture Ratio",
+                    "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValueSpecification"
+                          ]
+                        ]
+                      },
+                      "schema:valueName": {
+                        "enum": [
+                          "collisionReactionGasMixtureRatioDefault"
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Collision/Reaction Gas Mixture Ratio"
+                        ]
+                      },
+                      "ada:dataType": {
+                        "enum": [
+                          "string"
+                        ]
+                      },
+                      "ada:fieldScope": {
+                        "enum": [
+                          "session"
+                        ]
+                      },
+                      "schema:readonlyValue": {},
+                      "ada:tier": {
+                        "enum": [
+                          "R"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "ada:fieldScope"
+                    ]
+                  },
+                  {
+                    "title": "Reaction Product Ion / Mass-Shift Transition",
+                    "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValue"
+                          ]
+                        ]
+                      },
+                      "schema:propertyID": {
+                        "enum": [
+                          [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                            }
+                          ]
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Reaction Product Ion / Mass-Shift Transition"
+                        ]
+                      },
+                      "schema:value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:propertyID",
+                      "schema:name",
+                      "schema:value"
+                    ],
+                    "readOnly": true
                   }
                 ]
               },
@@ -2516,6 +3527,225 @@
                 {
                   "contains": {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_filteringApproach"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_numberOfBlocksPerMeasurement"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_numberOfCyclesPerBlock"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_integrationTimePerCycle"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_baselineMeasurementApproach"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_massFractionationLaw"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeIsotopePair"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeMixingRatio"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Error Correlation Between Reported Quantities",
+                    "description": "The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValue"
+                          ]
+                        ]
+                      },
+                      "schema:propertyID": {
+                        "enum": [
+                          [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities"
+                            }
+                          ]
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Error Correlation Between Reported Quantities"
+                        ]
+                      },
+                      "schema:value": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      },
+                      "schema:unitText": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:propertyID",
+                      "schema:name",
+                      "schema:value",
+                      "schema:unitText"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Collision/Reaction Gas Mixture Ratio",
+                    "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValueSpecification"
+                          ]
+                        ]
+                      },
+                      "schema:valueName": {
+                        "enum": [
+                          "collisionReactionGasMixtureRatioDefault"
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Collision/Reaction Gas Mixture Ratio"
+                        ]
+                      },
+                      "ada:dataType": {
+                        "enum": [
+                          "string"
+                        ]
+                      },
+                      "ada:fieldScope": {
+                        "enum": [
+                          "session"
+                        ]
+                      },
+                      "schema:readonlyValue": {},
+                      "ada:tier": {
+                        "enum": [
+                          "R"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "ada:fieldScope"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Reaction Product Ion / Mass-Shift Transition",
+                    "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValue"
+                          ]
+                        ]
+                      },
+                      "schema:propertyID": {
+                        "enum": [
+                          [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition"
+                            }
+                          ]
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Reaction Product Ion / Mass-Shift Transition"
+                        ]
+                      },
+                      "schema:value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:propertyID",
+                      "schema:name",
+                      "schema:value"
+                    ],
+                    "readOnly": true
                   },
                   "minContains": 0,
                   "maxContains": 1
@@ -2637,6 +3867,207 @@
                           "ada:dataType",
                           "schema:defaultValue"
                         ]
+                      },
+                      {
+                        "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "internalAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "R"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      {
+                        "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                        "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "R"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      {
+                        "title": "Counting Statistics Error",
+                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "countingStatisticsError"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Counting Statistics Error"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "R"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      {
+                        "title": "Within-Session Analytical Precision and Assessment Method",
+                        "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Within-Session Analytical Precision and Assessment Method"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "M"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "schema:defaultValue"
+                        ]
                       }
                     ]
                   },
@@ -2726,6 +4157,223 @@
                           "schema:name": {
                             "enum": [
                               "Analytical Accuracy and Assessment Method"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "M"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "schema:defaultValue"
+                        ]
+                      },
+                      "minContains": 0,
+                      "maxContains": 1
+                    },
+                    {
+                      "contains": {
+                        "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                        "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "internalAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "R"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      "minContains": 0,
+                      "maxContains": 1
+                    },
+                    {
+                      "contains": {
+                        "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                        "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "R"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      "minContains": 0,
+                      "maxContains": 1
+                    },
+                    {
+                      "contains": {
+                        "title": "Counting Statistics Error",
+                        "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "countingStatisticsError"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Counting Statistics Error"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "R"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType"
+                        ]
+                      },
+                      "minContains": 0,
+                      "maxContains": 1
+                    },
+                    {
+                      "contains": {
+                        "title": "Within-Session Analytical Precision and Assessment Method",
+                        "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Within-Session Analytical Precision and Assessment Method"
                             ]
                           },
                           "ada:dataType": {
@@ -3309,10 +4957,47 @@
                       "maxContains": 1
                     }
                   ]
+                },
+                "ada:defaultChannels": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
+                      }
+                    ]
+                  }
                 }
-              }
+              },
+              "required": [
+                "ada:defaultChannels"
+              ]
+            },
+            "ada:massBiasCorrectionStrategy": {
+              "description": "Primary strategy used to correct for instrumental isotopic mass fractionation. Four main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a mixture of two enriched isotopes of the target species element added before digestion provides an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization: an element of known isotopic composition added to samples and standards; measured ratio of normalizing element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal normalization: both strategies applied simultaneously for redundant bias correction.",
+              "type": "string",
+              "readOnly": true
+            },
+            "ada:numberOfAcquisitionPasses": {
+              "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "readOnly": true
             }
-          }
+          },
+          "required": [
+            "ada:massBiasCorrectionStrategy",
+            "ada:numberOfAcquisitionPasses"
+          ]
         }
       ],
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/tapp/schema.json",

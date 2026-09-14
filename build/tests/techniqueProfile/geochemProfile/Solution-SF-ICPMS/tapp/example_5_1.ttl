@@ -15,6 +15,13 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: 1 M HNO3, minimum volume for dissolution, ambient (section 2.4)." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
@@ -22,8 +29,9 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -32,14 +40,9 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
+                    ada:detectionLimitMethod "missing" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1)." ;
     schema1:instrument <https://example.org/instrument/ICPMS> ;
@@ -65,6 +68,7 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     ada:finalSolutionMatrix "0.1 M HNO3 + 0.3 M HF (Table 1)" ;
     ada:internalStandardElement "None (matrix-matched external calibration; stated section 2.3.1)" ;
     ada:isotopeDilutionSpike "None" ;
+    ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample "3 runs (LR and MR; Table 3)" ;
     ada:numberOfScansPerReplicate "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)" ;
     ada:oxideProductionMethodAndThreshold "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)" ;
@@ -87,6 +91,20 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
     schema1:name "Configuration" ;
     schema1:value "Pt-normal sampler + Pt-H skimmer (Table 1)" ;
     schema1:valueName "configuration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "\"Instrumental sensitivity was optimized on 11B, 115In, and 175Lu\", with sensitivities \"set as operational criteria\"; \"in medium resolution tuning, the instrument was optimized on 56Fe to achieve a mass resolution\"" ;
+    schema1:name "ICP Tuning" ;
+    schema1:valueName "icpTuningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> a schema1:PropertyValueSpecification ;
+    schema1:name "Instrument Warm up Session Duration Limit" ;
+    schema1:value "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated" ;
+    schema1:valueName "instrumentWarmUpSessionDurationLimit" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -186,7 +204,8 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -197,7 +216,7 @@ ex:solutionSficpmsTAPP-P4 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"" ] ;
+            schema1:name "Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Element XR single-collector SF-ICP-MS (stated section 2.3)" ] ;
     schema1:name "example instrumentName" .

@@ -1240,6 +1240,31 @@ allOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappingArea
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              - title: Collision/Reaction Gas Mixture Ratio
+                description: Where the collision or reaction cell is supplied with
+                  a mixture of gases rather than a single gas, the identities and
+                  proportions of that mixture. Recorded separately from the gas identity.
+                  Record 'N/A' where a single gas is used.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio
+                  schema:name:
+                    const: Collision/Reaction Gas Mixture Ratio
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
@@ -1384,6 +1409,34 @@ allOf:
               maxContains: 1
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Collision/Reaction Gas Mixture Ratio
+                description: Where the collision or reaction cell is supplied with
+                  a mixture of gases rather than a single gas, the identities and
+                  proportions of that mixture. Recorded separately from the gas identity.
+                  Record 'N/A' where a single gas is used.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio
+                  schema:name:
+                    const: Collision/Reaction Gas Mixture Ratio
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
               minContains: 0
               maxContains: 1
           prov:used:

@@ -24,11 +24,7 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
@@ -38,7 +34,13 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
@@ -69,6 +71,7 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     ada:finalSolutionMatrix "2% HNO3 + 1 ppb Tl (stated section 2.3)" ;
     ada:internalStandardElement "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)" ;
     ada:isotopeDilutionSpike "None (Tl added for mass fractionation correction only, not ID)" ;
+    ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)" ;
     ada:numberOfScansPerReplicate "2000 sweeps per set x 30 sets (stated section 2.3)" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -91,6 +94,13 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
     schema1:defaultValue "205Tl/203Tl = 2.3871 (Woodhead 2002), used to correct instrumental mass fractionation by internal normalisation with the exponential law" ;
     schema1:name "Constants Reference Values" ;
     schema1:valueName "constantsReferenceValuesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "\"The instrument was tuned to provide ~1000 kcps/ppb Pbtotal while maintaining flat-topped peaks\"" ;
+    schema1:name "ICP Tuning" ;
+    schema1:valueName "icpTuningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -147,7 +157,8 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
 
 <https://example.org/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
@@ -157,7 +168,7 @@ ex:solutionSficpmsTAPP-P0 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nu Instruments -- \"a Nu Instruments Attom SC-SF-ICP-MS\"" ] ;
+            schema1:name "Nu Instruments" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)" ] ;
     schema1:name "example instrumentName" .

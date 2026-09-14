@@ -68,7 +68,8 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "schema:description": "missing"
       },
       {
         "@type": [
@@ -120,6 +121,7 @@
             "schema:defaultValue": "2 h at 110 C; microwave 10 min at 210 C then cooling overnight"
           }
         ],
+        "schema:description": "Te route (tri-acid), 1: 750 uL HNO3 (14 M) + 1.5 ml HCl (10 M) + 2.5 ml HF (29 M) in closed PP tubes on a heating block, 2 h at 110 deg C | 2: evaporation at 120 deg C then re-dissolution in 250 uL HNO3 (14 M) with heating; brought to 10 ml with Milli-Q. Se route (microwave-assisted), 1: 3 ml HNO3 + 0.5 ml H2O2 + 0.25 ml HF, ramp to 210 deg C held 10 min -- Se is volatile above 70 deg C and is not compatible with the tri-acid route.",
         "bios:reagent": [
           {
             "schema:name": "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q",
@@ -326,6 +328,21 @@
       }
     ]
   },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+        }
+      ],
+      "schema:name": "Reaction Product Ion / Mass-Shift Transition",
+      "schema:value": "125Te + 16O -> 141TeO (mass-shift O2 mode); 126Te measured on-mass in KED"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -366,6 +383,7 @@
   "ada:internalStandardElement": "missing",
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:primaryStandardNameDefault": "missing",

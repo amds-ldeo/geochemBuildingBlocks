@@ -4,7 +4,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Moynier2017 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"" ;
@@ -32,6 +35,21 @@ ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 ex:solutionMcicpmsTAPP-Moynier2017 schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double-Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+    schema1:value "N/A — no double spike used" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement> a schema1:PropertyValue ;
+    schema1:name "Number of Blocks per Measurement" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement> ;
+    schema1:value "Blocks of 20 cycles" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:name "Number of Cycles per Block" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
+    schema1:value 20 .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> a schema1:PropertyValue ;
     schema1:name "Spike / Outlier Filtering Approach" ;

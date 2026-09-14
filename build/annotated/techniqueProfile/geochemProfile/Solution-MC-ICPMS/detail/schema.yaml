@@ -293,10 +293,128 @@ allOf:
                                 schema:additionalProperty:
                                   type: array
                                   items:
-                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                                    anyOf:
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                                    - title: Doubly-Charged Species Monitor
+                                      description: "The mass ratio monitored to estimate
+                                        doubly-charged ion (M\xB2\u207A) formation
+                                        during instrument tuning. The monitor species
+                                        and the mass positions monitored should be
+                                        stated explicitly. Analogous to Oxide Production
+                                        Method and Threshold for oxide monitoring."
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor
+                                        schema:name:
+                                          const: Doubly-Charged Species Monitor
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                    - title: Doubly-Charged Species Production
+                                      description: Measured percentage of doubly-charged
+                                        ion production for the monitored species at
+                                        the time of instrument tuning. The acceptable
+                                        threshold is typically <1% or <3%. Record
+                                        both the threshold and the measured value.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction
+                                        schema:name:
+                                          const: Doubly-Charged Species Production
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
                                   allOf:
                                   - contains:
                                       $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains:
+                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains:
+                                      title: Doubly-Charged Species Monitor
+                                      description: "The mass ratio monitored to estimate
+                                        doubly-charged ion (M\xB2\u207A) formation
+                                        during instrument tuning. The monitor species
+                                        and the mass positions monitored should be
+                                        stated explicitly. Analogous to Oxide Production
+                                        Method and Threshold for oxide monitoring."
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor
+                                        schema:name:
+                                          const: Doubly-Charged Species Monitor
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains:
+                                      title: Doubly-Charged Species Production
+                                      description: Measured percentage of doubly-charged
+                                        ion production for the monitored species at
+                                        the time of instrument tuning. The acceptable
+                                        threshold is typically <1% or <3%. Record
+                                        both the threshold and the measured value.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesProduction
+                                        schema:name:
+                                          const: Doubly-Charged Species Production
+                                        schema:value:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
                                     minContains: 0
                                     maxContains: 1
                       allOf:
@@ -311,10 +429,145 @@ allOf:
           schema:additionalProperty:
             type: array
             items:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
+              anyOf:
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfBlocksPerMeasurement
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfCyclesPerBlock
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
+              - title: Error Correlation Between Reported Quantities
+                description: The correlation coefficient between pairs of reported
+                  quantities whose uncertainties are not independent, together with
+                  the pair it applies to and how it was obtained.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities
+                  schema:name:
+                    const: Error Correlation Between Reported Quantities
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              - title: Collision/Reaction Gas Mixture Ratio
+                description: Where the collision or reaction cell is supplied with
+                  a mixture of gases rather than a single gas, the identities and
+                  proportions of that mixture. Recorded separately from the gas identity.
+                  Record 'N/A' where a single gas is used.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  schema:name:
+                    const: Collision/Reaction Gas Mixture Ratio
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfBlocksPerMeasurement
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfCyclesPerBlock
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
+              minContains: 0
+              maxContains: 1
+            - contains:
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Error Correlation Between Reported Quantities
+                description: The correlation coefficient between pairs of reported
+                  quantities whose uncertainties are not independent, together with
+                  the pair it applies to and how it was obtained.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionMcicpmsTAPP/errorCorrelationBetweenReportedQuantities
+                  schema:name:
+                    const: Error Correlation Between Reported Quantities
+                  schema:value:
+                    anyOf:
+                    - type: number
+                    - type: string
+                  schema:unitText:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
+                - schema:unitText
+              minContains: 0
+              maxContains: 1
+            - contains:
+                title: Collision/Reaction Gas Mixture Ratio
+                description: Where the collision or reaction cell is supplied with
+                  a mixture of gases rather than a single gas, the identities and
+                  proportions of that mixture. Recorded separately from the gas identity.
+                  Record 'N/A' where a single gas is used.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  schema:name:
+                    const: Collision/Reaction Gas Mixture Ratio
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
               minContains: 0
               maxContains: 1
           ada:proceduralBlankLevel:
@@ -323,6 +576,17 @@ allOf:
               since a blank subtracted from a ratio biases the result unless its own
               composition is known. Companion to the blank correction method."
             type: string
+          ada:deltaOrEpsilonValueReferenceStandard:
+            description: "International or community-accepted isotopic reference standard
+              used as the zero-delta anchor for expressing isotopic compositions in
+              delta (\u03B4, per mil) or epsilon (\u03B5, per ten thousand) notation:
+              \u03B4\u2071X = [(\u2071X/\u02B2X)sample / (\u2071X/\u02B2X)reference
+              \u2212 1] \xD7 1000\u2030. The reporting reference is a per-study or
+              per-publication decision. Specify the standard name, lot or batch number
+              where applicable, and the certified or consensus isotope ratio used
+              for normalization."
+            type: string
         required:
+        - ada:deltaOrEpsilonValueReferenceStandard
         - ada:proceduralBlankLevel
         - schema:actionProcess

@@ -4,6 +4,9 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-Dauphas2019 a ada:SolutionICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-Dauphas2019 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -31,4 +34,19 @@ ex:detail-Dauphas2019 a ada:SolutionICPMSTabular ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 ex:solutionMcicpmsTAPP-Dauphas2019 schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double-Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+    schema1:value "N/A — no double spike used" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement> a schema1:PropertyValue ;
+    schema1:name "Number of Blocks per Measurement" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement> ;
+    schema1:value "A single block" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:name "Number of Cycles per Block" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
+    schema1:value 25 .
 

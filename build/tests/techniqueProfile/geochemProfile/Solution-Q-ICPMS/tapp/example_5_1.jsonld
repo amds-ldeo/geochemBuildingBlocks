@@ -79,7 +79,8 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "schema:description": "missing"
       },
       {
         "schema:name": "Data reduction",
@@ -143,6 +144,7 @@
             "schema:value": "TFM bomb (TFM-981; stated section 2.1.1)"
           }
         ],
+        "schema:description": "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging.",
         "bios:reagent": [
           {
             "schema:name": "0.5 mol/l HF (stated section 2.1.1)",
@@ -418,10 +420,21 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "~3 min washout; ~3 min uptake stabilization (stated section 2.1.1)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Partially -- an oxide acceptance criterion is registered in the operating conditions, \"Oxide forming rate <1% (CeO+/Ce+)\"; no tuning solution or tuning procedure stated"
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Agilent -- \"A Q-pole type ICP mass spectrometer, Agilent 7500 cs (Yokogawa Analytical Systems, Japan)\"",
+        "schema:name": "Agilent",
         "@type": [
           "schema:Organization"
         ]
@@ -575,6 +588,7 @@
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

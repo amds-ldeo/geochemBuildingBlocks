@@ -17,6 +17,7 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Basalts, andesites and NIST SRM 612/614/616, 1: HF-HClO4 with the Sm spike in an ultrasonic bath, then dried to decompose fluorides; final uptake in 0.5 mol/l HNO3. Peridotites and carbonaceous chondrites, 1: HF with the Sm spike in a TFE bomb at 245 deg C | 2: dried with HClO4; final uptake in 0.5 mol/l HNO3." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
@@ -24,6 +25,7 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -87,6 +89,7 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     ada:internalStandardElement "149Sm (as ID-IS reference; stated section 2)" ;
     ada:isotopeDilutionSpike "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 0.01 (= <1%; stated section 2)" ;
     ada:primaryStandardNameDefault "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)" ;
@@ -193,7 +196,7 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
     schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Agilent -- \"Agilent 7500cs; Yokogawa Analytical Systems, Mitaka, Japan\"" ] ;
+            schema1:name "Agilent" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500cs (stated section 2)" ] ;
     schema1:name "example instrumentName" .

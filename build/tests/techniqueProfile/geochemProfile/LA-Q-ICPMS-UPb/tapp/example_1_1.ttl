@@ -14,11 +14,6 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -27,11 +22,18 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:chemicalAbrasionConditions "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata" ] ;
     schema1:datePublished "missing" ;
@@ -75,6 +77,7 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     ada:internalStandardElement "⁶¹Ni; concentration from EPMA measured at exact analysis spot location" ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
+    ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method" ;
     ada:rasterLineSpacingDefault "missing" ;
@@ -156,6 +159,8 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/ICP-Source>,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Thermo Scientific X-series 2 (Q-ICP-MS)" ] ;
     schema1:name "example instrumentName" .
@@ -199,4 +204,9 @@ ex:laQicpmsUPbTAPP-Nakanishi2022 a cdi:Activity,
     ada:laserRepetitionRateDefault "20 Hz" ;
     ada:laserSpotGeometryDefault "30 µm circular" ;
     ada:laserType "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
+    schema1:name "Inter-Pass Data Dependency" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> ;
+    schema1:value "Single spot per location (30 µm circular)" .
 

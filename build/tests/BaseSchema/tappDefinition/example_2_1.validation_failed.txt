@@ -1,5 +1,5 @@
 Validation report for ogch.BaseSchema.tappDefinition - Technique-Aligned Protocol Profile (TAPP) Definition
-Generated 2026-09-13T21:44:05.783456+00:00
+Generated 2026-09-14T04:22:12.624410+00:00
 === Files ===
 Using exampletappDefinition-nmnh-spinel-oxybar-v1.json from examples
 JSON-LD context is present - uplifting
@@ -20,6 +20,142 @@ Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:
  - Shape cdifd:tappDefinitionShape: *none*
  - Shape cdifd:WorkflowStepUniqueNamesShape: *none*
 
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
+ - Shape cdifd:CDIFOrganizationShape: <https://example.org/instrument/nxs-BaseClass-NXinstrument>/schema1:manufacturer,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:agent
+ - Shape _:n17cfcc51904a45f69bac746f72458aeeb3: *none*
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
+ - Shape skosv:ConceptShape: *none*
+ - Shape skosv:prefLabelUniqueLangShape: *none*
+ - Shape skosv:conceptBroaderNotSelfShape: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
+ - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b4: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b8: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b26: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b6: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b19: *none*
+ - Shape cdifd:CDIFDefinedTermShape: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b10: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b7: *none*
+ - Shape _:n179250d5a5e74fe1910b7a61b710b5b1b5: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
+ - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb23: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb21: *none*
+ - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb20: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb22: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb25: *none*
+ - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb11: *none*
+ - Shape _:nb827e09083a1403794bdc77bba650b1fb10: *none*
+ - Shape cdifd:CDIFIdentifierShape: *none*
+
+Validation result for _sources/BaseSchema/laboratory/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:
+ - Shape cdifd:laboratoryShape: *none*
+
+
+** Validation error **
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+  Validation Report
+  Conforms: False
+  Results (4):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b40: *none*
+ - Shape cdifd:geoCoordinatesNode: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b44: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b38: *none*
+ - Shape cdifd:geoShapeNode: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b9: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b16: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b29: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b4: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b3: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b10: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b13: *none*
+ - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b42: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b39: *none*
+ - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b24: *none*
+ - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:measurementTechnique
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b15: *none*
+ - Shape cdifd:spatialExtentProperty: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:location
+ - Shape _:n4d5180f1b5a149f0bf65086961746674b41: *none*
+
+Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
+ - Shape _:n70244955ca8e4dcfb81eaed8d32bd2c5b14: *none*
+ - Shape _:n70244955ca8e4dcfb81eaed8d32bd2c5b11: *none*
+ - Shape _:n70244955ca8e4dcfb81eaed8d32bd2c5b5: *none*
+ - Shape _:n70244955ca8e4dcfb81eaed8d32bd2c5b4: *none*
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n70244955ca8e4dcfb81eaed8d32bd2c5b13: *none*
+ - Shape cdifd:qualityMeasurementNode: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement
+ - Shape _:n70244955ca8e4dcfb81eaed8d32bd2c5b12: *none*
+ - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
+
 
 ** Validation error **
 Validation result for _sources/BaseSchema/instrument/rules.shacl:
@@ -34,9 +170,9 @@ Validation result for _sources/BaseSchema/instrument/rules.shacl:
   	Message: An instrument must have an identifier (schema:identifier).
   
 Focus nodes for _sources/BaseSchema/instrument/rules.shacl:
+ - Shape cdifd:provUsedInstrumentParamValueShape: *none*
  - Shape cdifd:tappInstrumentParamSpecShape: *none*
  - Shape cdifd:adaInstrumentShape: *none*
- - Shape cdifd:provUsedInstrumentParamValueShape: *none*
 
 
 ** Validation error **
@@ -53,62 +189,6 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl:
  - Shape cdifd:instrumentNode: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl:
- - Shape _:n9729945fc91247928cce6a70fab034cab6: *none*
- - Shape cdifd:CDIFDefinedTermShape: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab4: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab19: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab7: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab5: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab8: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab10: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:n9729945fc91247928cce6a70fab034cab26: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl:
- - Shape cdifd:CDIFIdentifierShape: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape: *none*
- - Shape cdifd:CDIFIdentifierTypeTermShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb23: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb20: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb10: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb25: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb22: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb21: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n4cd98fb6833c480091b8c05f5156b18fb11: *none*
- - Shape cdifd:CDIFIdentifierShape/sh:or/rdf:first: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl:
- - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:first: *none*
- - Shape _:ncb663c8e86a240cb9e23e7639487c39cb3: *none*
- - Shape cdifd:CDIFOrganizationShape: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:agent,<https://example.org/instrument/nxs-BaseClass-NXinstrument>/schema1:manufacturer
- - Shape cdifd:CDIFOrganizationShape/sh:or/rdf:rest/rdf:first: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl:
- - Shape skosv:ConceptShape: *none*
- - Shape skosv:conceptBroaderNotSelfShape: *none*
- - Shape skosv:prefLabelUniqueLangShape: *none*
 
 
 ** Validation error **
@@ -130,44 +210,44 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: schema:propertyID value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {"@id":"..."}. Free-label strings like 'temperature' remain valid as strings.
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl:
- - Shape _:n43690e489a374ef387aaa8217b83b71bb7: *none*
- - Shape cdifd:CDIFAddPropertyTermShape: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb33: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb28: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb30: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb31: *none*
- - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <https://example.org/instrument/nxs-BaseClass-NXinstrument/part/WDS-Spectrometer>/schema1:additionalType,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:actionProcess/schema1:step/schema1:additionalType,<https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,<https://www.wikidata.org/wiki/Q3099911>
- - Shape cdifd:PropertyIDUriShouldBeIRIShape: https://vocab.onegeochemistry.org/epma/matrix-correction,Smithsonian catalog
- - Shape cdifd:CDIFadditionalPropertyShape: *none*
- - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb21: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb14: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb6: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb20: *none*
- - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b30: *none*
  - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb13: *none*
- - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b33: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b14: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b28: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape/sh:property/sh:or/rdf:first: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b13: *none*
+ - Shape cdifd:CDIFadditionalPropertyShape: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b29: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b6: *none*
  - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:first: *none*
- - Shape _:n43690e489a374ef387aaa8217b83b71bb29: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape: <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,<https://example.org/instrument/nxs-BaseClass-NXinstrument/part/WDS-Spectrometer>/schema1:additionalType,<https://www.wikidata.org/wiki/Q3099911>,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:actionProcess/schema1:step/schema1:additionalType
+ - Shape cdifd:CDIFAddPropertyTermShape: *none*
+ - Shape cdifd:AdditionalTypeUriShouldBeIRIShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape/sh:or/rdf:first: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b20: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b7: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b21: *none*
+ - Shape _:n01213fb8934e4da29c41263d450aedc8b31: *none*
+ - Shape cdifd:CDIFAddPropertyTermShape/sh:property/sh:or/rdf:first: *none*
+ - Shape cdifd:PropertyIDUriShouldBeIRIShape: Smithsonian catalog,https://vocab.onegeochemistry.org/epma/matrix-correction
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl:
- - Shape cdifd:CDIFContactPointShape: *none*
- - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:CDIFPersonShape: *none*
- - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
- - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*
- - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*
  - Shape cdifd:maintainerOrProviderContactPointShape/sh:property/sh:or/rdf:first: *none*
- - Shape cdifd:maintainerOrProviderContactPointShape: *none*
- - Shape _:n79d11ced022548fa9a9fc250d923b346b14: *none*
- - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFContactPointShape: *none*
  - Shape cdifd:contactPointProperty/sh:or/rdf:first: *none*
+ - Shape cdifd:contactPointProperty/sh:or/rdf:rest/rdf:first: *none*
+ - Shape cdifd:CDIFPersonShape: *none*
+ - Shape cdifd:CDIFPersonShape/sh:or/rdf:first: *none*
+ - Shape cdifd:maintainerOrProviderContactPointShape: *none*
+ - Shape _:nd6c351b15fb940eebd00f0c8767a44eeb14: *none*
+ - Shape cdifd:affiliationProperty/sh:or/rdf:rest/rdf:first: *none*
 
 
 ** Validation error **
@@ -178,20 +258,20 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
   	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
+  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
+  	Message: A Term must have a name (label) or an identifier. It should have both!.
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: cdifd:CDIFDefinedTermShape
   	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
   	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
   	Message: A Term must have a name (label) or an identifier. It should have both!.
   Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
   	Severity: sh:Violation
@@ -201,21 +281,21 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   	Message: A Term must have a name (label) or an identifier. It should have both!.
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl:
- - Shape cdifd:CDIFRoleShape: *none*
- - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb15: *none*
- - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb16: *none*
- - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb14: *none*
  - Shape cdifd:CDIFRoleShape/sh:property/sh:or/rdf:first: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb18: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb20: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb17: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:rest/rdf:first: *none*
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb3: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b15: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b20: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b16: *none*
+ - Shape cdifd:roleNameProperty/sh:or/rdf:first: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b14: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b17: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b18: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b3: *none*
+ - Shape _:ncf8b8cd2284346c4b485f034efb715d0b4: *none*
+ - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:measurementTechnique
  - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:ndc19270cc3af4200b561a3ee90b6794fb4: *none*
+ - Shape cdifd:CDIFRoleShape: *none*
 
 Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifReference/rules.shacl:
   Validation Report
@@ -236,100 +316,20 @@ Validation result for https://cross-domain-interoperability-framework.github.io/
   Conforms: True
   
 Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl:
- - Shape _:n83ab97459cf044e89a581c5523336eb1b15: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b5: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b12: *none*
  - Shape cdifd:fundingShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b25: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b13: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b11: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b14: *none*
- - Shape cdifd:fundingShape: *none*
  - Shape cdifd:fundingShape/sh:or/rdf:first: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b26: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b17: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b3: *none*
- - Shape _:n83ab97459cf044e89a581c5523336eb1b4: *none*
-
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl:
- - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
- - Shape _:n7d80921d6eba4b6baaaa4a027fa1a507b12: *none*
- - Shape cdifd:qualityMeasurementNode/sh:property/sh:or/rdf:first: *none*
- - Shape _:n7d80921d6eba4b6baaaa4a027fa1a507b13: *none*
- - Shape cdifd:qualityMeasurementNode: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:actionProcess/schema1:step/dqv:hasQualityMeasurement
- - Shape _:n7d80921d6eba4b6baaaa4a027fa1a507b5: *none*
- - Shape _:n7d80921d6eba4b6baaaa4a027fa1a507b11: *none*
- - Shape _:n7d80921d6eba4b6baaaa4a027fa1a507b14: *none*
- - Shape _:n7d80921d6eba4b6baaaa4a027fa1a507b4: *none*
-
-Validation result for _sources/BaseSchema/laboratory/rules.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:
- - Shape cdifd:laboratoryShape: *none*
-
-
-** Validation error **
-Validation result for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
-  Validation Report
-  Conforms: False
-  Results (4):
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("Yes") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: cdifd:CDIFDefinedTermShape
-  	Focus Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
-  	Value Node: [ rdf:type schema1:DefinedTerm ; schema1:termCode Literal("No") ]
-  	Message: A Term must have a name (label) or an identifier. It should have both!.
-  
-Focus nodes for https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl:
- - Shape cdifd:spatialExtentProperty/sh:or/rdf:first: *none*
- - Shape cdifd:CDIFDefinedTermShape: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:measurementTechnique,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:object,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm,<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/ada:methodParameters/schema1:inDefinedTermSet/schema1:hasDefinedTerm
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b3: *none*
- - Shape cdifd:spatialExtentProperty/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b29: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b4: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b24: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:first: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b9: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b10: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b16: *none*
- - Shape cdifd:geoCoordinatesNode: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b13: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b44: *none*
- - Shape cdifd:spatialExtentProperty: <https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1>/schema1:location
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b41: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b40: *none*
- - Shape cdifd:CDIFDefinedTermShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b39: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b38: *none*
- - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
- - Shape cdifd:geoShapeNode: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b15: *none*
- - Shape _:n2bd3ddfe709943db81b8caa78f504204b42: *none*
- - Shape cdifd:geoCoordinatesNode/sh:property/sh:or/rdf:first: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb26: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb25: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb5: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb17: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb4: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb12: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb13: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb11: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb3: *none*
+ - Shape cdifd:fundingShape: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb14: *none*
+ - Shape _:nf02f8758a9f04fd9ba124f4115a5664fb15: *none*
 
 === End SHACL ===
 

@@ -15,12 +15,6 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -28,8 +22,16 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> ;
     schema1:datePublished "missing" ;
     schema1:description "Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume" ;
     schema1:instrument <https://example.org/instrument/ICPMS>,
@@ -69,6 +71,7 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     ada:internalStandardElement "None (oxide sum normalization, 100 wt% total)" ;
     ada:massBiasCorrectionStrategy "missing" ;
     ada:massesMeasuredDefault "missing" ;
+    ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 glass standard" ;
     ada:rasterLineSpacingDefault "missing" ;
@@ -105,6 +108,8 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
         <https://example.org/instrument/ICPMS/part/ICP-Source>,
         <https://example.org/instrument/ICPMS/part/Interface-Cone>,
         <https://example.org/instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Agilent 7500ce ICP-MS" ] ;
     schema1:name "example instrumentName" .
@@ -145,4 +150,9 @@ ex:laQicpmsUPbTAPP-Liu2016 a cdi:Activity,
     ada:laserRepetitionRateDefault "5 Hz" ;
     ada:laserSpotGeometryDefault "24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling)" ;
     ada:laserType "193 nm Excimer (ArF excimer)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
+    schema1:name "Inter-Pass Data Dependency" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency> ;
+    schema1:value "Single spot analysis per location" .
 

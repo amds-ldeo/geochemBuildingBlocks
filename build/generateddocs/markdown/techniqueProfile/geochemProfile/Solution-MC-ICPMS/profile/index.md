@@ -230,6 +230,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "missing",
       "ada:proceduralBlankLevel": "missing",
       "schema:actionProcess": {
         "@type": [
@@ -747,6 +748,7 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
+      "ada:deltaOrEpsilonValueReferenceStandard": "missing",
       "ada:proceduralBlankLevel": "missing",
       "schema:actionProcess": {
         "@type": [
@@ -1146,6 +1148,7 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
             prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
+            ada:deltaOrEpsilonValueReferenceStandard "missing" ;
             ada:proceduralBlankLevel "missing" ] ;
     ada:sensitivityYield 1e+00 .
 

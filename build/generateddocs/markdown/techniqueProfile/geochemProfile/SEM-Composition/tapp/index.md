@@ -128,6 +128,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
+  "ada:monitoredElements": [
+    "N — \"quantitative EDS analyses (with an Oxford X-Max SDD system and an XPP correction procedure calibrated with Oxford factory internal standards) were carried out at 10 kV\" (p.2), to determine the composition of the Al-Cu alloy phases and associated minerals; no element set is enumerated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -329,6 +332,9 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     }
   ],
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
+  "ada:monitoredElements": [
+    "N \u2014 \"quantitative EDS analyses (with an Oxford X-Max SDD system and an XPP correction procedure calibrated with Oxford factory internal standards) were carried out at 10 kV\" (p.2), to determine the composition of the Al-Cu alloy phases and associated minerals; no element set is enumerated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -453,6 +459,7 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "XPP (Simplified PAP)" ;
+    ada:monitoredElements "N — \"quantitative EDS analyses (with an Oxford X-Max SDD system and an XPP correction procedure calibrated with Oxford factory internal standards) were carried out at 10 kV\" (p.2), to determine the composition of the Al-Cu alloy phases and associated minerals; no element set is enumerated" ;
     ada:primaryStandardNameDefault "Oxford factory internal standards" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -618,6 +625,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "ada:beamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
+  ],
+  "ada:monitoredElements": [
+    "Mg, Al, Ca, Si, Ti, Cr, Mn, Fe — \"Among the detected elements were Mg, Al, Ca, Si, Ti, Cr, Mn, and Fe\" (p.2). NOTE the sentence attaches these to the WDS X-ray distribution maps; the EDS itself is described only as \"semiquantitative analyses for major elements\" and \"qualitative measurements by EDS\", so the EDS element set is not separately stated"
   ],
   "schema:relatedLink": [
     {
@@ -814,6 +824,9 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
       "ada:workingDistanceDefault": -9999
     }
   ],
+  "ada:monitoredElements": [
+    "Mg, Al, Ca, Si, Ti, Cr, Mn, Fe \u2014 \"Among the detected elements were Mg, Al, Ca, Si, Ti, Cr, Mn, and Fe\" (p.2). NOTE the sentence attaches these to the WDS X-ray distribution maps; the EDS itself is described only as \"semiquantitative analyses for major elements\" and \"qualitative measurements by EDS\", so the EDS element set is not separately stated"
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "coupledTechnique",
@@ -931,6 +944,7 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "Mg, Al, Ca, Si, Ti, Cr, Mn, Fe — \"Among the detected elements were Mg, Al, Ca, Si, Ti, Cr, Mn, and Fe\" (p.2). NOTE the sentence attaches these to the WDS X-ray distribution maps; the EDS itself is described only as \"semiquantitative analyses for major elements\" and \"qualitative measurements by EDS\", so the EDS element set is not separately stated" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -1098,6 +1112,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:monitoredElements": [
+    "N — the Leo 440 SEM carries \"a Gresham light element detector and a Quartz XOne EDX analysis system, capable of detecting all elements from C to U, with a detection limit of ~0.5 wt% for most elements\" (p.3). That is the detector's range, not the set monitored; the maps' elements are not enumerated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1299,6 +1316,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:monitoredElements": [
+    "N \u2014 the Leo 440 SEM carries \"a Gresham light element detector and a Quartz XOne EDX analysis system, capable of detecting all elements from C to U, with a detection limit of ~0.5 wt% for most elements\" (p.3). That is the detector's range, not the set monitored; the maps' elements are not enumerated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1391,15 +1411,15 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -1423,6 +1443,7 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "N — the Leo 440 SEM carries \"a Gresham light element detector and a Quartz XOne EDX analysis system, capable of detecting all elements from C to U, with a detection limit of ~0.5 wt% for most elements\" (p.3). That is the detector's range, not the set monitored; the maps' elements are not enumerated" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -1590,6 +1611,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     }
   ],
   "ada:edsAcquisitionMode": "Point",
+  "ada:monitoredElements": [
+    "N — the Leo 1540 FIB/SEM CrossBeam is \"equipped with an Oxford Instruments INCA EDX system allowing for elemental analysis\" (p.3); no element set is stated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1791,6 +1815,9 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     }
   ],
   "ada:edsAcquisitionMode": "Point",
+  "ada:monitoredElements": [
+    "N \u2014 the Leo 1540 FIB/SEM CrossBeam is \"equipped with an Oxford Instruments INCA EDX system allowing for elemental analysis\" (p.3); no element set is stated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1883,15 +1910,15 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/instrument/SEM> ;
@@ -1915,6 +1942,7 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "N — the Leo 1540 FIB/SEM CrossBeam is \"equipped with an Oxford Instruments INCA EDX system allowing for elemental analysis\" (p.3); no element set is stated" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -2109,6 +2137,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:edsAcquisitionMode": "N/A",
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "ada:monitoredElements": [
+    "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2346,6 +2377,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:edsAcquisitionMode": "N/A",
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
+  "ada:monitoredElements": [
+    "N \u2014 the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 \u2014 a different instrument and a different procedure \u2014 and is deliberately not read across"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2447,15 +2481,15 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -2481,6 +2515,7 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault "30 s live time per spot analysis" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -2692,6 +2727,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "ada:edsAcquisitionMode": "Map",
   "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
   "ada:stepSizePixelSizeDefault": "2.5 µm",
+  "ada:monitoredElements": [
+    "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2929,6 +2967,9 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   "ada:edsAcquisitionMode": "Map",
   "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
   "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
+  "ada:monitoredElements": [
+    "N \u2014 the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 \u2014 a different instrument and a different procedure \u2014 and is deliberately not read across"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3029,15 +3070,15 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -3063,15 +3104,16 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault "5 ms dwell time per pixel" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -3247,6 +3289,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   ],
   "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
+  "ada:monitoredElements": [
+    "N — \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3458,6 +3503,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   ],
   "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
+  "ada:monitoredElements": [
+    "N \u2014 \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3591,15 +3639,16 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault "20 to 200 s (per point)" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "N — \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ] .
 
 <https://example.org/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3762,6 +3811,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:monitoredElements": [
+    "N — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" on the Hitachi S-4800 (p.9); no element set is stated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3973,6 +4025,9 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:monitoredElements": [
+    "N \u2014 \"The compositional heterogeneity of the particles was assessed through EDS mapping\" on the Hitachi S-4800 (p.9); no element set is stated"
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -4107,6 +4162,7 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "N — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" on the Hitachi S-4800 (p.9); no element set is stated" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -4197,6 +4253,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         }
       ]
     }
+  ],
+  "ada:monitoredElements": [
+    "Mg, Si, Fe, Ni, S, Na, Ca, Al — \"multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\" (p.11)"
   ],
   "schema:measurementTechnique": [
     {
@@ -4396,6 +4455,9 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
         }
       ]
     }
+  ],
+  "ada:monitoredElements": [
+    "Mg, Si, Fe, Ni, S, Na, Ca, Al \u2014 \"multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\" (p.11)"
   ],
   "schema:measurementTechnique": [
     {
@@ -4598,6 +4660,7 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
+    ada:monitoredElements "Mg, Si, Fe, Ni, S, Na, Ca, Al — \"multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\" (p.11)" ;
     ada:primaryStandardNameDefault "missing" ;
     ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
@@ -7050,6 +7113,18 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
+    ada:monitoredElements:
+      type: array
+      items:
+        description: Specific elements monitored in this procedure, grouped by the
+          target species they serve where they serve one. Includes elements monitored
+          only to correct an interference, which serve no target species and so have
+          no parent. The target species list is given by the Target Species field
+          and is never inferred from the elements appearing here. The X-ray line,
+          diffracting crystal, spectrometer assignment and counting times used for
+          each monitored element are recorded in their own fields, keyed to this one.
+        type: string
+        readOnly: true
     ada:analyticalMode:
       type: array
       items:

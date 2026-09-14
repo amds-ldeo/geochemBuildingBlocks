@@ -1424,6 +1424,46 @@
         "schema:defaultValue"
       ]
     },
+    "laMcicpmsUPb_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laMcicpmsUPbTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "laMcicpmsUPb_detectionLimit": {
       "title": "Detection Limit",
       "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
@@ -1629,6 +1669,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "laMcicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "laMcicpmsUPb_isobaricInterferenceCorrectionsApplied": {
@@ -2157,6 +2237,46 @@
         "schema:defaultValue"
       ]
     },
+    "laMcicpms_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laMcicpmsTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "laMcicpms_detectionLimit": {
       "title": "Detection Limit",
       "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
@@ -2399,6 +2519,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "laMcicpms_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "laMcicpms_isobaricInterferenceCorrectionsApplied": {
@@ -2923,6 +3083,46 @@
         "schema:defaultValue"
       ]
     },
+    "laQicpmsUPb_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laQicpmsUPbTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "laQicpmsUPb_detectionLimit": {
       "title": "Detection Limit",
       "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
@@ -3139,6 +3339,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "laQicpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "laQicpmsUPb_isobaricInterferenceCorrectionsApplied": {
@@ -3626,6 +3866,46 @@
         "schema:defaultValue"
       ]
     },
+    "laQicpms_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laQicpmsTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "laQicpms_detectionLimit": {
       "title": "Detection Limit",
       "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
@@ -3842,6 +4122,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "laQicpms_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "laQicpms_isobaricInterferenceCorrectionsApplied": {
@@ -4329,6 +4649,46 @@
         "schema:defaultValue"
       ]
     },
+    "laSficpmsUPb_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laSficpmsUPbTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "laSficpmsUPb_detectionLimit": {
       "title": "Detection Limit",
       "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
@@ -4545,6 +4905,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "laSficpmsUPb_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "laSficpmsUPb_isobaricInterferenceCorrectionsApplied": {
@@ -5073,6 +5473,46 @@
         "schema:defaultValue"
       ]
     },
+    "laSficpms_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laSficpmsTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "laSficpms_detectionLimit": {
       "title": "Detection Limit",
       "description": "Session detection limit, one per reported concentration variable (one per analyte, these being the same set), expressed in \u00b5g g\u207b\u00b9, ng g\u207b\u00b9, or wt% as appropriate. Mandatory at analysis level to demonstrate the reliability of reported near-detection-limit concentrations. The calculation method is captured separately in Detection Limit Method.",
@@ -5289,6 +5729,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "laSficpms_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "laSficpms_isobaricInterferenceCorrectionsApplied": {
@@ -8378,6 +8858,46 @@
         "schema:defaultValue"
       ]
     },
+    "solutionMcicpms_betweenSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+      "description": "Precision of measurements across multiple analytical sessions over weeks to months \u2014 long-term or intermediate precision \u2014 and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "solutionMcicpms_calibrationStrategyPerTargetSpecies": {
       "title": "Calibration Strategy per Target Species",
       "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
@@ -8417,6 +8937,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "solutionMcicpms_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "solutionMcicpms_detectionLimit": {
@@ -8507,6 +9067,46 @@
         "schema:defaultValue"
       ]
     },
+    "solutionMcicpms_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "solutionMcicpms_limitOfQuantificationMethod": {
       "title": "Limit of Quantification (LOQ) Method",
       "description": "Reference or description of the method used to calculate the limit of quantification (LOQ): the lowest concentration reliably measurable with acceptable precision and accuracy. Required when concentrations near the LOD are reported.",
@@ -8571,6 +9171,47 @@
         },
         "schema:readonlyValue": {
           "const": true
+        },
+        "ada:tier": {
+          "const": "M"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType",
+        "schema:defaultValue"
+      ]
+    },
+    "solutionMcicpms_withinSessionAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Within-Session Analytical Precision and Assessment Method",
+      "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "withinSessionAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Within-Session Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
         },
         "ada:tier": {
           "const": "M"
@@ -8708,6 +9349,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "solutionQicpms_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "solutionQicpms_detectionLimit": {
@@ -8926,6 +9607,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "solutionQicpms_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "solutionQicpms_isobaricInterferenceCorrectionsApplied": {
@@ -9254,6 +9975,46 @@
         "schema:defaultValue"
       ]
     },
+    "solutionSficpms_countingStatisticsError": {
+      "title": "Counting Statistics Error",
+      "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/countingStatisticsError"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "countingStatisticsError"
+        },
+        "schema:name": {
+          "const": "Counting Statistics Error"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
+      ]
+    },
     "solutionSficpms_detectionLimit": {
       "title": "Detection Limit",
       "description": "Elemental detection limits, one per reported concentration variable (one per analyte, these being the same set). Specify units (\u00b5g/g or \u00b5g/L) and whether values are procedure-typical estimates or session-specific measured values.",
@@ -9470,6 +10231,46 @@
         "schema:name",
         "ada:dataType",
         "schema:defaultValue"
+      ]
+    },
+    "solutionSficpms_internalAnalyticalPrecisionAndAssessmentMethod": {
+      "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+      "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "const": "ada:analyteColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "@type": {
+          "const": [
+            "schema:PropertyValueSpecification"
+          ]
+        },
+        "schema:valueName": {
+          "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+        },
+        "schema:name": {
+          "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+        },
+        "ada:dataType": {
+          "const": "string"
+        },
+        "schema:readonlyValue": {
+          "const": false
+        },
+        "ada:tier": {
+          "const": "R"
+        },
+        "schema:defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "@id",
+        "@type",
+        "schema:valueName",
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "solutionSficpms_isobaricInterferenceCorrectionsApplied": {

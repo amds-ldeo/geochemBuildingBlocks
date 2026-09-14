@@ -13771,6 +13771,25 @@ allOf:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_guardElectrode
                       minContains: 0
                       maxContains: 1
+                  schema:description:
+                    description: "The acquisition passes the procedure is divided
+                      into, named and described so that fields keyed by acquisition
+                      pass can point at them. A pass is a sub-procedure: a distinct
+                      traversal of the measurement with its own configuration, run
+                      in sequence on the same material. State what distinguishes each
+                      pass \u2014 resolution mode, cup or cell configuration, plasma
+                      or introduction path, spot size \u2014 since that differs by
+                      technique. Identical repeats of one configuration are replicates,
+                      not passes, and belong in Number of Replicates."
+                    anyOf:
+                    - type: string
+                      readOnly: true
+                    - type: array
+                      items:
+                        type: string
+                        readOnly: true
+                required:
+                - schema:description
             - if:
                 properties:
                   schema:name:
@@ -13834,6 +13853,103 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief
+        - title: Collision/Reaction Gas Mixture Ratio
+          description: Where the collision or reaction cell is supplied with a mixture
+            of gases rather than a single gas, the identities and proportions of that
+            mixture. Recorded separately from the gas identity. Record 'N/A' where
+            a single gas is used.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - collisionReactionGasMixtureRatioDefault
+            schema:name:
+              enum:
+              - Collision/Reaction Gas Mixture Ratio
+            ada:dataType:
+              enum:
+              - string
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction
+            cell, the precursor ion, the reagent gas and the product ion measured.
+            Records the mass-shift chemistry relating the mass measured to the target
+            species it reports, which the monitored mass alone does not state. Record
+            'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              enum:
+              - - schema:PropertyValue
+            schema:propertyID:
+              enum:
+              - - '@id': ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              enum:
+              - Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        - title: Inter-Pass Data Dependency
+          description: "Which earlier acquisition pass supplied inputs to this one,
+            and what those inputs are \u2014 for example a concentration measured
+            in one pass and used as the internal standard for a later pass on the
+            same location. Records the dependency only; the settings of each pass
+            are carried by the fields keyed by acquisition pass, and the passes themselves
+            are enumerated by Acquisition Pass. Leave empty for a pass that consumes
+            no earlier output. Not applicable to raster mapping, where each spatial
+            location is visited exactly once."
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/laQicpmsTAPP/interPassDataDependency
+            '@type':
+              enum:
+              - - schema:PropertyValue
+            schema:propertyID:
+              enum:
+              - - '@id': ada:parameter/laQicpmsTAPP/interPassDataDependency
+            schema:name:
+              enum:
+              - Inter-Pass Data Dependency
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
       allOf:
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Procedure_preAnalysisImagingAndScreening
@@ -13853,6 +13969,112 @@ allOf:
         maxContains: 1
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Collision/Reaction Gas Mixture Ratio
+          description: Where the collision or reaction cell is supplied with a mixture
+            of gases rather than a single gas, the identities and proportions of that
+            mixture. Recorded separately from the gas identity. Record 'N/A' where
+            a single gas is used.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - collisionReactionGasMixtureRatioDefault
+            schema:name:
+              enum:
+              - Collision/Reaction Gas Mixture Ratio
+            ada:dataType:
+              enum:
+              - string
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction
+            cell, the precursor ion, the reagent gas and the product ion measured.
+            Records the mass-shift chemistry relating the mass measured to the target
+            species it reports, which the monitored mass alone does not state. Record
+            'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              enum:
+              - - schema:PropertyValue
+            schema:propertyID:
+              enum:
+              - - '@id': ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              enum:
+              - Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Inter-Pass Data Dependency
+          description: "Which earlier acquisition pass supplied inputs to this one,
+            and what those inputs are \u2014 for example a concentration measured
+            in one pass and used as the internal standard for a later pass on the
+            same location. Records the dependency only; the settings of each pass
+            are carried by the fields keyed by acquisition pass, and the passes themselves
+            are enumerated by Acquisition Pass. Leave empty for a pass that consumes
+            no earlier output. Not applicable to raster mapping, where each spatial
+            location is visited exactly once."
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/laQicpmsTAPP/interPassDataDependency
+            '@type':
+              enum:
+              - - schema:PropertyValue
+            schema:propertyID:
+              enum:
+              - - '@id': ada:parameter/laQicpmsTAPP/interPassDataDependency
+            schema:name:
+              enum:
+              - Inter-Pass Data Dependency
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
     schema:instrument:
@@ -14222,7 +14444,32 @@ allOf:
                         schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                     required:
                     - schema:additionalType
+              schema:manufacturer:
+                type: object
+                properties:
+                  schema:name:
+                    description: Manufacturer of the instrument that performs the
+                      measurement, recorded as a controlled value. Where a procedure
+                      couples a sample-introduction system to an analysing instrument,
+                      this records the analysing instrument. Instrument Model gives
+                      the specific designation.
+                    type: string
+                    enum:
+                    - Thermo Fisher Scientific
+                    - Agilent
+                    - PerkinElmer
+                    - Nu Instruments
+                    - Analytik Jena
+                    - Shimadzu
+                    - Unknown
+                    - N/A
+                    - None
+                    - missing
+                    readOnly: true
+                required:
+                - schema:name
             required:
+            - schema:manufacturer
             - schema:model
         - if:
             properties:
@@ -14630,6 +14877,83 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
+            - title: Counting Statistics Error
+              description: "Uncertainty predicted from counting statistics \u2014
+                the theoretical limit set by the Poisson distribution of the counts
+                accumulated \u2014 for each reported quantity per analysis, with the
+                sigma level stated. Derived from the counts on the target species
+                together with those on any background or blank subtracted from it.
+                Distinct from the scatter actually observed within a measurement or
+                between repeated measurements, which is recorded separately."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:analyteColumn/laQicpmsTAPP/countingStatisticsError
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - countingStatisticsError
+                schema:name:
+                  enum:
+                  - Counting Statistics Error
+                ada:dataType:
+                  enum:
+                  - string
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: Internal (Within-Measurement) Analytical Precision and Assessment
+                Method
+              description: Precision of a single measurement, derived from the scatter
+                of the cycles, sweeps or integrations that make it up, together with
+                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
+                the number of cycles it is computed over, and the reported quantity
+                it applies to. Distinct from Counting Statistics Error, which records
+                the uncertainty predicted from the counts rather than the scatter
+                observed; where a procedure reports both, record the observed value
+                here and the predicted value there.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:analyteColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  enum:
+                  - Internal (Within-Measurement) Analytical Precision and Assessment
+                    Method
+                ada:dataType:
+                  enum:
+                  - string
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
           allOf:
           - contains:
               title: Monitored Masses
@@ -15006,6 +15330,89 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
+          - contains:
+              title: Counting Statistics Error
+              description: "Uncertainty predicted from counting statistics \u2014
+                the theoretical limit set by the Poisson distribution of the counts
+                accumulated \u2014 for each reported quantity per analysis, with the
+                sigma level stated. Derived from the counts on the target species
+                together with those on any background or blank subtracted from it.
+                Distinct from the scatter actually observed within a measurement or
+                between repeated measurements, which is recorded separately."
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:analyteColumn/laQicpmsTAPP/countingStatisticsError
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - countingStatisticsError
+                schema:name:
+                  enum:
+                  - Counting Statistics Error
+                ada:dataType:
+                  enum:
+                  - string
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Internal (Within-Measurement) Analytical Precision and Assessment
+                Method
+              description: Precision of a single measurement, derived from the scatter
+                of the cycles, sweeps or integrations that make it up, together with
+                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
+                the number of cycles it is computed over, and the reported quantity
+                it applies to. Distinct from Counting Statistics Error, which records
+                the uncertainty predicted from the counts rather than the scatter
+                observed; where a procedure reports both, record the observed value
+                here and the predicted value there.
+              type: object
+              properties:
+                '@id':
+                  enum:
+                  - ada:analyteColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  enum:
+                  - - schema:PropertyValueSpecification
+                schema:valueName:
+                  enum:
+                  - internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  enum:
+                  - Internal (Within-Measurement) Analytical Precision and Assessment
+                    Method
+                ada:dataType:
+                  enum:
+                  - string
+                schema:readonlyValue: {}
+                ada:tier:
+                  enum:
+                  - R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
     ada:signalCollectionMode:
       description: Mode used to collect ion signal across the monitored masses. In
         peak hopping mode, the quadrupole jumps sequentially between pre-set mass
@@ -15045,6 +15452,14 @@ allOf:
         materials rather than universal physical constants. Record "None" if no citable,
         revisable physical constants feed into this procedure's data reduction.
       type: string
+    ada:numberOfAcquisitionPasses:
+      description: Number of acquisition passes the procedure runs. A count of the
+        passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures
+        are findable without parsing that field.
+      anyOf:
+      - type: integer
+      - type: string
+      readOnly: true
     ada:analyticalMode:
       type: array
       items:
@@ -15058,4 +15473,5 @@ allOf:
   - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:massBiasCorrectionStrategy
   - ada:constantsAndReferenceValuesUsedDefault
+  - ada:numberOfAcquisitionPasses
 x-schema-version: https://json-schema.org/draft/2020-12/schema

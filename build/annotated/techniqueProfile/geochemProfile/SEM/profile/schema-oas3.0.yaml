@@ -6049,6 +6049,19 @@ x-defs:
           anyOf:
           - type: number
           - type: string
+        ada:monitoredElements:
+          type: array
+          items:
+            description: Specific elements monitored in this procedure, grouped by
+              the target species they serve where they serve one. Includes elements
+              monitored only to correct an interference, which serve no target species
+              and so have no parent. The target species list is given by the Target
+              Species field and is never inferred from the elements appearing here.
+              The X-ray line, diffracting crystal, spectrometer assignment and counting
+              times used for each monitored element are recorded in their own fields,
+              keyed to this one.
+            type: string
+            readOnly: true
         ada:analyticalMode:
           type: array
           items:

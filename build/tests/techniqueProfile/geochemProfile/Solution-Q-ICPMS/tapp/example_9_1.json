@@ -68,7 +68,9 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "schema:description": "missing",
+        "schema:additionalProperty": []
       },
       {
         "schema:name": "Data reduction",
@@ -144,6 +146,7 @@
             "schema:defaultValue": "3 h ultrasonic agitation, 12 h at 120 C, 5 days at 220 C, 1 day at 150 C, 1 day at 80 C"
           }
         ],
+        "schema:description": "1: 0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water | 2: 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2 | 3: 0.2 mL HNO3 + 0.2 mL H2O2. The paper describes four heating stages; on the recorded acid mixtures these span three distinct attacks, the remaining stages being evaporation and uptake within a step.",
         "bios:reagent": [
           {
             "schema:name": "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2",
@@ -352,6 +355,21 @@
       }
     ]
   },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+        }
+      ],
+      "schema:name": "Reaction Product Ion / Mass-Shift Transition",
+      "schema:value": "N/A \u2014 on-mass measurement in KED mode"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -393,6 +411,7 @@
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
   "ada:massCyclesPerReplicate": -9999,
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalCollectionMode": "missing",

@@ -236,10 +236,21 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "120 s washout (Table 1)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "\"Instrumental sensitivity was optimized on 11B, 115In, and 175Lu\", with sensitivities \"set as operational criteria\"; \"in medium resolution tuning, the instrument was optimized on 56Fe to achieve a mass resolution\""
         }
       ],
       "schema:manufacturer": {
-        "schema:name": "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"",
+        "schema:name": "Thermo Fisher Scientific",
         "@type": [
           "schema:Organization"
         ]
@@ -263,6 +274,17 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "None"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated"
     }
   ],
   "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
@@ -292,7 +314,8 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2
+        "schema:position": 2,
+        "schema:description": "missing"
       },
       {
         "schema:name": "Data reduction",
@@ -343,6 +366,7 @@
       },
       {
         "schema:name": "Sample digestion",
+        "schema:description": "1: 1 M HNO3, minimum volume for dissolution, ambient (section 2.4).",
         "bios:reagent": [
           {
             "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
@@ -405,6 +429,7 @@
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:numberOfAcquisitionPasses": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

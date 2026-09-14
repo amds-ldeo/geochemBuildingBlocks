@@ -4,6 +4,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:detail-P10 a ada:SolutionICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
+        <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
     schema1:measurementTechnique ex:solutionMcicpmsTAPP-P10 ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"the mean ... of ten individual standard-bracketed sample analyses\"; \"Samples were typically analysed two to four times\". No rejection rule stated" ;
@@ -31,4 +33,14 @@ ex:detail-P10 a ada:SolutionICPMSTabular ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 ex:solutionMcicpmsTAPP-P10 schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
+    schema1:name "Double-Spike Mixing Ratio" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
+    schema1:value "N/A — no double spike used" .
+
+<https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
+    schema1:name "Number of Cycles per Block" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
+    schema1:value "Fe 200 cycles; Cr 100 cycles; Mg 100 cycles" .
 
