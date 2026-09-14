@@ -3447,6 +3447,52 @@
                       ]
                     },
                     {
+                      "title": "Integration Time per Cycle",
+                      "description": "Duration of signal integration per measurement cycle (seconds).",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Integration Time per Cycle"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    {
                       "title": "Double Spike Mixing Ratio",
                       "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
                       "type": "object",
@@ -3525,6 +3571,41 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
+                      ]
+                    },
+                    {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
                       ]
                     }
                   ]
@@ -3674,6 +3755,56 @@
                   },
                   {
                     "contains": {
+                      "title": "Integration Time per Cycle",
+                      "description": "Duration of signal integration per measurement cycle (seconds).",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Integration Time per Cycle"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
                       "title": "Double Spike Mixing Ratio",
                       "description": "Target proportion of double-spike signal relative to total target species signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio. The optimum is target species-system specific and is typically determined using the Double Spike Toolbox or equivalent. The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios. Record 'N/A' where the procedure does not use a double spike.",
                       "type": "object",
@@ -3756,6 +3887,45 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
                       ]
                     },
                     "minContains": 0,

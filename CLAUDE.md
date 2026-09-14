@@ -262,8 +262,9 @@ pipeline regenerates; anything the pipeline owns must come from the generator, n
   static         the BaseSchema fixtures and the `adaProfile` profile-ada examples. No pipeline
                  regenerates them, which is why `add_instrument_ids.py` has to backfill their ids.
   SOURCE-DERIVED assembled from primary sources rather than from a workbook column, and kept
-                 because a generator cannot invent their content. Each has a provenance file in
-                 `docs/` recording where every field came from:
+                 because a generator cannot invent their content. Each carries a
+                 `<example>.provenance.md` BESIDE it in the same building-block directory,
+                 recording where every field came from:
                    exampleadaSolutionMCICPMS-ETHZ-20240903  the deposited Neptune .exp/.log files
                                                             plus the ADA record
                    exampleadaEMPA-UAZ-20260131 (+ -points)  a real UAZ session, its method

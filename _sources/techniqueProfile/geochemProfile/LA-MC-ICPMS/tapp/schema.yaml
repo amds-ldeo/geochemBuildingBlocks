@@ -574,6 +574,63 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
+        - &id003
+          title: Collision/Reaction Gas Mixture Ratio
+          description: Where the collision or reaction cell is supplied with a mixture of gases rather
+            than a single gas, the identities and proportions of that mixture. Recorded separately from
+            the gas identity. Record 'N/A' where a single gas is used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatioDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: collisionReactionGasMixtureRatioDefault
+            schema:name:
+              const: Collision/Reaction Gas Mixture Ratio
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
+            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
+            relating the mass measured to the target species it reports, which the monitored mass alone
+            does not state. Record 'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              const: Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         - title: Inter-Pass Data Dependency
           description: Which earlier acquisition pass supplied inputs to this one, and what those inputs
             are — for example a concentration measured in one pass and used as the internal standard for
@@ -645,6 +702,38 @@ allOf:
         maxContains: 1
       - contains:
           $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
+        minContains: 0
+        maxContains: 1
+      - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
+            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
+            relating the mass measured to the target species it reports, which the monitored mass alone
+            does not state. Record 'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laMcicpmsTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              const: Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains:
@@ -788,25 +877,6 @@ allOf:
         of a single measurement, which derives from counting statistics over the cycles of that measurement
         rather than from repeated analyses.
       type: string
-    ada:monitoredPropertyTemplate:
-      type: object
-      properties:
-        ada:monitoredPropertyColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_collisionReactionGasMixtureRatio
-            - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_reactionProductIonMassShiftTransition
-          allOf:
-          - contains:
-              $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_collisionReactionGasMixtureRatio
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_reactionProductIonMassShiftTransition
-            minContains: 0
-            maxContains: 1
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the passes enumerated in
         Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that

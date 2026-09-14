@@ -3327,49 +3327,88 @@
               "schema:additionalProperty": {
                 "type": "array",
                 "items": {
-                  "title": "Signal Integration Time",
-                  "description": "The integration time actually used for the reported signal, in seconds - the time retained after the signal-integration interval has been applied, and therefore equal to or shorter than the total acquisition. Where the procedure computes it from an acquisition structure, record that basis.",
-                  "type": "object",
-                  "properties": {
-                    "@id": {
-                      "const": "ada:parameter/module/ICPMS/signalIntegrationTime"
-                    },
-                    "@type": {
-                      "const": [
-                        "schema:PropertyValue"
-                      ]
-                    },
-                    "schema:propertyID": {
-                      "const": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
-                        }
-                      ]
-                    },
-                    "schema:name": {
-                      "const": "Signal Integration Time"
-                    },
-                    "schema:value": {
-                      "anyOf": [
-                        {
-                          "type": "number"
+                  "anyOf": [
+                    {
+                      "title": "Signal Integration Time",
+                      "description": "The integration time actually used for the reported signal, in seconds - the time retained after the signal-integration interval has been applied, and therefore equal to or shorter than the total acquisition. Where the procedure computes it from an acquisition structure, record that basis.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/module/ICPMS/signalIntegrationTime"
                         },
-                        {
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/module/ICPMS/signalIntegrationTime"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Signal Integration Time"
+                        },
+                        "schema:value": {
+                          "anyOf": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "schema:unitText": {
                           "type": "string"
                         }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value",
+                        "schema:unitText"
                       ]
                     },
-                    "schema:unitText": {
-                      "type": "string"
+                    {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
                     }
-                  },
-                  "required": [
-                    "@id",
-                    "@type",
-                    "schema:propertyID",
-                    "schema:name",
-                    "schema:value",
-                    "schema:unitText"
                   ]
                 },
                 "allOf": [
@@ -3418,6 +3457,45 @@
                         "schema:name",
                         "schema:value",
                         "schema:unitText"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
                       ]
                     },
                     "minContains": 0,

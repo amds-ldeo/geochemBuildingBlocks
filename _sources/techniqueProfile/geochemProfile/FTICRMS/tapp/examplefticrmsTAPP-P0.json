@@ -3,8 +3,9 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@id": "ex:fticrmsTAPP-P0",
   "@type": [
@@ -14,10 +15,12 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "fticrms protocol — P0",
-  "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv).",
-  "ada:instrumentManufacturer": "Unknown",
-  "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
+  "schema:name": "example procedureName",
+  "ada:targetMaterial": "Silicate mineral",
+  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
+  "ada:instrumentManufacturer": "WITec",
+  "ada:instrumentModel": "example instrumentModel",
+  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -27,7 +30,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "Liss, Michael",
+    "schema:name": "example procedureAuthor",
     "@type": [
       "schema:Person"
     ]
@@ -36,58 +39,24 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Helmholtz University (Helmholtz Zentrum Munchen)"
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
   },
+  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)"
+      "schema:name": "example fundingSourceForProcedureDevelopment"
     }
+  ],
+  "ada:samplingUnit": "Whole sample",
+  "ada:analyticalMode": [
+    "Point spectrum"
   ],
   "ada:reportedProperties": [
-    "Intensity | Mass | Neutral mass | Composition"
+    "example reportedVariablesAndUnits"
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ]
-  },
-  "schema:variableMeasured": [
-    {
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
-    }
-  ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:description": "example additionalNotes"
 }

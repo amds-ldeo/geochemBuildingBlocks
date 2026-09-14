@@ -286,6 +286,63 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - &id003
+          title: Collision/Reaction Gas Mixture Ratio
+          description: Where the collision or reaction cell is supplied with a mixture of gases rather
+            than a single gas, the identities and proportions of that mixture. Recorded separately from
+            the gas identity. Record 'N/A' where a single gas is used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/collisionReactionGasMixtureRatioDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: collisionReactionGasMixtureRatioDefault
+            schema:name:
+              const: Collision/Reaction Gas Mixture Ratio
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
+            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
+            relating the mass measured to the target species it reports, which the monitored mass alone
+            does not state. Record 'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              const: Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         - title: Inter-Pass Data Dependency
           description: Which earlier acquisition pass supplied inputs to this one, and what those inputs
             are — for example a concentration measured in one pass and used as the internal standard for
@@ -343,6 +400,38 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id002
+        minContains: 0
+        maxContains: 1
+      - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Reaction Product Ion / Mass-Shift Transition
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
+            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
+            relating the mass measured to the target species it reports, which the monitored mass alone
+            does not state. Record 'N/A' where the target species is measured on its own mass.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition
+            '@type':
+              const:
+              - schema:PropertyValue
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/laQicpmsUPbTAPP/reactionProductIonMassShiftTransition
+            schema:name:
+              const: Reaction Product Ion / Mass-Shift Transition
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains:
@@ -411,7 +500,7 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
-                  - &id003
+                  - &id004
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
                       during instrument tuning. The monitor species and the mass positions monitored should
@@ -443,7 +532,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id004
+                  - &id005
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. The acceptable threshold is typically
@@ -492,10 +581,10 @@ allOf:
                     $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
                   minContains: 0
                   maxContains: 1
-                - contains: *id003
+                - contains: *id004
                   minContains: 0
                   maxContains: 1
-                - contains: *id004
+                - contains: *id005
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -824,25 +913,6 @@ allOf:
       anyOf:
       - type: number
       - type: string
-    ada:monitoredPropertyTemplate:
-      type: object
-      properties:
-        ada:monitoredPropertyColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpmsUPb_collisionReactionGasMixtureRatio
-            - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpmsUPb_reactionProductIonMassShiftTransition
-          allOf:
-          - contains:
-              $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpmsUPb_collisionReactionGasMixtureRatio
-            minContains: 0
-            maxContains: 1
-          - contains:
-              $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpmsUPb_reactionProductIonMassShiftTransition
-            minContains: 0
-            maxContains: 1
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the passes enumerated in
         Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that

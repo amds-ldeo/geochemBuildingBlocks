@@ -3,8 +3,9 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@id": "ex:solutionSficpmsTAPP-P0",
   "@type": [
@@ -14,186 +15,45 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "solutionSficpms protocol — P0",
-  "schema:description": "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Soil samples (sequential acid leach fractions; stated abstract)"
-          ]
-        }
-      ]
-    }
-  ],
-  "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "ICPMS",
-        "Single-collector sector-field (SF-ICP-MS)",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:model": {
-        "schema:name": "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "detectorConfiguration",
-          "schema:name": "Detector Configuration",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)"
-        },
-        {
-          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "memoryEffectMitigationDefault",
-          "schema:name": "Memory Effect Mitigation",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "10 s wash in two 2% HNO3 reservoirs between samples (stated section 2.3)"
-        },
-        {
-          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "icpTuningDefault",
-          "schema:name": "ICP Tuning",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "\"The instrument was tuned to provide ~1000 kcps/ppb Pbtotal while maintaining flat-topped peaks\""
-        }
-      ],
-      "schema:hasPart": [
-        {
-          "schema:additionalType": [
-            "Sample Introduction System",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:additionalProperty": [
-            {
-              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerType",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "nebulizerType",
-              "schema:name": "Nebulizer Type",
-              "ada:dataType": "string",
-              "ada:fieldScope": "session",
-              "schema:value": "Glass Expansion glass nebulizer (stated section 2.3)"
-            },
-            {
-              "@id": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "sprayChamberTypeAndCoolingTemperature",
-              "schema:name": "Spray Chamber Type and Cooling Temperature",
-              "ada:dataType": "string",
-              "ada:fieldScope": "session",
-              "schema:value": "Glass Expansion cyclonic spray chamber (stated section 2.3)"
-            },
-            {
-              "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "sampleUptakeRateDefault",
-              "schema:name": "Sample Uptake Rate",
-              "ada:dataType": "number",
-              "ada:fieldScope": "session",
-              "schema:defaultValue": 0.33,
-              "schema:description": "0.33 ml/min (stated section 2.3)"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "@id": "ex:instrument/ICPMS/part/Sample-Introduction-System",
-          "schema:name": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "ICP Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Interface Cone",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Torch",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
-        }
-      ],
-      "schema:manufacturer": {
-        "schema:name": "Nu Instruments",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/ICPMS",
-      "schema:name": "example instrumentName"
-    }
-  ],
-  "ada:numberOfScansPerReplicate": "2000 sweeps per set x 30 sets (stated section 2.3)",
-  "ada:numberOfReplicatesPerSample": "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)",
+  "schema:name": "example procedureName",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "desolvationSystem",
+      "schema:name": "Desolvation System",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange"
+        }
+      ],
+      "schema:name": "E-scan Range",
+      "schema:value": 1,
+      "schema:unitText": "example value"
+    },
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/tripleScanningMode",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/tripleScanningMode"
+        }
+      ],
+      "schema:name": "Triple Scanning Mode",
+      "schema:value": "example value"
+    },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
       "@type": [
@@ -202,110 +62,34 @@
       "schema:valueName": "internalStandardConcentration",
       "schema:name": "Internal Standard Concentration",
       "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:value": 1,
-      "schema:description": "1 ppb Tl in sample matrix (stated section 2.3)"
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "filteringApproachDefault",
+      "schema:name": "Filtering Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     }
   ],
-  "ada:driftCorrectionMethod": "N/A",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated"
-          },
-          {
-            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "constantsReferenceValuesDefault",
-            "schema:name": "Constants Reference Values",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "205Tl/203Tl = 2.3871 (Woodhead 2002), used to correct instrumental mass fractionation by internal normalisation with the exponential law"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:description": "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken.",
-        "bios:reagent": [
-          {
-            "schema:name": "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3).",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:numberOfScansPerReplicate": 1,
+  "ada:numberOfReplicatesPerSample": 1,
+  "ada:analysisSequenceDefault": "example analysisSequence",
+  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:numberOfAcquisitionPasses": 1,
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -314,53 +98,49 @@
       "schema:termCode": "Solution SF-ICP-MS"
     }
   ],
+  "schema:creator": {
+    "schema:name": "example procedureAuthor",
+    "@type": [
+      "schema:Person"
+    ]
+  },
   "schema:location": {
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "University of Melbourne, Australia (affiliation)"
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
   },
-  "schema:relatedLink": [
+  "schema:datePublished": "example procedureStartDate",
+  "schema:funding": [
     {
-      "schema:linkRelationship": "coupledTechnique",
-      "schema:target": {
-        "schema:name": "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)",
-        "schema:description": "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)"
-      },
       "@type": [
-        "schema:CreativeWork"
+        "schema:MonetaryGrant"
       ],
-      "schema:url": "https://ada.astromat.org/missing"
+      "schema:name": "example fundingSourceForProcedureDevelopment"
     }
   ],
-  "ada:samplingUnit": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
+  "ada:samplingUnit": "Whole sample",
   "ada:analyticalMode": [
-    "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler"
+    "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios"
+    "example reportedVariablesAndUnits"
   ],
-  "ada:chromatographicSeparationApplied": "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)",
-  "ada:isotopeDilutionSpike": "None (Tl added for mass fractionation correction only, not ID)",
-  "ada:finalSolutionMatrix": "2% HNO3 + 1 ppb Tl (stated section 2.3)",
-  "ada:washTimeBetweenSamples": "10 s in two 2% HNO3 reservoirs (stated section 2.3)",
-  "ada:uncertaintyLevel": "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")",
-  "ada:blankBackgroundCorrectionMethod": "On-peak zero (10 s wash blank before each measurement; stated section 2.3)",
-  "ada:internalStandardElement": "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)",
+  "schema:description": "example additionalNotes",
+  "ada:chromatographicSeparationApplied": "Yes",
+  "ada:isotopeDilutionSpike": "example isotopeDilutionSpike",
+  "ada:finalSolutionMatrix": "example finalSolutionMatrix",
+  "ada:washTimeBetweenSamples": 1.0,
+  "ada:ionCounterDeadTimeDefault": 1.0,
+  "ada:uncertaintyLevel": "2σ (95% confidence)",
+  "ada:calibrationMeasurementFrequency": "example calibrationStandardMeasurementFrequency",
+  "ada:oxideProductionMethodAndThreshold": "example oxideProductionMethodAndThreshold",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank",
+  "ada:internalStandardElement": "example internalStandardElement",
+  "ada:signalIntegrationIntervalMethod": "Full acquisition",
   "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)"
+    "example secondaryReferenceMaterials"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM981 Common Lead Standard (stated section 2.3)",
-  "schema:variableMeasured": [
-    {
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
-    }
-  ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:signalIntegrationIntervalMethod": "missing",
-  "schema:datePublished": "missing"
+  "ada:primaryStandardNameDefault": "example primaryCalibrationStandardName"
 }

@@ -101,6 +101,31 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectLength
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
+              - &id002
+                title: Collision/Reaction Gas Mixture Ratio
+                description: Where the collision or reaction cell is supplied with a mixture of gases
+                  rather than a single gas, the identities and proportions of that mixture. Recorded separately
+                  from the gas identity. Record 'N/A' where a single gas is used.
+                type: object
+                properties:
+                  '@id':
+                    const: ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  '@type':
+                    const:
+                    - schema:PropertyValue
+                  schema:propertyID:
+                    const:
+                    - '@id': ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
+                  schema:name:
+                    const: Collision/Reaction Gas Mixture Ratio
+                  schema:value:
+                    type: string
+                required:
+                - '@id'
+                - '@type'
+                - schema:propertyID
+                - schema:name
+                - schema:value
             allOf:
             - contains:
                 $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_analysisSequence
@@ -159,6 +184,9 @@ allOf:
               maxContains: 1
             - contains:
                 $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
+              minContains: 0
+              maxContains: 1
+            - contains: *id002
               minContains: 0
               maxContains: 1
           prov:used:
@@ -326,7 +354,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id002
+                                    - &id003
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. The monitor species
@@ -352,7 +380,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id003
+                                    - &id004
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -382,10 +410,10 @@ allOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
-                                  - contains: *id002
+                                  - contains: *id003
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id003
+                                  - contains: *id004
                                     minContains: 0
                                     maxContains: 1
                                   - contains:
