@@ -1,14 +1,14 @@
 # Per-analyte values lifted out of the tappDefinition examples
 
 Three tables of per-analyte column values that used to sit inside
-`ada:analyteTemplate.ada:defaultAnalytes` in the `tappDefinition` examples. They were invalid
+`ada:targetSpeciesTemplate.ada:defaultTargetSpecies` in the `tappDefinition` examples. They were invalid
 there, and a TAPP document has no valid home for them, so they are kept here rather than deleted.
 
 ## Why they moved
 
 The schema is explicit:
 
-> `ada:defaultAnalytes` — The analytes (analyzed constituents) this method targets by default —
+> `ada:defaultTargetSpecies` — The analytes (analyzed constituents) this method targets by default —
 > the ROWS of the per-analyte table. Each is **a bare string or a `schema:DefinedTerm` identifying
 > the analyte**; per-analyte column **VALUES live in the analysis record, not here**.
 

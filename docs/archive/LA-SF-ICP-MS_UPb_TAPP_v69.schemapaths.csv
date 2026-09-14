@@ -106,14 +106,14 @@ Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),$Meth
 Analysis Sequence,Basic,Editable,Text (free),,module,divergent,placement owned by Module ICPMS,
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
 Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
-Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,defines: channel per analyte
+Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,defines: channel per analyte
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
 Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:massResolutionAssignment,inferred,,,channel
 E-scan Range,Advanced,Read-Only,Numeric (%),$MethodDefinition.schema:additionalProperty[schema:name='E scan Range'].schema:value,authored,shared,,
 Triple Scanning Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Triple Scanning Mode'].schema:value,authored,shared,,
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,,placement owned by Module ICPMS,channel
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:value,inferred,,,channel
-Dwell Time per Mass,Basic,Editable,Numeric (ms) / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,channel
+Dwell Time per Mass,Basic,Editable,Numeric (ms) / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,channel
 Background Count Time,Basic,Editable,Numeric (s),,module,,placement owned by Module LaserAblation,
 Background Count Time,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Background Count Time'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
 Multi-Run Sequential Analysis Design,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Multi Run Sequential Analysis Design'].schema:value,authored,shared,,
@@ -123,7 +123,7 @@ Transect Length,N/A,Basic,Numeric (µm),$Dataset.prov:wasGeneratedBy.schema:addi
 Mapping Area,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value,authored,,,
 Internal Standard Approach,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Internal Standard Element,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
-Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,"keyed to analyte: the strategy is per analyte, so it is a column of the analyte table. Basic/Read-Only, so the procedure fixes it and an analysis cannot revise it -- single-homed on $MethodDefinition, no $Dataset row. Module_ICPMS declares the same path, which is a keyed-table column array and therefore not composable through allOf, so each consumer carries its own row and mints its own column def.",analyte
+Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,"keyed to analyte: the strategy is per analyte, so it is a column of the analyte table. Basic/Read-Only, so the procedure fixes it and an analysis cannot revise it -- single-homed on $MethodDefinition, no $Dataset row. Module_ICPMS declares the same path, which is a keyed-table column array and therefore not composable through allOf, so each consumer carries its own row and mints its own column def.",analyte
 Elemental Fractionation Correction,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Mass Bias Correction Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:massBiasCorrectionStrategy,inferred,,,
 Uncertainty Level,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module ICPMS,
@@ -137,9 +137,9 @@ Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:w
 Blank / Background Correction Method,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module ICPMS,
 Pulse/Analog Detector Nonlinearity Correction,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Pulse Analog Detector Nonlinearity Correction'].schema:value,authored,shared,,
 Pulse/Analog Detector Nonlinearity Correction,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Pulse Analog Detector Nonlinearity Correction'].schema:defaultValue,authored,shared,,
-Spectral Interference Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,
-Interfering Species,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,channel
-Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,channel
+Spectral Interference Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,
+Interfering Species,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,channel
+Interference Correction Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,channel
 Isotope Dilution Data Reduction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Isotope Dilution Data Reduction Method'].schema:value,authored,shared,divergence decision applied,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:value,authored,shared,,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,,
@@ -178,14 +178,14 @@ Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement ow
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Limit of Quantification (LOQ) Method,Advanced,Basic,Controlled list / Text,,module,shared,placement owned by Module ICPMS,reported property
-Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
-Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
-Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,standard x reported property
+Within-Session Analytical Precision and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,standard x reported property
+Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,standard x reported property
+Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,standard x reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placement owned by Module Aggregation (reviewer's rule: dqv:hasQualityMeasurement by default, the reported-property variableMeasured list only when keyed and a reportedProperties list is defined)",reported property
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
-Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,[not in current workbook],channel
+Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,[not in current workbook],channel
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:massesMeasuredDefault,authored,,dual-home decision: protocol default [not in current workbook],defines: channel per analyte
 Monitored Masses,Basic,Read-Only,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Monitored Masses'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,defines: channel per analyte
 Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault,authored,,dual-home decision: protocol default [not in current workbook],

@@ -75,7 +75,7 @@ The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the s
 
 Eleven techniques have a `tapp/`: EMPA, Geochron, LA-ICPMS, SEM, SEM-Composition, SEM-FIBSEM, SEM-Imaging, Solution-Q-ICPMS, Solution-SF-ICPMS, TEM, XCT. Ten of those also publish a path-driven `profile/` (all but TEM).
 
-- **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:analyteTemplate.ada:analyteColumns` constraints referencing the registry catalogs.
+- **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` constraints referencing the registry catalogs.
 - **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EMPA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
 - **`profile/`** — path-driven product profile: bases on the domain-neutral **`geochemProduct`** + the `detail` block + `prov:used` narrowed to that technique's TAPP + the technique's `ada:componentType` enum on `hasPart` (the profile layers the ADA componentType constraint on top of the ADA-agnostic base).
 - **`profile-ada/`** — the generic product profile: bases on **`adaProduct`** + `ada:componentType` constraints only, no TAPP linkage or detail block.
@@ -270,7 +270,7 @@ A TAPP definition is a **plan** — a reusable procedure that *prescribes* an an
 - **Parameters** (`schema:additionalProperty`, top level and per step — **replaces the retired `ada:methodParameters`**) — each entry is one of two shapes:
   - `MethodParameter`, a `schema:PropertyValueSpecification` for an **editable** parameter: `schema:defaultValue` plus `schema:valueRequired`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet`, and the required `ada:fieldScope` (method/session/element) and `ada:dataType` (string/number/integer/boolean/date/uri)
   - `MethodParameterValue`, a `schema:PropertyValue` for a **read-only** parameter, carrying the fixed protocol value in `schema:value`
-- **Analyte template** (`ada:analyteTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows. Exactly one column must be the `AnalyteIdentifierColumn`: `schema:valueName` = `analyte`, pinned to `ada:dataType: string`, `readonlyValue: true`, `valueRequired: true`, `ada:tier: M`.
+- **Analyte template** (`ada:targetSpeciesTemplate`) — per-element column definitions (also `PropertyValueSpecification`) and default analyte rows. Exactly one column must be the `AnalyteIdentifierColumn`: `schema:valueName` = `analyte`, pinned to `ada:dataType: string`, `readonlyValue: true`, `valueRequired: true`, `ada:tier: M`.
 - **Quality metrics** (`dqv:hasQualityMeasurement`) — at method level and on workflow steps
 - **`@context`** — required, and the `schema` / `ada` / `cdi` prefixes are pinned to exact values (note `schema` is `http://schema.org/`, not https)
 

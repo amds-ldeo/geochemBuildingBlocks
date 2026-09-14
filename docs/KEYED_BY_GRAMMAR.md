@@ -51,8 +51,8 @@ families we already have.
 We already have exactly this structure for one domain:
 
 ```
-$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]     column definitions
-$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]    row axis (the member list)
+$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]     column definitions
+$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]    row axis (the member list)
 ```
 
 The proposal is to recognise that as the general case and instantiate it per domain.
@@ -109,8 +109,8 @@ Parenthesis-aware splitting handles (3). Nothing handles (1) without the author.
 
 | domain | template | columns | row axis |
 |---|---|---|---|
-| analyte | `ada:analyteTemplate` | `ada:analyteColumns[]` | `ada:defaultAnalytes[]` |
-| channel | `ada:channelTemplate` | `ada:channelColumns[]` | `ada:defaultChannels[]` |
+| analyte | `ada:targetSpeciesTemplate` | `ada:targetSpeciesColumns[]` | `ada:defaultTargetSpecies[]` |
+| channel | `ada:monitoredPropertyTemplate` | `ada:monitoredPropertyColumns[]` | `ada:defaultMonitoredProperties[]` |
 | reported property | `ada:reportedPropertyTemplate` | `ada:reportedPropertyColumns[]` | `ada:defaultReportedProperties[]` |
 | sampling unit | `ada:samplingUnitTemplate` | `ada:samplingUnitColumns[]` | `ada:samplingUnitType` (scalar) |
 | preparation step | — (ordinal, §6) | — | `schema:numberOfItems` |
@@ -124,8 +124,8 @@ Declared by `Analyte` (`C=Basic, D=Editable`). Consumers include `Background Cou
 `Diffracting Crystal`, `EPMA Technique per Analyte`, `Blank Correction`.
 
 ```
-$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]
-$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]
+$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]
+$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]
 ```
 
 `ada:cdifPropertyPath: "#/schema:variableMeasured/schema:name"` **stays on the analyte identifier
@@ -160,8 +160,8 @@ It does not belong under `schema:hasPart`: that selector keys on component *type
 detector, one ICP source), whereas channels are *instances* of one type.
 
 ```
-$MethodDefinition.ada:channelTemplate.ada:channelColumns[]
-$MethodDefinition.ada:channelTemplate.ada:defaultChannels[]
+$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]
+$MethodDefinition.ada:monitoredPropertyTemplate.ada:defaultMonitoredProperties[]
 ```
 
 Hardware-per-position consumers (`Faraday Cup Amplifier Resistor Values`, `Ion Counter Dead Time`,

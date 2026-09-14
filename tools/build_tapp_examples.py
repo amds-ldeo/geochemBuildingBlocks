@@ -186,7 +186,7 @@ def place_parameter(inst, entry, sp):
     parameter fails against every branch — this was the whole of the original 32-error report.
     Returns True when the parameter has been placed here.
     """
-    if ".ada:analyteTemplate" in sp:
+    if ".ada:targetSpeciesTemplate" in sp:
         return True          # an analyte-template column, emitted with the template, not as a parameter
     m = _INSTRUMENT_SEL.search(sp)
     if m:
@@ -281,8 +281,8 @@ _HASPART_SEL = re.compile(r"schema:instrument\[\s*schema:additionalType\s*=\s*'(
                           r"\.schema:hasPart\[\s*schema:additionalType\s*=\s*'([^']+)'")
 
 
-_TEMPLATE_COLS = {"ada:analyteTemplate": "ada:analyteColumns",
-                  "ada:channelTemplate": "ada:channelColumns",
+_TEMPLATE_COLS = {"ada:targetSpeciesTemplate": "ada:targetSpeciesColumns",
+                  "ada:monitoredPropertyTemplate": "ada:monitoredPropertyColumns",
                   "ada:reportedPropertyTemplate": "ada:reportedPropertyColumns"}
 
 
@@ -369,7 +369,7 @@ def _channel_value(col, raw):
 
 
 def populate_collector_config(inst, tapp_res, values=None):
-    """Populate ada:collectorConfiguration.ada:channelColumns on the ICP-MS Collector component.
+    """Populate ada:collectorConfiguration.ada:monitoredPropertyColumns on the ICP-MS Collector component.
 
     Unlike the analyte table (a top-level template), an MC-ICP-MS defines its channels as columns of
     a collectorConfiguration that hangs off instrument[ICPMS].hasPart[Collector]; each channel row is
@@ -1299,7 +1299,7 @@ def main():
     tool_desc_items = {it: sel for it, sp in sp_by_item.items()
                        if (sel := tool_desc_selector(sp)) is not None}
     analyte_row = next((it for it, sp in sp_by_item.items()
-                        if "analyteTemplate.ada:defaultAnalytes" in sp or it == "Analyte"), None)
+                        if "analyteTemplate.ada:defaultTargetSpecies" in sp or it == "Analyte"), None)
     acols = []
     for b in R["analyte_cols"]:
         for c in b["cols"]:

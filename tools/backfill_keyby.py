@@ -21,9 +21,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Only the technique-agnostic families keyed_path handles are recoverable; channel / standard keys
 # are not routed (they fall through to inference), so they cannot be reconstructed here.
 def kb_from_path(p):
-    if "ada:analyteTemplate.ada:defaultAnalytes" in p:
+    if "ada:targetSpeciesTemplate.ada:defaultTargetSpecies" in p:
         return "defines: analyte"
-    if "ada:analyteTemplate.ada:analyteColumns" in p:
+    if "ada:targetSpeciesTemplate.ada:targetSpeciesColumns" in p:
         return "analyte"
     if "ada:reportedPropertyTemplate.ada:defaultReportedProperties" in p or p.endswith("ada:reportedProperties[]"):
         return "defines: reported property"

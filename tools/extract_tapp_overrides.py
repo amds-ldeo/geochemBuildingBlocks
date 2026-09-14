@@ -100,7 +100,7 @@ def skip_role(sp):
     if (sp.startswith("$MethodDefinition") and "ada:" not in sp
             and "additionalProperty" not in sp and "schema:description" not in sp):
         return "inherited"
-    if "analyteTemplate.ada:defaultAnalytes" in sp:
+    if "analyteTemplate.ada:defaultTargetSpecies" in sp:
         return "analyteIdentifier"
     if "schema:description" in sp and "additionalProperty" not in sp:
         return "description"
@@ -115,7 +115,7 @@ def annotated_decision(row):
     name = b.field_name(item, sp, parsed)
     amap = b.CFG.get("analyte_map") or {}
     analyte = None
-    if "analyteTemplate.ada:analyteColumns" in sp:
+    if "analyteTemplate.ada:targetSpeciesColumns" in sp:
         # per-column dtype/readOnly are impl-driven and can differ from the content Data Type
         # column, so they are part of the residual (mirrors route() lines 437-446).
         cols = []

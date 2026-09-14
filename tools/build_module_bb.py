@@ -91,14 +91,14 @@ def is_composable(path):
     both hold unless each side already knows about the other.
 
       schema:additionalProperty   a closed anyOf over the parameters the table enumerates
-      a keyed-table COLUMN array  (ada:analyteColumns, ada:channelColumns,
+      a keyed-table COLUMN array  (ada:targetSpeciesColumns, ada:monitoredPropertyColumns,
                                    ada:reportedPropertyColumns, ada:collectorConfiguration) —
                                   narrowed to the technique's generated column defs plus the base's
                                   identifier column
-      a default-ROW array         (ada:defaultAnalytes, ada:defaultChannels) — string | DefinedTerm
+      a default-ROW array         (ada:defaultTargetSpecies, ada:defaultMonitoredProperties) — string | DefinedTerm
 
     The column case arrived with Module_ICPMS in the 2026-09 delivery and broke 96 examples: a row
-    ending at `…ada:analyteColumns[]` carries the COLUMN'S scalar Data Type, so composing it emitted
+    ending at `…ada:targetSpeciesColumns[]` carries the COLUMN'S scalar Data Type, so composing it emitted
     `items: {type: string}` against the technique's `items: {anyOf: [...column objects...]}`, and
     nothing validated. The row therefore stays with the technique, which is where the column defs
     and the registry entry are minted anyway.

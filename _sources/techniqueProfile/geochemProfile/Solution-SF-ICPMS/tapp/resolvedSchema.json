@@ -1743,11 +1743,11 @@
         ]
       }
     },
-    "ada:analyteTemplate": {
+    "ada:targetSpeciesTemplate": {
       "description": "Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
       "type": "object",
       "properties": {
-        "ada:analyteColumns": {
+        "ada:targetSpeciesColumns": {
           "type": "array",
           "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
           "minItems": 1,
@@ -1774,7 +1774,7 @@
                 "type": "object",
                 "properties": {
                   "schema:valueName": {
-                    "const": "analyte"
+                    "const": "targetSpecies"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -1805,9 +1805,9 @@
           },
           "maxContains": 1
         },
-        "ada:defaultAnalytes": {
+        "ada:defaultTargetSpecies": {
           "type": "array",
-          "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+          "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
           "items": {
             "anyOf": [
               {
@@ -1826,7 +1826,7 @@
                 "properties": {
                   "analyte": {
                     "type": "string",
-                    "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:analyteColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                    "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout."
                   }
                 },
                 "additionalProperties": {
@@ -1844,14 +1844,14 @@
         }
       },
       "required": [
-        "ada:analyteColumns"
+        "ada:targetSpeciesColumns"
       ]
     },
-    "ada:channelTemplate": {
+    "ada:monitoredPropertyTemplate": {
       "description": "Template for per-channel parameters, a channel being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
       "type": "object",
       "properties": {
-        "ada:channelColumns": {
+        "ada:monitoredPropertyColumns": {
           "type": "array",
           "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
           "minItems": 1,
@@ -1873,7 +1873,7 @@
                 "type": "object",
                 "properties": {
                   "schema:valueName": {
-                    "const": "channel"
+                    "const": "monitoredProperty"
                   },
                   "ada:dataType": {
                     "const": "string"
@@ -1904,7 +1904,7 @@
           },
           "maxContains": 1
         },
-        "ada:defaultChannels": {
+        "ada:defaultMonitoredProperties": {
           "type": "array",
           "description": "The channels this procedure defines by default — the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
           "items": {
@@ -1920,11 +1920,11 @@
         }
       },
       "required": [
-        "ada:channelColumns"
+        "ada:monitoredPropertyColumns"
       ]
     },
     "ada:reportedPropertyTemplate": {
-      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:analyteTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
+      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
       "type": "object",
       "properties": {
         "ada:reportedPropertyColumns": {
@@ -7042,10 +7042,10 @@
             }
           ]
         },
-        "ada:analyteTemplate": {
+        "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
-            "ada:analyteColumns": {
+            "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
                 "anyOf": [
@@ -7064,7 +7064,7 @@
                         "type": "object",
                         "properties": {
                           "schema:valueName": {
-                            "const": "analyte"
+                            "const": "targetSpecies"
                           },
                           "ada:dataType": {
                             "const": "string"
@@ -7099,7 +7099,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses"
                       },
                       "@type": {
                         "const": [
@@ -7140,7 +7140,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/dwellTimePerMass"
                       },
                       "@type": {
                         "const": [
@@ -7188,7 +7188,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -7229,7 +7229,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -7270,7 +7270,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies"
                       },
                       "@type": {
                         "const": [
@@ -7311,7 +7311,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
                       },
                       "@type": {
                         "const": [
@@ -7352,7 +7352,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7393,7 +7393,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7433,7 +7433,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7474,7 +7474,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -7514,7 +7514,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7558,7 +7558,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses"
                       },
                       "@type": {
                         "const": [
@@ -7603,7 +7603,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/dwellTimePerMass"
                       },
                       "@type": {
                         "const": [
@@ -7655,7 +7655,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -7700,7 +7700,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -7745,7 +7745,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies"
                       },
                       "@type": {
                         "const": [
@@ -7790,7 +7790,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod"
                       },
                       "@type": {
                         "const": [
@@ -7835,7 +7835,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7880,7 +7880,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7924,7 +7924,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -7969,7 +7969,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -8013,7 +8013,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -8054,10 +8054,10 @@
             }
           }
         },
-        "ada:channelTemplate": {
+        "ada:monitoredPropertyTemplate": {
           "type": "object",
           "properties": {
-            "ada:channelColumns": {
+            "ada:monitoredPropertyColumns": {
               "type": "array",
               "items": {
                 "anyOf": [
@@ -8071,7 +8071,7 @@
                         "type": "object",
                         "properties": {
                           "schema:valueName": {
-                            "const": "channel"
+                            "const": "monitoredProperty"
                           },
                           "ada:dataType": {
                             "const": "string"
@@ -8106,7 +8106,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                        "const": "ada:monitoredPropertyColumn/solutionSficpmsTAPP/massResolutionAssignment"
                       },
                       "@type": {
                         "const": [
@@ -8161,7 +8161,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionSficpmsTAPP/massResolutionAssignment"
+                        "const": "ada:monitoredPropertyColumn/solutionSficpmsTAPP/massResolutionAssignment"
                       },
                       "@type": {
                         "const": [

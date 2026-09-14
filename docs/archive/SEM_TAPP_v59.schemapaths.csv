@@ -14,14 +14,14 @@ Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinit
 Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
 Analyte,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: analyte
-Analyte Estimation Method,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
-Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
+Analyte Estimation Method,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,analyte
+Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
-Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
-X-ray Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,divergence decision applied,channel
-Background Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
-Background Position(s),Advanced,Editable,Text (free),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
-Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,sample > sampling unit
+Analytical Precision,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
+X-ray Background Correction Method,Basic,Editable,Controlled list,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,divergence decision applied,channel
+Background Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Background Position(s),Advanced,Editable,Text (free),$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Beam Current,Basic,Editable,Numeric (nA),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,sample > sampling unit
 Beam Damage Minimization,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:defaultValue,inferred,shared,,sample > sampling unit
 Beam Damage Minimization,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Damage Minimization'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy,sample > sampling unit
 Beam Diameter,Basic,Editable,Numeric (µm) / Text,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamDiameterDefault,authored,divergent,divergence decision applied,sample > sampling unit
@@ -29,7 +29,7 @@ Beam Diameter,Basic,Editable,Numeric (µm) / Text,$Dataset.prov:wasGeneratedBy.p
 Beam Mode,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:beamMode,authored,divergent,,sample > sampling unit
 Beam Raster Dimensions,Advanced,Editable,Numeric pair (µm x µm),$MethodDefinition.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:defaultValue,authored,shared,divergence decision applied,sample > sampling unit
 Beam Raster Dimensions,Advanced,Editable,Numeric pair (µm x µm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Beam Raster Dimensions'].schema:value,inferred,shared,dual-home counterpart (tier matrix),sample > sampling unit
-Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
+Blank Correction,Advanced,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,analyte
 BSE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='BSE Detector'].schema:name,authored,,reviewer: use the instrument hasPart[BSEDetector] form,
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
@@ -47,7 +47,7 @@ Coarse Milling Conditions,Basic,Editable,Text (free),$MethodDefinition.schema:ac
 Coarse Milling Conditions,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Coarse Milling Conditions'].schema:value,authored,,new in this revision (needs mapping),
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP",
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP",
-Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,sample > sampling unit x reported property
+Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,sample > sampling unit x reported property
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
@@ -64,10 +64,10 @@ Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement ow
 Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
 Detection Limit Method,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module CompositionQC,reported property
-Diffracting Crystal,Basic,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Diffracting Crystal,Basic,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 Drift Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Drift Correction'].schema:defaultValue,inferred,shared,,
 Drift Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Drift Correction'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy,
-Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 EBSD Detector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.ada:ebsdDetectorConfiguration,authored,,new in this revision (needs mapping),
 EBSD Frame Time,Advanced,Editable,Numeric (ms),$MethodDefinition.schema:additionalProperty[schema:name='EBSD Frame Time'].schema:defaultValue,authored,,,
 EBSD Frame Time,Advanced,Editable,Numeric (ms),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EBSD Frame Time'].schema:value,authored,,new in this revision (needs mapping),
@@ -102,9 +102,9 @@ Image Pixel Size,Advanced,Basic,Numeric + unit,$Dataset.prov:wasGeneratedBy.sche
 Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:manufacturer.schema:name,authored,divergent,divergence decision applied,
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:model.schema:name,authored,shared,divergence decision applied,
 Instrument Variant,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:description,authored,,new in this revision (needs mapping),
-Interference Correction Standard,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
-X-ray Line Overlap Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
-Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
+Interference Correction Standard,Advanced,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,analyte
+X-ray Line Overlap Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,analyte
+Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,analyte
 Ion Beam Source,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='SEM'].ada:ionBeamSource,authored,,new in this revision (needs mapping),
 Ion Milling Conditions (3D Tomography),Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description,authored,,,
 Ion Milling Conditions (3D Tomography),Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Ion milling'].schema:description,authored,,new in this revision (needs mapping),
@@ -120,7 +120,7 @@ Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Peak Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Peak Counting Time,Basic,Editable,Numeric (s),$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,keyed,,,sample
 Primary Calibration Standard Name,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,analyte
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,new in this revision (needs mapping),analyte
@@ -129,7 +129,7 @@ Procedure DOI,N/A,Basic,URI / DOI,,module,shared,placement owned by Module Core,
 Procedure Name,Basic,Read-Only,Text (free),,module,shared,placement owned by Module Core,
 Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
 Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Module Core,
-Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Proportional Counter / Detector,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 Protective Coating Deposition,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].ada:protectiveCoatingDepositionDefault,authored,,,
 Protective Coating Deposition,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:value,authored,,new in this revision (needs mapping),
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
@@ -140,8 +140,8 @@ Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergen
 Sample Tilt Angle,Basic,Read-Only,Numeric (degrees),$MethodDefinition.ada:sampleTiltAngle,authored,,new in this revision (needs mapping),
 Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
 SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.ada:seDetectorType,authored,,new in this revision (needs mapping),
-Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,defines: standard
-Sequence,Advanced,Read-Only,Integer,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,defines: standard
+Sequence,Advanced,Read-Only,Integer,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Slice Thickness,Basic,Editable,Numeric (nm),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].ada:sliceThicknessDefault,authored,,,
 Slice Thickness,Basic,Editable,Numeric (nm),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Slice Thickness'].schema:value,authored,,new in this revision (needs mapping),
@@ -152,14 +152,14 @@ Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,authored,,tier rule: added the missing per-analysis value,
 Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
-Technique per Analyte,Basic,Read-Only,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,,,analyte
-Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],keyed,shared,,analyte
+Technique per Analyte,Basic,Read-Only,Controlled list,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,,,analyte
+Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,analyte
 Voxel Size and Image Stack Dimensions,N/A,Basic,Text (free),$Dataset.ada:voxelSize,authored,,new in this revision (needs mapping),
 WDS Dead Time Correction,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,,
-WDS PHA Setting,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
-WDS Spectrometer Channel,Advanced,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,defines: channel per analyte
+WDS PHA Setting,Advanced,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),channel
+WDS Spectrometer Channel,Advanced,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,defines: channel per analyte
 WDS Spectrometer Configuration,Advanced,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='SEM'].schema:hasPart[schema:additionalType='WDS Spectrometer'].schema:name,authored,divergent,divergence decision applied,
 Working Distance,Basic,Editable,Numeric (mm),$MethodDefinition.ada:workingDistanceDefault,authored,,,
 Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Working Distance'].schema:value,authored,,new in this revision (needs mapping),
-X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.ada:channelTemplate.ada:channelColumns[],keyed,divergent,channel keyed table (was mis-mapped),channel
+X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,divergent,channel keyed table (was mis-mapped),channel
 Voxel Size and Image Stack Dimensions,N/A,Basic,Text (free),$Dataset.ada:imageStackDimenstions,authored,,,

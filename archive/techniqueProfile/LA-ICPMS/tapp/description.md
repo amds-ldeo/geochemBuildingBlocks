@@ -1,6 +1,6 @@
 # LA-ICPMS Technique-Aligned Protocol Profile (laicpmsTAPP)
 
-LA-ICPMS-specific extension of the base [tappDefinition](../tappDefinition/) building block. Adds top-level laser-ablation properties, a parameter vocabulary used in `ada:methodParameters`, and an analyte-column template used in `ada:analyteTemplate.ada:analyteColumns`.
+LA-ICPMS-specific extension of the base [tappDefinition](../tappDefinition/) building block. Adds top-level laser-ablation properties, a parameter vocabulary used in `ada:methodParameters`, and an analyte-column template used in `ada:targetSpeciesTemplate.ada:targetSpeciesColumns`.
 
 ## Structure
 
@@ -21,7 +21,7 @@ The building block references shared catalog JSON files that humans and tools us
 
 - `../vocab/<name>.json` — `schema:DefinedTermSet` objects with `schema:hasDefinedTerm` arrays; the canonical vocabulary for each enum.
 - `../parameterTemplates/<ParameterName>.json` — `schema:PropertyValueSpecification` template per parameter. Instances use these as `ada:methodParameters[]` entries.
-- `../analyteColumns/<columnName>.json` — `schema:PropertyValueSpecification` template per per-element analyte column. Instances use these as `ada:analyteTemplate.ada:analyteColumns[]` entries.
+- `../analyteColumns/<columnName>.json` — `schema:PropertyValueSpecification` template per per-element analyte column. Instances use these as `ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]` entries.
 
 ## Dependencies
 

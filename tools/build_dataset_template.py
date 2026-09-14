@@ -3,10 +3,10 @@
 Usage:
     python tools/build_dataset_template.py <tapp-instance.json> [<out.xlsx>]
 
-The TAPP instance's ada:analyteTemplate.ada:analyteColumns[] become the
+The TAPP instance's ada:targetSpeciesTemplate.ada:targetSpeciesColumns[] become the
 worksheet's column headers (with the column's schema:name as the visible
 header and schema:valueName as a stable key in row 2 metadata). Rows are
-seeded from the instance's ada:analyteTemplate.ada:defaultAnalytes — one
+seeded from the instance's ada:targetSpeciesTemplate.ada:defaultTargetSpecies — one
 row per analyte. The user fills in measured values per analyte/analysis.
 
 If <out.xlsx> is omitted, writes alongside the input file with suffix
@@ -53,11 +53,11 @@ def main():
     with open(in_path, "r", encoding="utf-8") as f:
         tapp = json.load(f)
 
-    template = tapp.get("ada:analyteTemplate") or {}
-    cols = template.get("ada:analyteColumns") or []
-    rows = template.get("ada:defaultAnalytes") or []
+    template = tapp.get("ada:targetSpeciesTemplate") or {}
+    cols = template.get("ada:targetSpeciesColumns") or []
+    rows = template.get("ada:defaultTargetSpecies") or []
     if not cols:
-        sys.exit(f"input has no ada:analyteTemplate.ada:analyteColumns: {in_path}")
+        sys.exit(f"input has no ada:targetSpeciesTemplate.ada:targetSpeciesColumns: {in_path}")
 
     out_path = Path(args.out) if args.out else in_path.with_name(in_path.stem + "-dataset-template.xlsx")
 

@@ -189,13 +189,13 @@ module and technique `$defs` should therefore differ **only** in that `@id`.
 **A module cannot constrain three containers, all for one reason.** `allOf` intersects, and the
 consuming technique already constrains each of these as a CLOSED shape from its own table, so two
 universal constraints on one array can never both hold: `schema:additionalProperty` (a closed
-`anyOf` over the table's parameters), a **keyed-table COLUMN array** (`ada:analyteColumns`,
-`ada:channelColumns`, `ada:reportedPropertyColumns`, `ada:collectorConfiguration` — narrowed to the
-technique's generated column defs), and a **default-ROW array** (`ada:defaultAnalytes`,
-`ada:defaultChannels`). `build_module_bb.is_composable()` is the single predicate;
+`anyOf` over the table's parameters), a **keyed-table COLUMN array** (`ada:targetSpeciesColumns`,
+`ada:monitoredPropertyColumns`, `ada:reportedPropertyColumns`, `ada:collectorConfiguration` — narrowed to the
+technique's generated column defs), and a **default-ROW array** (`ada:defaultTargetSpecies`,
+`ada:defaultMonitoredProperties`). `build_module_bb.is_composable()` is the single predicate;
 `module_composition._is_composable` delegates to it so the generator and the planner cannot drift.
 The column case arrived with `Module_ICPMS` and broke 96 examples — a row ending at
-`…ada:analyteColumns[]` carries the COLUMN's scalar Data Type, so composing it emitted
+`…ada:targetSpeciesColumns[]` carries the COLUMN's scalar Data Type, so composing it emitted
 `items: {type: string}` against the technique's `items: {anyOf: […column objects…]}`.
 
 **`Source = unplaced` in a module sidecar is a REFUSAL, not a gap.** `seed_module_sidecars` fills

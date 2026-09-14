@@ -74,7 +74,7 @@ def parse_analytes(cell):
 
 IDENTIFIER_COL = {
     "@type": ["schema:PropertyValueSpecification"],
-    "schema:name": "Analyzed constituent", "schema:valueName": "analyte",
+    "schema:name": "Analyzed constituent", "schema:valueName": "targetSpecies",
     "schema:description": "Analyzed constituent (isotope) identified by the analyte row.",
     "ada:dataType": "string", "schema:readonlyValue": True, "schema:valueRequired": True,
     "ada:tier": "M", "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
@@ -171,9 +171,9 @@ def main():
         # analyteTemplate: identifier column + defaultAnalytes (analyte list only)
         analytes = parse_analytes(table.get("Analyte", {}).get(L, ""))
         if analytes:
-            inst["ada:analyteTemplate"] = {
-                "ada:analyteColumns": [dict(IDENTIFIER_COL)],
-                "ada:defaultAnalytes": [{"analyte": a} for a in analytes],
+            inst["ada:targetSpeciesTemplate"] = {
+                "ada:targetSpeciesColumns": [dict(IDENTIFIER_COL)],
+                "ada:defaultTargetSpecies": [{"analyte": a} for a in analytes],
             }
         fp = os.path.join(TAPP_DIR, f"examplelaicpmsTAPP-{code}.json")
         json.dump(inst, open(fp, "w", encoding="utf-8", newline="\n"), indent=2, ensure_ascii=False)

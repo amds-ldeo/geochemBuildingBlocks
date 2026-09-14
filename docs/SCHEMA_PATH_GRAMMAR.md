@@ -20,7 +20,7 @@ curie     := ns ":" localname                 # colons only, never "." ; e.g. sc
 
 Two canonical roots, distinguishing the reusable procedure from the analysis document:
 
-- **`$MethodDefinition`** — the TAPP definition (a `prov:Plan`). Protocol-level and plan-scoped rows (Procedure-Level Tier = Basic/Advanced). Analyte columns are plan-level, so `$.` (self/context) is an alias for `$MethodDefinition` (e.g. `$.ada:analyteTemplate.ada:analyteColumns[]`).
+- **`$MethodDefinition`** — the TAPP definition (a `prov:Plan`). Protocol-level and plan-scoped rows (Procedure-Level Tier = Basic/Advanced). Analyte columns are plan-level, so `$.` (self/context) is an alias for `$MethodDefinition` (e.g. `$.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]`).
 - **`$Dataset`** — the technique **product document** root (the profile / analysis instance). Analysis-instance rows (Procedure-Level Tier = N/A) land here, mostly on existing cdif slots. The workbook may name the owning CDIF module instead of `$Dataset`; these are **aliases** normalized to `$Dataset`:
   - `$cdifCore` → `$Dataset` (owns `schema:contributor`, `schema:funding`, `schema:relatedLink`, `schema:creator`…)
   - `$cdifDiscovery` → `$Dataset` (owns `schema:measurementTechnique`, `dqv:hasQualityMeasurement`)
@@ -44,12 +44,12 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 |---|---|
 | `direct-ada` | `$MethodDefinition.ada:<name>[]?` |
 | `dataset-scalar` | `$Dataset.ada:<name>[]?` |
-| `analyte-template` | `$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]` |
-| `analyte-identifier` | `$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]` |
+| `analyte-template` | `$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]` |
+| `analyte-identifier` | `$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]` |
 | `reported-property-template` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:reportedPropertyColumns[]` |
 | `reported-property-identifier` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]` |
-| `channel-template` | `$MethodDefinition.ada:channelTemplate.ada:channelColumns[]` |
-| `channel-identifier` | `$MethodDefinition.ada:channelTemplate.ada:defaultChannels[]` |
+| `channel-template` | `$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]` |
+| `channel-identifier` | `$MethodDefinition.ada:monitoredPropertyTemplate.ada:defaultMonitoredProperties[]` |
 | `method-variable-measured` | `$MethodDefinition.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value|defaultValue))?` |
 | `dataset-variable-measured` | `$Dataset.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value))?` |
 | `protocol-description` | `$MethodDefinition.schema:description` |
@@ -171,7 +171,7 @@ reported. `method-variable-measured` and `dataset-variable-measured` carry the t
 `value`/`defaultValue` split follows the same rule as every other parameter.
 
 **A direct `ada:` property can sit on an instrument COMPONENT, not just the instrument.** An ICP-MS
-Collector's `ada:collectorConfiguration` (its channel table) or `ada:defaultChannels` hangs off
+Collector's `ada:collectorConfiguration` (its channel table) or `ada:defaultMonitoredProperties` hangs off
 `schema:instrument[…].schema:hasPart[…].ada:<name>[]` — the hasPart-level analogue of
 `instrument-direct-ada`. `instrument-component-ada` (and its `$Dataset` partner
 `dataset-instrument-component-ada`) recognize it.

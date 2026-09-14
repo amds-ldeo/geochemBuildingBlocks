@@ -1,4 +1,4 @@
-# TAPP Composition Module: Analyte
+# TAPP Composition Module: Target Species
 
 The shared **Analyte** block of the 2026-08-11 TAPP library, composed by **13 of the sixteen** delivery tables — 1 owned fields over 1 schema paths.
 
@@ -19,7 +19,7 @@ Requiredness follows the TAPP tier matrix: a field Basic on a side is required t
 ```yaml
 allOf:
 - $ref: ../../../BaseSchema/tappDefinition/schema.yaml
-- $ref: ../../../BaseSchema/modules/analyte/schema.yaml#/$defs/ProcedureIdentification
+- $ref: ../../../BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties: {}   # only what this technique itself owns
 ```

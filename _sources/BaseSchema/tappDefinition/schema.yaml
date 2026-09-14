@@ -234,14 +234,14 @@ properties:
         - $ref: '#/$defs/MethodParameterValue'
 
 
-  'ada:analyteTemplate':
+  'ada:targetSpeciesTemplate':
     description: >-
       Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element
       table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries
       in metadata records. Typically associated with the acquisition workflow step.
     type: object
     properties:
-      'ada:analyteColumns':
+      'ada:targetSpeciesColumns':
         type: array
         description: >-
           Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName
@@ -252,7 +252,7 @@ properties:
         contains:
           $ref: '#/$defs/AnalyteIdentifierColumn'
         maxContains: 1
-      'ada:defaultAnalytes':
+      'ada:defaultTargetSpecies':
         type: array
         description: >-
           The analytes (analyzed constituents) this method targets by default — the ROWS of the
@@ -260,7 +260,7 @@ properties:
           or a row object binding that analyte to per-analyte values.
 
           A row object is keyed throughout by the schema:valueName of the columns declared in
-          ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description
+          ada:targetSpeciesColumns, and MUST carry the 'analyte' key - the column that sibling description
           requires to identify the constituent named in each row.
 
           Which values belong here follows the TAPP's Analysis-Level Tier. A column marked
@@ -289,7 +289,7 @@ properties:
                 type: string
                 description: >-
                   The analyzed constituent this row is for (e.g. "SiO2"). The key is the
-                  schema:valueName of the analyte column, which ada:analyteColumns requires exactly
+                  schema:valueName of the analyte column, which ada:targetSpeciesColumns requires exactly
                   one of, so a row is keyed by column valueName throughout.
             additionalProperties:
               type:
@@ -299,10 +299,10 @@ properties:
               - boolean
               - 'null'
     required:
-    - ada:analyteColumns
+    - ada:targetSpeciesColumns
     
     
-  'ada:channelTemplate':
+  'ada:monitoredPropertyTemplate':
     description: >-
       Template for per-channel parameters, a channel being an instrument selection position (a mass,
       a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns
@@ -310,7 +310,7 @@ properties:
       Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.
     type: object
     properties:
-      'ada:channelColumns':
+      'ada:monitoredPropertyColumns':
         type: array
         description: >-
           Columns of the per-channel parameter table. Must include exactly one column with
@@ -321,7 +321,7 @@ properties:
         contains:
           $ref: '#/$defs/ChannelIdentifierColumn'
         maxContains: 1
-      'ada:defaultChannels':
+      'ada:defaultMonitoredProperties':
         type: array
         description: >-
           The channels this procedure defines by default — the ROWS of the channel table. Each is a
@@ -332,12 +332,12 @@ properties:
           - type: string
           - $ref: '#/$defs/DefinedTerm'
     required:
-    - ada:channelColumns
+    - ada:monitoredPropertyColumns
 
 
   'ada:reportedPropertyTemplate':
     description: >-
-      Template for the variables this procedure REPORTS and their units, as distinct from ada:analyteTemplate
+      Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate
       which records what was acquired. Declares the reported-property domain and the columns that repeat over
       it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope,
       anything beyond it belongs to a separate, coupled procedure.
@@ -960,7 +960,7 @@ $defs:
     - type: object
       properties:
         'schema:valueName':
-          const: channel
+          const: monitoredProperty
         'ada:dataType':
           const: string
         'schema:readonlyValue':
@@ -1024,7 +1024,7 @@ $defs:
     - type: object
       properties:
         'schema:valueName':
-          const: analyte
+          const: targetSpecies
         'ada:dataType':
           const: string
         'schema:readonlyValue':

@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: ADA Analyte-Column Specification Registry
+title: ADA Target-Species-Column Specification Registry
 description: Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived
   from technique TAPP spreadsheets. Each $def constrains one analyte-table reporting column (e.g. detectionLimit,
   xrayEmissionLine). TAPP building blocks reference these definitions via fragment $refs (schema.yaml#/$defs/<name>)
@@ -13,7 +13,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/analysisOrder
+        const: ada:targetSpeciesColumn/empaTAPP/analysisOrder
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -41,7 +41,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/backgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/empaTAPP/backgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -71,7 +71,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/backgroundCountingPosition
+        const: ada:targetSpeciesColumn/empaTAPP/backgroundCountingPosition
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -98,7 +98,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/backgroundCountingTime
+        const: ada:targetSpeciesColumn/empaTAPP/backgroundCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -130,7 +130,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/blankCorrection
+        const: ada:targetSpeciesColumn/empaTAPP/blankCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -159,7 +159,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/empaTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -188,7 +188,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/edsDeadTime
+        const: ada:targetSpeciesColumn/empaTAPP/edsDeadTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -215,7 +215,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/elementEstimationMethod
+        const: ada:targetSpeciesColumn/empaTAPP/elementEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -246,12 +246,12 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/analyteEstimationMethod
+        const: ada:targetSpeciesColumn/empaTAPP/analyteEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: analyteEstimationMethod
+        const: targetSpeciesEstimationMethod
       schema:name:
         const: Analyte Estimation Method
       ada:dataType:
@@ -275,7 +275,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/analyticalAccuracy
+        const: ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -305,7 +305,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/analyticalPrecision
+        const: ada:targetSpeciesColumn/empaTAPP/analyticalPrecision
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -334,7 +334,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/backgroundPosition
+        const: ada:targetSpeciesColumn/empaTAPP/backgroundPosition
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -363,7 +363,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/beamCurrent
+        const: ada:targetSpeciesColumn/empaTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -398,7 +398,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/empaTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -428,7 +428,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/empaTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -457,7 +457,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/diffractingCrystal
+        const: ada:targetSpeciesColumn/empaTAPP/diffractingCrystal
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -487,7 +487,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/epmaTechniquePerAnalyte
+        const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -517,7 +517,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies
+        const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -547,7 +547,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/interferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -577,7 +577,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/empaTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -608,7 +608,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/primaryCalibrationStandardName
+        const: ada:targetSpeciesColumn/empaTAPP/primaryCalibrationStandardName
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -638,7 +638,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/proportionalCounterDetector
+        const: ada:targetSpeciesColumn/empaTAPP/proportionalCounterDetector
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -668,7 +668,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/secondaryReferenceMaterials
+        const: ada:targetSpeciesColumn/empaTAPP/secondaryReferenceMaterials
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -699,7 +699,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod
+        const: ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -729,7 +729,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/wdsPhaSetting
+        const: ada:targetSpeciesColumn/empaTAPP/wdsPhaSetting
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -761,7 +761,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/wdsSpectrometerChannel
+        const: ada:targetSpeciesColumn/empaTAPP/wdsSpectrometerChannel
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -791,7 +791,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/xRayBackgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -821,7 +821,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/xRayLineOverlapCorrectionsApplied
+        const: ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -850,7 +850,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/epmaTechnique
+        const: ada:targetSpeciesColumn/empaTAPP/epmaTechnique
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -879,7 +879,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/interferenceCorrection
+        const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -905,7 +905,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/interferenceCorrectionStandard
+        const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -933,7 +933,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/interferingElements
+        const: ada:targetSpeciesColumn/empaTAPP/interferingElements
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -965,7 +965,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -997,7 +997,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1030,7 +1030,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1063,7 +1063,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1094,7 +1094,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1126,7 +1126,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1155,7 +1155,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1184,7 +1184,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1215,7 +1215,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1249,7 +1249,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1280,7 +1280,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1311,7 +1311,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1341,7 +1341,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/massResolutionAssignment
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/massResolutionAssignment
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1370,7 +1370,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1399,7 +1399,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1432,7 +1432,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1463,7 +1463,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1496,7 +1496,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1528,7 +1528,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1562,7 +1562,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1594,7 +1594,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1627,7 +1627,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1660,7 +1660,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1693,7 +1693,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1724,7 +1724,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1756,7 +1756,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1785,7 +1785,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1816,7 +1816,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/instrumentSensitivity
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/instrumentSensitivity
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1843,7 +1843,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1873,7 +1873,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1907,7 +1907,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1938,7 +1938,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1969,7 +1969,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -1999,7 +1999,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2028,7 +2028,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2057,7 +2057,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2090,7 +2090,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2121,7 +2121,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2154,7 +2154,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2186,7 +2186,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/sensitivityAsUsefulYield
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/sensitivityAsUsefulYield
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2216,7 +2216,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2249,7 +2249,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2281,7 +2281,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2314,7 +2314,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2347,7 +2347,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2378,7 +2378,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2410,7 +2410,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2440,7 +2440,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2474,7 +2474,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2505,7 +2505,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2539,7 +2539,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2570,7 +2570,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2601,7 +2601,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2629,7 +2629,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2658,7 +2658,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2691,7 +2691,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2722,7 +2722,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2755,7 +2755,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2787,7 +2787,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2821,7 +2821,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2854,7 +2854,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2886,7 +2886,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2919,7 +2919,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2952,7 +2952,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -2983,7 +2983,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3015,7 +3015,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3045,7 +3045,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3079,7 +3079,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3110,7 +3110,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3144,7 +3144,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3175,7 +3175,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3206,7 +3206,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3234,7 +3234,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3263,7 +3263,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3296,7 +3296,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3327,7 +3327,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3360,7 +3360,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3392,7 +3392,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3426,7 +3426,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3459,7 +3459,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3491,7 +3491,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3524,7 +3524,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3557,7 +3557,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3588,7 +3588,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3620,7 +3620,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3650,7 +3650,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3684,7 +3684,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3715,7 +3715,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3749,7 +3749,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3780,7 +3780,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3811,7 +3811,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3841,7 +3841,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/massResolutionAssignment
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3870,7 +3870,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3899,7 +3899,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3932,7 +3932,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3963,7 +3963,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -3996,7 +3996,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4028,7 +4028,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4062,7 +4062,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4095,7 +4095,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4127,7 +4127,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4160,7 +4160,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4193,7 +4193,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4224,7 +4224,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4256,7 +4256,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4286,7 +4286,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4320,7 +4320,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4351,7 +4351,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4385,7 +4385,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4416,7 +4416,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4447,7 +4447,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4477,7 +4477,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/massResolutionAssignment
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4506,7 +4506,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4535,7 +4535,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4568,7 +4568,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4599,7 +4599,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4632,7 +4632,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4664,7 +4664,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4698,7 +4698,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4727,7 +4727,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/monochromatorCrystal
+        const: ada:targetSpeciesColumn/empaTAPP/monochromatorCrystal
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4756,7 +4756,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/normalization-standardsCorrection
+        const: ada:targetSpeciesColumn/empaTAPP/normalization-standardsCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4783,7 +4783,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/peakCountingTime
+        const: ada:targetSpeciesColumn/empaTAPP/peakCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4814,7 +4814,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/primaryCalibrationStandard
+        const: ada:targetSpeciesColumn/empaTAPP/primaryCalibrationStandard
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4840,7 +4840,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/pulseHeightAnalyzeSetting
+        const: ada:targetSpeciesColumn/empaTAPP/pulseHeightAnalyzeSetting
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4867,7 +4867,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/secondaryReferenceMaterial
+        const: ada:targetSpeciesColumn/empaTAPP/secondaryReferenceMaterial
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4895,12 +4895,12 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/analyteEstimationMethod
+        const: ada:targetSpeciesColumn/semCompositionTAPP/analyteEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: analyteEstimationMethod
+        const: targetSpeciesEstimationMethod
       schema:name:
         const: Analyte Estimation Method
       ada:dataType:
@@ -4924,7 +4924,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/analyticalAccuracy
+        const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4954,7 +4954,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/analyticalPrecision
+        const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -4984,7 +4984,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/backgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/semCompositionTAPP/backgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5014,7 +5014,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/backgroundCountingTime
+        const: ada:targetSpeciesColumn/semCompositionTAPP/backgroundCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5046,7 +5046,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/backgroundPosition
+        const: ada:targetSpeciesColumn/semCompositionTAPP/backgroundPosition
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5074,7 +5074,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/beamCurrent
+        const: ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5106,7 +5106,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/blankCorrection
+        const: ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5138,7 +5138,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5167,7 +5167,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/semCompositionTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5195,7 +5195,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/semCompositionTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5225,7 +5225,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/diffractingCrystal
+        const: ada:targetSpeciesColumn/semCompositionTAPP/diffractingCrystal
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5254,7 +5254,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard
+        const: ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5283,7 +5283,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5312,7 +5312,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/interferingElements
+        const: ada:targetSpeciesColumn/semCompositionTAPP/interferingElements
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5341,7 +5341,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/semCompositionTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5370,7 +5370,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/peakCountingTime
+        const: ada:targetSpeciesColumn/semCompositionTAPP/peakCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5404,7 +5404,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/primaryCalibrationStandardName
+        const: ada:targetSpeciesColumn/semCompositionTAPP/primaryCalibrationStandardName
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5434,7 +5434,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/proportionalCounterDetector
+        const: ada:targetSpeciesColumn/semCompositionTAPP/proportionalCounterDetector
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5464,7 +5464,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/secondaryReferenceMaterials
+        const: ada:targetSpeciesColumn/semCompositionTAPP/secondaryReferenceMaterials
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5495,7 +5495,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
+        const: ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5525,7 +5525,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/techniquePerAnalyte
+        const: ada:targetSpeciesColumn/semCompositionTAPP/techniquePerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5556,7 +5556,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
+        const: ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5586,7 +5586,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection
+        const: ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5616,7 +5616,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/wdsPhaSetting
+        const: ada:targetSpeciesColumn/semCompositionTAPP/wdsPhaSetting
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5647,7 +5647,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel
+        const: ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5677,7 +5677,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5707,7 +5707,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
+        const: ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5736,7 +5736,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semFibsemTAPP/beamCurrent
+        const: ada:targetSpeciesColumn/semFibsemTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5767,7 +5767,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semImagingTAPP/beamCurrent
+        const: ada:targetSpeciesColumn/semImagingTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5800,12 +5800,12 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/analyteEstimationMethod
+        const: ada:targetSpeciesColumn/semTAPP/analyteEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: analyteEstimationMethod
+        const: targetSpeciesEstimationMethod
       schema:name:
         const: Analyte Estimation Method
       ada:dataType:
@@ -5829,7 +5829,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/analyticalAccuracy
+        const: ada:targetSpeciesColumn/semTAPP/analyticalAccuracy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5859,7 +5859,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/analyticalPrecision
+        const: ada:targetSpeciesColumn/semTAPP/analyticalPrecision
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5889,7 +5889,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/backgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/semTAPP/backgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5919,7 +5919,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/backgroundCountingTime
+        const: ada:targetSpeciesColumn/semTAPP/backgroundCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5951,7 +5951,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/backgroundPosition
+        const: ada:targetSpeciesColumn/semTAPP/backgroundPosition
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -5979,7 +5979,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/beamCurrent
+        const: ada:targetSpeciesColumn/semTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6011,7 +6011,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/blankCorrection
+        const: ada:targetSpeciesColumn/semTAPP/blankCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6043,7 +6043,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/semTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6072,7 +6072,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/semTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6100,7 +6100,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/semTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6130,7 +6130,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/diffractingCrystal
+        const: ada:targetSpeciesColumn/semTAPP/diffractingCrystal
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6159,7 +6159,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/interferenceCorrectionStandard
+        const: ada:targetSpeciesColumn/semTAPP/interferenceCorrectionStandard
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6188,7 +6188,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/interferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/semTAPP/interferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6217,7 +6217,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/interferingElements
+        const: ada:targetSpeciesColumn/semTAPP/interferingElements
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6246,7 +6246,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/normalizationStandardsBasedCorrection
+        const: ada:targetSpeciesColumn/semTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6275,7 +6275,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/peakCountingTime
+        const: ada:targetSpeciesColumn/semTAPP/peakCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6309,7 +6309,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/primaryCalibrationStandardName
+        const: ada:targetSpeciesColumn/semTAPP/primaryCalibrationStandardName
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6339,7 +6339,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/proportionalCounterDetector
+        const: ada:targetSpeciesColumn/semTAPP/proportionalCounterDetector
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6369,7 +6369,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/secondaryReferenceMaterials
+        const: ada:targetSpeciesColumn/semTAPP/secondaryReferenceMaterials
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6400,7 +6400,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/targetSpeciesEstimationMethod
+        const: ada:targetSpeciesColumn/semTAPP/targetSpeciesEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6430,7 +6430,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/techniquePerAnalyte
+        const: ada:targetSpeciesColumn/semTAPP/techniquePerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6461,7 +6461,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/techniquePerTargetSpecies
+        const: ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6491,7 +6491,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/timeDependentIntensityCorrection
+        const: ada:targetSpeciesColumn/semTAPP/timeDependentIntensityCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6521,7 +6521,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/wdsPhaSetting
+        const: ada:targetSpeciesColumn/semTAPP/wdsPhaSetting
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6552,7 +6552,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/wdsSpectrometerChannel
+        const: ada:targetSpeciesColumn/semTAPP/wdsSpectrometerChannel
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6582,7 +6582,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/xRayBackgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/semTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6612,7 +6612,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/semTAPP/xRayLineOverlapCorrectionsApplied
+        const: ada:targetSpeciesColumn/semTAPP/xRayLineOverlapCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6645,7 +6645,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6677,7 +6677,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6710,7 +6710,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6743,7 +6743,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6776,7 +6776,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6807,7 +6807,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6841,7 +6841,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6871,7 +6871,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6904,7 +6904,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6938,7 +6938,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -6971,7 +6971,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7003,7 +7003,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7036,7 +7036,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7069,7 +7069,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7099,7 +7099,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7129,7 +7129,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7159,7 +7159,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7192,7 +7192,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7223,7 +7223,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7257,7 +7257,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7286,7 +7286,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7317,7 +7317,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7346,7 +7346,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7380,7 +7380,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7414,7 +7414,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7447,7 +7447,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7479,7 +7479,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7512,7 +7512,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7545,7 +7545,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7575,7 +7575,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/detectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7605,7 +7605,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/detectionLimitMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/detectionLimitMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7635,7 +7635,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/dwellTimePerMass
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/dwellTimePerMass
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7669,7 +7669,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/interferenceCorrectionMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7700,7 +7700,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/interferingSpecies
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7734,7 +7734,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7764,7 +7764,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/isobaricInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7795,7 +7795,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/limitOfQuantificationMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/limitOfQuantificationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7825,7 +7825,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/massResolutionAssignment
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/massResolutionAssignment
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7857,7 +7857,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/massResolutionPerAnalyte
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/massResolutionPerAnalyte
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7889,7 +7889,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/monitoredIsotopes
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/monitoredIsotopes
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7922,7 +7922,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/monitoredMasses
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7956,7 +7956,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/perAnalyteCalibrationStrategy
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/perAnalyteCalibrationStrategy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -7988,7 +7988,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8022,7 +8022,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+        const: ada:targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8051,7 +8051,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/spectrometerNumber
+        const: ada:targetSpeciesColumn/empaTAPP/spectrometerNumber
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8078,7 +8078,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection
+        const: ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8107,7 +8107,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/typicalAnalyticalAccuracy
+        const: ada:targetSpeciesColumn/empaTAPP/typicalAnalyticalAccuracy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8134,7 +8134,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/typicalAnalyticalPrecision
+        const: ada:targetSpeciesColumn/empaTAPP/typicalAnalyticalPrecision
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8160,7 +8160,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/typicalCountingStatisticsError
+        const: ada:targetSpeciesColumn/empaTAPP/typicalCountingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8186,7 +8186,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/typicalDetectionLimit
+        const: ada:targetSpeciesColumn/empaTAPP/typicalDetectionLimit
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8212,7 +8212,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/wdsDetectorType
+        const: ada:targetSpeciesColumn/empaTAPP/wdsDetectorType
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -8241,7 +8241,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:analyteColumn/empaTAPP/xrayEmissionLine
+        const: ada:targetSpeciesColumn/empaTAPP/xrayEmissionLine
       '@type':
         const:
         - schema:PropertyValueSpecification

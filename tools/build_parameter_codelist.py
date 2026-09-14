@@ -9,7 +9,7 @@ Reads the three cross-TAPP parameter registries —
 CDIF codelist profile.
 
 Each registry $def already carries the parameter's own resolvable @id
-(`ada:parameter/<tapp>/<name>` or `ada:analyteColumn/<tapp>/<name>`) — the same URI used
+(`ada:parameter/<tapp>/<name>` or `ada:targetSpeciesColumn/<tapp>/<name>`) — the same URI used
 as `schema:propertyID` in TAPP/detail instances — plus a title (label) and description.
 Those become the skos:Concept @id, skos:prefLabel, and skos:definition, so a propertyID in
 any example now dereferences to a concept definition here (the geochem analog of the XAS

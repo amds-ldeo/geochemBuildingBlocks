@@ -106,25 +106,25 @@ WRAPPER_ITEM_REF = {
 # (ComputationalTool). A bare "[]" append leaves items as {type:object} so the base's object shape
 # applies instead of a spurious string-item constraint from the path leaf.
 #
-# ada:analyteColumns used to be listed here too, which silently dropped every technique's analyte
-# columns. Each such row ends at "…ada:analyteColumns[]" carrying a SCALAR Data Type (the column's
+# ada:targetSpeciesColumns used to be listed here too, which silently dropped every technique's analyte
+# columns. Each such row ends at "…ada:targetSpeciesColumns[]" carrying a SCALAR Data Type (the column's
 # value type), so falling through to Leaf(leaf_schema) would emit items:{type:string} — wrong,
 # since items are AnalyteColumn objects — and with every row writing the same append, last-one-wins.
 # It is now handled by ANALYTE_COLUMN_ARRAY below, which turns each row into a generated column def
 # rather than consuming the row's leaf.
 BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
 
-# ada:defaultAnalytes (and the analogous ada:defaultChannels) hold the template's DEFAULT ROWS: a
+# ada:defaultTargetSpecies (and the analogous ada:defaultMonitoredProperties) hold the template's DEFAULT ROWS: a
 # list of analyte/channel identifiers, each a bare string OR a schema:DefinedTerm — never an object
 # carrying per-column values (those live in the columns array). Whether the sidecar row targets the
 # property directly or with a bare "[]", the array's item shape is this anyOf, not the row's scalar.
-DEFAULT_ROW_ARRAYS = {"ada:defaultAnalytes", "ada:defaultChannels"}
+DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
                                {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"}]}
 
 # The per-analyte column array. Each row targeting it names one column; the emitter generates a
 # column def per row and narrows the array to those columns plus the base's identifier column.
-ANALYTE_COLUMN_ARRAY = "ada:analyteColumns"
+ANALYTE_COLUMN_ARRAY = "ada:targetSpeciesColumns"
 
 # tappDefinition's mandatory analyte-identifier column, which must stay permissible once the
 # overlay narrows `items` to the technique's own columns.
@@ -138,13 +138,13 @@ ANALYTE_IDENTIFIER_REF = {
 # overlay narrows `items` to the technique's own columns. Only the names differ, so they are
 # table-driven rather than special-cased per domain.
 KEYED_TABLES = {
-    "ada:analyteColumns": {
-        "template": "ada:analyteTemplate",
+    "ada:targetSpeciesColumns": {
+        "template": "ada:targetSpeciesTemplate",
         "registry": "analyteColumns",
         "identifier_ref": ANALYTE_IDENTIFIER_REF,
     },
-    "ada:channelColumns": {
-        "template": "ada:channelTemplate",
+    "ada:monitoredPropertyColumns": {
+        "template": "ada:monitoredPropertyTemplate",
         "registry": "channelColumns",
         "identifier_ref": {
             "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
@@ -161,7 +161,7 @@ KEYED_TABLES = {
     },
     # An MC-ICP-MS collector: ada:collectorConfiguration IS the channel-column array directly (it
     # lives on instrument[ICPMS].hasPart[Collector], not in a top-level template, and has no
-    # identifier column). Channel column @ids use the ada:channelColumn namespace.
+    # identifier column). Channel column @ids use the ada:monitoredPropertyColumn namespace.
     "ada:collectorConfiguration": {
         "template": None,
         "registry": "channelColumns",
@@ -173,21 +173,21 @@ KEYED_TABLES = {
 def normalize_path(p):
     """Collapse the collectorConfiguration channel table to its emitted shape.
 
-    The sidecar addresses MC-ICP-MS channels as `…collectorConfiguration.ada:channelColumns[]` and
-    the default channel list as `…collectorConfiguration.ada:defaultChannels[]`, but the emitted
+    The sidecar addresses MC-ICP-MS channels as `…collectorConfiguration.ada:monitoredPropertyColumns[]` and
+    the default channel list as `…collectorConfiguration.ada:defaultMonitoredProperties[]`, but the emitted
     structure is `ada:collectorConfiguration` = the channel-column array itself, with
-    `ada:defaultChannels` a SIBLING of it on the Collector (an array cannot also hold a
+    `ada:defaultMonitoredProperties` a SIBLING of it on the Collector (an array cannot also hold a
     defaultChannels key). Rewrite both so schema and example agree without touching the sidecar.
 
-    Also collapse a trailing `[]` on a default-ROW array (ada:defaultAnalytes[]/ada:defaultChannels[]):
+    Also collapse a trailing `[]` on a default-ROW array (ada:defaultTargetSpecies[]/ada:defaultMonitoredProperties[]):
     the emitter carries the transcribed member list as a single scalar leaf on the template (the way
     the reference LA-MC-ICPMS sidecar addresses it — no brackets), whereas the array-segment form
     routes into the append leaf and would emit the raw items schema instead of the members. The
     schema side keys off the property NAME, so both grammars still emit the same array constraint."""
-    return (p.replace(".ada:collectorConfiguration.ada:channelColumns", ".ada:collectorConfiguration")
-             .replace(".ada:collectorConfiguration.ada:defaultChannels", ".ada:defaultChannels")
-             .replace(".ada:defaultAnalytes[]", ".ada:defaultAnalytes")
-             .replace(".ada:defaultChannels[]", ".ada:defaultChannels"))
+    return (p.replace(".ada:collectorConfiguration.ada:monitoredPropertyColumns", ".ada:collectorConfiguration")
+             .replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
+             .replace(".ada:defaultTargetSpecies[]", ".ada:defaultTargetSpecies")
+             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties"))
 
 
 class AddlType:
@@ -618,7 +618,7 @@ def _is_addl_param(p: spp.ParsedPath) -> bool:
             and s[-2].selector is not None)
 
 
-def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", prefix="ada:analyteColumn", as_value=False):
+def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", prefix="ada:targetSpeciesColumn", as_value=False):
     """One generated AnalyteColumn $def, mirroring build_tapp.param_template_def.
 
     Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
@@ -684,7 +684,7 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
 
 
 def _is_analyte_column(p: spp.ParsedPath) -> bool:
-    """True for a `…ada:analyteTemplate.ada:analyteColumns[]` path — one per-analyte column of the
+    """True for a `…ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]` path — one per-analyte column of the
     technique's element table. The row's Data Type describes the COLUMN'S VALUE, not the array
     item, so the leaf is used to type the generated column def rather than the array's items."""
     s = p.segments
@@ -826,8 +826,8 @@ def build(tapp):
                 # dataset counterpart's PropertyValue form).
                 if cfg["registry"] == "channelColumns" and parsed.root == "Dataset":
                     name = name + "AnalysisValue"
-                # @id namespace per table: analyteColumns -> ada:analyteColumn, channelColumns ->
-                # ada:channelColumn, reportedPropertyColumns -> ada:reportedPropertyColumn.
+                # @id namespace per table: analyteColumns -> ada:targetSpeciesColumn, channelColumns ->
+                # ada:monitoredPropertyColumn, reportedPropertyColumns -> ada:reportedPropertyColumn.
                 # Channel columns type by tier+root: a read-only procedure column and EVERY dataset
                 # column record a fixed value (schema:PropertyValue); an editable procedure column
                 # registers a default (schema:PropertyValueSpecification). Analyte columns keep the

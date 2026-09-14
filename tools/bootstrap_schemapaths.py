@@ -86,23 +86,23 @@ _MD_NESTED_RE = re.compile(
 _ADA_DEFAULT_TAIL_RE = re.compile(r"^(ada:.+)Default$")
 
 
-# Anything under ada:analyteTemplate — the per-analyte column definitions and the default analyte
+# Anything under ada:targetSpeciesTemplate — the per-analyte column definitions and the default analyte
 # rows.
-_ANALYTE_TEMPLATE_RE = re.compile(r"\bada:analyteTemplate\b")
+_ANALYTE_TEMPLATE_RE = re.compile(r"\bada:targetSpeciesTemplate\b")
 
 
 def is_analyte_template(path):
     """True for a path targeting the analyte template, which is NEVER dual-homed.
 
     An analyteColumn is a column DEFINITION, not a value: the per-analyte values live in the rows —
-    ada:defaultAnalytes on the TAPP side, and schema:variableMeasured on the dataset side. So there
+    ada:defaultTargetSpecies on the TAPP side, and schema:variableMeasured on the dataset side. So there
     is nothing for a $Dataset schemapath to point at; the analysis-tier expression of an analyte
     column is a variableMeasured array that no schemapath row describes.
 
     Editable-vs-read-only is still carried, on the column's schema:readonlyValue (54 read-only /
     29 editable across the registry). AnalyteColumn does have a schema:defaultValue slot, but it is
     unused and means something different anyway — a default across ALL analyte rows, where the
-    protocol's actual per-element defaults are the ada:defaultAnalytes rows themselves.
+    protocol's actual per-element defaults are the ada:defaultTargetSpecies rows themselves.
 
     Without this guard a Basic/Editable analyte column looks dual-homable on its tiers alone, and
     every pass would try to give it a $Dataset partner it must not have.
@@ -240,14 +240,14 @@ def keyed_path(row):
         return (special, "keyed:" + kb.replace(" ", "-"))
 
     routes = {
-        "defines: analyte": ["$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]"],
-        "analyte": ["$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[]"],
+        "defines: analyte": ["$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]"],
+        "analyte": ["$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]"],
         # `channel` is a keyed table exactly like `analyte`: a spectrometer/detector channel
         # assignment repeats the same set of columns. It was left unrouted as "technique-scoped",
         # and in the absence of a route the sidecars drifted onto three different structures —
         # analyte columns (which conflates a channel with the element it measures), instrument
         # hasPart components, and bare ada: defaults.
-        "channel": ["$MethodDefinition.ada:channelTemplate.ada:channelColumns[]"],
+        "channel": ["$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]"],
         "defines: reported property": ["$MethodDefinition.ada:reportedProperties[]"],
         # TIER-DEPENDENT. A reported property is stated by the procedure only when the procedure
         # has something to state: at Protocol N/A there is no procedure side at all, and where the
@@ -283,9 +283,9 @@ def keyed_path(row):
     # missed.
     #
     # Note the property names still say `analyte` and `channel` while the keys reaching
-    # them no longer do. Whether ada:analyteTemplate becomes ada:targetSpeciesTemplate,
+    # them no longer do. Whether ada:targetSpeciesTemplate becomes ada:targetSpeciesTemplate,
     # and whether `monitored property` earns its own family rather than borrowing
-    # ada:channelTemplate, are open questions with Ruolin -- A1 and section 6 of
+    # ada:monitoredPropertyTemplate, are open questions with Ruolin -- A1 and section 6 of
     # docs/TAPP-2026-09-11-migration-plan.md in the metadata repo. Aliasing keeps this
     # step from prejudging either.
     routes["target species"] = routes["analyte"]

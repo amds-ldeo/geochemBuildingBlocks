@@ -186,7 +186,7 @@ TAPP_CONFIGS = {
         "title": "QRIS Technique-Aligned Procedure Profile (qrisTAPP)",
         "description": ("Quantitative Reflectance Imaging System extension of the base TAPP "
                         "definition. QRIS has no per-element analyte axis, so no "
-                        "ada:analyteTemplate is defined, and no mode-flag columns: its ADA "
+                        "ada:targetSpeciesTemplate is defined, and no mode-flag columns: its ADA "
                         "componentTypes are pipeline stages of one acquisition, not modes. "
                         "DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by "
                         "tools/build_tapp.py; the source table has not been through Phase 0 review."),
@@ -205,7 +205,7 @@ TAPP_CONFIGS = {
         "enum_props": {"analyticalMode": ["Powder diffraction", "Micro-diffraction"]},
         "title": "XRD Technique-Aligned Procedure Profile (xrdTAPP)",
         "description": ("X-ray diffraction extension of the base TAPP definition. XRD reports "
-                        "phases rather than per-element concentrations, so no ada:analyteTemplate "
+                        "phases rather than per-element concentrations, so no ada:targetSpeciesTemplate "
                         "is defined; no mode-flag columns, since it delivers a single technique "
                         "componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv "
                         "by tools/build_tapp.py; the source table has not been through Phase 0 "
@@ -228,7 +228,7 @@ TAPP_CONFIGS = {
                         "extension of the base TAPP definition. Basic procedure-tier fields are "
                         "required top-level ada: properties; Advanced procedure-tier fields are "
                         "schema:additionalProperty[] PropertyValueSpecification entries. VNMIR has "
-                        "no per-element analyte axis, so no ada:analyteTemplate is defined. "
+                        "no per-element analyte axis, so no ada:targetSpeciesTemplate is defined. "
                         "DRAFT - generated from draftTAPPs/VNMIR_TAPP_draft_v2.csv by "
                         "tools/build_tapp.py; the source table has not been through Phase 0 review."),
         "detail_title": "VNMIR Analysis Detail",
@@ -271,7 +271,7 @@ TAPP_CONFIGS = {
                         "the base TAPP definition. Basic protocol-tier fields are required top-level "
                         "ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] "
                         "PropertyValueSpecification entries. XCT has no per-element analyte axis, so no "
-                        "ada:analyteTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v39.csv by "
+                        "ada:targetSpeciesTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v39.csv by "
                         "tools/build_tapp.py."),
         "detail_title": "Lab-XCT Analysis Detail",
         "detail_description": ("Detail block for Lab-XCT hasPart items. Discriminates on "
@@ -294,7 +294,7 @@ TAPP_CONFIGS = {
         "description": ("Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the "
                         "base TAPP definition. Basic protocol-tier fields are required top-level ada: "
                         "properties; Advanced protocol-tier fields are schema:additionalProperty[] "
-                        "entries; an ada:analyteTemplate carries per-element columns. Generated from "
+                        "entries; an ada:targetSpeciesTemplate carries per-element columns. Generated from "
                         "tapp/Current TAPPs/TEM_TAPP_v51.csv by tools/build_tapp.py."),
         "detail_title": "TEM Analysis Detail",
         "detail_description": ("Detail block for TEM hasPart items. Discriminates on ada:componentType, "
@@ -316,7 +316,7 @@ TAPP_CONFIGS = {
         "description": ("Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base "
                         "TAPP definition. Basic protocol-tier fields are required top-level ada: "
                         "properties; Advanced protocol-tier fields are schema:additionalProperty[] "
-                        "entries. No ada:analyteTemplate (imaging has no per-element analyte axis). "
+                        "entries. No ada:targetSpeciesTemplate (imaging has no per-element analyte axis). "
                         "Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v31.csv by tools/build_tapp.py."),
         "detail_title": "SEM Imaging Analysis Detail",
         "detail_description": ("Detail block for SEM imaging hasPart items. Discriminates on "
@@ -338,7 +338,7 @@ TAPP_CONFIGS = {
         "description": ("Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the "
                         "base TAPP definition. Basic protocol-tier fields are required top-level ada: "
                         "properties; Advanced protocol-tier fields are schema:additionalProperty[] "
-                        "entries. No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v32.csv "
+                        "entries. No ada:targetSpeciesTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v32.csv "
                         "by tools/build_tapp.py."),
         "detail_title": "FIB-SEM Analysis Detail",
         "detail_description": ("Detail block for FIB-SEM hasPart items. Discriminates on "
@@ -1910,11 +1910,11 @@ def build():
             basic_required.append(key)
     if acols:
         ac_refs = [{"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"}] + \
-                  [{"$ref": "../../../../registry/analyteColumns/schema.yaml#/$defs/" + c} for c in acols]
-        ac_contains = [{"contains": {"$ref": "../../../../registry/analyteColumns/schema.yaml#/$defs/" + c},
+                  [{"$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/" + c} for c in acols]
+        ac_contains = [{"contains": {"$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/" + c},
                         "minContains": 0, "maxContains": 1} for c in acols]
-        tapp_props["ada:analyteTemplate"] = {"type": "object", "properties": {
-            "ada:analyteColumns": {"type": "array", "items": {"anyOf": ac_refs}, "allOf": ac_contains}}}
+        tapp_props["ada:targetSpeciesTemplate"] = {"type": "object", "properties": {
+            "ada:targetSpeciesColumns": {"type": "array", "items": {"anyOf": ac_refs}, "allOf": ac_contains}}}
     sap_refs = [{"$ref": "../../../../registry/parameterTemplates/schema.yaml#/$defs/" + n} for n in pt_keys] + \
                [{"$ref": "../../../../registry/parameterValues/schema.yaml#/$defs/" + n} for n in mv_keys]
     sap_contains = [{"contains": {"$ref": "../../../../registry/parameterTemplates/schema.yaml#/$defs/" + n},
@@ -2011,9 +2011,9 @@ def _norm_tier(v):
 def _empa_role(sp):
     """Resolve a row's structural role from its `schema path` value."""
     s = sp or ""
-    if "ada:analyteTemplate.ada:analyteColumns" in s:
+    if "ada:targetSpeciesTemplate.ada:targetSpeciesColumns" in s:
         return "analyteColumn"
-    if "ada:analyteTemplate.ada:defaultAnalytes" in s:
+    if "ada:targetSpeciesTemplate.ada:defaultTargetSpecies" in s:
         return "analyteIdentifier"
     # Advanced method parameter: new `schema:additionalProperty[...]` convention or the
     # legacy `ada:methodParameters[]`. Checked before the description/inherited branches

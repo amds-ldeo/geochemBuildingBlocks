@@ -220,10 +220,10 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
@@ -236,7 +236,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -266,7 +266,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -296,7 +296,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/empaTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -327,7 +327,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -357,7 +357,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/empaTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -390,7 +390,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/empaTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -422,7 +422,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/empaTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -451,7 +451,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/epmaTechniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -480,7 +480,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -509,7 +509,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -538,7 +538,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/empaTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -568,7 +568,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/empaTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -627,10 +627,10 @@ allOf:
           - contains: *id012
             minContains: 0
             maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
@@ -642,7 +642,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -678,7 +678,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/empaTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -710,7 +710,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -745,7 +745,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -781,7 +781,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/empaTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -816,7 +816,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -852,7 +852,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/sequence
+                  const: ada:monitoredPropertyColumn/empaTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -888,7 +888,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -920,7 +920,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/empaTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/empaTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -975,7 +975,7 @@ allOf:
           - contains: *id030
             minContains: 0
             maxContains: 1
-        ada:defaultChannels:
+        ada:defaultMonitoredProperties:
           type: array
           items:
             anyOf:

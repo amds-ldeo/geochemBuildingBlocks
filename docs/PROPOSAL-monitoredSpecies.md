@@ -32,13 +32,13 @@ Its channel-keyed rows already span all three origins:
 
 | metadata item | P / A tier | origin | placed today |
 |---|---|---|---|
-| Monitored Masses | Basic / Read-Only | declares the species domain | `ada:defaultChannels[]` |
-| Interfering Species | Basic / Read-Only | procedure-fixed | `ada:channelColumns[]` |
-| Interference Correction Method | Basic / Read-Only | procedure-fixed | `ada:channelColumns[]` |
-| Isobaric Interference Corrections Applied | Basic / Read-Only | procedure-fixed | `ada:channelColumns[]` |
+| Monitored Masses | Basic / Read-Only | declares the species domain | `ada:defaultMonitoredProperties[]` |
+| Interfering Species | Basic / Read-Only | procedure-fixed | `ada:monitoredPropertyColumns[]` |
+| Interference Correction Method | Basic / Read-Only | procedure-fixed | `ada:monitoredPropertyColumns[]` |
+| Isobaric Interference Corrections Applied | Basic / Read-Only | procedure-fixed | `ada:monitoredPropertyColumns[]` |
 | Collision Gas Type | Basic / Read-Only | instrument part (CRC) | `schema:value` on the part |
 | Reaction Gas Type | Advanced / Read-Only | instrument part (CRC) | `schema:value` on the part |
-| **Dwell Time per Mass** | Basic / **Editable** | **session** | `ada:channelColumns[]` — procedure default only |
+| **Dwell Time per Mass** | Basic / **Editable** | **session** | `ada:monitoredPropertyColumns[]` — procedure default only |
 | **Ion Counter Dead Time** | Basic / **Editable** | **session** | **unplaced** |
 | **Collision/Reaction Gas Mixture Ratio** | Advanced / **Editable** | **session** | **unplaced** |
 | **Instrument Sensitivity** | N/A / **Advanced** | **session** | **unplaced** |
@@ -50,7 +50,7 @@ left unplaced. This model is what gives them a home.
 
 ### TAPP side — the species definition
 
-`ada:channelTemplate` / `ada:defaultChannels` **become the monitored-species list**. Every item in
+`ada:monitoredPropertyTemplate` / `ada:defaultMonitoredProperties` **become the monitored-species list**. Every item in
 that list has a corresponding `schema:variableMeasured` entry, and for user-friendliness the list
 uses the same strings as the `schema:name` of those entries.
 
@@ -70,7 +70,7 @@ procedure-fixed column values. The `@id` is what the dataset side points at.
     "ada:targetSpecies": [{ "@id": "ada:analyte/solutionQicpmsTAPP/Zn" }],
     "schema:additionalProperty": [
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": ["schema:PropertyValueSpecification"],
         "schema:readonlyValue": true,
         "schema:defaultValue": "40Ar26Mg, 32S34S"
@@ -151,7 +151,7 @@ The five parts, and why each is there:
 | species `@id` resolvability | a local identifier for now; a registry for cross-dataset consistency is a long-range goal |
 | `ada:targetSpecies` cardinality | a list, 0..\*, revisable later |
 | where procedure-fixed column values live | on the TAPP species object — the template defines only a structure, and per-species instances may vary |
-| fate of `ada:channelTemplate` / `ada:defaultChannels` | they become the monitored-species list, one entry per `schema:variableMeasured`, using matching `schema:name` strings |
+| fate of `ada:monitoredPropertyTemplate` / `ada:defaultMonitoredProperties` | they become the monitored-species list, one entry per `schema:variableMeasured`, using matching `schema:name` strings |
 
 ## Dependencies and prerequisites
 
@@ -178,7 +178,7 @@ The five parts, and why each is there:
 ## What would change
 
 - **base** (`tappDefinition`, `geochemProduct` / `adaProduct`): a monitored-species variable shape;
-  the monitored-species list replacing `ada:defaultChannels`; `@id` on instrument and instrument
+  the monitored-species list replacing `ada:defaultMonitoredProperties`; `@id` on instrument and instrument
   part; `ada:reportedBy` and `ada:targetSpecies`.
 - **grammar** (`docs/SCHEMA_PATH_GRAMMAR.md`): a route for session-level channel properties onto
   `$Dataset.schema:variableMeasured[...]`.
@@ -200,4 +200,4 @@ The five parts, and why each is there:
 | TEM v21 | EELS Sensitivity and Detection Limit | Basic |
 
 Seven distinct items; 17 rows once counted across technique revisions. Derived from `Key by =
-channel` rows whose path resolves to `ada:channelColumns[]` on `$MethodDefinition`.
+channel` rows whose path resolves to `ada:monitoredPropertyColumns[]` on `$MethodDefinition`.

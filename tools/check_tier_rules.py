@@ -38,10 +38,10 @@ ADDL = "schema:additionalProperty"
 FIRST_CLASS = (
     "schema:location", "schema:funding", "schema:relatedLink", "schema:creator", "schema:agent",
     "bios:computationalTool", "bios:reagent", "schema:object", "schema:identifier",
-    "schema:hasPart", "schema:variableMeasured", "ada:analyteTemplate", "ada:reportedProperties",
+    "schema:hasPart", "schema:variableMeasured", "ada:targetSpeciesTemplate", "ada:reportedProperties",
     # keyed templates: the members carry the per-instance value, so there is no separate
     # $Dataset parameter to pair a default with
-    "ada:channelTemplate", "ada:reportedPropertyTemplate",
+    "ada:monitoredPropertyTemplate", "ada:reportedPropertyTemplate",
     "dqv:hasQualityMeasurement", "schema:actionProcess", "schema:name", "schema:description",
     "schema:version", "schema:datePublished", "ada:samplingUnit",
     # A distribution's encodingFormat is a first-class CDIF slot on schema:distribution, not a

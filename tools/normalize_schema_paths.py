@@ -135,16 +135,16 @@ def recognize(s):
     fams = [
         (r"^\$MethodDefinition\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "direct-ada"),
         (r"^\$Dataset\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "dataset-scalar"),
-        (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:analyteColumns\[\]$", "analyte-template"),
+        (r"^\$MethodDefinition\.ada:targetSpeciesTemplate\.ada:targetSpeciesColumns\[\]$", "analyte-template"),
         # the analyte-identifier column; special_resolve() already emits this for the `Analyte` row
-        (r"^\$MethodDefinition\.ada:analyteTemplate\.ada:defaultAnalytes\[\]$", "analyte-identifier"),
+        (r"^\$MethodDefinition\.ada:targetSpeciesTemplate\.ada:defaultTargetSpecies\[\]$", "analyte-identifier"),
         # the reported-property table: what the procedure REPORTS, as against what it acquires.
         # Same shape as the analyte template — one row per member, one column per keyed field.
         (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:reportedPropertyColumns\[\]$", "reported-property-template"),
         (r"^\$MethodDefinition\.ada:reportedPropertyTemplate\.ada:defaultReportedProperties\[\]$", "reported-property-identifier"),
         # the channel table: instrument selection positions (a mass, a cup, an energy-loss edge)
-        (r"^\$MethodDefinition\.ada:channelTemplate\.ada:channelColumns\[\]$", "channel-template"),
-        (r"^\$MethodDefinition\.ada:channelTemplate\.ada:defaultChannels\[\]$", "channel-identifier"),
+        (r"^\$MethodDefinition\.ada:monitoredPropertyTemplate\.ada:monitoredPropertyColumns\[\]$", "channel-template"),
+        (r"^\$MethodDefinition\.ada:monitoredPropertyTemplate\.ada:defaultMonitoredProperties\[\]$", "channel-identifier"),
         # the shared logical variable registry every table part references. Bare-[] identity form
         # (registering a reported variable and its name/units), plus the reported-VALUE form: a
         # reported property is dual-homed like any parameter. On $MethodDefinition it takes .value
@@ -195,7 +195,7 @@ def recognize(s):
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-parameter"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:(name|identifier|description)$", "instrument-component"),
         # a direct ada: property ON an instrument COMPONENT (hasPart): an ICP-MS Collector's
-        # ada:collectorConfiguration channel table or its ada:defaultChannels list. The hasPart-level
+        # ada:collectorConfiguration channel table or its ada:defaultMonitoredProperties list. The hasPart-level
         # analogue of instrument-direct-ada — the emitter already nests it; only the grammar lacked it.
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "instrument-component-ada"),
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
@@ -288,7 +288,7 @@ def special_resolve(item, s, reason):
     """Item-aware resolutions for #2/#3/#5. Returns (canonical, family) or (None, None)."""
     il = item.strip().lower()
     if il == "analyte":                                            # #5
-        return "$MethodDefinition.ada:analyteTemplate.ada:defaultAnalytes[]", "analyte-identifier"
+        return "$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]", "analyte-identifier"
     if reason == "multi-target (split into separate rows)" and item in MULTI_RESOLVE:  # #2
         return MULTI_RESOLVE[item], "multi-target-primary"
     # #3: workflow-step additionalProperty with no selector -> the parameter is named for the row

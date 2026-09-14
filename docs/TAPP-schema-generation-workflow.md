@@ -206,7 +206,7 @@ list (`registry/vocab/adaAnalyticalParameters.json`).
 
 ### 3.3 Analyte columns and controlled vocabularies
 
-- **Analyte columns** (`ada:analyteTemplate.ada:analyteColumns`) describe per‑element table columns for
+- **Analyte columns** (`ada:targetSpeciesTemplate.ada:targetSpeciesColumns`) describe per‑element table columns for
   techniques with a per‑analyte axis (LA‑ICP‑MS, EMPA). Techniques without one (XCT, imaging) omit them.
 - **Controlled vocabularies** become both an inline `enum` on the field **and** a standalone SKOS
   `ConceptScheme` file under `registry/vocab/` for reuse.

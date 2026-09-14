@@ -687,16 +687,16 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:defaultChannels:
+        ada:defaultMonitoredProperties:
           type: array
           items:
             anyOf:
             - type: string
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
@@ -708,7 +708,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -746,7 +746,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -782,7 +782,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -819,7 +819,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -860,7 +860,7 @@ allOf:
             minContains: 0
             maxContains: 1
       required:
-      - ada:defaultChannels
+      - ada:defaultMonitoredProperties
     ada:massCyclesPerReplicate:
       description: Number of complete mass scans accumulated per analytical replicate. A scan — also called
         a sweep or a pass — is one complete traversal of the monitored masses by a sequentially scanning
@@ -903,10 +903,10 @@ allOf:
       - N/A
       - missing
       readOnly: true
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
@@ -923,7 +923,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -957,7 +957,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -989,7 +989,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1022,7 +1022,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1055,7 +1055,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1088,7 +1088,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification

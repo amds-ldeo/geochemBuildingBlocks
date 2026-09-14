@@ -310,21 +310,21 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # placeholder can't synthesise and are all OPTIONAL in tappDefinition — so omit them from the
     # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
     # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
-    SKIP_MD = ("ada:analyteTemplate", "ada:reportedPropertyTemplate", "ada:channelTemplate",
+    SKIP_MD = ("ada:targetSpeciesTemplate", "ada:reportedPropertyTemplate", "ada:monitoredPropertyTemplate",
                "bios:computationalTool",
                "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
     # Publication mode populates the rich objects from real cells. What still stays out are the
     # keyed-table COLUMN DEFINITIONS (analyteColumns/channelColumns/reportedPropertyColumns) — those
     # are structural, emitted schema-side, never carrying per-publication values — while the default
     # ROWS (defaultAnalytes / defaultChannels) and the collector-configuration data ARE populated.
-    COLUMN_DEFS = ("ada:analyteColumns", "ada:channelColumns", "ada:reportedPropertyColumns",
+    COLUMN_DEFS = ("ada:targetSpeciesColumns", "ada:monitoredPropertyColumns", "ada:reportedPropertyColumns",
                    "ada:collectorConfiguration",
                    # reported properties are a conditional template: emitted only when the procedure
                    # enumerates "Reported Variables and Units" (build_tapp_examples gates them),
                    # never by the generic interpreter — otherwise every reported field would appear
                    # both here and on its workflow step.
                    "schema:variableMeasured")
-    DEFAULT_ROWS = ("ada:defaultAnalytes", "ada:defaultChannels")
+    DEFAULT_ROWS = ("ada:defaultTargetSpecies", "ada:defaultMonitoredProperties")
     for item, rec in spec.items():
         m = meta.get(item, {})
         if pub and item not in values:

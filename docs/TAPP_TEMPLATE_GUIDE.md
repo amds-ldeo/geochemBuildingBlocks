@@ -81,8 +81,8 @@ fields the `ada:<name>` segment is the authoritative property name.**
 | `$MethodDefinition.schema:name` / `.schema:creator` / `.schema:instrument…` etc. | **Inherited** base-TAPP field — not a new property. |
 | `$MethodDefinition.ada:<name>` or `$.ada:<name>` | **Top-level `ada:` property** (Basic protocol). Name = `<name>`. |
 | `$MethodDefinition.schema:additionalProperty['<item>'].schema:value` | **Advanced method parameter** (use this, not the legacy `$.ada:methodParameters[]`). |
-| `$.ada:analyteTemplate.ada:analyteColumns[]` | **Analyte column** (per-element). |
-| `$.ada:analyteTemplate.ada:defaultAnalytes[]` | **Analyte identifier** (the `Analyte` row). |
+| `$.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]` | **Analyte column** (per-element). |
+| `$.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]` | **Analyte identifier** (the `Analyte` row). |
 | `$.schema:description` | Maps to the protocol `schema:description`. |
 | `$Dataset.…` | **Analysis-level / dataset** field → goes to the detail block, not the TAPP. |
 
@@ -134,7 +134,7 @@ analyteColumn: <name>   dataType: <type>   readOnly: <true|false>   enum: {…}
 ## 7. `Analyte` row → `defaultAnalytes`
 
 - The `Analyte` row's per-publication value is a **comma-delimited list** (e.g. `³¹P, ⁵¹V, ⁵³Cr`).
-- Each value becomes one element of `ada:analyteTemplate.ada:defaultAnalytes`, carrying the required
+- Each value becomes one element of `ada:targetSpeciesTemplate.ada:defaultTargetSpecies`, carrying the required
   `analyte` key (mass numbers normalised, e.g. `31P`) plus any per-analyte values from the
   `analyteColumn` rows.
 - Techniques with no per-element analyte axis (imaging: SEM, XCT) omit the `Analyte` row and the

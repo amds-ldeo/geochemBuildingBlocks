@@ -29,7 +29,7 @@ A `schema:HowTo` containing `schema:step` — an ordered array of `cdi:Activity`
 
 1. **Sample preparation** (`bios:LabProcess`) — mounting, polishing, coating
 2. **Instrument calibration** — primary/secondary standards, spectrometer setup
-3. **Data acquisition** — beam conditions, per-element parameters (linked to `ada:analyteTemplate`)
+3. **Data acquisition** — beam conditions, per-element parameters (linked to `ada:targetSpeciesTemplate`)
 4. **Data processing** — matrix correction, TDI, blank/normalization corrections
 5. **Quality control** — drift monitoring, precision/accuracy assessment
 
@@ -42,7 +42,7 @@ Each workflow step can carry:
 - `schema:actionProcess` — nested sub-workflow
 - `dqv:hasQualityMeasurement` — step-specific quality metrics
 
-### Per-analyte parameters (`ada:analyteTemplate`)
+### Per-analyte parameters (`ada:targetSpeciesTemplate`)
 Unchanged from v1/v2. Defines columns and default rows for the element table.
 
 ### Quality metrics (`dqv:hasQualityMeasurement`)

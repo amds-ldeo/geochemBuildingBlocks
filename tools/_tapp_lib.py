@@ -94,7 +94,7 @@ TAPP_PROFILES: dict[str, dict] = {
             "properties (beam mode, accelerating voltage default, matrix correction "
             "method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an "
             "analyte-column template covering EPMA per-element acquisition and "
-            "reporting fields. Each ada:analyteColumns[] entry must match one of the "
+            "reporting fields. Each ada:targetSpeciesColumns[] entry must match one of the "
             "catalog files in analyteColumns/ (or the inherited identifier column from "
             "tappDefinition); each catalog file is itself a JSON Schema whose "
             "examples[0] carries the canonical instance. Generated from "
@@ -134,7 +134,7 @@ TAPP_PROFILES: dict[str, dict] = {
             "LA-ICPMS-specific extension of the base TAPP definition. Adds top-level "
             "LA-ICPMS properties, Advanced-protocol parameters in schema:additionalProperty, and "
             "an analyte-column template covering LA-ICPMS per-element acquisition and "
-            "reporting fields. Each ada:analyteColumns[] entry must match one of the "
+            "reporting fields. Each ada:targetSpeciesColumns[] entry must match one of the "
             "catalog files in analyteColumns/ (or the inherited identifier column from "
             "tappDefinition); each catalog file is itself a JSON Schema whose "
             "examples[0] carries the canonical instance. Generated from "
@@ -758,7 +758,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
     """Hybrid JSON Schema + canonical instance for one analyte column.
 
     Top-level keywords form a JSON Schema constraining how this column must
-    appear in a TAPP instance's ada:analyteColumns[]. The standard `examples`
+    appear in a TAPP instance's ada:targetSpeciesColumns[]. The standard `examples`
     annotation carries the canonical JSON-LD instance — authoring apps read
     examples[0] to pre-fill forms; validators apply the schema body.
     """
@@ -770,7 +770,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
             "schema": "http://schema.org/",
             "ada": "https://ada.astromat.org/metadata/",
         }),
-        ("@id", f"ada:analyteColumn/{TAPP_NAME}/{name}"),
+        ("@id", f"ada:targetSpeciesColumn/{TAPP_NAME}/{name}"),
         ("@type", ["schema:PropertyValueSpecification"]),
         ("schema:name", label),
         ("schema:valueName", name),
@@ -783,7 +783,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
         canonical["schema:inDefinedTermSet"] = {"@id": f"ada:vocab/{TAPP_NAME}/{enum_vname}"}
 
     properties = OrderedDict([
-        ("@id", {"const": f"ada:analyteColumn/{TAPP_NAME}/{name}"}),
+        ("@id", {"const": f"ada:targetSpeciesColumn/{TAPP_NAME}/{name}"}),
         ("@type", {"const": ["schema:PropertyValueSpecification"]}),
         ("schema:valueName", {"const": name}),
         ("schema:name", {"const": label}),
@@ -798,7 +798,7 @@ def analyte_column_obj(name: str, label: str, desc: str, dtype: str, enum_vname:
 
     return OrderedDict([
         ("$schema", "https://json-schema.org/draft/2020-12/schema"),
-        ("$id", f"ada:analyteColumn/{TAPP_NAME}/{name}"),
+        ("$id", f"ada:targetSpeciesColumn/{TAPP_NAME}/{name}"),
         ("title", label),
         ("description", desc or label),
         ("type", "object"),
@@ -1172,8 +1172,8 @@ def write_analyte_columns_registry(analyte_column_defs: "OrderedDict[str, dict]"
     Existing $defs owned by other TAPPs are preserved (union)."""
     _write_catalog_registry(
         ANALYTE_COLUMNS_DIR, analyte_column_defs,
-        owned_marker=f"ada:analyteColumn/{TAPP_NAME}/",
-        title="ADA Analyte-Column Specification Registry",
+        owned_marker=f"ada:targetSpeciesColumn/{TAPP_NAME}/",
+        title="ADA Target-Species-Column Specification Registry",
         description=(
             "Registry of reusable schema:PropertyValueSpecification analyte-column "
             "definitions derived from technique TAPP spreadsheets. Each $def "
@@ -1183,7 +1183,7 @@ def write_analyte_columns_registry(analyte_column_defs: "OrderedDict[str, dict]"
             "through the building-block register. The root only hosts $defs; it has "
             "no instantiable properties of its own."
         ),
-        bblock_name="Analyte-Column Specification Registry",
+        bblock_name="Target-Species-Column Specification Registry",
         bblock_abstract=(
             "Registry of reusable schema:PropertyValueSpecification analyte-column "
             "definitions derived from technique TAPP spreadsheets. Hosts one $def "
@@ -1375,7 +1375,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
                       required_props: list[str] | None = None,
                       value_param_names: list[str] | None = None) -> None:
     """Rebuild <TAPP>/schema.yaml with the new property set in allOf[1].properties
-    and uniqueness constraints on ada:analyteColumns[] and schema:additionalProperty[]
+    and uniqueness constraints on ada:targetSpeciesColumns[] and schema:additionalProperty[]
     referencing the catalog files. Basic-protocol (property:) fields are listed in
     overlay.required (canonical dual-home model); Advanced-protocol (readOnly:true
     parameter:) fields are schema:additionalProperty[] PropertyValueSpecification entries
@@ -1419,7 +1419,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         anyof = CommentedSeq()
         anyof.append({"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn"})
         for col_name in sorted(analyte_column_names):
-            anyof.append({"$ref": f"../../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"})
+            anyof.append({"$ref": f"../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/{col_name}"})
 
         ac_items = CommentedMap()
         ac_items["anyOf"] = anyof
@@ -1430,7 +1430,7 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         ac_unique = CommentedSeq()
         for col_name in sorted(analyte_column_names):
             cm = CommentedMap()
-            cm["contains"] = {"$ref": f"../../../../registry/analyteColumns/schema.yaml#/$defs/{col_name}"}
+            cm["contains"] = {"$ref": f"../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/{col_name}"}
             cm["minContains"] = 0
             cm["maxContains"] = 1
             ac_unique.append(cm)
@@ -1441,13 +1441,13 @@ def build_schema_yaml(properties: list[tuple[str, dict]],
         ac_columns["allOf"] = ac_unique
 
         ac_template_props = CommentedMap()
-        ac_template_props["ada:analyteColumns"] = ac_columns
+        ac_template_props["ada:targetSpeciesColumns"] = ac_columns
 
         ac_template = CommentedMap()
         ac_template["type"] = "object"
         ac_template["properties"] = ac_template_props
 
-        props["ada:analyteTemplate"] = ac_template
+        props["ada:targetSpeciesTemplate"] = ac_template
 
     # schema:additionalProperty: editable params -> parameterTemplates (PropertyValueSpecification);
     # read-only params -> parameterValues (PropertyValue carrying the fixed protocol value).
@@ -1788,7 +1788,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
     if not parts["schema:name"]:
         parts["schema:name"] = CFG["example_name_template"].format(code=_pubs()[pub_index][0])
 
-    # ---- Build ada:analyteTemplate.ada:defaultAnalytes from per-analyte data ----
+    # ---- Build ada:targetSpeciesTemplate.ada:defaultTargetSpecies from per-analyte data ----
     # The "Target Element" row's column value defines the analyte axis (pipe-delim
     # list, e.g. "Si|Al|K|Ca|Na|Fe|Mg|Ti|Cr|Mn"). Each analyteColumn row's column
     # value is parsed by parse_per_analyte() — single value applies to all
@@ -1866,9 +1866,9 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                     ex_clean = OrderedDict((k, v) for k, v in ex.items() if k != "@context")
                     analyte_cols.append(ex_clean)
 
-        parts["ada:analyteTemplate"] = OrderedDict([
-            ("ada:analyteColumns", analyte_cols),
-            ("ada:defaultAnalytes", default_rows),
+        parts["ada:targetSpeciesTemplate"] = OrderedDict([
+            ("ada:targetSpeciesColumns", analyte_cols),
+            ("ada:defaultTargetSpecies", default_rows),
         ])
 
     return parts, detail
@@ -1878,7 +1878,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
 
 def variable_measured_from_default_analytes(pub_label: str, default_analytes: list,
                                              unit_text: str = "wt%") -> list:
-    """Map a TAPP's ada:defaultAnalytes -> profile-level schema:variableMeasured.
+    """Map a TAPP's ada:defaultTargetSpecies -> profile-level schema:variableMeasured.
 
     Each defaultAnalytes entry becomes one schema:PropertyValue+cdi:InstanceVariable.
     Per-analyte protocol detail (x-ray emission line, counting times, calibration
@@ -1994,7 +1994,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     """Build an adaEMPA profile-level schema:Dataset example for one publication.
 
     Composes:
-      - schema:variableMeasured: derived from tapp.ada:analyteTemplate.ada:defaultAnalytes
+      - schema:variableMeasured: derived from tapp.ada:targetSpeciesTemplate.ada:defaultTargetSpecies
       - prov:wasGeneratedBy[].prov:used: from tapp.schema:instrument
       - prov:wasGeneratedBy[].schema:location: from tapp.schema:location
       - prov:wasGeneratedBy[].schema:object: synthesized MaterialSample referencing tapp.schema:object
@@ -2007,7 +2007,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     schema:url, file size, checksum, dates. These are clearly marked as
     placeholders so authors can override them per-pub.
     """
-    da_list = tapp_ex.get("ada:analyteTemplate", {}).get("ada:defaultAnalytes", [])
+    da_list = tapp_ex.get("ada:targetSpeciesTemplate", {}).get("ada:defaultTargetSpecies", [])
     variable_measured = variable_measured_from_default_analytes(pub_label, da_list)
 
     tapp_id = tapp_ex.get("@id", f"ex:{TAPP_NAME}-{pub_label.lower()}")
@@ -2060,7 +2060,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         f"{pub_citation}. The schema:hasPart entry under schema:distribution "
         f"carries detailEMPA fields and points at the empaTAPP TAPP definition "
         f"({tapp_id}); schema:variableMeasured is derived from the TAPP's "
-        f"ada:defaultAnalytes."
+        f"ada:defaultTargetSpecies."
     )
     out["schema:additionalType"] = [
         "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
@@ -2333,7 +2333,7 @@ def _classify_rows(rows, *, emit_tapp: bool, emit_detail: bool):
                 analyte_column_names.append(name)
             elif kind == "property":
                 # Skip non-property markers: "analyteTemplate" references the existing
-                # ada:analyteTemplate structure inherited from tappDefinition (not a
+                # ada:targetSpeciesTemplate structure inherited from tappDefinition (not a
                 # new top-level property); "description" maps to the existing
                 # schema:description (the schema_path confirms this for the relevant row).
                 if name in ("analyteTemplate", "description"):

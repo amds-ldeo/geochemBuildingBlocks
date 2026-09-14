@@ -178,8 +178,8 @@ Eighteen distinct strings library-wide; recount before relying on it.
 ### Implementation status
 
 Three of the eight domains are built here — `analyte`, `channel`, `reported property` — each as a
-keyed table: a column-definition template (`ada:analyteTemplate.ada:analyteColumns[]`) plus a
-defaults array (`ada:defaultAnalytes[]`). The remaining five (`sample`, `sampling unit`, `standard`,
+keyed table: a column-definition template (`ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]`) plus a
+defaults array (`ada:defaultTargetSpecies[]`). The remaining five (`sample`, `sampling unit`, `standard`,
 `preparation step`) and all the compound forms (`A x B`, `A > B`, `pair:`) are **not yet
 implemented**; rows carrying them are flagged rather than guessed at.
 

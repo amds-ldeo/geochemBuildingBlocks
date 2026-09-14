@@ -178,7 +178,7 @@ def write_divergent_report(sidecars, scopes, out_path):
                          "per-session property. That is a real modelling difference, not "
                          "necessarily an inconsistency — decide which the measurement actually is. "
                          "An analyte column has no analysis-tier path: its values are the "
-                         "`ada:defaultAnalytes` rows, surfacing on the dataset as "
+                         "`ada:defaultTargetSpecies` rows, surfacing on the dataset as "
                          "`schema:variableMeasured`.")
             lines.append("")
         for path, files in variants:

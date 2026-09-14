@@ -34,7 +34,7 @@ Carrier Gas and Flow Rate,Basic,Editable,Text (free),$MethodDefinition.ada:carri
 Carrier Gas and Flow Rate,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Carrier Gas and Flow Rate'].schema:value,authored,shared,tier rule: session parameter is an additionalProperty on the analysis,
 Cell Exit Discrimination Voltage,Basic,Editable,Numeric (V),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Cell Exit Discrimination Voltage'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Cell Exit Discrimination Voltage,Basic,Editable,Numeric (V),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Cell Exit Discrimination Voltage'].schema:value,authored,shared,dual-home decision: analysis-tier value,
-Collector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:defaultChannels[],inferred,,have to parse input string to extract the collector/analyte pairs that label the collector channels.,defines: channel per analyte
+Collector Configuration,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:defaultMonitoredProperties[],inferred,,have to parse input string to extract the collector/analyte pairs that label the collector channels.,defines: channel per analyte
 Collision Gas Flow Rate,Basic,Editable,Numeric (mL/min),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Gas Flow Rate'].schema:defaultValue,authored,shared,dual-home decision: protocol default,
 Collision Gas Flow Rate,Basic,Editable,Numeric (mL/min),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Gas Flow Rate'].schema:value,authored,shared,dual-home decision: analysis-tier value,
 Collision Gas Type,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collision Reaction Cell'].schema:additionalProperty[schema:name='Collision Gas Type'].schema:value,authored,shared,,channel
@@ -115,20 +115,20 @@ Laser Spot Geometry,Basic,Editable,Text (free),,module,,placement owned by Modul
 Laser Spot Geometry,Basic,Editable,Text (free),,module,,placement owned by Module LaserAblation,
 Laser Spot Path / Ablation Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module LaserAblation,
 Laser Wavelength and Type,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
-Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,reported property
+Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,reported property
 Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$Dataset.schema:variableMeasured[schema:name='Limit of Quantification (LOQ) Method'].schema:value,authored,authored,,reported property
 Limit of Quantification (LOQ) Method,Advanced,Basic,Text / URI,$MethodDefinition.schema:variableMeasured[schema:name='Limit of Quantification (LOQ) Method'].schema:defaultValue,authored,authored,,reported property
 Mapping Area,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Mapping Area'].schema:value,authored,authored,,
 Mass Bias Correction Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:massBiasCorrectionStrategy,inferred,authored,,
 Mass Fractionation Law,Basic,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Mass Fractionation Law'].schema:value,inferred,authored,path from owning module,
 Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Collector'].ada:collectorConfiguration[],inferred,authored,,channel
-Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,[not in current workbook],channel
+Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,[not in current workbook],channel
 Mass Resolution Setting,Basic,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Mass Resolution Setting'].schema:defaultValue,authored,divergent,dual-home decision: protocol default,
 Mass Resolution Setting,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Mass Resolution Setting'].schema:value,authored,divergent,dual-home decision: analysis-tier value,
 Matrix Offset Correction (LIEF),Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Matrix Offset Correction LIEF'].schema:value,authored,shared,,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:value,authored,shared,,
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,,
-Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,analyte
+Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,analyte
 Multi-Run Sequential Analysis Design,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Multi Run Sequential Analysis Design'].schema:value,authored,shared,,
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:defaultValue,keyed,shared,aligned to SEM_TAPP_v22,
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Normalization / Standards-Based Correction'].schema:value,keyed,shared,aligned to SEM_TAPP_v22,
@@ -143,7 +143,7 @@ Oxide Production,N/A,Basic,Text (free),$Dataset.dqv:hasQualityMeasurement[dqv:is
 Oxide Production Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.ada:oxideProductionMethodAndThreshold,authored,shared,,
 Peak Flatness,N/A,Basic,Text (free),,module,,placement owned by Module MCICPMS,
 Peak Flatness Method and Threshold,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Peak Flatness Method and Threshold'].schema:value,inferred,,path from owning module,
-Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,shared,,analyte
+Per-Analyte Calibration Strategy,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,analyte
 Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$MethodDefinition.schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:defaultValue,authored,,,
 Make-up Gas and Flow Rate,Advanced,Editable,Numeric (L/min) / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Make-up Gas and Flow Rate'].schema:value,inferred,,dual-home counterpart (tier matrix),
 Plasma Thermal Mode,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='ICP Source'].schema:additionalProperty[schema:name='Plasma Thermal Mode'].schema:value,authored,shared,"read-only: fixed protocol value, not a default",
@@ -179,7 +179,7 @@ Sampler and Skimmer Cone Material,Advanced,Read-Only,Text (free),$MethodDefiniti
 Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:secondaryReferenceMaterialDefault[],authored,divergent,dual-home decision: protocol default,defines: standard
 Secondary Reference Materials,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.prov:used.prov:reagent[ada:reagentRole='referenceMaterial'].schema:name,authored,divergent,dual-home decision: analysis-tier value,defines: standard
-Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,$MethodDefinition.ada:analyteTemplate.ada:analyteColumns[],authored,,analysis-instance (needs mapping),channel
+Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,,analysis-instance (needs mapping),channel
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Signal Integration Interval Method,Basic,Read-Only,Text (free),$MethodDefinition.ada:signalIntegrationIntervalMethod,authored,shared,,
 Signal Integration Time,N/A,Basic,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Signal Integration Time'].schema:value,authored,shared,,

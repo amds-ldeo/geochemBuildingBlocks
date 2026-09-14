@@ -56,9 +56,9 @@ def _inline_registry_refs(node, registries, cache):
 
 
 _REGISTRY_ID_PREFIX = {
-    "analyteColumns": "ada:analyteColumn/",
+    "analyteColumns": "ada:targetSpeciesColumn/",
     "reportedPropertyColumns": "ada:reportedPropertyColumn/",
-    "channelColumns": "ada:channelColumn/",
+    "channelColumns": "ada:monitoredPropertyColumn/",
     "parameterTemplates": "ada:parameter/",
     "parameterValues": "ada:parameter/",
 }

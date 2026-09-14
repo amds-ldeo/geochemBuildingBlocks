@@ -17,7 +17,7 @@ Refuses to write anything it cannot justify. Each of these is reported and SKIPP
                   since the worklist was generated, so re-run --decisions before applying
   collision       the edit would produce a row the sidecar already has. The key is (item, path),
                   NOT path alone — many distinct items share one path legitimately, since every
-                  analyte column maps to the same bare `…ada:analyteColumns[]` leaf
+                  analyte column maps to the same bare `…ada:targetSpeciesColumns[]` leaf
 
 `Scope` is derived, so re-run mark_shared_mappings.py afterwards.
 
@@ -76,7 +76,7 @@ def plan(decisions_path, allow_ungrammatical=False):
 
         # A duplicate is the same (item, path) twice — NOT the same path twice. Many distinct items
         # share one path legitimately: every analyte column maps to the bare
-        # `…ada:analyteColumns[]` leaf, so a sidecar holds a dozen rows with that identical path.
+        # `…ada:targetSpeciesColumns[]` leaf, so a sidecar holds a dozen rows with that identical path.
         claimed = {((row.get("Metadata Item") or "").strip(),
                     _canon((row.get("Schema Path") or "").strip()))
                    for row in rows if (row.get("Schema Path") or "").strip()}

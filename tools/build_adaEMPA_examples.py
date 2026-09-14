@@ -5,7 +5,7 @@ For each publication with both an exampleempaTAPP-<pub>.json and an
 exampledetailEMPA-<pub>.json on disk, emits exampleadaEMPA-<pub>.json under
 _sources/profiles/adaProfiles/adaEMPA/. The resulting Dataset:
 
-  - derives schema:variableMeasured from the TAPP's ada:defaultAnalytes
+  - derives schema:variableMeasured from the TAPP's ada:defaultTargetSpecies
   - carries the detailEMPA fields on a single tabular hasPart
   - references the TAPP definition via schema:measurementTechnique on that
     hasPart (@id reference, not inline)
