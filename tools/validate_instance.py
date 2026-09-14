@@ -85,6 +85,17 @@ TERMCODE_TO_PROFILE = {
     "HR-ICP-MS": "adaSolutionSFICPMS",
     "IC": "adaIC",
     "ICP-OES": "adaICPOES",
+    # ADA's LA-ICP-MS code (8 records) is quadrupole. Basis, recorded because it is an
+    # INFERENCE rather than a reading: all eight are UCPH and all name one instrument,
+    # "(UCPH)ThermoFisher iCap". That string names a product family, not an analyser -- but
+    # Thermo's iCAP MASS SPECTROMETER line is quadrupole throughout (iCAP Q / RQ / TQ / Qnova);
+    # their sector-field is the Element series and their multicollector is Neptune/Neoma. UCPH
+    # runs both and codes them apart (35 MC-ICP-MS method descriptions against 6 LA-ICP-MS), so
+    # these are deliberately not the multicollector. The six method descriptions do not settle
+    # it: every one describes only the ablation side -- spot size, fluence, repetition rate,
+    # standards, iolite -- and none mentions the mass spectrometer. Confirming the model with
+    # UCPH would turn this into a reading, and would also fill the Instrument Model TAPP field.
+    "LA-ICP-MS": "adaLAQICPMS",
     "LAF": "adaLAF",
     "LC-MS": "adaLCMS",
     "LIT": "adaLIT",
