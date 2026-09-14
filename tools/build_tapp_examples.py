@@ -615,7 +615,7 @@ def conform(value, sub):
     """Wrap a scalar in a list where the schema declares an array.
 
     Cardinality 1..*/0..* is always a JSON array in this repo, and the release moved several
-    free-text fields to that shape (elementalFractionationCorrection, perAnalyteCalibrationStrategy).
+    free-text fields to that shape (elementalFractionationCorrection, calibrationStrategyPerTargetSpecies).
     The publication columns hold one prose value per field, so a transcribed value has to be lifted
     into the array rather than assigned straight through.
     """
