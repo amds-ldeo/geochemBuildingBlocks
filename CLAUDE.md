@@ -251,8 +251,27 @@ reported-property `variableMeasured` list. `Aggregation` carries both rows: `var
 species has to be able to name the device — or the part — that reports it. Generated identifiers are
 `ex:instrument/<Token>` and `ex:instrument/<Token>/part/<Component>`, derived from the
 `schema:additionalType` token so they are stable across regenerations.
-`tools/add_instrument_ids.py` backfills the `adaProfile` and hand-authored BaseSchema examples that
-no pipeline regenerates; anything the pipeline owns must come from the generator, not that script.
+`tools/add_instrument_ids.py` backfills the `adaProfile` and static BaseSchema examples that no
+pipeline regenerates; anything the pipeline owns must come from the generator, not that script.
+
+**Three categories of example, and they are produced differently.** Saying an example was
+"hand-authored" has been misleading: nobody types these.
+
+  generated      the great majority — `build_tapp_examples` renders one per publication column of
+                 a TAPP workbook. Regenerated every run; never edit them.
+  static         the BaseSchema fixtures and the `adaProfile` profile-ada examples. No pipeline
+                 regenerates them, which is why `add_instrument_ids.py` has to backfill their ids.
+  SOURCE-DERIVED assembled from primary sources rather than from a workbook column, and kept
+                 because a generator cannot invent their content. Each has a provenance file in
+                 `docs/` recording where every field came from:
+                   exampleadaSolutionMCICPMS-ETHZ-20240903  the deposited Neptune .exp/.log files
+                                                            plus the ADA record
+                   exampleadaEMPA-UAZ-20260131 (+ -points)  a real UAZ session, its method
+                                                            description, and the nearest paper
+                   exampleadaLAMCICPMSUPb-Sundell2021       Sundell, Gehrels & Pecha 2021,
+                                                            doi:10.1111/ggr.12355
+                 Describe these as source-derived, and name the source; "hand-authored" implies a
+                 person edited the JSON, which is not what happened.
 
 **A keyed-table column is always a `schema:PropertyValueSpecification` on the procedure side.**
 Read-only is an attribute of the specification (`schema:readonlyValue`), not a different type; the
