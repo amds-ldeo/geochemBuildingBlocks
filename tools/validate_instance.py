@@ -99,7 +99,19 @@ TERMCODE_TO_PROFILE = {
     "LAF": "adaLAF",
     "LC-MS": "adaLCMS",
     "LIT": "adaLIT",
-    "MC-ICP-MS": "adaICPMS",
+    # ADA's MC-ICP-MS code (~90 records) is SOLUTION multicollector work, not laser ablation.
+    # Multicollector is certain: all 90 records name a Thermo multicollector and nothing else --
+    # "NeptunePlus", "Neoma", "(UCPH) Neoma Multicollector", "Thermo Fisher Scientific Neptune
+    # Plus". Solution is evidenced rather than assumed, because ADA's instrument field names the
+    # MASS SPECTROMETER and not the introduction system (the LA-ICP-MS records name the iCAP, not
+    # the laser), so a missing laser there proves nothing on its own. What does: every readable
+    # method description is solution work and none mentions ablation -- the five ETHZ .txt files
+    # carry dissolution/column-chemistry language with zero ablation terms, and the UCPH sample
+    # read in full describes alkali-fusion dissolution, cation-exchange chromatography and
+    # purified solutions. ADA also codes ablation separately (LA-ICP-MS), and UCPH splits its own
+    # work that way -- iCAP for LA, Neoma for MC. Sample read: 6 of 48 descriptions, covering the
+    # two labs that hold 40 of them.
+    "MC-ICP-MS": "adaSolutionMCICPMS",
     "NanoIR": "adaNanoIR",
     "NanoSIMS": "adaNanoSIMS",
     "NG-NS-MS": "adaNGNSMS",
