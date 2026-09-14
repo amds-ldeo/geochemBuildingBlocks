@@ -129,6 +129,17 @@
               "ada:dataType": "string",
               "ada:fieldScope": "session",
               "schema:value": "\"The Durham Neptune has a 9 Faraday collector array equipped with 10^11 Ω resistor amplifiers which allow a maximum beam of 50 V per channel\" (p.3). An SEM ion counter is also present — abundance sensitivity \"was determined by scanning the low mass tail of a 30 V 192Os beam using the SEM\" (p.3); its position is not stated"
+            },
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupAmplifierResistorValues",
+              "schema:name": "Faraday Cup Amplifier Resistor Values",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "10^11 Ω"
             }
           ],
           "schema:description": "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors",
@@ -282,6 +293,18 @@
       "schema:description": "5 cycles per block"
     },
     {
+      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "integrationTimePerCycleDefault",
+      "schema:name": "Integration Time per Cycle",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4,
+      "schema:description": "4 s"
+    },
+    {
       "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -376,6 +399,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Partially — n = 45 per analysis. No rejection rule stated"
+          },
+          {
+            "@id": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "faradayCupGainCalibrationMethod",
+            "schema:name": "Faraday Cup Gain Calibration Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "\"Instrument electronic baselines and amplifier gains were then measured, on peak with the line of sight valve closed\"; \"Although amplifier gains were measured at the start of each session the Virtual Amplifier was used in rotation mode to cancel out amplifier gains\""
           },
           {
             "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
@@ -493,36 +527,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupAmplifierResistorValues",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "faradayCupAmplifierResistorValues",
-        "schema:name": "Faraday Cup Amplifier Resistor Values",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupGainCalibrationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "faradayCupGainCalibrationMethod",
-        "schema:name": "Faraday Cup Gain Calibration Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/integrationTimePerCycle",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "integrationTimePerCycle",
-        "schema:name": "Integration Time per Cycle",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -531,24 +535,6 @@
         "schema:name": "Mass Resolution Assignment",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "collisionReactionGasMixtureRatio",
-        "schema:name": "Collision/Reaction Gas Mixture Ratio",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "reactionProductIonMassShiftTransition",
-        "schema:name": "Reaction Product Ion / Mass-Shift Transition",
-        "ada:dataType": "string"
       }
     ]
   },

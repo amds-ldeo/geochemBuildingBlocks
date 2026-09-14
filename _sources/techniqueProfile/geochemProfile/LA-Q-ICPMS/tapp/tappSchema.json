@@ -379,6 +379,83 @@
                                 "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief"
                             },
                             {
+                                "title": "Collision/Reaction Gas Mixture Ratio",
+                                "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Collision/Reaction Gas Mixture Ratio"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Reaction Product Ion / Mass-Shift Transition",
+                                "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Reaction Product Ion / Mass-Shift Transition"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
+                            },
+                            {
                                 "title": "Inter-Pass Data Dependency",
                                 "description": "Which earlier acquisition pass supplied inputs to this one, and what those inputs are — for example a concentration measured in one pass and used as the internal standard for a later pass on the same location. Records the dependency only; the settings of each pass are carried by the fields keyed by acquisition pass, and the passes themselves are enumerated by Acquisition Pass. Leave empty for a pass that consumes no earlier output. Not applicable to raster mapping, where each spatial location is visited exactly once.",
                                 "type": "object",
@@ -448,6 +525,91 @@
                         {
                             "contains": {
                                 "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Collision/Reaction Gas Mixture Ratio",
+                                "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Collision/Reaction Gas Mixture Ratio"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Reaction Product Ion / Mass-Shift Transition",
+                                "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Reaction Product Ion / Mass-Shift Transition"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -1325,43 +1487,6 @@
                 "ada:constantsAndReferenceValuesUsedDefault": {
                     "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                     "type": "string"
-                },
-                "ada:monitoredPropertyTemplate": {
-                    "type": "object",
-                    "properties": {
-                        "ada:monitoredPropertyColumns": {
-                            "type": "array",
-                            "items": {
-                                "anyOf": [
-                                    {
-                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn"
-                                    },
-                                    {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpms_collisionReactionGasMixtureRatio"
-                                    },
-                                    {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpms_reactionProductIonMassShiftTransition"
-                                    }
-                                ]
-                            },
-                            "allOf": [
-                                {
-                                    "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpms_collisionReactionGasMixtureRatio"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laQicpms_reactionProductIonMassShiftTransition"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                }
-                            ]
-                        }
-                    }
                 },
                 "ada:numberOfAcquisitionPasses": {
                     "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",

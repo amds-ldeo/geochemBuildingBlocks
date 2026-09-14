@@ -1089,6 +1089,83 @@
                             },
                             {
                                 "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
+                            },
+                            {
+                                "title": "Collision/Reaction Gas Mixture Ratio",
+                                "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Collision/Reaction Gas Mixture Ratio"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Reaction Product Ion / Mass-Shift Transition",
+                                "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Reaction Product Ion / Mass-Shift Transition"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
                             }
                         ]
                     },
@@ -1117,6 +1194,91 @@
                         {
                             "contains": {
                                 "$ref": "../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Collision/Reaction Gas Mixture Ratio",
+                                "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "collisionReactionGasMixtureRatioDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Collision/Reaction Gas Mixture Ratio"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Reaction Product Ion / Mass-Shift Transition",
+                                "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Reaction Product Ion / Mass-Shift Transition"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ],
+                                "readOnly": true
                             },
                             "minContains": 0,
                             "maxContains": 1
@@ -1157,12 +1319,6 @@
                                     },
                                     {
                                         "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/solutionQicpms_interferenceCorrectionMethod"
-                                    },
-                                    {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/solutionQicpms_collisionReactionGasMixtureRatio"
-                                    },
-                                    {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/solutionQicpms_reactionProductIonMassShiftTransition"
                                     }
                                 ]
                             },
@@ -1191,20 +1347,6 @@
                                 {
                                     "contains": {
                                         "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/solutionQicpms_interferenceCorrectionMethod"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/solutionQicpms_collisionReactionGasMixtureRatio"
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                },
-                                {
-                                    "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/solutionQicpms_reactionProductIonMassShiftTransition"
                                     },
                                     "minContains": 0,
                                     "maxContains": 1

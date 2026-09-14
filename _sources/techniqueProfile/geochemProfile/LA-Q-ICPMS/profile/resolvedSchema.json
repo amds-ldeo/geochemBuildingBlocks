@@ -11116,7 +11116,43 @@
                                   ]
                                 },
                                 "contains": {
-                                  "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
+                                  "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                                  "allOf": [
+                                    {
+                                      "$ref": "#/$defs/KeyedTableColumn"
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "schema:valueName": {
+                                          "const": "monitoredProperty"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": true
+                                        },
+                                        "schema:valueRequired": {
+                                          "const": true
+                                        },
+                                        "ada:tier": {
+                                          "const": "M"
+                                        },
+                                        "ada:cdifPropertyPath": {
+                                          "const": "#/schema:variableMeasured/schema:name"
+                                        }
+                                      },
+                                      "required": [
+                                        "schema:valueName",
+                                        "ada:dataType",
+                                        "schema:readonlyValue",
+                                        "schema:valueRequired",
+                                        "ada:tier",
+                                        "ada:cdifPropertyPath"
+                                      ]
+                                    }
+                                  ]
                                 },
                                 "maxContains": 1
                               },
@@ -12648,6 +12684,41 @@
                         "schema:name",
                         "schema:value"
                       ]
+                    },
+                    {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
                     }
                   ]
                 },
@@ -13255,6 +13326,45 @@
                         },
                         "schema:name": {
                           "const": "Constants Reference Values"
+                        },
+                        "schema:value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "schema:propertyID",
+                        "schema:name",
+                        "schema:value"
+                      ]
+                    },
+                    "minContains": 0,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": {
+                      "title": "Collision/Reaction Gas Mixture Ratio",
+                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                        },
+                        "@type": {
+                          "const": [
+                            "schema:PropertyValue"
+                          ]
+                        },
+                        "schema:propertyID": {
+                          "const": [
+                            {
+                              "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio"
+                            }
+                          ]
+                        },
+                        "schema:name": {
+                          "const": "Collision/Reaction Gas Mixture Ratio"
                         },
                         "schema:value": {
                           "type": "string"
@@ -20737,7 +20847,43 @@
                                       ]
                                     },
                                     "contains": {
-                                      "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
+                                      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                                      "allOf": [
+                                        {
+                                          "$ref": "#/$defs/KeyedTableColumn"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "properties": {
+                                            "schema:valueName": {
+                                              "const": "monitoredProperty"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "schema:valueRequired": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "M"
+                                            },
+                                            "ada:cdifPropertyPath": {
+                                              "const": "#/schema:variableMeasured/schema:name"
+                                            }
+                                          },
+                                          "required": [
+                                            "schema:valueName",
+                                            "ada:dataType",
+                                            "schema:readonlyValue",
+                                            "schema:valueRequired",
+                                            "ada:tier",
+                                            "ada:cdifPropertyPath"
+                                          ]
+                                        }
+                                      ]
                                     },
                                     "maxContains": 1
                                   },
@@ -23228,6 +23374,83 @@
                                       ]
                                     },
                                     {
+                                      "title": "Collision/Reaction Gas Mixture Ratio",
+                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Collision/Reaction Gas Mixture Ratio"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    {
+                                      "title": "Reaction Product Ion / Mass-Shift Transition",
+                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Reaction Product Ion / Mass-Shift Transition"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ],
+                                      "readOnly": true
+                                    },
+                                    {
                                       "title": "Inter-Pass Data Dependency",
                                       "description": "Which earlier acquisition pass supplied inputs to this one, and what those inputs are — for example a concentration measured in one pass and used as the internal standard for a later pass on the same location. Records the dependency only; the settings of each pass are carried by the fields keyed by acquisition pass, and the passes themselves are enumerated by Acquisition Pass. Leave empty for a pass that consumes no earlier output. Not applicable to raster mapping, where each spatial location is visited exactly once.",
                                       "type": "object",
@@ -23490,6 +23713,91 @@
                                         "ada:dataType",
                                         "ada:fieldScope"
                                       ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Collision/Reaction Gas Mixture Ratio",
+                                      "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        },
+                                        "schema:valueName": {
+                                          "const": "collisionReactionGasMixtureRatioDefault"
+                                        },
+                                        "schema:name": {
+                                          "const": "Collision/Reaction Gas Mixture Ratio"
+                                        },
+                                        "ada:dataType": {
+                                          "const": "string"
+                                        },
+                                        "ada:fieldScope": {
+                                          "const": "session"
+                                        },
+                                        "schema:readonlyValue": {
+                                          "const": false
+                                        },
+                                        "ada:tier": {
+                                          "const": "R"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:valueName",
+                                        "schema:name",
+                                        "ada:dataType",
+                                        "ada:fieldScope"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Reaction Product Ion / Mass-Shift Transition",
+                                      "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Reaction Product Ion / Mass-Shift Transition"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ],
+                                      "readOnly": true
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -26773,191 +27081,6 @@
                               "ada:constantsAndReferenceValuesUsedDefault": {
                                 "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "string"
-                              },
-                              "ada:monitoredPropertyTemplate": {
-                                "type": "object",
-                                "properties": {
-                                  "ada:monitoredPropertyColumns": {
-                                    "type": "array",
-                                    "items": {
-                                      "anyOf": [
-                                        {
-                                          "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
-                                        },
-                                        {
-                                          "title": "Collision/Reaction Gas Mixture Ratio",
-                                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:monitoredPropertyColumn/laQicpmsTAPP/collisionReactionGasMixtureRatio"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "collisionReactionGasMixtureRatio"
-                                            },
-                                            "schema:name": {
-                                              "const": "Collision/Reaction Gas Mixture Ratio"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        {
-                                          "title": "Reaction Product Ion / Mass-Shift Transition",
-                                          "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:monitoredPropertyColumn/laQicpmsTAPP/reactionProductIonMassShiftTransition"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "reactionProductIonMassShiftTransition"
-                                            },
-                                            "schema:name": {
-                                              "const": "Reaction Product Ion / Mass-Shift Transition"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        }
-                                      ]
-                                    },
-                                    "allOf": [
-                                      {
-                                        "contains": {
-                                          "title": "Collision/Reaction Gas Mixture Ratio",
-                                          "description": "Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:monitoredPropertyColumn/laQicpmsTAPP/collisionReactionGasMixtureRatio"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "collisionReactionGasMixtureRatio"
-                                            },
-                                            "schema:name": {
-                                              "const": "Collision/Reaction Gas Mixture Ratio"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": false
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
-                                      {
-                                        "contains": {
-                                          "title": "Reaction Product Ion / Mass-Shift Transition",
-                                          "description": "Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:monitoredPropertyColumn/laQicpmsTAPP/reactionProductIonMassShiftTransition"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "reactionProductIonMassShiftTransition"
-                                            },
-                                            "schema:name": {
-                                              "const": "Reaction Product Ion / Mass-Shift Transition"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "R"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      }
-                                    ]
-                                  }
-                                }
                               },
                               "ada:numberOfAcquisitionPasses": {
                                 "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
@@ -35202,45 +35325,6 @@
           "properties": {
             "schema:valueName": {
               "const": "targetSpecies"
-            },
-            "ada:dataType": {
-              "const": "string"
-            },
-            "schema:readonlyValue": {
-              "const": true
-            },
-            "schema:valueRequired": {
-              "const": true
-            },
-            "ada:tier": {
-              "const": "M"
-            },
-            "ada:cdifPropertyPath": {
-              "const": "#/schema:variableMeasured/schema:name"
-            }
-          },
-          "required": [
-            "schema:valueName",
-            "ada:dataType",
-            "schema:readonlyValue",
-            "schema:valueRequired",
-            "ada:tier",
-            "ada:cdifPropertyPath"
-          ]
-        }
-      ]
-    },
-    "MonitoredPropertyIdentifierColumn": {
-      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
-      "allOf": [
-        {
-          "$ref": "#/$defs/KeyedTableColumn"
-        },
-        {
-          "type": "object",
-          "properties": {
-            "schema:valueName": {
-              "const": "monitoredProperty"
             },
             "ada:dataType": {
               "const": "string"
@@ -43855,190 +43939,6 @@
         "cdif:isComposedOf"
       ]
     },
-    "KeyedTableColumn": {
-      "type": "object",
-      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:PropertyValueSpecification"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
-        },
-        "schema:valueName": {
-          "type": "string",
-          "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Guidance text for this column."
-        },
-        "schema:propertyID": {
-          "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-          "type": "array",
-          "minItems": 1,
-          "items": {
-            "$ref": "#/$defs/PropertyIDValue"
-          }
-        },
-        "schema:inDefinedTermSet": {
-          "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-          "anyOf": [
-            {
-              "type": "string",
-              "format": "uri"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "description": "Object reference to a vocabulary defined elsewhere.",
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            },
-            {
-              "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "default": "schema:CreativeWork",
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:CreativeWork"
-                  },
-                  "minItems": 1
-                },
-                "schema:name": {
-                  "type": "string"
-                },
-                "schema:description": {
-                  "type": "string"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "required": [
-                "@type",
-                "schema:url"
-              ]
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-              "properties": {
-                "@type": {
-                  "const": "schema:DefinedTermSet"
-                },
-                "schema:hasDefinedTerm": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "const": "schema:DefinedTerm"
-                      },
-                      "schema:termCode": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "schema:termCode"
-                    ]
-                  }
-                }
-              },
-              "required": [
-                "@type",
-                "schema:hasDefinedTerm"
-              ]
-            }
-          ]
-        },
-        "schema:defaultValue": {
-          "description": "Default value for this column (pre-filled per row).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "number"
-            },
-            {
-              "type": "boolean"
-            }
-          ]
-        },
-        "schema:readonlyValue": {
-          "type": "boolean",
-          "description": "true = constant across all analytes (read-only column)."
-        },
-        "schema:valueRequired": {
-          "type": "boolean",
-          "description": "true = must be provided for every analyte row."
-        },
-        "schema:minValue": {
-          "type": "number"
-        },
-        "schema:maxValue": {
-          "type": "number"
-        },
-        "schema:valuePattern": {
-          "type": "string"
-        },
-        "ada:dataType": {
-          "type": "string",
-          "enum": [
-            "string",
-            "number",
-            "integer",
-            "boolean",
-            "date",
-            "uri"
-          ]
-        },
-        "schema:unitText": {
-          "type": "string"
-        },
-        "ada:tier": {
-          "type": "string",
-          "enum": [
-            "M",
-            "R",
-            "O"
-          ]
-        },
-        "ada:cdifPropertyPath": {
-          "type": "string",
-          "description": "How this column maps into the variableMeasured JSON-LD structure."
-        }
-      },
-      "required": [
-        "schema:name",
-        "ada:dataType"
-      ]
-    },
     "WorkflowStep": {
       "type": "object",
       "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
@@ -44235,6 +44135,190 @@
         {
           "$ref": "#/$defs/TappDefinition_DefinedTerm"
         }
+      ]
+    },
+    "KeyedTableColumn": {
+      "type": "object",
+      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValueSpecification"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Human-readable column label (e.g. \"Diffracting Crystal\")."
+        },
+        "schema:valueName": {
+          "type": "string",
+          "description": "Machine-readable column identifier (e.g. \"diffractingCrystal\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Guidance text for this column."
+        },
+        "schema:propertyID": {
+          "description": "URI identifying this column's parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/PropertyIDValue"
+          }
+        },
+        "schema:inDefinedTermSet": {
+          "description": "Controlled vocabulary providing allowed values for this column. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Object reference to a vocabulary defined elsewhere.",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            },
+            {
+              "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "default": "schema:CreativeWork",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:CreativeWork"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string"
+                },
+                "schema:description": {
+                  "type": "string"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "@type",
+                "schema:url"
+              ]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+              "properties": {
+                "@type": {
+                  "const": "schema:DefinedTermSet"
+                },
+                "schema:hasDefinedTerm": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "@type": {
+                        "const": "schema:DefinedTerm"
+                      },
+                      "schema:termCode": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "schema:termCode"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "@type",
+                "schema:hasDefinedTerm"
+              ]
+            }
+          ]
+        },
+        "schema:defaultValue": {
+          "description": "Default value for this column (pre-filled per row).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            }
+          ]
+        },
+        "schema:readonlyValue": {
+          "type": "boolean",
+          "description": "true = constant across all analytes (read-only column)."
+        },
+        "schema:valueRequired": {
+          "type": "boolean",
+          "description": "true = must be provided for every analyte row."
+        },
+        "schema:minValue": {
+          "type": "number"
+        },
+        "schema:maxValue": {
+          "type": "number"
+        },
+        "schema:valuePattern": {
+          "type": "string"
+        },
+        "ada:dataType": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "date",
+            "uri"
+          ]
+        },
+        "schema:unitText": {
+          "type": "string"
+        },
+        "ada:tier": {
+          "type": "string",
+          "enum": [
+            "M",
+            "R",
+            "O"
+          ]
+        },
+        "ada:cdifPropertyPath": {
+          "type": "string",
+          "description": "How this column maps into the variableMeasured JSON-LD structure."
+        }
+      },
+      "required": [
+        "schema:name",
+        "ada:dataType"
       ]
     },
     "CdifDataStructureComponent_cdifConceptOrTermOrString": {

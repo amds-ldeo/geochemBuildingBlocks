@@ -734,6 +734,16 @@ def sentinel_for(sub, depth=4, root=None):
             got = sentinel_for(inner, depth - 1, root)
             if got is not None:
                 obj[k] = got
+        if not obj:
+            # An object whose only required members are NEVER_SENTINEL keys (or which requires
+            # nothing) yields {}, and fill_required_types then stamps an @type onto it. That pair
+            # produced `{"@type": ["schema:HowTo"]}` at
+            # prov:wasGeneratedBy[].schema:actionProcess in 26 of the 30 profile examples -- a
+            # typed node with no content, which satisfies none of the branches the constraint
+            # actually offers (an object with schema:name + schema:url, a string, or an object
+            # with @id). A bare @id reference does satisfy it, says only "this points somewhere we
+            # cannot name", and is what SENTINEL_URI exists for.
+            return {"@id": SENTINEL_URI}
         return obj
     for branch in (sub.get("anyOf") or sub.get("oneOf") or []):
         got = sentinel_for(branch, depth, root)

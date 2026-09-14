@@ -3,9 +3,8 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "dqv": "http://www.w3.org/ns/dqv#"
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:icTAPP-P0",
   "@type": [
@@ -15,12 +14,10 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example procedureName",
-  "ada:targetMaterial": "Silicate mineral",
-  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
-  "ada:instrumentManufacturer": "WITec",
-  "ada:instrumentModel": "example instrumentModel",
-  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
+  "schema:name": "ic protocol — P0",
+  "schema:description": "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Unknown",
+  "ada:instrumentModel": "DIONEX Integrion IC",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -30,7 +27,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "example procedureAuthor",
+    "schema:name": "Peretyazhko, Tanya",
     "@type": [
       "schema:Person"
     ]
@@ -39,24 +36,58 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
+    "schema:name": "NASA Johnson Space Center"
   },
-  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "example fundingSourceForProcedureDevelopment"
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:samplingUnit": "Whole sample",
-  "ada:analyticalMode": [
-    "Point spectrum"
-  ],
   "ada:reportedProperties": [
-    "example reportedVariablesAndUnits"
+    "sample number | sample name | retention time | area | height | Amount"
   ],
-  "schema:description": "example additionalNotes"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:samplingUnit": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
 }

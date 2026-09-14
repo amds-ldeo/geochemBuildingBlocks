@@ -199,6 +199,18 @@
       "schema:description": "40 cycles"
     },
     {
+      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "integrationTimePerCycleDefault",
+      "schema:name": "Integration Time per Cycle",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8.39,
+      "schema:description": "8.39 s for the first cup configuration and 4.19 s for the second — \"A sample measurement consisted of 40 cycles with 8.39 s integration time for the first configuration and 4.19 s for the second\" (p.8). The 4 s in the same paper is the LLNL procedure's (p.8), not this one"
+    },
+    {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -370,36 +382,6 @@
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupAmplifierResistorValues",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "faradayCupAmplifierResistorValues",
-        "schema:name": "Faraday Cup Amplifier Resistor Values",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/faradayCupGainCalibrationMethod",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "faradayCupGainCalibrationMethod",
-        "schema:name": "Faraday Cup Gain Calibration Method",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/integrationTimePerCycle",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "integrationTimePerCycle",
-        "schema:name": "Integration Time per Cycle",
-        "ada:dataType": "number",
-        "schema:defaultValue": 1
-      },
-      {
         "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -408,24 +390,6 @@
         "schema:name": "Mass Resolution Assignment",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collisionReactionGasMixtureRatio",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "collisionReactionGasMixtureRatio",
-        "schema:name": "Collision/Reaction Gas Mixture Ratio",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/reactionProductIonMassShiftTransition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "reactionProductIonMassShiftTransition",
-        "schema:name": "Reaction Product Ion / Mass-Shift Transition",
-        "ada:dataType": "string"
       }
     ]
   },
