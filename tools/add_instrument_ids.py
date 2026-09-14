@@ -6,7 +6,7 @@ to be able to name the device or the part that reports it, and an anonymous obje
 referenced. Every example predating that change lacks one.
 
 The generators emit identifiers for what they build, but not every example is regenerated -- the
-adaProfile profile-ada examples and the hand-authored BaseSchema examples are not produced by the
+adaProfile profile-ada examples and the static BaseSchema examples are not produced by the
 technique pipeline. This fills those in, with the same scheme the generators use so the two agree:
 
     ex:instrument/<AdditionalTypeToken>

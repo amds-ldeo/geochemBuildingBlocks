@@ -19,7 +19,7 @@ fails SILENTLY. Two instances on 2026-09-03, both of which produced a green vali
   resolve before build_profile.  build_profile backfills the variableMeasured entries its examples
       need by reading profile/resolvedSchema.json to see which variables the COMPOSED schema pins
       with a `contains`. Run in the same pass that produces that file, it reads the previous one
-      and misses whatever the composition just added — 16 hand-authored profile examples failed
+      and misses whatever the composition just added — 16 profile examples failed
       until it was re-run against current resolved schemas.
 
 Neither is visible to validate_examples: dropping a constraint only makes a schema more
