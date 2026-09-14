@@ -64,6 +64,18 @@ python tools/regenerate.py --dry-run       # print the plan
 python tools/regenerate.py --from resolve  # resume at a stage
 ```
 
+**Use `--tapp`; do NOT call a stage tool directly for one technique.**
+`python tools/build_pathdriven.py <tapp>` looks self-contained — it resolves its own schemas and
+writes its own `-P0` examples — but it produces a POORER `-P0` than the same stage produces inside
+`regenerate.py`, because the shared stages that run first are load-bearing. Measured 2026-09-13 on
+`solutionSficpmsTAPP`: the standalone run dropped the whole `schema:actionProcess` subtree — 74
+JSON paths, -305/+85 lines — and dropped it identically with the sidecar reverted to HEAD, which is
+what proves it is the invocation and not the input. `validate_examples` stayed at 614/26
+throughout, because losing content only makes an instance smaller and more permissively valid.
+This has the same signature as the two ordering hazards above: silent loss under a green
+validator. Audit regenerated examples for LOST JSON paths, never for a passing count alone.
+
+
 **`docs/modules/emitted.json` records what the built module `$defs` ACTUALLY carry**, written by
 `build_module_bb --write` in the same run that writes the schemas. `module_composition.plan()`
 reads it rather than re-deriving coverage from the module sidecars — the sidecar says where a
