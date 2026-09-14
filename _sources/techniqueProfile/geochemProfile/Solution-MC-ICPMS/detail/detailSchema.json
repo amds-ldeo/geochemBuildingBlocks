@@ -986,6 +986,110 @@
                             "schema:actionProcess"
                         ]
                     }
+                },
+                "schema:variableMeasured": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "Dataset variable",
+                                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                                "type": "object",
+                                "required": [
+                                    "@type"
+                                ],
+                                "properties": {
+                                    "@type": {
+                                        "type": "array",
+                                        "contains": {
+                                            "enum": [
+                                                "cdi:InstanceVariable",
+                                                "schema:PropertyValue"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "title": "Isotope Ratio Reported",
+                                "description": "Specific isotope ratio pair(s) reported as primary data output. The denominator isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes, 235U for U isotopes). Report all ratio pairs routinely calculated and reported.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/isotopeRatioReported"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue",
+                                            "cdi:InstanceVariable"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeRatioReported"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Isotope Ratio Reported"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            }
+                        ]
+                    },
+                    "allOf": [
+                        {
+                            "contains": {
+                                "title": "Isotope Ratio Reported",
+                                "description": "Specific isotope ratio pair(s) reported as primary data output. The denominator isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes, 235U for U isotopes). Report all ratio pairs routinely calculated and reported.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/solutionMcicpmsTAPP/isotopeRatioReported"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValue",
+                                            "cdi:InstanceVariable"
+                                        ]
+                                    },
+                                    "schema:propertyID": {
+                                        "const": [
+                                            {
+                                                "@id": "ada:parameter/solutionMcicpmsTAPP/isotopeRatioReported"
+                                            }
+                                        ]
+                                    },
+                                    "schema:name": {
+                                        "const": "Isotope Ratio Reported"
+                                    },
+                                    "schema:value": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:propertyID",
+                                    "schema:name",
+                                    "schema:value"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        }
+                    ]
                 }
             }
         }
