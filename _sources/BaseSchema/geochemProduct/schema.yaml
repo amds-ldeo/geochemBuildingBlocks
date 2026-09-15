@@ -167,15 +167,22 @@ allOf:
                           items:
                             $ref: '#/$defs/UsedReagent'
                   # An inline TAPP travels as a base inline prov:Entity: its @type
-                  # carries prov:Entity alongside ada:TAPPDefinition. A bare {@id}
-                  # reference to a TAPP needs no pin -- the base already accepts it.
+                  # carries prov:Entity alongside ada:TAPPDefinition.
+                  #
+                  # A REFERENCE to a TAPP carries that same @type -- it is how a reader
+                  # tells a TAPP link from the instrument and software links beside it
+                  # without dereferencing any of them -- so @type alone cannot separate
+                  # the two. schema:name does: the TAPP schema requires it, and a
+                  # reference, being {@id, @type} and nothing else, never has it. Without
+                  # this guard every reference is held to the whole TAPP schema and fails
+                  # on the four properties it is not carrying.
                   - if:
                       type: object
                       properties:
                         '@type':
                           contains:
                             const: ada:TAPPDefinition
-                      required: ['@type']
+                      required: ['@type', 'schema:name']
                     then:
                       $ref: ../tappDefinition/schema.yaml
             "schema:location":

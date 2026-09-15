@@ -225,9 +225,17 @@ def _schema(tapp, cfg):
                          "then": {"properties": {"schema:instrument": {
                              "type": "array", "minItems": 1,
                              "items": {"$ref": "../../../../BaseSchema/instrument/schema.yaml"}}}}},
+                        # An EMBEDDED plan is held to the whole TAPP schema; a REFERENCE is not.
+                        # Keying only on @type made every TAPP-typed entry an embedded plan, so a
+                        # bare {@id, @type} reference failed with 15 errors and the only way to
+                        # name the procedure was to inline the entire definition into every
+                        # record. schema:name is the discriminator: a reference carries @id and
+                        # @type, an embedded plan carries a name. The base prov:used union already
+                        # anticipates @id-only entries; this stops the technique overlay
+                        # contradicting it.
                         {"if": {"type": "object",
                                 "properties": {"@type": {"contains": {"const": "ada:TAPPDefinition"}}},
-                                "required": ["@type"]},
+                                "required": ["@type", "schema:name"]},
                          "then": {"$ref": "../tapp/schema.yaml"}}]}}}}},
                 "schema:additionalType": {
                     "description": f"Must include a {cfg['short']} product type identifier.",
@@ -265,6 +273,31 @@ def _swap_tapp(node, tapp):
     elif isinstance(node, list):
         for v in node:
             _swap_tapp(v, tapp)
+
+
+def _name_procedure(ex, tapp):
+    """Say which procedure the analysis followed, by reference.
+
+    A record that does not name its procedure cannot be read back to the TAPP that fixes its
+    parameters, and the profile's own prov:used conditional -- the one that pins the TAPP's
+    constraints -- can never fire, because nothing it keys on is ever present. That is why a
+    mis-named workflow step went unconstrained and silently valid.
+
+    Emitted as a REFERENCE, {@id, @type}, not an inlined plan: the TAPP is a separate document
+    with its own @id, and copying it whole into every record would duplicate it hundreds of times
+    and leave nothing to navigate to.
+
+    prov:Entity leads the @type because base prov:used admits a typed item only through its
+    "inline prov:Entity" branch, which keys on @type containing prov:Entity; its bare-{@id} branch
+    is additionalProperties:false and rejects @type outright. PROV-O agrees -- prov:Plan is a
+    subclass of prov:Entity -- so this is the correct assertion, not a validator workaround.
+    """
+    for act in ex.get("prov:wasGeneratedBy") or []:
+        used = act.setdefault("prov:used", [])
+        if any(isinstance(u, dict) and "TAPPDefinition" in str(u.get("@type", "")) for u in used):
+            continue
+        used.append({"@id": f"ex:{tapp}-P0",
+                     "@type": ["prov:Entity", "prov:Plan", "ada:TAPPDefinition"]})
 
 
 def _example(tapp, cfg, component_types):
@@ -335,6 +368,11 @@ def _example(tapp, cfg, component_types):
         so["dcterms:conformsTo"] = ct
     _add_required_variables(ex, tapp, cfg)
     _fill_required(ex, tapp)
+    # AFTER the fill, deliberately. A reference is complete by construction -- {@id, @type} and
+    # nothing else -- but the sentinel and typing passes cannot tell that from an object they are
+    # meant to finish. Run before them, the reference came back with schema:instrument "missing"
+    # and four {@id: nil:missing} members padded into its @type, which failed 58 of 97 examples.
+    _name_procedure(ex, tapp)
     return ex
 
 
