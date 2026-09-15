@@ -5,12 +5,20 @@
 > walkthrough) and [`README_TAPP_for_Schema_Generation_v2.md`](README_TAPP_for_Schema_Generation_v2.md) §10.**
 > This guide describes the earlier generation route: the in-workbook `implementation notes` tag
 > format (§4) and `TierImplementationPatterns.xlsx` matrix routing. Per-field placement is now
-> driven by the hand-authored schema-path sidecar `docs/<workbook>.schemapaths.csv`, and TAPP
+> driven by the schema-path sidecar `docs/<workbook>.schemapaths.csv`, and TAPP
 > tables ship as **CSV** in the dated `TAPPS<date>/Current TAPPs/` delivery (resolved by
 > `tapp_source.current_delivery()`), not as an xlsx in `docs/`. **What is still accurate here:**
-> `build_tapp.py` continues to generate the shared registry catalogs (`analyteColumns`,
-> `parameterTemplates`, `parameterValues`, `vocab`) and the analyte columns from the workbook, and
-> the routing matrix (§2) still describes how tiers map to home/cardinality.
+> `build_tapp.py` continues to generate the shared registry catalogs (`targetSpeciesColumns`,
+> `monitoredPropertyColumns`, `reportedPropertyColumns`, `parameterTemplates`, `parameterValues`,
+> `vocab`) and the target-species columns from the workbook, and the routing matrix (§2) still
+> describes how tiers map to home/cardinality.
+>
+> **The `analyteColumn:` impl-notes tag below is NOT stale — do not "fix" it.** The 2026-09 rename
+> moved the SCHEMA and REGISTRY names (`ada:analyteTemplate` → `ada:targetSpeciesTemplate`,
+> `registry/analyteColumns` → `registry/targetSpeciesColumns`, `ada:channel*` →
+> `ada:monitoredProperty*`). It did not touch the tag spelling inside an upstream workbook's
+> `implementation notes`, which is Ruolin's and still reads `analyteColumn:`. The parser's TAG_RE
+> matches the upstream spelling deliberately.
 
 How a TAPP (Technique-Aligned Protocol Profile) table drives `tools/build_tapp.py` to generate the
 shared registry catalogs and vocabularies **reproducibly**.
@@ -135,10 +143,10 @@ analyteColumn: <name>   dataType: <type>   readOnly: <true|false>   enum: {…}
 
 - The `Analyte` row's per-publication value is a **comma-delimited list** (e.g. `³¹P, ⁵¹V, ⁵³Cr`).
 - Each value becomes one element of `ada:targetSpeciesTemplate.ada:defaultTargetSpecies`, carrying the required
-  `analyte` key (mass numbers normalised, e.g. `31P`) plus any per-analyte values from the
+  `analyte` key (mass numbers normalised, e.g. `31P`) plus any per-species values from the
   `analyteColumn` rows.
-- Techniques with no per-element analyte axis (imaging: SEM, XCT) omit the `Analyte` row and the
-  `analyteTemplate`.
+- Techniques with no per-element target-species axis (imaging: SEM, XCT) omit the `Analyte` row and
+  the `ada:targetSpeciesTemplate`.
 
 ---
 
@@ -151,7 +159,8 @@ python tools/build_<tapp>_examples.py           # publication / synthetic exampl
 
 To add a technique: register a `TAPP_CONFIGS` entry in `tools/build_tapp.py` (xlsx path,
 `component_types`, identity `base_items`, `title`/`description`). The shared catalogs
-(`analyteColumns`, `parameterTemplates`, `parameterValues`, `vocab`) are populated automatically
+(`targetSpeciesColumns`, `monitoredPropertyColumns`, `reportedPropertyColumns`,
+`parameterTemplates`, `parameterValues`, `vocab`) are populated automatically
 from the workbook. Validate with `python tools/validate_examples.py`.
 
 ---

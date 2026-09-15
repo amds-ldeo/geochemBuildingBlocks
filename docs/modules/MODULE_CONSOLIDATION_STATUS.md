@@ -203,7 +203,7 @@ not a gap.
   as built to test whether the J value maps onto a Calibration Factor field —
   a design probe, not a module with consumers
 
-Our `docs/modules/Module_ArAr.schemapaths.csv` carries 4 hand-authored paths,
+Our `docs/modules/Module_ArAr.schemapaths.csv` carries 4 authored paths,
 all placing cleanly. They are **inert until an Ar-Ar TAPP exists**, and that is
 the finished state: the placements are ready, and nothing regenerates or
 validates them because nothing composes the module. Do not re-open this as a

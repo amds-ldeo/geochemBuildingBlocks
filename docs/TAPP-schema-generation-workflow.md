@@ -30,7 +30,7 @@ flowchart TD
     OV["overrides sidecar<br/>docs/&lt;wb&gt;.overrides.json"]
     LIB["reference library<br/>LA-Q_SF-ICPMS…schemapaths.json"]
     SP["schemapaths<br/>docs/&lt;wb&gt;.schemapaths.csv<br/>(1 row → 1+ canonical paths)"]
-    REG["registry/ catalogs + vocab<br/>parameterTemplates, parameterValues,<br/>analyteColumns, vocab"]
+    REG["registry/ catalogs + vocab<br/>parameterTemplates, parameterValues,<br/>targetSpeciesColumns, monitoredPropertyColumns,<br/>reportedPropertyColumns, vocab"]
     TAPP["techniqueProfile/geochemProfile/&lt;tech&gt;/tapp/schema.yaml"]
     DET["techniqueProfile/geochemProfile/&lt;tech&gt;/detail/schema.yaml"]
     PROF["techniqueProfile/geochemProfile/&lt;tech&gt;/profile/schema.yaml"]
@@ -220,7 +220,8 @@ list (`registry/vocab/adaAnalyticalParameters.json`).
 ```
 _sources/
   registry/                         # cross-technique catalogs, referenced by $ref
-    analyteColumns/  parameterTemplates/  parameterValues/  vocab/
+    targetSpeciesColumns/  monitoredPropertyColumns/  reportedPropertyColumns/
+    parameterTemplates/  parameterValues/  vocab/
   BaseSchema/                        # foundation BBs
     tappDefinition/  adaProduct/  instrument/ laboratory/ image/ tabularData/ …
   techniqueProfile/geochemProfile/<Tech>/           # one folder per technique, e.g. EMPA, LA-ICPMS, XCT
@@ -379,7 +380,7 @@ python tools/build_profile.py <tapp>          # optional: product profile
 **Key files**
 
 - Source table: `TAPPS<date>/Current TAPPs/<Technique>_TAPP_v#.csv` — Ruolin's read-only source (newest `TAPPS<date>/` delivery, resolved by `tapp_source.current_delivery()`); the xlsx is a generated mirror, never annotated
-- Path mapping (source of truth): `docs/<wb>.schemapaths.csv` — hand‑authored, keyed by Metadata Item
+- Path mapping (source of truth): `docs/<wb>.schemapaths.csv` — source, not generated output, keyed by Metadata Item
 - Generated BBs: `_sources/techniqueProfile/geochemProfile/<Tech>/{tapp,detail,profile}/`
-- Shared catalogs: `_sources/registry/{parameterTemplates,parameterValues,analyteColumns,vocab}/`
+- Shared catalogs: `_sources/registry/{parameterTemplates,parameterValues,targetSpeciesColumns,monitoredPropertyColumns,reportedPropertyColumns,vocab}/`
 - Foundation: `_sources/BaseSchema/{tappDefinition,adaProduct,…}/`

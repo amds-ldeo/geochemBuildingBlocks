@@ -7,7 +7,7 @@ detail. Most existing sidecar rows have only the TAPP half, so those values have
 recorded per dataset.
 
 bootstrap_schemapaths cannot fix that in place: its default mode preserves rows untouched (so no
-partner is ever added) and --reseed re-derives them (which discards hand-authored modelling).
+partner is ever added) and --reseed re-derives them (which discards authored modelling).
 This pass threads between the two — it ONLY appends, never edits or removes an existing row.
 
 The appended path mirrors any nesting on the TAPP side, via

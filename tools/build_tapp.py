@@ -1406,7 +1406,7 @@ def camel(s):
     A CURIE local name must start with a letter ([A-Za-z][A-Za-z0-9]*), so an item whose name
     leads with a number — "3D Image Registration" — cannot simply be lower-camelled: the naive
     `3dImageRegistration` is rejected by the schema-path parser. Leading numeric tokens are moved
-    to the end instead, giving `imageRegistration3D`, which is the convention already hand-authored
+    to the end instead, giving `imageRegistration3D`, which is the convention already authored
     in the sidecars for exactly these rows.
     """
     s = re.sub(r"\(.*?\)", "", s)
@@ -1522,7 +1522,7 @@ def write_gen_index(prefix, **fields):
     `basic_props` entry carries the coverage count that decided whether the property is required.
 
     One shape, one place. It used to be written to docs/new_tapps202606/ - a June-2026 branch name,
-    under the hand-authored source tree, for a purely generated file - and the legacy EPMA path
+    under the source tree, for a purely generated file - and the legacy EPMA path
     wrote a DIFFERENT set of keys to the same filename, so a consumer could not tell which shape it
     had without inspecting it. Every key below is always present; a path with nothing to say for one
     passes an empty list.
@@ -2184,7 +2184,7 @@ def route_empa(rows, L):
 def _regen_detail_addl_constraint(L, detail_param_names):
     """Rewrite ONLY detailEMPA/schema.yaml allOf[1] (the schema:additionalProperty
     constraint) to reference the current parameterValues $defs + catch-all,
-    preserving the hand-authored allOf[0]."""
+    preserving the authored allOf[0]."""
     from ruamel.yaml import YAML
     sp = L.DETAIL_EMPA / "schema.yaml"
     if not sp.exists():
@@ -2226,7 +2226,7 @@ def _regen_detail_addl_constraint(L, detail_param_names):
 def build_empa():
     """Generate empaTAPP via the canonical matrix router + _tapp_lib emitters.
     Reuses _tapp_lib for the rich emitters, registry writers, instrument hasPart
-    constraint, and (hand-authored) detail schema preservation."""
+    constraint, and (authored) detail schema preservation."""
     import _tapp_lib as L
     L.CATALOG_CONFLICTS.clear()
     L.configure("empaTAPP", os.path.relpath(XLSX, ROOT))
@@ -2241,7 +2241,7 @@ def build_empa():
     L.write_analyte_columns_registry(cls["analyte_column_defs"])
     L.write_parameter_templates_registry(cls["parameter_template_defs"])
     L.write_parameter_values_registry(cls["param_value_defs"])
-    # detailEMPA/schema.yaml: allOf[0] is hand-authored (ada:spectrometersUsed,
+    # detailEMPA/schema.yaml: allOf[0] is authored (ada:spectrometersUsed,
     # ada:signalUsed, componentType enum, measurementTechnique) and preserved.
     # Only allOf[1] (the schema:additionalProperty constraint) is regenerated to
     # track the current detail PV set (one $ref per readOnly:false parameter + catch-all).

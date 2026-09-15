@@ -1228,9 +1228,9 @@ def write_parameter_templates_registry(parameter_template_defs: "OrderedDict[str
 
 def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
     """No-op for the constraint snippet: the per-dataset additionalProperty
-    constraint now lives INLINE in the hand-authored detail schema.yaml's allOf,
+    constraint now lives INLINE in the authored detail schema.yaml's allOf,
     referencing the parameterValues registry $defs (schema.yaml#/$defs/<name>).
-    The detail schema.yaml is hand-authored and never regenerated here, so this
+    The detail schema.yaml is source and never regenerated here, so this
     function only cleans up the legacy generated parametersConstraint.yaml if a
     stale copy is still present."""
     stale = DETAIL_EMPA / "parametersConstraint.yaml"
@@ -1243,7 +1243,7 @@ def scaffold_detail_bb_if_missing() -> None:
     """Phase 4: when a brand-new detail BB directory has no schema.yaml or
     bblock.json yet, scaffold them so build_detail_artifacts() has somewhere
     to write parametersConstraint.yaml. Existing files are never overwritten —
-    the user maintains the hand-authored componentType enum and any
+    the user maintains the authored componentType enum and any
     technique-specific properties on schema.yaml directly."""
     DETAIL_EMPA.mkdir(parents=True, exist_ok=True)
     schema_path = DETAIL_EMPA / "schema.yaml"
@@ -2516,7 +2516,7 @@ def build_detail_artifacts(pub_filter: list[str] | None = None) -> dict:
     # Write the registered parameterValues collection BB ($defs library).
     write_parameter_values_registry(cls["param_value_defs"])
     # Clean up the legacy generated parametersConstraint.yaml (constraint is now
-    # inline in the hand-authored detail schema.yaml).
+    # inline in the authored detail schema.yaml).
     write_detail_empa_constraint(cls["detail_param_names"])
 
     # Clean up any legacy flat parameterValues/<name>.json files owned by THIS

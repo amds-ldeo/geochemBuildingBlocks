@@ -1,4 +1,4 @@
-"""Read/write the per-workbook schema-path sidecar CSV — the hand-authored source of truth for the
+"""Read/write the per-workbook schema-path sidecar CSV — the source of truth for the
 TAPP-workbook → JSON-schema mapping.
 
 One CSV per workbook, `docs/<workbook>.schemapaths.csv`, one row per (Metadata Item → canonical
@@ -37,7 +37,7 @@ def csv_path(source_path):
 
     Sidecars live in docs/ because they are OURS. The TAPPS<date>/ folders are Ruolin's library,
     cached locally for reference and never modified — a sidecar written into one puts our
-    hand-authored mapping inside somebody else's tree, which is exactly the boundary
+    authored mapping inside somebody else's tree, which is exactly the boundary
     .github/CODEOWNERS draws. Resolving on the BASENAME lets a source sit wherever the delivery
     happens to put it (2026-08-13 moved every table into a flat `Current TAPPs/`) while its sidecar
     stays where it is curated.
@@ -77,7 +77,7 @@ def write(csv_file, rows):
 def load_spec(csv_file):
     """{item: {"path": str | [str, ...], "family": source}} for the schema/example emitters.
     Rows with a blank Schema Path (flagged) are skipped; multiple pathed rows for one item collapse
-    into a list (dual-home). Each path is CANONICALISED (so hand-authored shorthand like `$.` or
+    into a list (dual-home). Each path is CANONICALISED (so authored shorthand like `$.` or
     unquoted/space-y selectors work) — the raw CSV keeps whatever the author typed."""
     import normalize_schema_paths as norm  # lazy: keeps schemapath_io light for non-emitter users
     spec = {}

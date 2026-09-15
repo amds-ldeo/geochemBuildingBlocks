@@ -1,7 +1,7 @@
 # `docs/` — the schema-path sidecars and the guides around them
 
-Two kinds of thing live here: the **`*.schemapaths.csv` sidecars**, which are hand-authored source
-that the generators read, and the **`*.md` guides** that document the conventions those sidecars
+Two kinds of thing live here: the **`*.schemapaths.csv` sidecars**, which are source
+that the generators read, not output they write, and the **`*.md` guides** that document the conventions those sidecars
 follow.
 
 Nothing here is a build output. Everything generated lands in `_sources/` (schemas, examples) or

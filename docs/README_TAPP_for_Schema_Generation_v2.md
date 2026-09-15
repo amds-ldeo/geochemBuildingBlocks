@@ -310,7 +310,7 @@ TAPP selects the blocks that apply. `Procedural Blank Level` is absent from TEM 
 Seven modules are built as OGC building blocks under `_sources/BaseSchema/modules/`, each with two
 `$defs` split by root — `ProcedureIdentification` and `AnalysisIdentification` — because the
 procedure and the analysis are separate documents. **They are not yet composed into the technique
-schemas**; that wiring is the next step. `Group1` is hand-authored, the rest generated from their
+schemas**; that wiring is the next step. `Group1` is source, the rest generated from their
 own schema-path sidecars.
 
 **Composition was checked before committing to it**: across 578 (module field × consuming table)
@@ -339,7 +339,7 @@ docs/modules/Module_Group1.schemapaths.csv       ← module placements, shared b
 ```
 
 Sidecars sit in `docs/`, not beside their tables. They were briefly co-located, which reads well
-until you notice it puts our hand-authored mapping inside somebody else's tree — the boundary
+until you notice it puts our authored mapping inside somebody else's tree — the boundary
 `.github/CODEOWNERS` draws. `schemapath_io.csv_path()` resolves on the source's **basename**, so a
 table can move (2026-08-13 flattened them all into `Current TAPPs/`) without moving its sidecar.
 

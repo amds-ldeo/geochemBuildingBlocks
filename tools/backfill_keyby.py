@@ -5,7 +5,7 @@ The workbook 'Keyed By' declaration routes a template-family row to its canonica
 column recording the declaration, but the older sidecars were generated before that column existed,
 so only LA-MC-ICPMS carries it. This makes the column uniform: every sidecar gets it, and for a
 Source=keyed row whose declaration is recoverable from the routed path, the value is filled in.
-Rows already carrying a Key by value (hand-authored, e.g. LA-MC's 'channel') are left untouched.
+Rows already carrying a Key by value (authored, e.g. LA-MC's 'channel') are left untouched.
 
 Line-preserving: appends one field to each raw line rather than rewriting the CSV, so quoting,
 BOM and CRLF are unchanged and the diff is purely the new column.

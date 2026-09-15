@@ -392,7 +392,7 @@ strip the `e.g.,` prefix. Do not split further; see §1.2.
 | # | family | rows served |
 |---|---|---|
 | 1 | `reportedPropertyColumns[]` + shared `$Dataset.schema:variableMeasured[]` | 81 + 16 |
-| 2 | `channelColumns[]` / `defaultChannels[]` | 47 + 10 |
+| 2 | `monitoredPropertyColumns[]` / `defaultMonitoredProperties[]` | 47 + 10 |
 | 3 | `dqv:hasQualityMeasurement` with `ada:standard` / `ada:reportedProperty` siblings | 42 |
 | 4 | `samplingUnitColumns[]` + `schema:object…hasPart[]` | 14 + 16 |
 | 5 | `pair:` shape | 7 |

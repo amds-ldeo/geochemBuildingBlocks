@@ -9,7 +9,7 @@ parameterValues collection BB at
 _sources/techniqueProtocols/parameterValues/schema.yaml (one $def per
 readOnly:false parameter, keyed by name) plus its bblock.json.
 
-The detail BB's own schema.yaml is hand-authored (componentType enum,
+The detail BB's own schema.yaml is source, never regenerated (componentType enum,
 spectrometersUsed, signalUsed, schema:measurementTechnique anyOf-link to the
 TAPP definition) and is NOT regenerated here. Its allOf carries the per-dataset
 schema:additionalProperty constraint INLINE, referencing the parameterValues

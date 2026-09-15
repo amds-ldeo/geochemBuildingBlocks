@@ -67,7 +67,7 @@ procedure-fixed column values. The `@id` is what the dataset side points at.
     "@type": ["schema:PropertyValueSpecification"],
     "schema:name": "66Zn",
     "schema:valueName": "monitoredSpecies66Zn",
-    "ada:targetSpecies": [{ "@id": "ada:analyte/solutionQicpmsTAPP/Zn" }],
+    "ada:targetSpecies": [{ "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/Zn" }],
     "schema:additionalProperty": [
       {
         "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",

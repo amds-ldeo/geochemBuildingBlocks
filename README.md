@@ -22,19 +22,26 @@ _sources/
                         tabularData, dataCube, collection, document,
                         supDocImage, otherFile, files), structuredData,
                         spatialRegistration, creativeWork, stringArray
-  registry/
-    analyteColumns/     registered BB: PropertyValueSpecification $defs per analyte column (34)
-    parameterTemplates/ registered BB: PropertyValueSpecification $defs, editable params (178)
-    parameterValues/    registered BB: schema:PropertyValue $defs, fixed values (432)
-    vocab/              catalog: schema:DefinedTermSet files, by @id not $ref (162)
-  techniqueProfile/     one directory per technique (44), under two roots:
-    geochemProfile/     the 12 TAPP-aware techniques
-      <TECH>/tapp/      the TAPP definition for that technique      (12 techniques)
-      <TECH>/detail/    per-dataset analysis-instance detail        (16 techniques)
-      <TECH>/profile/   path-driven product profile: adaProduct +
-                        detail + TAPP linkage                        (16 techniques)
+  registry/           five catalogs keyed by what the column identifies
+    targetSpeciesColumns/      registered BB: PropertyValueSpecification $defs,
+                               one per per-species column                        (258)
+    monitoredPropertyColumns/  registered BB: $defs for the monitored-property
+                               table (mass, cup, edge, X-ray line)                (63)
+    reportedPropertyColumns/   registered BB: $defs for reported-quantity columns   (1)
+    parameterTemplates/        registered BB: PropertyValueSpecification $defs,
+                               editable params                                   (414)
+    parameterValues/           registered BB: schema:PropertyValue $defs,
+                               fixed values                                     (1185)
+    vocab/                     catalog: schema:DefinedTermSet files,
+                               by @id not $ref                                   (451)
+  techniqueProfile/     one directory per technique (91), under two roots:
+    geochemProfile/     the 59 TAPP-aware techniques
+      <TECH>/tapp/      the TAPP definition for that technique      (59 techniques)
+      <TECH>/detail/    per-dataset analysis-instance detail        (59 techniques)
+      <TECH>/profile/   path-driven product profile: geochemProduct +
+                        detail + TAPP linkage                        (29 techniques)
       <TECH>/profile-ada/ generic product profile, written by the
-                        TAPP tooling                                  (4 techniques)
+                        TAPP tooling                                  (9 techniques)
     adaProfile/         the other 32 techniques, untouched by the TAPP work
       <TECH>/profile-ada/ generic product profile: adaProduct +
                         componentType constraints only               (31 techniques)
@@ -65,7 +72,7 @@ Two BBs extend CDIF core BBs:
 
 ### registry (shared catalogs)
 
-`analyteColumns`, `parameterTemplates`, and `parameterValues` are each a **registered type-library building block** (`bblock.json` with `isTypeLibrary: true`): every entry lives as a named `$def` in the catalog's `schema.yaml`, and TAPP / detail blocks reference them by URI fragment (`$ref: …/<catalog>/schema.yaml#/$defs/<name>`). Because they are registered, the OGC bblocks `annotate` step resolves those refs **locally via the register** and inlines them into `resolvedSchema.json`. This matters: a *loose* helper file (a plain `<name>.json` not inside a registered BB) is instead fetched from the published gh-pages URL, which 404s on moved or unpublished paths (`process-bblocks.yml` sets `skip-pages: true`, so gh-pages never auto-updates) — that fragility is why the catalogs were promoted to registered BBs. `vocab/` is the exception: it stays a plain catalog of `schema:DefinedTermSet` files because it is referenced only by JSON-LD `@id` (`schema:inDefinedTermSet`), never by `$ref`, so the `annotate` step never fetches it.
+`targetSpeciesColumns`, `monitoredPropertyColumns`, `reportedPropertyColumns`, `parameterTemplates`, and `parameterValues` are each a **registered type-library building block** (`bblock.json` with `isTypeLibrary: true`): every entry lives as a named `$def` in the catalog's `schema.yaml`, and TAPP / detail blocks reference them by URI fragment (`$ref: …/<catalog>/schema.yaml#/$defs/<name>`). Because they are registered, the OGC bblocks `annotate` step resolves those refs **locally via the register** and inlines them into `resolvedSchema.json`. This matters: a *loose* helper file (a plain `<name>.json` not inside a registered BB) is instead fetched from the published gh-pages URL, which 404s on moved or unpublished paths (`process-bblocks.yml` sets `skip-pages: true`, so gh-pages never auto-updates) — that fragility is why the catalogs were promoted to registered BBs. `vocab/` is the exception: it stays a plain catalog of `schema:DefinedTermSet` files because it is referenced only by JSON-LD `@id` (`schema:inDefinedTermSet`), never by `$ref`, so the `annotate` step never fetches it.
 
 The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the same `$defs` when their definitions match. `share_or_write_catalog` lets a TAPP regen overwrite its own entries (matched by `$id` ownership) but errors out on a collision with an entry originated by a different TAPP, so a new TAPP either reuses identical catalog entries or surfaces a renaming requirement.
 
@@ -73,7 +80,7 @@ The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the s
 
 ### techniqueProfile/geochemProfile/&lt;TECH&gt;
 
-Eleven techniques have a `tapp/`: EMPA, Geochron, LA-ICPMS, SEM, SEM-Composition, SEM-FIBSEM, SEM-Imaging, Solution-Q-ICPMS, Solution-SF-ICPMS, TEM, XCT. Ten of those also publish a path-driven `profile/` (all but TEM).
+All 59 techniques under `geochemProfile/` have a `tapp/` and a `detail/`. 29 of them also publish a path-driven `profile/` — the set registered in `build_profile.PROFILES`.
 
 - **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` constraints referencing the registry catalogs.
 - **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EMPA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
@@ -157,6 +164,28 @@ This repository imports shared schema.org and CDIF property building blocks from
 
 Browse the building blocks at: https://amds-ldeo.github.io/geochemBuildingBlocks/
 
+### Human-readable record and TAPP pages
+
+`tools/build_html_views.py` renders two page types into `build/htmlViews/`: a **dataset record**
+page for a product profile instance, and a **TAPP definition** page for the protocol it names. The
+dataset page follows the record's own `prov:used` TAPP reference through to that TAPP's page.
+
+Keyed values render as a **grid**: one row per member of the keyset the `defines:` row declares
+(each target species, each monitored property), one column per property keyed to that set.
+
+```
+python tools/build_html_views.py --source examples --all      # the 97 schema examples
+python tools/build_html_views.py --source ada2 --limit 50     # real ADA holdings, public.json_table
+python tools/build_html_views.py --source ada2 --doi <doi>    # one record
+python tools/build_html_views.py --all --no-tapp-pages
+```
+
+`--source ada2` reads `public.json_table` using `ADA_NAME` / `DB_2024_USER` / `DB_2024_PASSWORD` /
+`DB_2024_HOST` / `DB_2024_PORT` — the same variables the `metadata` loaders use, **not** a
+`PGSERVICEFILE` or `.pgpass` entry.
+
+Output lands in `build/`, which is CI territory and is not committed.
+
 ## Tools
 
 ### TAPP / detail / profile generation pipeline
@@ -165,7 +194,7 @@ Browse the building blocks at: https://amds-ldeo.github.io/geochemBuildingBlocks
 
 > **TAPP source = the `tapp/` git submodule ([amds-ldeo/tapp](https://github.com/amds-ldeo/tapp)).** The TAPP tables and modules live in that submodule, not in this repo; `tools/tapp_source.py:current_delivery()` resolves to `tapp/` (falling back to any inline `TAPPS<date>/` drop). Clone with `git clone --recursive`, or run `git submodule update --init` in an existing checkout, before regenerating. Pin/bump the delivery by updating the submodule commit — a deliberate act, because `.gitmodules` sets `update = none` to stop the OGC postprocess workflow advancing the pointer on its own. The committed schemas are built from the pinned revision (`af3f7bc`, adopted 2026-09-02).
 
-One hand-authored TAPP table per technique (a CSV in the `tapp/` submodule's `Current TAPPs/`) drives everything downstream. Nothing generated should ever be hand-edited — fix the table (upstream, in `amds-ldeo/tapp`) or a tool and regenerate.
+One upstream-authored TAPP table per technique (a CSV in the `tapp/` submodule's `Current TAPPs/`) drives everything downstream. Nothing generated should ever be hand-edited — fix the table (upstream, in `amds-ldeo/tapp`) or a tool and regenerate.
 
 **Regenerate through `tools/regenerate.py`.** It runs the nine stages in dependency order, which is load-bearing:
 
@@ -200,9 +229,9 @@ python tools/validate_examples.py                    # then verify
 
 > **Step 6 blocker lifted (2026-08-19).** Through mid-2026-08 `resolve_schema.py --all` degraded its output, because it fetches upstream CDIF `$ref`s from the **published** mbb gh-pages and that copy carried a dangling `$ref: '#/$defs/id-reference'` — leaving temp-dir `$comment` stamps and dropping `cdifConceptOrTermOrString` defs. CDIF now publishes `objectReference` and the resolver runs clean (`6be59b52` regenerated against it). If a resolve ever produces temp-dir `$comment`s again, the cause is the same class of stale-gh-pages drift; the local-mbb decouple workaround is in [agents.md](agents.md).
 
-The **schema-path sidecar** `docs/<workbook>.schemapaths.csv` is the hand-authored source of truth for the workbook → schema mapping: one row per (Metadata Item → canonical schema path), with a `Source` column marking each path `authored` (human-set, preserved verbatim across re-seeds), `inferred` (bootstrap's best guess), `keyed` (routed from the table's `Keyed By`), `module` (a composition module owns the placement, so the path is deliberately blank), or `flagged` (needs a path). A dual-homed editable parameter is two rows — its TAPP default and its detail value. `tools/schemapath_io.py` reads and writes it; `tools/normalize_schema_paths.py` canonicalises selector names; the grammar is specified in [docs/SCHEMA_PATH_GRAMMAR.md](docs/SCHEMA_PATH_GRAMMAR.md), and [docs/README.md](docs/README.md) explains the sidecars and the guides around them.
+The **schema-path sidecar** `docs/<workbook>.schemapaths.csv` is the source of truth for the workbook → schema mapping: one row per (Metadata Item → canonical schema path), with a `Source` column marking each path `authored` (human-set, preserved verbatim across re-seeds), `inferred` (bootstrap's best guess), `keyed` (routed from the table's `Keyed By`), `module` (a composition module owns the placement, so the path is deliberately blank), or `flagged` (needs a path). A dual-homed editable parameter is two rows — its TAPP default and its detail value. `tools/schemapath_io.py` reads and writes it; `tools/normalize_schema_paths.py` canonicalises selector names; the grammar is specified in [docs/SCHEMA_PATH_GRAMMAR.md](docs/SCHEMA_PATH_GRAMMAR.md), and [docs/README.md](docs/README.md) explains the sidecars and the guides around them.
 
-`tools/build_dataset_template.py <tapp-instance.json> [out.xlsx]` generates an xlsx data-entry template from a TAPP instance — columns from `analyteColumns`, one row per default analyte.
+`tools/build_dataset_template.py <tapp-instance.json> [out.xlsx]` generates an xlsx data-entry template from a TAPP instance — columns from `targetSpeciesColumns`, one row per entry in `ada:defaultTargetSpecies`.
 
 > **Superseded drivers.** `build_TAPP_from_spreadsheet.py` and `build_detail_BB.py` were the earlier impl-tag/tier-matrix route and now delegate to `build_tapp.py` for empa; `build_profile_BB.py` scaffolded the old `profiles/geochemProfiles/` layout. `generate_profiles.py` is **deprecated and refuses to run** without `--force-deprecated` — its template emits the old object-form `ada:componentType`. Use the path-driven pipeline above for new work.
 
@@ -262,6 +291,47 @@ A TAPP definition is a **plan** — a reusable procedure that *prescribes* an an
 - **`cdi:Activity` vs `prov:Activity`.** `prov:Activity` (W3C PROV) is an *occurrence* — something that happened, that `prov:used`/`prov:generated` entities. `cdi:Activity` (DDI-CDI process model) is a *design-level description* of a process/method — reusable, plan-like. The TAPP uses `cdi:Activity` (which aligns with `prov:Plan`) because it describes a method; it is **not** typed `prov:Activity`. The TAPP's `schema:actionProcess` (a `schema:HowTo` of `cdi:Activity` steps) is likewise a plan.
 - **Why instrument/tool/reagent are direct properties (no `prov:used` on the TAPP).** In `cdifProvActivity`, an *activity's* instruments are `prov:used[].schema:instrument` entities — because an occurrence uses them. A *plan* does not "use" entities in the provenance sense; it *specifies* resources. So the TAPP carries `schema:instrument`, `bios:computationalTool`, `bios:reagent` as **direct properties** (the Bioschemas `LabProtocol` convention), and has **no `prov:used`**. The `prov:used` pattern operates one level up, on the `prov:Activity` in `adaProduct.prov:wasGeneratedBy`, which uses both the actual instrument and this plan.
 - **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `adaProduct.prov:wasGeneratedBy` and the technique's `techniqueProfile/geochemProfile/<TECH>/detail/` block (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the schema-path sidecar.
+
+### How a record names the TAPP it followed
+
+Every generated `profile/` example emits the link the section above describes, as a **reference**
+inside the analysis activity's `prov:used`:
+
+```json
+{ "@id": "ex:labxctTAPP-P0",
+  "@type": ["prov:Entity", "prov:Plan", "ada:TAPPDefinition"] }
+```
+
+Three things about that shape are load-bearing, and each was arrived at by a failure:
+
+- **It is a reference, not an inlined plan.** The TAPP is a separate document with its own `@id`;
+  copying it whole into every record would duplicate it hundreds of times and leave nothing to
+  navigate to.
+- **`prov:Entity` leads the `@type`.** Base `prov:used` admits a *typed* item only through its
+  "inline `prov:Entity`" `anyOf` branch, which keys on `@type` containing `prov:Entity`; the bare
+  `{@id}` branch is `additionalProperties: false` and rejects `@type` outright. PROV-O agrees —
+  `prov:Plan` is a subclass of `prov:Entity` — so this is the correct assertion, not a workaround.
+- **`geochemProduct`'s TAPP conditional is guarded by `schema:name`, not by `@type` alone.** It
+  pins an inline TAPP to the full `tappDefinition` schema. Keyed on `@type` alone it also fired on
+  every *reference* and failed it on the four properties a reference does not carry. `schema:name`
+  separates the two: the TAPP schema requires it, and a `{@id, @type}` reference never has it.
+  `build_profile._schema()` emits the same guard in each technique overlay, so the two layers agree.
+
+**Why it matters beyond navigation.** The profile's `prov:used` conditional — the one that pins
+that technique's TAPP constraints — keys on this entry. A record that never names its procedure
+leaves the conditional with nothing to fire on, so the constraints are silently absent and the
+record validates clean. That is the same class of silent failure as a mis-named workflow step.
+
+**Ordering, inside `build_profile`.** `_name_procedure()` runs **after** `_fill_required()`. A
+reference is complete by construction — `{@id, @type}` and nothing else — but the sentinel and
+typing passes cannot tell that from an object they are meant to finish. Run before them, the
+reference came back with `schema:instrument: "missing"` and four `{"@id": "nil:missing"}` members
+padded into its `@type`, failing 58 of 97 examples.
+
+The four source-derived profile examples (`exampleadaEMPA-UAZ-20260131` and `-points`,
+`exampleadaLAMCICPMSUPb-Sundell2021`, `exampleadaSolutionMCICPMS-ETHZ-20240903`) are **not**
+regenerated by this pipeline and carry no link. Adding one would assert which TAPP a real published
+analysis followed, which their sources do not say.
 
 ### Structure
 

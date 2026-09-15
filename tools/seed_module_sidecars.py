@@ -83,7 +83,7 @@ def main():
         # Source or Notes labels: those go stale the moment a path is edited by hand and the metadata
         # is not, which is exactly what happens in practice. Two rounds of label-based rules failed
         # here — trusting Source=flagged would have dropped the UPb placements, and trusting the
-        # "unanimous" note would have reverted hand-authored instrument-tree paths in MCICPMS back to
+        # "unanimous" note would have reverted authored instrument-tree paths in MCICPMS back to
         # the generic parameter form.
         #
         # So: a re-seed never silently changes an existing path. If what is here differs from what
@@ -120,7 +120,7 @@ def main():
             have = kept_authored.get(item)
             if not variants:
                 # No technique places this, so the seed can only flag it — and a flag must never
-                # replace a path. This is how UPb's three hand-authored placements survive.
+                # replace a path. This is how UPb's three authored placements survive.
                 if have:
                     rows.extend(have)
                     report.append(("kept", item, "no technique places this; kept as authored here"))

@@ -42,6 +42,18 @@ python tools/audit_building_blocks.py             # completeness, schema<->JSON 
 python tools/check_componentType.py               # componentType vocab/enum drift (annotation-only base layer, so JSON Schema alone misses it)
 ```
 
+Render the human-readable pages (dataset record + TAPP definition, into `build/htmlViews/`):
+
+```
+python tools/build_html_views.py --source examples --all    # the 97 schema examples
+python tools/build_html_views.py --source ada2 --limit 50   # real ADA holdings from public.json_table
+```
+
+`--source ada2` connects with `ADA_NAME` / `DB_2024_USER` / `DB_2024_PASSWORD` / `DB_2024_HOST` /
+`DB_2024_PORT` — the same variables the `metadata` repo's loaders use. It is **not** reached
+through `PGSERVICEFILE` or `.pgpass`; testing those and concluding the database is unreachable is a
+mistake already made once.
+
 Local green ≠ CI green: `validate_examples.py` cannot catch the OGC bblocks-annotate dependency-resolution / dangling-`$ref` failures — only CI (or the branch `.github/workflows/validate-branch.yml`) runs the full postprocess.
 
 **Regenerate through `tools/regenerate.py`, not the individual tools.** The stages are a
@@ -87,7 +99,7 @@ the field. Never hand-edit it; a missing manifest means "compose nothing".
 Regenerate a TAPP technique from its source table (a CSV in the `tapp/` submodule's `Current TAPPs/`) — never hand-edit generated output; fix the table (upstream in amds-ldeo/tapp), the sidecar, or a tool and regenerate:
 
 ```
-python tools/bootstrap_schemapaths.py <table.csv>  # 1. seed/refresh docs/<wb>.schemapaths.csv (hand-authored source of truth)
+python tools/bootstrap_schemapaths.py <table.csv>  # 1. seed/refresh docs/<wb>.schemapaths.csv (the source of truth)
 python tools/build_tapp.py         <TAPP_NAME>  # 2. registry catalogs + vocab
 python tools/build_pathdriven.py   <TAPP_NAME>  # 3. tapp/ + detail/ schemas from the sidecar
 python tools/build_profile.py      <TAPP_NAME>  # 4. profile/ schema
@@ -96,7 +108,7 @@ python tools/resolve_schema.py --all            # 6. resolve
 python tools/validate_examples.py               # 7. verify
 ```
 
-**Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `analyteColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
+**Step 5 is easy to skip and its omission is silent.** The publication examples (`example<TAPP>-<Pub>.json`, one per column after `Literature Assessment`) are NOT rebuilt by `build_pathdriven`, so a sidecar change moves the schema while they keep the placement they were last generated with. Nothing complains until `validate_examples` runs, and the failure reads as a schema bug rather than a stale artifact — moving `Detection Limit` off `targetSpeciesColumns[]` produced 125 such failures that regeneration alone cleared. `build_tapp_examples` is not a second generator: it reads the workbook's publication columns for CONTENT and calls `schema_path_example_emitter.build_example(tapp, values=...)` -- the same emitter that writes the `-P0` files -- for PLACEMENT.
 
 ## Source vs generated
 
@@ -274,6 +286,12 @@ pipeline regenerates; anything the pipeline owns must come from the generator, n
                  Describe these as source-derived, and name the source; "hand-authored" implies a
                  person edited the JSON, which is not what happened.
 
+**Two words, two meanings — use them precisely.** *Source-derived* is for content assembled from
+primary sources (the examples above). *Authored* is for a placement or a schema fragment a person
+decided and no generator rewrites — the sidecar's own `Source=authored` value means exactly this,
+"human-set, preserved verbatim across re-seeds". Neither is "hand-authored", which was swept out of
+the repo in 2026-09 because it reads as "the maintainer typed this content in", and he did not.
+
 **A keyed-table column is always a `schema:PropertyValueSpecification` on the procedure side.**
 Read-only is an attribute of the specification (`schema:readonlyValue`), not a different type; the
 base `KeyedTableColumn` requires the specification form, so emitting `schema:PropertyValue` there
@@ -330,5 +348,18 @@ These are real past incidents, not hypothetical:
 - Stale `register.json` entries vs `_sources/` directory listing
 - A `$ref` that exists but sits at the wrong node — present to `grep`, invisible to a reader
   scanning `allOf`, and in an `anyOf` it constrains nothing at all
+- **A conditional whose `if` is too broad fires on things it was never meant to pin.**
+  `geochemProduct`'s TAPP conditional keyed on `@type` containing `ada:TAPPDefinition` alone, so it
+  held every `{@id, @type}` *reference* to the whole TAPP schema and failed it on the four
+  properties a reference does not carry. Guarding the `if` with `schema:name` separates inline plan
+  from reference. The mirror-image failure is the same conditional being too NARROW: a mis-named
+  workflow step matches no `if`, so its constraints are silently absent and the record validates
+  clean. Whenever you add an `if`, ask what it matches that you did not intend AND what it now fails
+  to match.
+- **A generated node that is complete by construction must be emitted AFTER the fill passes.**
+  `build_profile._name_procedure()` writes the `prov:used` TAPP reference — `{@id, @type}` and
+  nothing else. Run before `_fill_required()`, the sentinel and typing passes could not tell it
+  from an object they were meant to finish and padded `schema:instrument: "missing"` plus four
+  `{"@id": "nil:missing"}` members into its `@type`, failing 58 of 97 examples.
 
 The propagate-schema command runs all of these as part of its consistency audit; if you're working outside that pipeline, run them by hand on touched paths.

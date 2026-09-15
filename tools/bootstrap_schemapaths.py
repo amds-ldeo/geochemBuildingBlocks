@@ -300,7 +300,7 @@ def infer(row, lib, lib_norm, sidecar):
     """Return (paths_list, source) or (None, reason). paths_list is usually length 1, but 2 for a
     dual-homed editable protocol parameter (TAPP defaultValue + detail value)."""
     it, P, A, dt = row["item"], row["P"], row["A"], row["dt"]
-    # 0. per-workbook override sidecar (hand-authored paths for rows content can't resolve)
+    # 0. per-workbook override sidecar (authored paths for rows content can't resolve)
     ov = sidecar.get(it)
     if ov:
         if ov.get("path"):
@@ -382,7 +382,7 @@ def main():
     # a re-seed regardless of their Source; only NEW workbook items are inferred.
     #
     # --reseed re-infers everything EXCEPT rows marked Source=authored. It used to drop the file
-    # wholesale, which silently destroyed hand-authored modelling: a reseed of SEM-FIBSEM flattened
+    # wholesale, which silently destroyed authored modelling: a reseed of SEM-FIBSEM flattened
     # 21 authored paths — the whole schema:instrument[...] tree and the ionMilling /
     # samplePreparation step nesting — into bare ada: properties. `authored` was only ever a
     # provenance label; nothing read it back, so the protection it implies did not exist. Now it

@@ -23,18 +23,19 @@ _sources/
                              mcIcpms, solutionIntroduction, geochronology, uPb — shared fields
                              factored out of the technique overlays; see CLAUDE.md
   registry/                  shared catalogs (was techniqueProtocols/)
-    analyteColumns/          registered BB (isTypeLibrary): PropertyValueSpecification $defs, 34
-    parameterTemplates/      registered BB (isTypeLibrary): PropertyValueSpecification $defs, 178
-    parameterValues/         registered BB (isTypeLibrary): PropertyValue $defs, 432
-    vocab/                   catalog: DefinedTermSet files (by @id, not $ref), 162
-  techniqueProfile/          44 technique dirs under two roots
-    geochemProfile/          the 12 TAPP-aware techniques: EMPA, Geochron, LA-ICPMS, SEM,
-                             SEM-Composition, SEM-FIBSEM, SEM-Imaging, Solution-MC-ICPMS,
-                             Solution-Q-ICPMS, Solution-SF-ICPMS, TEM, XCT
-      <TECH>/tapp/           TAPP definition                                        (12)
-      <TECH>/detail/         per-dataset analysis detail                            (12)
-      <TECH>/profile/        path-driven profile: adaProduct + detail + TAPP linkage (10)
-      <TECH>/profile-ada/    generic profile, written by the TAPP tooling  (4: EMPA, SEM, TEM, XCT)
+    targetSpeciesColumns/      registered BB (isTypeLibrary): PropertyValueSpecification $defs, 258
+    monitoredPropertyColumns/  registered BB (isTypeLibrary): PropertyValueSpecification $defs, 63
+    reportedPropertyColumns/   registered BB (isTypeLibrary): PropertyValueSpecification $defs, 1
+    parameterTemplates/        registered BB (isTypeLibrary): PropertyValueSpecification $defs, 414
+    parameterValues/           registered BB (isTypeLibrary): PropertyValue $defs, 1185
+    vocab/                     catalog: DefinedTermSet files (by @id, not $ref), 451
+  techniqueProfile/          91 technique dirs under two roots
+    geochemProfile/          the 59 TAPP-aware techniques
+      <TECH>/tapp/           TAPP definition                                        (59)
+      <TECH>/detail/         per-dataset analysis detail                            (59)
+      <TECH>/profile/        path-driven profile: geochemProduct + detail + TAPP linkage (29,
+                             the set registered in build_profile.PROFILES)
+      <TECH>/profile-ada/    generic profile, written by the TAPP tooling             (9)
     adaProfile/              the other 32 techniques, untouched by the TAPP work
       <TECH>/profile-ada/    generic profile: adaProduct + componentType only        (31)
       <TECH>/detail/         instrument-detail stub                                  (14)
@@ -222,6 +223,7 @@ and provisional; the library's modules are Ruolin's to author (see
 | `augment_register.py` | Add `resolvedSchema` URLs to `build/register.json`. Uses the `ogch.` identifier prefix. Run during CI before viewer deployment. |
 | `generate_custom_report.py` | Generate HTML validation report with granular SHACL severity breakdown from OGC postprocess `report.json`. |
 | `cors_server.py` | Local HTTP server with CORS headers for testing the viewer. Default port 8090. |
+| `build_html_views.py` | Render human-readable pages into `build/htmlViews/`: a **dataset record** page per product-profile instance and a **TAPP definition** page per protocol, linked by the record's own `prov:used` TAPP reference. Keyed values render as a grid (rows = the members the `defines:` row declares, columns = the properties keyed to that set). `--source examples` reads the 97 schema examples; `--source ada2` reads `public.json_table` via `ADA_NAME`/`DB_2024_USER`/`DB_2024_PASSWORD`/`DB_2024_HOST`/`DB_2024_PORT` (**not** `PGSERVICEFILE`/`.pgpass`). Also `--all`, `--doi`, `--limit`, `--no-tapp-pages`. |
 
 ### Tool provenance
 
@@ -251,20 +253,20 @@ Lives at `_sources/BaseSchema/tappDefinition/`. Was previously `geochemPropertie
 - **Analyte template:** `ada:targetSpeciesTemplate` with `PropertyValueSpecification`-typed columns and default analyte rows
 - **Vocabularies:** Bioschemas (`bios:computationalTool`, `bios:reagent`, `bios:LabProcess`), DDI-CDI (`cdi:Activity`), DQV (`dqv:hasQualityMeasurement`), schema.org `DefinedTermSet`/`DefinedTerm`
 - **Examples:** sibling `exampletappDefinition-<variant>.json` files: concord-glass-v1-0-6 (EPMA glass), nmnh-spinel-oxybar-v1 (EPMA spinel oxybarometry), uoc-laicpms-glass-v1 (LA-ICP-MS glass trace elements)
-- **Used by:** `adaProduct.prov:wasGeneratedBy.items.prov:used.items.anyOf` accepts either an `instrument` BB instance or a `tappDefinition` BB instance.
+- **Used by / how a record names it:** `adaProduct.prov:wasGeneratedBy.items.prov:used.items.anyOf` accepts an `instrument` BB instance, a `tappDefinition` BB instance inlined, or a **reference** to one. Generated `profile/` examples emit the reference form: `{"@id": "ex:<tapp>-P0", "@type": ["prov:Entity", "prov:Plan", "ada:TAPPDefinition"]}`. `prov:Entity` must lead, because base `prov:used` admits a typed item only through its inline-`prov:Entity` branch (the bare `{@id}` branch is `additionalProperties:false`). `geochemProduct`'s TAPP conditional is guarded by **`schema:name`**, not `@type` alone — otherwise it holds every reference to the whole TAPP schema. The profile's technique-specific `prov:used` conditional keys on this entry, so a record that does not name its procedure leaves those constraints silently unenforced. See the README section "How a record names the TAPP it followed".
 - **Form integration:** Tab 3 of ada_metadata_forms consumes TAPP definitions from the registry
 
 ## TAPP / detail / profile pipeline (unified generator)
 
 > **Read [docs/TAPP-schema-generation-workflow.md](docs/TAPP-schema-generation-workflow.md) first.** It is the current, authoritative end-to-end description of the pipeline (workbook → schema-path sidecar → BBs → resolved schemas → examples), with a flowchart and sections for the workbook author, the pipeline maintainer, and the form builder. The notes below cover implementation detail and the tier-matrix route that predates it.
 >
-> The current path for a new or regenerated TAPP is **schema-path driven**: `bootstrap_schemapaths.py` seeds `docs/<workbook>.schemapaths.csv` (the hand-authored source of truth — one row per Metadata Item → canonical schema path, with a `Source` column of `authored`/`inferred`/`keyed`/`module`/`flagged`), then `build_tapp.py` emits the registry catalogs and `build_pathdriven.py` emits `tapp/` and `detail/` from the sidecar. `schemapath_io.py` reads/writes the CSV, `normalize_schema_paths.py` canonicalises selector names, and the grammar is in `docs/SCHEMA_PATH_GRAMMAR.md`. `docs/README.md` covers the sidecar format, the five `Source` values, and the maintenance tools (`bootstrap_schemapaths` / `migrate_sidecar` / `fill_flagged` / `refresh_keyby` / `simplify_sidecars`, previewed read-only by `intake_delivery`).
+> The current path for a new or regenerated TAPP is **schema-path driven**: `bootstrap_schemapaths.py` seeds `docs/<workbook>.schemapaths.csv` (the source of truth — one row per Metadata Item → canonical schema path, with a `Source` column of `authored`/`inferred`/`keyed`/`module`/`flagged`), then `build_tapp.py` emits the registry catalogs and `build_pathdriven.py` emits `tapp/` and `detail/` from the sidecar. `schemapath_io.py` reads/writes the CSV, `normalize_schema_paths.py` canonicalises selector names, and the grammar is in `docs/SCHEMA_PATH_GRAMMAR.md`. `docs/README.md` covers the sidecar format, the five `Source` values, and the maintenance tools (`bootstrap_schemapaths` / `migrate_sidecar` / `fill_flagged` / `refresh_keyby` / `simplify_sidecars`, previewed read-only by `intake_delivery`).
 
-`tools/build_tapp.py <tapp_name>` is the **single generator** for all 16 TAPPs (`empaTAPP`, `semTAPP`, `labxctTAPP`, the six `la*` and three `solution*` techniques, …; `geochronTAPP` and `laicpmsTAPP` were retired 2026-08-21 after being refactored upstream into the `*_UPb_*` techniques) — TAPP schema + shared catalogs (`analyteColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail. Add a new TAPP by registering its knobs in `TAPP_CONFIGS`.
+`tools/build_tapp.py <tapp_name>` is the **single generator** for all 59 TAPPs registered in `TAPP_CONFIGS` (`empaTAPP`, `semTAPP`, `labxctTAPP`, the six `la*` and three `solution*` techniques, …; `geochronTAPP` and `laicpmsTAPP` were retired 2026-08-21 after being refactored upstream into the `*_UPb_*` techniques) — TAPP schema + shared catalogs (`targetSpeciesColumns`/`monitoredPropertyColumns`/`reportedPropertyColumns`/`parameterTemplates`/`parameterValues`) + vocab + detail BB + per-publication examples. Routing follows the **canonical Protocol-Level × Analysis-Level matrix** (`docs/TierImplementationPatterns.xlsx`): Basic protocol → required top-level `ada:` property (`…Default` if editable at analysis); Advanced protocol → `schema:additionalProperty[]` `PropertyValueSpecification` (`…Default` + `readonlyValue:false` when dual-homed, bare + `readonly:true` if Read-Only); Analysis Basic → required detail property; Analysis Editable/Advanced → optional detail `PropertyValue`; Read-Only/N-A → absent from detail. Add a new TAPP by registering its knobs in `TAPP_CONFIGS`.
 
 `tools/_tapp_lib.py` is now the **emitter/example library** (no longer a standalone router): `build_tapp.py` calls its `parameter_obj` / `additional_property_obj` / `analyte_column_obj` / `vocab_obj` emitters, `build_haspart_constraint`, the registry writers, `build_schema_yaml`, and the rich `example_for_pub` (now matrix-routed via a `route_map`). Its old impl-tag-kind routing (`_classify_rows`) is retired for current TAPPs.
 
-- **empaTAPP** is the evolved-past prototype, **aligned to the matrix and folded into `build_tapp.py`** (2026-06). Its `schema path` column resolves the special roles (`$.ada:targetSpeciesTemplate.ada:targetSpeciesColumns…` → generated analyte column; `…ada:defaultTargetSpecies` → analyte identifier; `$.schema:description` → protocol description; `$MethodDefinition.*` non-`ada:` → inherited base field / instrument), tier columns drive home/cardinality, and impl-notes carry the base name + dtype/enum. `build_tapp.py` **generates** empa's analyteColumns from the workbook (reusing `_tapp_lib.analyte_column_obj`), keeps the hand-authored `detailEMPA` `allOf[0]` (`ada:spectrometersUsed`/`ada:signalUsed`/componentType) and only regenerates its `allOf[1]` `additionalProperty` constraint, and preserves param `enum`→vocab refs.
+- **empaTAPP** is the evolved-past prototype, **aligned to the matrix and folded into `build_tapp.py`** (2026-06). Its `schema path` column resolves the special roles (`$.ada:targetSpeciesTemplate.ada:targetSpeciesColumns…` → generated analyte column; `…ada:defaultTargetSpecies` → analyte identifier; `$.schema:description` → protocol description; `$MethodDefinition.*` non-`ada:` → inherited base field / instrument), tier columns drive home/cardinality, and impl-notes carry the base name + dtype/enum. `build_tapp.py` **generates** empa's targetSpeciesColumns from the workbook (reusing `_tapp_lib.analyte_column_obj` — the function name keeps the upstream spelling), keeps the authored `detailEMPA` `allOf[0]` (`ada:spectrometersUsed`/`ada:signalUsed`/componentType) and only regenerates its `allOf[1]` `additionalProperty` constraint, and preserves param `enum`→vocab refs.
 - Source workbook: `docs/TAPP_EPMA_filled-noInterp.xlsx` (annotated; guidance columns + impl-notes). `read_rows()` (`_detect_columns`) resolves columns by header name, handling both the empa layout (no `Literature Assessment` separator) and the newer Ruolin workbooks.
 
 ```
@@ -273,7 +275,7 @@ build_pathdriven.py      <tapp_name>                  # → techniqueProfile/geo
 build_profile.py         <tapp_name>                  # → techniqueProfile/geochemProfile/<TECH>/profile/
 build_tapp_examples.py   <tapp_name>                  # → one example<TAPP>-<Pub>.json per publication column
 build_adaEMPA_examples.py [--pub P0]…                 # → EMPA profile-level dataset examples (empa only)
-build_dataset_template.py <tapp-instance.json> [out]  # → xlsx columns from analyteColumns, rows from defaultAnalytes
+build_dataset_template.py <tapp-instance.json> [out]  # → xlsx columns from targetSpeciesColumns, rows from defaultTargetSpecies
 ```
 
 **`build_tapp_examples.py` is not a second example generator.** It reads the workbook's
@@ -282,7 +284,7 @@ publication columns (everything after `Literature Assessment`) for CONTENT and c
 `-P0` files — for PLACEMENT, then layers publication-specific population (collector config,
 reported properties, nested enum conformance) on top. What makes it easy to get wrong is that
 `build_pathdriven` does NOT rebuild its output, so a sidecar edit silently leaves the publication
-examples on their old placement. Moving `Detection Limit` off `analyteColumns[]` produced 125
+examples on their old placement. Moving `Detection Limit` off `targetSpeciesColumns[]` produced 125
 validation failures that regeneration alone cleared — no code was wrong, the artifacts were stale.
 
 The legacy `build_TAPP_from_spreadsheet.py` / `build_detail_BB.py` drivers now **delegate to `build_tapp.py` for `empaTAPP`** (matrix routing); they remain only for hypothetical impl-tag-style TAPPs. Templates + user-facing guide live in `docs/`:
@@ -296,7 +298,7 @@ For each `parameter:<name>` impl-notes tag:
 - `readOnly:true`  → a named `$def` in `registry/parameterTemplates/schema.yaml` (PropertyValueSpecification template), referenced by URI fragment (`…/parameterTemplates/schema.yaml#/$defs/<name>`) from the TAPP's `schema:additionalProperty`.
 - `readOnly:false` → a named `$def` in `registry/parameterValues/schema.yaml` (PropertyValue instance shape with `@id == $id == schema:propertyID == ada:parameter/<TAPP>/<name>`), referenced by URI fragment from `techniqueProfile/geochemProfile/<TECH>/detail/schema.yaml`'s inline `schema:additionalProperty` `anyOf` (the detail block now folds this constraint into its `allOf` directly — the old per-detail `parametersConstraint.yaml` file is gone).
 
-For each `analyteColumn:<name>` impl-notes tag → a named `$def` in `registry/targetSpeciesColumns/schema.yaml`, referenced by URI fragment (`…/analyteColumns/schema.yaml#/$defs/<name>`) from the TAPP's `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` `anyOf`. For each unique enum row → `registry/vocab/<name>.json` (vocab stays a plain catalog, referenced by JSON-LD `@id`, not `$ref`).
+For each `analyteColumn:<name>` impl-notes tag (the tag keeps its upstream spelling; only the schema and registry names were renamed in 2026-09) → a named `$def` in `registry/targetSpeciesColumns/schema.yaml`, referenced by URI fragment (`…/targetSpeciesColumns/schema.yaml#/$defs/<name>`) from the TAPP's `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` `anyOf`. For each unique enum row → `registry/vocab/<name>.json` (vocab stays a plain catalog, referenced by JSON-LD `@id`, not `$ref`).
 
 The parser fix on 2026-04-28 (`parse_impl()` → `tag_records`) extracts per-tag `readOnly` so a row carrying both a `property:` (readOnly:true) and a `parameter:` (readOnly:false) tag routes each correctly.
 
@@ -331,13 +333,13 @@ This is why a future `xrdTAPP` regen can `$ref` empaTAPP-originated catalog entr
 
 - **Spec source:** `docs/TAPP_EPMA_filled.xlsx`, sheet `TAPP`. Layout is A–F (item / desc / basic / dtype / example / Last update), G–J (Level / CDIF path / matchComment / impl notes), K..AA (pub columns P0..P10plag — extensible to the right). Each row's `implementation notes` column (column J) tags it as `property:`, `parameter:`, `analyteColumn:` (or combinations) and carries `readOnly`, `dataType`, optional `enum {...}`. Per-tag fields are scoped to the chunk of impl-notes between consecutive tags.
 - **Generated by:** `tools/build_TAPP_from_spreadsheet.py` (TAPP side) + `tools/build_detail_BB.py` (detail side). Both read the same xlsx; the routing rule above splits parameters between empaTAPP and detailEMPA.
-- **Currently emits:** 26 analyteColumns, 6 readOnly:true parameterTemplates, 4 readOnly:false parameterValues `$defs`, 12 vocabularies, the empaTAPP `schema.yaml`, the detailEMPA `schema:additionalProperty` constraint (inline in `detailEMPA/schema.yaml`), 17 paired `exampleempaTAPP-P{N}.json` + `exampledetailEMPA-P{N}.json` instances, plus the comprehensive hand-authored `exampleempaTAPP-all.json` + `exampledetailEMPA-all.json`. `tools/build_adaEMPA_examples.py` adds 17 paired `exampleadaEMPA-P{N}.json` profile-level Datasets (Phase D — see below).
+- **Currently emits:** 26 targetSpeciesColumns, 6 readOnly:true parameterTemplates, 4 readOnly:false parameterValues `$defs`, 12 vocabularies, the empaTAPP `schema.yaml`, the detailEMPA `schema:additionalProperty` constraint (inline in `detailEMPA/schema.yaml`), 17 paired `exampleempaTAPP-P{N}.json` + `exampledetailEMPA-P{N}.json` instances, plus the comprehensive source-derived `exampleempaTAPP-all.json` + `exampledetailEMPA-all.json`. `tools/build_adaEMPA_examples.py` adds 17 paired `exampleadaEMPA-P{N}.json` profile-level Datasets (Phase D — see below).
 - **Validation rule for per-pub examples:** when a publication's value for an enum-constrained property doesn't exactly match an enum entry, the generator skips that property in the example rather than emitting invalid data. For numeric `schema:value` fields, `additional_property_obj` uses `anyOf [<typed>, string]` so qualified publication-style values like `"0 (focused)"` validate alongside clean numbers.
 - **Authoring gotchas:** `schema:inDefinedTermSet` is `{"@id": "..."}` (object), not a plain string; `schema:instrument.schema:identifier` is an array (per CDIF instrument BB); `schema:hasPart` items must contain `schema:Thing` in `@type`; `schema:location.schema:additionalType` must contain `nxs:BaseClass/NXsource`; `geosparql:asWKT` is `{@type:[geosparql:wktLiteral], @value:...}` and `geosparql:crs` is `{@id:...}`; `dqv:isMeasurementOf` is required on every quality measurement; `schema:relatedLink` items are `schema:CreativeWork`, not LinkRoles.
 
 ## detailEMPA — paired per-dataset detail block
 
-`_sources/techniqueProfile/geochemProfile/EMPA/detail/` carries per-dataset values that complement an empaTAPP TAPP definition. Schema is hand-authored (`ada:componentType` enum, `schema:measurementTechnique` requires an `@id` reference to a registered TAPP) plus an inline `schema:additionalProperty` constraint in its `allOf` whose `anyOf` branches `$ref` the `parameterValues` registry `$defs` (e.g. `../../../registry/parameterValues/schema.yaml#/$defs/acceleratingVoltage`). The separate `parametersConstraint.yaml` file was deleted.
+`_sources/techniqueProfile/geochemProfile/EMPA/detail/` carries per-dataset values that complement an empaTAPP TAPP definition. Schema is source, never regenerated (`ada:componentType` enum, `schema:measurementTechnique` requires an `@id` reference to a registered TAPP) plus an inline `schema:additionalProperty` constraint in its `allOf` whose `anyOf` branches `$ref` the `parameterValues` registry `$defs` (e.g. `../../../registry/parameterValues/schema.yaml#/$defs/acceleratingVoltage`). The separate `parametersConstraint.yaml` file was deleted.
 
 - **Generated artifacts:** paired `exampledetailEMPA-P{N}.json` instances (one per pub), plus the structured `resolvedSchema.json` via `tools/resolve_schema.py`.
 - **Hand-authored bits:** `schema.yaml`'s `ada:componentType` enum is user-maintained. The build_detail_BB.py scaffolder writes a stub on first run (when no `schema.yaml` exists yet) with placeholder `ada:TODO_ComponentType` consts.

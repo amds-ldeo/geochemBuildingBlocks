@@ -51,7 +51,7 @@ def load_central_roles():
 
 def preserved_file_keys(sidecar_path):
     """File-level directives are keyed by a leading underscore (e.g. `_tappDescription`), which no
-    workbook Metadata Item ever produces. They are hand-authored, not derivable from the workbook,
+    workbook Metadata Item ever produces. They are authored, not derivable from the workbook,
     so carry them forward across a re-extract instead of clobbering them."""
     if not os.path.exists(sidecar_path):
         return {}
@@ -181,7 +181,7 @@ def main():
                         counts[k] += 1
         docs_name = os.path.basename(b.XLSX)
         out = os.path.join(ROOT, "docs", os.path.splitext(docs_name)[0] + ".overrides.json")
-        # carry forward hand-authored file-level `_`-keys (e.g. _tappDescription), first so they
+        # carry forward authored file-level `_`-keys (e.g. _tappDescription), first so they
         # stay at the top of the file; row-derived item entries follow. Kept out of `overrides`
         # so the printed stats still count only row-level overrides.
         merged = {**preserved_file_keys(out), **overrides}

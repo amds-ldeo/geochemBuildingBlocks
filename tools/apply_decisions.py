@@ -2,7 +2,7 @@
 """Write the completed divergence decisions back into the schema-path sidecars.
 
 docs/divergent-decisions.csv is a worklist: one row per (divergent item, sidecar, current path),
-with a hand-authored `proposed Schema Path` saying what that path SHOULD be. This applies those
+with an authored `proposed Schema Path` saying what that path SHOULD be. This applies those
 proposals — the last step of the divergence-resolution loop that mark_shared_mappings starts.
 
 A decision is applied by matching the sidecar row on (Metadata Item, canonical current path) and
