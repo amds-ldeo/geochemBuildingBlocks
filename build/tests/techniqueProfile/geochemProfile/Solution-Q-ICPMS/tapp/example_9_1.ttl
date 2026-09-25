@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-P8 a cdi:Activity,
+<ex:solutionQicpmsTAPP-P8> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -20,6 +19,17 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: 0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water | 2: 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2 | 3: 0.2 mL HNO3 + 0.2 mL H2O2. The paper describes four heating stages; on the recorded acid mixtures these span three distinct attacks, the remaining stages being evaporation and uptake within a step." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
@@ -31,22 +41,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water | 2: 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2 | 3: 0.2 mL HNO3 + 0.2 mL H2O2. The paper describes four heating stages; on the recorded acid mixtures these span three distinct attacks, the remaining stages being evaporation and uptake within a step." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -64,27 +63,27 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "54 elements measured in three groups: Group-1 trace elements",
-                "Group-2 major and minor elements",
-                "Group-3 HFSE plus Mo and W" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF" ;
     ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
     ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "54 elements measured in three groups: Group-1 trace elements",
+                "Group-2 major and minor elements",
+                "Group-3 HFSE plus Mo and W" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -97,25 +96,73 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:uncertaintyLevel "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "iCAP TQ" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "KED (He) mode" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -178,54 +225,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "iCAP TQ" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "KED (He) mode" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;

@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Richard2019-3 a cdi:Activity,
+<ex:labxctTAPP-Richard2019-3> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -15,14 +14,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -32,7 +31,7 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -66,6 +65,20 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
     ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" ;
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320/225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 kV" ;
+    ada:tubeCurrentDefault "46 µA (Ag target)" ;
+    ada:voxelSizeDefault "7.7 µm" ;
+    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
@@ -110,20 +123,6 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon XTH 320/225" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "160 kV" ;
-    ada:tubeCurrentDefault "46 µA (Ag target)" ;
-    ada:voxelSizeDefault "7.7 µm" ;
-    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

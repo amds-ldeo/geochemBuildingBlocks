@@ -1,18 +1,23 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-P1 a cdi:Activity,
+<ex:solutionQicpmsTAPP-P1> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -24,26 +29,20 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: ambient dissolution in 0.075 M HNO3 (section 2). A single attack, though the paper does not describe it as a digestion -- Digestion Acid(s) records N/A on that reading." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: ambient dissolution in 0.075 M HNO3 (section 2). A single attack, though the paper does not describe it as a digestion -- Digestion Acid(s) records N/A on that reading." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Cambridge (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -65,19 +64,13 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler" ;
     ada:blankBackgroundCorrectionMethod "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "111Cd",
+    ada:chromatographicSeparationApplied "None (direct analysis of dissolved foraminifera)" ;
+    ada:driftCorrectionMethod "Standard bracketing" ;
+    ada:finalSolutionMatrix "0.075 M HNO3 at 100 ppm Ca (stated section 2)" ;
+    ada:internalStandardElement "None (matrix-matched external calibration; stated section 2)" ;
+    ada:isotopeDilutionSpike "None" ;
+    ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "111Cd",
                 "11B",
                 "238U (Table 1)",
                 "25Mg",
@@ -86,13 +79,19 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                 "55Mn",
                 "66Zn",
                 "7Li",
-                "87Sr" ] ;
-    ada:chromatographicSeparationApplied "None (direct analysis of dissolved foraminifera)" ;
-    ada:driftCorrectionMethod "Standard bracketing" ;
-    ada:finalSolutionMatrix "0.075 M HNO3 at 100 ppm Ca (stated section 2)" ;
-    ada:internalStandardElement "None (matrix-matched external calibration; stated section 2)" ;
-    ada:isotopeDilutionSpike "None" ;
-    ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
+                "87Sr" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample "6 replicates (Table 1)" ;
     ada:oxideProductionMethodAndThreshold "CeO/Ce < 3% (stated section 2)" ;
@@ -104,25 +103,82 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:uncertaintyLevel "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"" ;
     ada:washTimeBetweenSamples "60 s (Table 1)" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "PerkinElmer" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -244,61 +300,4 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "PerkinElmer" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 

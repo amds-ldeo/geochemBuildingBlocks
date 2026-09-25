@@ -9,6 +9,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -926,14 +927,14 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
                 concentrations, and specifically any case where different target species
@@ -946,7 +947,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -980,7 +981,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1016,7 +1017,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1050,7 +1051,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1084,7 +1085,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1118,7 +1119,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1155,7 +1156,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1192,7 +1193,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1231,7 +1232,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1268,7 +1269,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1305,7 +1306,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1342,7 +1343,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1367,14 +1368,14 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic
                 or residual interferences are applied in data reduction, supplementary
@@ -1384,7 +1385,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1399,11 +1400,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1420,7 +1417,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1435,11 +1432,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1457,7 +1450,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1472,11 +1465,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1492,7 +1481,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1507,11 +1496,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1530,7 +1515,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1545,11 +1530,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1569,7 +1550,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1584,11 +1565,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1609,7 +1586,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1624,11 +1601,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1647,7 +1620,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1662,11 +1635,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1676,14 +1645,14 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-        ada:defaultChannels:
+        ada:defaultMonitoredProperties:
           type: array
           items:
             anyOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
       required:
-      - ada:defaultChannels
+      - ada:defaultMonitoredProperties
     ada:massBiasCorrectionStrategy:
       description: 'Primary strategy used to correct for instrumental isotopic mass
         fractionation. Four main strategies: (1) Sample-standard bracketing (SSB):

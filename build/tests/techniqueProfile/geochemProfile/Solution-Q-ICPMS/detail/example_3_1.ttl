@@ -1,10 +1,9 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500 ;
+<ex:detail-Agilent7500> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-Agilent7500> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision" ;
     ada:analysisStartDate "missing" ;
@@ -28,5 +27,5 @@ ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard and RM analyses (stated section 2)" .
 
-ex:solutionQicpmsTAPP-Agilent7500 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-Agilent7500> schema1:identifier "missing" .
 

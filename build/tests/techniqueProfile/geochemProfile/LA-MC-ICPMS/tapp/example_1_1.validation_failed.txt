@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp - LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)
-Generated 2026-09-14T15:47:56.065534+00:00
+Generated 2026-09-25T19:34:16.184493+00:00
 === Files ===
 Using examplelaMcicpmsTAPP-Zhang2022.json from examples
 JSON-LD context is present - uplifting
@@ -8,14 +8,209 @@ Output Turtle example_1_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: {'@id': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies', '@type': ['schema:PropertyValueSpecification'], 'schema:valueName': 'interferingSpecies', 'schema:name': 'Interfering Species', 'ada:dataType': 'string', 'schema:defaultValue': ['¹⁶⁸Er²⁺ on ⁸⁴Sr', '¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb', '¹⁷²Yb²⁺ on ⁸⁶Sr', '¹⁷⁴Yb²⁺ on ⁸⁷Sr', '⁸⁷Rb on ⁸⁷Sr (isobaric)']} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema['allOf'][10]['properties']['schema:instrument']['items']['allOf'][0]['then']['properties']['schema:hasPart']['items']['allOf'][2]['then']['properties']['ada:collectorConfiguration']['items']:
+    {'anyOf': [{'description': 'Resistance values (Ω) of the feedback '
+                               'resistors in the Faraday cup amplifiers. '
+                               'Standard amplifiers use 10¹¹ Ω resistors, '
+                               'yielding 1 V per ~6.24 × 10⁶ ion counts '
+                               'per second. Report the resistor value per '
+                               "cup position, or note 'all 10¹¹ Ω' if "
+                               'uniform.',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'string'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'type': 'string'},
+                               'schema:name': {'const': 'Faraday Cup '
+                                                        'Amplifier '
+                                                        'Resistor Values'},
+                               'schema:readonlyValue': {'const': True},
+                               'schema:valueName': {'const': 'faradayCupAmplifierResistorValues'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Faraday Cup Amplifier Resistor Values',
+                'type': 'object'},
+               {'description': 'Method used to calibrate the relative gain '
+                               '(amplification factor) of each Faraday cup '
+                               'amplifier at the start of or during each '
+                               'analytical session. Common approaches: '
+                               'instrument internal gain calibration '
+                               'routine (measures signal in each cup '
+                               'sequentially using a common beam), '
+                               'amplifier rotation procedure, or '
+                               'measurement of a known isotope ratio '
+                               'solution in each cup. For instruments with '
+                               'SEM detectors, also describes the '
+                               'SEM-to-Faraday cross-calibration sequence. '
+                               'Specify frequency (per session, per block, '
+                               'weekly).',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'string'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'type': 'string'},
+                               'schema:name': {'const': 'Faraday Cup Gain '
+                                                        'Calibration '
+                                                        'Method'},
+                               'schema:readonlyValue': {'const': True},
+                               'schema:valueName': {'const': 'faradayCupGainCalibrationMethod'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Faraday Cup Gain Calibration Method',
+                'type': 'object'},
+               {'description': 'Duration of signal integration per '
+                               'measurement cycle (seconds).',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'number'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'anyOf': [{'type': 'number'},
+                                                                 {'type': 'string'}]},
+                               'schema:name': {'const': 'Integration Time '
+                                                        'per Cycle'},
+                               'schema:readonlyValue': {'const': False},
+                               'schema:valueName': {'const': 'integrationTimePerCycle'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Integration Time per Cycle',
+                'type': 'object'},
+               {'description': 'Equation or procedure used to calculate '
+                               'and remove each interference contribution, '
+                               'together with how its magnitude was '
+                               'established - a monitor mass measured '
+                               'simultaneously and scaled by natural '
+                               'abundance ratios, a production-rate factor '
+                               'measured on a reference material or '
+                               'interference standard solution, or a '
+                               'tailing factor measured on a pure '
+                               'standard. Name the reference material '
+                               'used.',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'string'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'type': 'string'},
+                               'schema:name': {'const': 'Interference '
+                                                        'Correction '
+                                                        'Method'},
+                               'schema:readonlyValue': {'const': True},
+                               'schema:valueName': {'const': 'interferenceCorrectionMethod'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Interference Correction Method',
+                'type': 'object'},
+               {'description': 'The isobaric, polyatomic and doubly '
+                               'charged species that overlap the measured '
+                               'masses and are corrected in data reduction '
+                               '- direct isobars, oxides and argides, '
+                               'hydrides, and abundance-sensitivity '
+                               'tailing from an adjacent large beam. Name '
+                               'each species and the mass it affects.',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'string'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'type': 'string'},
+                               'schema:name': {'const': 'Interfering '
+                                                        'Species'},
+                               'schema:readonlyValue': {'const': True},
+                               'schema:valueName': {'const': 'interferingSpecies'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Interfering Species',
+                'type': 'object'},
+               {'description': 'Dead time of the ion-counting detector(s), '
+                               'used in the dead-time correction applied '
+                               'to high count rates. Distinct from '
+                               'pulse/analog cross-calibration, which '
+                               'relates the two detector modes rather than '
+                               'correcting counting losses within the '
+                               'pulse-counting mode.',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'number'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'anyOf': [{'type': 'number'},
+                                                                 {'type': 'string'}]},
+                               'schema:name': {'const': 'Ion Counter Dead '
+                                                        'Time'},
+                               'schema:readonlyValue': {'const': False},
+                               'schema:valueName': {'const': 'ionCounterDeadTime'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Ion Counter Dead Time',
+                'type': 'object'},
+               {'description': 'Mass resolution mode used for acquisition. '
+                               'One target species may be acquired at more '
+                               'than one resolution, so the assignment is '
+                               'per acquired mass rather than per element. '
+                               'The overall mode(s) used in the procedure '
+                               'are recorded in Mass Resolution Setting '
+                               '(Group 3).',
+                'properties': {'@id': {'const': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment'},
+                               '@type': {'const': ['schema:PropertyValueSpecification']},
+                               'ada:dataType': {'const': 'string'},
+                               'ada:tier': {'const': 'M'},
+                               'schema:defaultValue': {'type': 'string'},
+                               'schema:name': {'const': 'Mass Resolution '
+                                                        'Assignment'},
+                               'schema:readonlyValue': {'const': True},
+                               'schema:valueName': {'const': 'massResolutionAssignment'}},
+                'required': ['@id',
+                             '@type',
+                             'schema:valueName',
+                             'schema:name',
+                             'ada:dataType',
+                             'schema:defaultValue'],
+                'title': 'Mass Resolution Assignment',
+                'type': 'object'}]}
+
+On instance['schema:instrument'][0]['schema:hasPart'][1]['ada:collectorConfiguration'][4]:
+    {'@id': 'ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies',
+     '@type': ['schema:PropertyValueSpecification'],
+     'ada:dataType': 'string',
+     'schema:defaultValue': ['¹⁶⁸Er²⁺ on ⁸⁴Sr',
+                             '¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb',
+                             '¹⁷²Yb²⁺ on ⁸⁶Sr',
+                             '¹⁷⁴Yb²⁺ on ⁸⁷Sr',
+                             '⁸⁷Rb on ⁸⁷Sr (isobaric)'],
+     'schema:name': 'Interfering Species',
+     'schema:valueName': 'interferingSpecies'}
 === End JSON Schema ===
 
 === SHACL ===
 
 ** Validation error **
-Error processing _sources/BaseSchema/modules/core/rules.shacl: at line 45 of <>:
-Bad syntax (Prefix "bios:" not bound) at ^ in:
-"...b'the procedure." ;\n    ] ;\n    sh:property [\n        sh:path '^b'bios:computationalTool ;\n        sh:minCount 1 ;\n        sh:'..."
+Error processing _sources/BaseSchema/modules/aggregation/rules.shacl: at line 27 of <>:
+Bad syntax (Prefix "dqv:" not bound) at ^ in:
+"...b'  }\n        """ ;\n    ] ;\n    sh:property [\n        sh:path '^b'dqv:hasQualityMeasurement ;\n        sh:minCount 1 ;\n        '..."
 === End SHACL ===
 

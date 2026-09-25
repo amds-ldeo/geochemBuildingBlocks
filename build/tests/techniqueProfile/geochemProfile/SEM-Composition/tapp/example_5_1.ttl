@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
+<ex:semCompositionTAPP-Pascucci2026> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -15,20 +14,20 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)" ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -60,21 +59,14 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
         [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
 
-<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "High vacuum" ;
-    schema1:name "Chamber Pressure" ;
-    schema1:valueName "chamberPressureDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "ESEM" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -85,25 +77,32 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "High vacuum" ;
+    schema1:name "Chamber Pressure" ;
+    schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> a schema1:PropertyValue ;
     schema1:name "EDS Spectral Processing Type" ;

@@ -1009,12 +1009,11 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
+<ex:solutionQicpmsTAPP-Gao2008> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -1055,7 +1054,7 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1090,6 +1089,64 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     ada:signalIntegrationIntervalMethod "missing" ;
     ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
     ada:washTimeBetweenSamples -9999 .
+
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
+        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "PerkinElmer" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "STD (standard mode, no gas; stated section 3.1)" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
@@ -1236,64 +1293,6 @@ ex:solutionQicpmsTAPP-Gao2008 a cdi:Activity,
     schema1:valueName "doublyChargedSpeciesProductionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
-        <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "PerkinElmer" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas; stated section 3.1)" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -1595,8 +1594,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       "schema:value": "Partially -- session duration is characterised but not enforced: \"blanks for all isotopes were stable during a typical run (~5 hr)\""
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "7Li",
       "11B",
       "25Mg",
@@ -1608,9 +1607,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       "111Cd",
       "238U (Table 1)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -1622,17 +1621,17 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1642,7 +1641,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1652,7 +1651,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2119,8 +2118,8 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       "schema:value": "Partially -- session duration is characterised but not enforced: \"blanks for all isotopes were stable during a typical run (~5 hr)\""
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "7Li",
       "11B",
       "25Mg",
@@ -2132,9 +2131,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       "111Cd",
       "238U (Table 1)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -2146,17 +2145,17 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2166,7 +2165,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2176,7 +2175,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2343,18 +2342,23 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-P1 a cdi:Activity,
+<ex:solutionQicpmsTAPP-P1> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -2366,26 +2370,20 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: ambient dissolution in 0.075 M HNO3 (section 2). A single attack, though the paper does not describe it as a digestion -- Digestion Acid(s) records N/A on that reading." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: ambient dissolution in 0.075 M HNO3 (section 2). A single attack, though the paper does not describe it as a digestion -- Digestion Acid(s) records N/A on that reading." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Cambridge (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2407,19 +2405,13 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler" ;
     ada:blankBackgroundCorrectionMethod "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "111Cd",
+    ada:chromatographicSeparationApplied "None (direct analysis of dissolved foraminifera)" ;
+    ada:driftCorrectionMethod "Standard bracketing" ;
+    ada:finalSolutionMatrix "0.075 M HNO3 at 100 ppm Ca (stated section 2)" ;
+    ada:internalStandardElement "None (matrix-matched external calibration; stated section 2)" ;
+    ada:isotopeDilutionSpike "None" ;
+    ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "111Cd",
                 "11B",
                 "238U (Table 1)",
                 "25Mg",
@@ -2428,13 +2420,19 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
                 "55Mn",
                 "66Zn",
                 "7Li",
-                "87Sr" ] ;
-    ada:chromatographicSeparationApplied "None (direct analysis of dissolved foraminifera)" ;
-    ada:driftCorrectionMethod "Standard bracketing" ;
-    ada:finalSolutionMatrix "0.075 M HNO3 at 100 ppm Ca (stated section 2)" ;
-    ada:internalStandardElement "None (matrix-matched external calibration; stated section 2)" ;
-    ada:isotopeDilutionSpike "None" ;
-    ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
+                "87Sr" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample "6 replicates (Table 1)" ;
     ada:oxideProductionMethodAndThreshold "CeO/Ce < 3% (stated section 2)" ;
@@ -2446,25 +2444,82 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     ada:uncertaintyLevel "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"" ;
     ada:washTimeBetweenSamples "60 s (Table 1)" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "PerkinElmer" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -2586,63 +2641,6 @@ ex:solutionQicpmsTAPP-P1 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "PerkinElmer" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "PerkinElmer Elan DRC II (stated section 2 and Table 1)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -2948,8 +2946,8 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "95Mo",
       "111Cd",
       "113Cd",
@@ -2959,9 +2957,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "205Tl",
       "209Bi (Table 1)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -2973,17 +2971,17 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2993,7 +2991,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3003,7 +3001,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3374,8 +3372,8 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "95Mo",
       "111Cd",
       "113Cd",
@@ -3385,9 +3383,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "205Tl",
       "209Bi (Table 1)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -3399,17 +3397,17 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3419,7 +3417,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3429,7 +3427,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3496,12 +3494,11 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
+<ex:solutionQicpmsTAPP-Agilent7500> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3510,9 +3507,9 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Whole-rock powder or glass chips (stated section 2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -3535,12 +3532,12 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder or glass chips (stated section 2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3558,32 +3555,32 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     ada:analyticalMode "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "111Cd",
-                "113Cd",
-                "115In",
-                "118Sn",
-                "149Sm",
-                "205Tl",
-                "209Bi (Table 1)",
-                "95Mo" ] ;
     ada:chromatographicSeparationApplied "None (direct analysis)" ;
     ada:driftCorrectionMethod "IS normalization" ;
     ada:finalSolutionMatrix "0.5 mol/l HNO3 (stated section 2)" ;
     ada:internalStandardElement "149Sm (as ID-IS reference; stated section 2)" ;
     ada:isotopeDilutionSpike "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "111Cd",
+                "113Cd",
+                "115In",
+                "118Sn",
+                "149Sm",
+                "205Tl",
+                "209Bi (Table 1)",
+                "95Mo" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 0.01 (= <1%; stated section 2)" ;
@@ -3596,25 +3593,73 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     ada:uncertaintyLevel "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"" ;
     ada:washTimeBetweenSamples ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Agilent" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7500cs (stated section 2)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -3677,54 +3722,6 @@ ex:solutionQicpmsTAPP-Agilent7500 a cdi:Activity,
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Agilent" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7500cs (stated section 2)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -4456,12 +4453,11 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
+<ex:solutionQicpmsTAPP-Agilent7900> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -4481,21 +4477,21 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris (IPGP), France (affiliation)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4533,6 +4529,58 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     ada:signalIntegrationIntervalMethod "missing" ;
     ada:uncertaintyLevel "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results" ;
     ada:washTimeBetweenSamples -9999 .
+
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Agilent" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7900 (stated Methods)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/gasFlowRateDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
     schema1:name "Collision Gas Type" ;
@@ -4591,58 +4639,6 @@ ex:solutionQicpmsTAPP-Agilent7900 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Agilent" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7900 (stated Methods)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/gasFlowRateDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -5104,8 +5100,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "schema:value": "None"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "10B",
       "11B",
       "90Zr",
@@ -5121,9 +5117,9 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "179Hf",
       "181Ta (Table 2a)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -5135,17 +5131,17 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5155,7 +5151,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5165,7 +5161,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5705,8 +5701,8 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "schema:value": "None"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "10B",
       "11B",
       "90Zr",
@@ -5722,9 +5718,9 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "179Hf",
       "181Ta (Table 2a)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -5736,17 +5732,17 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5756,7 +5752,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5766,7 +5762,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5846,31 +5842,17 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
+<ex:solutionQicpmsTAPP-Agilent7500-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5887,11 +5869,24 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5913,19 +5908,13 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:analyticalMode "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "Every two samples (stated section 2.1.1)" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "10B",
+    ada:chromatographicSeparationApplied "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)" ;
+    ada:driftCorrectionMethod "Standard bracketing" ;
+    ada:finalSolutionMatrix "0.5 mol/l HF (stated section 2.1.1)" ;
+    ada:internalStandardElement "None (ID-IS method: spike isotope ratios used; stated section 2.1)" ;
+    ada:isotopeDilutionSpike "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)" ;
+    ada:massCyclesPerReplicate "48 scans per 30 s acquisition (stated section 2.1.1)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "10B",
                 "118Sn",
                 "119Sn",
                 "11B",
@@ -5938,13 +5927,19 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
                 "91Zr",
                 "93Nb",
                 "95Mo",
-                "97Mo" ] ;
-    ada:chromatographicSeparationApplied "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)" ;
-    ada:driftCorrectionMethod "Standard bracketing" ;
-    ada:finalSolutionMatrix "0.5 mol/l HF (stated section 2.1.1)" ;
-    ada:internalStandardElement "None (ID-IS method: spike isotope ratios used; stated section 2.1)" ;
-    ada:isotopeDilutionSpike "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)" ;
-    ada:massCyclesPerReplicate "48 scans per 30 s acquisition (stated section 2.1.1)" ;
+                "97Mo" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 1% (stated section 2.1.1)" ;
@@ -5957,25 +5952,86 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Agilent" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 7500cs (stated section 2.1.1)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "STD (standard mode, no gas; collision gases not introduced into cell; stated section 2.1.1)" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "Quartz glass torch with Pt injector (stated Table in section 2.1.1)" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -6133,67 +6189,6 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Agilent" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 7500cs (stated section 2.1.1)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas; collision gases not introduced into cell; stated section 2.1.1)" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "Quartz glass torch with Pt injector (stated Table in section 2.1.1)" .
 
 
 ```
@@ -6363,14 +6358,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "125Te",
       "77Se"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -6382,17 +6377,17 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6402,7 +6397,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6412,7 +6407,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6714,14 +6709,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "125Te",
       "77Se"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -6733,17 +6728,17 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6753,7 +6748,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6763,7 +6758,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6897,12 +6892,11 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
+<ex:solutionQicpmsTAPP-Agilent8800> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -6911,15 +6905,15 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -6935,7 +6929,7 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6952,26 +6946,26 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "125Te",
-                "77Se" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "missing" ;
     ada:internalStandardElement "103Rh, to correct for matrix effects" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "125Te",
+                "77Se" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -6983,25 +6977,73 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Agilent" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Agilent 8800 (QQQ-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -7020,54 +7062,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a cdi:Activity,
     schema1:valueName "reactionGasType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Agilent" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Agilent 8800 (QQQ-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -7353,13 +7347,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "125Te and 126Te (and their O-shifted products)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -7371,17 +7365,17 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7391,7 +7385,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7401,7 +7395,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7762,13 +7756,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "125Te and 126Te (and their O-shifted products)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -7780,17 +7774,17 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7800,7 +7794,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7810,7 +7804,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7892,12 +7886,11 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-P6 a cdi:Activity,
+<ex:solutionQicpmsTAPP-P6> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -7906,9 +7899,9 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -7923,19 +7916,19 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "Dried at 50 C and homogenised in an agate mortar before microwave digestion" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7953,25 +7946,25 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "125Te and 126Te (and their O-shifted products)" ] ;
     ada:chromatographicSeparationApplied "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL" ;
     ada:internalStandardElement "missing" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "125Te and 126Te (and their O-shifted products)" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -7984,25 +7977,73 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "iCAP-TQ" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -8051,54 +8092,6 @@ ex:solutionQicpmsTAPP-P6 a cdi:Activity,
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "iCAP-TQ" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -8273,13 +8266,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "N — Se isotopes not individually stated"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -8291,17 +8284,17 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8311,7 +8304,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8321,7 +8314,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8637,13 +8630,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "N \u2014 Se isotopes not individually stated"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -8655,17 +8648,17 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8675,7 +8668,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8685,7 +8678,7 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8833,12 +8826,11 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-P7 a cdi:Activity,
+<ex:solutionQicpmsTAPP-P7> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -8847,15 +8839,15 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8872,7 +8864,7 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Karlsruhe Institute of Technology (KIT), Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8889,25 +8881,25 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "N — Se isotopes not individually stated" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "missing" ;
     ada:internalStandardElement "103Rh and 115In" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "N — Se isotopes not individually stated" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -8920,25 +8912,73 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Single-collector quadrupole (Q-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "XSeries 2" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "CCT mode (collision cell) with a He:H2 mixture" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -8964,54 +9004,6 @@ ex:solutionQicpmsTAPP-P7 a cdi:Activity,
     schema1:valueName "collisionReactionGasMixtureRatioDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Single-collector quadrupole (Q-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "XSeries 2" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "CCT mode (collision cell) with a He:H2 mixture" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -9322,15 +9314,15 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "54 elements measured in three groups: Group-1 trace elements",
       "Group-2 major and minor elements",
       "Group-3 HFSE plus Mo and W"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -9342,17 +9334,17 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9362,7 +9354,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9372,7 +9364,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9758,15 +9750,15 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "54 elements measured in three groups: Group-1 trace elements",
       "Group-2 major and minor elements",
       "Group-3 HFSE plus Mo and W"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -9778,17 +9770,17 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
         "schema:valueName": "dwellTimePerMass",
         "schema:name": "Dwell Time per Mass",
         "ada:dataType": "number",
-        "schema:defaultValue": "example value"
+        "schema:defaultValue": 1
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9798,7 +9790,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9808,7 +9800,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9890,12 +9882,11 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionQicpmsTAPP-P8 a cdi:Activity,
+<ex:solutionQicpmsTAPP-P8> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -9909,6 +9900,17 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: 0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water | 2: 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2 | 3: 0.2 mL HNO3 + 0.2 mL H2O2. The paper describes four heating stages; on the recorded acid mixtures these span three distinct attacks, the remaining stages being evaporation and uptake within a step." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
@@ -9920,22 +9922,11 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water | 2: 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2 | 3: 0.2 mL HNO3 + 0.2 mL H2O2. The paper describes four heating stages; on the recorded acid mixtures these span three distinct attacks, the remaining stages being evaporation and uptake within a step." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v82.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -9953,27 +9944,27 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "54 elements measured in three groups: Group-1 trace elements",
-                "Group-2 major and minor elements",
-                "Group-3 HFSE plus Mo and W" ] ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
     ada:finalSolutionMatrix "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF" ;
     ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
     ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
     ada:massCyclesPerReplicate -9999 ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "54 elements measured in three groups: Group-1 trace elements",
+                "Group-2 major and minor elements",
+                "Group-3 HFSE plus Mo and W" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -9986,25 +9977,73 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:uncertaintyLevel "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Triple quadrupole (ICP-MS/MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "iCAP TQ" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
+        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "KED (He) mode" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
     schema1:name "Dwell Time per Mass" ;
     schema1:valueName "dwellTimePerMass" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -10068,54 +10107,6 @@ ex:solutionQicpmsTAPP-P8 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Triple quadrupole (ICP-MS/MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "iCAP TQ" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType>,
-        <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "KED (He) mode" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
@@ -10136,6 +10127,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -10918,20 +10910,20 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:defaultChannels:
+        ada:defaultMonitoredProperties:
           type: array
           items:
             anyOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Dwell Time per Mass
               description: Count (dwell) time at the mass position, in milliseconds.
                 Where the procedure defines it per sweep or per scan rather than per
@@ -10939,7 +10931,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -10955,14 +10947,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -10979,7 +10965,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -10994,11 +10980,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -11015,7 +10997,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11030,11 +11012,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -11052,7 +11030,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11067,11 +11045,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -11088,7 +11062,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/dwellTimePerMass
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11104,14 +11078,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -11131,7 +11099,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11146,11 +11114,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -11170,7 +11134,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11185,11 +11149,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -11210,7 +11170,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11225,11 +11185,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -11240,7 +11196,7 @@ allOf:
             minContains: 0
             maxContains: 1
       required:
-      - ada:defaultChannels
+      - ada:defaultMonitoredProperties
     ada:massCyclesPerReplicate:
       description: "Number of complete mass scans accumulated per analytical replicate.
         A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal
@@ -11286,14 +11242,14 @@ allOf:
       - N/A
       - missing
       readOnly: true
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
                 concentrations, and specifically any case where different target species
@@ -11306,7 +11262,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11341,7 +11297,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11375,7 +11331,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11409,7 +11365,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11443,7 +11399,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11478,7 +11434,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11515,7 +11471,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11553,7 +11509,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11590,7 +11546,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11627,7 +11583,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11664,7 +11620,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11702,7 +11658,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -11764,9 +11720,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

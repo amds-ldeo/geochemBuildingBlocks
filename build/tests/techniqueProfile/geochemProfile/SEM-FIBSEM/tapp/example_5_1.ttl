@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
+<ex:semFibsemTAPP-Zega2025-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -34,8 +33,8 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -58,6 +57,54 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
+<ex:instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "N/A" .
+
+<ex:instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Unknown" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Helios G4 UX" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
+    ada:workingDistanceDefault -9999 .
+
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
+
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Various voltages down to 1 keV (polishing)" ;
     schema1:name "Fine Polishing Conditions" ;
@@ -72,52 +119,4 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
     schema1:valueName "foilThicknessDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "N/A" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "N/A" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Unknown" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Helios G4 UX" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
-    ada:workingDistanceDefault -9999 .
-
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Field emission gun (FEG) — subtype not specified" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 

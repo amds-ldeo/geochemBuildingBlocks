@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Shearer2024 a cdi:Activity,
+<ex:labxctTAPP-Shearer2024> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -25,7 +24,7 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -56,7 +55,7 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
     ada:targetFeature "Internal structure of core vacuum seal container" ;
     ada:xRaySourceConfiguration "225 kV multi-metal reflection target source" .
 
-<https://example.org/instrument/XCT> a schema1:Product,
+<ex:instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;

@@ -8,6 +8,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -321,21 +322,21 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. For sub-nA values use decimal
                 notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -368,7 +369,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -401,7 +402,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -432,7 +433,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -462,7 +463,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -492,7 +493,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -521,7 +522,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -550,7 +551,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -579,7 +580,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -607,7 +608,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -637,7 +638,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -666,7 +667,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -699,7 +700,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -729,7 +730,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -765,7 +766,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -801,7 +802,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -835,7 +836,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -868,7 +869,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -901,7 +902,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -933,7 +934,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -965,7 +966,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -997,7 +998,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1028,7 +1029,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1061,7 +1062,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1093,7 +1094,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1129,7 +1130,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1599,14 +1600,14 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster
                 scanning (imaging modes) or on each step position during compositional
@@ -1615,7 +1616,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1631,14 +1632,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1651,7 +1646,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1666,11 +1661,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1683,7 +1674,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1698,11 +1689,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1721,7 +1708,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/sequence
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1737,14 +1724,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1756,7 +1737,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1771,11 +1752,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1790,7 +1767,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1805,11 +1782,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1822,7 +1795,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1838,14 +1811,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1859,7 +1826,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1875,14 +1842,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1897,7 +1858,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1912,11 +1873,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1933,7 +1890,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1949,14 +1906,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1972,7 +1923,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1987,11 +1938,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2007,7 +1954,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2022,11 +1969,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2048,7 +1991,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/sequence
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2064,14 +2007,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2086,7 +2023,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2101,11 +2038,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2123,7 +2056,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2138,11 +2071,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2158,7 +2087,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2174,14 +2103,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2198,7 +2121,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2214,14 +2137,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2239,7 +2156,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2254,11 +2171,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'

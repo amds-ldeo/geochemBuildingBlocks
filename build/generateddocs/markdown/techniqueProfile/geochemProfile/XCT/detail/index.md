@@ -82,11 +82,10 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Eckley2024 a ada:XCTVolume ;
-    schema1:measurementTechnique ex:labxctTAPP-Eckley2024 ;
+<ex:detail-Eckley2024> a ada:XCTVolume ;
+    schema1:measurementTechnique <ex:labxctTAPP-Eckley2024> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-29" ;
     ada:analyst "Scott Eckley" ;
@@ -98,7 +97,7 @@ ex:detail-Eckley2024 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-ex:labxctTAPP-Eckley2024 schema1:identifier "missing" .
+<ex:labxctTAPP-Eckley2024> schema1:identifier "missing" .
 
 
 ```
@@ -207,12 +206,11 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Genge2025 a ada:XCTVolume ;
+<ex:detail-Genge2025> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Genge2025 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Genge2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -224,7 +222,7 @@ ex:detail-Genge2025 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-ex:labxctTAPP-Genge2025 schema1:identifier "missing" .
+<ex:labxctTAPP-Genge2025> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -312,12 +310,11 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Neuman2025 a ada:XCTVolume ;
-    schema1:measurementTechnique ex:labxctTAPP-Neuman2025 ;
+<ex:detail-Neuman2025> a ada:XCTVolume ;
+    schema1:measurementTechnique <ex:labxctTAPP-Neuman2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -331,7 +328,7 @@ ex:detail-Neuman2025 a ada:XCTVolume ;
     ada:subVolumeOverlap "~380 slices per sub-volume overlap" ;
     ada:voiApplied "Full core length per sub-volume" .
 
-ex:labxctTAPP-Neuman2025 schema1:identifier "missing" .
+<ex:labxctTAPP-Neuman2025> schema1:identifier "missing" .
 
 
 ```
@@ -412,12 +409,11 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Neuman2025-2 a ada:XCTVolume ;
-    schema1:measurementTechnique ex:labxctTAPP-Neuman2025-2 ;
+<ex:detail-Neuman2025-2> a ada:XCTVolume ;
+    schema1:measurementTechnique <ex:labxctTAPP-Neuman2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -430,7 +426,7 @@ ex:detail-Neuman2025-2 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full core length per sub-volume" .
 
-ex:labxctTAPP-Neuman2025-2 schema1:identifier "missing" .
+<ex:labxctTAPP-Neuman2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -539,12 +535,11 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Shearer2024 a ada:XCTVolume ;
+<ex:detail-Shearer2024> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Shearer2024 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Shearer2024> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -556,7 +551,7 @@ ex:detail-Shearer2024 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-ex:labxctTAPP-Shearer2024 schema1:identifier "missing" .
+<ex:labxctTAPP-Shearer2024> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -670,12 +665,11 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Shearer2024-2 a ada:XCTVolume ;
+<ex:detail-Shearer2024-2> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Shearer2024-2 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Shearer2024-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -687,7 +681,7 @@ ex:detail-Shearer2024-2 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
-ex:labxctTAPP-Shearer2024-2 schema1:identifier "missing" .
+<ex:labxctTAPP-Shearer2024-2> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -801,12 +795,11 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Tomkinson2015 a ada:XCTVolume ;
+<ex:detail-Tomkinson2015> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Tomkinson2015 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Tomkinson2015> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -818,7 +811,7 @@ ex:detail-Tomkinson2015 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
 
-ex:labxctTAPP-Tomkinson2015 schema1:identifier "missing" .
+<ex:labxctTAPP-Tomkinson2015> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -932,12 +925,11 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Glavin2023 a ada:XCTVolume ;
+<ex:detail-Glavin2023> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Glavin2023 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Glavin2023> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Scott A. Eckley" ;
@@ -949,7 +941,7 @@ ex:detail-Glavin2023 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
 
-ex:labxctTAPP-Glavin2023 schema1:identifier "missing" .
+<ex:labxctTAPP-Glavin2023> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1063,12 +1055,11 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Dias2019 a ada:XCTVolume ;
+<ex:detail-Dias2019> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Dias2019 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Dias2019> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1080,7 +1071,7 @@ ex:detail-Dias2019 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "5.39 mm³ total analyzed volume (NWA 8277)" .
 
-ex:labxctTAPP-Dias2019 schema1:identifier "missing" .
+<ex:labxctTAPP-Dias2019> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1194,12 +1185,11 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Richard2019 a ada:XCTVolume ;
+<ex:detail-Richard2019> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Richard2019 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Richard2019> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1211,7 +1201,7 @@ ex:detail-Richard2019 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-ex:labxctTAPP-Richard2019 schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1325,12 +1315,11 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Richard2019-2 a ada:XCTVolume ;
+<ex:detail-Richard2019-2> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Richard2019-2 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Richard2019-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1342,7 +1331,7 @@ ex:detail-Richard2019-2 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-ex:labxctTAPP-Richard2019-2 schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019-2> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1456,12 +1445,11 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Richard2019-3 a ada:XCTVolume ;
+<ex:detail-Richard2019-3> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Richard2019-3 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Richard2019-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1473,7 +1461,7 @@ ex:detail-Richard2019-3 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
-ex:labxctTAPP-Richard2019-3 schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019-3> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1587,12 +1575,11 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Richard2019-4 a ada:XCTVolume ;
+<ex:detail-Richard2019-4> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Richard2019-4 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Richard2019-4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1604,7 +1591,7 @@ ex:detail-Richard2019-4 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume per sample" .
 
-ex:labxctTAPP-Richard2019-4 schema1:identifier "missing" .
+<ex:labxctTAPP-Richard2019-4> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -1718,12 +1705,11 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Tait2014 a ada:XCTVolume ;
+<ex:detail-Tait2014> a ada:XCTVolume ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    schema1:measurementTechnique ex:labxctTAPP-Tait2014 ;
+    schema1:measurementTechnique <ex:labxctTAPP-Tait2014> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1735,7 +1721,7 @@ ex:detail-Tait2014 a ada:XCTVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full 8 mm core volume" .
 
-ex:labxctTAPP-Tait2014 schema1:identifier "missing" .
+<ex:labxctTAPP-Tait2014> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> a schema1:PropertyValue ;
     schema1:name "Effective Spatial Resolution (PSF/MTF)" ;
@@ -4130,10 +4116,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

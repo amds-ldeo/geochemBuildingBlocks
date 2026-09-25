@@ -166,14 +166,13 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P0 a ada:SolutionICPMSTabular ;
+<ex:detail-P0> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P0 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P0> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"For samples analyzed several times, reported values represent the mean of pooled solution replicates\". No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -199,7 +198,7 @@ ex:detail-P0 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P0 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P0> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -372,14 +371,13 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P1 a ada:SolutionICPMSTabular ;
+<ex:detail-P1> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P1 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P1> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -405,7 +403,7 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P1 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P1> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -578,14 +576,13 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P2 a ada:SolutionICPMSTabular ;
+<ex:detail-P2> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P2 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -611,7 +608,7 @@ ex:detail-P2 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P2 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P2> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -784,14 +781,13 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P3 a ada:SolutionICPMSTabular ;
+<ex:detail-P3> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P3 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"On average, LREEs were measured nine times\"; replicate matrix cuts were measured but \"are not used, however, for data interpretation to avoid unnecessary influence of stable isotopic fractionation potentially induced by Mo chemistry\" — an explicit exclusion, on chemical rather than statistical grounds" ;
     ada:analysisStartDate "missing" ;
@@ -817,7 +813,7 @@ ex:detail-P3 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P3 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P3> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -990,14 +986,13 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Tissot2020 a ada:SolutionICPMSTabular ;
+<ex:detail-Tissot2020> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-Tissot2020 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-Tissot2020> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — Table 1 records \"Number of times the same purified Zr solution was measured independently in the MC-ICP-MS\" and \"Reported values are weighted means of all replicate\" analyses. No rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -1023,7 +1018,7 @@ ex:detail-Tissot2020 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "External reproducibility at 2 sigma of the spiked ZrNIST measurements from each run, adopted as the uncertainty on each determination and stated to be similar to or slightly larger than the internal counting-statistics uncertainty" .
 
-ex:solutionMcicpmsTAPP-Tissot2020 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-Tissot2020> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -1222,15 +1217,14 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Dauphas2019 a ada:SolutionICPMSTabular ;
+<ex:detail-Dauphas2019> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-Dauphas2019 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-Dauphas2019> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1256,7 +1250,7 @@ ex:detail-Dauphas2019 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-Dauphas2019 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-Dauphas2019> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -1460,15 +1454,14 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P6 a ada:SolutionICPMSTabular ;
+<ex:detail-P6> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P6 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P6> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — n = 45 per analysis. No rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -1494,7 +1487,7 @@ ex:detail-P6 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Short-term reproducibility of standards analysed in a single analytical session, quoted as 2 standard deviations (2SD). Distinct from the within-run internal error, which the paper quotes separately as 2SE of the mean, 2SE = 2SD/n^0.5 with n = 45 for the Neptune and n = 50 for the Nu Plasma analyses" .
 
-ex:solutionMcicpmsTAPP-P6 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P6> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -1698,15 +1691,14 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P7 a ada:SolutionICPMSTabular ;
+<ex:detail-P7> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P7 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P7> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — n = 50 per analysis. No rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -1732,7 +1724,7 @@ ex:detail-P7 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Short-term reproducibility of standards analysed in a single analytical session, quoted as 2 standard deviations (2SD). Distinct from the within-run internal error, which the paper quotes separately as 2SE of the mean, 2SE = 2SD/n^0.5 with n = 45 for the Neptune and n = 50 for the Nu Plasma analyses" .
 
-ex:solutionMcicpmsTAPP-P7 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P7> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -1962,16 +1954,15 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
+<ex:detail-Moynier2017> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfBlocksPerMeasurement>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-Moynier2017 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-Moynier2017> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"" ;
     ada:analysisStartDate "missing" ;
@@ -1997,7 +1988,7 @@ ex:detail-Moynier2017 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-Moynier2017 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-Moynier2017> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -2180,14 +2171,13 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P9 a ada:SolutionICPMSTabular ;
+<ex:detail-P9> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P9 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P9> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — n stated per reference material (n = 13–99 for terrestrial RMs over 10 months; n = 17–38 for eucrites and Colony; n = 32 and n = 37 for standard sessions). No rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -2213,7 +2203,7 @@ ex:detail-P9 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P9 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P9> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -2386,14 +2376,13 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P10 a ada:SolutionICPMSTabular ;
+<ex:detail-P10> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P10 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P10> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"the mean ... of ten individual standard-bracketed sample analyses\"; \"Samples were typically analysed two to four times\". No rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -2419,7 +2408,7 @@ ex:detail-P10 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P10 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P10> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -2592,14 +2581,13 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P11 a ada:SolutionICPMSTabular ;
+<ex:detail-P11> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P11 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P11> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — \"Each sample was measured approximately 20 times\". No rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -2625,7 +2613,7 @@ ex:detail-P11 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P11 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P11> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -2772,13 +2760,12 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P12 a ada:SolutionICPMSTabular ;
+<ex:detail-P12> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P12 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P12> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2804,7 +2791,7 @@ ex:detail-P12 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P12 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P12> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -2972,14 +2959,13 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P13 a ada:SolutionICPMSTabular ;
+<ex:detail-P13> a ada:SolutionICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio>,
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:measurementTechnique ex:solutionMcicpmsTAPP-P13 ;
+    schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P13> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3005,7 +2991,7 @@ ex:detail-P13 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionMcicpmsTAPP-P13 schema1:identifier "missing" .
+<ex:solutionMcicpmsTAPP-P13> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double-Spike Mixing Ratio" ;
@@ -3717,10 +3703,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

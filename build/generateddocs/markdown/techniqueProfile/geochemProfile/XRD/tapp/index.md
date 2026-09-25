@@ -3,7 +3,7 @@
 
 `ogch.techniqueProfile.geochemProfile.XRD.tapp` *v0.1*
 
-X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element concentrations, so no ada:analyteTemplate is defined; no mode-flag columns, since it delivers a single technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
+X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element concentrations, so no ada:targetSpeciesTemplate is defined; no mode-flag columns, since it delivers a single technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -233,12 +233,11 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xrdTAPP-King2024 a cdi:Activity,
+<ex:xrdTAPP-King2024> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -247,14 +246,14 @@ ex:xrdTAPP-King2024 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "King, Ashley" ] ;
     schema1:datePublished "missing" ;
@@ -510,12 +509,11 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xrdTAPP-King2024-2 a cdi:Activity,
+<ex:xrdTAPP-King2024-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -524,14 +522,14 @@ ex:xrdTAPP-King2024-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "King, Ashley" ] ;
     schema1:datePublished "missing" ;
@@ -787,12 +785,11 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xrdTAPP-King2023 a cdi:Activity,
+<ex:xrdTAPP-King2023> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -801,14 +798,14 @@ ex:xrdTAPP-King2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "King, Ashley" ] ;
     schema1:datePublished "missing" ;
@@ -845,10 +842,10 @@ ex:xrdTAPP-King2023 a cdi:Activity,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: XRD Technique-Aligned Procedure Profile (xrdTAPP)
 description: X-ray diffraction extension of the base TAPP definition. XRD reports
-  phases rather than per-element concentrations, so no ada:analyteTemplate is defined;
-  no mode-flag columns, since it delivers a single technique componentType. DRAFT
-  - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source
-  table has not been through Phase 0 review.
+  phases rather than per-element concentrations, so no ada:targetSpeciesTemplate is
+  defined; no mode-flag columns, since it delivers a single technique componentType.
+  DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py;
+  the source table has not been through Phase 0 review.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -1014,9 +1011,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

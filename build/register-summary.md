@@ -28,6 +28,12 @@ Shell type for labeled links to creative works (schema:CreativeWork). Defines pr
 
 Supplemental documents for calibration, methods, and analysis info. Defines properties: @type, componentType, schema:version, schema:isBasedOn. Uses building blocks: detailARGT (geochemProperties).
 
+### `ogch.BaseSchema.otherFile` — Other File Type
+
+**Type:** schema
+
+Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
+
 ### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
 
 **Type:** schema
@@ -39,12 +45,6 @@ Supplemental document images including analysis locations and context photos. De
 **Type:** schema
 
 ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
-
-### `ogch.BaseSchema.otherFile` — Other File Type
-
-**Type:** schema
-
-Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -118,13 +118,7 @@ The shared SolutionIntroduction block of the 2026-08-11 TAPP library, composed b
 
 The shared UPb block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 3 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
-### `ogch.registry.analyteColumns` — Analyte-Column Specification Registry
-
-**Type:** schema
-
-Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Hosts one $def per analyte-table reporting column. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
-
-### `ogch.registry.channelColumns` — Channel-Column Specification Registry
+### `ogch.registry.monitoredPropertyColumns` — Monitored-Property-Column Specification Registry
 
 **Type:** schema
 
@@ -147,6 +141,12 @@ Registry of reusable schema:PropertyValue parameter-value definitions derived fr
 **Type:** schema
 
 Registry of reusable schema:PropertyValueSpecification reported-property column definitions derived from technique TAPP workbooks. Each $def constrains one column of the reported-property table -- the variables a procedure REPORTS, as distinct from the analytes and channels it acquires. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
+
+### `ogch.registry.targetSpeciesColumns` — Target-Species-Column Specification Registry
+
+**Type:** schema
+
+Registry of reusable schema:PropertyValueSpecification analyte-column definitions derived from technique TAPP spreadsheets. Hosts one $def per analyte-table reporting column. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
 
 ### `ogch.techniqueProfile.adaProfile.ARGT.detail` — ARGT Instrument Detail
 
@@ -268,23 +268,17 @@ CDI DimensionalDataStructure for multidimensional data. Defines properties: @typ
 
 CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEMPA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
 
-### `ogch.BaseSchema.structuredData` — Structured Data File Type
-
-**Type:** schema
-
-A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
-
 ### `ogch.BaseSchema.instrument` — ADA Analysis Instrument
 
 **Type:** schema
 
 ADA analytical instrument extending the core CDIF instrument building block. Typed as schema:Thing + schema:Product with domain-specific classifications (e.g. nxs:BaseClass/NXinstrument) in schema:additionalType. Inherits hierarchical sub-components, manufacturer, model, calibration properties from core.
 
-### `ogch.BaseSchema.files` — Files Type
+### `ogch.BaseSchema.structuredData` — Structured Data File Type
 
 **Type:** schema
 
-DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
+A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
 
 ### `ogch.BaseSchema.modules.icpms` — TAPP Composition Module: ICPMS
 
@@ -304,13 +298,19 @@ The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of 
 
 A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as cdi:Activity + schema:Action + ada:TAPPDefinition + bios:LabProtocol. TAPP identity (name, technique, instrument, location, target material) at top level. Standard workflow encoded in schema:actionProcess as a schema:HowTo with ordered cdi:Activity + schema:Action steps. Each workflow step carries its own parameters, reagents, instruments. Uses bios:computationalTool for software, bios:reagent for reference materials, dqv:hasQualityMeasurement for quality metrics, ada:fieldScope (method/session/element) for parameter lifecycle.
 
+### `ogch.BaseSchema.files` — Files Type
+
+**Type:** schema
+
+DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
+
 ### `ogch.BaseSchema.geochemProduct` — Geochem Analytical Product
 
 **Type:** schema
 
 Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.
 
-### `ogch.BaseSchema.modules.analyte` — TAPP Composition Module: Analyte
+### `ogch.BaseSchema.modules.targetSpecies` — TAPP Composition Module: Target Species
 
 **Type:** schema
 
@@ -950,7 +950,7 @@ Detail block for QRIS hasPart items, carrying the analysis-level properties supp
 
 **Type:** schema
 
-Quantitative Reflectance Imaging System extension of the base TAPP definition. QRIS has no per-element analyte axis, so no ada:analyteTemplate is defined, and no mode-flag columns: its ADA componentTypes are pipeline stages of one acquisition, not modes. DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
+Quantitative Reflectance Imaging System extension of the base TAPP definition. QRIS has no per-element analyte axis, so no ada:targetSpeciesTemplate is defined, and no mode-flag columns: its ADA componentTypes are pipeline stages of one acquisition, not modes. DRAFT - generated from draftTAPPs/QRIS_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
 
 ### `ogch.techniqueProfile.geochemProfile.RAMAN.detail` — Raman Analysis Detail
 
@@ -1034,7 +1034,7 @@ Detail block for FIB-SEM hasPart items. Discriminates on ada:componentType, carr
 
 **Type:** schema
 
-Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.
+Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.SEM-Imaging.detail` — SEM Imaging Analysis Detail
 
@@ -1046,7 +1046,7 @@ Detail block for SEM imaging hasPart items. Discriminates on ada:componentType, 
 
 **Type:** schema
 
-Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate (imaging has no per-element analyte axis). Generated from docs/SEM_Imaging_TAPP_v4.xlsx by tools/build_tapp.py.
+Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate (imaging has no per-element analyte axis). Generated from docs/SEM_Imaging_TAPP_v4.xlsx by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.SIMS.detail` — Secondary ion mass spectrometry Analysis Detail
 
@@ -1154,7 +1154,7 @@ Detail block for TEM hasPart items. Discriminates on ada:componentType, carries 
 
 **Type:** schema
 
-Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:analyteTemplate carries per-element columns. Generated from docs/TEM_TAPP_v7.xlsx by tools/build_tapp.py.
+Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries; an ada:targetSpeciesTemplate carries per-element columns. Generated from docs/TEM_TAPP_v7.xlsx by tools/build_tapp.py.
 
 ### `ogch.techniqueProfile.geochemProfile.TIMS.detail` — Thermal ionization mass spectrometry Analysis Detail
 
@@ -1214,7 +1214,7 @@ Detail block for VNMIR hasPart items. Discriminates on ada:componentType and car
 
 **Type:** schema
 
-Visible, near- and mid-infrared reflectance/emissivity spectroscopy extension of the base TAPP definition. Basic procedure-tier fields are required top-level ada: properties; Advanced procedure-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. VNMIR has no per-element analyte axis, so no ada:analyteTemplate is defined. DRAFT - generated from draftTAPPs/VNMIR_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
+Visible, near- and mid-infrared reflectance/emissivity spectroscopy extension of the base TAPP definition. Basic procedure-tier fields are required top-level ada: properties; Advanced procedure-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. VNMIR has no per-element analyte axis, so no ada:targetSpeciesTemplate is defined. DRAFT - generated from draftTAPPs/VNMIR_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
 
 ### `ogch.techniqueProfile.geochemProfile.XANES.detail` — XANES Analysis Detail
 
@@ -1250,7 +1250,7 @@ Detail block for XRD hasPart items, carrying the analysis-level properties suppl
 
 **Type:** schema
 
-X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element concentrations, so no ada:analyteTemplate is defined; no mode-flag columns, since it delivers a single technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
+X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element concentrations, so no ada:targetSpeciesTemplate is defined; no mode-flag columns, since it delivers a single technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
 
 ### `ogch.techniqueProfile.geochemProfile.CAPD.profile` — ADA Capacitance Dilatometry Product Profile
 

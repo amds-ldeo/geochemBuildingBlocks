@@ -106,12 +106,11 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P0 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionSficpmsTAPP-P0 ;
+<ex:detail-P0> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionSficpmsTAPP-P0> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
     ada:analysisStartDate "missing" ;
@@ -135,7 +134,7 @@ ex:detail-P0 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "2 sigma uncertainty of 30-set Pb isotope ratios per sample (stated section 2.3)" .
 
-ex:solutionSficpmsTAPP-P0 schema1:identifier "missing" .
+<ex:solutionSficpmsTAPP-P0> schema1:identifier "missing" .
 
 
 ```
@@ -238,12 +237,11 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P1 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionSficpmsTAPP-P1 ;
+<ex:detail-P1> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionSficpmsTAPP-P1> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -267,7 +265,7 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of replicate analyses (stated Table 5)" .
 
-ex:solutionSficpmsTAPP-P1 schema1:identifier "missing" .
+<ex:solutionSficpmsTAPP-P1> schema1:identifier "missing" .
 
 
 ```
@@ -370,12 +368,11 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P2 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionSficpmsTAPP-P2 ;
+<ex:detail-P2> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionSficpmsTAPP-P2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -399,7 +396,7 @@ ex:detail-P2 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionSficpmsTAPP-P2 schema1:identifier "missing" .
+<ex:solutionSficpmsTAPP-P2> schema1:identifier "missing" .
 
 
 ```
@@ -502,12 +499,11 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P3 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionSficpmsTAPP-P3 ;
+<ex:detail-P3> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionSficpmsTAPP-P3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -531,7 +527,7 @@ ex:detail-P3 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of replicate measurements (stated section 2.4)" .
 
-ex:solutionSficpmsTAPP-P3 schema1:identifier "missing" .
+<ex:solutionSficpmsTAPP-P3> schema1:identifier "missing" .
 
 
 ```
@@ -634,12 +630,11 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P4 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionSficpmsTAPP-P4 ;
+<ex:detail-P4> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionSficpmsTAPP-P4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -663,7 +658,7 @@ ex:detail-P4 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated consistency standard analyses (stated section 2.3.1)" .
 
-ex:solutionSficpmsTAPP-P4 schema1:identifier "missing" .
+<ex:solutionSficpmsTAPP-P4> schema1:identifier "missing" .
 
 
 ```
@@ -766,12 +761,11 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Willbold2005 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionSficpmsTAPP-Willbold2005 ;
+<ex:detail-Willbold2005> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionSficpmsTAPP-Willbold2005> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -795,7 +789,7 @@ ex:detail-Willbold2005 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated RM analyses within session (stated Table 5)" .
 
-ex:solutionSficpmsTAPP-Willbold2005 schema1:identifier "missing" .
+<ex:solutionSficpmsTAPP-Willbold2005> schema1:identifier "missing" .
 
 
 ```
@@ -1247,10 +1241,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

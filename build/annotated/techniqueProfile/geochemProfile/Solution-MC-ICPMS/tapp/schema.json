@@ -19,6 +19,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.json#/$defs/ProcedureIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -1525,15 +1528,15 @@
             }
           ]
         },
-        "ada:analyteTemplate": {
+        "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
-            "ada:analyteColumns": {
+            "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/AnalyteIdentifierColumn"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/TargetSpeciesIdentifierColumn"
                   },
                   {
                     "title": "Calibration Strategy per Target Species",
@@ -1541,7 +1544,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -1582,7 +1585,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1623,7 +1626,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1663,7 +1666,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1703,7 +1706,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -1743,7 +1746,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1788,7 +1791,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -1833,7 +1836,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1878,7 +1881,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1922,7 +1925,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1966,7 +1969,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -2010,7 +2013,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -2052,15 +2055,15 @@
             }
           }
         },
-        "ada:channelTemplate": {
+        "ada:monitoredPropertyTemplate": {
           "type": "object",
           "properties": {
-            "ada:channelColumns": {
+            "ada:monitoredPropertyColumns": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/ChannelIdentifierColumn"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/MonitoredPropertyIdentifierColumn"
                   },
                   {
                     "title": "Spectral Interference Corrections Applied",
@@ -2068,7 +2071,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -2091,17 +2094,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2119,7 +2112,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies"
                       },
                       "@type": {
                         "const": [
@@ -2142,17 +2135,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2170,7 +2153,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
                       },
                       "@type": {
                         "const": [
@@ -2193,17 +2176,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2221,7 +2194,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment"
                       },
                       "@type": {
                         "const": [
@@ -2244,17 +2217,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2276,7 +2239,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -2299,17 +2262,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2331,7 +2284,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies"
                       },
                       "@type": {
                         "const": [
@@ -2354,17 +2307,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2386,7 +2329,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod"
                       },
                       "@type": {
                         "const": [
@@ -2409,17 +2352,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2441,7 +2374,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment"
+                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment"
                       },
                       "@type": {
                         "const": [
@@ -2464,17 +2397,7 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
+                        "type": "string"
                       }
                     },
                     "required": [
@@ -2491,7 +2414,7 @@
                 }
               ]
             },
-            "ada:defaultChannels": {
+            "ada:defaultMonitoredProperties": {
               "type": "array",
               "items": {
                 "anyOf": [
@@ -2506,7 +2429,7 @@
             }
           },
           "required": [
-            "ada:defaultChannels"
+            "ada:defaultMonitoredProperties"
           ]
         },
         "ada:massBiasCorrectionStrategy": {

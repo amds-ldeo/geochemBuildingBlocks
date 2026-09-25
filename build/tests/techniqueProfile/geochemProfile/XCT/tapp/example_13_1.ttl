@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Richard2019-4 a cdi:Activity,
+<ex:labxctTAPP-Richard2019-4> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -15,14 +14,14 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
@@ -31,7 +30,7 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Université de Lorraine, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -70,6 +69,20 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "GE / Waygate" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Phoenix Nanotom S" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
+    ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
+    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 3 ;
@@ -121,20 +134,6 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "GE / Waygate" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Phoenix Nanotom S" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
-    ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
-    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ;
-    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;

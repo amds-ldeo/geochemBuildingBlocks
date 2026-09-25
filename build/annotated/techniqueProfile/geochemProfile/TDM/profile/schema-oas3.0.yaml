@@ -181,6 +181,7 @@ x-defs:
                             - ada:TAPPDefinition
                       required:
                       - '@type'
+                      - schema:name
                     then:
                       $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition
                 x-jsonld-id: http://www.w3.org/ns/prov#used
@@ -1092,46 +1093,12 @@ x-defs:
         x-jsonld-id: http://schema.org/distribution
       schema:relatedLink:
         type: array
-        description: links to related resources; linkRelationship specifies how the
-          resource is related.
+        description: Links to related resources. schema:linkRelationship says how
+          the target relates to this resource. Defined by schemaorgProperties/linkRole
+          since 2026-09-23; it was inline here, which is why schemaorgProperties/instrument
+          could not reuse it and defined the same property as a labeled link instead.
         items:
-          type: object
-          properties:
-            '@type':
-              type: array
-              items:
-                type: string
-              contains:
-                enum:
-                - schema:LinkRole
-              minItems: 1
-            schema:linkRelationship:
-              x-jsonld-id: http://schema.org/linkRelationship
-              allOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/cdifConceptOrTermOrString
-            schema:target:
-              type: object
-              properties:
-                '@type':
-                  type: array
-                  items:
-                    type: string
-                  contains:
-                    enum:
-                    - schema:EntryPoint
-                  minItems: 1
-                schema:encodingFormat:
-                  type: string
-                  description: registered MIME types are expected
-                  x-jsonld-id: http://schema.org/encodingFormat
-                schema:name:
-                  type: string
-                  x-jsonld-id: http://schema.org/name
-                schema:url:
-                  type: string
-                  format: uri
-                  x-jsonld-id: http://schema.org/url
-              x-jsonld-id: http://schema.org/target
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCore/$defs/LinkRole
         x-jsonld-id: http://schema.org/relatedLink
       schema:publishingPrinciples:
         description: FDOF digitalObjectMutability, RDA digitalObjectPolicy, FDOF PersistencyPolicy.
@@ -1319,10 +1286,12 @@ x-defs:
         required:
         - schema:url
     $defs:
+      LinkRole:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
       Reference:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
       Identifier:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       cdifConceptOrTerm:
@@ -2140,33 +2109,33 @@ x-defs:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodParameter
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodParameterValue
         x-jsonld-id: http://schema.org/additionalProperty
-      ada:analyteTemplate:
+      ada:targetSpeciesTemplate:
         description: Template for per-analyte (element-specific) parameters. Defines
           the columns that appear in the element table, each with scope, datatype,
           and constraints. Analyte rows become schema:variableMeasured entries in
           metadata records. Typically associated with the acquisition workflow step.
         type: object
         properties:
-          ada:analyteColumns:
+          ada:targetSpeciesColumns:
             type: array
             description: Columns of the per-analyte parameter table. Must include
               exactly one column with schema:valueName "analyte" that identifies the
               analyzed constituent named in each row.
             minItems: 1
             items:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteColumn
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetSpeciesColumn
             contains:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteIdentifierColumn
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetSpeciesIdentifierColumn
             maxContains: 1
-            x-jsonld-id: https://ada.astromat.org/metadata/analyteColumns
-          ada:defaultAnalytes:
+            x-jsonld-id: https://ada.astromat.org/metadata/targetSpeciesColumns
+          ada:defaultTargetSpecies:
             type: array
-            description: "The analytes (analyzed constituents) this method targets
-              by default \u2014 the ROWS of the per-analyte table. An entry is a bare
-              string or a schema:DefinedTerm naming the analyte, or a row object binding
-              that analyte to per-analyte values.\nA row object is keyed throughout
-              by the schema:valueName of the columns declared in ada:analyteColumns,
-              and MUST carry the 'analyte' key - the column that sibling description
+            description: "The target species (analyzed constituents) this method targets
+              by default \u2014 the ROWS of the per-species table. An entry is a bare
+              string or a schema:DefinedTerm naming the species, or a row object binding
+              that species to per-species values.\nA row object is keyed throughout
+              by the schema:valueName of the columns declared in ada:targetSpeciesColumns,
+              and MUST carry the 'targetSpecies' key - the column that sibling description
               requires to identify the constituent named in each row.\nWhich values
               belong here follows the TAPP's Analysis-Level Tier. A column marked
               Read-Only is fixed by the procedure, so its value belongs on the row.
@@ -2183,19 +2152,28 @@ x-defs:
               - type: string
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm
               - type: object
-                title: Per-analyte row
-                description: One row of the per-analyte table, keyed by column schema:valueName.
-                  null records a value that is deliberately absent for this analyte
+                title: Per-species row
+                description: One row of the per-species table, keyed by column schema:valueName.
+                  null records a value that is deliberately absent for this species
                   rather than merely unstated.
                 required:
-                - analyte
+                - targetSpecies
                 properties:
-                  analyte:
+                  targetSpecies:
                     type: string
-                    description: The analyzed constituent this row is for (e.g. "SiO2").
-                      The key is the schema:valueName of the analyte column, which
-                      ada:analyteColumns requires exactly one of, so a row is keyed
-                      by column valueName throughout.
+                    description: 'The analyzed constituent this row is for (e.g. "SiO2").
+                      The key is the schema:valueName of the identifier column, which
+                      ada:targetSpeciesColumns requires exactly one of, so a row is
+                      keyed by column valueName throughout.
+
+                      This key was ''analyte'' until 2026-09-25. The rename moved
+                      the COLUMN''s schema:valueName const to ''targetSpecies'' but
+                      left the row half behind, so a row object could satisfy neither
+                      half: keyed ''analyte'' it contradicted its own column, keyed
+                      ''targetSpecies'' it failed this required. Nothing upstream
+                      caught it because every tappDefinition example lists bare strings
+                      here and so never exercises this branch; it surfaced against
+                      the 46 stored ADA method definitions, which do use row objects.'
                 additionalProperties:
                   nullable: true
                   anyOf:
@@ -2203,11 +2181,11 @@ x-defs:
                   - type: number
                   - type: integer
                   - type: boolean
-            x-jsonld-id: https://ada.astromat.org/metadata/defaultAnalytes
+            x-jsonld-id: https://ada.astromat.org/metadata/defaultTargetSpecies
         required:
-        - ada:analyteColumns
-        x-jsonld-id: https://ada.astromat.org/metadata/analyteTemplate
-      ada:channelTemplate:
+        - ada:targetSpeciesColumns
+        x-jsonld-id: https://ada.astromat.org/metadata/targetSpeciesTemplate
+      ada:monitoredPropertyTemplate:
         description: Template for per-channel parameters, a channel being an instrument
           selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray
           line). Declares the channel domain and the columns that repeat over it.
@@ -2215,19 +2193,19 @@ x-defs:
           for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.
         type: object
         properties:
-          ada:channelColumns:
+          ada:monitoredPropertyColumns:
             type: array
             description: Columns of the per-channel parameter table. Must include
               exactly one column with schema:valueName "channel" identifying the selection
               position named in each row.
             minItems: 1
             items:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/ChannelColumn
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MonitoredPropertyColumn
             contains:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/ChannelIdentifierColumn
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MonitoredPropertyIdentifierColumn
             maxContains: 1
-            x-jsonld-id: https://ada.astromat.org/metadata/channelColumns
-          ada:defaultChannels:
+            x-jsonld-id: https://ada.astromat.org/metadata/monitoredPropertyColumns
+          ada:defaultMonitoredProperties:
             type: array
             description: "The channels this procedure defines by default \u2014 the
               ROWS of the channel table. Each is a bare string or a schema:DefinedTerm
@@ -2237,17 +2215,17 @@ x-defs:
               anyOf:
               - type: string
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm
-            x-jsonld-id: https://ada.astromat.org/metadata/defaultChannels
+            x-jsonld-id: https://ada.astromat.org/metadata/defaultMonitoredProperties
         required:
-        - ada:channelColumns
-        x-jsonld-id: https://ada.astromat.org/metadata/channelTemplate
+        - ada:monitoredPropertyColumns
+        x-jsonld-id: https://ada.astromat.org/metadata/monitoredPropertyTemplate
       ada:reportedPropertyTemplate:
         description: 'Template for the variables this procedure REPORTS and their
-          units, as distinct from ada:analyteTemplate which records what was acquired.
-          Declares the reported-property domain and the columns that repeat over it.
-          It also states the procedure''s scope boundary: a derived quantity inside
-          this list is in scope, anything beyond it belongs to a separate, coupled
-          procedure.'
+          units, as distinct from ada:targetSpeciesTemplate which records what was
+          acquired. Declares the reported-property domain and the columns that repeat
+          over it. It also states the procedure''s scope boundary: a derived quantity
+          inside this list is in scope, anything beyond it belongs to a separate,
+          coupled procedure.'
         type: object
         properties:
           ada:reportedPropertyColumns:
@@ -2759,7 +2737,7 @@ x-defs:
           A keyed table has one row per member of some domain -- an analyte, a reported
           property, a channel -- and one column per field whose value repeats over
           that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured
-          entries; columns become schema:additionalProperty within each. AnalyteColumn
+          entries; columns become schema:additionalProperty within each. TargetSpeciesColumn
           and ReportedPropertyColumn are the two domains modelled so far; both are
           this shape.
         properties:
@@ -2892,7 +2870,7 @@ x-defs:
         required:
         - schema:name
         - ada:dataType
-      AnalyteColumn:
+      TargetSpeciesColumn:
         description: One column of the per-analyte parameter table. Structurally a
           KeyedTableColumn; kept as its own name because generated schemas and the
           shared analyteColumns registry $ref it.
@@ -2905,7 +2883,7 @@ x-defs:
           Structurally a KeyedTableColumn.
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn
-      ChannelColumn:
+      MonitoredPropertyColumn:
         description: 'One column of the channel table. A channel is an instrument
           SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray
           line. It is not a flavour of analyte: the analyte is what is measured, the
@@ -2914,9 +2892,9 @@ x-defs:
           interferences that are not analytes at all. Structurally a KeyedTableColumn.'
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn
-      ChannelIdentifierColumn:
+      MonitoredPropertyIdentifierColumn:
         description: The mandatory channel-identifier column, naming the selection
-          position in each row. Mirrors AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn;
+          position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn;
           like both it maps into schema:variableMeasured/schema:name, because the
           variable list is shared across a procedure's table parts rather than owned
           by any one of them.
@@ -2927,7 +2905,7 @@ x-defs:
             schema:valueName:
               x-jsonld-id: http://schema.org/valueName
               enum:
-              - channel
+              - monitoredProperty
             ada:dataType:
               x-jsonld-id: https://ada.astromat.org/metadata/dataType
               enum:
@@ -2957,12 +2935,12 @@ x-defs:
           - ada:cdifPropertyPath
       ReportedPropertyIdentifierColumn:
         description: 'The mandatory reported-property identifier column, naming the
-          reported variable in each row. Mirrors AnalyteIdentifierColumn: pinned constants
-          fix the column''s role as a row identifier rather than an editable parameter.
-          Both identifier columns map into schema:variableMeasured/schema:name because
-          the variable list is SHARED -- a procedure yields several tables (analyte,
-          channel, reported property) over one logical variable registry, not one
-          table per document.'
+          reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned
+          constants fix the column''s role as a row identifier rather than an editable
+          parameter. Both identifier columns map into schema:variableMeasured/schema:name
+          because the variable list is SHARED -- a procedure yields several tables
+          (analyte, channel, reported property) over one logical variable registry,
+          not one table per document.'
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn
         - type: object
@@ -2998,7 +2976,7 @@ x-defs:
           - schema:valueRequired
           - ada:tier
           - ada:cdifPropertyPath
-      AnalyteIdentifierColumn:
+      TargetSpeciesIdentifierColumn:
         description: 'The mandatory analyte-identifier column. Each row in the analyte
           table must carry a value for this column naming the analyzed constituent
           (e.g. "SiO2", "Fe"). Pinned constants enforce the column''s role: readonly
@@ -3006,13 +2984,13 @@ x-defs:
           tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term
           the value space should be a DefinedTermSet; for now a string.'
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/AnalyteColumn
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetSpeciesColumn
         - type: object
           properties:
             schema:valueName:
               x-jsonld-id: http://schema.org/valueName
               enum:
-              - analyte
+              - targetSpecies
             ada:dataType:
               x-jsonld-id: https://ada.astromat.org/metadata/dataType
               enum:
@@ -3291,17 +3269,25 @@ x-defs:
             - cdi:LongDataStructure
             - cdi:WideDataStructure
     then:
-      description: Standalone data-structure object (one of the four variants).
-      anyOf:
-      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DataStructure
-      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DimensionalDataStructure
-      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/LongDataStructure
-      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WideDataStructure
+      description: 'Standalone data-structure object (one of the four variants). The
+        structure is the subject of the record, not something attached to downloadable
+        data, so no schema:DataDownload appears: a distribution here would be describing
+        a different resource than the one the record is about.'
+      allOf:
+      - anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DimensionalDataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/LongDataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WideDataStructure
+      - not:
+          required:
+          - schema:distribution
     else:
       description: A CDIF dataset described by a data structure. Must declare conformance
         to data_structure/1.1 and attach the structure to a distribution.
       required:
       - schema:subjectOf
+      - schema:distribution
       properties:
         schema:subjectOf:
           required:
@@ -3319,23 +3305,122 @@ x-defs:
                     - https://w3id.org/cdif/data_structure/1.1
         schema:distribution:
           type: array
+          contains:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/StructuredDataDownload
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WebAPIWithStructuredResult
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DistributionWithStructuredParts
           items:
             type: object
             properties:
               cdi:isStructuredBy:
-                description: Reusable data-structure description for this distribution.
-                  One of the four DataStructure variants (DataStructure, Dimensional,
-                  Long, Wide) as an inline definition, or an @id reference to one
-                  declared elsewhere in the document or published at a resolvable
-                  URI. (A profile may further require the inline form via SHACL.)
-                anyOf:
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DataStructure
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DimensionalDataStructure
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/LongDataStructure
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WideDataStructure
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
                 x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
+                allOf:
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/IsStructuredByProperty
+              schema:hasPart:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    cdi:isStructuredBy:
+                      x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
+                      allOf:
+                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/IsStructuredByProperty
+              schema:potentialAction:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    schema:result:
+                      type: object
+                      properties:
+                        cdi:isStructuredBy:
+                          x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
+                          allOf:
+                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/IsStructuredByProperty
+      allOf:
+      - if:
+          required:
+          - schema:distribution
+          properties:
+            schema:distribution:
+              type: array
+              contains:
+                type: object
+                required:
+                - schema:hasPart
+        then:
+          properties:
+            schema:subjectOf:
+              required:
+              - dcterms:conformsTo
+              properties:
+                dcterms:conformsTo:
+                  contains:
+                    type: object
+                    required:
+                    - '@id'
+                    additionalProperties: false
+                    properties:
+                      '@id':
+                        enum:
+                        - https://w3id.org/cdif/manifest/1.1
     $defs:
+      IsStructuredByProperty:
+        anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/IsStructuredByValue
+        - type: array
+          minItems: 1
+          items:
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/IsStructuredByValue
+      IsStructuredByValue:
+        description: Reusable data-structure description for this distribution. One
+          of the four DataStructure variants (DataStructure, Dimensional, Long, Wide)
+          as an inline definition, or an @id reference to one declared elsewhere in
+          the document or published at a resolvable URI. (A profile may further require
+          the inline form via SHACL.)
+        anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/DimensionalDataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/LongDataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/WideDataStructure
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+      StructuredDataDownload:
+        type: object
+        required:
+        - '@type'
+        - cdi:isStructuredBy
+        properties:
+          '@type':
+            type: array
+            contains:
+              enum:
+              - schema:DataDownload
+      DistributionWithStructuredParts:
+        type: object
+        required:
+        - schema:hasPart
+        properties:
+          schema:hasPart:
+            type: array
+            contains:
+              type: object
+              required:
+              - cdi:isStructuredBy
+      WebAPIWithStructuredResult:
+        type: object
+        required:
+        - schema:potentialAction
+        properties:
+          schema:potentialAction:
+            type: array
+            contains:
+              type: object
+              required:
+              - schema:result
+              properties:
+                schema:result:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/StructuredDataDownload
       DataStructure:
         type: object
         description: Data organization based on reusable data structure components.
@@ -3351,14 +3436,14 @@ x-defs:
           '@id':
             type: string
             description: Identifier for this DataStructure node
-          cdi:has_ForeignKey:
+          cdif:has_ForeignKey:
             type: array
             items:
               anyOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/ForeignKey
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             minItems: 1
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_ForeignKey
+            x-jsonld-id: https://w3id.org/cdif/has_ForeignKey
           cdi:has_DataStructureComponent:
             type: array
             items:
@@ -3367,8 +3452,8 @@ x-defs:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
-          cdi:has_PrimaryKey:
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_PrimaryKey
+          cdif:has_PrimaryKey:
+            x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
         required:
@@ -3377,9 +3462,9 @@ x-defs:
         - required:
           - cdi:has_DataStructureComponent
         - required:
-          - cdi:has_ForeignKey
+          - cdif:has_ForeignKey
         - required:
-          - cdi:has_PrimaryKey
+          - cdif:has_PrimaryKey
       DimensionalDataStructure:
         type: object
         description: Structure of a dimensional data set (organized collection of
@@ -3407,18 +3492,18 @@ x-defs:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/DimensionComponent
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
-          cdi:has_PrimaryKey:
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_PrimaryKey
+          cdif:has_PrimaryKey:
+            x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
-          cdi:has_ForeignKey:
+          cdif:has_ForeignKey:
             type: array
             items:
               anyOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/ForeignKey
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             minItems: 1
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_ForeignKey
+            x-jsonld-id: https://w3id.org/cdif/has_ForeignKey
         required:
         - '@type'
         - cdi:has_DataStructureComponent
@@ -3465,8 +3550,8 @@ x-defs:
               maxContains: 1
             minItems: 3
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
-          cdi:has_PrimaryKey:
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_PrimaryKey
+          cdif:has_PrimaryKey:
+            x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
         required:
@@ -3498,18 +3583,18 @@ x-defs:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
-          cdi:has_PrimaryKey:
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_PrimaryKey
+          cdif:has_PrimaryKey:
+            x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
-          cdi:has_ForeignKey:
+          cdif:has_ForeignKey:
             type: array
             items:
               anyOf:
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/ForeignKey
               - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             minItems: 1
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_ForeignKey
+            x-jsonld-id: https://w3id.org/cdif/has_ForeignKey
         required:
         - '@type'
         - cdi:has_DataStructureComponent
@@ -3561,9 +3646,9 @@ x-defs:
           shape. DDI-CDI composes a foreign key from cdi:ForeignKeyComponent nodes,
           each with cdi:correspondsTo and cdi:references; this form composes the variables
           directly, each carrying cdif:position. The prefix is what makes that divergence
-          visible, and it matches the sibling cdif:PrimaryKey. Until 2026-09-05 the
-          definition required ''cdif:isComposedOf'' while declaring ''cdi:isComposedOf'',
-          so it could only be satisfied by an undeclared and therefore unconstrained
+          visible, and it matches the sibling cdif:Key. Until 2026-09-05 the definition
+          required ''cdif:isComposedOf'' while declaring ''cdi:isComposedOf'', so
+          it could only be satisfied by an undeclared and therefore unconstrained
           property.'
         properties:
           '@type':
@@ -3581,13 +3666,12 @@ x-defs:
             type: array
             minItems: 1
             description: 'Ordered list of cdi:ComponentPosition wrappers, one per
-              key component, matching the sibling cdif:PrimaryKey. The position sits
-              on the wrapper rather than on the variable, and that is load-bearing:
-              an earlier form required cdif:position on the item itself, which made
-              the objectReference branch unsatisfiable, because objectReference is
-              sealed with additionalProperties false. A key could then only be written
-              by inlining whole variables, duplicating what schema:variableMeasured
-              already holds.'
+              key component, matching the sibling cdif:Key. The position sits on the
+              wrapper rather than on the variable, and that is load-bearing: an earlier
+              form required cdif:position on the item itself, which made the objectReference
+              branch unsatisfiable, because objectReference is sealed with additionalProperties
+              false. A key could then only be written by inlining whole variables,
+              duplicating what schema:variableMeasured already holds.'
             items:
               type: object
               description: cdi:ComponentPosition wrapper indexing one variable's position
@@ -3605,24 +3689,26 @@ x-defs:
                   type: string
                   description: Identifier for this ComponentPosition node.
                 cdi:indexes:
-                  description: The variable this position indexes, usually an @id-reference
-                    to one declared in schema:variableMeasured. An InstanceVariable
-                    is accepted alongside a RepresentedVariable because it is a subclass
-                    of one, and CDIF records describe instance variables -- requiring
-                    a RepresentedVariable would leave the records that actually need
-                    a key unable to write one.
-                  anyOf:
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable
+                  description: The variable this position indexes -- an @id-reference
+                    to one declared elsewhere in the document, matching cdi:indexes
+                    on PrimaryKey. A key names variables that are defined once and
+                    referenced from the key, so an inline variable here would be a
+                    second copy of a node that already exists; framing inlines the
+                    target and the embedded copy then had to be told apart from authored
+                    content.
                   x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/indexes
+                  allOf:
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
                 cdi:value:
                   type: integer
                   minimum: 1
+                  default: 1
                   description: 1-based position of this variable in the ordered key.
                   x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/value
               required:
               - '@type'
+              - cdi:indexes
+              - cdi:value
             x-jsonld-id: https://w3id.org/cdif/isComposedOf
           cdif:references:
             description: references a primary key in a different dataset
@@ -3632,64 +3718,13 @@ x-defs:
         required:
         - '@type'
         - cdif:isComposedOf
+        - cdif:references
       PrimaryKey:
-        type: object
-        description: set of Variables that uniquely identify a data instance, expressed
-          as an ordered list of cdi:ComponentPosition wrappers (unified with cdifKey's
-          cdi:ComponentPosition model).
-        properties:
-          '@type':
-            type: array
-            items:
-              type: string
-            contains:
-              enum:
-              - cdif:PrimaryKey
-            minItems: 1
-          '@id':
-            type: string
-            description: Identifier for this PrimaryKey node
-          cdif:isComposedOf:
-            type: array
-            minItems: 1
-            description: Ordered list of cdi:ComponentPosition wrappers, one per key
-              component. Each wrapper indexes one representedVariable (cdi:indexes)
-              at its cdi:value position in the key.
-            items:
-              type: object
-              description: cdi:ComponentPosition wrapper indexing one variable's position
-                in the key.
-              properties:
-                '@type':
-                  type: array
-                  items:
-                    type: string
-                  contains:
-                    enum:
-                    - cdi:ComponentPosition
-                  minItems: 1
-                '@id':
-                  type: string
-                  description: Identifier for this ComponentPosition node.
-                cdi:indexes:
-                  description: "The representedVariable this position indexes \u2014
-                    an @id-reference to a variable declared elsewhere in the dataStructure."
-                  x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/indexes
-                  allOf:
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-                cdi:value:
-                  type: integer
-                  minimum: 1
-                  description: 1-based position of this variable in the ordered key.
-                  x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/value
-              required:
-              - '@type'
-              - cdi:indexes
-              - cdi:value
-            x-jsonld-id: https://w3id.org/cdif/isComposedOf
-        required:
-        - '@type'
-        - cdif:isComposedOf
+        description: Set of variables that uniquely identify a data instance. The
+          same cdif:Key as cdif:hasPrimaryKey takes at dataset level, so a structure-level
+          key and a dataset-level key can be one node referenced twice.
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifKey
     x-jsonld-prefixes:
       cdif: https://w3id.org/cdif/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
@@ -5524,9 +5559,11 @@ x-defs:
       schema:relatedLink:
         type: array
         description: Links to related resources (manuals, datasheets, calibration
-          records, related instruments).
+          records, related instruments), each naming how the target relates to the
+          instrument. Uses the same linkRole block as cdifCore; before 2026-09-23
+          this property was a labeled link here and a LinkRole there.
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Reference
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/LinkRole
         x-jsonld-id: http://schema.org/relatedLink
       schema:subjectOf:
         description: Catalog record metadata-about-metadata for this instrument description.
@@ -5608,7 +5645,9 @@ x-defs:
         - '@type'
         - schema:name
       Reference:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+      LinkRole:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole
       InstrumentComponent:
         type: object
         description: A sub-component of an instrument system. Uses the same structure
@@ -5704,6 +5743,77 @@ x-defs:
       wd: https://www.wikidata.org/entity/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  cdif.bbr.metadata.schemaorgProperties.linkRole:
+    description: 'A typed link, implemented as a schema.org LinkRole: schema:linkRelationship
+      names how the target relates to the subject, and schema:target carries the EntryPoint
+      actually being linked to.
+
+      This is the right shape when the relationship itself is the point -- "this is
+      the canonical version of", "this is the download endpoint for". Where the value
+      is simply a work at a URL, such as a license or a terms-of-service document,
+      use schemaorgProperties/labeledLink instead: a licence is a work, not a role,
+      and wrapping it in a Role forces every consumer through an indirection to reach
+      the thing itself.
+
+      Defined here as a block rather than inline in a profile (where it lived until
+      2026-09-23) so that more than one consumer can reuse it. While it was inline
+      in cdifCore, schemaorgProperties/instrument could not reach it and defined schema:relatedLink
+      as a labeled link instead -- the same property carrying two different shapes
+      depending on which node held it.'
+    type: object
+    properties:
+      '@type':
+        default: schema:LinkRole
+        type: array
+        items:
+          type: string
+        contains:
+          enum:
+          - schema:LinkRole
+        minItems: 1
+      schema:linkRelationship:
+        description: How the target relates to the subject, as a controlled-vocabulary
+          value or a plain string label.
+        x-jsonld-id: http://schema.org/linkRelationship
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole/$defs/cdifConceptOrTermOrString
+      schema:target:
+        type: object
+        description: 'The entry point being linked to. Deliberately not sealed: real
+          targets also carry schema:httpMethod, schema:urlTemplate, schema:contentType
+          and domain-specific properties, and JSON-LD is open-world.'
+        properties:
+          '@type':
+            default: schema:EntryPoint
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - schema:EntryPoint
+            minItems: 1
+          schema:name:
+            type: string
+            x-jsonld-id: http://schema.org/name
+          schema:url:
+            type: string
+            format: uri
+            x-jsonld-id: http://schema.org/url
+          schema:encodingFormat:
+            type: string
+            description: registered MIME types are expected
+            x-jsonld-id: http://schema.org/encodingFormat
+        x-jsonld-id: http://schema.org/target
+    required:
+    - '@type'
+    $defs:
+      cdifConceptOrTermOrString:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+    x-jsonld-prefixes:
+      schema: http://schema.org/
+      skos: http://www.w3.org/2004/02/skos/core#
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/linkRole/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString:
     title: CDIF Concept-or-Term-or-String
     description: Shared shape for a CDIF property that carries either a controlled-vocabulary
@@ -5715,56 +5825,66 @@ x-defs:
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.cdifReference:
+  cdif.bbr.metadata.schemaorgProperties.labeledLink:
+    description: 'Schema for a labeled link, a profile of schema.org/CreativeWork:
+      a resolvable URL with an optional name and description. Optionally carries the
+      DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses
+      a typed relationship rather than a plain reference.
+
+      Those two properties were a separate block, cdifDataType/cdifReference, which
+      was an allOf of this schema plus exactly those two optional properties and nothing
+      else -- its dcat:Relationship co-type mandate had already been removed because
+      it made every labeled link unsatisfiable and broke every schema:license example
+      that followed schema.org''s own advice. Since both are optional, folding them
+      in here changes no document''s validity while removing a block and five levels
+      of $defs/Reference indirection. cdifReference was retired 2026-09-23.'
     type: object
-    description: Building block to implement relations to other resources using a
-      URL and some semantics.
-    allOf:
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/Relation
+    properties:
+      '@type':
+        default: schema:CreativeWork
+        type: array
+        items:
+          type: string
+        contains:
+          enum:
+          - schema:CreativeWork
+        minItems: 1
+      schema:name:
+        type: string
+        x-jsonld-id: http://schema.org/name
+      schema:description:
+        type: string
+        x-jsonld-id: http://schema.org/description
+      schema:url:
+        type: string
+        format: uri
+        x-jsonld-id: http://schema.org/url
+      dcat:hadRole:
+        description: Role of the related resource as a SKOS Concept (DCAT canonical
+          role slot). Present only on a link that expresses a relationship; a plain
+          labeled link such as a license omits it.
+        x-jsonld-id: http://www.w3.org/ns/dcat#hadRole
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/cdifConceptOrTermOrString
+      dcterms:relation:
+        type: string
+        format: uri
+        description: URI of the related resource -- the DCAT canonical pointer to
+          what is being related to, which is distinct from schema:url, the presentation
+          URL of the link itself.
+        x-jsonld-id: http://purl.org/dc/terms/relation
+    required:
+    - '@type'
+    - schema:url
     $defs:
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
-      cdifConceptOrTerm:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
-      Relation:
-        type: object
-        description: 'DCAT Relationship surface added on top of the schema.org labeled
-          link construct. This block is an allOf of labeledLink and this surface,
-          so a "@type" with contains: dcat:Relationship here applied to EVERY cdifReference
-          -- alongside labeledLink''s contains: schema:CreativeWork -- making the
-          two co-types mandatory and the block unsatisfiable for an ordinary labeled
-          link. schema:license recommends exactly such a link ("recommend using schema:CreativeWork
-          to provide a label (name) for the license"), and every example that followed
-          that advice failed. The co-type mandate is therefore gone: @type is governed
-          solely by labeledLink, which already requires schema:CreativeWork and permits
-          dcat:Relationship alongside it. This matches rules.shacl, where cdifReferenceShape
-          targets dcat:Relationship as a class -- the relation rules apply to nodes
-          that declare it, rather than forcing every labeled link to.'
-        properties:
-          dcat:hadRole:
-            description: Role of the related resource as a SKOS Concept (DCAT canonical
-              role slot).
-            x-jsonld-id: http://www.w3.org/ns/dcat#hadRole
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/cdifConceptOrTermOrString
-          dcterms:relation:
-            type: string
-            format: uri
-            description: URI of the related resource (DCAT canonical pointer to what
-              is being related to; distinct from schema:url which is the presentation
-              URL inherited from labeledLink).
-            x-jsonld-id: http://purl.org/dc/terms/relation
     x-jsonld-prefixes:
       schema: http://schema.org/
       skos: http://www.w3.org/2004/02/skos/core#
-      cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-      cdif: https://w3id.org/cdif/
-      ex: https://example.org/
-      xsd: http://www.w3.org/2001/XMLSchema#
       dcterms: http://purl.org/dc/terms/
       dcat: http://www.w3.org/ns/dcat#
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifReference/schema.yaml
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.identifier:
     description: 'Properties for a schema.org identifier (schema:PropertyValue pattern).
@@ -6030,7 +6150,7 @@ x-defs:
     - schema:termsOfService
     $defs:
       Reference:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
       DefinedTerm:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Action:
@@ -6394,7 +6514,7 @@ x-defs:
           type: string
           description: a resolvable reference to a representation of the software
             or instrument used
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
     x-jsonld-prefixes:
       schema: http://schema.org/
       prov: http://www.w3.org/ns/prov#
@@ -6559,9 +6679,9 @@ x-defs:
       cdif:isComposedOf:
         type: array
         description: Ordered list of cdi:ComponentPosition wrappers. Each wrapper
-          carries cdi:indexes (an inline cdifInstanceVariable or @id-reference to
-          one declared elsewhere in the dataset) and cdi:value (the integer position
-          in the key, 0- or 1-based).
+          carries cdi:indexes (an @id-reference to a cdi:InstanceVariable declared
+          elsewhere in the dataset) and cdi:value (the 1-based integer position in
+          the key).
         items:
           type: object
           description: ComponentPosition wrapper indexing one variable's position
@@ -6579,21 +6699,27 @@ x-defs:
               type: string
               description: Identifier for this ComponentPosition node.
             cdi:indexes:
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable
-              - type: object
-                additionalProperties: false
-                description: object reference via @id to a cdifInstanceVariable declared
-                  elsewhere
-                properties:
-                  '@id':
-                    type: string
-                required:
-                - '@id'
+              description: 'The variable this position indexes -- an @id-reference
+                to one declared elsewhere in the document. At dataset level (cdif:hasPrimaryKey)
+                that is a cdi:InstanceVariable in schema:variableMeasured; at data-structure
+                level (cdif:has_PrimaryKey, cdif:has_ForeignKey) it is a cdi:RepresentedVariable
+                in the structure. The value is a bare objectReference either way:
+                a key names variables that are defined once and referenced from the
+                key, so an inline variable here would be a second copy of a node that
+                already exists.'
               x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/indexes
+              allOf:
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
             cdi:value:
               type: integer
-              description: Index value (position) of the variable in the ordered key.
+              minimum: 1
+              default: 1
+              description: 1-based position of this variable in the ordered key. Pinned
+                to a minimum of 1 because a key that might be 0- or 1-based has ambiguous
+                ordering, which defeats the purpose of recording a position at all
+                -- and because both structure-level key definitions already rejected
+                0, so the latitude this description used to advertise was never honoured
+                anywhere.
               x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/value
           required:
           - '@type'
@@ -7095,12 +7221,18 @@ x-defs:
       cdif:uses:
         type: array
         items:
-          anyOf:
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTermOrString
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTermOrString
         description: 'Essentially the same as schema:propertyID. References the concept(s)
-          that this variable measures or represents and, under the Data Structure
-          profile, the RepresentedVariable it instantiates. The RepresentedVariable
+          this variable measures or represents -- and nothing else. A RepresentedVariable
+          is NOT a legal value: that link is cdif:isDefinedBy_RepresentedVariable,
+          which is reference-only and carries the no-duplication rule. The RepresentedVariable
+          branch was removed 2026-09-25. It never widened what could be *written*,
+          because cdifConceptOrTerm''s first branch is already a sealed {@id} reference,
+          so it only ever admitted an inline RepresentedVariable node -- which framing
+          produced and nothing authored. Keeping it cost the property its single value
+          type, made it a partial exception to the CDIF convention of disambiguating
+          polymorphic DDI-CDI role names by target, and left it not type-compatible
+          with canonical cdi:uses, which is valued by a Concept. The RepresentedVariable
           branch is not new behaviour: it is what the rest of CDIF already documents
           and enforces. description.md calls cdif:uses "concepts (or, under the Data
           Structure profile, the RepresentedVariable)"; agents.md describes the InstanceVariable
@@ -7221,9 +7353,9 @@ x-defs:
           cdi:measures:
             not: true
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures
-          cdi:externalDefinition:
+          cdif:externalDefinition:
             not: true
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition
+            x-jsonld-id: https://w3id.org/cdif/externalDefinition
           cdif:uses_Concept:
             not: true
             x-jsonld-id: https://w3id.org/cdif/uses_Concept
@@ -8454,36 +8586,6 @@ x-defs:
       schema: http://schema.org/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.labeledLink:
-    description: schema for a labeled link, a profile of schema.org/CreativeWork
-    type: object
-    properties:
-      '@type':
-        default: schema:CreativeWork
-        type: array
-        items:
-          type: string
-        contains:
-          enum:
-          - schema:CreativeWork
-        minItems: 1
-      schema:name:
-        type: string
-        x-jsonld-id: http://schema.org/name
-      schema:description:
-        type: string
-        x-jsonld-id: http://schema.org/description
-      schema:url:
-        type: string
-        format: uri
-        x-jsonld-id: http://schema.org/url
-    required:
-    - '@type'
-    - schema:url
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent:
     title: DDI-CDI Data Structure Component
     description: Role given to a represented variable in the context of a long or
@@ -8794,306 +8896,6 @@ x-defs:
       cdif: https://w3id.org/cdif/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifDataStructureComponent/schema.yaml
-    x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable:
-    title: DDI-CDI Represented Variable
-    description: Conceptual variable with a substantive value domain specified.
-    type: object
-    properties:
-      '@type':
-        type: array
-        items:
-          type: string
-        contains:
-          enum:
-          - cdi:RepresentedVariable
-        minItems: 1
-      '@id':
-        type: string
-        description: Identifier for this RepresentedVariable node
-      cdi:describedUnitOfMeasure:
-        description: The unit in which the data values are measured (kg, pound, euro),
-          expressed as a value from a controlled system of entries (i.e., QDT). Supports
-          the provision of an identifier for the entry in the authoritative source
-          (a URI, etc.), and the specific vocabulary.
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure
-        allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString
-      cdi:hasIntendedDataType:
-        description: The data type intended to be used by this variable. Supports
-          the optional use of an external controlled vocabulary.
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType
-        allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString
-      cdi:takesSentinelValuesFrom:
-        type: array
-        items:
-          anyOf:
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SentinelValueDomain
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        minItems: 1
-        description: Sentinel (missing / not-applicable) value domain(s) for this
-          RepresentedVariable (RepresentedVariable.takesSentinelValuesFrom).
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom
-      cdi:takesSubstantiveValuesFrom:
-        anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SubstantiveValueDomain
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        description: The substantive value domain for this RepresentedVariable - the
-          set of valid, meaningful values (RepresentedVariable.takesSubstantiveValuesFrom).
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSubstantiveValuesFrom
-      cdi:simpleUnitOfMeasure:
-        type: string
-        description: The unit in which the data values are measured (kg, pound, euro),
-          expressed as a simple string, in cases where no additional information is
-          available (in the legacy system) or needed (as in the case of broad agreement
-          within the community of use [i.e., ISO country codes, currencies, etc. in
-          SDMX])
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/simpleUnitOfMeasure
-      cdif:descriptiveText:
-        type: string
-        description: A short natural language account of the characteristics of the
-          object.
-        x-jsonld-id: https://w3id.org/cdif/descriptiveText
-      cdi:measures:
-        anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/UnitType
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures
-      cdi:unitOfMeasureKind:
-        description: Kind of unit of measure, so that it may be prone to translation
-          to equivalent UOMs. Example values include "acceleration," "temperature,"
-          "salinity", etc. This description exists at the conceptual level, indicating
-          a limitation on the type of representations which may be used for the variable
-          as it is made more concrete.
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind
-        allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString
-      cdif:definition:
-        type: string
-        description: Natural language statement conveying the meaning of a concept,
-          differentiating it from other concepts. Supports the use of multiple languages
-          and structured text. 'externalDefinition' can't be used if 'definition'
-          is used.
-        x-jsonld-id: https://w3id.org/cdif/definition
-      cdif:displayLabel:
-        type: array
-        items:
-          type: string
-        minItems: 1
-        description: A human-readable display label for the object. Supports the use
-          of multiple languages. Repeat for labels with different content, for example,
-          labels with differing length limitations.
-        x-jsonld-id: https://w3id.org/cdif/displayLabel
-      cdi:externalDefinition:
-        description: A reference to an external definition of a concept (that is,
-          a concept which is described outside the content of the DDI-CDI metadata
-          description). An example is a SKOS concept. The definition property is assumed
-          to duplicate the external one referenced if externalDefinition is used.
-          Other corresponding properties are assumed to be included unchanged if used.
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition
-        allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/Reference
-      cdi:identifier:
-        description: Identifier for objects requiring short- or long-lasting referencing
-          and management.
-        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier
-        allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
-      cdif:name:
-        type: array
-        items:
-          type: string
-        minItems: 1
-        description: Human understandable name (linguistic signifier, word, phrase,
-          or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context
-          provided to specify usage.
-        x-jsonld-id: https://w3id.org/cdif/name
-      cdif:uses_Concept:
-        type: array
-        items:
-          anyOf:
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        minItems: 1
-        x-jsonld-id: https://w3id.org/cdif/uses_Concept
-    required:
-    - '@type'
-    $defs:
-      cdifConceptOrTermOrString:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
-      cdifConceptOrTerm:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
-      Reference:
-        type: object
-        description: CDIF reference to an external resource by URL, with optional
-          name and description.
-        properties:
-          '@type':
-            type: array
-            items:
-              type: string
-            contains:
-              enum:
-              - cdif:Reference
-            minItems: 1
-          schema:url:
-            type: string
-            format: uri
-            description: URL of the referenced resource.
-          schema:name:
-            type: string
-            description: Human-readable name of the referenced resource.
-          schema:description:
-            type: string
-            description: Human-readable description of the reference.
-        required:
-        - '@type'
-      ConceptSystem:
-        type: object
-        description: Set of concepts structured by the relations among them [GSIM
-          1.1].
-        properties:
-          '@type':
-            type: array
-            items:
-              type: string
-            contains:
-              enum:
-              - cdi:ConceptSystem
-            minItems: 1
-          '@id':
-            type: string
-            description: Identifier for this ConceptSystem node
-          cdi:allowsDuplicates:
-            type: boolean
-            description: "If value is False, the members are unique within the collection
-              - if True, there may be duplicates. (Note that a mathematical \u201Cbag\u201D
-              permits duplicates and is unordered - a \u201Cset\u201D does not have
-              duplicates and may be ordered.)"
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/allowsDuplicates
-          cdi:externalDefinition:
-            description: A reference to an external definition of a concept (that
-              is, a concept which is described outside the content of the DDI-CDI
-              metadata description). An example is a SKOS concept. The definition
-              property is assumed to duplicate the external one referenced if externalDefinition
-              is used. Other corresponding properties are assumed to be included unchanged
-              if used.
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/Reference
-          cdi:identifier:
-            description: Identifier for objects requiring short- or long-lasting referencing
-              and management.
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
-          cdif:name:
-            type: array
-            items:
-              type: string
-            minItems: 1
-            description: Human understandable name (liguistic signifier, word, phrase,
-              or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
-              context provided to specify usage.
-            x-jsonld-id: https://w3id.org/cdif/name
-          cdif:isDefinedBy_Concept:
-            type: array
-            items:
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-            minItems: 1
-            x-jsonld-id: https://w3id.org/cdif/isDefinedBy_Concept
-          cdif:has_Concept:
-            type: array
-            items:
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-            minItems: 1
-            x-jsonld-id: https://w3id.org/cdif/has_Concept
-          cdi:purpose:
-            type: string
-            description: Intent or reason for the object/the description of the object.
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/purpose
-        required:
-        - '@type'
-      UnitType:
-        type: object
-        description: Unit type is a type or class of objects of interest (units).
-        properties:
-          '@type':
-            type: array
-            items:
-              type: string
-            contains:
-              enum:
-              - cdi:UnitType
-            minItems: 1
-          '@id':
-            type: string
-            description: Identifier for this UnitType node
-          cdif:descriptiveText:
-            type: string
-            description: A short natural language account of the characteristics of
-              the object.
-            x-jsonld-id: https://w3id.org/cdif/descriptiveText
-          cdif:definition:
-            type: string
-            description: Natural language statement conveying the meaning of a concept,
-              differentiating it from other concepts. Supports the use of multiple
-              languages and structured text. 'externalDefinition' can't be used if
-              'definition' is used.
-            x-jsonld-id: https://w3id.org/cdif/definition
-          cdif:displayLabel:
-            type: array
-            items:
-              type: string
-            minItems: 1
-            description: A human-readable display label for the object. Supports the
-              use of multiple languages. Repeat for labels with different content,
-              for example, labels with differing length limitations.
-            x-jsonld-id: https://w3id.org/cdif/displayLabel
-          cdi:externalDefinition:
-            description: A reference to an external definition of a concept (that
-              is, a concept which is described outside the content of the DDI-CDI
-              metadata description). An example is a SKOS concept. The definition
-              property is assumed to duplicate the external one referenced if externalDefinition
-              is used. Other corresponding properties are assumed to be included unchanged
-              if used.
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/externalDefinition
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/Reference
-          cdi:identifier:
-            description: Identifier for objects requiring short- or long-lasting referencing
-              and management.
-            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
-          cdif:name:
-            type: array
-            items:
-              type: string
-            minItems: 1
-            description: Human understandable name (linguistic signifier, word, phrase,
-              or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
-              context provided to specify usage.
-            x-jsonld-id: https://w3id.org/cdif/name
-          cdif:uses_Concept:
-            type: array
-            items:
-              anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-            minItems: 1
-            x-jsonld-id: https://w3id.org/cdif/uses_Concept
-        required:
-        - '@type'
-    x-jsonld-prefixes:
-      cdif: https://w3id.org/cdif/
-      cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifRepresentedVariable/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.spatialRegistration:
     title: Spatial Registration Type
@@ -9659,6 +9461,283 @@ x-defs:
       skos: http://www.w3.org/2004/02/skos/core#
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifEnumerationDomain/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
+  cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable:
+    title: DDI-CDI Represented Variable
+    description: Conceptual variable with a substantive value domain specified.
+    type: object
+    properties:
+      '@type':
+        type: array
+        items:
+          type: string
+        contains:
+          enum:
+          - cdi:RepresentedVariable
+        minItems: 1
+      '@id':
+        type: string
+        description: Identifier for this RepresentedVariable node
+      cdi:describedUnitOfMeasure:
+        description: The unit in which the data values are measured (kg, pound, euro),
+          expressed as a value from a controlled system of entries (i.e., QDT). Supports
+          the provision of an identifier for the entry in the authoritative source
+          (a URI, etc.), and the specific vocabulary.
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString
+      cdi:hasIntendedDataType:
+        description: The data type intended to be used by this variable. Supports
+          the optional use of an external controlled vocabulary.
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString
+      cdi:takesSentinelValuesFrom:
+        type: array
+        items:
+          anyOf:
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SentinelValueDomain
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        minItems: 1
+        description: Sentinel (missing / not-applicable) value domain(s) for this
+          RepresentedVariable (RepresentedVariable.takesSentinelValuesFrom).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom
+      cdi:takesSubstantiveValuesFrom:
+        anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifValueDomain/$defs/SubstantiveValueDomain
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        description: The substantive value domain for this RepresentedVariable - the
+          set of valid, meaningful values (RepresentedVariable.takesSubstantiveValuesFrom).
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSubstantiveValuesFrom
+      cdi:simpleUnitOfMeasure:
+        type: string
+        description: The unit in which the data values are measured (kg, pound, euro),
+          expressed as a simple string, in cases where no additional information is
+          available (in the legacy system) or needed (as in the case of broad agreement
+          within the community of use [i.e., ISO country codes, currencies, etc. in
+          SDMX])
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/simpleUnitOfMeasure
+      cdif:descriptiveText:
+        type: string
+        description: A short natural language account of the characteristics of the
+          object.
+        x-jsonld-id: https://w3id.org/cdif/descriptiveText
+      cdi:measures:
+        anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/UnitType
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures
+      cdi:unitOfMeasureKind:
+        description: Kind of unit of measure, so that it may be prone to translation
+          to equivalent UOMs. Example values include "acceleration," "temperature,"
+          "salinity", etc. This description exists at the conceptual level, indicating
+          a limitation on the type of representations which may be used for the variable
+          as it is made more concrete.
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString
+      cdif:definition:
+        type: string
+        description: Natural language statement conveying the meaning of a concept,
+          differentiating it from other concepts. Supports the use of multiple languages
+          and structured text. 'externalDefinition' can't be used if 'definition'
+          is used.
+        x-jsonld-id: https://w3id.org/cdif/definition
+      cdif:displayLabel:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        description: A human-readable display label for the object. Supports the use
+          of multiple languages. Repeat for labels with different content, for example,
+          labels with differing length limitations.
+        x-jsonld-id: https://w3id.org/cdif/displayLabel
+      cdif:externalDefinition:
+        description: A reference to an external definition of a concept (that is,
+          a concept which is described outside the content of the DDI-CDI metadata
+          description). An example is a SKOS concept. The definition property is assumed
+          to duplicate the external one referenced if externalDefinition is used.
+          Other corresponding properties are assumed to be included unchanged if used.
+        x-jsonld-id: https://w3id.org/cdif/externalDefinition
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/Reference
+      cdi:identifier:
+        description: Identifier for objects requiring short- or long-lasting referencing
+          and management.
+        x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+      cdif:name:
+        type: array
+        items:
+          type: string
+        minItems: 1
+        description: Human understandable name (linguistic signifier, word, phrase,
+          or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context
+          provided to specify usage.
+        x-jsonld-id: https://w3id.org/cdif/name
+      cdif:uses_Concept:
+        type: array
+        items:
+          anyOf:
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        minItems: 1
+        x-jsonld-id: https://w3id.org/cdif/uses_Concept
+    required:
+    - '@type'
+    $defs:
+      cdifConceptOrTermOrString:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+      cdifConceptOrTerm:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
+      Reference:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+      ConceptSystem:
+        type: object
+        description: Set of concepts structured by the relations among them [GSIM
+          1.1].
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - cdi:ConceptSystem
+            minItems: 1
+          '@id':
+            type: string
+            description: Identifier for this ConceptSystem node
+          cdi:allowsDuplicates:
+            type: boolean
+            description: "If value is False, the members are unique within the collection
+              - if True, there may be duplicates. (Note that a mathematical \u201Cbag\u201D
+              permits duplicates and is unordered - a \u201Cset\u201D does not have
+              duplicates and may be ordered.)"
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/allowsDuplicates
+          cdif:externalDefinition:
+            description: A reference to an external definition of a concept (that
+              is, a concept which is described outside the content of the DDI-CDI
+              metadata description). An example is a SKOS concept. The definition
+              property is assumed to duplicate the external one referenced if externalDefinition
+              is used. Other corresponding properties are assumed to be included unchanged
+              if used.
+            x-jsonld-id: https://w3id.org/cdif/externalDefinition
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/Reference
+          cdi:identifier:
+            description: Identifier for objects requiring short- or long-lasting referencing
+              and management.
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+          cdif:name:
+            type: array
+            items:
+              type: string
+            minItems: 1
+            description: Human understandable name (liguistic signifier, word, phrase,
+              or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
+              context provided to specify usage.
+            x-jsonld-id: https://w3id.org/cdif/name
+          cdif:isDefinedBy_Concept:
+            type: array
+            items:
+              anyOf:
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+            minItems: 1
+            x-jsonld-id: https://w3id.org/cdif/isDefinedBy_Concept
+          cdif:has_Concept:
+            type: array
+            items:
+              anyOf:
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+            minItems: 1
+            x-jsonld-id: https://w3id.org/cdif/has_Concept
+          cdi:purpose:
+            type: string
+            description: Intent or reason for the object/the description of the object.
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/purpose
+        required:
+        - '@type'
+      UnitType:
+        type: object
+        description: Unit type is a type or class of objects of interest (units).
+        properties:
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - cdi:UnitType
+            minItems: 1
+          '@id':
+            type: string
+            description: Identifier for this UnitType node
+          cdif:descriptiveText:
+            type: string
+            description: A short natural language account of the characteristics of
+              the object.
+            x-jsonld-id: https://w3id.org/cdif/descriptiveText
+          cdif:definition:
+            type: string
+            description: Natural language statement conveying the meaning of a concept,
+              differentiating it from other concepts. Supports the use of multiple
+              languages and structured text. 'externalDefinition' can't be used if
+              'definition' is used.
+            x-jsonld-id: https://w3id.org/cdif/definition
+          cdif:displayLabel:
+            type: array
+            items:
+              type: string
+            minItems: 1
+            description: A human-readable display label for the object. Supports the
+              use of multiple languages. Repeat for labels with different content,
+              for example, labels with differing length limitations.
+            x-jsonld-id: https://w3id.org/cdif/displayLabel
+          cdif:externalDefinition:
+            description: A reference to an external definition of a concept (that
+              is, a concept which is described outside the content of the DDI-CDI
+              metadata description). An example is a SKOS concept. The definition
+              property is assumed to duplicate the external one referenced if externalDefinition
+              is used. Other corresponding properties are assumed to be included unchanged
+              if used.
+            x-jsonld-id: https://w3id.org/cdif/externalDefinition
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/Reference
+          cdi:identifier:
+            description: Identifier for objects requiring short- or long-lasting referencing
+              and management.
+            x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier
+            allOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+          cdif:name:
+            type: array
+            items:
+              type: string
+            minItems: 1
+            description: Human understandable name (linguistic signifier, word, phrase,
+              or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
+              context provided to specify usage.
+            x-jsonld-id: https://w3id.org/cdif/name
+          cdif:uses_Concept:
+            type: array
+            items:
+              anyOf:
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+            minItems: 1
+            x-jsonld-id: https://w3id.org/cdif/uses_Concept
+        required:
+        - '@type'
+    x-jsonld-prefixes:
+      cdif: https://w3id.org/cdif/
+      cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifRepresentedVariable/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable:
     title: DDI-CDI Descriptor Variable
     type: object
@@ -10165,6 +10244,7 @@ allOf:
                         - ada:TAPPDefinition
                   required:
                   - '@type'
+                  - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TDM/profile/schema-oas3.0.yaml#/x-defs/ogch.techniqueProfile.geochemProfile.TDM.tapp
     schema:additionalType:

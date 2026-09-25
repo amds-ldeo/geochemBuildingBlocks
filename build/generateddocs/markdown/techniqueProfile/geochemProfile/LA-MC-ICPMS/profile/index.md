@@ -201,6 +201,14 @@ and technique component types on the archive distribution. Mock data for validat
               "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
+        },
+        {
+          "@id": "ex:laMcicpmsTAPP-P0",
+          "@type": [
+            "prov:Entity",
+            "prov:Plan",
+            "ada:TAPPDefinition"
+          ]
         }
       ],
       "schema:location": {
@@ -715,6 +723,14 @@ and technique component types on the archive distribution. Mock data for validat
               "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
+        },
+        {
+          "@id": "ex:laMcicpmsTAPP-P0",
+          "@type": [
+            "prov:Entity",
+            "prov:Plan",
+            "ada:TAPPDefinition"
+          ]
         }
       ],
       "schema:location": {
@@ -1117,12 +1133,12 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "example peakFlatness" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "example peakFlatness" ] ;
+            dqv:value "example oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endDate "2026-01-10T12:45:00" ;
@@ -1138,7 +1154,8 @@ ex:adaLAMCICPMS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ;
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                ex:laMcicpmsTAPP-P0 ;
             ada:proceduralBlankLevel "missing" ] ;
     ada:sensitivityYield 1e+00 ;
     ada:spotDiameterMeasured 1e+00 .
@@ -1233,6 +1250,10 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
 
+ex:laMcicpmsTAPP-P0 a prov:Entity,
+        prov:Plan,
+        ada:TAPPDefinition .
+
 
 ```
 
@@ -1282,6 +1303,7 @@ allOf:
                         const: ada:TAPPDefinition
                   required:
                   - '@type'
+                  - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema.yaml
     schema:additionalType:
@@ -1316,14 +1338,14 @@ Links to the schema:
   "@context": {
     "schema": "http://schema.org/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "cdif": "https://w3id.org/cdif/",
     "prov": "http://www.w3.org/ns/prov#",
+    "ex": "https://example.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",

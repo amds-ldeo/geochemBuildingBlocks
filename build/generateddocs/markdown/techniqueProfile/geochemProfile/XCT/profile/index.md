@@ -200,6 +200,14 @@ and technique component types on the archive distribution. Mock data for validat
               "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
+        },
+        {
+          "@id": "ex:labxctTAPP-P0",
+          "@type": [
+            "prov:Entity",
+            "prov:Plan",
+            "ada:TAPPDefinition"
+          ]
         }
       ],
       "schema:location": {
@@ -231,9 +239,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "schema:actionProcess": {
-        "@type": [
-          "schema:HowTo"
-        ]
+        "@id": "nil:missing"
       }
     }
   ],
@@ -673,6 +679,14 @@ and technique component types on the archive distribution. Mock data for validat
               "@id": "ex:instrument/nxs-BaseClass-NXinstrument"
             }
           ]
+        },
+        {
+          "@id": "ex:labxctTAPP-P0",
+          "@type": [
+            "prov:Entity",
+            "prov:Plan",
+            "ada:TAPPDefinition"
+          ]
         }
       ],
       "schema:location": {
@@ -704,9 +718,7 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "schema:actionProcess": {
-        "@type": [
-          "schema:HowTo"
-        ]
+        "@id": "nil:missing"
       }
     }
   ],
@@ -1035,21 +1047,21 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "example partialVolumeEffectAssessment" ],
-        [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
-            dqv:value "example signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "example metalStreakArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "example beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "example ringArtifactSeverityAndCorrectionOutcome" ],
+        [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
+            dqv:value "example signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "example partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "example crossValidationOutcome" ] ;
+            dqv:value "example crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "example beamHardeningArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
-            schema1:actionProcess [ a schema1:HowTo ] ;
+            schema1:actionProcess <nil:missing> ;
             schema1:endDate "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
             schema1:location [ a schema1:Place ;
@@ -1063,7 +1075,8 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startDate "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ] ] .
+            prov:used [ schema1:instrument <https://example.org/instrument/nxs-BaseClass-NXinstrument> ],
+                ex:labxctTAPP-P0 ] .
 
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
@@ -1146,6 +1159,10 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
 
+ex:labxctTAPP-P0 a prov:Entity,
+        prov:Plan,
+        ada:TAPPDefinition .
+
 
 ```
 
@@ -1195,6 +1212,7 @@ allOf:
                         const: ada:TAPPDefinition
                   required:
                   - '@type'
+                  - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/schema.yaml
     schema:additionalType:
@@ -1227,14 +1245,14 @@ Links to the schema:
   "@context": {
     "schema": "http://schema.org/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "cdif": "https://w3id.org/cdif/",
     "prov": "http://www.w3.org/ns/prov#",
+    "ex": "https://example.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",

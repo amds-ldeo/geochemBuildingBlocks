@@ -3,13 +3,14 @@ title: TEM Technique-Aligned Protocol Profile (temTAPP)
 description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries;
-  an ada:analyteTemplate carries per-element columns. Generated from tapp/Current
+  an ada:targetSpeciesTemplate carries per-element columns. Generated from tapp/Current
   TAPPs/TEM_TAPP_v51.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
     schema:object:
@@ -2438,14 +2439,14 @@ allOf:
         data extracted from 4D-STEM datasets.
       type: string
       readOnly: true
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: EELS Background Subtraction Method
               description: Method used to subtract the background beneath the ionization
                 edge of interest to extract the net edge signal. Record 'N/A' where
@@ -2453,7 +2454,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsBackgroundSubtractionMethod
+                  const: ada:monitoredPropertyColumn/temTAPP/eelsBackgroundSubtractionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2468,11 +2469,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2486,7 +2483,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsDetectionLimit
+                  const: ada:monitoredPropertyColumn/temTAPP/eelsDetectionLimit
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2502,14 +2499,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2525,7 +2516,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsBackgroundSubtractionMethod
+                  const: ada:monitoredPropertyColumn/temTAPP/eelsBackgroundSubtractionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2540,11 +2531,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2561,7 +2548,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/temTAPP/eelsDetectionLimit
+                  const: ada:monitoredPropertyColumn/temTAPP/eelsDetectionLimit
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2577,14 +2564,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'

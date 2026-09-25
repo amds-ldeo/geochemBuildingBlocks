@@ -527,12 +527,11 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Eckley2024 a cdi:Activity,
+<ex:labxctTAPP-Eckley2024> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -540,16 +539,16 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -560,7 +559,7 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -589,6 +588,20 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     ada:xRaySourceConfiguration "180 kV transmission source" ;
     bios:computationalTool [ schema1:name "Nikon CTPro3D v5.4" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XT H 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "110 kV" ;
+    ada:tubeCurrentDefault "27 µA" ;
+    ada:voxelSizeDefault "6.00 µm" ;
+    ada:xRayPreFilterDefault "0.25 mm aluminum" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Preset 4" ;
@@ -649,20 +662,6 @@ ex:labxctTAPP-Eckley2024 a cdi:Activity,
     schema1:valueName "xRayPowerDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon XT H 320" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "110 kV" ;
-    ada:tubeCurrentDefault "27 µA" ;
-    ada:voxelSizeDefault "6.00 µm" ;
-    ada:xRayPreFilterDefault "0.25 mm aluminum" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
@@ -1253,12 +1252,11 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Genge2025 a cdi:Activity,
+<ex:labxctTAPP-Genge2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -1285,7 +1283,7 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Not stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1324,6 +1322,20 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Zeiss Versa (model not specified)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90 kV" ;
+    ada:tubeCurrentDefault "89 µA" ;
+    ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
+    ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "No binning" ;
@@ -1373,20 +1385,6 @@ ex:labxctTAPP-Genge2025 a cdi:Activity,
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Zeiss Versa (model not specified)" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "90 kV" ;
-    ada:tubeCurrentDefault "89 µA" ;
-    ada:voxelSizeDefault "0.625 µm (A0180-A); 0.672 µm (A0180-B)" ;
-    ada:xRayPreFilterDefault "Inbuilt LE4 filter (beam hardening reduction)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -1817,12 +1815,11 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Neuman2025 a cdi:Activity,
+<ex:labxctTAPP-Neuman2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -1830,22 +1827,22 @@ ex:labxctTAPP-Neuman2025 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v39.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1874,6 +1871,20 @@ ex:labxctTAPP-Neuman2025 a cdi:Activity,
     ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core" ;
     ada:xRaySourceConfiguration "Feinfocus FXE 225.48 microfocal source" .
 
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "North Star Imaging" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "180 kV" ;
+    ada:tubeCurrentDefault "0.18 mA (180 µA)" ;
+    ada:voxelSizeDefault -9999 ;
+    ada:xRayPreFilterDefault "0.72 mm Al" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Post-reconstruction ring corrections applied" ;
     schema1:name "Ring Artifact Correction Method" ;
@@ -1901,20 +1912,6 @@ ex:labxctTAPP-Neuman2025 a cdi:Activity,
     schema1:valueName "subVolumeStitchingAndRegistrationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "North Star Imaging" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "180 kV" ;
-    ada:tubeCurrentDefault "0.18 mA (180 µA)" ;
-    ada:voxelSizeDefault -9999 ;
-    ada:xRayPreFilterDefault "0.72 mm Al" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -2335,12 +2332,11 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
+<ex:labxctTAPP-Neuman2025-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -2348,22 +2344,22 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Steel outer sleeve retained for scan" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Steel outer sleeve retained for scan" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v39.csv). Reported detail: ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2392,6 +2388,20 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)" ;
     ada:xRaySourceConfiguration "Feinfocus FXE 225.48 microfocal source" .
 
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "North Star Imaging" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "190 kV" ;
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault -9999 ;
+    ada:xRayPreFilterDefault "None (steel sleeve acts as effective filter)" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Post-reconstruction ring corrections applied" ;
     schema1:name "Ring Artifact Correction Method" ;
@@ -2419,20 +2429,6 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
     schema1:valueName "subVolumeStitchingAndRegistrationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "North Star Imaging" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Custom NSI instrument (North Star Imaging) at UTCT" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "190 kV" ;
-    ada:tubeCurrentDefault -9999 ;
-    ada:voxelSizeDefault -9999 ;
-    ada:xRayPreFilterDefault "None (steel sleeve acts as effective filter)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -2749,12 +2745,11 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Shearer2024 a cdi:Activity,
+<ex:labxctTAPP-Shearer2024> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -2773,7 +2768,7 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2804,7 +2799,7 @@ ex:labxctTAPP-Shearer2024 a cdi:Activity,
     ada:targetFeature "Internal structure of core vacuum seal container" ;
     ada:xRaySourceConfiguration "225 kV multi-metal reflection target source" .
 
-<https://example.org/instrument/XCT> a schema1:Product,
+<ex:instrument/XCT> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "XCT" ;
@@ -3186,12 +3181,11 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
+<ex:labxctTAPP-Shearer2024-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3200,20 +3194,20 @@ ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Triple-bagged (Teflon) per ANGSA curation protocol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Triple-bagged (Teflon) per ANGSA curation protocol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 particles Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3241,6 +3235,20 @@ ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
     ada:targetFeature "Individual particle internal structure" ;
     ada:xRaySourceConfiguration "180 kV nano-focus transmission target source" .
 
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90 kV (typical; optimized per sample)" ;
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "2.8–20.6 µm (optimized per sample)" ;
+    ada:xRayPreFilterDefault "0.1–0.25 mm Al (Bennu PE protocol range stated)" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Triple-bagged in Teflon, wrapped in cylinder, placed in 1-cm plastic straw" ;
     schema1:name "Sample Mounting Method" ;
@@ -3255,20 +3263,6 @@ ex:labxctTAPP-Shearer2024-2 a cdi:Activity,
     schema1:valueName "xRayPowerDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon XTH 320" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "90 kV (typical; optimized per sample)" ;
-    ada:tubeCurrentDefault -9999 ;
-    ada:voxelSizeDefault "2.8–20.6 µm (optimized per sample)" ;
-    ada:xRayPreFilterDefault "0.1–0.25 mm Al (Bennu PE protocol range stated)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
@@ -3741,12 +3735,11 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
+<ex:labxctTAPP-Tomkinson2015> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3755,21 +3748,21 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None; chip used as received" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None; chip used as received" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3808,6 +3801,20 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
     bios:computationalTool [ schema1:name "Avizo™" ;
             ada:toolRole "dataReduction" ] .
 
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon Metris XTH 225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ;
+    ada:xRayPreFilterDefault "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable" ;
     schema1:name "Partial Volume Effect Criteria" ;
@@ -3835,20 +3842,6 @@ ex:labxctTAPP-Tomkinson2015 a cdi:Activity,
     schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon Metris XTH 225" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)" ;
-    ada:tubeCurrentDefault -9999 ;
-    ada:voxelSizeDefault "10.3 × 10.3 × 10.3 µm³" ;
-    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> a schema1:PropertyValue ;
     schema1:name "X-ray Tube Anode Material" ;
@@ -4351,12 +4344,11 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Glavin2023 a cdi:Activity,
+<ex:labxctTAPP-Glavin2023> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -4365,14 +4357,14 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Chips (~10.3 g) crushed with mortar and pestle; vortex mixed 3 min; split into two ~4.6 g portions" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -4382,7 +4374,7 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4414,6 +4406,20 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
     ada:xRaySourceConfiguration "180 kV nano-focus tungsten transmission source (~1 µm spot size)" ;
     bios:computationalTool [ schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)" ;
+    ada:tubeCurrentDefault "38 µA" ;
+    ada:voxelSizeDefault "11.54 µm (cubic voxel edge)" ;
+    ada:xRayPreFilterDefault "None (intentionally unfiltered; worst-case dose experiment)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 8 ;
@@ -4453,20 +4459,6 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
     schema1:valueName "sourceToObjectDistanceDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon XTH 320" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)" ;
-    ada:tubeCurrentDefault "38 µA" ;
-    ada:voxelSizeDefault "11.54 µm (cubic voxel edge)" ;
-    ada:xRayPreFilterDefault "None (intentionally unfiltered; worst-case dose experiment)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -4968,12 +4960,11 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Dias2019 a cdi:Activity,
+<ex:labxctTAPP-Dias2019> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -4997,7 +4988,7 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5036,6 +5027,20 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
     bios:computationalTool [ schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
             ada:toolRole "dataReduction" ] .
 
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Bruker" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Bruker/Skyscan 1173" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "50 kV" ;
+    ada:tubeCurrentDefault "160 µA" ;
+    ada:voxelSizeDefault "5.34 µm" ;
+    ada:xRayPreFilterDefault "1.0 mm aluminum" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Three density regions: high, medium, low density; porosity separate" ;
     schema1:name "Phase Identification Method" ;
@@ -5071,20 +5076,6 @@ ex:labxctTAPP-Dias2019 a cdi:Activity,
     schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Bruker" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Bruker/Skyscan 1173" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "50 kV" ;
-    ada:tubeCurrentDefault "160 µA" ;
-    ada:voxelSizeDefault "5.34 µm" ;
-    ada:xRayPreFilterDefault "1.0 mm aluminum" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -5581,12 +5572,11 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Richard2019 a cdi:Activity,
+<ex:labxctTAPP-Richard2019> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -5595,14 +5585,14 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated for XCT; embedded in epoxy after XCT for microprobe" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
@@ -5611,7 +5601,7 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5644,6 +5634,20 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "ImageJ; Avizo 9.2" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Zeiss Xradia 510 Versa" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "30 kV" ;
+    ada:tubeCurrentDefault -9999 ;
+    ada:voxelSizeDefault "2.06 µm/px" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 200 ;
@@ -5680,20 +5684,6 @@ ex:labxctTAPP-Richard2019 a cdi:Activity,
     schema1:valueName "segmentationThresholdValuesOrCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Zeiss Xradia 510 Versa" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "30 kV" ;
-    ada:tubeCurrentDefault -9999 ;
-    ada:voxelSizeDefault "2.06 µm/px" ;
-    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -6249,12 +6239,11 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Richard2019-2 a cdi:Activity,
+<ex:labxctTAPP-Richard2019-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -6263,14 +6252,14 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -6280,7 +6269,7 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6314,6 +6303,20 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
     ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" ;
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320/225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 kV" ;
+    ada:tubeCurrentDefault "71 µA (Ag target)" ;
+    ada:voxelSizeDefault "25 µm" ;
+    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
@@ -6358,20 +6361,6 @@ ex:labxctTAPP-Richard2019-2 a cdi:Activity,
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon XTH 320/225" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "160 kV" ;
-    ada:tubeCurrentDefault "71 µA (Ag target)" ;
-    ada:voxelSizeDefault "25 µm" ;
-    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -6934,12 +6923,11 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Richard2019-3 a cdi:Activity,
+<ex:labxctTAPP-Richard2019-3> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -6948,14 +6936,14 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -6965,7 +6953,7 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -6999,6 +6987,20 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
     ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" ;
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nikon" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nikon XTH 320/225" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "160 kV" ;
+    ada:tubeCurrentDefault "46 µA (Ag target)" ;
+    ada:voxelSizeDefault "7.7 µm" ;
+    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
@@ -7043,20 +7045,6 @@ ex:labxctTAPP-Richard2019-3 a cdi:Activity,
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nikon" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nikon XTH 320/225" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "160 kV" ;
-    ada:tubeCurrentDefault "46 µA (Ag target)" ;
-    ada:voxelSizeDefault "7.7 µm" ;
-    ada:xRayPreFilterDefault "None (conditions did not require filtering)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -7611,12 +7599,11 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Richard2019-4 a cdi:Activity,
+<ex:labxctTAPP-Richard2019-4> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -7625,14 +7612,14 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "None stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "None stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
@@ -7641,7 +7628,7 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Université de Lorraine, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7680,6 +7667,20 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     ada:xRaySourceConfiguration "missing" ;
     bios:computationalTool [ schema1:name "Avizo 9.2.0" ;
             ada:toolRole "dataReduction" ] .
+
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "GE / Waygate" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Phoenix Nanotom S" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
+    ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
+    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ;
+    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 3 ;
@@ -7731,20 +7732,6 @@ ex:labxctTAPP-Richard2019-4 a cdi:Activity,
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "GE / Waygate" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Phoenix Nanotom S" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "90–115 kV (varies by sample)" ;
-    ada:tubeCurrentDefault "65–115 µA (varies by sample)" ;
-    ada:voxelSizeDefault "0.77–3.5 µm (varies by sample)" ;
-    ada:xRayPreFilterDefault "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize> a schema1:PropertyValue ;
     schema1:name "Detector Array Size" ;
@@ -8193,12 +8180,11 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Tait2014 a cdi:Activity,
+<ex:labxctTAPP-Tait2014> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -8207,20 +8193,20 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "8 mm diameter core drilled from meteorite prior to XCT" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v39.csv)." ;
-    schema1:instrument <https://example.org/instrument/XCT> ;
+    schema1:instrument <ex:instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CSIRO, Kensington, Western Australia" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8259,6 +8245,20 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
     bios:computationalTool [ schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
             ada:toolRole "dataReduction" ] .
 
+<ex:instrument/XCT> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "XCT" ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "XRADIA XRM500" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "70 kV" ;
+    ada:tubeCurrentDefault "86 µA" ;
+    ada:voxelSizeDefault "1.923 µm" ;
+    ada:xRayPreFilterDefault "missing" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable" ;
     schema1:name "Phase Identification Method" ;
@@ -8288,20 +8288,6 @@ ex:labxctTAPP-Tait2014 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://example.org/instrument/XCT> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "XCT" ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "XRADIA XRM500" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "70 kV" ;
-    ada:tubeCurrentDefault "86 µA" ;
-    ada:voxelSizeDefault "1.923 µm" ;
-    ada:xRayPreFilterDefault "missing" .
-
 
 ```
 
@@ -8313,8 +8299,8 @@ title: Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)
 description: 'Laboratory X-ray computed tomography (polychromatic cone-beam) extension
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification
-  entries. XCT has no per-element analyte axis, so no ada:analyteTemplate is defined.
-  Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v39.csv by tools/build_tapp.py.'
+  entries. XCT has no per-element analyte axis, so no ada:targetSpeciesTemplate is
+  defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v39.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -10278,9 +10264,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
