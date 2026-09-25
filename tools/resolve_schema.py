@@ -69,6 +69,86 @@ _URL_LOCK: dict[str, dict] = {}
 _LOCK_DIRTY = False
 
 
+# $comment values that mean "the content that belongs here is missing". Cycle
+# markers (circular-ref, cycle:, self-referential:) are deliberately absent --
+# those are legitimate outcomes for a recursive schema, not failures.
+#
+# find_unresolved / _report_unresolved below are merged from the canonical
+# metadataBuildingBlocks copy (2026-09-25). This is NOT a wholesale sync: that
+# copy has neither resolve_and_write_structured (build_pathdriven.py calls it)
+# nor the vendor lock above, so copying it over this file would break the
+# pipeline and silently drop the pinning.
+UNRESOLVED_PREFIXES = (
+    "failed to fetch URL:",
+    "file not found:",
+    "could not resolve fragment",
+    "unresolved fragment ref:",
+)
+
+
+class UnresolvedRefs(Exception):
+    """Raised instead of writing a schema whose refs did not resolve."""
+
+    def __init__(self, schema_path, items):
+        self.schema_path = schema_path
+        self.items = items
+        super().__init__("%s: %d unresolved ref(s)" % (schema_path, len(items)))
+
+
+def find_unresolved(node, path=""):
+    """Collect surviving failure placeholders from a *resolved* schema.
+
+    Checking the finished output rather than instrumenting each failure site is
+    deliberate: "unresolved fragment ref:" is also used as an internal sentinel
+    that _inline_unresolved_defs replaces later, so recording at the call site
+    would report failures that get fixed moments later. Whatever is still
+    present at the end is genuinely missing, whichever code path produced it --
+    including sites added after this was written.
+    """
+    found = []
+    if isinstance(node, dict):
+        c = node.get("$comment")
+        if isinstance(c, str) and c.startswith(UNRESOLVED_PREFIXES):
+            found.append((path or "(root)", c))
+        for k, v in node.items():
+            if k != "$comment":
+                found.extend(find_unresolved(v, path + "/" + str(k)))
+    elif isinstance(node, list):
+        for i, item in enumerate(node):
+            found.extend(find_unresolved(item, path + "/" + str(i)))
+    return found
+
+
+def _report_unresolved(broken):
+    """Print what could not be resolved, and where it belonged.
+
+    This used to be a WARNING on stderr followed by a written file, so a ref
+    that had gone dead produced a schema missing whole branches and a run that
+    still looked successful. ecrrBuildingBlocks is what that policy produces
+    given time: all 25 of its cross-repo refs 404, and its committed
+    resolvedSchema.json were generated with every one of them failing.
+
+    The stakes here are higher than "warning" suggests: validate_examples.py
+    reads resolvedSchema.json, so a schema quietly missing a branch makes the
+    examples that should have failed pass instead.
+    """
+    print(chr(10) + "ERROR: refs could not be resolved. Nothing was written for the "
+          "schemas listed below --", file=sys.stderr)
+    print("a schema missing the content behind a ref is not a valid stand-in "
+          "for one that has it." + chr(10), file=sys.stderr)
+    for name, items in broken:
+        print("  %s" % name, file=sys.stderr)
+        for loc, comment in items[:8]:
+            print("      %s%s        %s" % (loc, chr(10), comment), file=sys.stderr)
+        if len(items) > 8:
+            print("      ... and %d more" % (len(items) - 8), file=sys.stderr)
+    print(chr(10) + "Usual causes: the target moved (check for a rename), the host "
+          "is wrong, the fragment no longer exists in the target file, or a "
+          "vendored copy is missing and --refresh-remote was not passed. To "
+          "write anyway, leaving placeholders where the content should be, "
+          "re-run with --allow-unresolved.", file=sys.stderr)
+
+
 def _load_lock() -> dict:
     global _URL_LOCK
     if _URL_LOCK_PATH.exists():
@@ -1394,9 +1474,19 @@ def resolve_structured(schema_path: Path) -> dict:
     return result
 
 
-def resolve_and_write_structured(schema_path: Path) -> Path:
-    """Resolve structured and write resolvedSchema.json next to schema. Returns output path."""
+def resolve_and_write_structured(schema_path: Path, allow_unresolved: bool = False) -> Path:
+    """Resolve structured and write resolvedSchema.json next to schema. Returns output path.
+
+    Resolve, INSPECT, then write. A schema whose refs did not resolve is not written and
+    raises UnresolvedRefs instead: a degraded artifact must not quietly replace a good one
+    on disk. The check lives here rather than in main() because build_pathdriven.py calls
+    this directly, and a pipeline stage writing a schema with a missing branch is the same
+    failure as the CLI doing it.
+    """
     structured = resolve_structured(schema_path)
+    unresolved = find_unresolved(structured)
+    if unresolved and not allow_unresolved:
+        raise UnresolvedRefs(schema_path, unresolved)
     out_path = schema_path.parent / "resolvedSchema.json"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(json.dumps(structured, indent=2, ensure_ascii=False) + "\n")
@@ -1522,6 +1612,14 @@ def main():
              "poisons every technique that composes it.",
     )
     parser.add_argument(
+        "--allow-unresolved",
+        action="store_true",
+        help="write the schema even when refs did not resolve, leaving placeholders where "
+             "the content should be. Off by default: validate_examples.py reads "
+             "resolvedSchema.json, so a schema missing a branch makes the examples that "
+             "should have failed pass instead.",
+    )
+    parser.add_argument(
         "--refresh-remote",
         action="store_true",
         help="fetch remote $refs from the network and re-pin them under vendor/remote. Without "
@@ -1546,12 +1644,23 @@ def main():
                   f"({len(schemas) - len(keep)} technique schemas skipped)", file=sys.stderr)
             schemas = keep
         print(f"Found {len(schemas)} building blocks with external $refs", file=sys.stderr)
+        broken = []
         for schema_path in schemas:
             rel = schema_path.relative_to(REPO_ROOT)
-            out_path = resolve_and_write_structured(schema_path)
+            try:
+                out_path = resolve_and_write_structured(schema_path, args.allow_unresolved)
+            except UnresolvedRefs as exc:
+                broken.append((rel, exc.items))
+                print(f"  UNRESOLVED  {rel} ({len(exc.items)} ref(s)) - not written",
+                      file=sys.stderr)
+                continue
             print(f"  {rel} -> {out_path.name}", file=sys.stderr)
-        print(f"Resolved {len(schemas)} schemas", file=sys.stderr)
+        print(f"Resolved {len(schemas) - len(broken)} of {len(schemas)} schemas",
+              file=sys.stderr)
         _save_lock()
+        if broken:
+            _report_unresolved(broken)
+            sys.exit(1)
         return
 
     if not args.profile and not args.file:
@@ -1568,6 +1677,12 @@ def main():
     print(f"Resolving: {schema_path}", file=sys.stderr)
 
     structured = resolve_structured(schema_path)
+
+    unresolved = find_unresolved(structured)
+    if unresolved and not args.allow_unresolved:
+        _report_unresolved([(schema_path, unresolved)])
+        sys.exit(1)
+
     output_json = json.dumps(structured, indent=2, ensure_ascii=False) + "\n"
 
     if args.output:
