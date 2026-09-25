@@ -355,124 +355,1034 @@
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn"
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_targetSpeciesEstimationMethod"
+                                        "title": "Target Species Estimation Method",
+                                        "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "targetSpeciesEstimationMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Target Species Estimation Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_analyticalAccuracy"
+                                        "title": "Analytical Accuracy",
+                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "analyticalAccuracy"
+                                            },
+                                            "schema:name": {
+                                                "const": "Analytical Accuracy"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_analyticalPrecision"
+                                        "title": "Analytical Precision",
+                                        "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and the measured value.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "analyticalPrecision"
+                                            },
+                                            "schema:name": {
+                                                "const": "Analytical Precision"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_xRayBackgroundCorrectionMethod"
+                                        "title": "X-ray Background Correction Method",
+                                        "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayBackgroundCorrectionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Background Correction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_beamCurrent"
+                                        "title": "Beam Current",
+                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_blankCorrection"
+                                        "title": "Blank Correction",
+                                        "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/blankCorrection"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "blankCorrection"
+                                            },
+                                            "schema:name": {
+                                                "const": "Blank Correction"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_countingStatisticsError"
+                                        "title": "Counting Statistics Error",
+                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                                "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_epmaTechniquePerTargetSpecies"
+                                        "title": "EPMA Technique per Target Species",
+                                        "description": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "epmaTechniquePerTargetSpecies"
+                                            },
+                                            "schema:name": {
+                                                "const": "EPMA Technique per Target Species"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_interferenceCorrectionStandard"
+                                        "title": "Interference Correction Standard",
+                                        "description": "Reference material used to quantify and calibrate the interference correction.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferenceCorrectionStandard"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interference Correction Standard"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_xRayLineOverlapCorrectionsApplied"
+                                        "title": "X-ray Line Overlap Corrections Applied",
+                                        "description": "Whether a spectral interference correction was applied. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayLineOverlapCorrectionsApplied"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Line Overlap Corrections Applied"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_interferingElements"
+                                        "title": "Interfering Elements",
+                                        "description": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/interferingElements"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferingElements"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interfering Elements"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_timeDependentIntensityCorrection"
+                                        "title": "Time-Dependent Intensity Correction",
+                                        "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "timeDependentIntensityCorrection"
+                                            },
+                                            "schema:name": {
+                                                "const": "Time-Dependent Intensity Correction"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     }
                                 ]
                             },
                             "allOf": [
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_targetSpeciesEstimationMethod"
+                                        "title": "Target Species Estimation Method",
+                                        "description": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "targetSpeciesEstimationMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "Target Species Estimation Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_analyticalAccuracy"
+                                        "title": "Analytical Accuracy",
+                                        "description": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "analyticalAccuracy"
+                                            },
+                                            "schema:name": {
+                                                "const": "Analytical Accuracy"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_analyticalPrecision"
+                                        "title": "Analytical Precision",
+                                        "description": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and the measured value.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "analyticalPrecision"
+                                            },
+                                            "schema:name": {
+                                                "const": "Analytical Precision"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_xRayBackgroundCorrectionMethod"
+                                        "title": "X-ray Background Correction Method",
+                                        "description": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayBackgroundCorrectionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Background Correction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_beamCurrent"
+                                        "title": "Beam Current",
+                                        "description": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_blankCorrection"
+                                        "title": "Blank Correction",
+                                        "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/blankCorrection"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "blankCorrection"
+                                            },
+                                            "schema:name": {
+                                                "const": "Blank Correction"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_countingStatisticsError"
+                                        "title": "Counting Statistics Error",
+                                        "description": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "countingStatisticsError"
+                                            },
+                                            "schema:name": {
+                                                "const": "Counting Statistics Error"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_epmaTechniquePerTargetSpecies"
+                                        "title": "EPMA Technique per Target Species",
+                                        "description": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "epmaTechniquePerTargetSpecies"
+                                            },
+                                            "schema:name": {
+                                                "const": "EPMA Technique per Target Species"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_interferenceCorrectionStandard"
+                                        "title": "Interference Correction Standard",
+                                        "description": "Reference material used to quantify and calibrate the interference correction.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferenceCorrectionStandard"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interference Correction Standard"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_xRayLineOverlapCorrectionsApplied"
+                                        "title": "X-ray Line Overlap Corrections Applied",
+                                        "description": "Whether a spectral interference correction was applied. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayLineOverlapCorrectionsApplied"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Line Overlap Corrections Applied"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_interferingElements"
+                                        "title": "Interfering Elements",
+                                        "description": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/interferingElements"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "interferingElements"
+                                            },
+                                            "schema:name": {
+                                                "const": "Interfering Elements"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/empa_timeDependentIntensityCorrection"
+                                        "title": "Time-Dependent Intensity Correction",
+                                        "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "timeDependentIntensityCorrection"
+                                            },
+                                            "schema:name": {
+                                                "const": "Time-Dependent Intensity Correction"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
@@ -492,94 +1402,826 @@
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn"
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_backgroundCountingTime"
+                                        "title": "Background Counting Time",
+                                        "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "backgroundCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Background Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_backgroundPosition"
+                                        "title": "Background Position(s)",
+                                        "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "backgroundPosition"
+                                            },
+                                            "schema:name": {
+                                                "const": "Background Position(s)"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_diffractingCrystal"
+                                        "title": "Diffracting Crystal",
+                                        "description": "Analyzing crystal (monochromator).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "diffractingCrystal"
+                                            },
+                                            "schema:name": {
+                                                "const": "Diffracting Crystal"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_dwellTimePerPixel"
+                                        "title": "Dwell Time per Pixel",
+                                        "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "dwellTimePerPixel"
+                                            },
+                                            "schema:name": {
+                                                "const": "Dwell Time per Pixel"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_peakCountingTime"
+                                        "title": "Peak Counting Time",
+                                        "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "peakCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Peak Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_proportionalCounterDetector"
+                                        "title": "Proportional Counter / Detector",
+                                        "description": "Type of detector used.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "proportionalCounterDetector"
+                                            },
+                                            "schema:name": {
+                                                "const": "Proportional Counter / Detector"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_sequence"
+                                        "title": "Sequence",
+                                        "description": "Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/sequence"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "sequence"
+                                            },
+                                            "schema:name": {
+                                                "const": "Sequence"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "integer"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_wdsPhaSetting"
+                                        "title": "WDS PHA Setting",
+                                        "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "wdsPhaSetting"
+                                            },
+                                            "schema:name": {
+                                                "const": "WDS PHA Setting"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_xRayLine"
+                                        "title": "X-ray Line",
+                                        "description": "X-ray emission line measured.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/xRayLine"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayLine"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Line"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     }
                                 ]
                             },
                             "allOf": [
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_backgroundCountingTime"
+                                        "title": "Background Counting Time",
+                                        "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "backgroundCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Background Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_backgroundPosition"
+                                        "title": "Background Position(s)",
+                                        "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "backgroundPosition"
+                                            },
+                                            "schema:name": {
+                                                "const": "Background Position(s)"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_diffractingCrystal"
+                                        "title": "Diffracting Crystal",
+                                        "description": "Analyzing crystal (monochromator).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "diffractingCrystal"
+                                            },
+                                            "schema:name": {
+                                                "const": "Diffracting Crystal"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_dwellTimePerPixel"
+                                        "title": "Dwell Time per Pixel",
+                                        "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "dwellTimePerPixel"
+                                            },
+                                            "schema:name": {
+                                                "const": "Dwell Time per Pixel"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_peakCountingTime"
+                                        "title": "Peak Counting Time",
+                                        "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "peakCountingTime"
+                                            },
+                                            "schema:name": {
+                                                "const": "Peak Counting Time"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_proportionalCounterDetector"
+                                        "title": "Proportional Counter / Detector",
+                                        "description": "Type of detector used.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "proportionalCounterDetector"
+                                            },
+                                            "schema:name": {
+                                                "const": "Proportional Counter / Detector"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_sequence"
+                                        "title": "Sequence",
+                                        "description": "Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/sequence"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "sequence"
+                                            },
+                                            "schema:name": {
+                                                "const": "Sequence"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "integer"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_wdsPhaSetting"
+                                        "title": "WDS PHA Setting",
+                                        "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "wdsPhaSetting"
+                                            },
+                                            "schema:name": {
+                                                "const": "WDS PHA Setting"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/empa_xRayLine"
+                                        "title": "X-ray Line",
+                                        "description": "X-ray emission line measured.",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/empaTAPP/xRayLine"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "xRayLine"
+                                            },
+                                            "schema:name": {
+                                                "const": "X-ray Line"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": true
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1

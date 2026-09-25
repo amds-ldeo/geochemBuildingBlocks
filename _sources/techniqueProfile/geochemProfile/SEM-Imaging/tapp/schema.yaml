@@ -468,17 +468,47 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - $ref: ../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/semImaging_beamCurrent
+            - &id001
+              title: Beam Current
+              description: Electron beam probe current. For sub-nA values use decimal notation (e.g.,
+                0.4 nA).
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/semImagingTAPP/beamCurrent
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: beamCurrent
+                schema:name:
+                  const: Beam Current
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: number
+                  - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
           allOf:
-          - contains:
-              $ref: ../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/semImaging_beamCurrent
+          - contains: *id001
             minContains: 0
             maxContains: 1
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id001
+        - &id002
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
             and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
@@ -511,7 +541,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id002
+        - &id003
           title: Image Pixel Size
           description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area
             mosaic imaging, report the pixel size of individual tiles and the number and arrangement of
@@ -544,7 +574,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id003
+        - &id004
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis
             of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
@@ -575,13 +605,13 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
-      - contains: *id001
-        minContains: 0
-        maxContains: 1
       - contains: *id002
         minContains: 0
         maxContains: 1
       - contains: *id003
+        minContains: 0
+        maxContains: 1
+      - contains: *id004
         minContains: 0
         maxContains: 1
     ada:dwellTimePerPixelDefault:
@@ -681,7 +711,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id004
+                      - &id005
                         title: Crystal Structure Database
                         description: Crystal structure database used for EBSD phase identification and
                           Kikuchi pattern simulation.
@@ -713,7 +743,7 @@ allOf:
                         - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id004
+                    - contains: *id005
                       minContains: 0
                       maxContains: 1
                     - contains:

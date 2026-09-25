@@ -295,15 +295,76 @@ allOf:
                                             type: array
                                             items:
                                               anyOf:
-                                              - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_integrationTimePerCycleAnalysisValue
-                                              - $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_ionCounterDeadTimeAnalysisValue
+                                              - &id003
+                                                title: Integration Time per Cycle
+                                                description: Duration of signal integration per measurement
+                                                  cycle (seconds).
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                  schema:name:
+                                                    const: Integration Time per Cycle
+                                                  ada:dataType:
+                                                    const: number
+                                                  ada:tier:
+                                                    const: M
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - ada:dataType
+                                                - schema:value
+                                              - &id004
+                                                title: Ion Counter Dead Time
+                                                description: Dead time of the ion-counting detector(s),
+                                                  used in the dead-time correction applied to high count
+                                                  rates. Distinct from pulse/analog cross-calibration,
+                                                  which relates the two detector modes rather than correcting
+                                                  counting losses within the pulse-counting mode.
+                                                type: object
+                                                properties:
+                                                  '@id':
+                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                  '@type':
+                                                    const:
+                                                    - schema:PropertyValue
+                                                  schema:propertyID:
+                                                    const:
+                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                  schema:name:
+                                                    const: Ion Counter Dead Time
+                                                  ada:dataType:
+                                                    const: number
+                                                  ada:tier:
+                                                    const: M
+                                                  schema:value:
+                                                    anyOf:
+                                                    - type: number
+                                                    - type: string
+                                                required:
+                                                - '@id'
+                                                - '@type'
+                                                - schema:propertyID
+                                                - schema:name
+                                                - ada:dataType
+                                                - schema:value
                                             allOf:
-                                            - contains:
-                                                $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_integrationTimePerCycleAnalysisValue
+                                            - contains: *id003
                                               minContains: 0
                                               maxContains: 1
-                                            - contains:
-                                                $ref: ../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/laMcicpms_ionCounterDeadTimeAnalysisValue
+                                            - contains: *id004
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -354,7 +415,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id003
+                                    - &id005
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. The monitor species
@@ -380,7 +441,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id004
+                                    - &id006
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -410,10 +471,10 @@ allOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
-                                  - contains: *id003
+                                  - contains: *id005
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id004
+                                  - contains: *id006
                                     minContains: 0
                                     maxContains: 1
                                   - contains:

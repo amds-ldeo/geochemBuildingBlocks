@@ -3384,24 +3384,186 @@
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn"
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsBackgroundSubtractionMethod"
+                                        "title": "EELS Background Subtraction Method",
+                                        "description": "Method used to subtract the background beneath the ionization edge of interest to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/temTAPP/eelsBackgroundSubtractionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "eelsBackgroundSubtractionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "EELS Background Subtraction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsDetectionLimit"
+                                        "title": "EELS Detection Limit",
+                                        "description": "Estimated detection limit or minimum detectable concentration for target edges under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/temTAPP/eelsDetectionLimit"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "eelsDetectionLimit"
+                                            },
+                                            "schema:name": {
+                                                "const": "EELS Detection Limit"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     }
                                 ]
                             },
                             "allOf": [
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsBackgroundSubtractionMethod"
+                                        "title": "EELS Background Subtraction Method",
+                                        "description": "Method used to subtract the background beneath the ionization edge of interest to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/temTAPP/eelsBackgroundSubtractionMethod"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "eelsBackgroundSubtractionMethod"
+                                            },
+                                            "schema:name": {
+                                                "const": "EELS Background Subtraction Method"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
                                 },
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/monitoredPropertyColumns/schema.yaml#/$defs/tem_eelsDetectionLimit"
+                                        "title": "EELS Detection Limit",
+                                        "description": "Estimated detection limit or minimum detectable concentration for target edges under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:monitoredPropertyColumn/temTAPP/eelsDetectionLimit"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "eelsDetectionLimit"
+                                            },
+                                            "schema:name": {
+                                                "const": "EELS Detection Limit"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1

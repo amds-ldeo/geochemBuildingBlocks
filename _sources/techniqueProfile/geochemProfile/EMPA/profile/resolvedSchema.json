@@ -11060,7 +11060,7 @@
                               },
                               "ada:defaultTargetSpecies": {
                                 "type": "array",
-                                "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+                                "description": "The target species (analyzed constituents) this method targets by default — the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
                                 "items": {
                                   "anyOf": [
                                     {
@@ -11071,15 +11071,15 @@
                                     },
                                     {
                                       "type": "object",
-                                      "title": "Per-analyte row",
-                                      "description": "One row of the per-analyte table, keyed by column schema:valueName. null records a value that is deliberately absent for this analyte rather than merely unstated.",
+                                      "title": "Per-species row",
+                                      "description": "One row of the per-species table, keyed by column schema:valueName. null records a value that is deliberately absent for this species rather than merely unstated.",
                                       "required": [
-                                        "analyte"
+                                        "targetSpecies"
                                       ],
                                       "properties": {
-                                        "analyte": {
+                                        "targetSpecies": {
                                           "type": "string",
-                                          "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                                          "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the identifier column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout.\nThis key was 'analyte' until 2026-09-25. The rename moved the COLUMN's schema:valueName const to 'targetSpecies' but left the row half behind, so a row object could satisfy neither half: keyed 'analyte' it contradicted its own column, keyed 'targetSpecies' it failed this required. Nothing upstream caught it because every tappDefinition example lists bare strings here and so never exercises this branch; it surfaced against the 46 stored ADA method definitions, which do use row objects."
                                         }
                                       },
                                       "additionalProperties": {
@@ -18455,7 +18455,7 @@
                                   },
                                   "ada:defaultTargetSpecies": {
                                     "type": "array",
-                                    "description": "The analytes (analyzed constituents) this method targets by default — the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+                                    "description": "The target species (analyzed constituents) this method targets by default — the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -18466,15 +18466,15 @@
                                         },
                                         {
                                           "type": "object",
-                                          "title": "Per-analyte row",
-                                          "description": "One row of the per-analyte table, keyed by column schema:valueName. null records a value that is deliberately absent for this analyte rather than merely unstated.",
+                                          "title": "Per-species row",
+                                          "description": "One row of the per-species table, keyed by column schema:valueName. null records a value that is deliberately absent for this species rather than merely unstated.",
                                           "required": [
-                                            "analyte"
+                                            "targetSpecies"
                                           ],
                                           "properties": {
-                                            "analyte": {
+                                            "targetSpecies": {
                                               "type": "string",
-                                              "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                                              "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the identifier column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout.\nThis key was 'analyte' until 2026-09-25. The rename moved the COLUMN's schema:valueName const to 'targetSpecies' but left the row half behind, so a row object could satisfy neither half: keyed 'analyte' it contradicted its own column, keyed 'targetSpecies' it failed this required. Nothing upstream caught it because every tappDefinition example lists bare strings here and so never exercises this branch; it surfaced against the 46 stored ADA method definitions, which do use row objects."
                                             }
                                           },
                                           "additionalProperties": {
@@ -19849,7 +19849,44 @@
                                           ]
                                         },
                                         {
-                                          "$comment": "could not resolve fragment /$defs/empa_blankCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Blank Correction",
+                                          "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/blankCorrection"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "blankCorrection"
+                                            },
+                                            "schema:name": {
+                                              "const": "Blank Correction"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         {
                                           "title": "Counting Statistics Error",
@@ -19933,7 +19970,44 @@
                                           ]
                                         },
                                         {
-                                          "$comment": "could not resolve fragment /$defs/empa_interferenceCorrectionStandard in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Interference Correction Standard",
+                                          "description": "Reference material used to quantify and calibrate the interference correction.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "interferenceCorrectionStandard"
+                                            },
+                                            "schema:name": {
+                                              "const": "Interference Correction Standard"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         {
                                           "title": "X-ray Line Overlap Corrections Applied",
@@ -19977,10 +20051,84 @@
                                           ]
                                         },
                                         {
-                                          "$comment": "could not resolve fragment /$defs/empa_interferingElements in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Interfering Elements",
+                                          "description": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferingElements"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "interferingElements"
+                                            },
+                                            "schema:name": {
+                                              "const": "Interfering Elements"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         {
-                                          "$comment": "could not resolve fragment /$defs/empa_timeDependentIntensityCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Time-Dependent Intensity Correction",
+                                          "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "timeDependentIntensityCorrection"
+                                            },
+                                            "schema:name": {
+                                              "const": "Time-Dependent Intensity Correction"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         }
                                       ]
                                     },
@@ -20216,7 +20364,44 @@
                                       },
                                       {
                                         "contains": {
-                                          "$comment": "could not resolve fragment /$defs/empa_blankCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Blank Correction",
+                                          "description": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/blankCorrection"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "blankCorrection"
+                                            },
+                                            "schema:name": {
+                                              "const": "Blank Correction"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -20312,7 +20497,44 @@
                                       },
                                       {
                                         "contains": {
-                                          "$comment": "could not resolve fragment /$defs/empa_interferenceCorrectionStandard in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Interference Correction Standard",
+                                          "description": "Reference material used to quantify and calibrate the interference correction.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "interferenceCorrectionStandard"
+                                            },
+                                            "schema:name": {
+                                              "const": "Interference Correction Standard"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
@@ -20364,14 +20586,88 @@
                                       },
                                       {
                                         "contains": {
-                                          "$comment": "could not resolve fragment /$defs/empa_interferingElements in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Interfering Elements",
+                                          "description": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/interferingElements"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "interferingElements"
+                                            },
+                                            "schema:name": {
+                                              "const": "Interfering Elements"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": true
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         "minContains": 0,
                                         "maxContains": 1
                                       },
                                       {
                                         "contains": {
-                                          "$comment": "could not resolve fragment /$defs/empa_timeDependentIntensityCorrection in C:\\GithubC\\amds-ldeo\\geochemBuildingBlocks\\_sources\\registry\\targetSpeciesColumns\\schema.yaml"
+                                          "title": "Time-Dependent Intensity Correction",
+                                          "description": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).",
+                                          "type": "object",
+                                          "properties": {
+                                            "@id": {
+                                              "const": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection"
+                                            },
+                                            "@type": {
+                                              "const": [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            },
+                                            "schema:valueName": {
+                                              "const": "timeDependentIntensityCorrection"
+                                            },
+                                            "schema:name": {
+                                              "const": "Time-Dependent Intensity Correction"
+                                            },
+                                            "ada:dataType": {
+                                              "const": "string"
+                                            },
+                                            "schema:readonlyValue": {
+                                              "const": false
+                                            },
+                                            "ada:tier": {
+                                              "const": "R"
+                                            },
+                                            "schema:defaultValue": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType"
+                                          ]
                                         },
                                         "minContains": 0,
                                         "maxContains": 1

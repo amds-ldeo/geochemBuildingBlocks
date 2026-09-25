@@ -683,14 +683,104 @@
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn"
                                     },
                                     {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/semImaging_beamCurrent"
+                                        "title": "Beam Current",
+                                        "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/semImagingTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     }
                                 ]
                             },
                             "allOf": [
                                 {
                                     "contains": {
-                                        "$ref": "../../../../registry/targetSpeciesColumns/schema.yaml#/$defs/semImaging_beamCurrent"
+                                        "title": "Beam Current",
+                                        "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
+                                        "type": "object",
+                                        "properties": {
+                                            "@id": {
+                                                "const": "ada:targetSpeciesColumn/semImagingTAPP/beamCurrent"
+                                            },
+                                            "@type": {
+                                                "const": [
+                                                    "schema:PropertyValueSpecification"
+                                                ]
+                                            },
+                                            "schema:valueName": {
+                                                "const": "beamCurrent"
+                                            },
+                                            "schema:name": {
+                                                "const": "Beam Current"
+                                            },
+                                            "ada:dataType": {
+                                                "const": "number"
+                                            },
+                                            "schema:readonlyValue": {
+                                                "const": false
+                                            },
+                                            "ada:tier": {
+                                                "const": "M"
+                                            },
+                                            "schema:defaultValue": {
+                                                "anyOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "@id",
+                                            "@type",
+                                            "schema:valueName",
+                                            "schema:name",
+                                            "ada:dataType",
+                                            "schema:defaultValue"
+                                        ]
                                     },
                                     "minContains": 0,
                                     "maxContains": 1
