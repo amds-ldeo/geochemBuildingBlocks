@@ -95,7 +95,7 @@ TAPP_PROFILES: dict[str, dict] = {
             "method, etc.), Advanced-protocol parameter specifications in schema:additionalProperty, and an "
             "analyte-column template covering EPMA per-element acquisition and "
             "reporting fields. Each ada:targetSpeciesColumns[] entry must match one of the "
-            "catalog files in analyteColumns/ (or the inherited identifier column from "
+            "catalog files in targetSpeciesColumns/ (or the inherited identifier column from "
             "tappDefinition); each catalog file is itself a JSON Schema whose "
             "examples[0] carries the canonical instance. Generated from "
             "docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py."
@@ -135,7 +135,7 @@ TAPP_PROFILES: dict[str, dict] = {
             "LA-ICPMS properties, Advanced-protocol parameters in schema:additionalProperty, and "
             "an analyte-column template covering LA-ICPMS per-element acquisition and "
             "reporting fields. Each ada:targetSpeciesColumns[] entry must match one of the "
-            "catalog files in analyteColumns/ (or the inherited identifier column from "
+            "catalog files in targetSpeciesColumns/ (or the inherited identifier column from "
             "tappDefinition); each catalog file is itself a JSON Schema whose "
             "examples[0] carries the canonical instance. Generated from "
             "docs/TAPP_LAICPMS_filled.xlsx by tools/build_TAPP_from_spreadsheet.py."
@@ -1165,7 +1165,7 @@ def write_parameter_values_registry(param_value_defs: "OrderedDict[str, dict]") 
 
 
 def write_analyte_columns_registry(analyte_column_defs: "OrderedDict[str, dict]") -> None:
-    """Write the registered analyteColumns collection BB ($defs library) at
+    """Write the registered targetSpeciesColumns collection BB ($defs library) at
     _sources/techniqueProtocols/analyteColumns/schema.yaml — one entry per
     analyteColumn (keyed by name). TAPP BBs reference these via fragment $refs
     (schema.yaml#/$defs/<name>) so they resolve locally through the register.

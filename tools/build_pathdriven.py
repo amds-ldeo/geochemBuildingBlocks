@@ -33,7 +33,16 @@ import build_tapp as b
 import schema_path_emitter as e
 import schema_path_example_emitter as ex
 
-_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|analyteColumns|reportedPropertyColumns|channelColumns)/schema\.yaml#/\$defs/(.+)$")
+# The registry names here MUST track the directory names. They carried the pre-rename
+# spellings -- analyteColumns, channelColumns -- for ten days after the 2026-09 rename moved
+# those directories to targetSpeciesColumns and monitoredPropertyColumns. A name that no longer matches does
+# not raise -- the $ref simply stops being inlined and survives as a live reference into
+# the shared registry, which is the exact thing the inlining below exists to prevent (the
+# registry keys defs by BARE name, so a name shared with another TAPP resolves to that
+# TAPP's def and its @id const). It also strands any def that lives only in this run:
+# 24 refs across 4 schemas were dangling, including the per-TAPP AnalysisValue variants
+# that are generated in memory and never published to any registry file.
+_REG_RE = re.compile(r"/(parameterTemplates|parameterValues|targetSpeciesColumns|reportedPropertyColumns|monitoredPropertyColumns)/schema\.yaml#/\$defs/(.+)$")
 
 
 def _inline_registry_refs(node, registries, cache):
