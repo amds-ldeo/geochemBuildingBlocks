@@ -101,8 +101,8 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -259,8 +259,8 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Fujifilm GFX 100s" ;
     ada:reportedProperties "Num | Size_mm | id | size (mm)" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

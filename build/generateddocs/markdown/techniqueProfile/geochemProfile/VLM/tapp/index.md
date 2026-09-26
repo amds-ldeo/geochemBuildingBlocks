@@ -92,8 +92,8 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -191,8 +191,8 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -238,8 +238,8 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(UAZ)Keyence VHX-7000 Digital Microscope" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

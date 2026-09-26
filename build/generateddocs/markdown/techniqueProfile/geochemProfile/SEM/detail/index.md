@@ -35,13 +35,13 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres …\", Fig. 1, p.2), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -86,13 +86,13 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres \u2026\", Fig. 1, p.2), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -114,7 +114,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 <ex:detail-Garvie2008> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Garvie2008> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -133,7 +133,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres …\", Fig. 1, p.2), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -169,13 +169,13 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -220,13 +220,13 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -248,7 +248,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 <ex:detail-Garvie2008-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Garvie2008-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -267,7 +267,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -303,13 +303,13 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -354,13 +354,13 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3\u20134), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -382,7 +382,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 <ex:detail-Genge2025> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Genge2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -401,7 +401,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -437,13 +437,13 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -488,13 +488,13 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3\u20134), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -516,7 +516,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 <ex:detail-Genge2025-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Genge2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -535,7 +535,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -571,13 +571,13 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -622,13 +622,13 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3\u20134), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -650,7 +650,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 <ex:detail-Genge2025-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Genge2025-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -669,7 +669,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -705,13 +705,13 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -756,13 +756,13 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -784,7 +784,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 <ex:detail-Gucsik2013> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Gucsik2013> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the seven grains are chosen before analysis (recorded under Sampling Unit Selection Criteria), not admitted to or excluded from an aggregate; no contributing count or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -803,7 +803,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -839,13 +839,13 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -890,13 +890,13 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -918,7 +918,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 <ex:detail-Gucsik2013-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Gucsik2013-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -937,7 +937,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -973,13 +973,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM-CL",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1024,13 +1024,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM-CL",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1052,7 +1052,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
 <ex:detail-Izawa2010> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1071,7 +1071,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM-CL" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1107,13 +1107,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1158,13 +1158,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1186,7 +1186,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 <ex:detail-Izawa2010-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1205,7 +1205,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1241,13 +1241,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": "~0.5 wt% for most elements",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1292,13 +1292,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": "~0.5 wt% for most elements",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1320,7 +1320,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 <ex:detail-Izawa2010-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1339,7 +1339,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1375,13 +1375,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1426,13 +1426,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1454,7 +1454,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 <ex:detail-Izawa2010-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1473,7 +1473,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1509,13 +1509,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1560,13 +1560,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1588,7 +1588,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 <ex:detail-Izawa2010-5> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Izawa2010-5> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1607,7 +1607,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1643,13 +1643,13 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1694,13 +1694,13 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "9.8 \u00d7 9.8 \u00d7 15 nm voxel size; 600 slices; 7.8 \u00d7 7.8 \u00b5m scanning area; 9.0 \u00b5m total thickness",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1722,7 +1722,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 <ex:detail-Liu2017> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Liu2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the pore statistics integrate the whole segmented volume rather than admitting or excluding results; the only stated restriction is of scope, the model focusing \"only ... on the coal sample #1\" (p.8)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1741,7 +1741,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1777,13 +1777,13 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1828,13 +1828,13 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1856,7 +1856,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 <ex:detail-Liu2017-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Liu2017-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1875,7 +1875,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -1911,13 +1911,13 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1962,13 +1962,13 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1990,7 +1990,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 <ex:detail-Liu2017-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Liu2017-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2009,7 +2009,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2045,13 +2045,13 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2096,13 +2096,13 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2124,7 +2124,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 <ex:detail-Ma2017> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Ma2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2143,7 +2143,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Section 126A (USNM 7908)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2179,13 +2179,13 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2230,13 +2230,13 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2258,7 +2258,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 <ex:detail-Ma2017-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Ma2017-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no count or rule is stated for the SEM work. The contributing counts in this paper (\"n = 4\", \"n = 8\", \"n = 15\", \"n = 65\", \"n = 3\"; Table 1, p.2) belong to its EPMA analyses and are not borrowed" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2277,7 +2277,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Section 126A (USNM 7908)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2313,13 +2313,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2364,13 +2364,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2392,7 +2392,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
 <ex:detail-Pascucci2026> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2411,7 +2411,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2447,13 +2447,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2498,13 +2498,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2526,7 +2526,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 <ex:detail-Pascucci2026-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2545,7 +2545,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2581,13 +2581,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": 1024,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2632,13 +2632,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": 1024,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2660,7 +2660,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 <ex:detail-Pascucci2026-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2679,7 +2679,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:mapDimensions 1024 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2715,13 +2715,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2766,13 +2766,13 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2794,7 +2794,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
 <ex:detail-Pascucci2026-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Pascucci2026-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2813,7 +2813,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 7317" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2849,13 +2849,13 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "SC; HBC",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (§2.3, p.4), and the reported statistics integrate all ~800 slices",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2900,13 +2900,13 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "SC; HBC",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (\u00a72.3, p.4), and the reported statistics integrate all ~800 slices",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -2928,7 +2928,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 <ex:detail-Zhou2017> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zhou2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (§2.3, p.4), and the reported statistics integrate all ~800 slices" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -2947,7 +2947,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "SC; HBC" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -2983,13 +2983,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3034,13 +3034,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3062,7 +3062,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3081,7 +3081,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3117,13 +3117,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3168,13 +3168,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3196,7 +3196,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3215,7 +3215,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3251,13 +3251,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3302,13 +3302,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3330,7 +3330,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3349,7 +3349,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3385,13 +3385,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3436,13 +3436,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3464,7 +3464,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3483,7 +3483,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3519,13 +3519,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3570,13 +3570,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3598,7 +3598,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-5> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-5> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3617,7 +3617,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3653,13 +3653,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3704,13 +3704,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2\u20134) without attributing them to a laboratory",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3732,7 +3732,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-6> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-6> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3751,7 +3751,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3787,13 +3787,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3838,13 +3838,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2\u20134) without attributing them to a laboratory",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3866,7 +3866,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-7> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-7> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate (p.9)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -3885,7 +3885,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -3921,13 +3921,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — a sample-preparation procedure produces sections rather than results to aggregate (p.10)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -3972,13 +3972,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2\u20134) without attributing them to a laboratory",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.10)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4000,7 +4000,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-8> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-8> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — a sample-preparation procedure produces sections rather than results to aggregate (p.10)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -4019,7 +4019,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -4055,13 +4055,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the cathodoluminescence passage names no specimen (p.9)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4106,13 +4106,13 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the cathodoluminescence passage names no specimen (p.9)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4134,7 +4134,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 <ex:detail-Zega2025-9> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Zega2025-9> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -4153,7 +4153,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the cathodoluminescence passage names no specimen (p.9)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -4189,13 +4189,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501018-100",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5σ anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4240,13 +4240,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501018-100",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5\u03c3 anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4268,7 +4268,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 <ex:detail-Barnes2025> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Barnes2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5σ anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -4287,7 +4287,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OREX-501018-100" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -4323,13 +4323,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4374,13 +4374,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4402,7 +4402,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 <ex:detail-Barnes2025-2> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Barnes2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -4421,7 +4421,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -4457,13 +4457,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4508,13 +4508,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4536,7 +4536,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 <ex:detail-Barnes2025-3> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Barnes2025-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -4555,7 +4555,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -4591,13 +4591,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4642,13 +4642,13 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:imagePixelSize": -9999,
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:imageStackDimenstions": "missing",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -4670,7 +4670,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 <ex:detail-Barnes2025-4> a ada:SEMImage ;
     schema1:measurementTechnique <ex:semTAPP-Barnes2025-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -4689,7 +4689,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 

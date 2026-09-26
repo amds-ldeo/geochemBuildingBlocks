@@ -101,8 +101,8 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -259,8 +259,8 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Purdue Rare Isotope Measurement (PRIME) Lab AMS facility" ;
     ada:reportedProperties "Sample Name | Sample Holder | Sample Description | Type of sample | PRIME ID | 10Be/9Be ratio" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

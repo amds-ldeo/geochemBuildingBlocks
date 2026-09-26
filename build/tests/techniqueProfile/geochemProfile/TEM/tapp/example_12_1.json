@@ -29,6 +29,17 @@
           "schema:value": [
             "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84\u00d7114 \u00b5m; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)"
           ]
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "SEM/EDS identification in the polished section \u2014 the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
         }
       ]
     }
@@ -61,11 +72,24 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 the carbonate compositions are \"extracted from EDS mapping over areas of 5\u201310 nm\" and normalised to 100% (p.2); no contributing count and no acceptance or rejection rule is stated"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -76,6 +100,7 @@
       "schema:HowTo"
     ]
   },
+  "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting \u2014 the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -253,10 +278,23 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest \u2014 \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2), within the carbonate-bearing sections UH-001 and UH-002 (Fig. 5, p.7)",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "Bruker Esprit 1.9"
+    }
+  ],
+  "ada:reportedProperties": [
+    "Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) \u2014 with the ranges also given in wt% (\"2.9\u20138.1 wt.% MnO, 2.5\u20136.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ],
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:cameraLengthDefault": -9999,
@@ -267,8 +305,6 @@
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "missing"
 }

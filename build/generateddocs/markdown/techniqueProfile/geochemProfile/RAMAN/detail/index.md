@@ -35,7 +35,7 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235).",
   "ada:sampleName": "OREX-803141-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235).",
   "ada:sampleName": "OREX-803141-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholt
     ada:componentType "ada:RAMANRawTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)." ;
     ada:sampleName "OREX-803141-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240823_raman_hmgu_orex-803141-0_1" .
 
 <ex:ramanTAPP-Liss2024> schema1:identifier "missing" .

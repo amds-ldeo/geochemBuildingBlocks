@@ -35,7 +35,7 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA",
   "ada:sampleName": "OREX-800044-101",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA",
   "ada:sampleName": "OREX-800044-101",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Ther
     ada:componentType "ada:LCMSCollection" ;
     ada:fundingSourceForAnalysis "NASA" ;
     ada:sampleName "OREX-800044-101" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240301_lc-ms_ku_orex-800044-101_1" .
 
 <ex:lcmsTAPP-Ultimate3000> schema1:identifier "missing" .

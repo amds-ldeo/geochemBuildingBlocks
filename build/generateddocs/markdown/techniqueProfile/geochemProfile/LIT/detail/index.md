@@ -35,7 +35,7 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800118-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800118-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | I
     ada:componentType "ada:analysisLocation" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800118-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241022_lit_nu_orex-800118-0_1" .
 
 <ex:litTAPP-P0> schema1:identifier "missing" .

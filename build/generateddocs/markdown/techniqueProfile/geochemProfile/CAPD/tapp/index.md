@@ -88,8 +88,8 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -183,8 +183,8 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -208,14 +208,14 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv)." ;
     schema1:location [ a schema1:Place ;
@@ -230,8 +230,8 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)" ;
     ada:reportedProperties "T [K] Raw Data | T [K] Raw Data Error | Capacitance [pF] Raw data | Capacitance [pF] Raw data Error | T [K] Data | T [K] Data Error | a [1/K] | a [1/K] x 10^-6 | T [K] dilatometer calibration (avg) | Capacitance [pF] dilatometer calibration (avg) | T [K] OFHC Cu Std. Reference | a [1/K] OFHC Cu Std. Reference" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

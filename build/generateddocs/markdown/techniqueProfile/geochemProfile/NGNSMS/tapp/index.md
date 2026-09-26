@@ -101,8 +101,8 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -259,8 +259,8 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(CNRS-CRPG)Nu Instruments Noblesse HR" ;
     ada:reportedProperties "1 sigma | Sample | Laser power | Date | Cycles | Trap" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

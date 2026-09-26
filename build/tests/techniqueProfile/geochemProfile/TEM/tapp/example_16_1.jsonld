@@ -39,6 +39,17 @@
           "schema:value": [
             "Bennu carbonaceous asteroid sample (OSIRIS-REx return); apatite grains in phyllosilicate-rich matrix"
           ]
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "SEM EDS mapping and CL imaging at JSC \u2014 apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)"
         }
       ]
     }
@@ -71,11 +82,24 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -86,6 +110,7 @@
       "schema:HowTo"
     ]
   },
+  "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction \u2014 \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -249,6 +274,19 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Sub-volume (FIB section) > Grain (apatite) \u2014 one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)",
+  "ada:reportedProperties": [
+    "Apatite compositions by STEM EDS as oxide concentrations (wt%: F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3, with totals; Table 2, p.11); crystallinity and orientation from zone-axis SAED patterns (nominal, p.12); textural relationships between apatite and phyllosilicate (nominal, Figs 6\u20137, pp.10\u201312)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ],
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
   "ada:edsCalibrationStandardDefault": "missing",
@@ -258,8 +296,6 @@
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
   "ada:phaseIdentificationMethod": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "missing"
 }

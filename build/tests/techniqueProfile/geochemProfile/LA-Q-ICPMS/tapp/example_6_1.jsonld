@@ -54,6 +54,33 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Petrographic microscopy, SEM and EMP \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "Single spot analysis per location"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -180,21 +207,63 @@
   ],
   "ada:analysisSequenceDefault": "Same as silicate protocol",
   "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency"
-        }
-      ],
-      "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot analysis per location"
-    }
-  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:description": "missing",
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Partially \u2014 the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -232,11 +301,15 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Phase > Spot \u2014 \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008)"
     }
+  ],
+  "ada:reportedProperties": [
+    "Trace element abundances per phase (ppm, with REE at ppb level \u2014 \"8 ppb La, 23 ppb Yb, and 6 ppb Lu\", \"Nickel contents in olivines decrease from 910 ppm at Mg# = ~80 to 234 ppm\", p.7), reported as means with 1\u03c3 and n (table p.9); limits of detection are reported per element (Table 3, p.9). Silicate and oxide abundances are normalised to 100 wt% oxide total; phosphate to EMP CaO (p.4)"
   ],
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
@@ -250,49 +323,12 @@
   "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
   "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
   "ada:primaryStandardNameDefault": "NIST 610 glass standard",
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ]
-  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:carrierGasFlowRateDefault": "missing",
@@ -302,8 +338,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",

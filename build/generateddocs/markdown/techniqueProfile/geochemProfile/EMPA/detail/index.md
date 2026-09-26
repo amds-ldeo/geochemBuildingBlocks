@@ -35,11 +35,11 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint Mars meteorite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level only: tissintite \"was identified in sections UT1, UT2 and UT3\" (p.2); Table 1 groups the point analyses by phase and setting (\"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite away from melt pockets\" …) with counts (n = 6, 9, 17 …), not labels (p.5)",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
   "ada:detectionLimit": "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -81,11 +81,11 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint Mars meteorite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level only: tissintite \"was identified in sections UT1, UT2 and UT3\" (p.2); Table 1 groups the point analyses by phase and setting (\"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite away from melt pockets\" \u2026) with counts (n = 6, 9, 17 \u2026), not labels (p.5)",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
   "ada:detectionLimit": "K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% (Table 1 footnote; other elements N)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -104,7 +104,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
 <ex:detail-JEOL8200> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-JEOL8200> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Chi Ma" ;
     ada:analyticalAccuracy "missing" ;
@@ -119,7 +119,7 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint Mars meteorite" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled at section level only: tissintite \"was identified in sections UT1, UT2 and UT3\" (p.2); Table 1 groups the point analyses by phase and setting (\"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite away from melt pockets\" …) with counts (n = 6, 9, 17 …), not labels (p.5)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-JEOL8200> schema1:identifier "missing" .
@@ -154,11 +154,11 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8657 shergottite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"a polished thick section of the martian meteorite NWA 8657\" (p.2), not otherwise labelled; analyses are grouped by phase (\"maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis\", p.2)",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -200,11 +200,11 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8657 shergottite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"a polished thick section of the martian meteorite NWA 8657\" (p.2), not otherwise labelled; analyses are grouped by phase (\"maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis\", p.2)",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 analyses are reported by phase with no contributing count and no acceptance or rejection rule stated",
   "ada:detectionLimit": "K2O: 0.01 wt% (lowest); MnO: 0.06 wt% (highest); full per-element values stated in paper",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -223,7 +223,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
 <ex:detail-P1> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P1> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Sen Hu" ;
     ada:analyticalAccuracy "missing" ;
@@ -238,7 +238,7 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 8657 shergottite" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"a polished thick section of the martian meteorite NWA 8657\" (p.2), not otherwise labelled; analyses are grouped by phase (\"maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis\", p.2)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P1> schema1:identifier "missing" .
@@ -273,11 +273,11 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level: X-ray maps are placed by thin section, e.g. an olivine megacryst \"in Tata-2-C3\" whose \"Red box outlines the area of X-ray maps\" (Fig. 3 caption, p.7); the sections are \"UT1 to UT3\" and \"Tata-1-C1 to C3, Tata-2-C1 to C3, and Tata-3-C1 to C3\" (pp.2–3). Map areas carry no labels of their own",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded",
   "ada:detectionLimit": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as \"typical\")",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -319,11 +319,11 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level: X-ray maps are placed by thin section, e.g. an olivine megacryst \"in Tata-2-C3\" whose \"Red box outlines the area of X-ray maps\" (Fig. 3 caption, p.7); the sections are \"UT1 to UT3\" and \"Tata-1-C1 to C3, Tata-2-C1 to C3, and Tata-3-C1 to C3\" (pp.2\u20133). Map areas carry no labels of their own",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded",
   "ada:detectionLimit": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as \"typical\")",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -342,7 +342,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
 <ex:detail-P2> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -357,7 +357,7 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled at section level: X-ray maps are placed by thin section, e.g. an olivine megacryst \"in Tata-2-C3\" whose \"Red box outlines the area of X-ray maps\" (Fig. 3 caption, p.7); the sections are \"UT1 to UT3\" and \"Tata-1-C1 to C3, Tata-2-C1 to C3, and Tata-3-C1 to C3\" (pp.2–3). Map areas carry no labels of their own" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P2> schema1:identifier "missing" .
@@ -392,11 +392,11 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: thin sections \"UT1 to UT3\" and \"Tata-1-C1 to C3, Tata-2-C1 to C3, and Tata-3-C1 to C3\" (pp.2–3), and pyroxene grains within a section, e.g. \"T-3-C2 px1\" to \"T-3-C2 px5\" (Fig. 8, p.12); individual point analyses are not labelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -438,11 +438,11 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: thin sections \"UT1 to UT3\" and \"Tata-1-C1 to C3, Tata-2-C1 to C3, and Tata-3-C1 to C3\" (pp.2\u20133), and pyroxene grains within a section, e.g. \"T-3-C2 px1\" to \"T-3-C2 px5\" (Fig. 8, p.12); individual point analyses are not labelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": "<0.03 wt% for SiO2, TiO2, Al2O3, MgO, CaO; <0.05-0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5 (stated as shared conditions with UT)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -461,7 +461,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
 <ex:detail-P3> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -476,7 +476,7 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: thin sections \"UT1 to UT3\" and \"Tata-1-C1 to C3, Tata-2-C1 to C3, and Tata-3-C1 to C3\" (pp.2–3), and pyroxene grains within a section, e.g. \"T-3-C2 px1\" to \"T-3-C2 px5\" (Fig. 8, p.12); individual point analyses are not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P3> schema1:identifier "missing" .
@@ -511,11 +511,11 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Zagami USNM 7619",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level only: \"The Zagami thin section (USNM 7619)\" (p.3); occurrences are identified by figure panel (\"First occurrence of liebermannite\", Fig. 1, p.2), not by label",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated",
   "ada:detectionLimit": 0.05,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "1-2% for Si, Al, Ca, Na, and K (based on feldspar standards run as unknowns)",
@@ -557,11 +557,11 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Zagami USNM 7619",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level only: \"The Zagami thin section (USNM 7619)\" (p.3); occurrences are identified by figure panel (\"First occurrence of liebermannite\", Fig. 1, p.2), not by label",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated",
   "ada:detectionLimit": 0.05,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "1-2% for Si, Al, Ca, Na, and K (based on feldspar standards run as unknowns)",
@@ -580,7 +580,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
 <ex:detail-JEOL8200-2> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-JEOL8200-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Chi Ma" ;
     ada:analyticalAccuracy "1-2% for Si, Al, Ca, Na, and K (based on feldspar standards run as unknowns)" ;
@@ -595,7 +595,7 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Zagami USNM 7619" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled at section level only: \"The Zagami thin section (USNM 7619)\" (p.3); occurrences are identified by figure panel (\"First occurrence of liebermannite\", Fig. 1, p.2), not by label" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-JEOL8200-2> schema1:identifier "missing" .
@@ -630,11 +630,11 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ivuna CI chondrite, section MZ2",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level: the CAI \"in Ivuna section MZ2\" (p.3), in \"polished mount 'Ivuna MZ2'\" (p.14); the single CAI and its analysis points carry no labels",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates",
   "ada:detectionLimit": "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -676,11 +676,11 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ivuna CI chondrite, section MZ2",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at section level: the CAI \"in Ivuna section MZ2\" (p.3), in \"polished mount 'Ivuna MZ2'\" (p.14); the single CAI and its analysis points carry no labels",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates",
   "ada:detectionLimit": "Al2O3, K2O, CaO: 0.03-0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06-0.09 wt% (stated as \"typically\")",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -699,7 +699,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
 <ex:detail-P5> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P5> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "David R. Frank" ;
     ada:analyticalAccuracy "missing" ;
@@ -714,7 +714,7 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Ivuna CI chondrite, section MZ2" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled at section level: the CAI \"in Ivuna section MZ2\" (p.3), in \"polished mount 'Ivuna MZ2'\" (p.14); the single CAI and its analysis points carry no labels" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P5> schema1:identifier "missing" .
@@ -749,11 +749,11 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"OC002 LAB24-2 fragment 1\" and \"fragment 2\" (Figs 3–4, pp.6–7), and within fragment 1 \"lithic clast LC1\" (Figure S3 caption, p.17); map areas are otherwise unlabelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -795,11 +795,11 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"OC002 LAB24-2 fragment 1\" and \"fragment 2\" (Figs 3\u20134, pp.6\u20137), and within fragment 1 \"lithic clast LC1\" (Figure S3 caption, p.17); map areas are otherwise unlabelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 \u00b1 0.4 wt% Fe and 3.0 \u00b1 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 \u00b1 2.7 wt% Fe and 4.6 \u00b1 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -818,7 +818,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
 <ex:detail-P6> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P6> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -833,7 +833,7 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"OC002 LAB24-2 fragment 1\" and \"fragment 2\" (Figs 3–4, pp.6–7), and within fragment 1 \"lithic clast LC1\" (Figure S3 caption, p.17); map areas are otherwise unlabelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P6> schema1:identifier "missing" .
@@ -868,11 +868,11 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: apatite grains numbered within each particle — \"OREX-803166-0 … Ap. #1 Ap. #2 Ap. #3 Ap. #4\" (Table 1, p.7) — in particles \"OREX-803166-0, OREX-803169-0, and OREX-803173-0\" (p.3) from the mounts \"OREX-803079-0 and OREX-803080-0\" (p.2)",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -914,11 +914,11 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: apatite grains numbered within each particle \u2014 \"OREX-803166-0 \u2026 Ap. #1 Ap. #2 Ap. #3 Ap. #4\" (Table 1, p.7) \u2014 in particles \"OREX-803166-0, OREX-803169-0, and OREX-803173-0\" (p.3) from the mounts \"OREX-803079-0 and OREX-803080-0\" (p.2)",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -937,7 +937,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
 <ex:detail-JEOL8530> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-JEOL8530> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Logan B. Seifert" ;
     ada:analyticalAccuracy "missing" ;
@@ -952,7 +952,7 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: apatite grains numbered within each particle — \"OREX-803166-0 … Ap. #1 Ap. #2 Ap. #3 Ap. #4\" (Table 1, p.7) — in particles \"OREX-803166-0, OREX-803169-0, and OREX-803173-0\" (p.3) from the mounts \"OREX-803079-0 and OREX-803080-0\" (p.2)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-JEOL8530> schema1:identifier "missing" .
@@ -987,11 +987,11 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8003 eucrite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — NWA 8003; grains are identified by setting (\"garnet grains within the eclogitic mineral assemblage\", p.4), and the point analyses are in \"Supplementary Table 4\" (p.4), not in the archived PDF",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated",
   "ada:detectionLimit": "Better than 0.02 wt% (as stated in paper)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1033,11 +1033,11 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 8003 eucrite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 NWA 8003; grains are identified by setting (\"garnet grains within the eclogitic mineral assemblage\", p.4), and the point analyses are in \"Supplementary Table 4\" (p.4), not in the archived PDF",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 \u00b1 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated",
   "ada:detectionLimit": "Better than 0.02 wt% (as stated in paper)",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1056,7 +1056,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
 <ex:detail-P8> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P8> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1071,7 +1071,7 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "NWA 8003 eucrite" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — NWA 8003; grains are identified by setting (\"garnet grains within the eclogitic mineral assemblage\", p.4), and the point analyses are in \"Supplementary Table 4\" (p.4), not in the archived PDF" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P8> schema1:identifier "missing" .
@@ -1106,11 +1106,11 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the Smithsonian microprobe passage names no specimens (\"conducted on Ir-coated specimens\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no selection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1152,11 +1152,11 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the Smithsonian microprobe passage names no specimens (\"conducted on Ir-coated specimens\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no selection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1175,7 +1175,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
 <ex:detail-JEOL8530-2> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-JEOL8530-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no selection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1190,7 +1190,7 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Bennu OSIRIS-REx samples (OREX-8#####-###)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Smithsonian microprobe passage names no specimens (\"conducted on Ir-coated specimens\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-JEOL8530-2> schema1:identifier "missing" .
@@ -1225,11 +1225,11 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the Arizona microprobe passage names no specimen (\"the section was coated with a thin film of carbon\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no selection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1271,11 +1271,11 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the Arizona microprobe passage names no specimen (\"the section was coated with a thin film of carbon\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no selection rule stated",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1294,7 +1294,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
 <ex:detail-P10> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P10> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported by phase with no contributing count and no selection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1309,7 +1309,7 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Bennu OSIRIS-REx samples (OREX-8#####-###)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Arizona microprobe passage names no specimen (\"the section was coated with a thin film of carbon\", p.7); the paper's OREX numbers identify figure images, not microprobe analyses" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P10> schema1:identifier "missing" .
@@ -1344,11 +1344,11 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-5/8#####-###)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled by curation number per particle: \"EMPA data from Bennu particles\" (Fig. 1) cites \"OREX-803095-0\" and \"OREX-803096-0\", and sulfide compositions \"in samples OREX-803095-0, OREX-803096-0, OREX-803066-0, OREX-803067-0 and OREX-803070-0\" (p.2); points within particles are not labelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1390,11 +1390,11 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Bennu OSIRIS-REx samples (OREX-5/8#####-###)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled by curation number per particle: \"EMPA data from Bennu particles\" (Fig. 1) cites \"OREX-803095-0\" and \"OREX-803096-0\", and sulfide compositions \"in samples OREX-803095-0, OREX-803096-0, OREX-803066-0, OREX-803067-0 and OREX-803070-0\" (p.2); points within particles are not labelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1413,7 +1413,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
 <ex:detail-P11> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P11> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1428,7 +1428,7 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Bennu OSIRIS-REx samples (OREX-5/8#####-###)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled by curation number per particle: \"EMPA data from Bennu particles\" (Fig. 1) cites \"OREX-803095-0\" and \"OREX-803096-0\", and sulfide compositions \"in samples OREX-803095-0, OREX-803096-0, OREX-803066-0, OREX-803067-0 and OREX-803070-0\" (p.2); points within particles are not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P11> schema1:identifier "missing" .
@@ -1463,11 +1463,11 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-103 and OREX-800045-107",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at split level: \"Samples OREX-800045-103 and OREX-800045-107 ... Aggregate particles (<1 mm) were mounted in epoxy\" (p.11); particles and points are not labelled, and the data are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's",
   "ada:detectionLimit": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1509,11 +1509,11 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-103 and OREX-800045-107",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled at split level: \"Samples OREX-800045-103 and OREX-800045-107 ... Aggregate particles (<1 mm) were mounted in epoxy\" (p.11); particles and points are not labelled, and the data are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's",
   "ada:detectionLimit": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si: 0.05 wt%; K: 0.05 wt%; Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1532,7 +1532,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
 <ex:detail-P12> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P12> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1547,7 +1547,7 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OREX-800045-103 and OREX-800045-107" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled at split level: \"Samples OREX-800045-103 and OREX-800045-107 ... Aggregate particles (<1 mm) were mounted in epoxy\" (p.11); particles and points are not labelled, and the data are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P12> schema1:identifier "missing" .
@@ -1582,11 +1582,11 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501054-0 and OREX-501059-0 (particles P1, P2)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"The samples OREX-501054-0 and OREX-501059-0 ... fragmented into particles, identified as P1 and P2\" (p.13); the olivine and pyroxene grains within them are not labelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses",
   "ada:detectionLimit": "Transition metals: ~250 ppm (stated as \"typical\")",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1628,11 +1628,11 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501054-0 and OREX-501059-0 (particles P1, P2)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: \"The samples OREX-501054-0 and OREX-501059-0 ... fragmented into particles, identified as P1 and P2\" (p.13); the olivine and pyroxene grains within them are not labelled",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses",
   "ada:detectionLimit": "Transition metals: ~250 ppm (stated as \"typical\")",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1651,7 +1651,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
 <ex:detail-P13> a ada:EMPAImage ;
     schema1:measurementTechnique <ex:empaTAPP-P13> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
@@ -1666,7 +1666,7 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
     ada:mapDimensions -9999 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "OREX-501054-0 and OREX-501059-0 (particles P1, P2)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"The samples OREX-501054-0 and OREX-501059-0 ... fragmented into particles, identified as P1 and P2\" (p.13); the olivine and pyroxene grains within them are not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P13> schema1:identifier "missing" .
@@ -1701,7 +1701,7 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "73001,6014-73001,6021",
-  "ada:samplingUnit": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
+  "ada:samplingUnitName": "Labelled at thin-section level: \"The 73001,6014–73001,6021 samples are 50 × 25 mm continuous thin sections\" (p.6), e.g. the \"73001,6019\" X-ray map (p.11); every map pixel is an analysis, so the section — the acquisition area — is the unit named",
   "ada:mapDimensions": 1,
   "ada:mapArea": "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)",
   "ada:proceduralBlankLevel": "missing",
@@ -1747,7 +1747,7 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "73001,6014-73001,6021",
-  "ada:samplingUnit": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
+  "ada:samplingUnitName": "Labelled at thin-section level: \"The 73001,6014\u201373001,6021 samples are 50 \u00d7 25 mm continuous thin sections\" (p.6), e.g. the \"73001,6019\" X-ray map (p.11); every map pixel is an analysis, so the section \u2014 the acquisition area \u2014 is the unit named",
   "ada:mapDimensions": 1,
   "ada:mapArea": "N - not stated directly (1,024 pixels at 9.5 um step corresponds to ~9.7 mm per side)",
   "ada:proceduralBlankLevel": "missing",
@@ -1785,7 +1785,7 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
     ada:mapDimensions 1 ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "73001,6014-73001,6021" ;
-    ada:samplingUnit "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
+    ada:samplingUnitName "Labelled at thin-section level: \"The 73001,6014–73001,6021 samples are 50 × 25 mm continuous thin sections\" (p.6), e.g. the \"73001,6019\" X-ray map (p.11); every map pixel is an analysis, so the section — the acquisition area — is the unit named" ;
     ada:sessionIdentifier "missing" .
 
 <ex:empaTAPP-P14> schema1:identifier "missing" .

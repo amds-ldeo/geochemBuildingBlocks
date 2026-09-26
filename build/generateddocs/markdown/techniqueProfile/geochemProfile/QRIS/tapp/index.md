@@ -98,8 +98,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
   "ada:illuminationColour": "missing",
   "ada:illuminationLevelDefault": -9999,
   "ada:reflectanceStandardDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -203,8 +203,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
   "ada:illuminationColour": "missing",
   "ada:illuminationLevelDefault": -9999,
   "ada:reflectanceStandardDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -256,8 +256,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "Quantitative Reflectance Imaging System" ;
     ada:reflectanceStandardDefault "missing" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

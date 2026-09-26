@@ -35,7 +35,7 @@ detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
   "ada:sampleName": "OREX-501018-100",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
   "ada:sampleName": "OREX-501018-100",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoS
     ada:componentType "ada:analysisLocation" ;
     ada:fundingSourceForAnalysis "STFC Grant ST/Y000188/1" ;
     ada:sampleName "OREX-501018-100" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240111_nanosims_ou_orex-501059-0_1" .
 
 <ex:nanosimsTAPP-P0> schema1:identifier "missing" .

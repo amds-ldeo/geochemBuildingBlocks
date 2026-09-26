@@ -39,6 +39,17 @@
           "schema:value": [
             "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) \u2014 OSIRIS-REx Bennu returned samples"
           ]
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
       ]
     }
@@ -83,6 +94,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Selective quantification: summed spectra extracted from specific phyllosilicate domains in EDS spectrum images"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses"
           }
         ],
         "@type": [
@@ -99,6 +121,7 @@
       "schema:HowTo"
     ]
   },
+  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -290,10 +313,23 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
+    }
+  ],
+  "ada:reportedProperties": [
+    "Phase identifications and their structures from HRTEM and SAED (nominal, with d-spacings in nm \u2014 serpentine 0.7 nm and saponite 1.0 nm, Fig. 3, p.4); phase compositions from STEM-EDS, plotted as atomic proportions (At%: Mg, Fe, Si+Al for the sheet silicates, Fig. 4, p.4); sulfide polytypes (nominal, e.g. pyrrhotite 4C, 5C; Fig. 5, p.5); Fe3+/\u03a3Fe from Fe L2,3 XANES mapping (Fig. 4, p.4)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ],
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:cameraLengthDefault": -9999,
@@ -304,7 +340,5 @@
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "schema:datePublished": "missing"
 }

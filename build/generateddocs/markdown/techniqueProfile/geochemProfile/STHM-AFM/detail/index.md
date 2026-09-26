@@ -35,7 +35,7 @@ detail instance derived from ADA n=483 | no named analyst | York University | Pa
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800088-5",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=483 | no named analyst | York University | Pa
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800088-5",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=483 | no named analyst | York University | Pa
     ada:componentType "ada:SThMCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800088-5" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250523_STHM-AFM_YU_OREX-800088-5_1" .
 
 <ex:sthmAfmTAPP-P0> schema1:identifier "missing" .

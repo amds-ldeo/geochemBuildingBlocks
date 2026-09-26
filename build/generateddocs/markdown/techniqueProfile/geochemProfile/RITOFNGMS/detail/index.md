@@ -35,7 +35,7 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1",
   "ada:sampleName": "OREX-803060-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1",
   "ada:sampleName": "OREX-803060-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=2 | Crowther, Sarah | University of Mancheste
     ada:componentType "ada:RITOFNGMSCollection" ;
     ada:fundingSourceForAnalysis "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1" ;
     ada:sampleName "OREX-803060-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240116_ri-tof-ngms_uom_orex-803060-0_1" .
 
 <ex:ritofngmsTAPP-P0> schema1:identifier "missing" .

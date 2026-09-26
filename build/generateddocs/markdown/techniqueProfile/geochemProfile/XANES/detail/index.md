@@ -35,7 +35,7 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA",
   "ada:sampleName": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA",
   "ada:sampleName": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
     ada:componentType "ada:XANESCollection" ;
     ada:fundingSourceForAnalysis "NASA" ;
     ada:sampleName "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231211_xanes_als_orex-803030-100_1 | 20241027_xanes_als_orex-800055-125_1 | (+6 more)" .
 
 <ex:xanesTAPP-Gainsforth2023> schema1:identifier "missing" .

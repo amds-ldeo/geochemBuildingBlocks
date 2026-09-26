@@ -35,7 +35,7 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES).",
   "ada:sampleName": "OREX-800045-103",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES).",
   "ada:sampleName": "OREX-800045-103",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Pe
     ada:componentType "ada:SIMSTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)." ;
     ada:sampleName "OREX-800045-103" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240422_sims_cnrs-crpg_orex-800045-103_1" .
 
 <ex:simsTAPP-P0> schema1:identifier "missing" .

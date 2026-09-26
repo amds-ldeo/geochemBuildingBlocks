@@ -92,8 +92,8 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -191,8 +191,8 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -238,8 +238,8 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Infratec camera model ThermoHAWK H9000" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

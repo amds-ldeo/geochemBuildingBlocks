@@ -35,7 +35,7 @@ detail instance derived from ADA n=16 | Greenwood, Richard | Open University | T
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
   "ada:sampleName": "OREX-501042-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=16 | Greenwood, Richard | Open University | T
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "STFC Grant ST/Y000188/1",
   "ada:sampleName": "OREX-501042-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=16 | Greenwood, Richard | Open University | T
     ada:componentType "ada:LAFRaw" ;
     ada:fundingSourceForAnalysis "STFC Grant ST/Y000188/1" ;
     ada:sampleName "OREX-501042-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240124_laf_ou_orex-501042-0_1" .
 
 <ex:lafTAPP-P0> schema1:identifier "missing" .

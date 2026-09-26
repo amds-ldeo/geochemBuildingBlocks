@@ -35,7 +35,7 @@ detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Tri
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800117-110",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Tri
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800117-110",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Tri
     ada:componentType "ada:TIMSProcessedTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800117-110" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250113_TIMS_ETHZ_OREX-800117-110_1" .
 
 <ex:timsTAPP-P0> schema1:identifier "missing" .

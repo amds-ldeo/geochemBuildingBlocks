@@ -35,7 +35,7 @@ detail instance derived from ADA n=8 | no named analyst | Arizona State Universi
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800055-9",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=8 | no named analyst | Arizona State Universi
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800055-9",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=8 | no named analyst | Arizona State Universi
     ada:componentType "ada:NIMICollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800055-9" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240910_NI-MI_ASU_OREX-800055-9_1" .
 
 <ex:niMiTAPP-P0> schema1:identifier "missing" .

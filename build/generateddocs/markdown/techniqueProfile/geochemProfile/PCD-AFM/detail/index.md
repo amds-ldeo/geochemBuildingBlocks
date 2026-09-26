@@ -35,7 +35,7 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803312-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803312-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=10 | no named analyst | Arizona State Univers
     ada:componentType "ada:PCDAFMCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-803312-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241217_PCD-AFM_ASU_multiSample_1" .
 
 <ex:pcdAfmTAPP-P0> schema1:identifier "missing" .

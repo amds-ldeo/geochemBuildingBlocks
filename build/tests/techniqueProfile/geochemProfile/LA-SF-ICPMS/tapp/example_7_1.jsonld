@@ -54,6 +54,42 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "Representativeness, and phase diversity \u2014 \"the approach of rastering large areas may improve representative sampling compared with spot analysis\" (p.2), and the mapping is \"conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Chemical etching to reveal the phases before mapping \u2014 \"For the mapping experiment, the polished surface of the Augusto Pestana sample was etched with freshly prepared Nital solution (2% v/v HNO3 ... in 99.5% absolute ethanol) to reveal the presence of different phases (in this case, kamacite and plessite)\" (p.3). Not imaging, but the screening step that sites the map"
+    },
+    {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "10 \u00b5m s\u207b\u00b9 (continuous raster scan)"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Ar make-up gas (same as spot protocol)"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -301,6 +337,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied (same as spot)"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Partially \u2014 the reported values integrate a stated number of points per phase, \"176 kamacite points (211,060 \u00b5m2) and 1,173 plessite points (1,712,297 \u00b5m2)\" (Table 5, p.12). The points are assigned to a phase rather than admitted or rejected, and no rejection rule is stated"
           }
         ],
         "@type": [
@@ -318,30 +365,6 @@
       "schema:HowTo"
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate Mapping Rate or Step Size",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "10 \u00b5m s\u207b\u00b9 (continuous raster scan)"
-    },
-    {
-      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasAndFlowRateDefault",
-      "schema:name": "Make-up Gas and Flow Rate",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up gas (same as spot protocol)"
-    }
-  ],
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "Background (1 min) \u2192 NIST SRM 612(\u00d73) \u2192 North Chile(\u00d73) \u2192 unknown map (30 min) \u2192 North Chile(\u00d73) \u2192 NIST SRM 612(\u00d73) \u2192 background",
   "ada:backgroundCountTimeDefault": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
@@ -385,11 +408,15 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Region of interest > Phase \u2014 \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS"
     }
+  ],
+  "ada:reportedProperties": [
+    "Elemental mass fractions per phase, obtained by integrating 176 kamacite points over 211,060 \u00b5m2 and 1,173 plessite points over 1,712,297 \u00b5m2 \u2014 As, Au, Co, Cu, Ga, Ge, Ir, Pd, Ru in \u00b5g g-1 and Fe, Ni in g/100 g, each with 2 sdm and the integrated area and point count (Table 5, p.12); phase identification from the maps (nominal)"
   ],
   "ada:ablationSamplingMode": [
     "Raster area (2D elemental mapping)"
@@ -406,6 +433,12 @@
     "North Chile and NIST SRM 612 measured before and after mapping session as QC materials"
   ],
   "ada:primaryStandardNameDefault": "NIST SRM 612 (Jochum et al. 2011) + North Chile Filomena \u2014 same as spot protocol",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
@@ -415,8 +448,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

@@ -3,9 +3,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Mittlefehldt2024> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laSficpmsTAPP-Mittlefehldt2024> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters — analysis sums 100 ± 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean — are stated for the EMPA data (p.3) and are not borrowed here" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -23,7 +24,7 @@
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: samples within each pallasite, e.g. \"Ac-1\", \"Ad-1\", \"Ah-1\", \"Ah-2\", \"Ah-3\", \"Al-1\", \"Br-1\" (Table S1, p.14); laser spots carry labels such as \"laser spot 059-Pa-1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:spotDiameter -9999 ;
@@ -32,4 +33,9 @@
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 <ex:laSficpmsTAPP-Mittlefehldt2024> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "SEM imaging of the grain mounts, used to place the spots — \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5); the grains are the same mounts already used for EMPA (p.5)" .
 

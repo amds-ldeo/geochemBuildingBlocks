@@ -35,7 +35,7 @@ detail instance derived from ADA n=16 | Liss, Michael | Helmholtz University (He
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)",
   "ada:sampleName": "OREX-803006-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=16 | Liss, Michael | Helmholtz University (He
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)",
   "ada:sampleName": "OREX-803006-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=16 | Liss, Michael | Helmholtz University (He
     ada:componentType "ada:FTICRMSCube" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)" ;
     ada:sampleName "OREX-803006-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240530_fticr-ms_hmgu_orex-803006-0_1" .
 
 <ex:fticrmsTAPP-P0> schema1:identifier "missing" .

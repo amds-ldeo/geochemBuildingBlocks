@@ -101,8 +101,8 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -259,8 +259,8 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "DIONEX Integrion IC" ;
     ada:reportedProperties "sample number | sample name | retention time | area | height | Amount" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

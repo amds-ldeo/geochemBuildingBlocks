@@ -102,8 +102,8 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -211,8 +211,8 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -236,14 +236,14 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liss, Michael" ] ;
     schema1:datePublished "missing" ;
@@ -262,8 +262,8 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     ada:instrumentManufacturer "WITec" ;
     ada:instrumentModel "(HGMU) WITec alpha 300 R" ;
     ada:reportedProperties "Point Number | Raman shift (cm-1) | Intensity (a.u.)" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

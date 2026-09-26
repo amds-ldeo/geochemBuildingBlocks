@@ -13,7 +13,7 @@ Laser-ablation multi-collector ICP-MS U-Pb geochronology extension of the base T
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-MC-ICP-MS U-Pb Geochronology TAPP (laMcicpmsUPbTAPP)
 description: Laser-ablation multi-collector ICP-MS U-Pb geochronology extension of
-  the base TAPP definition, generated from TAPPS20260813/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v13.csv
+  the base TAPP definition, generated from tapp/Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v80.csv
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml

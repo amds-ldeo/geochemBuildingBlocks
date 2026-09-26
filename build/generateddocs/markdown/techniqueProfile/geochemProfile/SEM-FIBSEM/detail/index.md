@@ -35,7 +35,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text",
   "ada:voxelSize": "missing"
 }
 
@@ -72,7 +72,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text",
   "ada:voxelSize": "missing"
 }
 ```
@@ -90,7 +90,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — the Tagish Lake carbonaceous residue on \"an Al-SEM stub\" (p.2); the globules sectioned by FIB are not given labels in the text" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -126,7 +126,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)",
   "ada:voxelSize": "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness"
 }
 
@@ -163,7 +163,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)",
   "ada:voxelSize": "9.8 \u00d7 9.8 \u00d7 15 nm voxel size; 600 slices; 7.8 \u00d7 7.8 \u00b5m scanning area; 9.0 \u00b5m total thickness"
 }
 ```
@@ -181,7 +181,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" .
 
@@ -217,7 +217,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "SC; HBC",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units",
   "ada:voxelSize": "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm"
 }
 
@@ -254,7 +254,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "SC; HBC",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units",
   "ada:voxelSize": "14.8\u00d714.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609\u00d73.08\u00d75.446 \u00b5m; HBC=4.679\u00d73.2\u00d74.24 \u00b5m; SEM image resolution 2.5 nm"
 }
 ```
@@ -272,7 +272,7 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "SC; HBC" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"subbituminous coal (SC) and high-volatile bituminous coal (HBC)\" (p.1), one FIB-SEM volume each; the numbered images (e.g. \"1st\", \"300th\" of sample SC, p.2) are slices, not units" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" .
 
@@ -308,7 +308,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory",
   "ada:voxelSize": "missing"
 }
 
@@ -345,7 +345,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2\u20134) without attributing them to a laboratory",
   "ada:voxelSize": "missing"
 }
 ```
@@ -363,7 +363,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — \"All sections were extracted from varied regions of matrix within the particles\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -399,7 +399,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory",
   "ada:voxelSize": "missing"
 }
 
@@ -436,7 +436,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2\u20134) without attributing them to a laboratory",
   "ada:voxelSize": "missing"
 }
 ```
@@ -454,7 +454,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -490,7 +490,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory",
   "ada:voxelSize": "missing"
 }
 
@@ -527,7 +527,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2\u20134) without attributing them to a laboratory",
   "ada:voxelSize": "missing"
 }
 ```
@@ -545,7 +545,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), none named; the paper labels FIB sections (e.g. OREX-803095-100, OREX-501005-100, OREX-803031-101; Figs 2–4) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -581,7 +581,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:voxelSize": "missing"
 }
 
@@ -618,7 +618,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:voxelSize": "missing"
 }
 ```
@@ -636,7 +636,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
@@ -672,7 +672,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — this procedure is not described in the paper (see Additional Notes)",
   "ada:voxelSize": "missing"
 }
 
@@ -709,7 +709,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
   "ada:voxelSize": "missing"
 }
 ```
@@ -727,7 +727,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:componentType "ada:FIBSEMVolume" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — this procedure is not described in the paper (see Additional Notes)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 

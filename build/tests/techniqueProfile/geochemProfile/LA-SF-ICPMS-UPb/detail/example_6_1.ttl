@@ -3,10 +3,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Navarro2024> a ada:LAICPMSGeochronTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Navarro2024> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no acceptance or rejection rule and no contributing count are stated; the reported bulk composition is the integration of the acquired signal rather than a selection among results" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -26,7 +27,7 @@
     ada:proceduralBlankLevel "missing" ;
     ada:radiogenicFractionOfMeasuredSignal "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — iron meteorites by name (Table 1, p.2), each analysed as \"fragments about 1 cm\" (p.3); spots and mapped areas are counted (\"points 176\", p.12), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime 40 ;
     ada:spotDiameter -9999 ;
@@ -35,4 +36,9 @@
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "RSD <15% for most elements in Arraias meteorite under repeatability conditions (n=20 spot analyses); Cr: 20%, Ir: 16%, Os: 20% RSD; assessed by repeated analysis of same meteorite in one session" .
 
 <ex:laSficpmsUPbTAPP-Navarro2024> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the preparation is stated without an imaging step: \"Before analyses, fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3). The meteorites' structural classes were known beforehand (Table 1, p.2) but no screening of this material is described" .
 

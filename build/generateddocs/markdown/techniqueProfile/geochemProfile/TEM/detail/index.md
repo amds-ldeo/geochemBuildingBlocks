@@ -35,8 +35,8 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N — FIB sections were extracted from \"individual magnetite grains from the irradiated regions\" of the pellets (p.3) and are identified by irradiation condition (e.g. \"Altered rim on 4 keV He+ irradiated magnetite\", Fig. 9, p.9), not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -76,8 +76,8 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N \u2014 FIB sections were extracted from \"individual magnetite grains from the irradiated regions\" of the pellets (p.3) and are identified by irradiation condition (e.g. \"Altered rim on 4 keV He+ irradiated magnetite\", Fig. 9, p.9), not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -94,7 +94,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
 <ex:detail-Chaves2023> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Chaves2023> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -104,7 +104,7 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
     ada:fundingSourceForAnalysis "NASA SSERVI LEADER #80NSSC20M0060; Solar Systems Working #80NSSC21K0170; FINESST #80NSSC20K1386 (L.C.)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — FIB sections were extracted from \"individual magnetite grains from the irradiated regions\" of the pellets (p.3) and are identified by irradiation condition (e.g. \"Altered rim on 4 keV He+ irradiated magnetite\", Fig. 9, p.9), not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Chaves2023> schema1:identifier "missing" .
@@ -139,8 +139,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N — the Arizona TEM passage names no specimen (\"Characterization of the FIB sections was performed using the 200 keV Hitachi HF5000 STEM\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -180,8 +180,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N \u2014 the Arizona TEM passage names no specimen (\"Characterization of the FIB sections was performed using the 200 keV Hitachi HF5000 STEM\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2\u20133, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -198,7 +198,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
 <ex:detail-Zega2025> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -208,7 +208,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Arizona TEM passage names no specimen (\"Characterization of the FIB sections was performed using the 200 keV Hitachi HF5000 STEM\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Zega2025> schema1:identifier "missing" .
@@ -243,8 +243,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N — the Berkeley TEM passage names no specimen (\"TEM analysis was done on an FEI TitanX microscope\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -284,8 +284,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N \u2014 the Berkeley TEM passage names no specimen (\"TEM analysis was done on an FEI TitanX microscope\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2\u20133, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -302,7 +302,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
 <ex:detail-Zega2025-2> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -312,7 +312,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
     ada:fundingSourceForAnalysis "DOE Office of Science Basic Energy Sciences DE-AC02-05CH11231" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Berkeley TEM passage names no specimen (\"TEM analysis was done on an FEI TitanX microscope\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Zega2025-2> schema1:identifier "missing" .
@@ -347,8 +347,8 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N — the Goethe passage names no specimen (\"TEM samples were prepared by crushing the grain\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -388,8 +388,8 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N \u2014 the Goethe passage names no specimen (\"TEM samples were prepared by crushing the grain\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2\u20133, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -406,7 +406,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
 <ex:detail-Zega2025-3> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Zega2025-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -416,7 +416,7 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
     ada:fundingSourceForAnalysis "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the Goethe passage names no specimen (\"TEM samples were prepared by crushing the grain\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Zega2025-3> schema1:identifier "missing" .
@@ -451,8 +451,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N — the JSC TEM passage names no specimen (\"FIB sections were analysed using a JEOL 2500SE\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -492,8 +492,8 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NNM10AA11C",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N \u2014 the JSC TEM passage names no specimen (\"FIB sections were analysed using a JEOL 2500SE\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2\u20133, p.3) without attributing them to a laboratory",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -510,7 +510,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
 <ex:detail-Zega2025-4> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Zega2025-4> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -520,7 +520,7 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NNM10AA11C" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the JSC TEM passage names no specimen (\"FIB sections were analysed using a JEOL 2500SE\", p.10); the paper labels FIB sections (e.g. OREX-803095-100, OREX-803096-100, OREX-501005-100; Figs 2–3, p.3) without attributing them to a laboratory" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Zega2025-4> schema1:identifier "missing" .
@@ -555,8 +555,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) — the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -596,8 +596,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) \u2014 the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -614,7 +614,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
 <ex:detail-Matsumoto2021> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Matsumoto2021> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -624,7 +624,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
     ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) — the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Matsumoto2021> schema1:identifier "missing" .
@@ -659,8 +659,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) — the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the iron sulfide compositions are quantified per analysis with the Cliff–Lorimer approximation (p.3); no contributing count and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -700,8 +700,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) \u2014 the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the iron sulfide compositions are quantified per analysis with the Cliff\u2013Lorimer approximation (p.3); no contributing count and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -718,7 +718,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
 <ex:detail-Matsumoto2021-2> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Matsumoto2021-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the iron sulfide compositions are quantified per analysis with the Cliff–Lorimer approximation (p.3); no contributing count and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -728,7 +728,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
     ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) — the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Matsumoto2021-2> schema1:identifier "missing" .
@@ -763,8 +763,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) — the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -804,8 +804,8 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)",
   "ada:sampleName": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) \u2014 the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -822,7 +822,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
 <ex:detail-Matsumoto2021-3> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Matsumoto2021-3> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -832,7 +832,7 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
     ada:fundingSourceForAnalysis "JSPS Fellows (18J00579); JSPS Early Career Scientists (18K13610); JSPS KAKENHI (17K18807)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: FIB section \"11_5A_1\" prepared from Apollo 11 soil grain \"11_5A\" (p.3; \"No. Lunar11_5A\", Fig. 2 caption, p.5) — the one section, observed in all three TEMs (\"We observed the prepared section\", p.3); the Apollo 17 soil 78481,49 grains were examined by SEM only (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Matsumoto2021-3> schema1:identifier "missing" .
@@ -867,8 +867,8 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)",
   "ada:sampleName": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"particles RA-QD02-0125 and RA-QD02-0211\" (p.2); the \"thin sections (approximately 60-nm thick) ... prepared using ultramicrotomy\" from them (p.2) are not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -908,8 +908,8 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)",
   "ada:sampleName": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"particles RA-QD02-0125 and RA-QD02-0211\" (p.2); the \"thin sections (approximately 60-nm thick) ... prepared using ultramicrotomy\" from them (p.2) are not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -926,7 +926,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
 <ex:detail-KellerBerger2014> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-KellerBerger2014> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Lindsay P. Keller; Eve L. Berger" ;
     ada:componentType "ada:TEMImage" ;
@@ -936,7 +936,7 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
     ada:fundingSourceForAnalysis "NASA Laboratory Analysis of Returned Samples (LARS) program (grant to L.P. Keller)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"particles RA-QD02-0125 and RA-QD02-0211\" (p.2); the \"thin sections (approximately 60-nm thick) ... prepared using ultramicrotomy\" from them (p.2) are not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-KellerBerger2014> schema1:identifier "missing" .
@@ -971,8 +971,8 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)",
   "ada:sampleName": "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: the Chang'e-5 glass bead \"CE5C0600YJFM00304\" (p.5), from which one \"FIB slice\" was prepared (p.6); regions within it are labelled \"Area 1\" and \"Area 2\" (Fig. 1, p.2)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the Ti-oxide phases are identified individually from FFT and SAED patterns (p.2); there is no aggregate over results and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1012,8 +1012,8 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)",
   "ada:sampleName": "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: the Chang'e-5 glass bead \"CE5C0600YJFM00304\" (p.5), from which one \"FIB slice\" was prepared (p.6); regions within it are labelled \"Area 1\" and \"Area 2\" (Fig. 1, p.2)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the Ti-oxide phases are identified individually from FFT and SAED patterns (p.2); there is no aggregate over results and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1030,7 +1030,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
 <ex:detail-Zeng2024> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Zeng2024> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the Ti-oxide phases are identified individually from FFT and SAED patterns (p.2); there is no aggregate over results and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Yanxue Wu; Xiaomei Zhao (TEM analysis; per author contributions section)" ;
     ada:componentType "ada:TEMImage" ;
@@ -1040,7 +1040,7 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
     ada:fundingSourceForAnalysis "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: the Chang'e-5 glass bead \"CE5C0600YJFM00304\" (p.5), from which one \"FIB slice\" was prepared (p.6); regions within it are labelled \"Area 1\" and \"Area 2\" (Fig. 1, p.2)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Zeng2024> schema1:identifier "missing" .
@@ -1075,8 +1075,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"Four FIB sections\" from micrometeorite 03-36-46 (p.2) — \"region A (UH-001 ...)\", \"region B (UH-002 ...)\", \"Ca-phosphates (UH-003 ...)\" and \"magnetite (UH-006 ...)\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1116,8 +1116,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"Four FIB sections\" from micrometeorite 03-36-46 (p.2) \u2014 \"region A (UH-001 ...)\", \"region B (UH-002 ...)\", \"Ca-phosphates (UH-003 ...)\" and \"magnetite (UH-006 ...)\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1134,7 +1134,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 <ex:detail-Dobrica2022> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Dobrica2022> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "E. Dobrica; K.K. Ohtaki; C. Engrand" ;
     ada:componentType "ada:TEMImage" ;
@@ -1144,7 +1144,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
     ada:fundingSourceForAnalysis "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"Four FIB sections\" from micrometeorite 03-36-46 (p.2) — \"region A (UH-001 ...)\", \"region B (UH-002 ...)\", \"Ca-phosphates (UH-003 ...)\" and \"magnetite (UH-006 ...)\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Dobrica2022> schema1:identifier "missing" .
@@ -1179,8 +1179,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB sections from micrometeorite 03-36-46 — the carbonate compositions \"extracted from EDS mapping ... (at the Molecular Foundry)\" (p.2) are those of \"region A (UH-001 ...)\" and \"region B (UH-002 ...)\" (Fig. 5 caption, p.7)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the carbonate compositions are \"extracted from EDS mapping over areas of 5–10 nm\" and normalised to 100% (p.2); no contributing count and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": "<0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1220,8 +1220,8 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)",
   "ada:sampleName": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: FIB sections from micrometeorite 03-36-46 \u2014 the carbonate compositions \"extracted from EDS mapping ... (at the Molecular Foundry)\" (p.2) are those of \"region A (UH-001 ...)\" and \"region B (UH-002 ...)\" (Fig. 5 caption, p.7)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the carbonate compositions are \"extracted from EDS mapping over areas of 5\u201310 nm\" and normalised to 100% (p.2); no contributing count and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": "<0.1 wt% (stated for TEM EDS measurements)",
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1238,7 +1238,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 <ex:detail-Dobrica2022-2> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Dobrica2022-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the carbonate compositions are \"extracted from EDS mapping over areas of 5–10 nm\" and normalised to 100% (p.2); no contributing count and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "E. Dobrica; K.K. Ohtaki; C. Engrand" ;
     ada:componentType "ada:TEMImage" ;
@@ -1248,7 +1248,7 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
     ada:fundingSourceForAnalysis "NASA grant NNH16ZDA001N (E. Dobrica PI); ANR Project COMETOR 18-CE31-0011; Region Ile-de-France (DIM-ACAV); PNP; CNES; IN2P3; Labex P2IO (France); US DOE Office of Science, Basic Energy Sciences (Molecular Foundry work)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: FIB sections from micrometeorite 03-36-46 — the carbonate compositions \"extracted from EDS mapping ... (at the Molecular Foundry)\" (p.2) are those of \"region A (UH-001 ...)\" and \"region B (UH-002 ...)\" (Fig. 5 caption, p.7)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Dobrica2022-2> schema1:identifier "missing" .
@@ -1283,8 +1283,8 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:analysisEndDate": "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)",
   "ada:fundingSourceForAnalysis": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)",
   "ada:sampleName": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"28 fine particles from the crushed sample OREX-800045–102, within which we identified four Na,Ca carbonates: grains 4, 11 ..., 22, and 27\" (p.2); the other fine particles are not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported per named grain, with no aggregate over results and no rejection rule. The counts \"(n = 7)\" and \"(n = 86)\" (p.2) are EPMA populations from other Bennu samples, cited for comparison, and are not this procedure's outcome",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1324,8 +1324,8 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
   "ada:analysisEndDate": "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)",
   "ada:fundingSourceForAnalysis": "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)",
   "ada:sampleName": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"28 fine particles from the crushed sample OREX-800045\u2013102, within which we identified four Na,Ca carbonates: grains 4, 11 ..., 22, and 27\" (p.2); the other fine particles are not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported per named grain, with no aggregate over results and no rejection rule. The counts \"(n = 7)\" and \"(n = 86)\" (p.2) are EPMA populations from other Bennu samples, cited for comparison, and are not this procedure's outcome",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1342,7 +1342,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
 <ex:detail-Singerling2025> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Singerling2025> ;
     ada:analysisEndDate "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — compositions are reported per named grain, with no aggregate over results and no rejection rule. The counts \"(n = 7)\" and \"(n = 86)\" (p.2) are EPMA populations from other Bennu samples, cited for comparison, and are not this procedure's outcome" ;
     ada:analysisStartDate "December 2023" ;
     ada:analyst "S.A. Singerling; F.E. Brenker; B. Tkalcec (TEM data collection and analyses)" ;
     ada:componentType "ada:TEMImage" ;
@@ -1352,7 +1352,7 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
     ada:fundingSourceForAnalysis "NASA Contract NNM10AA11C (New Frontiers Program / OSIRIS-REx); Dr. Rolf M. Schwiete Stiftung; DFG Grant INST 161/1021-1 (Goethe Univ instrument funding)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"28 fine particles from the crushed sample OREX-800045–102, within which we identified four Na,Ca carbonates: grains 4, 11 ..., 22, and 27\" (p.2); the other fine particles are not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Singerling2025> schema1:identifier "missing" .
@@ -1387,8 +1387,8 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960",
   "ada:sampleName": "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Sample name only — \"three individual chips of the CM2 Murchison meteorite\" (p.3); the \"four electron transparent ... sections\" are described by lasering dose and target (a matrix region, a sulfide grain, an olivine grain; p.4), not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1428,8 +1428,8 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960",
   "ada:sampleName": "Murchison CM2 (1\u00d7, 5\u00d7 laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm \u00d7 3 cm, unpolished)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 \"three individual chips of the CM2 Murchison meteorite\" (p.3); the \"four electron transparent ... sections\" are described by lasering dose and target (a matrix region, a sulfide grain, an olivine grain; p.4), not labelled",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1446,7 +1446,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
 <ex:detail-Thompson2020> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Thompson2020> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "M.S. Thompson; L.P. Keller; R. Christoffersen; Z. Rahman (FIB prep)" ;
     ada:componentType "ada:TEMImage" ;
@@ -1456,7 +1456,7 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
     ada:fundingSourceForAnalysis "NASA Postdoctoral Program at JSC (USRA); NASA Solar System Workings grant 80NSSC19K0960" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — \"three individual chips of the CM2 Murchison meteorite\" (p.3); the \"four electron transparent ... sections\" are described by lasering dose and target (a matrix region, a sulfide grain, an olivine grain; p.4), not labelled" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Thompson2020> schema1:identifier "missing" .
@@ -1491,8 +1491,8 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N — review article; it reports no original analyses",
+  "ada:analysisInclusionAndRejectionCriteria": "N — review article; it reports no original analyses",
   "ada:edsDetectionLimit": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements",
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
@@ -1532,8 +1532,8 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "N \u2014 review article; it reports no original analyses",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 review article; it reports no original analyses",
   "ada:edsDetectionLimit": "EDS detection limit: ~1000 ppm (~0.1 wt%) for major elements",
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": "STEM-EELS detection limit: ~10 ppm for transition metals and lanthanides in powdered glass with high beam stability",
@@ -1550,7 +1550,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
 <ex:detail-Xing2023> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Xing2023> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — review article; it reports no original analyses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:componentType "ada:TEMImage" ;
@@ -1560,7 +1560,7 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — review article; it reports no original analyses" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Xing2023> schema1:identifier "missing" .
@@ -1595,8 +1595,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"the FIB section (OREX-803173-100) with Ap. #1 and Ap. #2 labeled\" (Fig. 5 caption, p.9), cut from \"A cluster of two apatite grains\" (p.7); both instruments analysed \"The FIB section\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1636,8 +1636,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"the FIB section (OREX-803173-100) with Ap. #1 and Ap. #2 labeled\" (Fig. 5 caption, p.9), cut from \"A cluster of two apatite grains\" (p.7); both instruments analysed \"The FIB section\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1654,7 +1654,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
 <ex:detail-Seifert2026> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Seifert2026> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta" ;
     ada:componentType "ada:TEMImage" ;
@@ -1664,7 +1664,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"the FIB section (OREX-803173-100) with Ap. #1 and Ap. #2 labeled\" (Fig. 5 caption, p.9), cut from \"A cluster of two apatite grains\" (p.7); both instruments analysed \"The FIB section\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Seifert2026> schema1:identifier "missing" .
@@ -1699,8 +1699,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"the FIB section (OREX-803173-100) with Ap. #1 and Ap. #2 labeled\" (Fig. 5 caption, p.9), cut from \"A cluster of two apatite grains\" (p.7); both instruments analysed \"The FIB section\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1740,8 +1740,8 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert",
   "ada:sampleName": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"the FIB section (OREX-803173-100) with Ap. #1 and Ap. #2 labeled\" (Fig. 5 caption, p.9), cut from \"A cluster of two apatite grains\" (p.7); both instruments analysed \"The FIB section\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1758,7 +1758,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
 <ex:detail-Seifert2026-2> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Seifert2026-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — Table 2 reports one column per apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "L.B. Seifert; T.M. Erickson; L.P. Keller; K. Thomas-Keprta; L. Le; J. Gorce; Z. Rahman; T.J. Zega; H.C. Connolly Jr.; D.S. Lauretta" ;
     ada:componentType "ada:TEMImage" ;
@@ -1768,7 +1768,7 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
     ada:fundingSourceForAnalysis "NASA NNH09ZDA007O; NASA NNM10AA11C (New Frontiers OSIRIS-REx); NASA NPP (ORAU) for L.B. Seifert" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"the FIB section (OREX-803173-100) with Ap. #1 and Ap. #2 labeled\" (Fig. 5 caption, p.9), cut from \"A cluster of two apatite grains\" (p.7); both instruments analysed \"The FIB section\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Seifert2026-2> schema1:identifier "missing" .
@@ -1803,8 +1803,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx”\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — one analysis is excluded on result grounds: Table S1 reports the pyroxene lamella and rim compositions with \"(†not plotted, outlier)\" marking an analysis dropped from the plot (caption, p.16). The table is supplementary and not in the archived PDF, and no rejection rule or acquired-versus-included count is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1844,8 +1844,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled \u201c1pyx\u201d and a surface-adhered pyroxene grain labeled \u201c2pyx\u201d\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 one analysis is excluded on result grounds: Table S1 reports the pyroxene lamella and rim compositions with \"(\u2020not plotted, outlier)\" marking an analysis dropped from the plot (caption, p.16). The table is supplementary and not in the archived PDF, and no rejection rule or acquired-versus-included count is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1862,7 +1862,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 <ex:detail-Cymes2023> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Cymes2023> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — one analysis is excluded on result grounds: Table S1 reports the pyroxene lamella and rim compositions with \"(†not plotted, outlier)\" marking an analysis dropped from the plot (caption, p.16). The table is supplementary and not in the archived PDF, and no rejection rule or acquired-versus-included count is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B.A. Cymes; K.D. Burgess; R.M. Stroud" ;
     ada:componentType "ada:TEMImage" ;
@@ -1872,7 +1872,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
     ada:fundingSourceForAnalysis "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx”\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Cymes2023> schema1:identifier "missing" .
@@ -1907,8 +1907,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx”\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — one analysis is excluded on result grounds: Table S1 reports the pyroxene lamella and rim compositions with \"(†not plotted, outlier)\" marking an analysis dropped from the plot (caption, p.16). The table is supplementary and not in the archived PDF, and no rejection rule or acquired-versus-included count is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1948,8 +1948,8 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program",
   "ada:sampleName": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled \u201c1pyx\u201d and a surface-adhered pyroxene grain labeled \u201c2pyx\u201d\" (p.3)",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 one analysis is excluded on result grounds: Table S1 reports the pyroxene lamella and rim compositions with \"(\u2020not plotted, outlier)\" marking an analysis dropped from the plot (caption, p.16). The table is supplementary and not in the archived PDF, and no rejection rule or acquired-versus-included count is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -1966,7 +1966,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 <ex:detail-Cymes2023-2> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Cymes2023-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — one analysis is excluded on result grounds: Table S1 reports the pyroxene lamella and rim compositions with \"(†not plotted, outlier)\" marking an analysis dropped from the plot (caption, p.16). The table is supplementary and not in the archived PDF, and no rejection rule or acquired-versus-included count is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B.A. Cymes; K.D. Burgess; R.M. Stroud" ;
     ada:componentType "ada:TEMImage" ;
@@ -1976,7 +1976,7 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
     ada:fundingSourceForAnalysis "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: one FIB section of Apollo 17 soil 71501 \"containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx”\" (p.3)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Cymes2023-2> schema1:identifier "missing" .
@@ -2011,8 +2011,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), \"CE5C0400YJFM00505-G1\" and \"CE5C0400YJFM00505-G2\", with a \"FIB foil extracted from\" each (Figs 1, 3–4, pp.3–4)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -2052,8 +2052,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), \"CE5C0400YJFM00505-G1\" and \"CE5C0400YJFM00505-G2\", with a \"FIB foil extracted from\" each (Figs 1, 3\u20134, pp.3\u20134)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -2070,7 +2070,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
 <ex:detail-Mo2022> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Mo2022> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu" ;
     ada:componentType "ada:TEMImage" ;
@@ -2080,7 +2080,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
     ada:fundingSourceForAnalysis "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), \"CE5C0400YJFM00505-G1\" and \"CE5C0400YJFM00505-G2\", with a \"FIB foil extracted from\" each (Figs 1, 3–4, pp.3–4)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Mo2022> schema1:identifier "missing" .
@@ -2115,8 +2115,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
+  "ada:analysisInclusionAndRejectionCriteria": "N — the EELS results are reported as point and line analyses against standard references (p.5); no contributing count and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -2156,8 +2156,8 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)",
   "ada:sampleName": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-  "ada:samplingUnit": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:samplingUnitName": "Labelled: \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 the EELS results are reported as point and line analyses against standard references (p.5); no contributing count and no acceptance or rejection rule is stated",
   "ada:edsDetectionLimit": -9999,
   "ada:edsDeadTime": -9999,
   "ada:eelsDetectionLimit": -9999,
@@ -2174,7 +2174,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
 <ex:detail-Mo2022-2> a ada:TEMImage ;
     schema1:measurementTechnique <ex:temTAPP-Mo2022-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the EELS results are reported as point and line analyses against standard references (p.5); no contributing count and no acceptance or rejection rule is stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "B. Mo; Z. Guo; Y. Li; D. Zhu; X. Zeng; X. Li; J. Liu; Y. Wu" ;
     ada:componentType "ada:TEMImage" ;
@@ -2184,7 +2184,7 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
     ada:fundingSourceForAnalysis "Strategic Priority Research Program of CAS (XDB 41000000); National Natural Science Foundation of China (41931077); Technical Advanced Research Project of Civil Space (D020201); Youth Innovation Promotion Association CAS (2020395); Key Research Program of Frontier Sciences CAS (ZDBS-SSW-JSC007-10; QYZDY-SSW-DQC028)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:sampleName "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)" ;
     ada:sessionIdentifier "missing" .
 
 <ex:temTAPP-Mo2022-2> schema1:identifier "missing" .

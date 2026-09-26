@@ -101,8 +101,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -234,14 +234,14 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Biele, Jens" ] ;
     schema1:datePublished "missing" ;
@@ -259,8 +259,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "PerkinsElmer DSC 8000" ;
     ada:reportedProperties "T | Standard Deviation | Step Scan 1 Cp [J/g/K] | Step Scan 2 Cp [J/g/K] | Step Scan 3 Cp [J/g/K] | Averaged Cp [J/g/K]" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

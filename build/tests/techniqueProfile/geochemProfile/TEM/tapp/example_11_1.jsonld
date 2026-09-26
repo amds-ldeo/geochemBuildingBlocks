@@ -39,6 +39,17 @@
           "schema:value": [
             "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84\u00d7114 \u00b5m; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)"
           ]
+        },
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "SEM/EDS identification in the polished section \u2014 the sections were cut at phases \"identified in the polished section by SEM/EDS\", avoiding \"the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); BSE micrographs show the external and polished surfaces and the extraction sites as white rectangles (Fig. 1, p.3)"
         }
       ]
     }
@@ -71,11 +82,24 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -86,6 +110,7 @@
       "schema:HowTo"
     ]
   },
+  "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting, and avoidance of earlier beam damage \u2014 sections were cut at phases \"identified in the polished section by SEM/EDS\", and \"Additionally, we selected the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); two sections target carbonates, the others \"regions containing micrometer-sized secondary phases such as Ca-phosphates ... and magnetite\" (p.3)",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -250,6 +275,19 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Sub-volume (FIB section) > Phase \u2014 \"Four FIB sections\" (p.2), each \"studied using a variety of TEM techniques, including scanning transmission electron microscopy (STEM) imaging, nanodiffraction, and energy-dispersive X-ray spectroscopy (EDS)\", with \"Crystalline phases ... identified by electron nanodiffraction and EDS measurements\" (p.2)",
+  "ada:reportedProperties": [
+    "Crystalline phase identifications from electron nanodiffraction with EDS (nominal, p.2); carbonate microstructure and the textural relations of the FIB sections (nominal, Figs 1\u20132, pp.3\u20135)"
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "@type": [
+        "cdi:InstanceVariable"
+      ],
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:edsAcquisitionModeDefault": "missing",
   "ada:edsCalibrationStandardDefault": "missing",
   "ada:edsQuantificationMethod": "missing",
@@ -257,8 +295,6 @@
   "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
   "ada:eelsEnergyLossRangeDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "missing"
 }

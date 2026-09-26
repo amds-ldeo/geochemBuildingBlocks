@@ -88,8 +88,8 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -183,8 +183,8 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -230,8 +230,8 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
     ada:instrumentManufacturer "Bruker" ;
     ada:instrumentModel "Bruker MultiMode 8" ;
     ada:reportedProperties "Calc_Ramp_Ex_nm | Calc_Ramp_Rt_nm | Defl_V_Ex | Defl_V_Rt" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

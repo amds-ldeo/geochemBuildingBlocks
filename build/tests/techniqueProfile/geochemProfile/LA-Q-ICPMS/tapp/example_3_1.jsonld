@@ -54,6 +54,44 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper states the beam diameter used for glasses (\"40 \u03bcm beam diameter for glasses\", p.4) but no rule for choosing where in a run product to ablate",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N\u2082 or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "Single spot per location (~40 s ablation at 7 Hz)"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -178,32 +216,6 @@
     }
   ],
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; carrier gas with N\u2082 or Ar mixed for sensitivity optimization)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasAndFlowRateDefault",
-      "schema:name": "Make-up Gas and Flow Rate",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "N\u2082 or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency"
-        }
-      ],
-      "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (~40 s ablation at 7 Hz)"
-    }
-  ],
   "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
   "schema:actionProcess": {
     "schema:step": [
@@ -245,6 +257,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Micronuggets identified from Au signal spikes in time-resolved spectra; excluded from integration (smooth signals = fully dissolved Au; Fig. 1 shows this criterion)"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N \u2014 no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)"
           }
         ],
         "@type": [
@@ -302,6 +325,10 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Phase (quenched silicate glass of one experimental run) > Spot \u2014 \"A Resonetic 193 nm ArF excimer laser with a 40 \u03bcm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
+  "ada:reportedProperties": [
+    "Au and Cu contents of the quenched silicate melt (ppm), with S content and H2O content of the starting material tabulated per run (Table 1, p.3); the derived quantity the paper reports from them is the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
+  ],
   "ada:ablationSpotDurationDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
   "ada:internalStandardApproach": "Single element from EMP: Si (SiO\u2082 from EMP for silicate glass); NIST 610 as external standard",
   "ada:elementalFractionationCorrection": [
@@ -314,6 +341,12 @@
     "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
   ],
   "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
@@ -323,8 +356,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",

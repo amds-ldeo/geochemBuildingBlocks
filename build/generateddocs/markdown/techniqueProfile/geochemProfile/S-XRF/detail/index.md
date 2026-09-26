@@ -35,7 +35,7 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-101",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-101",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
     ada:componentType "ada:SXRF2DImage" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800045-101" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240117_S-XRF_ESRF_OREX-800045-101_1" .
 
 <ex:sXrfTAPP-P0> schema1:identifier "missing" .

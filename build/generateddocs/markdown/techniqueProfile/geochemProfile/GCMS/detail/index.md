@@ -35,7 +35,7 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa.",
   "ada:sampleName": "OREX-800107-108",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa.",
   "ada:sampleName": "OREX-800107-108",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agile
     ada:componentType "ada:GCMSCollection" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa." ;
     ada:sampleName "OREX-800107-108" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241121_gc-ms_tu_orex-800107-108_1" .
 
 <ex:gcmsTAPP-Agilent5977> schema1:identifier "missing" .

@@ -35,7 +35,7 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-109",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800045-109",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=26 | no named analyst | CNRS - Centre de Rech
     ada:componentType "ada:SEMHRCLTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800045-109" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20260204_SEM_CNRS-CRHEA_OREX-800045-109_2" .
 
 <ex:semClTAPP-JSM7000> schema1:identifier "missing" .

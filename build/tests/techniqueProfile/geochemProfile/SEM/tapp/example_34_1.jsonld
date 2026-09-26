@@ -26,25 +26,7 @@
   ],
   "schema:name": "sem protocol \u2014 Barnes2025-3",
   "schema:description": "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein).",
-  "ada:monitoredElements": [
-    "N/A \u2014 this procedure is TEM Sample Preparation. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
-  ],
-  "ada:analyticalMode": [
-    "TEM Sample Preparation"
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "sem",
-      "schema:termCode": "sem"
-    }
-  ],
   "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
     "schema:step": [
       {
         "@type": [
@@ -63,11 +45,24 @@
         "ada:protectiveCoatingDepositionDefault": "missing"
       },
       {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 this procedure is not described in the paper (see Additional Notes)"
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -87,8 +82,31 @@
         "schema:position": 3,
         "schema:description": "missing"
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
+  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
+  "ada:monitoredElements": [
+    "N/A \u2014 this procedure is TEM Sample Preparation. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
+  ],
+  "ada:samplingUnitType": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
+  "ada:analyticalMode": [
+    "TEM Sample Preparation"
+  ],
+  "ada:reportedProperties": [
+    "N \u2014 this procedure is not described in the paper (see Additional Notes)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "sem",
+      "schema:termCode": "sem"
+    }
+  ],
   "schema:instrument": [
     {
       "@id": "ex:instrument/SEM",
@@ -181,6 +199,12 @@
       }
     }
   ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:clAcquisitionMode": "missing",
   "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
@@ -194,8 +218,6 @@
   "ada:matrixCorrectionMethod": "missing",
   "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,

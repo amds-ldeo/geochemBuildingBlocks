@@ -101,8 +101,8 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -234,14 +234,14 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Hanton, Lincoln" ] ;
     schema1:datePublished "missing" ;
@@ -259,8 +259,8 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth" ;
     ada:reportedProperties "Sample ID | Mass (g) | Dimension (mm) | Applied Force (N) | P Wave First Arrival (micro-s) | P Wave Velocity (m/s)" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

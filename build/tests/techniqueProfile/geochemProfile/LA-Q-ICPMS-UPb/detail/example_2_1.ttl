@@ -3,10 +3,11 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2024> a ada:LAICPMSGeochronTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Liu2024> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -26,7 +27,7 @@
     ada:proceduralBlankLevel "missing" ;
     ada:radiogenicFractionOfMeasuredSignal "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — reference-material fusion glasses by name (JB-1b, GSR-3, AGV-2, AC-E, GSR-1, W-2A; BHVO-2 glass, p.3); \"Nine spot analyses ... were arranged in a grid\" per glass (p.5), unlabelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime 45 ;
     ada:spotDiameter -9999 ;
@@ -35,4 +36,9 @@
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)" .
 
 <ex:laQicpmsUPbTAPP-Liu2024> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)" .
 

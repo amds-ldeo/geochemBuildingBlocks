@@ -92,8 +92,8 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -191,8 +191,8 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -238,8 +238,8 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(UAZ) Polyga Compact C506 structured light scanner" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

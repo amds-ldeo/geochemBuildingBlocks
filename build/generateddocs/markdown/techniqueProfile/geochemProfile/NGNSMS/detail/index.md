@@ -35,7 +35,7 @@ detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Pet
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged.",
   "ada:sampleName": "OREX-803034-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Pet
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged.",
   "ada:sampleName": "OREX-803034-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Pet
     ada:componentType "ada:NGNSMSProcessed" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged." ;
     ada:sampleName "OREX-803034-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240118_ng-ns-ms_cnrs-crpg_orex-803034-0_1" .
 
 <ex:ngnsmsTAPP-P0> schema1:identifier "missing" .

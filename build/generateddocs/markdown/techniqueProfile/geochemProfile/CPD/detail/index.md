@@ -35,7 +35,7 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-108001-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-108001-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=10 | no named analyst | NASA Johnson Space Ce
     ada:componentType "ada:CPDImage" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-108001-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231016_CPD_JSC-ARES_OREX-580001-0_1" .
 
 <ex:cpdTAPP-P0> schema1:identifier "missing" .

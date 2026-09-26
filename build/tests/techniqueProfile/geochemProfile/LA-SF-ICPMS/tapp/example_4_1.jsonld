@@ -54,6 +54,45 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "Mineral identity, from the \u03bcXRF survey \u2014 phosphates are located as \"thin elongate inclusions in the kamacite-taenite metal matrix (e.g., \u03bcXRF map of Imilac at Fig. 1)\", the identification resting \"on the intensities of the K\u03b1 lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\" (p.4)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u03bcXRF mapping of larger sections, on which the ablation is sited \u2014 Fe K\u03b1 intensity maps identify the mineral phases \"based on the intensities of the K\u03b1 lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\", and the LA-ICP-MS areas correspond \"to the locations indicated on the larger \u03bcXRF maps as black rectangles\" (p.4). The instrument is a Bruker M4 Tornado with a Rh-anode source at 50 kV and 150 \u03bcA, focused to \"a 25 \u03bcm spot (measured for Mo K\u03b1)\" (p.3)"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.96,
+      "schema:description": "Ar make-up: 0.96 l min\u207b\u00b9; N\u2082 not added"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -261,33 +300,6 @@
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min\u207b\u00b9; MFC-2 0.250 l min\u207b\u00b9",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasAndFlowRateDefault",
-      "schema:name": "Make-up Gas and Flow Rate",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.96,
-      "schema:description": "Ar make-up: 0.96 l min\u207b\u00b9; N\u2082 not added"
-    },
-    {
-      "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency"
-        }
-      ],
-      "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot analysis run per location (25 cycles: 15 s blank + 20 s ablation + 10 s washout); 3 replicates"
-    }
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -350,6 +362,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N \u2014 whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated"
           }
         ],
         "@type": [
@@ -409,11 +432,15 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Grain (phosphate crystal) > Spot \u2014 compositions are reported per named phosphate grain (\"Ph1\" \u2026 \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "In-house MatLab script (Appendix C3)"
     }
+  ],
+  "ada:reportedProperties": [
+    "Trace element concentrations in the phosphate grains (\u00b5g/g), reported per named grain with the mineral identified as stanfieldite or merrillite (nominal) and each single parallel measurement listed (Table 2, p.10)"
   ],
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
@@ -431,6 +458,12 @@
     "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment"
   ],
   "ada:primaryStandardNameDefault": "MPI-DING and USGS glass GRMs (measured at beginning and repeatedly at end of each session; multipoint calibration)",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
@@ -439,8 +472,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

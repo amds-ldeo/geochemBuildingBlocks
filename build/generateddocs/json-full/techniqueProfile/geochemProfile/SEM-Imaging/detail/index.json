@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-25",
+  "dateOfLastChange": "2026-09-26",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -27,8 +27,38 @@
     }
   ],
   "shaclShapes": {
-    "ogch.BaseSchema.modules.samplingUnitSelection": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
+    "ogch.BaseSchema.instrument": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.instrument": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.identifier": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.person": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.organization": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
+    ],
+    "cdif.bbr.metadata.skosProperties.skosConcept": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.linkRole": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
     ],
     "ogch.BaseSchema.modules.core": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/core/rules.shacl"
@@ -36,41 +66,38 @@
     "ogch.BaseSchema.geochemProduct": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/geochemProduct/rules.shacl"
     ],
-    "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
-    ],
-    "cdif.bbr.metadata.skosProperties.skosConcept": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/skosProperties/skosConcept/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.definedTerm": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/definedTerm/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.identifier": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/identifier/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
-    ],
-    "ogch.BaseSchema.creativeWork": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
-    ],
     "ogch.BaseSchema.laboratory": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/laboratory/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.spatialExtent": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/spatialExtent/rules.shacl"
     ],
-    "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+    "cdif.bbr.metadata.profiles.cdifProfile.cdifManifest": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifTabularData": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifTabularData/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifPhysicalMapping": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifPhysicalMapping/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifDataCube": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataCube/rules.shacl"
     ],
     "cdif.bbr.metadata.profiles.cdifProfile.cdifDataDescription": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifKey": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
     ],
     "cdif.bbr.metadata.cdifDataType.cdifValueDomain": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifValueDomain/rules.shacl"
@@ -81,20 +108,8 @@
     "cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifDataType.cdifInstanceVariable": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifInstanceVariable/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifStatistics": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifStatistics/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.variableMeasured": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/variableMeasured/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.labeledLink": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/labeledLink/rules.shacl"
-    ],
-    "cdif.bbr.metadata.cdifDataType.cdifKey": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifKey/rules.shacl"
+    "ogch.BaseSchema.creativeWork": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/creativeWork/rules.shacl"
     ],
     "cdif.bbr.metadata.profiles.cdifProfile.cdifProvenance": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/rules.shacl"
@@ -102,26 +117,8 @@
     "cdif.bbr.metadata.cdifDataType.cdifProvActivity": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifProvActivity/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.agentInRole": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/agentInRole/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.organization": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/organization/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.person": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/person/rules.shacl"
-    ],
     "cdif.bbr.metadata.provProperties.generatedBy": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/generatedBy/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.additionalProperty": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/additionalProperty/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.instrument": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/instrument/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.linkRole": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/linkRole/rules.shacl"
     ],
     "cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataStructure/rules.shacl"
@@ -129,14 +126,26 @@
     "cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDataStructureComponent/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
-    ],
     "cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifDescriptorVariable/rules.shacl"
     ],
+    "cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifRepresentedVariable/rules.shacl"
+    ],
     "cdif.bbr.metadata.profiles.cdifProfile.cdifCore": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
+    ],
+    "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
+    ],
+    "cdif.bbr.metadata.provProperties.derivedFrom": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
+    ],
+    "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
     ],
     "cdif.bbr.metadata.schemaorgProperties.webAPI": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/webAPI/rules.shacl"
@@ -144,23 +153,8 @@
     "cdif.bbr.metadata.schemaorgProperties.action": [
       "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/action/rules.shacl"
     ],
-    "cdif.bbr.metadata.cdifDataType.cdifCatalogRecord": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifCatalogRecord/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.dataDownload": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/dataDownload/rules.shacl"
-    ],
-    "cdif.bbr.metadata.schemaorgProperties.monetaryGrant": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/monetaryGrant/rules.shacl"
-    ],
-    "cdif.bbr.metadata.provProperties.derivedFrom": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/provProperties/derivedFrom/rules.shacl"
-    ],
-    "ogch.BaseSchema.instrument": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/instrument/rules.shacl"
-    ],
-    "ogch.BaseSchema.tappDefinition": [
-      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+    "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
     ],
     "ogch.BaseSchema.tabularData": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tabularData/rules.shacl"
@@ -168,14 +162,20 @@
     "ogch.BaseSchema.spatialRegistration": [
       "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/spatialRegistration/rules.shacl"
     ],
-    "cdif.bbr.metadata.schemaorgProperties.temporalExtent": [
-      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/schemaorgProperties/temporalExtent/rules.shacl"
+    "cdif.bbr.metadata.qualityProperties.qualityMeasure": [
+      "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/qualityProperties/qualityMeasure/rules.shacl"
+    ],
+    "ogch.BaseSchema.tappDefinition": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/tappDefinition/rules.shacl"
+    ],
+    "ogch.BaseSchema.modules.samplingUnitSelection": [
+      "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/BaseSchema/modules/samplingUnitSelection/rules.shacl"
     ]
   },
   "dependsOn": [
-    "ogch.BaseSchema.modules.samplingUnitSelection",
+    "ogch.BaseSchema.instrument",
     "ogch.BaseSchema.modules.core",
-    "ogch.BaseSchema.instrument"
+    "ogch.BaseSchema.modules.samplingUnitSelection"
   ],
   "license": {
     "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/LICENSE"
@@ -203,20 +203,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Garvie2008.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_1_1.json",
-          "sizeBytes": 743,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Garvie2008\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Garvie2008\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 984,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Garvie2008\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Garvie2008\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 the Tagish Lake \\\"carbonaceous residue was attached to an Al-SEM stub\\\" (p.2); globules are identified by figure panel (\\\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres \u2026\\\", Fig. 1, p.2), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_1_1.jsonld",
-          "sizeBytes": 998,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Garvie2008\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Garvie2008\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1245,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Garvie2008\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Garvie2008\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 the Tagish Lake \\\"carbonaceous residue was attached to an Al-SEM stub\\\" (p.2); globules are identified by figure panel (\\\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres \\u2026\\\", Fig. 1, p.2), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_1_1.ttl",
-          "sizeBytes": 745,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Garvie2008> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Garvie2008> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Garvie2008> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 986,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Garvie2008> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Garvie2008> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Sample name only \u2014 the Tagish Lake \\\"carbonaceous residue was attached to an Al-SEM stub\\\" (p.2); globules are identified by figure panel (\\\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres \u2026\\\", Fig. 1, p.2), not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Garvie2008> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -232,20 +232,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Genge2025.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_2_1.json",
-          "sizeBytes": 703,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Genge2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 939,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Genge2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 the single particle \\\"micrometeorite NG-1\\\", analysed as \\\"the NG-1 section\\\" (p.2); regions are identified by figure panel (\\\"Alloy-rich regions\\\", Fig. 2; \\\"Silicate-dominated areas\\\", Fig. 3; pp.3\u20134), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_2_1.jsonld",
-          "sizeBytes": 958,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Genge2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1200,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Genge2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 the single particle \\\"micrometeorite NG-1\\\", analysed as \\\"the NG-1 section\\\" (p.2); regions are identified by figure panel (\\\"Alloy-rich regions\\\", Fig. 2; \\\"Silicate-dominated areas\\\", Fig. 3; pp.3\\u20134), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_2_1.ttl",
-          "sizeBytes": 704,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Genge2025> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Genge2025> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Genge2025> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 940,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Genge2025> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Genge2025> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Sample name only \u2014 the single particle \\\"micrometeorite NG-1\\\", analysed as \\\"the NG-1 section\\\" (p.2); regions are identified by figure panel (\\\"Alloy-rich regions\\\", Fig. 2; \\\"Silicate-dominated areas\\\", Fig. 3; pp.3\u20134), not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Genge2025> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -261,20 +261,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Genge2025-2.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_3_1.json",
-          "sizeBytes": 707,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Genge2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 943,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Genge2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 the single particle \\\"micrometeorite NG-1\\\", analysed as \\\"the NG-1 section\\\" (p.2); regions are identified by figure panel (\\\"Alloy-rich regions\\\", Fig. 2; \\\"Silicate-dominated areas\\\", Fig. 3; pp.3\u20134), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_3_1.jsonld",
-          "sizeBytes": 962,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Genge2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1204,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Genge2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Genge2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 the single particle \\\"micrometeorite NG-1\\\", analysed as \\\"the NG-1 section\\\" (p.2); regions are identified by figure panel (\\\"Alloy-rich regions\\\", Fig. 2; \\\"Silicate-dominated areas\\\", Fig. 3; pp.3\\u20134), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_3_1.ttl",
-          "sizeBytes": 710,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Genge2025-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Genge2025-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Genge2025-2> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 946,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Genge2025-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Genge2025-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Sample name only \u2014 the single particle \\\"micrometeorite NG-1\\\", analysed as \\\"the NG-1 section\\\" (p.2); regions are identified by figure panel (\\\"Alloy-rich regions\\\", Fig. 2; \\\"Silicate-dominated areas\\\", Fig. 3; pp.3\u20134), not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Genge2025-2> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -290,20 +290,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Gucsik2013.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_4_1.json",
-          "sizeBytes": 705,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Gucsik2013\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Gucsik2013\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 857,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Gucsik2013\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Gucsik2013\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Labelled: \\\"seven representative grains (designated as B-1 through B-7)\\\" of \\\"a Kaba thin section\\\" (p.2), shown as the \\\"analyzed areas\\\" in Fig. 1 (p.2)\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_4_1.jsonld",
-          "sizeBytes": 960,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Gucsik2013\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Gucsik2013\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1112,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Gucsik2013\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Gucsik2013\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Labelled: \\\"seven representative grains (designated as B-1 through B-7)\\\" of \\\"a Kaba thin section\\\" (p.2), shown as the \\\"analyzed areas\\\" in Fig. 1 (p.2)\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_4_1.ttl",
-          "sizeBytes": 707,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Gucsik2013> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Gucsik2013> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Gucsik2013> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 859,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Gucsik2013> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Gucsik2013> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Labelled: \\\"seven representative grains (designated as B-1 through B-7)\\\" of \\\"a Kaba thin section\\\" (p.2), shown as the \\\"analyzed areas\\\" in Fig. 1 (p.2)\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Gucsik2013> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -319,20 +319,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Izawa2010.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_5_1.json",
-          "sizeBytes": 703,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Izawa2010\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 899,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Izawa2010\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 \\\"polished thin sections\\\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \u03bcXRD spots, not SEM-CL\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_5_1.jsonld",
-          "sizeBytes": 958,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Izawa2010\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1161,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Izawa2010\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 \\\"polished thin sections\\\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \\u03bcXRD spots, not SEM-CL\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_5_1.ttl",
-          "sizeBytes": 704,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Izawa2010> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Izawa2010> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 900,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Izawa2010> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Sample name only \u2014 \\\"polished thin sections\\\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \u03bcXRD spots, not SEM-CL\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Izawa2010> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -348,20 +348,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Izawa2010-2.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_6_1.json",
-          "sizeBytes": 707,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Izawa2010-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 896,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Izawa2010-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 \\\"the Tagish Lake sections\\\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \u03bcXRD spots, not SEM analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_6_1.jsonld",
-          "sizeBytes": 962,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Izawa2010-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1158,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Izawa2010-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 \\\"the Tagish Lake sections\\\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \\u03bcXRD spots, not SEM analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_6_1.ttl",
-          "sizeBytes": 710,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Izawa2010-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Izawa2010-2> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 899,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Izawa2010-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Sample name only \u2014 \\\"the Tagish Lake sections\\\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \u03bcXRD spots, not SEM analyses\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Izawa2010-2> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -377,20 +377,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Izawa2010-3.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_7_1.json",
-          "sizeBytes": 707,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Izawa2010-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 896,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Izawa2010-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 \\\"the Tagish Lake sections\\\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \u03bcXRD spots, not SEM analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_7_1.jsonld",
-          "sizeBytes": 962,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Izawa2010-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1158,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Izawa2010-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Izawa2010-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 \\\"the Tagish Lake sections\\\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \\u03bcXRD spots, not SEM analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_7_1.ttl",
-          "sizeBytes": 710,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Izawa2010-3> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010-3> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Izawa2010-3> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 899,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Izawa2010-3> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Izawa2010-3> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Sample name only \u2014 \\\"the Tagish Lake sections\\\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \\\"point #1\\\", \\\"spot 34\\\") are \u03bcXRD spots, not SEM analyses\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Izawa2010-3> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -406,20 +406,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Liu2017.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_8_1.json",
-          "sizeBytes": 699,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Liu2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 808,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Liu2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Labelled: coal samples \\\"#1\\\" (Bofang Mine) and \\\"#2\\\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_8_1.jsonld",
-          "sizeBytes": 954,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Liu2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1063,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Liu2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Labelled: coal samples \\\"#1\\\" (Bofang Mine) and \\\"#2\\\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_8_1.ttl",
-          "sizeBytes": 698,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Liu2017> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Liu2017> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Liu2017> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 807,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Liu2017> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Liu2017> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Labelled: coal samples \\\"#1\\\" (Bofang Mine) and \\\"#2\\\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Liu2017> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -435,20 +435,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Liu2017-2.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_9_1.json",
-          "sizeBytes": 703,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Liu2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 812,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Liu2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Labelled: coal samples \\\"#1\\\" (Bofang Mine) and \\\"#2\\\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_9_1.jsonld",
-          "sizeBytes": 958,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Liu2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1067,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Liu2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Liu2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"Labelled: coal samples \\\"#1\\\" (Bofang Mine) and \\\"#2\\\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_9_1.ttl",
-          "sizeBytes": 704,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Liu2017-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Liu2017-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Liu2017-2> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 813,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Liu2017-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Liu2017-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"Labelled: coal samples \\\"#1\\\" (Bofang Mine) and \\\"#2\\\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Liu2017-2> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -464,20 +464,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Ma2017.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_10_1.json",
-          "sizeBytes": 784,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Ma2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 958,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Ma2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnitName\": \"Labelled: \\\"section 126A of USNM 7908\\\" (p.1), \\\"prepared from a larger Grain 126\\\" (p.2); the three mineral locations are \\\"marked by rectangles\\\" in Fig. 1 (p.2), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_10_1.jsonld",
-          "sizeBytes": 1039,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Ma2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1213,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Ma2017\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnitName\": \"Labelled: \\\"section 126A of USNM 7908\\\" (p.1), \\\"prepared from a larger Grain 126\\\" (p.2); the three mineral locations are \\\"marked by rectangles\\\" in Fig. 1 (p.2), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_10_1.ttl",
-          "sizeBytes": 782,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Ma2017> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Ma2017> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"Section 126A (USNM 7908)\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Ma2017> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 956,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Ma2017> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Ma2017> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"Section 126A (USNM 7908)\" ;\n    ada:samplingUnitName \"Labelled: \\\"section 126A of USNM 7908\\\" (p.1), \\\"prepared from a larger Grain 126\\\" (p.2); the three mineral locations are \\\"marked by rectangles\\\" in Fig. 1 (p.2), not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Ma2017> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -493,20 +493,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Ma2017-2.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_11_1.json",
-          "sizeBytes": 786,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Ma2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": 0.3,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 960,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Ma2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnitName\": \"Labelled: \\\"section 126A of USNM 7908\\\" (p.1), \\\"prepared from a larger Grain 126\\\" (p.2); the three mineral locations are \\\"marked by rectangles\\\" in Fig. 1 (p.2), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": 0.3,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_11_1.jsonld",
-          "sizeBytes": 1041,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Ma2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": 0.3,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1215,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Ma2017-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Ma2017-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\",\n  \"ada:sampleName\": \"Section 126A (USNM 7908)\",\n  \"ada:samplingUnitName\": \"Labelled: \\\"section 126A of USNM 7908\\\" (p.1), \\\"prepared from a larger Grain 126\\\" (p.2); the three mineral locations are \\\"marked by rectangles\\\" in Fig. 1 (p.2), not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": 0.3,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_11_1.ttl",
-          "sizeBytes": 788,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Ma2017-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Ma2017-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation 3e-01 ;\n    ada:fundingSourceForAnalysis \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"Section 126A (USNM 7908)\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Ma2017-2> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 962,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Ma2017-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Ma2017-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation 3e-01 ;\n    ada:fundingSourceForAnalysis \"NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"Section 126A (USNM 7908)\" ;\n    ada:samplingUnitName \"Labelled: \\\"section 126A of USNM 7908\\\" (p.1), \\\"prepared from a larger Grain 126\\\" (p.2); the three mineral locations are \\\"marked by rectangles\\\" in Fig. 1 (p.2), not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Ma2017-2> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -522,20 +522,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Pascucci2026.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_12_1.json",
-          "sizeBytes": 710,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Pascucci2026\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 878,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Pascucci2026\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 \\\"the NWA 7317 slab\\\" (p.3), imaged on \\\"almost the same portion of the VIS-IR SPIM images\\\" (p.4); imaged fields and analysis points are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_12_1.jsonld",
-          "sizeBytes": 965,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Pascucci2026\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1136,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Pascucci2026\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 \\\"the NWA 7317 slab\\\" (p.3), imaged on \\\"almost the same portion of the VIS-IR SPIM images\\\" (p.4); imaged fields and analysis points are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_12_1.ttl",
-          "sizeBytes": 714,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Pascucci2026> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Pascucci2026> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"NWA 7317\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Pascucci2026> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 882,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Pascucci2026> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Pascucci2026> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"NWA 7317\" ;\n    ada:samplingUnitName \"Sample name only \u2014 \\\"the NWA 7317 slab\\\" (p.3), imaged on \\\"almost the same portion of the VIS-IR SPIM images\\\" (p.4); imaged fields and analysis points are not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Pascucci2026> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -551,20 +551,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Pascucci2026-2.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_13_1.json",
-          "sizeBytes": 714,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Pascucci2026-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 882,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Pascucci2026-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnitName\": \"Sample name only \u2014 \\\"the NWA 7317 slab\\\" (p.3), imaged on \\\"almost the same portion of the VIS-IR SPIM images\\\" (p.4); imaged fields and analysis points are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_13_1.jsonld",
-          "sizeBytes": 969,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Pascucci2026-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1140,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Pascucci2026-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Pascucci2026-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"NWA 7317\",\n  \"ada:samplingUnitName\": \"Sample name only \\u2014 \\\"the NWA 7317 slab\\\" (p.3), imaged on \\\"almost the same portion of the VIS-IR SPIM images\\\" (p.4); imaged fields and analysis points are not labelled\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_13_1.ttl",
-          "sizeBytes": 720,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Pascucci2026-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Pascucci2026-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"NWA 7317\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Pascucci2026-2> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 888,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Pascucci2026-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Pascucci2026-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"NWA 7317\" ;\n    ada:samplingUnitName \"Sample name only \u2014 \\\"the NWA 7317 slab\\\" (p.3), imaged on \\\"almost the same portion of the VIS-IR SPIM images\\\" (p.4); imaged fields and analysis points are not labelled\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Pascucci2026-2> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -580,20 +580,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Zega2025.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_14_1.json",
-          "sizeBytes": 765,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 970,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \u2014 the JSC SEM passage names no specimen (\\\"The particle was attached to an Al cylinder SEM mount\\\"; \\\"regions of interest\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_14_1.jsonld",
-          "sizeBytes": 1020,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1228,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \\u2014 the JSC SEM passage names no specimen (\\\"The particle was attached to an Al cylinder SEM mount\\\"; \\\"regions of interest\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_14_1.ttl",
-          "sizeBytes": 765,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 970,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"N \u2014 the JSC SEM passage names no specimen (\\\"The particle was attached to an Al cylinder SEM mount\\\"; \\\"regions of interest\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -609,20 +609,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Zega2025-2.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_15_1.json",
-          "sizeBytes": 750,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 942,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \u2014 the Arizona SEM passage names no specimen (\\\"Polished sections were coated with a thin layer ... of carbon\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_15_1.jsonld",
-          "sizeBytes": 1005,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1200,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025-2\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-2\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \\u2014 the Arizona SEM passage names no specimen (\\\"Polished sections were coated with a thin layer ... of carbon\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_15_1.ttl",
-          "sizeBytes": 752,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025-2> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 944,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025-2> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025-2> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"N \u2014 the Arizona SEM passage names no specimen (\\\"Polished sections were coated with a thin layer ... of carbon\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025-2> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -638,20 +638,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Zega2025-3.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_16_1.json",
-          "sizeBytes": 750,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 942,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \u2014 the Arizona SEM passage names no specimen (\\\"Polished sections were coated with a thin layer ... of carbon\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_16_1.jsonld",
-          "sizeBytes": 1005,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1200,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025-3\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-3\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \\u2014 the Arizona SEM passage names no specimen (\\\"Polished sections were coated with a thin layer ... of carbon\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_16_1.ttl",
-          "sizeBytes": 752,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025-3> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025-3> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025-3> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 944,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025-3> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025-3> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"N \u2014 the Arizona SEM passage names no specimen (\\\"Polished sections were coated with a thin layer ... of carbon\\\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025-3> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -667,20 +667,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Zega2025-4.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_17_1.json",
-          "sizeBytes": 705,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025-4\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-4\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 763,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Zega2025-4\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-4\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \u2014 the cathodoluminescence passage names no specimen (p.9)\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_17_1.jsonld",
-          "sizeBytes": 960,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025-4\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-4\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1021,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Zega2025-4\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Zega2025-4\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \\u2014 the cathodoluminescence passage names no specimen (p.9)\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_17_1.ttl",
-          "sizeBytes": 707,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025-4> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025-4> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025-4> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 765,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Zega2025-4> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Zega2025-4> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"N \u2014 the cathodoluminescence passage names no specimen (p.9)\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Zega2025-4> schema1:identifier \"missing\" .\n\n"
         }
       ]
     },
@@ -696,20 +696,20 @@
           "language": "json",
           "ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/_sources/techniqueProfile/geochemProfile/SEM-Imaging/detail/exampledetail-Barnes2025.json",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_18_1.json",
-          "sizeBytes": 705,
-          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Barnes2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Barnes2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
+          "sizeBytes": 775,
+          "code": "{\n  \"@context\": {\n    \"schema\": \"http://schema.org/\",\n    \"ada\": \"https://ada.astromat.org/metadata/\"\n  },\n  \"@id\": \"ex:detail-Barnes2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Barnes2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \u2014 this procedure is not described in the paper (see Additional Notes)\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_18_1.jsonld",
-          "sizeBytes": 960,
-          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Barnes2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Barnes2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnit\": \"missing\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
+          "sizeBytes": 1033,
+          "code": "{\n  \"@context\": [\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    },\n    \"https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld\",\n    {\n      \"schema\": \"http://schema.org/\",\n      \"ada\": \"https://ada.astromat.org/metadata/\"\n    }\n  ],\n  \"@id\": \"ex:detail-Barnes2025\",\n  \"@type\": [\n    \"ada:SEMImage\"\n  ],\n  \"ada:componentType\": \"ada:SEMImage\",\n  \"schema:measurementTechnique\": [\n    {\n      \"@id\": \"ex:semImagingTAPP-Barnes2025\",\n      \"schema:identifier\": \"missing\"\n    }\n  ],\n  \"ada:sessionIdentifier\": \"missing\",\n  \"ada:analyst\": \"missing\",\n  \"ada:analysisStartDate\": \"missing\",\n  \"ada:analysisEndDate\": \"missing\",\n  \"ada:fundingSourceForAnalysis\": \"missing\",\n  \"ada:sampleName\": \"missing\",\n  \"ada:samplingUnitName\": \"N \\u2014 this procedure is not described in the paper (see Additional Notes)\",\n  \"ada:imagePixelSize\": -9999,\n  \"ada:ebsdMeanAngularDeviation\": -9999,\n  \"ada:ebsdIndexingRate\": -9999\n}"
         },
         {
           "language": "ttl",
           "url": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/tests/techniqueProfile/geochemProfile/SEM-Imaging/detail/example_18_1.ttl",
-          "sizeBytes": 707,
-          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Barnes2025> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Barnes2025> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnit \"missing\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Barnes2025> schema1:identifier \"missing\" .\n\n"
+          "sizeBytes": 777,
+          "code": "@prefix ada: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<ex:detail-Barnes2025> a ada:SEMImage ;\n    schema1:measurementTechnique <ex:semImagingTAPP-Barnes2025> ;\n    ada:analysisEndDate \"missing\" ;\n    ada:analysisStartDate \"missing\" ;\n    ada:analyst \"missing\" ;\n    ada:componentType \"ada:SEMImage\" ;\n    ada:ebsdIndexingRate -9999 ;\n    ada:ebsdMeanAngularDeviation -9999 ;\n    ada:fundingSourceForAnalysis \"missing\" ;\n    ada:imagePixelSize -9999 ;\n    ada:sampleName \"missing\" ;\n    ada:samplingUnitName \"N \u2014 this procedure is not described in the paper (see Additional Notes)\" ;\n    ada:sessionIdentifier \"missing\" .\n\n<ex:semImagingTAPP-Barnes2025> schema1:identifier \"missing\" .\n\n"
         }
       ]
     }

@@ -92,8 +92,8 @@ eairmsTAPP instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Inst
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -191,8 +191,8 @@ eairmsTAPP instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Inst
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -238,8 +238,8 @@ eairmsTAPP instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Inst
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
     ada:instrumentModel "Thermo Scientific Delta VPlus" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

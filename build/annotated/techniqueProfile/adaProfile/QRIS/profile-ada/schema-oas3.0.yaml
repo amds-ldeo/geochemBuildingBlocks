@@ -523,6 +523,33 @@ x-defs:
                       items:
                         type: object
                       x-jsonld-id: http://schema.org/additionalProperty
+                    ada:samplingUnits:
+                      description: The sampling units of this sample that were analysed
+                        -- the grains, spots, phases, sub-volumes or regions of interest
+                        that one row of reported values corresponds to. A sampling
+                        unit belongs to exactly one sample, which is why it is nested
+                        here rather than sitting on the activity. The unit TYPE is
+                        stated once by the procedure (ada:samplingUnitType); these
+                        are the instances, and they cannot be known until the session
+                        runs.
+                      type: array
+                      items:
+                        type: object
+                        required:
+                        - schema:name
+                        properties:
+                          '@id':
+                            description: Optional identifier for this sampling unit.
+                            type: string
+                          schema:name:
+                            description: The laboratory's label for this sampling
+                              unit -- a spot number, grain label, map or region-of-interest
+                              name, or aliquot identifier. Required, because a unit
+                              nothing can name gives a field keyed by sampling unit
+                              no row to attach its value to.
+                            type: string
+                            x-jsonld-id: http://schema.org/name
+                      x-jsonld-id: https://ada.astromat.org/metadata/samplingUnits
                 x-jsonld-id: http://schema.org/object
               schema:identifier:
                 description: The analytical session's own identifier -- the laboratory's
@@ -9288,7 +9315,6 @@ x-defs:
         x-jsonld-id: https://w3id.org/cdif/purpose
     required:
     - '@type'
-    - cdif:references
     x-jsonld-prefixes:
       schema: http://schema.org/
       cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/

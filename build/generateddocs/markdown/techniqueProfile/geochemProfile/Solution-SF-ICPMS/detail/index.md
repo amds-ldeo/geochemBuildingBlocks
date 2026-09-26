@@ -35,7 +35,7 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena",
-  "ada:samplingUnit": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
+  "ada:samplingUnitName": "Labelled by digestion: \"rock TD, soil TD, soil AR splits\" of each borehole sample (p.3), e.g. sample \"BH3a\" (p.2); splits are not numbered",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": 1,
   "ada:oxideProduction": "missing",
@@ -85,7 +85,7 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena",
-  "ada:samplingUnit": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
+  "ada:samplingUnitName": "Labelled by digestion: \"rock TD, soil TD, soil AR splits\" of each borehole sample (p.3), e.g. sample \"BH3a\" (p.2); splits are not numbered",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": 1,
   "ada:oxideProduction": "missing",
@@ -129,7 +129,7 @@ detail instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbo
     ada:proceduralBlankLevel "\"Typical column blanks were <20 pg Pb, while total procedural blanks (dissolution and/or leaching, including centrifuging) are estimated to be <100 pg\"; \"sample/blank ratios were >=1500, rendering blank corrections negligible\". Per-acquisition instrumental blank on the Attom: \"Each sample acquisition was preceded by a blank determination (average 900cps on 208Pb, equivalent to 1.8 ppt Pb in solution)\" [sec 2.4]" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena" ;
-    ada:samplingUnit "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"" ;
+    ada:samplingUnitName "Labelled by digestion: \"rock TD, soil TD, soil AR splits\" of each borehole sample (p.3), e.g. sample \"BH3a\" (p.2); splits are not numbered" ;
     ada:sessionIdentifier "N -- \"A typical session comprised analyses of up to 50 unknowns and 15 standards\"; no session identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "2 sigma uncertainty of 30-set Pb isotope ratios per sample (stated section 2.3)" .
@@ -166,7 +166,7 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)",
-  "ada:samplingUnit": "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"",
+  "ada:samplingUnitName": "Sample name only — \"mag_1\", \"mag_3\", \"mag_5\", \"py_2\", \"py_4\", each reported as \"Mean ± s (n = 3)\" with the replicates unlabelled (table, p.8)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -216,7 +216,7 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)",
-  "ada:samplingUnit": "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"",
+  "ada:samplingUnitName": "Sample name only \u2014 \"mag_1\", \"mag_3\", \"mag_5\", \"py_2\", \"py_4\", each reported as \"Mean \u00b1 s (n = 3)\" with the replicates unlabelled (table, p.8)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -260,7 +260,7 @@ detail instance derived from Li+etal2016 | Thermo Element I | IGGCAS Beijing.
     ada:proceduralBlankLevel "\"The concentration of elements in the procedural blank ranged from 0.004 ng mL-1 (Cs) to 0.216 ng mL-1 (Zn)\"; \"the highest blank level in Zn would contribute less than 0.01% of the amount of analyte\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)" ;
-    ada:samplingUnit "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"" ;
+    ada:samplingUnitName "Sample name only — \"mag_1\", \"mag_3\", \"mag_5\", \"py_2\", \"py_4\", each reported as \"Mean ± s (n = 3)\" with the replicates unlabelled (table, p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of replicate analyses (stated Table 5)" .
@@ -297,7 +297,7 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
-  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites",
+  "ada:samplingUnitName": "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"–\"#8\" (p.7) are synthetic yield-test solutions, not samples",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -347,7 +347,7 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
-  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites",
+  "ada:samplingUnitName": "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"\u2013\"#8\" (p.7) are synthetic yield-test solutions, not samples",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -391,7 +391,7 @@ detail instance derived from Lu+etal2007 | Finnigan ELEMENT | PML Okayama.
     ada:proceduralBlankLevel "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\"; \"Total Sn blank levels are ~300 pg in both the ultrasonic and the bomb methods\" [sec 3.6]" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)" ;
-    ada:samplingUnit "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites" ;
+    ada:samplingUnitName "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"–\"#8\" (p.7) are synthetic yield-test solutions, not samples" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -428,7 +428,7 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Open-ocean seawater reference materials SAFe S1, SAFe D2 and NASS-5; GEOTRACES inter-calibration samples GS (surface) and GD (deep); depth-profile samples from the BATS station, 31 deg 45' N, 64 deg 05' W, 23 June 2008",
-  "ada:samplingUnit": "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"",
+  "ada:samplingUnitName": "Sample name only — seawater samples by name (SAFe S1, SAFe D2, NASS-5; GEOTRACES \"(GS)\" and \"(GD)\", p.4); the 12 mL sub-samples are not labelled",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -478,7 +478,7 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Open-ocean seawater reference materials SAFe S1, SAFe D2 and NASS-5; GEOTRACES inter-calibration samples GS (surface) and GD (deep); depth-profile samples from the BATS station, 31 deg 45' N, 64 deg 05' W, 23 June 2008",
-  "ada:samplingUnit": "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"",
+  "ada:samplingUnitName": "Sample name only \u2014 seawater samples by name (SAFe S1, SAFe D2, NASS-5; GEOTRACES \"(GS)\" and \"(GD)\", p.4); the 12 mL sub-samples are not labelled",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -522,7 +522,7 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
     ada:proceduralBlankLevel "Per-element reagent blank with 1 S.D. in pmoles, broken down into elution acid and ammonium acetate buffer contributions (Mn 0.433 +/- 0.026; Fe 2.791 +/- 0.083; Co 0.078 +/- 0.006; Ni 0.457 +/- 0.104; Cu 0.184 +/- 0.027; Zn 3.044 +/- 0.018; Cd 0.045 +/- 0.003; Pb 0.017 +/- 0.001)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Open-ocean seawater reference materials SAFe S1, SAFe D2 and NASS-5; GEOTRACES inter-calibration samples GS (surface) and GD (deep); depth-profile samples from the BATS station, 31 deg 45' N, 64 deg 05' W, 23 June 2008" ;
-    ada:samplingUnit "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"" ;
+    ada:samplingUnitName "Sample name only — seawater samples by name (SAFe S1, SAFe D2, NASS-5; GEOTRACES \"(GS)\" and \"(GD)\", p.4); the 12 mL sub-samples are not labelled" ;
     ada:sessionIdentifier "N -- \"Each analytical session would begin and end with the analysis of a series of Mo standards (1-100 nM)\"; \"an analysis sequence\"; \"1 day's analysis\"; \"three separate days of analyses\". No session or sequence identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of replicate measurements (stated section 2.4)" .
@@ -559,7 +559,7 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction",
-  "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
+  "ada:samplingUnitName": "Sample name only — consistency standards \"CAM-Uvig-1\", \"CAM-Uvig-2\", \"CAM-wuellerstorfi\", \"CAM-Mix\" (p.6); in the cleaning test each core-top sample was \"split into three fractions\" identified only by cleaning sequence (p.4)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": 3,
   "ada:oxideProduction": "missing",
@@ -609,7 +609,7 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction",
-  "ada:samplingUnit": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
+  "ada:samplingUnitName": "Sample name only \u2014 consistency standards \"CAM-Uvig-1\", \"CAM-Uvig-2\", \"CAM-wuellerstorfi\", \"CAM-Mix\" (p.6); in the cleaning test each core-top sample was \"split into three fractions\" identified only by cleaning sequence (p.4)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": 3,
   "ada:oxideProduction": "missing",
@@ -653,7 +653,7 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
     ada:proceduralBlankLevel "\"Our procedural B/Ca blank of 2.0 +/- 1.0 umol/mol\"; instrumental 11B blank in cps tabulated against spray chamber material, injector material and acid matrix (2011-19,750 cps) [Table 2]" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "In-house consistency standards CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2 and CAM-Mix; Globigerinoides sacculifer specimens of the 300-355 um size fraction" ;
-    ada:samplingUnit "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"" ;
+    ada:samplingUnitName "Sample name only — consistency standards \"CAM-Uvig-1\", \"CAM-Uvig-2\", \"CAM-wuellerstorfi\", \"CAM-Mix\" (p.6); in the cleaning test each core-top sample was \"split into three fractions\" identified only by cleaning sequence (p.4)" ;
     ada:sessionIdentifier "N -- \"a single instrument session\" referenced; no session identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated consistency standard analyses (stated section 2.3.1)" .
@@ -690,7 +690,7 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-1, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 -- tabulated with issuing organisation and split/position numbers (e.g. BHVO-1 Split 15 Pos 26; G-2 Split 58 Pos 23)",
-  "ada:samplingUnit": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"",
+  "ada:samplingUnitName": "Labelled for BHVO-1: digestions \"BHVO-1 (1)\" to \"BHVO-1 (5)\", each with determinations \"1 2 3\" (Table 4, pp.8–9); the other reference materials by name with their issuing split and position (e.g. AGV-1 Split 35 Pos 13; Table 2, p.6)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -740,7 +740,7 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-1, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 -- tabulated with issuing organisation and split/position numbers (e.g. BHVO-1 Split 15 Pos 26; G-2 Split 58 Pos 23)",
-  "ada:samplingUnit": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"",
+  "ada:samplingUnitName": "Labelled for BHVO-1: digestions \"BHVO-1 (1)\" to \"BHVO-1 (5)\", each with determinations \"1 2 3\" (Table 4, pp.8\u20139); the other reference materials by name with their issuing split and position (e.g. AGV-1 Split 35 Pos 13; Table 2, p.6)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -784,7 +784,7 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
     ada:proceduralBlankLevel "Partially -- \"Limits of detection (LOD) were calculated according to the 3s criterion on a data set of fifty measurements in LR mode and twenty measurements in HR mode of total procedural blanks (including spiking)\"; LODs \"ranged between about 0.1 and 10 ng g-1 sample equivalents for most elements\". The blank levels themselves are not tabulated" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-1, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 -- tabulated with issuing organisation and split/position numbers (e.g. BHVO-1 Split 15 Pos 26; G-2 Split 58 Pos 23)" ;
-    ada:samplingUnit "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"" ;
+    ada:samplingUnitName "Labelled for BHVO-1: digestions \"BHVO-1 (1)\" to \"BHVO-1 (5)\", each with determinations \"1 2 3\" (Table 4, pp.8–9); the other reference materials by name with their issuing split and position (e.g. AGV-1 Split 35 Pos 13; Table 2, p.6)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated RM analyses within session (stated Table 5)" .

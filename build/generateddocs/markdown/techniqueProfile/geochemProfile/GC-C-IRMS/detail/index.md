@@ -35,7 +35,7 @@ detail instance derived from ADA n=9 | no named analyst | Hokkaido University | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800107-183",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=9 | no named analyst | Hokkaido University | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800107-183",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=9 | no named analyst | Hokkaido University | 
     ada:componentType "ada:GCCIRMSDataCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800107-183" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250219_GC-C-IRMS_PSU_OREX-800107-183_1" .
 
 <ex:gcCIrmsTAPP-Agilent7890> schema1:identifier "missing" .

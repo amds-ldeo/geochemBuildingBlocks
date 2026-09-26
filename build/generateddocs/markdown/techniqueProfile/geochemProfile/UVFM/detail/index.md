@@ -35,7 +35,7 @@ detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cente
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-501006-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cente
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-501006-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cente
     ada:componentType "ada:UVFMImage" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-501006-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231002_uvfm_jsc-ares_orex-501006-0_1" .
 
 <ex:uvfmTAPP-P0> schema1:identifier "missing" .

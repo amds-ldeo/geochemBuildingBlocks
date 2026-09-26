@@ -101,8 +101,8 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -259,8 +259,8 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
     ada:instrumentModel "Thermo Fisher Scientific iCAP 6300 duo" ;
     ada:reportedProperties "Date | Time | Sample | Method | P_1774 | Co" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

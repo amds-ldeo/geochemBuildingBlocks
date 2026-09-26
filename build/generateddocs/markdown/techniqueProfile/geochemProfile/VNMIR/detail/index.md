@@ -35,7 +35,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)",
   "ada:sampleName": "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -76,7 +76,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)",
   "ada:sampleName": "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -103,7 +103,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)" ;
     ada:sampleTemperature -9999 ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)" ;
     ada:vacuumExposedSample "missing" .
 
@@ -139,7 +139,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)",
   "ada:sampleName": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -180,7 +180,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)",
   "ada:sampleName": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -207,7 +207,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)" ;
     ada:sampleTemperature -9999 ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)" ;
     ada:vacuumExposedSample "missing" .
 
@@ -243,7 +243,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800029-0",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -284,7 +284,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800029-0",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -311,7 +311,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-800029-0" ;
     ada:sampleTemperature -9999 ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231113_vnmir_brown_orex-800029-0_1" ;
     ada:vacuumExposedSample "missing" .
 
@@ -347,7 +347,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-501006-0",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -388,7 +388,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-501006-0",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
   "ada:vacuumExposedSample": "missing",
   "ada:incidenceAngle": -9999,
@@ -415,7 +415,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-501006-0" ;
     ada:sampleTemperature -9999 ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20230929_vnmir_jsc-ares_orex-501006-0_1" ;
     ada:vacuumExposedSample "missing" .
 
