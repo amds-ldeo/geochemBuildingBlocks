@@ -120,12 +120,11 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Nakanishi2022 a ada:LAICPMSGeochronTabular ;
-    schema1:measurementTechnique ex:laQicpmsUPbTAPP-Nakanishi2022 ;
+<ex:detail-Nakanishi2022> a ada:LAICPMSGeochronTabular ;
+    schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Nakanishi2022> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -156,7 +155,7 @@ ex:detail-Nakanishi2022 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
 
-ex:laQicpmsUPbTAPP-Nakanishi2022 schema1:identifier "missing" .
+<ex:laQicpmsUPbTAPP-Nakanishi2022> schema1:identifier "missing" .
 
 
 ```
@@ -273,12 +272,11 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2024 a ada:LAICPMSGeochronTabular ;
-    schema1:measurementTechnique ex:laQicpmsUPbTAPP-Liu2024 ;
+<ex:detail-Liu2024> a ada:LAICPMSGeochronTabular ;
+    schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Liu2024> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -309,7 +307,7 @@ ex:detail-Liu2024 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)" .
 
-ex:laQicpmsUPbTAPP-Liu2024 schema1:identifier "missing" .
+<ex:laQicpmsUPbTAPP-Liu2024> schema1:identifier "missing" .
 
 
 ```
@@ -426,12 +424,11 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2025 a ada:LAICPMSGeochronTabular ;
-    schema1:measurementTechnique ex:laQicpmsUPbTAPP-Liu2025 ;
+<ex:detail-Liu2025> a ada:LAICPMSGeochronTabular ;
+    schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Liu2025> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -462,7 +459,7 @@ ex:detail-Liu2025 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsUPbTAPP-Liu2025 schema1:identifier "missing" .
+<ex:laQicpmsUPbTAPP-Liu2025> schema1:identifier "missing" .
 
 
 ```
@@ -579,12 +576,11 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2025-2 a ada:LAICPMSGeochronTabular ;
-    schema1:measurementTechnique ex:laQicpmsUPbTAPP-Liu2025-2 ;
+<ex:detail-Liu2025-2> a ada:LAICPMSGeochronTabular ;
+    schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Liu2025-2> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -615,7 +611,7 @@ ex:detail-Liu2025-2 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsUPbTAPP-Liu2025-2 schema1:identifier "missing" .
+<ex:laQicpmsUPbTAPP-Liu2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -732,12 +728,11 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2016 a ada:LAICPMSGeochronTabular ;
-    schema1:measurementTechnique ex:laQicpmsUPbTAPP-Liu2016 ;
+<ex:detail-Liu2016> a ada:LAICPMSGeochronTabular ;
+    schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Liu2016> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -768,7 +763,7 @@ ex:detail-Liu2016 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsUPbTAPP-Liu2016 schema1:identifier "missing" .
+<ex:laQicpmsUPbTAPP-Liu2016> schema1:identifier "missing" .
 
 
 ```
@@ -885,12 +880,11 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2016-2 a ada:LAICPMSGeochronTabular ;
-    schema1:measurementTechnique ex:laQicpmsUPbTAPP-Liu2016-2 ;
+<ex:detail-Liu2016-2> a ada:LAICPMSGeochronTabular ;
+    schema1:measurementTechnique <ex:laQicpmsUPbTAPP-Liu2016-2> ;
     ada:ageDatumReferenceEpoch "missing" ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
@@ -921,7 +915,7 @@ ex:detail-Liu2016-2 a ada:LAICPMSGeochronTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsUPbTAPP-Liu2016-2 schema1:identifier "missing" .
+<ex:laQicpmsUPbTAPP-Liu2016-2> schema1:identifier "missing" .
 
 
 ```
@@ -1802,10 +1796,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "dqv": "http://www.w3.org/ns/dqv#",
     "@version": 1.1
   }

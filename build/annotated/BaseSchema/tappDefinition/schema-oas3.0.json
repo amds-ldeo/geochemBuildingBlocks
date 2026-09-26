@@ -635,7 +635,7 @@
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.schemaorgProperties.labeledLink": {
-      "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
+      "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
       "type": "object",
       "properties": {
         "@type": {
@@ -663,14 +663,37 @@
           "type": "string",
           "format": "uri",
           "x-jsonld-id": "http://schema.org/url"
+        },
+        "dcat:hadRole": {
+          "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.",
+          "x-jsonld-id": "http://www.w3.org/ns/dcat#hadRole",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/cdifConceptOrTermOrString"
+            }
+          ]
+        },
+        "dcterms:relation": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.",
+          "x-jsonld-id": "http://purl.org/dc/terms/relation"
         }
       },
       "required": [
         "@type",
         "schema:url"
       ],
+      "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        }
+      },
       "x-jsonld-prefixes": {
-        "schema": "http://schema.org/"
+        "schema": "http://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "dcat": "http://www.w3.org/ns/dcat#"
       },
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -1103,9 +1126,9 @@
         },
         "schema:relatedLink": {
           "type": "array",
-          "description": "Links to related resources (manuals, datasheets, calibration records, related instruments).",
+          "description": "Links to related resources (manuals, datasheets, calibration records, related instruments), each naming how the target relates to the instrument. Uses the same linkRole block as cdifCore; before 2026-09-23 this property was a labeled link here and a LinkRole there.",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Reference"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/LinkRole"
           },
           "x-jsonld-id": "http://schema.org/relatedLink"
         },
@@ -1222,7 +1245,10 @@
           ]
         },
         "Reference": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink_1"
+        },
+        "LinkRole": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole"
         },
         "InstrumentComponent": {
           "type": "object",
@@ -2256,57 +2282,144 @@
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/additionalProperty/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "cdif.bbr.metadata.cdifDataType.cdifReference": {
+    "cdif.bbr.metadata.schemaorgProperties.labeledLink_1": {
+      "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
       "type": "object",
-      "description": "Building block to implement relations to other resources using a URL and some semantics.",
-      "allOf": [
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink_1"
+      "properties": {
+        "@type": {
+          "default": "schema:CreativeWork",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "enum": [
+              "schema:CreativeWork"
+            ]
+          },
+          "minItems": 1
         },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/Relation"
+        "schema:name": {
+          "type": "string",
+          "x-jsonld-id": "http://schema.org/name"
+        },
+        "schema:description": {
+          "type": "string",
+          "x-jsonld-id": "http://schema.org/description"
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "x-jsonld-id": "http://schema.org/url"
+        },
+        "dcat:hadRole": {
+          "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.",
+          "x-jsonld-id": "http://www.w3.org/ns/dcat#hadRole",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink_1/$defs/cdifConceptOrTermOrString"
+            }
+          ]
+        },
+        "dcterms:relation": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.",
+          "x-jsonld-id": "http://purl.org/dc/terms/relation"
         }
+      },
+      "required": [
+        "@type",
+        "schema:url"
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString_1"
-        },
-        "cdifConceptOrTerm": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm_1"
-        },
-        "Relation": {
-          "type": "object",
-          "description": "DCAT Relationship surface added on top of the schema.org labeled link construct. This block is an allOf of labeledLink and this surface, so a \"@type\" with contains: dcat:Relationship here applied to EVERY cdifReference -- alongside labeledLink's contains: schema:CreativeWork -- making the two co-types mandatory and the block unsatisfiable for an ordinary labeled link. schema:license recommends exactly such a link (\"recommend using schema:CreativeWork to provide a label (name) for the license\"), and every example that followed that advice failed. The co-type mandate is therefore gone: @type is governed solely by labeledLink, which already requires schema:CreativeWork and permits dcat:Relationship alongside it. This matches rules.shacl, where cdifReferenceShape targets dcat:Relationship as a class -- the relation rules apply to nodes that declare it, rather than forcing every labeled link to.",
-          "properties": {
-            "dcat:hadRole": {
-              "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot).",
-              "x-jsonld-id": "http://www.w3.org/ns/dcat#hadRole",
-              "allOf": [
-                {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifReference/$defs/cdifConceptOrTermOrString"
-                }
-              ]
-            },
-            "dcterms:relation": {
-              "type": "string",
-              "format": "uri",
-              "description": "URI of the related resource (DCAT canonical pointer to what is being related to; distinct from schema:url which is the presentation URL inherited from labeledLink).",
-              "x-jsonld-id": "http://purl.org/dc/terms/relation"
-            }
-          }
         }
       },
       "x-jsonld-prefixes": {
         "schema": "http://schema.org/",
         "skos": "http://www.w3.org/2004/02/skos/core#",
-        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-        "cdif": "https://w3id.org/cdif/",
-        "ex": "https://example.org/",
-        "xsd": "http://www.w3.org/2001/XMLSchema#",
         "dcterms": "http://purl.org/dc/terms/",
         "dcat": "http://www.w3.org/ns/dcat#"
       },
-      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifReference/schema.yaml",
+      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.yaml",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "cdif.bbr.metadata.schemaorgProperties.linkRole": {
+      "description": "A typed link, implemented as a schema.org LinkRole: schema:linkRelationship names how the target relates to the subject, and schema:target carries the EntryPoint actually being linked to.\nThis is the right shape when the relationship itself is the point -- \"this is the canonical version of\", \"this is the download endpoint for\". Where the value is simply a work at a URL, such as a license or a terms-of-service document, use schemaorgProperties/labeledLink instead: a licence is a work, not a role, and wrapping it in a Role forces every consumer through an indirection to reach the thing itself.\nDefined here as a block rather than inline in a profile (where it lived until 2026-09-23) so that more than one consumer can reuse it. While it was inline in cdifCore, schemaorgProperties/instrument could not reach it and defined schema:relatedLink as a labeled link instead -- the same property carrying two different shapes depending on which node held it.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "default": "schema:LinkRole",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "enum": [
+              "schema:LinkRole"
+            ]
+          },
+          "minItems": 1
+        },
+        "schema:linkRelationship": {
+          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label.",
+          "x-jsonld-id": "http://schema.org/linkRelationship",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole/$defs/cdifConceptOrTermOrString"
+            }
+          ]
+        },
+        "schema:target": {
+          "type": "object",
+          "description": "The entry point being linked to. Deliberately not sealed: real targets also carry schema:httpMethod, schema:urlTemplate, schema:contentType and domain-specific properties, and JSON-LD is open-world.",
+          "properties": {
+            "@type": {
+              "default": "schema:EntryPoint",
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "enum": [
+                  "schema:EntryPoint"
+                ]
+              },
+              "minItems": 1
+            },
+            "schema:name": {
+              "type": "string",
+              "x-jsonld-id": "http://schema.org/name"
+            },
+            "schema:url": {
+              "type": "string",
+              "format": "uri",
+              "x-jsonld-id": "http://schema.org/url"
+            },
+            "schema:encodingFormat": {
+              "type": "string",
+              "description": "registered MIME types are expected",
+              "x-jsonld-id": "http://schema.org/encodingFormat"
+            }
+          },
+          "x-jsonld-id": "http://schema.org/target"
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString_1"
+        }
+      },
+      "x-jsonld-prefixes": {
+        "schema": "http://schema.org/",
+        "skos": "http://www.w3.org/2004/02/skos/core#"
+      },
+      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/linkRole/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm": {
@@ -2347,73 +2460,6 @@
         }
       ],
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
-    "cdif.bbr.metadata.schemaorgProperties.labeledLink_1": {
-      "description": "schema for a labeled link, a profile of schema.org/CreativeWork",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "default": "schema:CreativeWork",
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "enum": [
-              "schema:CreativeWork"
-            ]
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "x-jsonld-id": "http://schema.org/name"
-        },
-        "schema:description": {
-          "type": "string",
-          "x-jsonld-id": "http://schema.org/description"
-        },
-        "schema:url": {
-          "type": "string",
-          "format": "uri",
-          "x-jsonld-id": "http://schema.org/url"
-        }
-      },
-      "required": [
-        "@type",
-        "schema:url"
-      ],
-      "x-jsonld-prefixes": {
-        "schema": "http://schema.org/"
-      },
-      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.yaml",
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
-    },
-    "cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm_1": {
-      "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
-      "anyOf": [
-        {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "reference to a skos concept for the data type"
-            }
-          }
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm_1"
-        },
-        {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept_1/$defs/Concept"
-        }
-      ],
-      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.skosProperties.skosConcept": {
@@ -2802,6 +2848,32 @@
         "skos": "http://www.w3.org/2004/02/skos/core#"
       },
       "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/skosProperties/skosConcept/schema.json",
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
+    },
+    "cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm_1": {
+      "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "@id"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "@id": {
+              "type": "string",
+              "description": "reference to a skos concept for the data type"
+            }
+          }
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm_1"
+        },
+        {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept_1/$defs/Concept"
+        }
+      ],
+      "x-schema-source": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "cdif.bbr.metadata.skosProperties.skosConcept_1": {
@@ -3509,26 +3581,26 @@
       },
       "x-jsonld-id": "http://schema.org/additionalProperty"
     },
-    "ada:analyteTemplate": {
+    "ada:targetSpeciesTemplate": {
       "description": "Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
       "type": "object",
       "properties": {
-        "ada:analyteColumns": {
+        "ada:targetSpeciesColumns": {
           "type": "array",
           "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
           "minItems": 1,
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/AnalyteColumn"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/TargetSpeciesColumn"
           },
           "contains": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/AnalyteIdentifierColumn"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/TargetSpeciesIdentifierColumn"
           },
           "maxContains": 1,
-          "x-jsonld-id": "https://ada.astromat.org/metadata/analyteColumns"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesColumns"
         },
-        "ada:defaultAnalytes": {
+        "ada:defaultTargetSpecies": {
           "type": "array",
-          "description": "The analytes (analyzed constituents) this method targets by default \u2014 the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+          "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
           "items": {
             "anyOf": [
               {
@@ -3539,15 +3611,15 @@
               },
               {
                 "type": "object",
-                "title": "Per-analyte row",
-                "description": "One row of the per-analyte table, keyed by column schema:valueName. null records a value that is deliberately absent for this analyte rather than merely unstated.",
+                "title": "Per-species row",
+                "description": "One row of the per-species table, keyed by column schema:valueName. null records a value that is deliberately absent for this species rather than merely unstated.",
                 "required": [
-                  "analyte"
+                  "targetSpecies"
                 ],
                 "properties": {
-                  "analyte": {
+                  "targetSpecies": {
                     "type": "string",
-                    "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:analyteColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                    "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the identifier column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout.\nThis key was 'analyte' until 2026-09-25. The rename moved the COLUMN's schema:valueName const to 'targetSpecies' but left the row half behind, so a row object could satisfy neither half: keyed 'analyte' it contradicted its own column, keyed 'targetSpecies' it failed this required. Nothing upstream caught it because every tappDefinition example lists bare strings here and so never exercises this branch; it surfaced against the 46 stored ADA method definitions, which do use row objects."
                   }
                 },
                 "additionalProperties": {
@@ -3570,32 +3642,32 @@
               }
             ]
           },
-          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultAnalytes"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultTargetSpecies"
         }
       },
       "required": [
-        "ada:analyteColumns"
+        "ada:targetSpeciesColumns"
       ],
-      "x-jsonld-id": "https://ada.astromat.org/metadata/analyteTemplate"
+      "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesTemplate"
     },
-    "ada:channelTemplate": {
+    "ada:monitoredPropertyTemplate": {
       "description": "Template for per-channel parameters, a channel being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
       "type": "object",
       "properties": {
-        "ada:channelColumns": {
+        "ada:monitoredPropertyColumns": {
           "type": "array",
           "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
           "minItems": 1,
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/ChannelColumn"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/MonitoredPropertyColumn"
           },
           "contains": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/ChannelIdentifierColumn"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/MonitoredPropertyIdentifierColumn"
           },
           "maxContains": 1,
-          "x-jsonld-id": "https://ada.astromat.org/metadata/channelColumns"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyColumns"
         },
-        "ada:defaultChannels": {
+        "ada:defaultMonitoredProperties": {
           "type": "array",
           "description": "The channels this procedure defines by default \u2014 the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
           "items": {
@@ -3608,16 +3680,16 @@
               }
             ]
           },
-          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultChannels"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultMonitoredProperties"
         }
       },
       "required": [
-        "ada:channelColumns"
+        "ada:monitoredPropertyColumns"
       ],
-      "x-jsonld-id": "https://ada.astromat.org/metadata/channelTemplate"
+      "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyTemplate"
     },
     "ada:reportedPropertyTemplate": {
-      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:analyteTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
+      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
       "type": "object",
       "properties": {
         "ada:reportedPropertyColumns": {
@@ -4265,7 +4337,7 @@
     },
     "KeyedTableColumn": {
       "type": "object",
-      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. AnalyteColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
       "properties": {
         "@type": {
           "type": "array",
@@ -4442,7 +4514,7 @@
         "ada:dataType"
       ]
     },
-    "AnalyteColumn": {
+    "TargetSpeciesColumn": {
       "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
       "allOf": [
         {
@@ -4458,7 +4530,7 @@
         }
       ]
     },
-    "ChannelColumn": {
+    "MonitoredPropertyColumn": {
       "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
       "allOf": [
         {
@@ -4466,8 +4538,8 @@
         }
       ]
     },
-    "ChannelIdentifierColumn": {
-      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+    "MonitoredPropertyIdentifierColumn": {
+      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/KeyedTableColumn"
@@ -4478,7 +4550,7 @@
             "schema:valueName": {
               "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
-                "channel"
+                "monitoredProperty"
               ]
             },
             "ada:dataType": {
@@ -4524,7 +4596,7 @@
       ]
     },
     "ReportedPropertyIdentifierColumn": {
-      "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors AnalyteIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
+      "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/KeyedTableColumn"
@@ -4580,11 +4652,11 @@
         }
       ]
     },
-    "AnalyteIdentifierColumn": {
+    "TargetSpeciesIdentifierColumn": {
       "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
       "allOf": [
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/AnalyteColumn"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema-oas3.0.json#/$defs/TargetSpeciesColumn"
         },
         {
           "type": "object",
@@ -4592,7 +4664,7 @@
             "schema:valueName": {
               "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
-                "analyte"
+                "targetSpecies"
               ]
             },
             "ada:dataType": {

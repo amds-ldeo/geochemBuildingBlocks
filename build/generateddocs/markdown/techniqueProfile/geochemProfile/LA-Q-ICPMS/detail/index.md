@@ -114,12 +114,11 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Nakanishi2022 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-Nakanishi2022 ;
+<ex:detail-Nakanishi2022> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-Nakanishi2022> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -147,7 +146,7 @@ ex:detail-Nakanishi2022 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
 
-ex:laQicpmsTAPP-Nakanishi2022 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Nakanishi2022> schema1:identifier "missing" .
 
 
 ```
@@ -258,12 +257,11 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2024 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-Liu2024 ;
+<ex:detail-Liu2024> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2024> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -291,7 +289,7 @@ ex:detail-Liu2024 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)" .
 
-ex:laQicpmsTAPP-Liu2024 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2024> schema1:identifier "missing" .
 
 
 ```
@@ -402,12 +400,11 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2025 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-Liu2025 ;
+<ex:detail-Liu2025> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -435,7 +432,7 @@ ex:detail-Liu2025 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsTAPP-Liu2025 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2025> schema1:identifier "missing" .
 
 
 ```
@@ -546,12 +543,11 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2025-2 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-Liu2025-2 ;
+<ex:detail-Liu2025-2> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -579,7 +575,7 @@ ex:detail-Liu2025-2 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsTAPP-Liu2025-2 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -690,12 +686,11 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2016 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-Liu2016 ;
+<ex:detail-Liu2016> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2016> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -723,7 +718,7 @@ ex:detail-Liu2016 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsTAPP-Liu2016 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2016> schema1:identifier "missing" .
 
 
 ```
@@ -834,12 +829,11 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2016-2 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-Liu2016-2 ;
+<ex:detail-Liu2016-2> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2016-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -867,7 +861,7 @@ ex:detail-Liu2016-2 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laQicpmsTAPP-Liu2016-2 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-Liu2016-2> schema1:identifier "missing" .
 
 
 ```
@@ -978,12 +972,11 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P6 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laQicpmsTAPP-P6 ;
+<ex:detail-P6> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laQicpmsTAPP-P6> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -1011,7 +1004,7 @@ ex:detail-P6 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Precision of common-Hf corrected single-spot ages 1.5-8.1% (xenotime) and 9.2-36.0% (apatite); isochron age uncertainties 3.5-10% for garnet" .
 
-ex:laQicpmsTAPP-P6 schema1:identifier "missing" .
+<ex:laQicpmsTAPP-P6> schema1:identifier "missing" .
 
 
 ```
@@ -1761,10 +1754,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "dqv": "http://www.w3.org/ns/dqv#",
     "@version": 1.1
   }

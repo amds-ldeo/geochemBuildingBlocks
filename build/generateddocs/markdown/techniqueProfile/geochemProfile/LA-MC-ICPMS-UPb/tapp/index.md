@@ -24,6 +24,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/geochronology/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -1068,14 +1069,14 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by
                 the target species element they serve where they serve one. Covers
@@ -1088,7 +1089,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/monitoredMasses
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1119,7 +1120,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/massResolutionAssignment
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1154,7 +1155,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1186,7 +1187,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1218,7 +1219,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/interferingSpecies
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1251,7 +1252,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1286,7 +1287,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1320,7 +1321,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1354,7 +1355,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1388,7 +1389,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1423,7 +1424,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1460,7 +1461,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/monitoredMasses
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1494,7 +1495,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/massResolutionAssignment
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1532,7 +1533,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1567,7 +1568,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1602,7 +1603,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/interferingSpecies
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1638,7 +1639,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1676,7 +1677,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1713,7 +1714,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1750,7 +1751,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1787,7 +1788,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1825,7 +1826,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1919,9 +1920,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

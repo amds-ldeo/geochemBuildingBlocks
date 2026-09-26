@@ -22,6 +22,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.json#/$defs/ProcedureIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -454,7 +457,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
                                           },
                                           "@type": {
                                             "const": [
@@ -477,17 +480,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -505,7 +498,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
                                           },
                                           "@type": {
                                             "const": [
@@ -528,17 +521,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -556,7 +539,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
                                           },
                                           "@type": {
                                             "const": [
@@ -581,27 +564,10 @@
                                           "schema:defaultValue": {
                                             "anyOf": [
                                               {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
+                                                "type": "number"
                                               },
                                               {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
+                                                "type": "string"
                                               }
                                             ]
                                           }
@@ -621,7 +587,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
                                           },
                                           "@type": {
                                             "const": [
@@ -644,17 +610,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -672,7 +628,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/interferingSpecies"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies"
                                           },
                                           "@type": {
                                             "const": [
@@ -695,17 +651,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -723,7 +669,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
                                           },
                                           "@type": {
                                             "const": [
@@ -748,27 +694,10 @@
                                           "schema:defaultValue": {
                                             "anyOf": [
                                               {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
+                                                "type": "number"
                                               },
                                               {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
+                                                "type": "string"
                                               }
                                             ]
                                           }
@@ -788,7 +717,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment"
                                           },
                                           "@type": {
                                             "const": [
@@ -811,17 +740,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -843,7 +762,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
                                           },
                                           "@type": {
                                             "const": [
@@ -866,17 +785,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -898,7 +807,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
                                           },
                                           "@type": {
                                             "const": [
@@ -921,17 +830,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -953,7 +852,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
                                           },
                                           "@type": {
                                             "const": [
@@ -978,27 +877,10 @@
                                           "schema:defaultValue": {
                                             "anyOf": [
                                               {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
+                                                "type": "number"
                                               },
                                               {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
+                                                "type": "string"
                                               }
                                             ]
                                           }
@@ -1022,7 +904,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
                                           },
                                           "@type": {
                                             "const": [
@@ -1045,17 +927,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -1077,7 +949,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/interferingSpecies"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies"
                                           },
                                           "@type": {
                                             "const": [
@@ -1100,17 +972,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -1132,7 +994,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
                                           },
                                           "@type": {
                                             "const": [
@@ -1157,27 +1019,10 @@
                                           "schema:defaultValue": {
                                             "anyOf": [
                                               {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
+                                                "type": "number"
                                               },
                                               {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
+                                                "type": "string"
                                               }
                                             ]
                                           }
@@ -1201,7 +1046,7 @@
                                         "type": "object",
                                         "properties": {
                                           "@id": {
-                                            "const": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment"
+                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment"
                                           },
                                           "@type": {
                                             "const": [
@@ -1224,17 +1069,7 @@
                                             "const": "M"
                                           },
                                           "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
+                                            "type": "string"
                                           }
                                         },
                                         "required": [
@@ -2174,15 +2009,15 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:analyteTemplate": {
+        "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
-            "ada:analyteColumns": {
+            "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/AnalyteIdentifierColumn"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/TargetSpeciesIdentifierColumn"
                   },
                   {
                     "title": "Mass Resolution Assignment",
@@ -2190,7 +2025,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
                       },
                       "@type": {
                         "const": [
@@ -2231,7 +2066,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/monitoredMasses"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses"
                       },
                       "@type": {
                         "const": [
@@ -2272,7 +2107,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -2313,7 +2148,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -2353,7 +2188,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -2397,7 +2232,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
                       },
                       "@type": {
                         "const": [
@@ -2442,7 +2277,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/monitoredMasses"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses"
                       },
                       "@type": {
                         "const": [
@@ -2487,7 +2322,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -2532,7 +2367,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -2576,7 +2411,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [

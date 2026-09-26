@@ -3,7 +3,7 @@ title: FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
 description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries.
-  No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v32.csv
+  No ada:targetSpeciesTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v32.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -421,21 +421,21 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. For sub-nA values use decimal
                 notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semFibsemTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semFibsemTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -468,7 +468,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semFibsemTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semFibsemTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification

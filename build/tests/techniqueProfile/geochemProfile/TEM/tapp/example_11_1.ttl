@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:temTAPP-Dobrica2022 a cdi:Activity,
+<ex:temTAPP-Dobrica2022> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -26,7 +25,7 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1–0.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column) Reported detail: ada:analyticalSubModeDefault = DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)." ;
-    schema1:instrument <https://example.org/instrument/TEM> ;
+    schema1:instrument <ex:instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Advanced Electron Microscopy Center (AEMC), University of Hawai'i at Manoa, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -58,24 +57,17 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
     ada:spectroscopicDetectorDefault "EDS only" ;
     ada:stemDwellTimePerPixelDefault -9999 .
 
-<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)" ;
-    schema1:name "Sample Preparation Details" ;
-    schema1:valueName "samplePreparationDetailsDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://example.org/instrument/TEM> a schema1:Product,
+<ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "TEM" ;
-    schema1:hasPart <https://example.org/instrument/TEM/part/4D-STEM-Detector>,
-        <https://example.org/instrument/TEM/part/Aberration-Corrector>,
-        <https://example.org/instrument/TEM/part/EDS-Detector>,
-        <https://example.org/instrument/TEM/part/EELS-Spectrometer>,
-        <https://example.org/instrument/TEM/part/Electron-Source>,
-        <https://example.org/instrument/TEM/part/Imaging-Detector>,
-        <https://example.org/instrument/TEM/part/Monochromator> ;
+    schema1:hasPart <ex:instrument/TEM/part/4D-STEM-Detector>,
+        <ex:instrument/TEM/part/Aberration-Corrector>,
+        <ex:instrument/TEM/part/EDS-Detector>,
+        <ex:instrument/TEM/part/EELS-Spectrometer>,
+        <ex:instrument/TEM/part/Electron-Source>,
+        <ex:instrument/TEM/part/Imaging-Detector>,
+        <ex:instrument/TEM/part/Monochromator> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "ThermoFisher Scientific (FEI)" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -83,48 +75,55 @@ ex:temTAPP-Dobrica2022 a cdi:Activity,
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "300 kV" .
 
-<https://example.org/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
+<ex:instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "4D-STEM Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
+<ex:instrument/TEM/part/Aberration-Corrector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Aberration Corrector" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/TEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/TEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
+<ex:instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EELS Spectrometer" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/TEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/TEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/TEM/part/Imaging-Detector> a schema1:Product,
+<ex:instrument/TEM/part/Imaging-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Imaging Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/TEM/part/Monochromator> a schema1:Product,
+<ex:instrument/TEM/part/Monochromator> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Monochromator" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): particle polished and C-coated; Pt deposited by e-beam deposition then by ion beam deposition; sections (~2 µm thick) transferred to Cu TEM half-grids; final thinning at 2 kV, 72 pA with section on TEM grid; 4 FIB sections: UH-001 (carbonate region A), UH-002 (carbonate region B), UH-003 (Ca-phosphates), UH-006 (magnetite)" ;
+    schema1:name "Sample Preparation Details" ;
+    schema1:valueName "samplePreparationDetailsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 

@@ -863,6 +863,7 @@ allOf:
                         const: ada:TAPPDefinition
                   required:
                   - '@type'
+                  - schema:name
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
             x-jsonld-id: http://www.w3.org/ns/prov#used
@@ -1288,14 +1289,14 @@ Links to the schema:
   "@context": {
     "schema": "http://schema.org/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "cdif": "https://w3id.org/cdif/",
     "prov": "http://www.w3.org/ns/prov#",
+    "ex": "https://example.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",

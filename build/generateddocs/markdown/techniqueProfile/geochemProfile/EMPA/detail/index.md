@@ -98,12 +98,11 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-JEOL8200 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-JEOL8200 ;
+<ex:detail-JEOL8200> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-JEOL8200> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -123,7 +122,7 @@ ex:detail-JEOL8200 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-JEOL8200 schema1:identifier "missing" .
+<ex:empaTAPP-JEOL8200> schema1:identifier "missing" .
 
 
 ```
@@ -218,12 +217,11 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P1 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P1 ;
+<ex:detail-P1> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P1> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -243,7 +241,7 @@ ex:detail-P1 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P1 schema1:identifier "missing" .
+<ex:empaTAPP-P1> schema1:identifier "missing" .
 
 
 ```
@@ -338,12 +336,11 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P2 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P2 ;
+<ex:detail-P2> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -363,7 +360,7 @@ ex:detail-P2 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P2 schema1:identifier "missing" .
+<ex:empaTAPP-P2> schema1:identifier "missing" .
 
 
 ```
@@ -458,12 +455,11 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P3 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P3 ;
+<ex:detail-P3> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -483,7 +479,7 @@ ex:detail-P3 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P3 schema1:identifier "missing" .
+<ex:empaTAPP-P3> schema1:identifier "missing" .
 
 
 ```
@@ -578,12 +574,11 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-JEOL8200-2 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-JEOL8200-2 ;
+<ex:detail-JEOL8200-2> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-JEOL8200-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -603,7 +598,7 @@ ex:detail-JEOL8200-2 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-JEOL8200-2 schema1:identifier "missing" .
+<ex:empaTAPP-JEOL8200-2> schema1:identifier "missing" .
 
 
 ```
@@ -698,12 +693,11 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P5 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P5 ;
+<ex:detail-P5> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P5> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -723,7 +717,7 @@ ex:detail-P5 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P5 schema1:identifier "missing" .
+<ex:empaTAPP-P5> schema1:identifier "missing" .
 
 
 ```
@@ -818,12 +812,11 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P6 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P6 ;
+<ex:detail-P6> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P6> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -843,7 +836,7 @@ ex:detail-P6 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P6 schema1:identifier "missing" .
+<ex:empaTAPP-P6> schema1:identifier "missing" .
 
 
 ```
@@ -938,12 +931,11 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-JEOL8530 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-JEOL8530 ;
+<ex:detail-JEOL8530> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-JEOL8530> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -963,7 +955,7 @@ ex:detail-JEOL8530 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-JEOL8530 schema1:identifier "missing" .
+<ex:empaTAPP-JEOL8530> schema1:identifier "missing" .
 
 
 ```
@@ -1058,12 +1050,11 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P8 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P8 ;
+<ex:detail-P8> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P8> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1083,7 +1074,7 @@ ex:detail-P8 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P8 schema1:identifier "missing" .
+<ex:empaTAPP-P8> schema1:identifier "missing" .
 
 
 ```
@@ -1178,12 +1169,11 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-JEOL8530-2 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-JEOL8530-2 ;
+<ex:detail-JEOL8530-2> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-JEOL8530-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1203,7 +1193,7 @@ ex:detail-JEOL8530-2 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-JEOL8530-2 schema1:identifier "missing" .
+<ex:empaTAPP-JEOL8530-2> schema1:identifier "missing" .
 
 
 ```
@@ -1298,12 +1288,11 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P10 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P10 ;
+<ex:detail-P10> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P10> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1323,7 +1312,7 @@ ex:detail-P10 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P10 schema1:identifier "missing" .
+<ex:empaTAPP-P10> schema1:identifier "missing" .
 
 
 ```
@@ -1418,12 +1407,11 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P11 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P11 ;
+<ex:detail-P11> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P11> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1443,7 +1431,7 @@ ex:detail-P11 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P11 schema1:identifier "missing" .
+<ex:empaTAPP-P11> schema1:identifier "missing" .
 
 
 ```
@@ -1538,12 +1526,11 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P12 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P12 ;
+<ex:detail-P12> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P12> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1563,7 +1550,7 @@ ex:detail-P12 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P12 schema1:identifier "missing" .
+<ex:empaTAPP-P12> schema1:identifier "missing" .
 
 
 ```
@@ -1658,12 +1645,11 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P13 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P13 ;
+<ex:detail-P13> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P13> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1683,7 +1669,7 @@ ex:detail-P13 a ada:EMPAImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P13 schema1:identifier "missing" .
+<ex:empaTAPP-P13> schema1:identifier "missing" .
 
 
 ```
@@ -1778,12 +1764,11 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P14 a ada:EMPAImage ;
-    schema1:measurementTechnique ex:empaTAPP-P14 ;
+<ex:detail-P14> a ada:EMPAImage ;
+    schema1:measurementTechnique <ex:empaTAPP-P14> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1803,7 +1788,7 @@ ex:detail-P14 a ada:EMPAImage ;
     ada:samplingUnit "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
     ada:sessionIdentifier "missing" .
 
-ex:empaTAPP-P14 schema1:identifier "missing" .
+<ex:empaTAPP-P14> schema1:identifier "missing" .
 
 
 ```
@@ -2580,10 +2565,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

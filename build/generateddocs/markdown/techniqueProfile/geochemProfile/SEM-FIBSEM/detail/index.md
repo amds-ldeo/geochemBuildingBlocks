@@ -80,11 +80,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Garvie2008 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Garvie2008 ;
+<ex:detail-Garvie2008> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Garvie2008> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -95,7 +94,7 @@ ex:detail-Garvie2008 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semFibsemTAPP-Garvie2008 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Garvie2008> schema1:identifier "missing" .
 
 
 ```
@@ -172,11 +171,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Liu2017 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Liu2017 ;
+<ex:detail-Liu2017> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Liu2017> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -187,7 +185,7 @@ ex:detail-Liu2017 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" .
 
-ex:semFibsemTAPP-Liu2017 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Liu2017> schema1:identifier "missing" .
 
 
 ```
@@ -264,11 +262,10 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Zhou2017 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Zhou2017 ;
+<ex:detail-Zhou2017> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Zhou2017> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -279,7 +276,7 @@ ex:detail-Zhou2017 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "14.8×14.8 nm pixel size (XY); ~800 total slices; sub-volumes: SC=5.609×3.08×5.446 µm; HBC=4.679×3.2×4.24 µm; SEM image resolution 2.5 nm" .
 
-ex:semFibsemTAPP-Zhou2017 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zhou2017> schema1:identifier "missing" .
 
 
 ```
@@ -356,11 +353,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Zega2025 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Zega2025 ;
+<ex:detail-Zega2025> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -371,7 +367,7 @@ ex:detail-Zega2025 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semFibsemTAPP-Zega2025 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zega2025> schema1:identifier "missing" .
 
 
 ```
@@ -448,11 +444,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Zega2025-2 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Zega2025-2 ;
+<ex:detail-Zega2025-2> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -463,7 +458,7 @@ ex:detail-Zega2025-2 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semFibsemTAPP-Zega2025-2 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zega2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -540,11 +535,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Zega2025-3 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Zega2025-3 ;
+<ex:detail-Zega2025-3> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Zega2025-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -555,7 +549,7 @@ ex:detail-Zega2025-3 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semFibsemTAPP-Zega2025-3 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Zega2025-3> schema1:identifier "missing" .
 
 
 ```
@@ -632,11 +626,10 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Barnes2025 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Barnes2025 ;
+<ex:detail-Barnes2025> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Barnes2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -647,7 +640,7 @@ ex:detail-Barnes2025 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semFibsemTAPP-Barnes2025 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Barnes2025> schema1:identifier "missing" .
 
 
 ```
@@ -724,11 +717,10 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 
-ex:detail-Barnes2025-2 a ada:FIBSEMVolume ;
-    schema1:measurementTechnique ex:semFibsemTAPP-Barnes2025-2 ;
+<ex:detail-Barnes2025-2> a ada:FIBSEMVolume ;
+    schema1:measurementTechnique <ex:semFibsemTAPP-Barnes2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -739,7 +731,7 @@ ex:detail-Barnes2025-2 a ada:FIBSEMVolume ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semFibsemTAPP-Barnes2025-2 schema1:identifier "missing" .
+<ex:semFibsemTAPP-Barnes2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -1515,10 +1507,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

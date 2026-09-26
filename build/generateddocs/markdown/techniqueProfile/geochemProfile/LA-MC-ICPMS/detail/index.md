@@ -198,15 +198,14 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zhang2022 a ada:LAICPMSTabular ;
+<ex:detail-Zhang2022> a ada:LAICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfCyclesPerBlock>,
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique ex:laMcicpmsTAPP-Zhang2022 ;
+    schema1:measurementTechnique <ex:laMcicpmsTAPP-Zhang2022> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -235,7 +234,7 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:transectLength "Variable; analyses of plagioclase, pyroxene, glass in two lunar meteorites (NWA 10597 and NWA 6950); line length varies by mineral grain size" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" .
 
-ex:laMcicpmsTAPP-Zhang2022 schema1:identifier "missing" .
+<ex:laMcicpmsTAPP-Zhang2022> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement> a schema1:PropertyValue ;
     schema1:name "Number of Blocks per Measurement" ;
@@ -617,13 +616,13 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
                                                   schema:name:
                                                     const: Integration Time per Cycle
                                                   ada:dataType:
@@ -632,14 +631,8 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                    - type: number
+                                                    - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -659,13 +652,13 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
                                                   schema:name:
                                                     const: Ion Counter Dead Time
                                                   ada:dataType:
@@ -674,14 +667,8 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                    - type: number
+                                                    - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -697,13 +684,13 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
                                                   schema:name:
                                                     const: Integration Time per Cycle
                                                   ada:dataType:
@@ -712,14 +699,8 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                    - type: number
+                                                    - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -742,13 +723,13 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
                                                   schema:name:
                                                     const: Ion Counter Dead Time
                                                   ada:dataType:
@@ -757,14 +738,8 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                    - type: number
+                                                    - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -1066,10 +1041,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "dqv": "http://www.w3.org/ns/dqv#",
     "@version": 1.1
   }

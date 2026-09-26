@@ -98,12 +98,11 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Genge2025 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Genge2025 ;
+<ex:detail-Genge2025> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Genge2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -123,7 +122,7 @@ ex:detail-Genge2025 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Genge2025 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Genge2025> schema1:identifier "missing" .
 
 
 ```
@@ -218,12 +217,11 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Gucsik2013 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Gucsik2013 ;
+<ex:detail-Gucsik2013> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Gucsik2013> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -243,7 +241,7 @@ ex:detail-Gucsik2013 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Gucsik2013 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Gucsik2013> schema1:identifier "missing" .
 
 
 ```
@@ -338,12 +336,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Izawa2010 ;
+<ex:detail-Izawa2010> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Izawa2010> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -363,7 +360,7 @@ ex:detail-Izawa2010 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Izawa2010 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Izawa2010> schema1:identifier "missing" .
 
 
 ```
@@ -458,12 +455,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Izawa2010-2 ;
+<ex:detail-Izawa2010-2> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Izawa2010-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -483,7 +479,7 @@ ex:detail-Izawa2010-2 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Izawa2010-2 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Izawa2010-2> schema1:identifier "missing" .
 
 
 ```
@@ -578,12 +574,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Pascucci2026 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Pascucci2026 ;
+<ex:detail-Pascucci2026> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Pascucci2026> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -603,7 +598,7 @@ ex:detail-Pascucci2026 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Pascucci2026 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Pascucci2026> schema1:identifier "missing" .
 
 
 ```
@@ -698,12 +693,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Pascucci2026-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Pascucci2026-2 ;
+<ex:detail-Pascucci2026-2> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Pascucci2026-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -723,7 +717,7 @@ ex:detail-Pascucci2026-2 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Pascucci2026-2 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Pascucci2026-2> schema1:identifier "missing" .
 
 
 ```
@@ -818,12 +812,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025 ;
+<ex:detail-Zega2025> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -843,7 +836,7 @@ ex:detail-Zega2025 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Zega2025 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Zega2025> schema1:identifier "missing" .
 
 
 ```
@@ -938,12 +931,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-2 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Zega2025-2 ;
+<ex:detail-Zega2025-2> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -963,7 +955,7 @@ ex:detail-Zega2025-2 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Zega2025-2 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Zega2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -1058,12 +1050,11 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Barnes2025 a ada:SEMEDSSpectrum ;
-    schema1:measurementTechnique ex:semCompositionTAPP-Barnes2025 ;
+<ex:detail-Barnes2025> a ada:SEMEDSSpectrum ;
+    schema1:measurementTechnique <ex:semCompositionTAPP-Barnes2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1083,7 +1074,7 @@ ex:detail-Barnes2025 a ada:SEMEDSSpectrum ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:semCompositionTAPP-Barnes2025 schema1:identifier "missing" .
+<ex:semCompositionTAPP-Barnes2025> schema1:identifier "missing" .
 
 
 ```
@@ -1930,10 +1921,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

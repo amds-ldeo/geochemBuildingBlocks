@@ -144,13 +144,12 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zhang2022 a ada:LAICPMSTabular ;
+<ex:detail-Zhang2022> a ada:LAICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Zhang2022 ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Zhang2022> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -178,7 +177,7 @@ ex:detail-Zhang2022 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laSficpmsTAPP-Zhang2022 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Zhang2022> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
@@ -324,13 +323,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Chernonozhkin2021 a ada:LAICPMSTabular ;
+<ex:detail-Chernonozhkin2021> a ada:LAICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Chernonozhkin2021 ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Chernonozhkin2021> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -358,7 +356,7 @@ ex:detail-Chernonozhkin2021 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Intermediate precision for mapping: most elements at ≥10 µg g⁻¹: 5–15% RSD; elements <10 µg g⁻¹: 5–30% RSD; assessed from repeated GRM mapping in 8 sessions over 1 year (n=8 for each element)" .
 
-ex:laSficpmsTAPP-Chernonozhkin2021 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Chernonozhkin2021> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
@@ -504,13 +502,12 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Chernonozhkin2021-2 a ada:LAICPMSTabular ;
+<ex:detail-Chernonozhkin2021-2> a ada:LAICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Chernonozhkin2021-2 ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Chernonozhkin2021-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -538,7 +535,7 @@ ex:detail-Chernonozhkin2021-2 a ada:LAICPMSTabular ;
     ada:transectLength "Line scan length: 400 µm (runs 1 and 2; 34 runs adjusted to measure 400 µm line + blank + washout)" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "LOD calculated per analysis (Na=24, Nb=5); precision not formally reported as separate metric" .
 
-ex:laSficpmsTAPP-Chernonozhkin2021-2 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Chernonozhkin2021-2> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
@@ -654,12 +651,11 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Chernonozhkin2021-3 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Chernonozhkin2021-3 ;
+<ex:detail-Chernonozhkin2021-3> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Chernonozhkin2021-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -687,7 +683,7 @@ ex:detail-Chernonozhkin2021-3 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laSficpmsTAPP-Chernonozhkin2021-3 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Chernonozhkin2021-3> schema1:identifier "missing" .
 
 
 ```
@@ -798,12 +794,11 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Mittlefehldt2024 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Mittlefehldt2024 ;
+<ex:detail-Mittlefehldt2024> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Mittlefehldt2024> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -831,7 +826,7 @@ ex:detail-Mittlefehldt2024 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laSficpmsTAPP-Mittlefehldt2024 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Mittlefehldt2024> schema1:identifier "missing" .
 
 
 ```
@@ -942,12 +937,11 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Navarro2024 a ada:LAICPMSTabular ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Navarro2024 ;
+<ex:detail-Navarro2024> a ada:LAICPMSTabular ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Navarro2024> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -975,7 +969,7 @@ ex:detail-Navarro2024 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "RSD <15% for most elements in Arraias meteorite under repeatability conditions (n=20 spot analyses); Cr: 20%, Ir: 16%, Os: 20% RSD; assessed by repeated analysis of same meteorite in one session" .
 
-ex:laSficpmsTAPP-Navarro2024 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Navarro2024> schema1:identifier "missing" .
 
 
 ```
@@ -1116,13 +1110,12 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Navarro2024-2 a ada:LAICPMSTabular ;
+<ex:detail-Navarro2024-2> a ada:LAICPMSTabular ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:measurementTechnique ex:laSficpmsTAPP-Navarro2024-2 ;
+    schema1:measurementTechnique <ex:laSficpmsTAPP-Navarro2024-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisLocationSpotCoordinates "missing" ;
@@ -1150,7 +1143,7 @@ ex:detail-Navarro2024-2 a ada:LAICPMSTabular ;
     ada:transectLength -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:laSficpmsTAPP-Navarro2024-2 schema1:identifier "missing" .
+<ex:laSficpmsTAPP-Navarro2024-2> schema1:identifier "missing" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
@@ -1814,10 +1807,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "dqv": "http://www.w3.org/ns/dqv#",
     "@version": 1.1
   }

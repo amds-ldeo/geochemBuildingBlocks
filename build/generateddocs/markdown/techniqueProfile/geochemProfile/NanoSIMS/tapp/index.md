@@ -221,12 +221,11 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:nanosimsTAPP-P0 a cdi:Activity,
+<ex:nanosimsTAPP-P0> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -235,14 +234,14 @@ ex:nanosimsTAPP-P0 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nguyen, Ann" ] ;
     schema1:datePublished "missing" ;
@@ -394,9 +393,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

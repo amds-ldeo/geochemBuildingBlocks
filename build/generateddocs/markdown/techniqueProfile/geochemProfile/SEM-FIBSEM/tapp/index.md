@@ -3,7 +3,7 @@
 
 `ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp` *v0.1*
 
-Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.
+Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate. Generated from docs/SEM_FIBSEM_TAPP_v4.xlsx by tools/build_tapp.py.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -477,12 +477,11 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
+<ex:semFibsemTAPP-Garvie2008> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -491,10 +490,8 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -504,12 +501,14 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v32.csv)." ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -532,27 +531,27 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
-<https://example.org/instrument/FIBSEM> a schema1:Product,
+<ex:instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "example instrumentName" .
 
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "Gallium LMIS (Ga+)" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "FEI / Thermo Fisher Scientific" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -561,20 +560,20 @@ ex:semFibsemTAPP-Garvie2008 a cdi:Activity,
     ada:acceleratingVoltageDefault -9999 ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -1120,23 +1119,17 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Liu2017 a cdi:Activity,
+<ex:semFibsemTAPP-Liu2017> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1150,11 +1143,16 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v32.csv)." ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1179,6 +1177,54 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
 
+<ex:instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "missing" .
+
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "missing" ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Zeiss" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Crossbeam 540" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault -9999 ;
+    ada:workingDistanceDefault -9999 .
+
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
+
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "No coating applied; not sputtered with gold or other materials" ;
     schema1:name "Protective Coating Deposition" ;
@@ -1193,54 +1239,6 @@ ex:semFibsemTAPP-Liu2017 a cdi:Activity,
     schema1:valueName "sliceThicknessDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "missing" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Zeiss" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Crossbeam 540" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault -9999 ;
-    ada:workingDistanceDefault -9999 .
-
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 
 
 ```
@@ -1702,18 +1700,23 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
+<ex:semFibsemTAPP-Zhou2017> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -1724,17 +1727,11 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:coarseMillingConditionsDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "China University of Geosciences, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1755,27 +1752,27 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
     bios:computationalTool [ schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
             ada:toolRole "dataReduction" ] .
 
-<https://example.org/instrument/FIBSEM> a schema1:Product,
+<ex:instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -1784,20 +1781,20 @@ ex:semFibsemTAPP-Zhou2017 a cdi:Activity,
     ada:acceleratingVoltageDefault "2 kV (SEM imaging)" ;
     ada:workingDistanceDefault "4 mm" .
 
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -2333,23 +2330,17 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Zega2025 a cdi:Activity,
+<ex:semFibsemTAPP-Zega2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2359,6 +2350,11 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
@@ -2366,8 +2362,8 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2390,34 +2386,27 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
-<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ;
-    schema1:name "Protective Coating Deposition" ;
-    schema1:valueName "protectiveCoatingDepositionDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://example.org/instrument/FIBSEM> a schema1:Product,
+<ex:instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "N/A" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Unknown" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -2426,24 +2415,31 @@ ex:semFibsemTAPP-Zega2025 a cdi:Activity,
     ada:acceleratingVoltageDefault "30 keV (FIB milling and thinning)" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ;
+    schema1:name "Protective Coating Deposition" ;
+    schema1:valueName "protectiveCoatingDepositionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> a schema1:PropertyValue ;
     schema1:name "Lift-out Method" ;
@@ -2976,12 +2972,11 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
+<ex:semFibsemTAPP-Zega2025-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3009,8 +3004,8 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3033,6 +3028,54 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
+<ex:instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "N/A" .
+
+<ex:instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Unknown" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Helios G4 UX" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
+    ada:workingDistanceDefault -9999 .
+
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
+
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Various voltages down to 1 keV (polishing)" ;
     schema1:name "Fine Polishing Conditions" ;
@@ -3047,54 +3090,6 @@ ex:semFibsemTAPP-Zega2025-2 a cdi:Activity,
     schema1:valueName "foilThicknessDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "N/A" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "N/A" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Unknown" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Helios G4 UX" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "16 to 30 keV (coarse milling); down to 1 keV (polishing)" ;
-    ada:workingDistanceDefault -9999 .
-
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Field emission gun (FEG) — subtype not specified" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 
 
 ```
@@ -3672,12 +3667,11 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
+<ex:semFibsemTAPP-Zega2025-3> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3707,8 +3701,8 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
                     schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3731,6 +3725,54 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
+<ex:instrument/FIBSEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "FIBSEM" ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Ion Beam Source" ;
+    schema1:name "N/A" .
+
+<ex:instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:description "N/A" ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Unknown" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Quanta 3D 600" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
+    ada:workingDistanceDefault -9999 .
+
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "BSE Detector" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "Field emission gun (FEG) — subtype not specified" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SE Detector" ;
+    schema1:name "missing" .
+
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
     schema1:name "Fine Polishing Conditions" ;
@@ -3752,54 +3794,6 @@ ex:semFibsemTAPP-Zega2025-3 a cdi:Activity,
     schema1:valueName "protectiveCoatingDepositionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/FIBSEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Ion Beam Source" ;
-    schema1:name "N/A" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "N/A" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Unknown" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Quanta 3D 600" ] ;
-    schema1:name "example instrumentName" ;
-    ada:acceleratingVoltageDefault "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)" ;
-    ada:workingDistanceDefault -9999 .
-
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "Field emission gun (FEG) — subtype not specified" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> a schema1:PropertyValue ;
     schema1:name "Lift-out Method" ;
@@ -4208,18 +4202,22 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
+<ex:semFibsemTAPP-Barnes2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
@@ -4229,18 +4227,13 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. FIB-based TEM foil preparation using FEI Helios G4 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semFibsem" ;
             schema1:termCode "semFibsem" ] ;
@@ -4252,27 +4245,27 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
-<https://example.org/instrument/FIBSEM> a schema1:Product,
+<ex:instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -4281,20 +4274,20 @@ ex:semFibsemTAPP-Barnes2025 a cdi:Activity,
     ada:acceleratingVoltageDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -4702,24 +4695,17 @@ semFibsemTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particle
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
+<ex:semFibsemTAPP-Barnes2025-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
@@ -4730,11 +4716,17 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "No FIB-based TEM sample preparation at NASA JSC described in this paper (Barnes et al. 2025). This paper does not include TEM analysis or FIB-SEM-based sample preparation. TEM foil preparation using FEI Helios 660 G3 and related instruments at NASA JSC is described in the companion paper Zega et al. 2025 (Nat. Geosci., ref. 7 therein)." ;
-    schema1:instrument <https://example.org/instrument/FIBSEM>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/FIBSEM>,
+        <ex:instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semFibsem" ;
             schema1:termCode "semFibsem" ] ;
@@ -4746,27 +4738,27 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:segmentationMethod3DDefault "missing" .
 
-<https://example.org/instrument/FIBSEM> a schema1:Product,
+<ex:instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "FIBSEM" ;
-    schema1:hasPart <https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> ;
+    schema1:hasPart <ex:instrument/FIBSEM/part/Ion-Beam-Source> ;
     schema1:name "missing" .
 
-<https://example.org/instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
+<ex:instrument/FIBSEM/part/Ion-Beam-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Ion Beam Source" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/BSE-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/SE-Detector> ;
+    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/SE-Detector> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -4775,20 +4767,20 @@ ex:semFibsemTAPP-Barnes2025-2 a cdi:Activity,
     ada:acceleratingVoltageDefault -9999 ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/BSE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/SE-Detector> a schema1:Product,
+<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SE Detector" ;
@@ -4805,7 +4797,7 @@ title: FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
 description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries.
-  No ada:analyteTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v32.csv
+  No ada:targetSpeciesTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v32.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -5223,21 +5215,21 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. For sub-nA values use decimal
                 notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semFibsemTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semFibsemTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5270,7 +5262,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semFibsemTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semFibsemTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5763,9 +5755,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

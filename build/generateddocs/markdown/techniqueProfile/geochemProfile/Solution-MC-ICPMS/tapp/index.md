@@ -442,8 +442,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   ],
   "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "⁹²Mo",
       "⁹⁴Mo",
       "⁹⁵Mo",
@@ -455,9 +455,9 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       "⁹⁹Ru (interference monitors, no target species) — \"Isobaric interferences of Zr and Ru on Mo masses were corrected by monitoring 91Zr and 99Ru\" (p.2)",
       "mass bias normalised to 98Mo/96Mo and ε⁹²/⁹⁴/⁹⁵/⁹⁷/¹⁰⁰Mo reported (pp.2–3)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -469,7 +469,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -479,7 +479,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -489,7 +489,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -499,7 +499,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1014,8 +1014,8 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   ],
   "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u2079\u00b2Mo",
       "\u2079\u2074Mo",
       "\u2079\u2075Mo",
@@ -1027,9 +1027,9 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
       "\u2079\u2079Ru (interference monitors, no target species) \u2014 \"Isobaric interferences of Zr and Ru on Mo masses were corrected by monitoring 91Zr and 99Ru\" (p.2)",
       "mass bias normalised to 98Mo/96Mo and \u03b5\u2079\u00b2/\u2079\u2074/\u2079\u2075/\u2079\u2077/\u00b9\u2070\u2070Mo reported (pp.2\u20133)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -1041,7 +1041,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1051,7 +1051,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1061,7 +1061,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1071,7 +1071,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -1149,18 +1149,27 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P0> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1177,16 +1186,6 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
                     schema1:name "Sample preparation" ;
@@ -1201,7 +1200,7 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut für Planetologie, University of Münster" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1224,19 +1223,13 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "On-peak-zero baseline integrations subtracted" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "mass bias normalised to 98Mo/96Mo and ε⁹²/⁹⁴/⁹⁵/⁹⁷/¹⁰⁰Mo reported (pp.2–3)",
+    ada:chromatographicSeparationApplied "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8" ;
+    ada:finalSolutionMatrix "missing" ;
+    ada:internalNormalizationElementAndIsotopeRatio "98Mo/96Mo = 1.453173" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
+    ada:massBiasCorrectionStrategy "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "mass bias normalised to 98Mo/96Mo and ε⁹²/⁹⁴/⁹⁵/⁹⁷/¹⁰⁰Mo reported (pp.2–3)",
                 "¹⁰⁰Mo (Mo)",
                 "⁹²Mo",
                 "⁹¹Zr",
@@ -1245,13 +1238,19 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
                 "⁹⁶Mo",
                 "⁹⁷Mo",
                 "⁹⁸Mo",
-                "⁹⁹Ru (interference monitors, no target species) — \"Isobaric interferences of Zr and Ru on Mo masses were corrected by monitoring 91Zr and 99Ru\" (p.2)" ] ;
-    ada:chromatographicSeparationApplied "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8" ;
-    ada:finalSolutionMatrix "missing" ;
-    ada:internalNormalizationElementAndIsotopeRatio "98Mo/96Mo = 1.453173" ;
-    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
-    ada:massBiasCorrectionStrategy "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard" ;
+                "⁹⁹Ru (interference monitors, no target species) — \"Isobaric interferences of Zr and Ru on Mo masses were corrected by monitoring 91Zr and 99Ru\" (p.2)" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "Alfa Aesar Mo solution standard" ;
@@ -1262,25 +1261,83 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     ada:uncertaintyLevel "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -1415,64 +1472,6 @@ ex:solutionMcicpmsTAPP-P0 a cdi:Activity,
     schema1:valueName "sampleUptakeRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -2010,16 +2009,16 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     }
   ],
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against matrix-matched purified S solutions",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "³²S (L3)",
       "³³S (C)",
       "³⁴S (H3) — Table 1 \"Cup configuration\"",
       "p.3. All three serve the single target species S"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -2031,7 +2030,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2041,7 +2040,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2051,7 +2050,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2061,7 +2060,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2677,16 +2676,16 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     }
   ],
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against matrix-matched purified S solutions",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u00b3\u00b2S (L3)",
       "\u00b3\u00b3S (C)",
       "\u00b3\u2074S (H3) \u2014 Table 1 \"Cup configuration\"",
       "p.3. All three serve the single target species S"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -2698,7 +2697,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2708,7 +2707,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2718,7 +2717,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2728,7 +2727,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -2808,12 +2807,11 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P1> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -2827,12 +2825,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -2850,7 +2842,13 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -2859,7 +2857,7 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Woods Hole Oceanographic Institution" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2883,28 +2881,28 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "p.3. All three serve the single target species S",
-                "³²S (L3)",
-                "³³S (C)",
-                "³⁴S (H3) — Table 1 \"Cup configuration\"" ] ;
     ada:chromatographicSeparationApplied "Yes — cation exchange AG50-X8 (H+ form), 2.5 ml resin, conditioned with 1.4 N HNO3; S passes through while matrix elements are retained. Yield 98±4%" ;
     ada:finalSolutionMatrix "2% (w/w) HNO3, 50 ppm S stock" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "Standard-sample bracketing against matrix-matched purified S solutions" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "p.3. All three serve the single target species S",
+                "³²S (L3)",
+                "³³S (C)",
+                "³⁴S (H3) — Table 1 \"Cup configuration\"" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "In-house S_Alfa and S_Spex 20 ppm S solutions, calibrated against IAEA-S-1, S-2, S-4 and NBS-123" ;
@@ -2915,25 +2913,92 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     ada:uncertaintyLevel "\"external reproducibility is reported at the 2σ error level\"; long-term reproducibility \"typically 0.20‰ and 0.45‰ (2σ) for solution and laser\"" ;
     ada:washTimeBetweenSamples "2 min for solution work (4 min for laser)" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "NEPTUNE (\"Thermo Electron NEPTUNE\")" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "32S(L3), 33S(C), 34S(H3)" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -3129,73 +3194,6 @@ ex:solutionMcicpmsTAPP-P1 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "NEPTUNE (\"Thermo Electron NEPTUNE\")" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "32S(L3), 33S(C), 34S(H3)" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -3730,8 +3728,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   ],
   "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "⁵⁴Fe",
       "⁵⁶Fe",
       "⁵⁷Fe",
@@ -3742,9 +3740,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       "57Fe+",
       "and 58Fe+ were analyzed in static mode on Faraday collectors... Possible isobaric interferences from 54Cr+ and 58Ni+ were measured simultaneously by monitoring 53Cr+ and 60Ni+\" (p.6)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -3756,7 +3754,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3766,7 +3764,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3776,7 +3774,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -3786,7 +3784,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -4397,8 +4395,8 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   ],
   "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u2075\u2074Fe",
       "\u2075\u2076Fe",
       "\u2075\u2077Fe",
@@ -4409,9 +4407,9 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
       "57Fe+",
       "and 58Fe+ were analyzed in static mode on Faraday collectors... Possible isobaric interferences from 54Cr+ and 58Ni+ were measured simultaneously by monitoring 53Cr+ and 60Ni+\" (p.6)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -4423,7 +4421,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -4433,7 +4431,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -4443,7 +4441,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -4453,7 +4451,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -4531,12 +4529,11 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -4545,9 +4542,9 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -4562,9 +4559,9 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -4585,7 +4582,7 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4608,19 +4605,13 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "On-peak zero from a blank solution subtracted from all measurements" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "56Fe+",
+    ada:chromatographicSeparationApplied "Yes — AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%" ;
+    ada:finalSolutionMatrix "0.3 M HNO3 (measured at 10 µg/g Fe in 0.45 M HNO3); all sample and standard solutions \"prepared with the same 0.3 M HNO3 solution\"" ;
+    ada:internalNormalizationElementAndIsotopeRatio "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
+    ada:massBiasCorrectionStrategy "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "56Fe+",
                 "57Fe+",
                 "and 58Fe+ were analyzed in static mode on Faraday collectors... Possible isobaric interferences from 54Cr+ and 58Ni+ were measured simultaneously by monitoring 53Cr+ and 60Ni+\" (p.6)",
                 "⁵³Cr",
@@ -4628,13 +4619,19 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
                 "⁵⁶Fe",
                 "⁵⁷Fe",
                 "⁵⁸Fe (Fe)",
-                "⁶⁰Ni (interference monitors, no target species) — \"Ion beams of 54Fe+" ] ;
-    ada:chromatographicSeparationApplied "Yes — AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%" ;
-    ada:finalSolutionMatrix "0.3 M HNO3 (measured at 10 µg/g Fe in 0.45 M HNO3); all sample and standard solutions \"prepared with the same 0.3 M HNO3 solution\"" ;
-    ada:internalNormalizationElementAndIsotopeRatio "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014" ;
-    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
-    ada:massBiasCorrectionStrategy "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing" ;
+                "⁶⁰Ni (interference monitors, no target species) — \"Ion beams of 54Fe+" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "IRMM-524a" ;
@@ -4645,25 +4642,89 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     ada:washTimeBetweenSamples "210 s" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune \"upgraded to Neptune Plus specifications\"" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -4856,70 +4917,6 @@ ex:solutionMcicpmsTAPP-P2 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune \"upgraded to Neptune Plus specifications\"" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -5265,14 +5262,14 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     }
   ],
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against OL-REE standards — \"SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "N — the paper states \"The cup configurations used for isotopic analyses of the REEs are provided in table S2\" (p.9)",
       "that supplementary table is not in the archived PDF"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -5284,7 +5281,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5294,7 +5291,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5304,7 +5301,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5314,7 +5311,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5721,14 +5718,14 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     }
   ],
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against OL-REE standards \u2014 \"SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "N \u2014 the paper states \"The cup configurations used for isotopic analyses of the REEs are provided in table S2\" (p.9)",
       "that supplementary table is not in the archived PDF"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -5740,7 +5737,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5750,7 +5747,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5760,7 +5757,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5770,7 +5767,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -5833,34 +5830,17 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P3> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: HF/HNO3 in 3:1 proportion with a few drops of HClO4, hot plate 160 deg C, 2 weeks | 2: evaporated to dryness and redissolved in a 2:1 mixture of HCl:HNO3, 1 week on a hot plate. \"These steps were performed twice to ensure complete digestion\" -- the PAIR is repeated, so under the 2026-09-08 grain rule the members are 2, not 4. The subsequent concentrated HNO3 and 3 M HNO3 are dry-down and uptake, not steps. Resolves the cell left open on 2026-09-08." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08." ] ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
@@ -5873,8 +5853,24 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: HF/HNO3 in 3:1 proportion with a few drops of HClO4, hot plate 160 deg C, 2 weeks | 2: evaporated to dryness and redissolved in a 2:1 mixture of HCl:HNO3, 1 week on a hot plate. \"These steps were performed twice to ensure complete digestion\" -- the PAIR is repeated, so under the 2026-09-08 grain rule the members are 2, not 4. The subsequent concentrated HNO3 and 3 M HNO3 are dry-down and uptake, not steps. Resolves the cell left open on 2026-09-08." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08." ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -5882,7 +5878,7 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -5900,26 +5896,26 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "Every sample, spaced by 300 s rinsing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "N — the paper states \"The cup configurations used for isotopic analyses of the REEs are provided in table S2\" (p.9)",
-                "that supplementary table is not in the archived PDF" ] ;
     ada:chromatographicSeparationApplied "Yes — U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25–50 µm resin, 94 steps, 188 ml, 16 h at 70 °C, 0.17 ml/min). Overall yields >95%" ;
     ada:finalSolutionMatrix "15–25 ppb for the most abundant isotope" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "Standard-sample bracketing against OL-REE standards — \"SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies\"" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "N — the paper states \"The cup configurations used for isotopic analyses of the REEs are provided in table S2\" (p.9)",
+                "that supplementary table is not in the archived PDF" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "OL-REE series" ;
@@ -5929,25 +5925,79 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     ada:uncertaintyLevel "Not stated in the section read" ;
     ada:washTimeBetweenSamples "300 s rinsing between bracketed measurements" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus \"with the addition of an OnTool booster\"" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "Static mode for most REEs; a subconfiguration for Dy and Yb to monitor isobaric interferences" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -6025,60 +6075,6 @@ ex:solutionMcicpmsTAPP-P3 a cdi:Activity,
     schema1:valueName "internalStandardConcentration" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus \"with the addition of an OnTool booster\"" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "Static mode for most REEs; a subconfiguration for Dy and Yb to monitor isobaric interferences" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -6530,8 +6526,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   ],
   "ada:analysisSequenceDefault": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
   "ada:massBiasCorrectionStrategy": "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "Masses 90",
       "91",
       "92",
@@ -6548,9 +6544,9 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       "and 98 were measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block",
       "allowing direct monitoring of all Zr isotopes and Mo interferences (masses 95 and 98)\" (p.11). 95 and 98 carry the Mo monitors and serve no target species"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -6562,7 +6558,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6572,7 +6568,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6582,7 +6578,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -6592,7 +6588,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7124,8 +7120,8 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
   ],
   "ada:analysisSequenceDefault": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
   "ada:massBiasCorrectionStrategy": "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "Masses 90",
       "91",
       "92",
@@ -7142,9 +7138,9 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
       "and 98 were measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block",
       "allowing direct monitoring of all Zr isotopes and Mo interferences (masses 95 and 98)\" (p.11). 95 and 98 carry the Mo monitors and serve no target species"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -7156,7 +7152,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7166,7 +7162,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7176,7 +7172,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7186,7 +7182,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -7268,18 +7264,33 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-Tissot2020> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
@@ -7295,23 +7306,7 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -7322,7 +7317,7 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Massachusetts Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -7346,19 +7341,13 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "On-peak-zero correction using mean acid blank intensities" ;
     ada:calibrationMeasurementFrequency "Every sample — \"Each sample measurement was individually bracketed\"" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "91",
+    ada:chromatographicSeparationApplied "Yes — AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks" ;
+    ada:finalSolutionMatrix "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr" ;
+    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio" ;
+    ada:massBiasCorrectionStrategy "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "91",
                 "92",
                 "93",
                 "94",
@@ -7367,13 +7356,19 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
                 "96 and 98 — \"Masses 90",
                 "Masses 90",
                 "allowing direct monitoring of all Zr isotopes and Mo interferences (masses 95 and 98)\" (p.11). 95 and 98 carry the Mo monitors and serve no target species",
-                "and 98 were measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block" ] ;
-    ada:chromatographicSeparationApplied "Yes — AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks" ;
-    ada:finalSolutionMatrix "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr" ;
-    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
-    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:isotopeDilutionSpike "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio" ;
-    ada:massBiasCorrectionStrategy "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion" ;
+                "and 98 were measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "ZrNIST" ;
@@ -7385,25 +7380,82 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     bios:computationalTool [ schema1:name "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Nu Instruments" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nu Plasma II" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\"" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -7545,63 +7597,6 @@ ex:solutionMcicpmsTAPP-Tissot2020 a cdi:Activity,
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Nu Instruments" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nu Plasma II" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\"" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -8066,17 +8061,17 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM984",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "⁸⁵Rb",
       "⁸⁷Rb (Rb)",
       "⁸⁸Sr (interference monitor, no target species) — \"Rubidium-85 and -87 were measured on L2 and axial (A) Faraday collectors",
       "respectively\"",
       "and the ⁸⁷Sr contribution \"was corrected for by monitoring 88Sr\" (p.8)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -8088,7 +8083,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8098,7 +8093,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8108,7 +8103,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8118,7 +8113,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8647,17 +8642,17 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM984",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u2078\u2075Rb",
       "\u2078\u2077Rb (Rb)",
       "\u2078\u2078Sr (interference monitor, no target species) \u2014 \"Rubidium-85 and -87 were measured on L2 and axial (A) Faraday collectors",
       "respectively\"",
       "and the \u2078\u2077Sr contribution \"was corrected for by monitoring 88Sr\" (p.8)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -8669,7 +8664,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8679,7 +8674,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8689,7 +8684,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8699,7 +8694,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -8765,33 +8760,17 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-Dauphas2019> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4 | 2: not stated | 3: not stated. The paper numbers three steps of concentrated HF-HNO3-HCl-HClO4 but gives the composition only of step (i)." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Three steps of concentrated HF–HNO3–HCl–HClO4; step (i) \"4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4\"" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
@@ -8805,7 +8784,22 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: 4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4 | 2: not stated | 3: not stated. The paper numbers three steps of concentrated HF-HNO3-HCl-HClO4 but gives the composition only of step (i)." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Three steps of concentrated HF–HNO3–HCl–HClO4; step (i) \"4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4\"" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -8815,7 +8809,7 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -8834,29 +8828,29 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "and the ⁸⁷Sr contribution \"was corrected for by monitoring 88Sr\" (p.8)",
-                "respectively\"",
-                "⁸⁵Rb",
-                "⁸⁷Rb (Rb)",
-                "⁸⁸Sr (interference monitor, no target species) — \"Rubidium-85 and -87 were measured on L2 and axial (A) Faraday collectors" ] ;
     ada:chromatographicSeparationApplied "Yes — five steps: AG50W-X8 cation, a second cation column, AG1-X8 anion in 2 M HF for Ti, a 40 cm Eichrom Sr resin column for Rb-K, and an AG50W-X8 clean-up. Yields >95%" ;
     ada:finalSolutionMatrix "0.3 M HNO3, ~15–25 ppb Rb" ;
     ada:internalNormalizationElementAndIsotopeRatio "N/A — Rb has two stable isotopes, so internal normalization is not possible; bracketing used instead" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "Standard-sample bracketing against NIST SRM984" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "and the ⁸⁷Sr contribution \"was corrected for by monitoring 88Sr\" (p.8)",
+                "respectively\"",
+                "⁸⁵Rb",
+                "⁸⁷Rb (Rb)",
+                "⁸⁸Sr (interference monitor, no target species) — \"Rubidium-85 and -87 were measured on L2 and axial (A) Faraday collectors" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST SRM984" ;
@@ -8867,25 +8861,87 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     ada:uncertaintyLevel "missing" ;
     ada:washTimeBetweenSamples "60 s wash in 0.45 M HNO3, with a 90 s take-up time" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "85Rb, 87Rb+87Sr and 88Sr on three collectors, 88Sr on H1" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -9034,68 +9090,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
-        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "85Rb, 87Rb+87Sr and 88Sr on three collectors, 88Sr on H1" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/samplerAndSkimmerConeMaterial> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -9577,8 +9571,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     ]
   },
   "ada:massBiasCorrectionStrategy": "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "¹⁸⁴Os",
       "¹⁸⁶Os",
       "¹⁸⁷Os",
@@ -9590,9 +9584,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
       "the Re and W monitors are named throughout the interference-correction discussion (§3.6, pp.12–18)",
       "and the L3 detector is named as carrying ¹⁸⁴Os (p.26). The paper gives no single cup-configuration table"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -9604,7 +9598,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9614,7 +9608,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9624,7 +9618,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -9634,7 +9628,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -10184,8 +10178,8 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     ]
   },
   "ada:massBiasCorrectionStrategy": "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u00b9\u2078\u2074Os",
       "\u00b9\u2078\u2076Os",
       "\u00b9\u2078\u2077Os",
@@ -10197,9 +10191,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
       "the Re and W monitors are named throughout the interference-correction discussion (\u00a73.6, pp.12\u201318)",
       "and the L3 detector is named as carrying \u00b9\u2078\u2074Os (p.26). The paper gives no single cup-configuration table"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -10211,7 +10205,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -10221,7 +10215,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -10231,7 +10225,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -10241,7 +10235,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -10311,24 +10305,17 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P6> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
@@ -10350,6 +10337,12 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "N/A — reference material solutions, no solid preparation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
@@ -10364,7 +10357,7 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Arthur Holmes Isotope Geology Laboratory, Durham" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -10383,19 +10376,13 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "Corrections applied offline for abundance sensitivity, W and Re atomic interferences and instrumental mass bias" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "and the L3 detector is named as carrying ¹⁸⁴Os (p.26). The paper gives no single cup-configuration table",
+    ada:chromatographicSeparationApplied "N/A — reference material solutions" ;
+    ada:finalSolutionMatrix "3 or 5 mol/l Teflon-distilled HCl" ;
+    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
+    ada:massBiasCorrectionStrategy "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "and the L3 detector is named as carrying ¹⁸⁴Os (p.26). The paper gives no single cup-configuration table",
                 "the Re and W monitors are named throughout the interference-correction discussion (§3.6, pp.12–18)",
                 "¹⁸⁴Os",
                 "¹⁸⁵Re and ¹⁸²W/¹⁸⁴W/¹⁸⁶W (interference monitors, no target species) — the Os masses are those whose ratios to ¹⁸⁸Os the paper measures and reports",
@@ -10404,13 +10391,19 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
                 "¹⁸⁸Os",
                 "¹⁸⁹Os",
                 "¹⁹²Os (Os)",
-                "¹⁹⁰Os" ] ;
-    ada:chromatographicSeparationApplied "N/A — reference material solutions" ;
-    ada:finalSolutionMatrix "3 or 5 mol/l Teflon-distilled HCl" ;
-    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
-    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
-    ada:massBiasCorrectionStrategy "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections" ;
+                "¹⁹⁰Os" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "UMd, DTM, LOsST and DROsS Os reference materials" ;
@@ -10422,25 +10415,86 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
     bios:computationalTool [ schema1:name "Microsoft Excel — \"Following analysis all intensity data was exported and re-processed offline using Excel\"" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -10604,67 +10658,6 @@ ex:solutionMcicpmsTAPP-P6 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
-        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -11080,13 +11073,13 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     ]
   },
   "ada:massBiasCorrectionStrategy": "\"Samples were processed on-line for W and Re interferences and instrumental mass bias\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "N — the paper describes the Nu Plasma acquisition only as two-sequence static multi-collection and gives no mass list or cup configuration for that instrument"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -11098,7 +11091,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11108,7 +11101,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11118,7 +11111,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11128,7 +11121,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11612,13 +11605,13 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     ]
   },
   "ada:massBiasCorrectionStrategy": "\"Samples were processed on-line for W and Re interferences and instrumental mass bias\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "N \u2014 the paper describes the Nu Plasma acquisition only as two-sequence static multi-collection and gives no mass list or cup configuration for that instrument"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -11630,7 +11623,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11640,7 +11633,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11650,7 +11643,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11660,7 +11653,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -11730,12 +11723,11 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P7> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -11744,9 +11736,11 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "N/A - reference material solutions, no digestion." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -11755,21 +11749,19 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A - reference material solutions, no digestion." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -11779,7 +11771,7 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NERC Isotope Geosciences Laboratory (NIGL)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -11798,25 +11790,25 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "N — the paper describes the Nu Plasma acquisition only as two-sequence static multi-collection and gives no mass list or cup configuration for that instrument" ] ;
     ada:chromatographicSeparationApplied "N/A — reference material solutions" ;
     ada:finalSolutionMatrix "3 mol/l Teflon-distilled HCl" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "\"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "N — the paper describes the Nu Plasma acquisition only as two-sequence static multi-collection and gives no mass list or cup configuration for that instrument" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "DTM and LOsST" ;
@@ -11828,25 +11820,84 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     bios:computationalTool [ schema1:name "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Nu Plasma" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "Two-sequence static multi-collection" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -11968,65 +12019,6 @@ ex:solutionMcicpmsTAPP-P7 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Nu Plasma" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "Two-sequence static multi-collection" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -12506,8 +12498,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
   "ada:massBiasCorrectionStrategy": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "⁸⁴Sr (L2)",
       "⁸⁵Rb (L1)",
       "⁸⁶Sr (C)",
@@ -12517,9 +12509,9 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
       "the Sr masses are interference monitors with no target species",
       "⁸⁸Sr being the one used to correct ⁸⁷Sr on ⁸⁷Rb"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -12531,7 +12523,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -12541,7 +12533,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -12551,7 +12543,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -12561,7 +12553,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -13105,8 +13097,8 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
   "ada:massBiasCorrectionStrategy": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u2078\u2074Sr (L2)",
       "\u2078\u2075Rb (L1)",
       "\u2078\u2076Sr (C)",
@@ -13116,9 +13108,9 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
       "the Sr masses are interference monitors with no target species",
       "\u2078\u2078Sr being the one used to correct \u2078\u2077Sr on \u2078\u2077Rb"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -13130,7 +13122,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -13140,7 +13132,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -13150,7 +13142,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -13160,7 +13152,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -13226,12 +13218,11 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-Moynier2017> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -13239,16 +13230,19 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -13262,13 +13256,10 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
                             schema1:name "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -13279,7 +13270,7 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut de Physique du Globe de Paris" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -13298,32 +13289,32 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "p.3. ⁸⁵Rb and ⁸⁷Rb serve the target species Rb",
-                "the Sr masses are interference monitors with no target species",
-                "⁸⁴Sr (L2)",
-                "⁸⁵Rb (L1)",
-                "⁸⁶Sr (C)",
-                "⁸⁷Rb + ⁸⁷Sr (H1)",
-                "⁸⁸Sr (H2) — Table 2",
-                "⁸⁸Sr being the one used to correct ⁸⁷Sr on ⁸⁷Rb" ] ;
     ada:chromatographicSeparationApplied "Yes — DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005" ;
     ada:finalSolutionMatrix "0.1N HNO3" ;
     ada:internalNormalizationElementAndIsotopeRatio "N/A — Rb has two stable isotopes; bracketing used instead" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "p.3. ⁸⁵Rb and ⁸⁷Rb serve the target species Rb",
+                "the Sr masses are interference monitors with no target species",
+                "⁸⁴Sr (L2)",
+                "⁸⁵Rb (L1)",
+                "⁸⁶Sr (C)",
+                "⁸⁷Rb + ⁸⁷Sr (H1)",
+                "⁸⁸Sr (H2) — Table 2",
+                "⁸⁸Sr being the one used to correct ⁸⁷Sr on ⁸⁷Rb" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions" ;
@@ -13334,25 +13325,85 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
     ada:uncertaintyLevel "\"the 2 standard error (2se) is reported unless stated otherwise\"; for samples analysed fewer than 3 times, \"the largest 2 se reported for a sample analyzed multiple times has been used\"" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -13514,66 +13565,6 @@ ex:solutionMcicpmsTAPP-Moynier2017 a cdi:Activity,
     schema1:valueName "sampleUptakeRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -14050,8 +14041,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   ],
   "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "⁹⁰Zr",
       "⁹¹Zr",
       "⁹²Zr",
@@ -14062,9 +14053,9 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       "¹⁰¹Ru (interference monitors, no target species) — \"Faraday cups with 10¹¹ Ω amplifiers were used to collect Zr masses 90Zr to 96Zr and 95Mo",
       "whereas 10¹² Ω amplifiers were applied for the collection of 99Ru and 101Ru\" (p.6)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -14076,7 +14067,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14086,7 +14077,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14096,7 +14087,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14106,7 +14097,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14659,8 +14650,8 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   ],
   "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u2079\u2070Zr",
       "\u2079\u00b9Zr",
       "\u2079\u00b2Zr",
@@ -14671,9 +14662,9 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
       "\u00b9\u2070\u00b9Ru (interference monitors, no target species) \u2014 \"Faraday cups with 10\u00b9\u00b9 \u03a9 amplifiers were used to collect Zr masses 90Zr to 96Zr and 95Mo",
       "whereas 10\u00b9\u00b2 \u03a9 amplifiers were applied for the collection of 99Ru and 101Ru\" (p.6)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -14685,7 +14676,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14695,7 +14686,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14705,7 +14696,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14715,7 +14706,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -14793,18 +14784,23 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P9> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
@@ -14821,12 +14817,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -14847,7 +14837,7 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -14870,19 +14860,13 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr" ;
     ada:calibrationMeasurementFrequency "Each session — \"The Zr standard material NIST SRM 3169 was analyzed in each session\"" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "whereas 10¹² Ω amplifiers were applied for the collection of 99Ru and 101Ru\" (p.6)",
+    ada:chromatographicSeparationApplied "Yes — four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples" ;
+    ada:finalSolutionMatrix "0.5 M HNO3 - 0.005 M HF at 30 ppb Zr (also 17 and 60 ppb)" ;
+    ada:internalNormalizationElementAndIsotopeRatio "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
+    ada:massBiasCorrectionStrategy "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "whereas 10¹² Ω amplifiers were applied for the collection of 99Ru and 101Ru\" (p.6)",
                 "¹⁰¹Ru (interference monitors, no target species) — \"Faraday cups with 10¹¹ Ω amplifiers were used to collect Zr masses 90Zr to 96Zr and 95Mo",
                 "⁹²Zr",
                 "⁹¹Zr",
@@ -14890,13 +14874,19 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
                 "⁹⁴Zr",
                 "⁹⁵Mo",
                 "⁹⁶Zr (Zr)",
-                "⁹⁹Ru" ] ;
-    ada:chromatographicSeparationApplied "Yes — four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples" ;
-    ada:finalSolutionMatrix "0.5 M HNO3 - 0.005 M HF at 30 ppb Zr (also 17 and 60 ppb)" ;
-    ada:internalNormalizationElementAndIsotopeRatio "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)" ;
-    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
-    ada:massBiasCorrectionStrategy "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169" ;
+                "⁹⁹Ru" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated" ;
     ada:primaryStandardNameDefault "NIST SRM 3169" ;
@@ -14907,25 +14897,84 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
     ada:uncertaintyLevel "Both quoted: \"external precision expressed as 2 standard deviations (2SD)\" and 2SE per analysis" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "90Zr–96Zr and 95Mo on 10^11 Ω cups; 99Ru and 101Ru on 10^12 Ω cups" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -15082,65 +15131,6 @@ ex:solutionMcicpmsTAPP-P9 a cdi:Activity,
     schema1:valueName "sampleUptakeRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "90Zr–96Zr and 95Mo on 10^11 Ω cups; 99Ru and 101Ru on 10^12 Ω cups" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -15596,16 +15586,16 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "²⁴Mg",
       "²⁵Mg",
       "²⁶Mg (Mg) — \"The isotopes 24Mg",
       "25Mg and 26Mg were analysed using 10¹¹ Ω resistors\" (p.8)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -15617,7 +15607,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -15627,7 +15617,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -15637,7 +15627,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -15647,7 +15637,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -16179,16 +16169,16 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u00b2\u2074Mg",
       "\u00b2\u2075Mg",
       "\u00b2\u2076Mg (Mg) \u2014 \"The isotopes 24Mg",
       "25Mg and 26Mg were analysed using 10\u00b9\u00b9 \u03a9 resistors\" (p.8)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -16200,7 +16190,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -16210,7 +16200,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -16220,7 +16210,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -16230,7 +16220,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -16308,24 +16298,17 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P10> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
@@ -16349,7 +16332,13 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -16359,7 +16348,7 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -16381,28 +16370,28 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "On-peak baseline measurement preceding each analysis" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "25Mg and 26Mg were analysed using 10¹¹ Ω resistors\" (p.8)",
-                "²⁴Mg",
-                "²⁵Mg",
-                "²⁶Mg (Mg) — \"The isotopes 24Mg" ] ;
     ada:chromatographicSeparationApplied "Yes — AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg" ;
     ada:finalSolutionMatrix "0.5 M HNO3 (Cr); 6 M HCl elution of the final Cr cut" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "Standard-sample bracketing" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "25Mg and 26Mg were analysed using 10¹¹ Ω resistors\" (p.8)",
+                "²⁴Mg",
+                "²⁵Mg",
+                "²⁶Mg (Mg) — \"The isotopes 24Mg" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "IRMM-014, SRM979, DTS-2b" ;
@@ -16413,25 +16402,86 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     ada:uncertaintyLevel "\"the mean and 2 x standard error (SE) of ten individual standard-bracketed sample analyses\"" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neoma" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "49Ti, 51V, 56Fe alongside 50Cr, 52Cr, 53Cr, 54Cr; 24Mg, 25Mg, 26Mg" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -16573,67 +16623,6 @@ ex:solutionMcicpmsTAPP-P10 a cdi:Activity,
     schema1:valueName "sampleUptakeRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neoma" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "49Ti, 51V, 56Fe alongside 50Cr, 52Cr, 53Cr, 54Cr; 24Mg, 25Mg, 26Mg" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -17008,14 +16997,14 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM 3141a",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "³⁹K",
       "⁴¹K (K) — δ⁴¹K is defined from the ⁴¹K/³⁹K ratio (p.4). ⁴⁰Ar¹H⁺ is named as the interference on ⁴¹K⁺ (p.4) but is not itself a monitored mass"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -17027,7 +17016,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17037,7 +17026,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17047,7 +17036,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17057,7 +17046,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17509,14 +17498,14 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM 3141a",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u00b3\u2079K",
       "\u2074\u00b9K (K) \u2014 \u03b4\u2074\u00b9K is defined from the \u2074\u00b9K/\u00b3\u2079K ratio (p.4). \u2074\u2070Ar\u00b9H\u207a is named as the interference on \u2074\u00b9K\u207a (p.4) but is not itself a monitored mass"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -17528,7 +17517,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17538,7 +17527,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17548,7 +17537,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17558,7 +17547,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -17637,12 +17626,11 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P11> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -17656,18 +17644,18 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "1: 3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate 150 deg C, about 1 week | 2: dried down, dissolved in 1 ml concentrated HNO3, with 1 ml H2O2 added slowly in 0.1 ml increments | 3: dried down, dissolved in double-distilled HCl. The final 5 ml 2% HNO3 is the uptake, not a step." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -17685,7 +17673,7 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -17708,26 +17696,26 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "Every sample (bracketing)" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "³⁹K",
-                "⁴¹K (K) — δ⁴¹K is defined from the ⁴¹K/³⁹K ratio (p.4). ⁴⁰Ar¹H⁺ is named as the interference on ⁴¹K⁺ (p.4) but is not itself a monitored mass" ] ;
     ada:chromatographicSeparationApplied "Yes — twice through 1.5 mL Bio-Rad AG50W-X8 100–200 mesh cation resin, loading, matrix elution and K elution all in 0.5 M HNO3" ;
     ada:finalSolutionMatrix "300 ppb K solution" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "Standard-sample bracketing against NIST SRM 3141a" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "³⁹K",
+                "⁴¹K (K) — δ⁴¹K is defined from the ⁴¹K/³⁹K ratio (p.4). ⁴⁰Ar¹H⁺ is named as the interference on ⁴¹K⁺ (p.4) but is not itself a monitored mass" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST SRM 3141a" ;
@@ -17738,25 +17726,81 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     ada:uncertaintyLevel "Stated as ± values on δ41K without an explicit convention in the section read" ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -17854,62 +17898,6 @@ ex:solutionMcicpmsTAPP-P11 a cdi:Activity,
     schema1:valueName "nebulizerType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -18281,8 +18269,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "ada:massBiasCorrectionStrategy": "\"To correct for instrument mass bias, the sample–standard bracketing technique was used for all analyses\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "³⁹K",
       "⁴¹K (K)",
       "⁶³Cu",
@@ -18291,9 +18279,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       "⁶⁶Zn (Zn) — the three delta values are defined from the ⁴¹K/³⁹K",
       "⁶⁵Cu/⁶³Cu and ⁶⁶Zn/⁶⁴Zn ratios (p.7)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -18305,7 +18293,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18315,7 +18303,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18325,7 +18313,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18335,7 +18323,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18783,8 +18771,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   ],
   "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
   "ada:massBiasCorrectionStrategy": "\"To correct for instrument mass bias, the sample\u2013standard bracketing technique was used for all analyses\"",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u00b3\u2079K",
       "\u2074\u00b9K (K)",
       "\u2076\u00b3Cu",
@@ -18793,9 +18781,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
       "\u2076\u2076Zn (Zn) \u2014 the three delta values are defined from the \u2074\u00b9K/\u00b3\u2079K",
       "\u2076\u2075Cu/\u2076\u00b3Cu and \u2076\u2076Zn/\u2076\u2074Zn ratios (p.7)"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -18807,7 +18795,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18817,7 +18805,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18827,7 +18815,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18837,7 +18825,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -18915,12 +18903,11 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P12> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -18934,14 +18921,6 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -18951,6 +18930,14 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "\"concentrated HF and HNO3 in a 3:1 ratio\", followed by fluxing in concentrated HNO3 and HCl with 1 ml H2O2 added to remove organics; brought up in 5 ml 0.5 M HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -18963,7 +18950,7 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -18985,31 +18972,31 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "³⁹K",
-                "⁴¹K (K)",
-                "⁶³Cu",
-                "⁶⁴Zn",
-                "⁶⁵Cu (Cu)",
-                "⁶⁵Cu/⁶³Cu and ⁶⁶Zn/⁶⁴Zn ratios (p.7)",
-                "⁶⁶Zn (Zn) — the three delta values are defined from the ⁴¹K/³⁹K" ] ;
     ada:chromatographicSeparationApplied "Yes — AG1-X8 200–400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn" ;
     ada:finalSolutionMatrix "200 ppb for K and Zn; 100 ppb for Cu" ;
     ada:internalNormalizationElementAndIsotopeRatio "missing" ;
     ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
     ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
     ada:massBiasCorrectionStrategy "\"To correct for instrument mass bias, the sample–standard bracketing technique was used for all analyses\"" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "³⁹K",
+                "⁴¹K (K)",
+                "⁶³Cu",
+                "⁶⁴Zn",
+                "⁶⁵Cu (Cu)",
+                "⁶⁵Cu/⁶³Cu and ⁶⁶Zn/⁶⁴Zn ratios (p.7)",
+                "⁶⁶Zn (Zn) — the three delta values are defined from the ⁴¹K/³⁹K" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon" ;
@@ -19020,25 +19007,82 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
     ada:uncertaintyLevel "2 s.d." ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -19128,63 +19172,6 @@ ex:solutionMcicpmsTAPP-P12 a cdi:Activity,
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
 
 
 ```
@@ -19517,8 +19504,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "⁴⁶Ti",
       "⁴⁷Ti",
       "⁴⁸Ti",
@@ -19534,9 +19521,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       "52Cr and 53Cr to correct for isobaric interferences from V and Cr on 50Ti\" (p.8). ⁴⁵Sc belongs to the LLNL procedure in the same paper",
       "not this one"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -19548,7 +19535,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -19558,7 +19545,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -19568,7 +19555,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -19578,7 +19565,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -19985,8 +19972,8 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     ]
   },
   "ada:massBiasCorrectionStrategy": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard \u2014 \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample\u2013standard bracketing method\" (p.8)",
-  "ada:channelTemplate": {
-    "ada:defaultChannels": [
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
       "\u2074\u2076Ti",
       "\u2074\u2077Ti",
       "\u2074\u2078Ti",
@@ -20002,9 +19989,9 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
       "52Cr and 53Cr to correct for isobaric interferences from V and Cr on 50Ti\" (p.8). \u2074\u2075Sc belongs to the LLNL procedure in the same paper",
       "not this one"
     ],
-    "ada:channelColumns": [
+    "ada:monitoredPropertyColumns": [
       {
-        "schema:valueName": "channel",
+        "schema:valueName": "monitoredProperty",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -20016,7 +20003,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -20026,7 +20013,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -20036,7 +20023,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -20046,7 +20033,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
@@ -20122,26 +20109,17 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
+<ex:solutionMcicpmsTAPP-P13> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Coordinated dissolution shared with the WUSTL split - see the WUSTL column." ;
@@ -20160,7 +20138,15 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -20168,7 +20154,7 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v79.csv)." ;
-    schema1:instrument <https://example.org/instrument/ICPMS> ;
+    schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geochemistry and Petrology, ETH Zurich" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -20191,19 +20177,13 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:channelTemplate [ ada:channelColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "channel" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
-                <https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ;
-            ada:defaultChannels "50Ti",
+    ada:chromatographicSeparationApplied "Yes — three-step anion exchange chromatography; yields 75–100%" ;
+    ada:finalSolutionMatrix "missing" ;
+    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
+    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
+    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
+    ada:massBiasCorrectionStrategy "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "50Ti",
                 "51V",
                 "52Cr and 53Cr to correct for isobaric interferences from V and Cr on 50Ti\" (p.8). ⁴⁵Sc belongs to the LLNL procedure in the same paper",
                 "all five Ti isotopes and 44Ca were measured enabling correction of the Ca interference on 46Ti and 48Ti. The second configuration included 49Ti",
@@ -20216,13 +20196,19 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
                 "⁵²Cr",
                 "⁵³Cr (interference monitors, no target species) — \"Titanium isotopes were collected in two cup configurations. First",
                 "⁵¹V",
-                "⁵⁰Ti (Ti)" ] ;
-    ada:chromatographicSeparationApplied "Yes — three-step anion exchange chromatography; yields 75–100%" ;
-    ada:finalSolutionMatrix "missing" ;
-    ada:internalNormalizationElementAndIsotopeRatio "missing" ;
-    ada:internalStandardElement "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element" ;
-    ada:isotopeDilutionSpike "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization" ;
-    ada:massBiasCorrectionStrategy "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)" ;
+                "⁵⁰Ti (Ti)" ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "missing" ;
@@ -20232,25 +20218,80 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     ada:uncertaintyLevel "2 s.d." ;
     ada:washTimeBetweenSamples -9999 .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field ICP-MS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Sample-Introduction-System>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Neptune Plus" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Sample Introduction System" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Interfering Species" ;
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
     schema1:name "Spectral Interference Corrections Applied" ;
     schema1:valueName "spectralInterferenceCorrectionsApplied" ;
@@ -20322,61 +20363,6 @@ ex:solutionMcicpmsTAPP-P13 a cdi:Activity,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field ICP-MS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Sample-Introduction-System>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Neptune Plus" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Sample Introduction System" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
 
 ```
 
@@ -20394,6 +20380,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -21311,14 +21298,14 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported
                 concentrations, and specifically any case where different target species
@@ -21331,7 +21318,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21365,7 +21352,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21401,7 +21388,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21435,7 +21422,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21469,7 +21456,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21503,7 +21490,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21540,7 +21527,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21577,7 +21564,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21616,7 +21603,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21653,7 +21640,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21690,7 +21677,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21727,7 +21714,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21752,14 +21739,14 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic
                 or residual interferences are applied in data reduction, supplementary
@@ -21769,7 +21756,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21784,11 +21771,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -21805,7 +21788,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21820,11 +21803,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -21842,7 +21821,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21857,11 +21836,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -21877,7 +21852,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21892,11 +21867,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -21915,7 +21886,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21930,11 +21901,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -21954,7 +21921,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferingSpecies
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -21969,11 +21936,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -21994,7 +21957,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -22009,11 +21972,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -22032,7 +21991,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/solutionMcicpmsTAPP/massResolutionAssignment
+                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -22047,11 +22006,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -22061,14 +22016,14 @@ allOf:
               - schema:defaultValue
             minContains: 0
             maxContains: 1
-        ada:defaultChannels:
+        ada:defaultMonitoredProperties:
           type: array
           items:
             anyOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
       required:
-      - ada:defaultChannels
+      - ada:defaultMonitoredProperties
     ada:massBiasCorrectionStrategy:
       description: 'Primary strategy used to correct for instrumental isotopic mass
         fractionation. Four main strategies: (1) Sample-standard bracketing (SSB):
@@ -22193,9 +22148,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

@@ -106,12 +106,11 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Gao2008 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-Gao2008 ;
+<ex:detail-Gao2008> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-Gao2008> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
     ada:analysisStartDate "missing" ;
@@ -135,7 +134,7 @@ ex:detail-Gao2008 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard measurements (stated section 3.1)" .
 
-ex:solutionQicpmsTAPP-Gao2008 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-Gao2008> schema1:identifier "missing" .
 
 
 ```
@@ -238,12 +237,11 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P1 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-P1 ;
+<ex:detail-P1> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-P1> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -267,7 +265,7 @@ ex:detail-P1 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-P1 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-P1> schema1:identifier "missing" .
 
 
 ```
@@ -370,12 +368,11 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500 ;
+<ex:detail-Agilent7500> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-Agilent7500> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision" ;
     ada:analysisStartDate "missing" ;
@@ -399,7 +396,7 @@ ex:detail-Agilent7500 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard and RM analyses (stated section 2)" .
 
-ex:solutionQicpmsTAPP-Agilent7500 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-Agilent7500> schema1:identifier "missing" .
 
 
 ```
@@ -502,12 +499,11 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Agilent7900 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7900 ;
+<ex:detail-Agilent7900> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-Agilent7900> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -531,7 +527,7 @@ ex:detail-Agilent7900 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-Agilent7900 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-Agilent7900> schema1:identifier "missing" .
 
 
 ```
@@ -634,12 +630,11 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Agilent7500-2 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent7500-2 ;
+<ex:detail-Agilent7500-2> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-Agilent7500-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
@@ -663,7 +658,7 @@ ex:detail-Agilent7500-2 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-Agilent7500-2 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-Agilent7500-2> schema1:identifier "missing" .
 
 
 ```
@@ -766,12 +761,11 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Agilent8800 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-Agilent8800 ;
+<ex:detail-Agilent8800> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-Agilent8800> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -795,7 +789,7 @@ ex:detail-Agilent8800 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-Agilent8800 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-Agilent8800> schema1:identifier "missing" .
 
 
 ```
@@ -898,12 +892,11 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P6 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-P6 ;
+<ex:detail-P6> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-P6> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -927,7 +920,7 @@ ex:detail-P6 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-P6 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-P6> schema1:identifier "missing" .
 
 
 ```
@@ -1030,12 +1023,11 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P7 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-P7 ;
+<ex:detail-P7> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-P7> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1059,7 +1051,7 @@ ex:detail-P7 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-P7 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-P7> schema1:identifier "missing" .
 
 
 ```
@@ -1162,12 +1154,11 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-P8 a ada:SolutionICPMSTabular ;
-    schema1:measurementTechnique ex:solutionQicpmsTAPP-P8 ;
+<ex:detail-P8> a ada:SolutionICPMSTabular ;
+    schema1:measurementTechnique <ex:solutionQicpmsTAPP-P8> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'" ;
     ada:analysisStartDate "missing" ;
@@ -1191,7 +1182,7 @@ ex:detail-P8 a ada:SolutionICPMSTabular ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
-ex:solutionQicpmsTAPP-P8 schema1:identifier "missing" .
+<ex:solutionQicpmsTAPP-P8> schema1:identifier "missing" .
 
 
 ```
@@ -1730,10 +1721,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

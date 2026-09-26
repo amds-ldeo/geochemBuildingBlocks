@@ -214,7 +214,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           "schema:name": "missing",
           "ada:collectorConfiguration": [
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -224,7 +224,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": "10¹¹ Ω on all nine Faraday cups (p.2)"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -234,7 +234,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": "missing"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -245,7 +245,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:description": "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -255,7 +255,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er²⁺ and 173Yb²⁺ signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/interferingSpecies",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -271,7 +271,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               ]
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -281,7 +281,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": -9999
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -834,7 +834,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           "schema:name": "missing",
           "ada:collectorConfiguration": [
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -844,7 +844,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": "10\u00b9\u00b9 \u03a9 on all nine Faraday cups (p.2)"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -854,7 +854,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": "missing"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -865,7 +865,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:description": "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -875,7 +875,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er\u00b2\u207a and 173Yb\u00b2\u207a signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias"
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/interferingSpecies",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -891,7 +891,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               ]
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -901,7 +901,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "schema:defaultValue": -9999
             },
             {
-              "@id": "ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment",
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment",
               "@type": [
                 "schema:PropertyValueSpecification"
               ],
@@ -1245,12 +1245,11 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
+<ex:laMcicpmsTAPP-Zhang2022> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -1264,6 +1263,12 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
@@ -1271,13 +1276,7 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1291,18 +1290,18 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability" ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Natural Science Foundation of China (NSFC)" ] ;
-    schema1:instrument <https://example.org/instrument/ICPMS>,
-        <https://example.org/instrument/Laser-Ablation-System> ;
+    schema1:instrument <ex:instrument/ICPMS>,
+        <ex:instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "fs-LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
-    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
-        [ a schema1:DefinedTerm,
+    schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ],
+        [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
@@ -1342,32 +1341,106 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
             ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> a schema1:PropertyValueSpecification ;
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS",
+        "Multi-collector sector-field (MC-ICP-MS)" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/Collector>,
+        <ex:instrument/ICPMS/part/Collision-Reaction-Cell>,
+        <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "Thermo Fisher Scientific" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/Collector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collector" ;
+    schema1:description "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)" ;
+    schema1:name "missing" ;
+    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment> .
+
+<ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Collision Reaction Cell" ;
+    schema1:name "Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<ex:instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "New Wave Research NWR FemtoUC (Yb:KGW fs, 257 nm PHAROS amplifier)" ] ;
+    schema1:name "Two-volume cell (constant distance between laser and aerosol extraction)" ;
+    ada:laserFluenceDefault "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)" ;
+    ada:laserPulseDuration "300 fs (Yb:KGW PHAROS femtosecond amplifier)" ;
+    ada:laserRepetitionRateDefault "10–30 Hz (varied based on Sr concentration in samples)" ;
+    ada:laserSpotGeometryDefault "50–60 µm circular" ;
+    ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "10¹¹ Ω on all nine Faraday cups (p.2)" ;
     schema1:name "Faraday Cup Amplifier Resistor Values" ;
     schema1:valueName "faradayCupAmplifierResistorValues" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "missing" ;
     schema1:name "Faraday Cup Gain Calibration Method" ;
     schema1:valueName "faradayCupGainCalibrationMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/integrationTimePerCycle> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 5.24e-01 ;
     schema1:description "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)" ;
     schema1:name "Integration Time per Cycle" ;
     schema1:valueName "integrationTimePerCycle" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er²⁺ and 173Yb²⁺ signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias" ;
     schema1:name "Interference Correction Method" ;
     schema1:valueName "interferenceCorrectionMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "¹⁶⁸Er²⁺ on ⁸⁴Sr",
         "¹⁷²Yb²⁺ on ⁸⁶Sr",
         "¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb",
@@ -1377,13 +1450,13 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "interferingSpecies" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/ionCounterDeadTime> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Ion Counter Dead Time" ;
     schema1:valueName "ionCounterDeadTime" ;
     ada:dataType "number" .
 
-<https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Low resolution for all eight monitored masses — 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout" ;
     schema1:name "Mass Resolution Assignment" ;
     schema1:valueName "massResolutionAssignment" ;
@@ -1521,80 +1594,6 @@ ex:laMcicpmsTAPP-Zhang2022 a cdi:Activity,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS",
-        "Multi-collector sector-field (MC-ICP-MS)" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/Collector>,
-        <https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell>,
-        <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "Thermo Fisher Scientific" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific NEPTUNE Plus (MC-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/Collector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collector" ;
-    schema1:description "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)" ;
-    schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
-        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
-        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/integrationTimePerCycle>,
-        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod>,
-        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/interferingSpecies>,
-        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/ionCounterDeadTime>,
-        <https://ada.astromat.org/metadata/channelColumn/laMcicpmsTAPP/massResolutionAssignment> .
-
-<https://example.org/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Collision Reaction Cell" ;
-    schema1:name "Not installed — 'traditional (MC-)ICP-MS without the reaction/collision cell' (p.1); contrasted against 'MC-ICP-MS with collision cell' in the conclusion (pp.8-9)" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "New Wave Research NWR FemtoUC (Yb:KGW fs, 257 nm PHAROS amplifier)" ] ;
-    schema1:name "Two-volume cell (constant distance between laser and aerosol extraction)" ;
-    ada:laserFluenceDefault "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)" ;
-    ada:laserPulseDuration "300 fs (Yb:KGW PHAROS femtosecond amplifier)" ;
-    ada:laserRepetitionRateDefault "10–30 Hz (varied based on Sr concentration in samples)" ;
-    ada:laserSpotGeometryDefault "50–60 µm circular" ;
-    ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
-
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency> ;
@@ -1617,6 +1616,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/ProcedureIdentification
@@ -1872,7 +1872,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -1887,11 +1887,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -1913,7 +1909,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -1928,11 +1924,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -1946,7 +1938,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -1962,14 +1954,8 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
+                                  - type: number
+                                  - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -1989,7 +1975,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2004,11 +1990,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2026,7 +2008,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2041,11 +2023,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2062,7 +2040,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2078,14 +2056,8 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
+                                  - type: number
+                                  - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2103,7 +2075,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2118,11 +2090,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2142,7 +2110,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2157,11 +2125,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2186,7 +2150,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2201,11 +2165,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2222,7 +2182,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/integrationTimePerCycle
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2238,14 +2198,8 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
+                                  - type: number
+                                  - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2268,7 +2222,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2283,11 +2237,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2308,7 +2258,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/interferingSpecies
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2323,11 +2273,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2347,7 +2293,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2363,14 +2309,8 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
+                                  - type: number
+                                  - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2391,7 +2331,7 @@ allOf:
                               type: object
                               properties:
                                 '@id':
-                                  const: ada:channelColumn/laMcicpmsTAPP/massResolutionAssignment
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment
                                 '@type':
                                   const:
                                   - schema:PropertyValueSpecification
@@ -2406,11 +2346,7 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
@@ -3044,14 +2980,14 @@ allOf:
         element, and applies wherever the procedure reports isotope ratios.'
       type: string
       readOnly: true
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
@@ -3060,7 +2996,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3095,7 +3031,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/monitoredMasses
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3130,7 +3066,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3164,7 +3100,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3199,7 +3135,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3232,7 +3168,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/massResolutionAssignment
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3270,7 +3206,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/monitoredMasses
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3308,7 +3244,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3345,7 +3281,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3383,7 +3319,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -3495,9 +3431,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

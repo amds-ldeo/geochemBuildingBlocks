@@ -413,12 +413,11 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Genge2025 a cdi:Activity,
+<ex:semCompositionTAPP-Genge2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -438,7 +437,7 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v64.csv)." ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -466,14 +465,14 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "VP-SEM" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -484,21 +483,21 @@ ex:semCompositionTAPP-Genge2025 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford X-Max SDD system" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -900,12 +899,11 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
+<ex:semCompositionTAPP-Gucsik2013> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -914,18 +912,18 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "semComposition" ;
             schema1:termCode "semComposition" ] ;
@@ -951,14 +949,14 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "Standard SEM" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -969,21 +967,21 @@ ex:semCompositionTAPP-Gucsik2013 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "ISIS analysis system (Oxford); detector type not specified" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -1397,12 +1395,11 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
+<ex:semCompositionTAPP-Izawa2010> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -1422,7 +1419,7 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1450,14 +1447,14 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "Standard SEM" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -1468,21 +1465,21 @@ ex:semCompositionTAPP-Izawa2010 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Gresham light element detector; Quartz XOne EDX analysis system (full spectral imaging)" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -1896,12 +1893,11 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
+<ex:semCompositionTAPP-Izawa2010-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -1921,7 +1917,7 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1949,14 +1945,14 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "FIB-SEM dual-beam" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -1967,21 +1963,21 @@ ex:semCompositionTAPP-Izawa2010-2 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford Instruments INCA EDX system" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -2467,12 +2463,11 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
+<ex:semCompositionTAPP-Pascucci2026> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -2481,20 +2476,20 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy)" ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -2526,21 +2521,14 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
         [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
 
-<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "High vacuum" ;
-    schema1:name "Chamber Pressure" ;
-    schema1:valueName "chamberPressureDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "ESEM" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -2551,25 +2539,32 @@ ex:semCompositionTAPP-Pascucci2026 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "High vacuum" ;
+    schema1:name "Chamber Pressure" ;
+    schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> a schema1:PropertyValue ;
     schema1:name "EDS Spectral Processing Type" ;
@@ -3056,12 +3051,11 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
+<ex:semCompositionTAPP-Pascucci2026-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3070,20 +3064,20 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping." ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3110,26 +3104,19 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ] .
 
-<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "High vacuum" ;
-    schema1:name "Chamber Pressure" ;
-    schema1:valueName "chamberPressureDefault" ;
-    ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "ESEM" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Zeiss" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -3140,25 +3127,32 @@ ex:semCompositionTAPP-Pascucci2026-2 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "High vacuum" ;
+    schema1:name "Chamber Pressure" ;
+    schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> a schema1:PropertyValue ;
     schema1:name "EDS Spectral Processing Type" ;
@@ -3593,12 +3587,11 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Zega2025 a cdi:Activity,
+<ex:semCompositionTAPP-Zega2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -3618,7 +3611,7 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v64.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3650,14 +3643,14 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
         [ schema1:name "Oxford AZtec" ;
             ada:toolRole "dataReduction" ] .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -3668,21 +3661,21 @@ ex:semCompositionTAPP-Zega2025 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford Instruments Ultim Max SDD, 170 mm²" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -4116,12 +4109,11 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
+<ex:semCompositionTAPP-Zega2025-2> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -4141,7 +4133,7 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
                     ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4168,19 +4160,19 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ] .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Hitachi" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -4191,21 +4183,21 @@ ex:semCompositionTAPP-Zega2025-2 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -4615,12 +4607,11 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
+<ex:semCompositionTAPP-Barnes2025> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -4640,7 +4631,7 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
-    schema1:instrument <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4667,14 +4658,14 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
-    schema1:hasPart <https://example.org/instrument/SEM/part/EDS-Detector>,
-        <https://example.org/instrument/SEM/part/Electron-Source>,
-        <https://example.org/instrument/SEM/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/SEM/part/EDS-Detector>,
+        <ex:instrument/SEM/part/Electron-Source>,
+        <ex:instrument/SEM/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "missing" ] ;
     schema1:model [ a schema1:ProductModel ;
@@ -4685,20 +4676,20 @@ ex:semCompositionTAPP-Barnes2025 a cdi:Activity,
     ada:beamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
-<https://example.org/instrument/SEM/part/EDS-Detector> a schema1:Product,
+<ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/Electron-Source> a schema1:Product,
+<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
@@ -4720,6 +4711,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -5033,21 +5025,21 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. For sub-nA values use decimal
                 notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5080,7 +5072,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5113,7 +5105,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5144,7 +5136,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5174,7 +5166,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5204,7 +5196,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5233,7 +5225,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5262,7 +5254,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5291,7 +5283,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5319,7 +5311,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5349,7 +5341,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5378,7 +5370,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5411,7 +5403,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5441,7 +5433,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5477,7 +5469,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/techniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5513,7 +5505,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/wdsSpectrometerChannel
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5547,7 +5539,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5580,7 +5572,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5613,7 +5605,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5645,7 +5637,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5677,7 +5669,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5709,7 +5701,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5740,7 +5732,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5773,7 +5765,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5805,7 +5797,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -5841,7 +5833,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semCompositionTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6311,14 +6303,14 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster
                 scanning (imaging modes) or on each step position during compositional
@@ -6327,7 +6319,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6343,14 +6335,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6363,7 +6349,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6378,11 +6364,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6395,7 +6377,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6410,11 +6392,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6433,7 +6411,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/sequence
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6449,14 +6427,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6468,7 +6440,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6483,11 +6455,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6502,7 +6470,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6517,11 +6485,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6534,7 +6498,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6550,14 +6514,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6571,7 +6529,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6587,14 +6545,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6609,7 +6561,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6624,11 +6576,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6645,7 +6593,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6661,14 +6609,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6684,7 +6626,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6699,11 +6641,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6719,7 +6657,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6734,11 +6672,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6760,7 +6694,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/sequence
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6776,14 +6710,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6798,7 +6726,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6813,11 +6741,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6835,7 +6759,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6850,11 +6774,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -6870,7 +6790,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6886,14 +6806,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6910,7 +6824,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6926,14 +6840,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -6951,7 +6859,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semCompositionTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -6966,11 +6874,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -7164,9 +7068,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "wd": "https://www.wikidata.org/entity/",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1

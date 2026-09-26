@@ -2,7 +2,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
 description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the
   base TAPP definition. Basic protocol-tier fields are required top-level ada: properties;
-  Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:analyteTemplate
+  Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate
   (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v31.csv
   by tools/build_tapp.py.'
 allOf:
@@ -470,21 +470,21 @@ allOf:
         EBSD-EDS systems).
       type: string
       readOnly: true
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
               description: Electron beam probe current. For sub-nA values use decimal
                 notation (e.g., 0.4 nA).
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semImagingTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -517,7 +517,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semImagingTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semImagingTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification

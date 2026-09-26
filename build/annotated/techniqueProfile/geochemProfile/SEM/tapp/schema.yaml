@@ -8,6 +8,7 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/ProcedureIdentification
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
@@ -687,14 +688,14 @@ allOf:
                   const: Ion milling
               required:
               - schema:name
-    ada:analyteTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:analyteColumns:
+        ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/AnalyteIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Target Species Estimation Method
               description: Whether elemental concentrations were calculated directly
                 from measured X-ray intensities, or estimated by cation stoichiometry
@@ -703,7 +704,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/semTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -732,7 +733,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/semTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -762,7 +763,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/semTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -793,7 +794,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/semTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -822,7 +823,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -854,7 +855,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/semTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -887,7 +888,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/semTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -915,7 +916,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/semTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -944,7 +945,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/semTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -973,7 +974,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/semTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1003,7 +1004,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/techniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1033,7 +1034,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/semTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1065,7 +1066,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/wdsSpectrometerChannel
+                  const: ada:targetSpeciesColumn/semTAPP/wdsSpectrometerChannel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1097,7 +1098,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/targetSpeciesEstimationMethod
+                  const: ada:targetSpeciesColumn/semTAPP/targetSpeciesEstimationMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1129,7 +1130,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/analyticalAccuracy
+                  const: ada:targetSpeciesColumn/semTAPP/analyticalAccuracy
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1162,7 +1163,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/analyticalPrecision
+                  const: ada:targetSpeciesColumn/semTAPP/analyticalPrecision
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1196,7 +1197,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/xRayBackgroundCorrectionMethod
+                  const: ada:targetSpeciesColumn/semTAPP/xRayBackgroundCorrectionMethod
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1228,7 +1229,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/beamCurrent
+                  const: ada:targetSpeciesColumn/semTAPP/beamCurrent
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1263,7 +1264,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/blankCorrection
+                  const: ada:targetSpeciesColumn/semTAPP/blankCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1299,7 +1300,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/countingStatisticsError
+                  const: ada:targetSpeciesColumn/semTAPP/countingStatisticsError
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1330,7 +1331,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/interferenceCorrectionStandard
+                  const: ada:targetSpeciesColumn/semTAPP/interferenceCorrectionStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1362,7 +1363,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/xRayLineOverlapCorrectionsApplied
+                  const: ada:targetSpeciesColumn/semTAPP/xRayLineOverlapCorrectionsApplied
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1394,7 +1395,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/interferingElements
+                  const: ada:targetSpeciesColumn/semTAPP/interferingElements
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1427,7 +1428,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/techniquePerTargetSpecies
+                  const: ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1460,7 +1461,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/timeDependentIntensityCorrection
+                  const: ada:targetSpeciesColumn/semTAPP/timeDependentIntensityCorrection
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1495,7 +1496,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:analyteColumn/semTAPP/wdsSpectrometerChannel
+                  const: ada:targetSpeciesColumn/semTAPP/wdsSpectrometerChannel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1519,21 +1520,21 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
-    ada:channelTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:channelColumns:
+        ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/ChannelIdentifierColumn
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - title: Background Counting Time
               description: Total time spent counting at off-peak background position(s)
                 in seconds, summed across all background positions.
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1549,14 +1550,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1571,7 +1566,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/semTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1586,11 +1581,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1602,7 +1593,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/semTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1617,11 +1608,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1637,7 +1624,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/semTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1653,14 +1640,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1674,7 +1655,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/semTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1690,14 +1671,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1710,7 +1685,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/semTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1725,11 +1700,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1747,7 +1718,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/sequence
+                  const: ada:monitoredPropertyColumn/semTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1763,14 +1734,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1785,7 +1750,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/semTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1800,11 +1765,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1816,7 +1777,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/semTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1831,11 +1792,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1851,7 +1808,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/backgroundCountingTime
+                  const: ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1867,14 +1824,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -1892,7 +1843,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/backgroundPosition
+                  const: ada:monitoredPropertyColumn/semTAPP/backgroundPosition
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1907,11 +1858,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1926,7 +1873,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/diffractingCrystal
+                  const: ada:monitoredPropertyColumn/semTAPP/diffractingCrystal
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1941,11 +1888,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -1964,7 +1907,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/dwellTimePerPixel
+                  const: ada:monitoredPropertyColumn/semTAPP/dwellTimePerPixel
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -1980,14 +1923,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2004,7 +1941,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/peakCountingTime
+                  const: ada:monitoredPropertyColumn/semTAPP/peakCountingTime
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2020,14 +1957,8 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2043,7 +1974,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/proportionalCounterDetector
+                  const: ada:monitoredPropertyColumn/semTAPP/proportionalCounterDetector
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2058,11 +1989,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2083,7 +2010,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/sequence
+                  const: ada:monitoredPropertyColumn/semTAPP/sequence
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2099,14 +2026,8 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
+                  - type: number
+                  - type: string
               required:
               - '@id'
               - '@type'
@@ -2124,7 +2045,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/wdsPhaSetting
+                  const: ada:monitoredPropertyColumn/semTAPP/wdsPhaSetting
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2139,11 +2060,7 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'
@@ -2158,7 +2075,7 @@ allOf:
               type: object
               properties:
                 '@id':
-                  const: ada:channelColumn/semTAPP/xRayLine
+                  const: ada:monitoredPropertyColumn/semTAPP/xRayLine
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
@@ -2173,11 +2090,7 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
+                  type: string
               required:
               - '@id'
               - '@type'

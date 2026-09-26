@@ -280,26 +280,26 @@
       },
       "x-jsonld-id": "http://schema.org/additionalProperty"
     },
-    "ada:analyteTemplate": {
+    "ada:targetSpeciesTemplate": {
       "description": "Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
       "type": "object",
       "properties": {
-        "ada:analyteColumns": {
+        "ada:targetSpeciesColumns": {
           "type": "array",
           "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
           "minItems": 1,
           "items": {
-            "$ref": "#/$defs/AnalyteColumn"
+            "$ref": "#/$defs/TargetSpeciesColumn"
           },
           "contains": {
-            "$ref": "#/$defs/AnalyteIdentifierColumn"
+            "$ref": "#/$defs/TargetSpeciesIdentifierColumn"
           },
           "maxContains": 1,
-          "x-jsonld-id": "https://ada.astromat.org/metadata/analyteColumns"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesColumns"
         },
-        "ada:defaultAnalytes": {
+        "ada:defaultTargetSpecies": {
           "type": "array",
-          "description": "The analytes (analyzed constituents) this method targets by default \u2014 the ROWS of the per-analyte table. An entry is a bare string or a schema:DefinedTerm naming the analyte, or a row object binding that analyte to per-analyte values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:analyteColumns, and MUST carry the 'analyte' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+          "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
           "items": {
             "anyOf": [
               {
@@ -310,15 +310,15 @@
               },
               {
                 "type": "object",
-                "title": "Per-analyte row",
-                "description": "One row of the per-analyte table, keyed by column schema:valueName. null records a value that is deliberately absent for this analyte rather than merely unstated.",
+                "title": "Per-species row",
+                "description": "One row of the per-species table, keyed by column schema:valueName. null records a value that is deliberately absent for this species rather than merely unstated.",
                 "required": [
-                  "analyte"
+                  "targetSpecies"
                 ],
                 "properties": {
-                  "analyte": {
+                  "targetSpecies": {
                     "type": "string",
-                    "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the analyte column, which ada:analyteColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                    "description": "The analyzed constituent this row is for (e.g. \"SiO2\"). The key is the schema:valueName of the identifier column, which ada:targetSpeciesColumns requires exactly one of, so a row is keyed by column valueName throughout.\nThis key was 'analyte' until 2026-09-25. The rename moved the COLUMN's schema:valueName const to 'targetSpecies' but left the row half behind, so a row object could satisfy neither half: keyed 'analyte' it contradicted its own column, keyed 'targetSpecies' it failed this required. Nothing upstream caught it because every tappDefinition example lists bare strings here and so never exercises this branch; it surfaced against the 46 stored ADA method definitions, which do use row objects."
                   }
                 },
                 "additionalProperties": {
@@ -333,32 +333,32 @@
               }
             ]
           },
-          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultAnalytes"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultTargetSpecies"
         }
       },
       "required": [
-        "ada:analyteColumns"
+        "ada:targetSpeciesColumns"
       ],
-      "x-jsonld-id": "https://ada.astromat.org/metadata/analyteTemplate"
+      "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesTemplate"
     },
-    "ada:channelTemplate": {
+    "ada:monitoredPropertyTemplate": {
       "description": "Template for per-channel parameters, a channel being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
       "type": "object",
       "properties": {
-        "ada:channelColumns": {
+        "ada:monitoredPropertyColumns": {
           "type": "array",
           "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
           "minItems": 1,
           "items": {
-            "$ref": "#/$defs/ChannelColumn"
+            "$ref": "#/$defs/MonitoredPropertyColumn"
           },
           "contains": {
-            "$ref": "#/$defs/ChannelIdentifierColumn"
+            "$ref": "#/$defs/MonitoredPropertyIdentifierColumn"
           },
           "maxContains": 1,
-          "x-jsonld-id": "https://ada.astromat.org/metadata/channelColumns"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyColumns"
         },
-        "ada:defaultChannels": {
+        "ada:defaultMonitoredProperties": {
           "type": "array",
           "description": "The channels this procedure defines by default \u2014 the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
           "items": {
@@ -371,16 +371,16 @@
               }
             ]
           },
-          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultChannels"
+          "x-jsonld-id": "https://ada.astromat.org/metadata/defaultMonitoredProperties"
         }
       },
       "required": [
-        "ada:channelColumns"
+        "ada:monitoredPropertyColumns"
       ],
-      "x-jsonld-id": "https://ada.astromat.org/metadata/channelTemplate"
+      "x-jsonld-id": "https://ada.astromat.org/metadata/monitoredPropertyTemplate"
     },
     "ada:reportedPropertyTemplate": {
-      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:analyteTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
+      "description": "Template for the variables this procedure REPORTS and their units, as distinct from ada:targetSpeciesTemplate which records what was acquired. Declares the reported-property domain and the columns that repeat over it. It also states the procedure's scope boundary: a derived quantity inside this list is in scope, anything beyond it belongs to a separate, coupled procedure.",
       "type": "object",
       "properties": {
         "ada:reportedPropertyColumns": {
@@ -1006,7 +1006,7 @@
     },
     "KeyedTableColumn": {
       "type": "object",
-      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. AnalyteColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
       "properties": {
         "@type": {
           "type": "array",
@@ -1177,7 +1177,7 @@
         "ada:dataType"
       ]
     },
-    "AnalyteColumn": {
+    "TargetSpeciesColumn": {
       "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
       "allOf": [
         {
@@ -1193,7 +1193,7 @@
         }
       ]
     },
-    "ChannelColumn": {
+    "MonitoredPropertyColumn": {
       "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
       "allOf": [
         {
@@ -1201,8 +1201,8 @@
         }
       ]
     },
-    "ChannelIdentifierColumn": {
-      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors AnalyteIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+    "MonitoredPropertyIdentifierColumn": {
+      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
       "allOf": [
         {
           "$ref": "#/$defs/KeyedTableColumn"
@@ -1211,7 +1211,7 @@
           "type": "object",
           "properties": {
             "schema:valueName": {
-              "const": "channel",
+              "const": "monitoredProperty",
               "x-jsonld-id": "http://schema.org/valueName"
             },
             "ada:dataType": {
@@ -1247,7 +1247,7 @@
       ]
     },
     "ReportedPropertyIdentifierColumn": {
-      "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors AnalyteIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
+      "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
       "allOf": [
         {
           "$ref": "#/$defs/KeyedTableColumn"
@@ -1291,17 +1291,17 @@
         }
       ]
     },
-    "AnalyteIdentifierColumn": {
+    "TargetSpeciesIdentifierColumn": {
       "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
       "allOf": [
         {
-          "$ref": "#/$defs/AnalyteColumn"
+          "$ref": "#/$defs/TargetSpeciesColumn"
         },
         {
           "type": "object",
           "properties": {
             "schema:valueName": {
-              "const": "analyte",
+              "const": "targetSpecies",
               "x-jsonld-id": "http://schema.org/valueName"
             },
             "ada:dataType": {

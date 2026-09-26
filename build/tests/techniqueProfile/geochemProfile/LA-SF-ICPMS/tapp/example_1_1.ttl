@@ -1,24 +1,17 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
+<ex:laSficpmsTAPP-Zhang2022> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
@@ -30,14 +23,20 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Zhang, Chabot, Rubin, Humayun et al." ] ;
     schema1:datePublished "missing" ;
     schema1:description "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 µm spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper" ;
-    schema1:instrument <https://example.org/instrument/ICPMS>,
-        <https://example.org/instrument/Laser-Ablation-System> ;
+    schema1:instrument <ex:instrument/ICPMS>,
+        <ex:instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -50,13 +49,13 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
                     schema1:value "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons" ;
@@ -82,6 +81,51 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     ada:signalIntegrationIntervalMethod "missing" ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
+
+<ex:instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICPMS" ;
+    schema1:hasPart <ex:instrument/ICPMS/part/ICP-Source>,
+        <ex:instrument/ICPMS/part/Interface-Cone>,
+        <ex:instrument/ICPMS/part/Torch> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "missing" ] ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
+    schema1:name "example instrumentName" .
+
+<ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "ICP Source" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Interface-Cone> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Interface Cone" ;
+    schema1:name "missing" .
+
+<ex:instrument/ICPMS/part/Torch> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Torch" ;
+    schema1:name "missing" .
+
+<ex:instrument/Laser-Ablation-System> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Laser Ablation System" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)" ] ;
+    schema1:name "example instrumentName" ;
+    ada:laserFluenceDefault -9999 ;
+    ada:laserRepetitionRateDefault "Raster: 50 Hz; Spot (Ge): 50 Hz" ;
+    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" ;
+    ada:laserType "missing" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Low resolution (M/ΔM ≈ 400)" ;
@@ -117,49 +161,4 @@ ex:laSficpmsTAPP-Zhang2022 a cdi:Activity,
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
-
-<https://example.org/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICPMS" ;
-    schema1:hasPart <https://example.org/instrument/ICPMS/part/ICP-Source>,
-        <https://example.org/instrument/ICPMS/part/Interface-Cone>,
-        <https://example.org/instrument/ICPMS/part/Torch> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "Thermo Fisher Scientific Element XR (SF-ICP-MS)" ] ;
-    schema1:name "example instrumentName" .
-
-<https://example.org/instrument/ICPMS/part/ICP-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "ICP Source" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Interface-Cone> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Interface Cone" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/ICPMS/part/Torch> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Torch" ;
-    schema1:name "missing" .
-
-<https://example.org/instrument/Laser-Ablation-System> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Laser Ablation System" ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)" ] ;
-    schema1:name "example instrumentName" ;
-    ada:laserFluenceDefault -9999 ;
-    ada:laserRepetitionRateDefault "Raster: 50 Hz; Spot (Ge): 50 Hz" ;
-    ada:laserSpotGeometryDefault "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular" ;
-    ada:laserType "missing" .
 

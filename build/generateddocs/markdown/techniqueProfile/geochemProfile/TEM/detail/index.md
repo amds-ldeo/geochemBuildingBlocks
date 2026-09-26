@@ -88,12 +88,11 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Chaves2023 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Chaves2023 ;
+<ex:detail-Chaves2023> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Chaves2023> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -108,7 +107,7 @@ ex:detail-Chaves2023 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Chaves2023 schema1:identifier "missing" .
+<ex:temTAPP-Chaves2023> schema1:identifier "missing" .
 
 
 ```
@@ -193,12 +192,11 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Zega2025 ;
+<ex:detail-Zega2025> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -213,7 +211,7 @@ ex:detail-Zega2025 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Zega2025 schema1:identifier "missing" .
+<ex:temTAPP-Zega2025> schema1:identifier "missing" .
 
 
 ```
@@ -298,12 +296,11 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-2 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Zega2025-2 ;
+<ex:detail-Zega2025-2> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -318,7 +315,7 @@ ex:detail-Zega2025-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Zega2025-2 schema1:identifier "missing" .
+<ex:temTAPP-Zega2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -403,12 +400,11 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-3 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Zega2025-3 ;
+<ex:detail-Zega2025-3> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Zega2025-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -423,7 +419,7 @@ ex:detail-Zega2025-3 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Zega2025-3 schema1:identifier "missing" .
+<ex:temTAPP-Zega2025-3> schema1:identifier "missing" .
 
 
 ```
@@ -508,12 +504,11 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-4 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Zega2025-4 ;
+<ex:detail-Zega2025-4> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Zega2025-4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -528,7 +523,7 @@ ex:detail-Zega2025-4 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Zega2025-4 schema1:identifier "missing" .
+<ex:temTAPP-Zega2025-4> schema1:identifier "missing" .
 
 
 ```
@@ -613,12 +608,11 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Matsumoto2021 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Matsumoto2021 ;
+<ex:detail-Matsumoto2021> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Matsumoto2021> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -633,7 +627,7 @@ ex:detail-Matsumoto2021 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Matsumoto2021 schema1:identifier "missing" .
+<ex:temTAPP-Matsumoto2021> schema1:identifier "missing" .
 
 
 ```
@@ -718,12 +712,11 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Matsumoto2021-2 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Matsumoto2021-2 ;
+<ex:detail-Matsumoto2021-2> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Matsumoto2021-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -738,7 +731,7 @@ ex:detail-Matsumoto2021-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Matsumoto2021-2 schema1:identifier "missing" .
+<ex:temTAPP-Matsumoto2021-2> schema1:identifier "missing" .
 
 
 ```
@@ -823,12 +816,11 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Matsumoto2021-3 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Matsumoto2021-3 ;
+<ex:detail-Matsumoto2021-3> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Matsumoto2021-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -843,7 +835,7 @@ ex:detail-Matsumoto2021-3 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Matsumoto2021-3 schema1:identifier "missing" .
+<ex:temTAPP-Matsumoto2021-3> schema1:identifier "missing" .
 
 
 ```
@@ -928,12 +920,11 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-KellerBerger2014 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-KellerBerger2014 ;
+<ex:detail-KellerBerger2014> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-KellerBerger2014> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -948,7 +939,7 @@ ex:detail-KellerBerger2014 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-KellerBerger2014 schema1:identifier "missing" .
+<ex:temTAPP-KellerBerger2014> schema1:identifier "missing" .
 
 
 ```
@@ -1033,12 +1024,11 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zeng2024 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Zeng2024 ;
+<ex:detail-Zeng2024> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Zeng2024> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1053,7 +1043,7 @@ ex:detail-Zeng2024 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Zeng2024 schema1:identifier "missing" .
+<ex:temTAPP-Zeng2024> schema1:identifier "missing" .
 
 
 ```
@@ -1138,12 +1128,11 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Dobrica2022 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Dobrica2022 ;
+<ex:detail-Dobrica2022> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Dobrica2022> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1158,7 +1147,7 @@ ex:detail-Dobrica2022 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Dobrica2022 schema1:identifier "missing" .
+<ex:temTAPP-Dobrica2022> schema1:identifier "missing" .
 
 
 ```
@@ -1243,12 +1232,11 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Dobrica2022-2 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Dobrica2022-2 ;
+<ex:detail-Dobrica2022-2> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Dobrica2022-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1263,7 +1251,7 @@ ex:detail-Dobrica2022-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Dobrica2022-2 schema1:identifier "missing" .
+<ex:temTAPP-Dobrica2022-2> schema1:identifier "missing" .
 
 
 ```
@@ -1348,12 +1336,11 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Singerling2025 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Singerling2025 ;
+<ex:detail-Singerling2025> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Singerling2025> ;
     ada:analysisEndDate "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "December 2023" ;
@@ -1368,7 +1355,7 @@ ex:detail-Singerling2025 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Singerling2025 schema1:identifier "missing" .
+<ex:temTAPP-Singerling2025> schema1:identifier "missing" .
 
 
 ```
@@ -1453,12 +1440,11 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Thompson2020 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Thompson2020 ;
+<ex:detail-Thompson2020> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Thompson2020> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1473,7 +1459,7 @@ ex:detail-Thompson2020 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Thompson2020 schema1:identifier "missing" .
+<ex:temTAPP-Thompson2020> schema1:identifier "missing" .
 
 
 ```
@@ -1558,12 +1544,11 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Xing2023 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Xing2023 ;
+<ex:detail-Xing2023> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Xing2023> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1578,7 +1563,7 @@ ex:detail-Xing2023 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Xing2023 schema1:identifier "missing" .
+<ex:temTAPP-Xing2023> schema1:identifier "missing" .
 
 
 ```
@@ -1663,12 +1648,11 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Seifert2026 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Seifert2026 ;
+<ex:detail-Seifert2026> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Seifert2026> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1683,7 +1667,7 @@ ex:detail-Seifert2026 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Seifert2026 schema1:identifier "missing" .
+<ex:temTAPP-Seifert2026> schema1:identifier "missing" .
 
 
 ```
@@ -1768,12 +1752,11 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Seifert2026-2 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Seifert2026-2 ;
+<ex:detail-Seifert2026-2> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Seifert2026-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1788,7 +1771,7 @@ ex:detail-Seifert2026-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Seifert2026-2 schema1:identifier "missing" .
+<ex:temTAPP-Seifert2026-2> schema1:identifier "missing" .
 
 
 ```
@@ -1873,12 +1856,11 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Cymes2023 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Cymes2023 ;
+<ex:detail-Cymes2023> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Cymes2023> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1893,7 +1875,7 @@ ex:detail-Cymes2023 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Cymes2023 schema1:identifier "missing" .
+<ex:temTAPP-Cymes2023> schema1:identifier "missing" .
 
 
 ```
@@ -1978,12 +1960,11 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Cymes2023-2 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Cymes2023-2 ;
+<ex:detail-Cymes2023-2> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Cymes2023-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1998,7 +1979,7 @@ ex:detail-Cymes2023-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Cymes2023-2 schema1:identifier "missing" .
+<ex:temTAPP-Cymes2023-2> schema1:identifier "missing" .
 
 
 ```
@@ -2083,12 +2064,11 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Mo2022 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Mo2022 ;
+<ex:detail-Mo2022> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Mo2022> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2103,7 +2083,7 @@ ex:detail-Mo2022 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Mo2022 schema1:identifier "missing" .
+<ex:temTAPP-Mo2022> schema1:identifier "missing" .
 
 
 ```
@@ -2188,12 +2168,11 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Mo2022-2 a ada:TEMImage ;
-    schema1:measurementTechnique ex:temTAPP-Mo2022-2 ;
+<ex:detail-Mo2022-2> a ada:TEMImage ;
+    schema1:measurementTechnique <ex:temTAPP-Mo2022-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2208,7 +2187,7 @@ ex:detail-Mo2022-2 a ada:TEMImage ;
     ada:samplingUnit "missing" ;
     ada:sessionIdentifier "missing" .
 
-ex:temTAPP-Mo2022-2 schema1:identifier "missing" .
+<ex:temTAPP-Mo2022-2> schema1:identifier "missing" .
 
 
 ```
@@ -4443,10 +4422,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

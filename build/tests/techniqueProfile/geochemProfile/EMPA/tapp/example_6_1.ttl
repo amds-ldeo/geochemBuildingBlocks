@@ -1,12 +1,11 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:empaTAPP-P5 a cdi:Activity,
+<ex:empaTAPP-P5> a cdi:Activity,
         schema1:Action,
         prov:Plan,
         ada:TAPPDefinition,
@@ -26,8 +25,8 @@ ex:empaTAPP-P5 a cdi:Activity,
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group." ;
-    schema1:instrument <https://example.org/instrument/EPMA>,
-        <https://example.org/instrument/SEM> ;
+    schema1:instrument <ex:instrument/EPMA>,
+        <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -59,13 +58,13 @@ ex:empaTAPP-P5 a cdi:Activity,
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" .
 
-<https://example.org/instrument/EPMA> a schema1:Product,
+<ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EPMA" ;
-    schema1:hasPart <https://example.org/instrument/EPMA/part/EDS-Detector>,
-        <https://example.org/instrument/EPMA/part/Electron-Source>,
-        <https://example.org/instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:hasPart <ex:instrument/EPMA/part/EDS-Detector>,
+        <ex:instrument/EPMA/part/Electron-Source>,
+        <ex:instrument/EPMA/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Cameca" ] ;
     schema1:name "example instrumentName" ;
@@ -73,26 +72,26 @@ ex:empaTAPP-P5 a cdi:Activity,
     ada:beamDiameterDefault "1 µm (focused)" ;
     ada:beamMode "Focused (point analysis); mapping beam mode N" .
 
-<https://example.org/instrument/EPMA/part/EDS-Detector> a schema1:Product,
+<ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/EPMA/part/Electron-Source> a schema1:Product,
+<ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+<ex:instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
-<https://example.org/instrument/SEM> a schema1:Product,
+<ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "SEM" ;

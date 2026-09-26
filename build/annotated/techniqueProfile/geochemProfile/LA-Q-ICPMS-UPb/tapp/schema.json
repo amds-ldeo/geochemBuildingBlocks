@@ -25,6 +25,9 @@
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/uPb/schema.json#/$defs/ProcedureIdentification"
     },
     {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.json#/$defs/ProcedureIdentification"
+    },
+    {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.json#/$defs/ProcedureIdentification"
     },
     {
@@ -1546,15 +1549,15 @@
             }
           ]
         },
-        "ada:analyteTemplate": {
+        "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
-            "ada:analyteColumns": {
+            "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/AnalyteIdentifierColumn"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/TargetSpeciesIdentifierColumn"
                   },
                   {
                     "title": "Monitored Masses",
@@ -1562,7 +1565,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/monitoredMasses"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses"
                       },
                       "@type": {
                         "const": [
@@ -1603,7 +1606,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass"
                       },
                       "@type": {
                         "const": [
@@ -1651,7 +1654,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -1692,7 +1695,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -1733,7 +1736,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/interferingSpecies"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies"
                       },
                       "@type": {
                         "const": [
@@ -1774,7 +1777,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod"
                       },
                       "@type": {
                         "const": [
@@ -1815,7 +1818,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1856,7 +1859,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1896,7 +1899,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -1937,7 +1940,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -1977,7 +1980,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -2021,7 +2024,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/monitoredMasses"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/monitoredMasses"
                       },
                       "@type": {
                         "const": [
@@ -2066,7 +2069,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/dwellTimePerMass"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/dwellTimePerMass"
                       },
                       "@type": {
                         "const": [
@@ -2118,7 +2121,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/calibrationStrategyPerTargetSpecies"
                       },
                       "@type": {
                         "const": [
@@ -2163,7 +2166,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/spectralInterferenceCorrectionsApplied"
                       },
                       "@type": {
                         "const": [
@@ -2208,7 +2211,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/interferingSpecies"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferingSpecies"
                       },
                       "@type": {
                         "const": [
@@ -2253,7 +2256,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/interferenceCorrectionMethod"
                       },
                       "@type": {
                         "const": [
@@ -2298,7 +2301,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -2343,7 +2346,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -2387,7 +2390,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [
@@ -2432,7 +2435,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/countingStatisticsError"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/countingStatisticsError"
                       },
                       "@type": {
                         "const": [
@@ -2476,7 +2479,7 @@
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:analyteColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                        "const": "ada:targetSpeciesColumn/laQicpmsUPbTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
                       },
                       "@type": {
                         "const": [

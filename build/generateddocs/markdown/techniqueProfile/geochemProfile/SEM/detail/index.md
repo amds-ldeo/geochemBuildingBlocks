@@ -108,12 +108,11 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Garvie2008 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Garvie2008 ;
+<ex:detail-Garvie2008> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Garvie2008> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -138,7 +137,7 @@ ex:detail-Garvie2008 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Garvie2008 schema1:identifier "missing" .
+<ex:semTAPP-Garvie2008> schema1:identifier "missing" .
 
 
 ```
@@ -243,12 +242,11 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Garvie2008-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Garvie2008-2 ;
+<ex:detail-Garvie2008-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Garvie2008-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -273,7 +271,7 @@ ex:detail-Garvie2008-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Garvie2008-2 schema1:identifier "missing" .
+<ex:semTAPP-Garvie2008-2> schema1:identifier "missing" .
 
 
 ```
@@ -378,12 +376,11 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Genge2025 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Genge2025 ;
+<ex:detail-Genge2025> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Genge2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -408,7 +405,7 @@ ex:detail-Genge2025 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Genge2025 schema1:identifier "missing" .
+<ex:semTAPP-Genge2025> schema1:identifier "missing" .
 
 
 ```
@@ -513,12 +510,11 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Genge2025-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Genge2025-2 ;
+<ex:detail-Genge2025-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Genge2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -543,7 +539,7 @@ ex:detail-Genge2025-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Genge2025-2 schema1:identifier "missing" .
+<ex:semTAPP-Genge2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -648,12 +644,11 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Genge2025-3 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Genge2025-3 ;
+<ex:detail-Genge2025-3> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Genge2025-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -678,7 +673,7 @@ ex:detail-Genge2025-3 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Genge2025-3 schema1:identifier "missing" .
+<ex:semTAPP-Genge2025-3> schema1:identifier "missing" .
 
 
 ```
@@ -783,12 +778,11 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Gucsik2013 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Gucsik2013 ;
+<ex:detail-Gucsik2013> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Gucsik2013> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -813,7 +807,7 @@ ex:detail-Gucsik2013 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Gucsik2013 schema1:identifier "missing" .
+<ex:semTAPP-Gucsik2013> schema1:identifier "missing" .
 
 
 ```
@@ -918,12 +912,11 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Gucsik2013-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Gucsik2013-2 ;
+<ex:detail-Gucsik2013-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Gucsik2013-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -948,7 +941,7 @@ ex:detail-Gucsik2013-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Gucsik2013-2 schema1:identifier "missing" .
+<ex:semTAPP-Gucsik2013-2> schema1:identifier "missing" .
 
 
 ```
@@ -1053,12 +1046,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Izawa2010 ;
+<ex:detail-Izawa2010> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Izawa2010> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1083,7 +1075,7 @@ ex:detail-Izawa2010 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Izawa2010 schema1:identifier "missing" .
+<ex:semTAPP-Izawa2010> schema1:identifier "missing" .
 
 
 ```
@@ -1188,12 +1180,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Izawa2010-2 ;
+<ex:detail-Izawa2010-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Izawa2010-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1218,7 +1209,7 @@ ex:detail-Izawa2010-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Izawa2010-2 schema1:identifier "missing" .
+<ex:semTAPP-Izawa2010-2> schema1:identifier "missing" .
 
 
 ```
@@ -1323,12 +1314,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010-3 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Izawa2010-3 ;
+<ex:detail-Izawa2010-3> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Izawa2010-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1353,7 +1343,7 @@ ex:detail-Izawa2010-3 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Izawa2010-3 schema1:identifier "missing" .
+<ex:semTAPP-Izawa2010-3> schema1:identifier "missing" .
 
 
 ```
@@ -1458,12 +1448,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010-4 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Izawa2010-4 ;
+<ex:detail-Izawa2010-4> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Izawa2010-4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1488,7 +1477,7 @@ ex:detail-Izawa2010-4 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Izawa2010-4 schema1:identifier "missing" .
+<ex:semTAPP-Izawa2010-4> schema1:identifier "missing" .
 
 
 ```
@@ -1593,12 +1582,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Izawa2010-5 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Izawa2010-5 ;
+<ex:detail-Izawa2010-5> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Izawa2010-5> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1623,7 +1611,7 @@ ex:detail-Izawa2010-5 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Izawa2010-5 schema1:identifier "missing" .
+<ex:semTAPP-Izawa2010-5> schema1:identifier "missing" .
 
 
 ```
@@ -1728,12 +1716,11 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2017 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Liu2017 ;
+<ex:detail-Liu2017> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Liu2017> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1758,7 +1745,7 @@ ex:detail-Liu2017 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Liu2017 schema1:identifier "missing" .
+<ex:semTAPP-Liu2017> schema1:identifier "missing" .
 
 
 ```
@@ -1863,12 +1850,11 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2017-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Liu2017-2 ;
+<ex:detail-Liu2017-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Liu2017-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -1893,7 +1879,7 @@ ex:detail-Liu2017-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Liu2017-2 schema1:identifier "missing" .
+<ex:semTAPP-Liu2017-2> schema1:identifier "missing" .
 
 
 ```
@@ -1998,12 +1984,11 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Liu2017-3 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Liu2017-3 ;
+<ex:detail-Liu2017-3> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Liu2017-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2028,7 +2013,7 @@ ex:detail-Liu2017-3 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Liu2017-3 schema1:identifier "missing" .
+<ex:semTAPP-Liu2017-3> schema1:identifier "missing" .
 
 
 ```
@@ -2133,12 +2118,11 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Ma2017 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Ma2017 ;
+<ex:detail-Ma2017> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Ma2017> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2163,7 +2147,7 @@ ex:detail-Ma2017 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Ma2017 schema1:identifier "missing" .
+<ex:semTAPP-Ma2017> schema1:identifier "missing" .
 
 
 ```
@@ -2268,12 +2252,11 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Ma2017-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Ma2017-2 ;
+<ex:detail-Ma2017-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Ma2017-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2298,7 +2281,7 @@ ex:detail-Ma2017-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Ma2017-2 schema1:identifier "missing" .
+<ex:semTAPP-Ma2017-2> schema1:identifier "missing" .
 
 
 ```
@@ -2403,12 +2386,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Pascucci2026 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Pascucci2026 ;
+<ex:detail-Pascucci2026> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Pascucci2026> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2433,7 +2415,7 @@ ex:detail-Pascucci2026 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Pascucci2026 schema1:identifier "missing" .
+<ex:semTAPP-Pascucci2026> schema1:identifier "missing" .
 
 
 ```
@@ -2538,12 +2520,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Pascucci2026-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Pascucci2026-2 ;
+<ex:detail-Pascucci2026-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Pascucci2026-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2568,7 +2549,7 @@ ex:detail-Pascucci2026-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Pascucci2026-2 schema1:identifier "missing" .
+<ex:semTAPP-Pascucci2026-2> schema1:identifier "missing" .
 
 
 ```
@@ -2673,12 +2654,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Pascucci2026-3 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Pascucci2026-3 ;
+<ex:detail-Pascucci2026-3> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Pascucci2026-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2703,7 +2683,7 @@ ex:detail-Pascucci2026-3 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Pascucci2026-3 schema1:identifier "missing" .
+<ex:semTAPP-Pascucci2026-3> schema1:identifier "missing" .
 
 
 ```
@@ -2808,12 +2788,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Pascucci2026-4 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Pascucci2026-4 ;
+<ex:detail-Pascucci2026-4> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Pascucci2026-4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2838,7 +2817,7 @@ ex:detail-Pascucci2026-4 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Pascucci2026-4 schema1:identifier "missing" .
+<ex:semTAPP-Pascucci2026-4> schema1:identifier "missing" .
 
 
 ```
@@ -2943,12 +2922,11 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zhou2017 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zhou2017 ;
+<ex:detail-Zhou2017> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zhou2017> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -2973,7 +2951,7 @@ ex:detail-Zhou2017 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zhou2017 schema1:identifier "missing" .
+<ex:semTAPP-Zhou2017> schema1:identifier "missing" .
 
 
 ```
@@ -3078,12 +3056,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025 ;
+<ex:detail-Zega2025> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3108,7 +3085,7 @@ ex:detail-Zega2025 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025> schema1:identifier "missing" .
 
 
 ```
@@ -3213,12 +3190,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-2 ;
+<ex:detail-Zega2025-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3243,7 +3219,7 @@ ex:detail-Zega2025-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-2 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -3348,12 +3324,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-3 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-3 ;
+<ex:detail-Zega2025-3> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3378,7 +3353,7 @@ ex:detail-Zega2025-3 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-3 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-3> schema1:identifier "missing" .
 
 
 ```
@@ -3483,12 +3458,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-4 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-4 ;
+<ex:detail-Zega2025-4> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3513,7 +3487,7 @@ ex:detail-Zega2025-4 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-4 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-4> schema1:identifier "missing" .
 
 
 ```
@@ -3618,12 +3592,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-5 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-5 ;
+<ex:detail-Zega2025-5> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-5> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3648,7 +3621,7 @@ ex:detail-Zega2025-5 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-5 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-5> schema1:identifier "missing" .
 
 
 ```
@@ -3753,12 +3726,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-6 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-6 ;
+<ex:detail-Zega2025-6> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-6> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3783,7 +3755,7 @@ ex:detail-Zega2025-6 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-6 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-6> schema1:identifier "missing" .
 
 
 ```
@@ -3888,12 +3860,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-7 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-7 ;
+<ex:detail-Zega2025-7> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-7> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -3918,7 +3889,7 @@ ex:detail-Zega2025-7 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-7 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-7> schema1:identifier "missing" .
 
 
 ```
@@ -4023,12 +3994,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-8 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-8 ;
+<ex:detail-Zega2025-8> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-8> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -4053,7 +4023,7 @@ ex:detail-Zega2025-8 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-8 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-8> schema1:identifier "missing" .
 
 
 ```
@@ -4158,12 +4128,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Zega2025-9 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Zega2025-9 ;
+<ex:detail-Zega2025-9> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Zega2025-9> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -4188,7 +4157,7 @@ ex:detail-Zega2025-9 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Zega2025-9 schema1:identifier "missing" .
+<ex:semTAPP-Zega2025-9> schema1:identifier "missing" .
 
 
 ```
@@ -4293,12 +4262,11 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Barnes2025 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Barnes2025 ;
+<ex:detail-Barnes2025> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Barnes2025> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -4323,7 +4291,7 @@ ex:detail-Barnes2025 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Barnes2025 schema1:identifier "missing" .
+<ex:semTAPP-Barnes2025> schema1:identifier "missing" .
 
 
 ```
@@ -4428,12 +4396,11 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Barnes2025-2 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Barnes2025-2 ;
+<ex:detail-Barnes2025-2> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Barnes2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -4458,7 +4425,7 @@ ex:detail-Barnes2025-2 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Barnes2025-2 schema1:identifier "missing" .
+<ex:semTAPP-Barnes2025-2> schema1:identifier "missing" .
 
 
 ```
@@ -4563,12 +4530,11 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Barnes2025-3 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Barnes2025-3 ;
+<ex:detail-Barnes2025-3> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Barnes2025-3> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -4593,7 +4559,7 @@ ex:detail-Barnes2025-3 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Barnes2025-3 schema1:identifier "missing" .
+<ex:semTAPP-Barnes2025-3> schema1:identifier "missing" .
 
 
 ```
@@ -4698,12 +4664,11 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix ex: <https://example.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:detail-Barnes2025-4 a ada:SEMImage ;
-    schema1:measurementTechnique ex:semTAPP-Barnes2025-4 ;
+<ex:detail-Barnes2025-4> a ada:SEMImage ;
+    schema1:measurementTechnique <ex:semTAPP-Barnes2025-4> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
@@ -4728,7 +4693,7 @@ ex:detail-Barnes2025-4 a ada:SEMImage ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "missing" .
 
-ex:semTAPP-Barnes2025-4 schema1:identifier "missing" .
+<ex:semTAPP-Barnes2025-4> schema1:identifier "missing" .
 
 
 ```
@@ -6481,10 +6446,6 @@ Links to the schema:
     "dqv": "http://www.w3.org/ns/dqv#",
     "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://w3id.org/cdif/",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }
