@@ -55,7 +55,7 @@ X-ray Line Overlap Corrections Applied,Basic,Read-Only,Controlled list / Text,$M
 Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,triage decision (reviewer),target species
 Laboratory,Basic,Editable,Text (free),,module,shared,placement owned by Module Core,
 Laboratory ID,Advanced,Editable,URI / DOI,,module,shared,placement owned by Module Core,
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,new in this revision (needs mapping),
 Mass Absorption Coefficients (MACs),Basic,Read-Only,Controlled list,$MethodDefinition.ada:massAbsorptionCoefficients,inferred,shared,,
 Matrix Correction Method,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:matrixCorrectionMethod,inferred,shared,,
@@ -69,7 +69,7 @@ Procedure Name,Basic,Read-Only,Text (free),,module,shared,placement owned by Mod
 Procedure Reference(s),Advanced,Read-Only,URI / DOI,,module,shared,placement owned by Module Core,
 Procedure Start Date,Basic,Read-Only,Date,,module,shared,placement owned by Module Core,
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,defines: standard
 Sequence,Advanced,Read-Only,Integer,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],authored,shared,divergence decision applied,monitored property
@@ -99,3 +99,4 @@ Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placemen
 ,,,,,,,,
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Monitored Elements,Basic,Read-Only,Text (free),$MethodDefinition.ada:monitoredElements[],authored,,list of strings.  ,defines: monitored property per target species
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit

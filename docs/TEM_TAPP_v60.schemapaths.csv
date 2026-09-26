@@ -21,8 +21,8 @@ Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,,placeme
 Sample Preparation Details,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Sample Preparation Details'].schema:defaultValue,inferred,,,
 Sample Preparation Details,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Sample Preparation Details'].schema:value,inferred,,,
 Sample Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,inferred,,,
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:object[@type='isam:materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,inferred,,,sample
@@ -135,3 +135,4 @@ Additional Notes,Advanced,Advanced,Text (free),,module,,placement owned by Modul
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 EELS Chemical State Determination Method,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='EELS Chemical State Determination Method'].schema:defaultValue,authored,,"new in the 2026-09 delivery. Advanced/Editable and unkeyed, so the dual-homed pair on the plain additionalProperty route, matching Sample Holder and the sibling EELS Energy Resolution.",
 EELS Chemical State Determination Method,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Chemical State Determination Method'].schema:value,authored,,"new in the 2026-09 delivery. Advanced/Editable and unkeyed, so the dual-homed pair on the plain additionalProperty route, matching Sample Holder and the sibling EELS Energy Resolution.",
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit

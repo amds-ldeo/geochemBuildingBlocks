@@ -21,8 +21,8 @@ Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:value,authored,,dual-home decision: analysis-tier value,
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:defaultValue,authored,,dual-home decision: protocol default,
 Fusion Flux and Dilution Ratio,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Fusion Flux and Dilution Ratio'].schema:value,authored,,dual-home decision: analysis-tier value,
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
@@ -32,6 +32,7 @@ Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGen
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,inferred,,path from owning module,sample
 Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,inferred,,path from owning module,sample
+Chemical Abrasion Conditions,Basic,Read-Only,Text (free),,module,,placement owned by Module UPb,
 Laser Manufacturer & Model,Basic,Read-Only,Text (free),,module,shared,placement owned by Module LaserAblation,
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:model.schema:name,authored,shared,,
 ICP-MS Type,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module ICPMS,
@@ -103,8 +104,6 @@ Triple Scanning Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,,placement owned by Module ICPMS,
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:value,inferred,,,
 Dwell Time per Mass,Basic,Editable,Numeric (ms) / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,monitored property
-Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault,inferred,,,
-Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value,inferred,,,
 Background Count Time,Basic,Editable,Numeric (s),,module,,placement owned by Module LaserAblation,
 Background Count Time,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Background Count Time'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
 Analysis Location/Spot Coordinates,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Mapped area description'].schema:value,authored,shared,path from owning module,sample > sampling unit
@@ -136,8 +135,18 @@ Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,analysis-instance (needs mapping) | path from owning module,target species
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,
-Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.ada:constantsAndReferenceValuesUsedDefault,inferred,,,
-Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Constants and Reference Values Used'].schema:value,inferred,,,
+Age Calculation Method,Basic,Read-Only,Text (free),,module,,placement owned by Module Geochronology,reported property
+Reported Date Type,Basic,Editable,Controlled list,,module,,"covered by Module_Geochronology. Was an inferred $Dataset.prov:wasGeneratedBy.schema:additionalProperty[...] against the module's four AUTHORED rows, two of which match the table's 'reported property' key. All three U-Pb consumers had the same inferred guess, which is agreement between guesses, not evidence.",reported property
+Inherited or Initial Signal Correction,Basic,Editable,Text (free),,module,,placement owned by Module Geochronology,reported property
+Radiogenic Fraction of Measured Signal,N/A,Basic,Text (free),,module,module,covered by a composed module; the module owns the placement,reported property
+Age Model,Basic,Editable,Text (free),,module,,placement owned by Module Geochronology,reported property
+Age Datum / Reference Epoch,Advanced,Basic,Text (free),,module,,placement owned by Module Geochronology,reported property
+Intermediate Daughter Disequilibrium Correction,Advanced,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Intermediate Daughter Disequilibrium Correction'].schema:value,inferred,,path from owning module,
+Discordance Definition and Values,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Discordance Definition and Values'].schema:value,inferred,,path from owning module,pair: reported property
+Error Correlation Between Reported Quantities,Advanced,Basic,Numeric (dimensionless) / Text,$MethodDefinition.schema:additionalProperty[schema:name='Error Correlation Between Reported Quantities'].schema:defaultValue,inferred,,,pair: reported property
+Error Correlation Between Reported Quantities,Advanced,Basic,Numeric (dimensionless) / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Error Correlation Between Reported Quantities'].schema:value,inferred,,,pair: reported property
+Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,dual-home decision: protocol default,
+Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,dual-home decision: analysis-tier value,
 Primary Calibration Standard Name,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,target species
 Calibration Standard Measurement Frequency,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
 Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
@@ -151,9 +160,16 @@ Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placemen
 Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,reported property
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,[not in current workbook],acquisition pass
+Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:massesMeasuredDefault,authored,,dual-home decision: protocol default [not in current workbook],defines: monitored property per target species
+Monitored Masses,Basic,Read-Only,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Monitored Masses'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,defines: monitored property per target species
+Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault,authored,,dual-home decision: protocol default [not in current workbook],
+Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
+Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,,placement owned by Module ICPMS,monitored property
+Ion Counter Dead Time,Basic,Editable,Numeric (ns),$MethodDefinition.schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:defaultValue,inferred,,[not in current workbook],
 Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:manufacturer.schema:name,authored,,"placement copied from this workbook's own Instrument Model row, substituting schema:manufacturer for schema:model",
 Counting Statistics Error,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,,"keyed-value column: the analyte table's rows carry member identity, so a field keyed 'sample > sampling unit x reported property' needs no member identifier in the path. Unanimous across the three siblings that place it (EPMA, SEM, SEM_Composition), same key",sample > sampling unit x reported property
 Internal (Within-Measurement) Analytical Precision and Assessment Method,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,,"keyed-value column, by analogy under the same Rule 7 key: every placed row keyed 'sample > sampling unit x reported property' in the corpus (12 of 12, Counting Statistics Error) uses analyteColumns, and this field's near-twin Within-Session Analytical Precision and Assessment Method takes it under the neighbouring 'standard x reported property' key",sample > sampling unit x reported property
 Inter-Pass Data Dependency,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value,authored,,"off-step procedure property, per the reviewer's rule: the step is used only where a 'defines: acquisition pass' value exists. Advanced/Read-Only takes a single $MethodDefinition home (104 of 104 such item-instances) with a schema:value terminal (73 of 73)",acquisition pass
 Acquisition Pass,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:description,authored,,"definer: the Data acquisition step's description, per the settled mapping. Emits only when the cell has a value; empty in 56 of 57 publication columns, and an empty cell never reaches the emitter",defines: acquisition pass
 Number of Acquisition Passes,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfAcquisitionPasses,authored,,"count of the passes enumerated in Acquisition Pass; keyed (none), so it needs no pass identifier and is placeable ahead of the rest of the pass family",
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit

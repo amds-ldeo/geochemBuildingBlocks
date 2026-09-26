@@ -119,10 +119,10 @@ Protective Coating Deposition,Basic,Editable,Text (free),$MethodDefinition.schem
 Protective Coating Deposition,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:additionalProperty[schema:name='Protective Coating Deposition'].schema:value,authored,,new in this revision (needs mapping),
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Sample Tilt Angle,Basic,Read-Only,Numeric (degrees),$MethodDefinition.ada:sampleTiltAngle,authored,,new in this revision (needs mapping),
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
 SE Detector Type,Basic,Read-Only,Controlled list,$MethodDefinition.ada:seDetectorType,authored,,new in this revision (needs mapping),
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,defines: standard
 Sequence,Advanced,Read-Only,Integer,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
@@ -148,3 +148,4 @@ Working Distance,Basic,Editable,Numeric (mm),$Dataset.prov:wasGeneratedBy.schema
 X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,divergent,channel keyed table (was mis-mapped),monitored property
 Voxel Size and Image Stack Dimensions,N/A,Basic,Text (free),$Dataset.ada:imageStackDimenstions,authored,,,
 Monitored Elements,Basic,Read-Only,Text (free),$MethodDefinition.ada:monitoredElements[],authored,,"definer for 'monitored property per target species'. Copied from EPMA_TAPP_v68, whose path carried a typo (ada:monitoredEleemnts) corrected in the same commit -- camel() yields monitoredElements, which the generator's own placeholder text already used",defines: monitored property per target species
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit

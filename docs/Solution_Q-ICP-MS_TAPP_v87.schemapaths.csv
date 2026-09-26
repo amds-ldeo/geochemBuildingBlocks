@@ -17,7 +17,7 @@ Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owne
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Target Material'].schema:value[],inferred,shared,,
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Description,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:description,authored,shared,analysis-instance (needs mapping),
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Digestion Acid(s),Basic,Read-Only,Text (free),,module,shared,placement owned by Module SolutionIntroduction,preparation step
@@ -114,7 +114,7 @@ Between-Session (Long-Term) Analytical Precision and Assessment Method,Advanced,
 Analytical Accuracy and Assessment Method,Basic,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],inferred,shared,,standard x reported property
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
 Sample Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,
 Analytical Mode,Basic,Read-Only,Controlled list,,module,,placement owned by Module Core,
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
 Uncertainty Level,Basic,Read-Only,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,
@@ -139,3 +139,4 @@ Internal (Within-Measurement) Analytical Precision and Assessment Method,Advance
 Digestion Step,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample digestion'].schema:description,authored,,"definer for 'preparation step', placed exactly as Acquisition Pass was: the step's description. 'Sample digestion' is pinned by the three Solution profiles and by no other technique in the corpus -- the same three that carry Digestion Step -- so the step and the field were introduced for each other",defines: preparation step
 Acquisition Pass,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:description,authored,,"definer: the Data acquisition step's description, per the settled mapping. Emits only when the cell has a value; empty in 56 of 57 publication columns, and an empty cell never reaches the emitter",defines: acquisition pass
 Number of Acquisition Passes,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfAcquisitionPasses,authored,,"count of the passes enumerated in Acquisition Pass; keyed (none), so it needs no pass identifier and is placeable ahead of the rest of the pass family",
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit

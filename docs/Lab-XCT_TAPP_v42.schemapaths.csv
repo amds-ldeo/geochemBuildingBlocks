@@ -26,7 +26,7 @@ Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:w
 Sample Mounting Method,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='Sample Mounting Method'].schema:defaultValue,inferred,,,
 Sample Mounting Method,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sample Mounting Method'].schema:value,inferred,,path corrected: analysis-tier value hangs off prov:wasGeneratedBy,
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Notes,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,,"sample-preparation step, following the EPMA convention",
 Sample Preparation Notes,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Sample preparation'].schema:description,authored,,"sample-preparation step, following the EPMA convention",
 X-ray Source Configuration,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:xRaySourceConfiguration,inferred,,,
@@ -69,7 +69,7 @@ Flat Field Correction,Basic,Editable,Controlled list / Text,$MethodDefinition.sc
 Flat Field Correction,Basic,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Flat Field Correction'].schema:value,authored,,dual-home decision: analysis-tier value,
 Rotation Mode,Basic,Editable,Controlled list,$MethodDefinition.ada:rotationModeDefault,authored,,dual-home decision: protocol default,
 Rotation Mode,Basic,Editable,Controlled list,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Rotation Mode'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
 Minimum Sub-volume Overlap,Basic,Read-Only,Integer,$MethodDefinition.ada:minimumSubVolumeOverlap,inferred,,,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,authored,,tier rule: added the missing per-analysis value,
@@ -123,3 +123,4 @@ Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='XCT'].schema:model.schema:name,authored,,new in v21; follows the existing XCT/EPMA convention,
 Data Processing Software(s),Basic,Editable,Text (free),,module,,placement owned by Module Core,
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit

@@ -145,10 +145,10 @@ Sample Form / Analytical Substrate,Basic,Editable,Controlled list / Text,$Method
 Sample Form / Analytical Substrate,Basic,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Form Analytical Substrate'].schema:value,authored,,dual-home decision: analysis-tier value,
 Sample Introduction,Basic,Read-Only,Text (free),,module,,placement owned by Module LaserAblation,
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,
 Sampler and Skimmer Cone Material,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:hasPart[schema:additionalType='Interface Cone'].schema:additionalProperty[schema:name='Sampler and Skimmer Cone Material'].schema:value,authored,shared,,
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
 Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
 Instrument Sensitivity,N/A,Advanced,Numeric + unit / Text,,module,module,"covered by Module_ICPMS; the module owns the placement. Was an authored $MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[] -- wrong on three counts: Procedure tier is N/A so the procedure does not carry it, the table keys it 'channel' not 'analyte', and the other eight ICPMS consumers are all module-owned. See the module's own missing keyed row, still open.",monitored property
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
@@ -182,3 +182,4 @@ Reaction Product Ion / Mass-Shift Transition,Advanced,Read-Only,Text (free),$Met
 Inter-Pass Data Dependency,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value,authored,,"off-step procedure property, per the reviewer's rule: the step is used only where a 'defines: acquisition pass' value exists. Advanced/Read-Only takes a single $MethodDefinition home (104 of 104 such item-instances) with a schema:value terminal (73 of 73)",acquisition pass
 Acquisition Pass,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:description,authored,,"definer: the Data acquisition step's description, per the settled mapping. Emits only when the cell has a value; empty in 56 of 57 publication columns, and an empty cell never reaches the emitter",defines: acquisition pass
 Number of Acquisition Passes,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfAcquisitionPasses,authored,,"count of the passes enumerated in Acquisition Pass; keyed (none), so it needs no pass identifier and is placeable ahead of the rest of the pass family",
+Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit
