@@ -43,7 +43,7 @@ FIRST_CLASS = (
     # $Dataset parameter to pair a default with
     "ada:monitoredPropertyTemplate", "ada:reportedPropertyTemplate",
     "dqv:hasQualityMeasurement", "schema:actionProcess", "schema:name", "schema:description",
-    "schema:version", "schema:datePublished", "ada:samplingUnit",
+    "schema:version", "schema:datePublished", "ada:samplingUnitType",
     # A distribution's encodingFormat is a first-class CDIF slot on schema:distribution, not a
     # parameter of the procedure: the format is a fact about the file, and CDIF's dataDownload
     # already fixes its shape (an array of strings). Forcing it into an additionalProperty bag would

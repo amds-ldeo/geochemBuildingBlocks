@@ -201,7 +201,15 @@ def recognize(s):
         (r"^\$MethodDefinition\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "instrument-component-parameter"),
         (r"^\$MethodDefinition\.schema:(creator|location|measurementTechnique|object|funding)\b.*", "inherited-identity"),
         # dataset side (belongs on the analysis session / detail, not the reusable protocol)
-        (r"^\$Dataset\.schema:contributor\[schema:roleName='[^']*'\](\.schema:(name|identifier))?$", "dataset-contributor"),
+        # schema.org's Role pattern: the Role node carries schema:roleName, and the PERSON hangs
+        # off a property of the SAME name as the one the Role occupies -- so a contributor Role
+        # nests schema:contributor, and the name sits on that. This family admitted only a name
+        # directly ON the Role, which the corpus says never happens: Core's `Analyst` row records
+        # 647 of 647 ADA contributors using the nested shape and none carrying a name on the Role.
+        # So the authored path was right and this recogniser was wrong, which is why `Analyst`
+        # reported as UNRECOGNISED for as long as it did. Both depths stay legal; only the nested
+        # one is attested.
+        (r"^\$Dataset\.schema:contributor\[schema:roleName='[^']*'\](\.schema:contributor)?(\.schema:(name|identifier))?$", "dataset-contributor"),
         (r"^\$Dataset\.schema:measurementTechnique(\.schema:DefinedTerm)?\.schema:identifier$", "dataset-measurement-technique"),
         # identifier joins the dates: all three are the session's own, and the session is the
         # activity. Group1's Session Identifier lands here rather than in a parameter bag, which is
@@ -250,6 +258,14 @@ def recognize(s):
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
+        # A sampling unit nested in the sample it belongs to, from Core v8's split of the old
+        # `Sampling Unit` (amds-ldeo/tapp#8). The TYPE stays a procedure property
+        # (`ada:samplingUnitType`, admitted by the procedure ada- family); these are the named
+        # INSTANCES, and they are analysis-side only because which grains or spots were measured
+        # cannot be known until the session runs. Kept to schema:name plus per-unit parameters:
+        # the domain's existing consumers are NOT relocated here, so nothing else is admitted yet.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.schema:(name|description)$", "dataset-sampling-unit"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sampling-unit-parameter"),
         # Funding mirrors the procedure side, which the catch-all `inherited-identity` family
         # above already admits in this exact shape. `schema:MonetaryGrant` is an UpperCamel
         # @type-assertion segment, not navigation — the same device `dataset-measurement-technique`

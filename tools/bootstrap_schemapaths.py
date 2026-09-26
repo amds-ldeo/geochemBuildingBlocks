@@ -254,7 +254,15 @@ def keyed_path(row):
         # analysis cannot vary it (Read-Only) the procedure states a VALUE, not a default. Emitting
         # `…defaultValue` for every tier asserted an editable default that the tier denies.
         "reported property": _reported_property_paths(row, it),
-        "defines: sampling unit": ["$MethodDefinition.ada:samplingUnit"],
+        # Core v8 (amds-ldeo/tapp#8) split `Sampling Unit`. The definer is now the NAME, and it
+        # lives on the SAMPLE, because a sampling unit that belongs to no sample does not exist --
+        # which is why the key is the containment form `sample > sampling unit` and not
+        # `sampling unit per sample`, whose `per` parent is documented nullable. The old
+        # `defines: sampling unit` is retired: `ada:samplingUnitType` holds a controlled type and
+        # defines nothing, so it routes as a plain procedure property with no key.
+        "defines: sample > sampling unit":
+            [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
+             ".ada:samplingUnits[].schema:name"],
         "defines: sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}'].schema:name"],
         # Dual-homed, like `reported property`: the procedure states a default for the sample
         # property, and each analysis supplies its own value. Routing only the $Dataset half left

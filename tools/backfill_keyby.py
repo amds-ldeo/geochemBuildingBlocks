@@ -29,8 +29,12 @@ def kb_from_path(p):
         return "defines: reported property"
     if "schema:variableMeasured[" in p:
         return "reported property"
-    if p.endswith("ada:samplingUnit"):
-        return "defines: sampling unit"
+    # Core v8 split the old `Sampling Unit`: the TYPE sits on ada:samplingUnitType and defines
+    # nothing (a controlled type cannot enumerate its own instances -- amds-ldeo/tapp#8), while the
+    # NAME on the sample's ada:samplingUnits[] is the definer. Order matters: the sampling-unit
+    # branch must precede `defines: sample`, because both end in `.schema:name` under schema:object[.
+    if "ada:samplingUnits[" in p and p.endswith(".schema:name"):
+        return "defines: sample > sampling unit"
     if "schema:object[" in p and p.endswith(".schema:name"):
         return "defines: sample"
     if "schema:object[" in p and ".schema:additionalProperty[" in p:
