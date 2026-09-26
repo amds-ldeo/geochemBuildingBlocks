@@ -53,17 +53,40 @@ STAGES = [
 ]
 
 
-def run(cmd, dry):
+def run(cmd, dry, attempts=3):
+    """Run one stage. Retries ONLY an Errno 22 write fault, never a real build failure.
+
+    Windows intermittently refuses `open(path, "w")` with `OSError: [Errno 22] Invalid argument`
+    when something else is momentarily holding the file -- an indexer, antivirus, an open workbook.
+    It is not a build error and it does not repeat on the same file twice in a row, but a single
+    occurrence used to fail its technique and leave the run's later stages reasoning over a
+    half-written registry. On 2026-09-25 one such window took out a dozen consecutive techniques
+    in the `tapp` stage and wrecked a 30-minute run.
+
+    The condition is deliberately narrow: the output must actually name Errno 22. A genuine failure
+    still fails on the first attempt, because retrying a real error three times only delays it and
+    buries the traceback under duplicates.
+    """
     printable = " ".join(x if " " not in x else f'"{x}"' for x in cmd[1:])
     if dry:
         print(f"      would run: python {printable}")
         return 0
-    r = subprocess.run([sys.executable] + cmd[1:], cwd=ROOT, capture_output=True,
-                       text=True, encoding="utf-8", errors="replace")
-    if r.returncode:
+    for attempt in range(1, attempts + 1):
+        r = subprocess.run([sys.executable] + cmd[1:], cwd=ROOT, capture_output=True,
+                           text=True, encoding="utf-8", errors="replace")
+        if not r.returncode:
+            if attempt > 1:
+                print(f"      recovered on attempt {attempt}: python {printable}", flush=True)
+            return 0
+        out = (r.stderr or "") + (r.stdout or "")
+        if "Errno 22" in out and attempt < attempts:
+            print(f"      Errno 22 (transient write lock), retrying {attempt + 1}/{attempts}: "
+                  f"python {printable}", flush=True)
+            time.sleep(2 * attempt)
+            continue
         print(f"      FAILED: python {printable}", flush=True)
-        print((r.stderr or r.stdout or "")[-2000:])
-    return r.returncode
+        print(out[-2000:])
+        return r.returncode
 
 
 def main():
