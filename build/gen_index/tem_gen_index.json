@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:samplePreparationMethodDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:aberrationCorrector",
   "ada:spectroscopicDetectorDefault",
@@ -31,7 +31,6 @@
  ],
  "pt_keys": [
   "tem_samplePreparationDetailsDefault",
-  "tem_samplePersistentIdentifierDefault",
   "tem_preAnalysisImagingAndScreeningDefault",
   "tem_sampleHolderDefault",
   "tem_saedPatternSimulationSoftwareDefault",
@@ -116,7 +115,7 @@
   "analysisEndDate",
   "fundingSourceForAnalysis",
   "sampleName",
-  "samplingUnit",
+  "samplingUnitName",
   "analysisInclusionAndRejectionCriteria",
   "edsDetectionLimit",
   "edsDeadTime",
@@ -133,6 +132,8 @@
  ],
  "basic_required": [
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:aberrationCorrector",
   "ada:spectroscopicDetectorDefault",
   "ada:edsDetectorConfiguration",
@@ -145,12 +146,14 @@
   "ada:edsAcquisitionModeDefault",
   "ada:matrixCorrectionMethod",
   "ada:targetSpeciesDefault",
+  "ada:reportedVariablesAndUnits",
   "ada:eelsAcquisitionModeDefault",
   "ada:eelsEdgesDefault",
   "ada:eelsCollectionSemiAngle",
   "ada:eelsAcquisitionTimePerSpectrumDefault",
   "ada:eelsEnergyLossRangeDefault",
   "ada:phaseIdentificationMethod",
+  "ada:analysisInclusionAndRejectionCriteria",
   "ada:edsCalibrationStandardDefault"
  ],
  "basic_props": [
@@ -162,18 +165,18 @@
    "required": true
   },
   {
-   "key": "ada:samplingUnit",
-   "item": "Sampling Unit",
+   "key": "ada:samplingUnitType",
+   "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 21,
+   "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 21,
+   "required": true
   },
   {
    "key": "ada:aberrationCorrector",
@@ -270,8 +273,8 @@
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 21,
+   "required": true
   },
   {
    "key": "ada:eelsAcquisitionModeDefault",
@@ -326,8 +329,8 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 21,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",

@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:sampleFormAnalyticalSubstrateDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:chemicalAbrasionConditions",
@@ -69,7 +69,6 @@
   "schema:additionalProperty"
  ],
  "pt_keys": [
-  "laSficpmsUPb_samplePersistentIdentifierDefault",
   "laSficpmsUPb_fusionFluxAndDilutionRatioDefault",
   "laSficpmsUPb_preAblationSurfaceTreatmentDefault",
   "laSficpmsUPb_preAnalysisImagingAndScreeningDefault",
@@ -155,7 +154,7 @@
   "analysisEndDate",
   "fundingSourceForAnalysis",
   "sampleName",
-  "samplingUnit",
+  "samplingUnitName",
   "spotDiameter",
   "oxideProduction",
   "analysisLocationSpotCoordinates",
@@ -183,7 +182,9 @@
  ],
  "basic_required": [
   "ada:sampleFormAnalyticalSubstrateDefault",
+  "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:laserManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
@@ -207,6 +208,7 @@
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
   "ada:targetSpeciesDefault",
+  "ada:reportedVariablesAndUnits",
   "ada:dwellTimePerMassDefault",
   "ada:backgroundCountTimeDefault",
   "ada:internalStandardApproach",
@@ -217,6 +219,7 @@
   "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
+  "ada:analysisInclusionAndRejectionCriteria",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
   "ada:secondaryReferenceMaterialsDefault",
@@ -233,11 +236,11 @@
    "required": true
   },
   {
-   "key": "ada:samplingUnit",
-   "item": "Sampling Unit",
+   "key": "ada:samplingUnitType",
+   "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:samplePreparationMethodDefault",
@@ -250,8 +253,8 @@
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:chemicalAbrasionConditions",
@@ -460,8 +463,8 @@
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:massResolutionAssignment",
@@ -607,8 +610,8 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:ageCalculationMethod",

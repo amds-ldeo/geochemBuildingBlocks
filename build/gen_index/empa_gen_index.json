@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:samplePreparationMethodDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
@@ -35,7 +35,6 @@
   "schema:additionalProperty"
  ],
  "pt_keys": [
-  "empa_samplePersistentIdentifierDefault",
   "empa_preAnalysisImagingAndScreeningDefault",
   "empa_beamRasterDimensionsDefault",
   "empa_beamDamageMinimizationDefault",
@@ -89,7 +88,7 @@
   "analysisEndDate",
   "fundingSourceForAnalysis",
   "sampleName",
-  "samplingUnit",
+  "samplingUnitName",
   "mapDimensions",
   "mapArea",
   "proceduralBlankLevel",
@@ -112,7 +111,7 @@
  ],
  "basic_required": [
   "ada:samplePreparationMethodDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
@@ -132,6 +131,7 @@
   "ada:stepSizePixelSizeDefault",
   "ada:matrixCorrectionMethod",
   "ada:xRayBackgroundCorrectionMethodDefault",
+  "ada:analysisInclusionAndRejectionCriteria",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
   "ada:xRayLineOverlapCorrectionsApplied",
@@ -146,17 +146,17 @@
    "required": true
   },
   {
-   "key": "ada:samplingUnit",
-   "item": "Sampling Unit",
+   "key": "ada:samplingUnitType",
+   "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 1,
+   "cov": 15,
    "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 1,
+   "cov": 15,
    "required": true
   },
   {
@@ -219,7 +219,7 @@
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 1,
+   "cov": 15,
    "required": true
   },
   {
@@ -324,8 +324,8 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 14,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",

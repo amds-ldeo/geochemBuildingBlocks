@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:samplePreparationMethodDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:ionBeamSource",
   "ada:seDetectorType",
@@ -26,7 +26,6 @@
   "schema:additionalProperty"
  ],
  "pt_keys": [
-  "semFibsem_samplePersistentIdentifierDefault",
   "semFibsem_preAnalysisImagingAndScreeningDefault"
  ],
  "pv_keys": [
@@ -59,7 +58,7 @@
   "analysisEndDate",
   "fundingSourceForAnalysis",
   "sampleName",
-  "samplingUnit",
+  "samplingUnitName",
   "voxelSizeAndImageStackDimensions"
  ],
  "detail_req_multivol": [],
@@ -71,9 +70,12 @@
  ],
  "basic_required": [
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:ionBeamSource",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
+  "ada:reportedVariablesAndUnits",
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
   "ada:workingDistanceDefault",
@@ -95,18 +97,18 @@
    "required": true
   },
   {
-   "key": "ada:samplingUnit",
-   "item": "Sampling Unit",
+   "key": "ada:samplingUnitType",
+   "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 8,
+   "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 8,
+   "required": true
   },
   {
    "key": "ada:ionBeamSource",
@@ -147,8 +149,8 @@
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 8,
+   "required": true
   },
   {
    "key": "ada:acceleratingVoltageDefault",

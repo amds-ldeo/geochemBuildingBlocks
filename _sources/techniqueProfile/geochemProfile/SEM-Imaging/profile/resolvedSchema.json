@@ -11458,6 +11458,26 @@
                       "items": {
                         "type": "object"
                       }
+                    },
+                    "ada:samplingUnits": {
+                      "description": "The sampling units of this sample that were analysed -- the grains, spots, phases, sub-volumes or regions of interest that one row of reported values corresponds to. A sampling unit belongs to exactly one sample, which is why it is nested here rather than sitting on the activity. The unit TYPE is stated once by the procedure (ada:samplingUnitType); these are the instances, and they cannot be known until the session runs.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "schema:name"
+                        ],
+                        "properties": {
+                          "@id": {
+                            "description": "Optional identifier for this sampling unit.",
+                            "type": "string"
+                          },
+                          "schema:name": {
+                            "description": "The laboratory's label for this sampling unit -- a spot number, grain label, map or region-of-interest name, or aliquot identifier. Required, because a unit nothing can name gives a field keyed by sampling unit no row to attach its value to.",
+                            "type": "string"
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -16684,6 +16704,21 @@
                                 }
                               }
                             ]
+                          },
+                          "ada:samplingUnits": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "schema:name": {
+                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            }
                           }
                         },
                         "required": [
@@ -17130,7 +17165,7 @@
                       },
                       "then": {
                         "title": "SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)",
-                        "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v31.csv by tools/build_tapp.py.",
+                        "description": "Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v38.csv by tools/build_tapp.py.",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -18595,8 +18630,8 @@
                                   ]
                                 }
                               },
-                              "ada:samplingUnit": {
-                                "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels.",
+                              "ada:samplingUnitType": {
+                                "description": "The kind of physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.",
                                 "type": "string"
                               },
                               "bios:computationalTool": {
@@ -18756,7 +18791,7 @@
                               }
                             },
                             "required": [
-                              "ada:samplingUnit",
+                              "ada:samplingUnitType",
                               "schema:datePublished",
                               "schema:name"
                             ]

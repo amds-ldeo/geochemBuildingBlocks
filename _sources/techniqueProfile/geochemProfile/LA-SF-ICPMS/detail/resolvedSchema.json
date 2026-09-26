@@ -86,6 +86,21 @@
                                 }
                               }
                             ]
+                          },
+                          "ada:samplingUnits": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "schema:name": {
+                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            }
                           }
                         },
                         "required": [
@@ -689,7 +704,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -744,7 +759,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
                           "type": "string"

@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:samplePreparationMethodDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
@@ -36,7 +36,6 @@
   "schema:additionalProperty"
  ],
  "pt_keys": [
-  "semComposition_samplePersistentIdentifierDefault",
   "semComposition_preAnalysisImagingAndScreeningDefault",
   "semComposition_beamRasterDimensionsDefault",
   "semComposition_beamDamageMinimizationDefault",
@@ -93,7 +92,7 @@
   "analysisEndDate",
   "fundingSourceForAnalysis",
   "sampleName",
-  "samplingUnit",
+  "samplingUnitName",
   "edsMapDimensions",
   "mapArea",
   "proceduralBlankLevel",
@@ -114,6 +113,8 @@
  ],
  "basic_required": [
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitType",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
   "ada:acceleratingVoltageDefault",
@@ -121,9 +122,11 @@
   "ada:edsAcquisitionMode",
   "ada:targetSpeciesDefault",
   "ada:monitoredElements",
+  "ada:reportedVariablesAndUnits",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
   "ada:matrixCorrectionMethod",
+  "ada:analysisInclusionAndRejectionCriteria",
   "ada:primaryCalibrationStandardNameDefault"
  ],
  "basic_props": [
@@ -135,18 +138,18 @@
    "required": true
   },
   {
-   "key": "ada:samplingUnit",
-   "item": "Sampling Unit",
+   "key": "ada:samplingUnitType",
+   "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 9,
+   "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 9,
+   "required": true
   },
   {
    "key": "ada:dataProcessingSoftwareDefault",
@@ -229,8 +232,8 @@
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 9,
+   "required": true
   },
   {
    "key": "ada:techniquePerTargetSpecies",
@@ -320,8 +323,8 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 9,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",

@@ -11422,6 +11422,26 @@
                       "items": {
                         "type": "object"
                       }
+                    },
+                    "ada:samplingUnits": {
+                      "description": "The sampling units of this sample that were analysed -- the grains, spots, phases, sub-volumes or regions of interest that one row of reported values corresponds to. A sampling unit belongs to exactly one sample, which is why it is nested here rather than sitting on the activity. The unit TYPE is stated once by the procedure (ada:samplingUnitType); these are the instances, and they cannot be known until the session runs.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "schema:name"
+                        ],
+                        "properties": {
+                          "@id": {
+                            "description": "Optional identifier for this sampling unit.",
+                            "type": "string"
+                          },
+                          "schema:name": {
+                            "description": "The laboratory's label for this sampling unit -- a spot number, grain label, map or region-of-interest name, or aliquot identifier. Required, because a unit nothing can name gives a field keyed by sampling unit no row to attach its value to.",
+                            "type": "string"
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -18000,6 +18020,21 @@
                                 }
                               }
                             ]
+                          },
+                          "ada:samplingUnits": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "schema:name": {
+                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "schema:name"
+                              ]
+                            }
                           }
                         },
                         "required": [
@@ -18528,7 +18563,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -18583,7 +18618,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -19224,7 +19259,7 @@
                       },
                       "then": {
                         "title": "Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)",
-                        "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v79.csv via the path-driven pipeline.",
+                        "description": "Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v84.csv via the path-driven pipeline.",
                         "allOf": [
                           {
                             "title": "Technique-Aligned Protocol Profile (TAPP) Definition v3",
@@ -20653,8 +20688,8 @@
                                   ]
                                 }
                               },
-                              "ada:samplingUnit": {
-                                "description": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels.",
+                              "ada:samplingUnitType": {
+                                "description": "The kind of physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.",
                                 "type": "string"
                               },
                               "bios:computationalTool": {
@@ -20814,7 +20849,7 @@
                               }
                             },
                             "required": [
-                              "ada:samplingUnit",
+                              "ada:samplingUnitType",
                               "schema:datePublished",
                               "schema:name"
                             ]
@@ -22232,7 +22267,7 @@
                                                     },
                                                     {
                                                       "title": "Analysis Inclusion and Rejection Criteria",
-                                                      "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value.",
+                                                      "description": "The rules determining which individual results contribute to a reported aggregate value, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure aggregates. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the reported value, and on what grounds.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -22486,7 +22521,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "Analysis Inclusion and Rejection Criteria",
-                                                      "description": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value.",
+                                                      "description": "The rules determining which individual results contribute to a reported aggregate value, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure aggregates. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the reported value, and on what grounds.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {

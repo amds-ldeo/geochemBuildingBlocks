@@ -1,7 +1,7 @@
 {
  "tapp_props": [
   "ada:sampleFormAnalyticalSubstrateDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:laserManufacturerModel",
@@ -68,7 +68,6 @@
   "schema:additionalProperty"
  ],
  "pt_keys": [
-  "laQicpms_samplePersistentIdentifierDefault",
   "laQicpms_fusionFluxAndDilutionRatioDefault",
   "laQicpms_preAblationSurfaceTreatmentDefault",
   "laQicpms_preAnalysisImagingAndScreeningDefault",
@@ -155,7 +154,7 @@
   "analysisEndDate",
   "fundingSourceForAnalysis",
   "sampleName",
-  "samplingUnit",
+  "samplingUnitName",
   "spotDiameter",
   "oxideProduction",
   "analysisLocationSpotCoordinates",
@@ -183,8 +182,9 @@
  ],
  "basic_required": [
   "ada:sampleFormAnalyticalSubstrateDefault",
-  "ada:samplingUnit",
+  "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
+  "ada:samplingUnitSelectionCriteriaDefault",
   "ada:laserManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
@@ -241,10 +241,10 @@
    "required": true
   },
   {
-   "key": "ada:samplingUnit",
-   "item": "Sampling Unit",
+   "key": "ada:samplingUnitType",
+   "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 1,
+   "cov": 7,
    "required": true
   },
   {
@@ -258,8 +258,8 @@
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:laserManufacturerModel",
@@ -468,7 +468,7 @@
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 1,
+   "cov": 7,
    "required": true
   },
   {
@@ -636,7 +636,7 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 1,
+   "cov": 7,
    "required": true
   },
   {
