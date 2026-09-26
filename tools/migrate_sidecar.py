@@ -187,6 +187,27 @@ ALIASES = {
     "Per-Analyte Calibration Strategy": "Calibration Strategy per Target Species",
     "Technique per Analyte": "Technique per Target Species",
     "EPMA Technique per Analyte": "EPMA Technique per Target Species",
+
+    # --- 2026-09-25 delivery (amds-ldeo/tapp @ 1999114): the sampling-unit split ---
+    #
+    # PARTIAL, like the make-and-model pair above: `Sampling Unit` becomes TWO fields, and ALIASES
+    # is 1->1. The TYPE half carries here, which is the right half -- it keeps the old field's
+    # Controlled list / Text content and its C=Basic tier, and the authored path
+    # `$MethodDefinition.ada:samplingUnit` describes a type once the property is renamed
+    # `ada:samplingUnitType`. `Sampling Unit Name` is genuinely new (C=N/A, D=Basic, Text (free),
+    # `defines: sample > sampling unit`) and arrives as a flagged row to be authored, because it
+    # needs a container the schema has never had.
+    #
+    # Aliasing matters less here than usual and is still worth doing: every TECHNIQUE row for this
+    # field is `Source = module` with a blank path, so no authored path is at risk -- Core owns the
+    # placement. What the alias buys is that intake reads "1 renamed + 1 new" instead of "1 dropped
+    # + 2 new", so a reviewer is not asked to confirm a discard that never happens.
+    #
+    # Upstream rationale: Project Files/Design Notes/Proposal_Sampling_Unit_Identity_2026-09-15.md,
+    # raised as amds-ldeo/tapp#8. `Sampling Unit` was keyed `defines: sampling unit` while holding
+    # a TYPE from a controlled list, so the domain's 44 consumers were keyed on something nothing
+    # enumerated.
+    "Sampling Unit": "Sampling Unit Type",
 }
 
 # Items that DROP in the 2026-09 deliveries and are deliberately not aliased. Recorded
