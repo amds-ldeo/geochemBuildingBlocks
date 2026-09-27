@@ -719,6 +719,44 @@ def audit_building_block(category, name, bb_dir, checks=None):
     return result
 
 
+def check_vocab_identifier_collisions(sources_dir):
+    """Every vocabulary file must own its @id.
+
+    registry/vocab is a plain catalog: nothing $refs a vocabulary FILE, consumers
+    resolve the @id. So two files carrying one @id are not a duplicate -- they are
+    a fork, and which one a consumer sees is decided by whatever order it happened
+    to read the directory in.
+
+    That is not hypothetical. The 2026-09 generator changed the filename convention
+    to <tapp>_<name>.json and did not remove the bare <name>.json it superseded, so
+    seven empaTAPP vocabularies existed twice with DIFFERENT terms (Raster vs
+    Rastered; a matrixCorrectionMethod list missing ZAF, CITZAF and Bence-Albee).
+    The ADA forms app ingests this directory sorted by filename and upserts on @id,
+    so the alphabetically last file won: four of the seven resolved to the stale
+    fork and the registry served picklists the current TAPP does not allow.
+
+    Returns (ok, [message, ...]).
+    """
+    vocab_dir = Path(sources_dir) / "registry" / "vocab"
+    if not vocab_dir.is_dir():
+        return True, []
+    by_id = {}
+    for path in sorted(vocab_dir.glob("*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            return False, [f"{path.name}: unreadable ({exc})"]
+        ident = data.get("@id") or data.get("$id")
+        if not ident:
+            continue
+        by_id.setdefault(ident, []).append(path.name)
+    problems = []
+    for ident, files in sorted(by_id.items()):
+        if len(files) > 1:
+            problems.append(f"{ident} is claimed by {len(files)} files: {', '.join(files)}")
+    return (not problems), problems
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Comprehensive audit of OGC Building Block repositories"
@@ -802,6 +840,16 @@ def main():
         marker = "." if result.status == "PASS" else "F"
         print(marker, end="", flush=True)
     print()
+
+    # Catalog-wide, not per building block: a collision is a relationship BETWEEN
+    # files, so no single-block check can see it.
+    vocab_ok, vocab_problems = check_vocab_identifier_collisions(sources_dir)
+    if not vocab_ok:
+        print(chr(10) + "FAIL  registry/vocab: %d identifier collision(s)" % len(vocab_problems))
+        for msg in vocab_problems:
+            print("        " + msg)
+        print("      Nothing $refs a vocabulary file; consumers resolve the @id, so which")
+        print("      of these a consumer sees depends on its directory read order.")
 
     # Output
     if args.json_output:
