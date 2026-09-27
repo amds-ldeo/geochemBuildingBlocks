@@ -7,6 +7,26 @@ Profile for an ADA metadata document describing X-ray absorption near edge struc
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Description
+
+# ADA XANES Profile (TAPP-linked)
+
+Profile for an ADA metadata document describing X-ray absorption near edge structure spectroscopy products generated under a registered xanesTAPP procedure. Adds the XANES analysis detail on the schema:Dataset root and pins prov:used to the xanesTAPP definition, on top of the ADA XANES component-type constraints. DRAFT - the source table has not been through Phase 0 review.
+
+## Product Types
+
+- `X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)`
+- `X-ray absorption near edge structure (XANES) spectroscopy`
+
+## Valid Component Types
+
+- `ada:XANESCollection`
+- `ada:XANESImageStack`
+- `ada:XANESProcessedTabular`
+- `ada:XANESRawTabular`
+- `ada:XANESStackOverviewImage`
+- `ada:XANESimage`
+
 ## Schema
 
 ```yaml
@@ -50,6 +70,7 @@ allOf:
                       minItems: 1
                       items:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                      x-jsonld-id: http://schema.org/instrument
               - if:
                   type: object
                   properties:
@@ -60,12 +81,15 @@ allOf:
                   - '@type'
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XANES/tapp/schema.yaml
+            x-jsonld-id: http://www.w3.org/ns/prov#used
+      x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
     schema:additionalType:
       description: Must include a XANES product type identifier.
       contains:
         enum:
         - X-ray Absorption Near Edge Structure Hyperspectral Image Stack (XANES)
         - X-ray absorption near edge structure (XANES) spectroscopy
+      x-jsonld-id: http://schema.org/additionalType
     schema:distribution:
       description: Each distribution item is EITHER a monolithic single-file dataset
         whose ada:componentType is a XANES-specific or universal value (and may carry
@@ -89,6 +113,7 @@ allOf:
                 - ada:XANESRawTabular
                 - ada:XANESStackOverviewImage
                 - ada:XANESimage
+              x-jsonld-id: https://ada.astromat.org/metadata/componentType
         - type: object
           required:
           - schema:hasPart
@@ -110,6 +135,8 @@ allOf:
                       - ada:XANESimage
                   required:
                   - ada:componentType
+              x-jsonld-id: http://schema.org/hasPart
+      x-jsonld-id: http://schema.org/distribution
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -121,6 +148,18 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaXANESFull
+          x-jsonld-id: http://purl.org/dc/terms/conformsTo
+      x-jsonld-id: http://schema.org/subjectOf
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  csvw: http://www.w3.org/ns/csvw#
+  prov: http://www.w3.org/ns/prov#
+  spdx: http://spdx.org/rdf/terms#
+  nxs: https://manual.nexusformat.org/classes/
+  dcterms: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#
 
 ```
 

@@ -13,12 +13,10 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -31,10 +29,12 @@
                     ada:detectionLimitMethod "Longerich et al. (1996); LOQ = 10SD criterion (same equation)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -63,15 +63,15 @@
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Age Model" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "missing" ],
+        [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)" ;
     ada:ablationSpotDurationDefault "N/A (line scan run 1) / N/A (spot run 2 — duration set by 34 runs covering 400 µm + washout, not a fixed spot duration)" ;

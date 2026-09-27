@@ -13,6 +13,16 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
@@ -23,17 +33,7 @@
                     schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ] ] ;
+                    ada:chemicalAbrasionConditions "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -61,15 +61,15 @@
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Age Model" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ] ;
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Raster area (2D elemental mapping)" ;
     ada:ablationSpotDurationDefault -9999 ;

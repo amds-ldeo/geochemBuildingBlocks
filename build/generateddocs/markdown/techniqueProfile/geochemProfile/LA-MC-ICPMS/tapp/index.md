@@ -1275,6 +1275,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
                     schema1:name "Data acquisition" ;
@@ -1284,17 +1294,7 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
