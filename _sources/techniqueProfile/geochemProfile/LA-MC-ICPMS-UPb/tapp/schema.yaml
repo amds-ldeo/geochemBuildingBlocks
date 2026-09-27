@@ -706,6 +706,54 @@ allOf:
                               $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_faradayCupAmplifierResistorValues
                             minContains: 0
                             maxContains: 1
+                        ada:collectorConfiguration:
+                          type: array
+                          items: &id007
+                            title: Collector Configuration
+                            description: Assignment of isotope masses to Faraday cup or ion counter detector
+                              positions for this procedure, and the target species each position serves.
+                              Lists the mass number monitored in each collector position with its target
+                              species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn
+                              (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor
+                              and internal-standard positions serve no target species and carry no parent
+                              element; the target species list itself is given by the Target Species field
+                              and is never inferred from the mass labels here. For static multi-collection
+                              procedures, one configuration applies throughout the measurement. For multi-dynamic
+                              procedures, list all configurations and the cycling sequence.
+                            type: object
+                            properties:
+                              '@id':
+                                const: ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/collectorConfiguration
+                              '@type':
+                                const:
+                                - schema:PropertyValueSpecification
+                              schema:valueName:
+                                const: collectorConfiguration
+                              schema:name:
+                                const: Collector Configuration
+                              ada:dataType:
+                                const: string
+                              schema:readonlyValue:
+                                const: true
+                              ada:tier:
+                                const: M
+                              schema:defaultValue:
+                                anyOf:
+                                - &id006
+                                  type: string
+                                - type: array
+                                  items: *id006
+                            required:
+                            - '@id'
+                            - '@type'
+                            - schema:valueName
+                            - schema:name
+                            - ada:dataType
+                            - schema:defaultValue
+                          allOf:
+                          - contains: *id007
+                            minContains: 0
+                            maxContains: 1
                   - if:
                       properties:
                         schema:additionalType:
@@ -895,7 +943,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - &id006
+            - &id008
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the target species
                 element they serve where they serve one. Covers atomic isotopes and, where a reaction
@@ -929,7 +977,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id007
+            - &id009
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species may be acquired
                 at more than one resolution, so the assignment is per acquired mass rather than per element.
@@ -961,7 +1009,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id010
               title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
                 specifically any case where different target species or target species groups within one
@@ -996,7 +1044,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id011
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -1028,7 +1076,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id012
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -1060,7 +1108,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id013
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -1093,7 +1141,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id012
+            - &id014
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -1127,7 +1175,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id013
+            - &id015
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -1158,7 +1206,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id014
+            - &id016
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -1192,7 +1240,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id015
+            - &id017
               title: Counting Statistics Error
               description: Uncertainty predicted from counting statistics — the theoretical limit set
                 by the Poisson distribution of the counts accumulated — for each reported quantity per
@@ -1224,7 +1272,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id016
+            - &id018
               title: Internal (Within-Measurement) Analytical Precision and Assessment Method
               description: Precision of a single measurement, derived from the scatter of the cycles,
                 sweeps or integrations that make it up, together with the method used to assess it. State
@@ -1258,12 +1306,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id006
-            minContains: 0
-            maxContains: 1
-          - contains: *id007
-            minContains: 0
-            maxContains: 1
           - contains: *id008
             minContains: 0
             maxContains: 1
@@ -1289,6 +1331,12 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id016
+            minContains: 0
+            maxContains: 1
+          - contains: *id017
+            minContains: 0
+            maxContains: 1
+          - contains: *id018
             minContains: 0
             maxContains: 1
     ada:massesMeasuredDefault:

@@ -252,7 +252,50 @@ allOf:
                           type: array
                           items:
                             anyOf:
-                            - &id001
+                            - &id009
+                              title: Collector Configuration
+                              description: Assignment of isotope masses to Faraday cup or ion counter
+                                detector positions for this procedure, and the target species each position
+                                serves. Lists the mass number monitored in each collector position with
+                                its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
+                                (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'.
+                                Interference-monitor and internal-standard positions serve no target species
+                                and carry no parent element; the target species list itself is given by
+                                the Target Species field and is never inferred from the mass labels here.
+                                For static multi-collection procedures, one configuration applies throughout
+                                the measurement. For multi-dynamic procedures, list all configurations
+                                and the cycling sequence.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: collectorConfiguration
+                                schema:name:
+                                  const: Collector Configuration
+                                ada:dataType:
+                                  const: string
+                                schema:readonlyValue:
+                                  const: true
+                                ada:tier:
+                                  const: M
+                                schema:defaultValue:
+                                  anyOf:
+                                  - &id001
+                                    type: string
+                                  - type: array
+                                    items: *id001
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - schema:defaultValue
+                            - &id010
                               title: Faraday Cup Amplifier Resistor Values
                               description: Resistance values (Ω) of the feedback resistors in the Faraday
                                 cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V
@@ -276,7 +319,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - &id002
+                                    type: string
+                                  - type: array
+                                    items: *id002
                               required:
                               - '@id'
                               - '@type'
@@ -284,7 +331,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id002
+                            - &id011
                               title: Faraday Cup Gain Calibration Method
                               description: 'Method used to calibrate the relative gain (amplification
                                 factor) of each Faraday cup amplifier at the start of or during each analytical
@@ -312,7 +359,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - &id003
+                                    type: string
+                                  - type: array
+                                    items: *id003
                               required:
                               - '@id'
                               - '@type'
@@ -320,7 +371,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id003
+                            - &id012
                               title: Integration Time per Cycle
                               description: Duration of signal integration per measurement cycle (seconds).
                               type: object
@@ -342,8 +393,12 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - type: number
-                                  - type: string
+                                  - &id004
+                                    anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items: *id004
                               required:
                               - '@id'
                               - '@type'
@@ -351,7 +406,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id004
+                            - &id013
                               title: Interference Correction Method
                               description: Equation or procedure used to calculate and remove each interference
                                 contribution, together with how its magnitude was established - a monitor
@@ -377,7 +432,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - &id005
+                                    type: string
+                                  - type: array
+                                    items: *id005
                               required:
                               - '@id'
                               - '@type'
@@ -385,7 +444,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id005
+                            - &id014
                               title: Interfering Species
                               description: The isobaric, polyatomic and doubly charged species that overlap
                                 the measured masses and are corrected in data reduction - direct isobars,
@@ -409,7 +468,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - &id006
+                                    type: string
+                                  - type: array
+                                    items: *id006
                               required:
                               - '@id'
                               - '@type'
@@ -417,7 +480,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id006
+                            - &id015
                               title: Ion Counter Dead Time
                               description: Dead time of the ion-counting detector(s), used in the dead-time
                                 correction applied to high count rates. Distinct from pulse/analog cross-calibration,
@@ -442,8 +505,12 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - type: number
-                                  - type: string
+                                  - &id007
+                                    anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items: *id007
                               required:
                               - '@id'
                               - '@type'
@@ -451,7 +518,7 @@ allOf:
                               - schema:name
                               - ada:dataType
                               - schema:defaultValue
-                            - &id007
+                            - &id016
                               title: Mass Resolution Assignment
                               description: Mass resolution mode used for acquisition. One target species
                                 may be acquired at more than one resolution, so the assignment is per
@@ -475,7 +542,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - &id008
+                                    type: string
+                                  - type: array
+                                    items: *id008
                               required:
                               - '@id'
                               - '@type'
@@ -484,25 +555,28 @@ allOf:
                               - ada:dataType
                               - schema:defaultValue
                           allOf:
-                          - contains: *id001
+                          - contains: *id009
                             minContains: 0
                             maxContains: 1
-                          - contains: *id002
+                          - contains: *id010
                             minContains: 0
                             maxContains: 1
-                          - contains: *id003
+                          - contains: *id011
                             minContains: 0
                             maxContains: 1
-                          - contains: *id004
+                          - contains: *id012
                             minContains: 0
                             maxContains: 1
-                          - contains: *id005
+                          - contains: *id013
                             minContains: 0
                             maxContains: 1
-                          - contains: *id006
+                          - contains: *id014
                             minContains: 0
                             maxContains: 1
-                          - contains: *id007
+                          - contains: *id015
+                            minContains: 0
+                            maxContains: 1
+                          - contains: *id016
                             minContains: 0
                             maxContains: 1
                         schema:additionalProperty:
@@ -595,7 +669,7 @@ allOf:
                 type: array
                 items:
                   anyOf:
-                  - &id008
+                  - &id017
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
                       during instrument tuning. The monitor species and the mass positions monitored should
@@ -627,7 +701,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id009
+                  - &id018
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored
                       species at the time of instrument tuning. The acceptable threshold is typically
@@ -663,10 +737,10 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_memoryEffectMitigation
                 allOf:
-                - contains: *id008
+                - contains: *id017
                   minContains: 0
                   maxContains: 1
-                - contains: *id009
+                - contains: *id018
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -791,7 +865,7 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
         - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
-        - &id010
+        - &id019
           title: Collision/Reaction Gas Mixture Ratio
           description: Where the collision or reaction cell is supplied with a mixture of gases rather
             than a single gas, the identities and proportions of that mixture. Recorded separately from
@@ -921,7 +995,7 @@ allOf:
           $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         minContains: 0
         maxContains: 1
-      - contains: *id010
+      - contains: *id019
         minContains: 0
         maxContains: 1
       - contains:
@@ -1029,7 +1103,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - &id011
+            - &id020
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species may be acquired
                 at more than one resolution, so the assignment is per acquired mass rather than per element.
@@ -1061,7 +1135,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id012
+            - &id021
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the target species
                 element they serve where they serve one. Covers atomic isotopes and, where a reaction
@@ -1095,7 +1169,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id013
+            - &id022
               title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
                 specifically any case where different target species or target species groups within one
@@ -1130,7 +1204,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id014
+            - &id023
               title: Counting Statistics Error
               description: Uncertainty predicted from counting statistics — the theoretical limit set
                 by the Poisson distribution of the counts accumulated — for each reported quantity per
@@ -1162,7 +1236,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id015
+            - &id024
               title: Internal (Within-Measurement) Analytical Precision and Assessment Method
               description: Precision of a single measurement, derived from the scatter of the cycles,
                 sweeps or integrations that make it up, together with the method used to assess it. State
@@ -1196,19 +1270,19 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id011
+          - contains: *id020
             minContains: 0
             maxContains: 1
-          - contains: *id012
+          - contains: *id021
             minContains: 0
             maxContains: 1
-          - contains: *id013
+          - contains: *id022
             minContains: 0
             maxContains: 1
-          - contains: *id014
+          - contains: *id023
             minContains: 0
             maxContains: 1
-          - contains: *id015
+          - contains: *id024
             minContains: 0
             maxContains: 1
     schema:object:

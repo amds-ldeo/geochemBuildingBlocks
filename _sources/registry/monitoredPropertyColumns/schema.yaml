@@ -284,6 +284,46 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  laMcicpmsUPb_collectorConfiguration:
+    title: Collector Configuration
+    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this
+      procedure, and the target species each position serves. Lists the mass number monitored in each
+      collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
+      (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and
+      internal-standard positions serve no target species and carry no parent element; the target species
+      list itself is given by the Target Species field and is never inferred from the mass labels here.
+      For static multi-collection procedures, one configuration applies throughout the measurement. For
+      multi-dynamic procedures, list all configurations and the cycling sequence.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/collectorConfiguration
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collectorConfiguration
+      schema:name:
+        const: Collector Configuration
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id001
+          type: string
+        - type: array
+          items: *id001
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpmsUPb_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of gases rather than
@@ -345,6 +385,46 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  laMcicpms_collectorConfiguration:
+    title: Collector Configuration
+    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this
+      procedure, and the target species each position serves. Lists the mass number monitored in each
+      collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
+      (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and
+      internal-standard positions serve no target species and carry no parent element; the target species
+      list itself is given by the Target Species field and is never inferred from the mass labels here.
+      For static multi-collection procedures, one configuration applies throughout the measurement. For
+      multi-dynamic procedures, list all configurations and the cycling sequence.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collectorConfiguration
+      schema:name:
+        const: Collector Configuration
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id002
+          type: string
+        - type: array
+          items: *id002
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   laMcicpms_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of gases rather than
@@ -398,7 +478,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id003
+          type: string
+        - type: array
+          items: *id003
     required:
     - '@id'
     - '@type'
@@ -432,7 +516,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id004
+          type: string
+        - type: array
+          items: *id004
     required:
     - '@id'
     - '@type'
@@ -462,8 +550,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - &id005
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id005
     required:
     - '@id'
     - '@type'
@@ -495,7 +587,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id006
+          type: string
+        - type: array
+          items: *id006
     required:
     - '@id'
     - '@type'
@@ -526,7 +622,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id007
+          type: string
+        - type: array
+          items: *id007
     required:
     - '@id'
     - '@type'
@@ -557,8 +657,12 @@ $defs:
         const: M
       schema:value:
         anyOf:
-        - type: number
-        - type: string
+        - &id008
+          anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items: *id008
     required:
     - '@id'
     - '@type'
@@ -589,7 +693,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id009
+          type: string
+        - type: array
+          items: *id009
     required:
     - '@id'
     - '@type'
@@ -1302,6 +1410,46 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
+  solutionMcicpms_collectorConfiguration:
+    title: Collector Configuration
+    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this
+      procedure, and the target species each position serves. Lists the mass number monitored in each
+      collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
+      (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and
+      internal-standard positions serve no target species and carry no parent element; the target species
+      list itself is given by the Target Species field and is never inferred from the mass labels here.
+      For static multi-collection procedures, one configuration applies throughout the measurement. For
+      multi-dynamic procedures, list all configurations and the cycling sequence.
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: collectorConfiguration
+      schema:name:
+        const: Collector Configuration
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id010
+          type: string
+        - type: array
+          items: *id010
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   solutionMcicpms_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
     description: Where the collision or reaction cell is supplied with a mixture of gases rather than
@@ -1452,7 +1600,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id011
+          type: string
+        - type: array
+          items: *id011
     required:
     - '@id'
     - '@type'
@@ -1483,7 +1635,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id012
+          type: string
+        - type: array
+          items: *id012
     required:
     - '@id'
     - '@type'
@@ -1517,10 +1673,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id001
+        - &id013
           type: string
         - type: array
-          items: *id001
+          items: *id013
     required:
     - '@id'
     - '@type'
@@ -1551,7 +1707,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id014
+          type: string
+        - type: array
+          items: *id014
     required:
     - '@id'
     - '@type'
@@ -1614,7 +1774,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - &id015
+          type: string
+        - type: array
+          items: *id015
     required:
     - '@id'
     - '@type'
@@ -1770,10 +1934,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id002
+        - &id016
           type: string
         - type: array
-          items: *id002
+          items: *id016
     required:
     - '@id'
     - '@type'
@@ -1959,10 +2123,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id003
+        - &id017
           type: string
         - type: array
-          items: *id003
+          items: *id017
     required:
     - '@id'
     - '@type'

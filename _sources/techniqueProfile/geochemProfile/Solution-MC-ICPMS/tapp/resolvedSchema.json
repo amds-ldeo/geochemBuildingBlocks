@@ -3078,111 +3078,6 @@
       "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
       "type": "object",
       "properties": {
-        "schema:instrument": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "if": {
-                  "properties": {
-                    "schema:additionalType": {
-                      "contains": {
-                        "const": "ICPMS"
-                      },
-                      "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                    }
-                  },
-                  "required": [
-                    "schema:additionalType"
-                  ]
-                },
-                "then": {
-                  "properties": {
-                    "schema:hasPart": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:additionalType": {
-                                  "contains": {
-                                    "const": "Collector"
-                                  },
-                                  "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                                }
-                              },
-                              "required": [
-                                "schema:additionalType"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:description": {
-                                  "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
-                                  "anyOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  ]
-                                }
-                              },
-                              "required": [
-                                "schema:description"
-                              ]
-                            }
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:additionalType": {
-                                "contains": {
-                                  "const": "Collector"
-                                },
-                                "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                              }
-                            },
-                            "required": [
-                              "schema:additionalType"
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "schema:additionalType": {
-                    "contains": {
-                      "const": "ICPMS"
-                    },
-                    "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                  }
-                },
-                "required": [
-                  "schema:additionalType"
-                ]
-              }
-            }
-          ]
-        },
         "ada:internalNormalizationElementAndIsotopeRatio": {
           "description": "Element and isotope ratio used as the internal normalization standard for mass bias correction. Specify the element, the monitored isotope ratio (e.g., 113Cd/111Cd for Sb measurements), and the certified or consensus value used for correction. Record 'N/A' where the procedure does not use internal normalization.",
           "type": "string"
@@ -7422,6 +7317,117 @@
                                       "maxContains": 1
                                     }
                                   ]
+                                },
+                                "ada:collectorConfiguration": {
+                                  "type": "array",
+                                  "items": {
+                                    "title": "Collector Configuration",
+                                    "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                    "type": "object",
+                                    "properties": {
+                                      "@id": {
+                                        "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration"
+                                      },
+                                      "@type": {
+                                        "const": [
+                                          "schema:PropertyValueSpecification"
+                                        ]
+                                      },
+                                      "schema:valueName": {
+                                        "const": "collectorConfiguration"
+                                      },
+                                      "schema:name": {
+                                        "const": "Collector Configuration"
+                                      },
+                                      "ada:dataType": {
+                                        "const": "string"
+                                      },
+                                      "schema:readonlyValue": {
+                                        "const": true
+                                      },
+                                      "ada:tier": {
+                                        "const": "M"
+                                      },
+                                      "schema:defaultValue": {
+                                        "anyOf": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "@id",
+                                      "@type",
+                                      "schema:valueName",
+                                      "schema:name",
+                                      "ada:dataType",
+                                      "schema:defaultValue"
+                                    ]
+                                  },
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Collector Configuration",
+                                        "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "collectorConfiguration"
+                                          },
+                                          "schema:name": {
+                                            "const": "Collector Configuration"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "M"
+                                          },
+                                          "schema:defaultValue": {
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "schema:defaultValue"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    }
+                                  ]
                                 }
                               }
                             }
@@ -9426,7 +9432,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9467,7 +9483,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9508,7 +9534,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9549,7 +9585,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9594,7 +9640,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9639,7 +9695,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9684,7 +9750,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -9729,7 +9805,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
