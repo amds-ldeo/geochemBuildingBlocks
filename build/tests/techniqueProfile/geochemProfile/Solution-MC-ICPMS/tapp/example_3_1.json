@@ -342,13 +342,24 @@
               "schema:value": "10^10 \u03a9 for 56Fe+; 10^11 \u03a9 for 54Fe, 57Fe, 58Fe; 10^12 \u03a9 for the 53Cr and 60Ni interference monitors"
             }
           ],
-          "schema:description": "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously",
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "ada:collectorConfiguration": [
+            {
+              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collectorConfiguration",
+              "schema:name": "Collector Configuration",
+              "ada:dataType": "string",
+              "schema:defaultValue": "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously"
+            }
+          ]
         },
         {
           "@type": [

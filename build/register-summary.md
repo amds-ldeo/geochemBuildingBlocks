@@ -86,7 +86,7 @@ The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of 
 
 **Type:** schema
 
-The shared MCICPMS block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 15 owned fields over 3 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared MCICPMS block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 15 owned fields over 2 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.reportingCore` — TAPP Composition Module: ReportingCore
 

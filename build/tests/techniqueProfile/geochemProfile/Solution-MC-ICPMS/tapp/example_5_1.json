@@ -262,19 +262,30 @@
           "schema:name": "missing"
         },
         {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "schema:additionalType": [
             "Collector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\"",
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
+          "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "schema:name": "missing"
+          "ada:collectorConfiguration": [
+            {
+              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collectorConfiguration",
+              "schema:name": "Collector Configuration",
+              "ada:dataType": "string",
+              "schema:defaultValue": "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\""
+            }
+          ]
         },
         {
           "@type": [

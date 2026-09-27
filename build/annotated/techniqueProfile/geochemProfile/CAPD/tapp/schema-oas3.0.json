@@ -2997,109 +2997,6 @@
               "x-jsonld-id": "http://schema.org/variableMeasured"
             }
           }
-        },
-        "Param_Analysis_calibrationFactorAndDeterminationMethod": {
-          "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValue"
-                ]
-              ]
-            },
-            "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
-              "enum": [
-                [
-                  {
-                    "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                  }
-                ]
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Calibration Factor and Determination Method"
-              ]
-            },
-            "schema:value": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/value"
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:propertyID",
-            "schema:name",
-            "schema:value"
-          ]
-        },
-        "Param_Procedure_calibrationFactorAndDeterminationMethod": {
-          "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValueSpecification"
-                ]
-              ]
-            },
-            "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
-              "enum": [
-                "calibrationFactorAndDeterminationMethodDefault"
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Calibration Factor and Determination Method"
-              ]
-            },
-            "ada:dataType": {
-              "enum": [
-                "string"
-              ]
-            },
-            "ada:fieldScope": {
-              "enum": [
-                "session"
-              ]
-            },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
-            "ada:tier": {
-              "enum": [
-                "R"
-              ]
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:valueName",
-            "schema:name",
-            "ada:dataType",
-            "ada:fieldScope"
-          ]
         }
       },
       "x-jsonld-prefixes": {
@@ -5605,7 +5502,10 @@
                 }
               }
             }
-          }
+          },
+          "required": [
+            "geosparql:asWKT"
+          ]
         }
       },
       "anyOf": [
@@ -6863,7 +6763,9 @@
                     }
                   },
                   "required": [
-                    "@type"
+                    "@type",
+                    "spdx:algorithm",
+                    "spdx:checksumValue"
                   ]
                 }
               },
@@ -9996,7 +9898,8 @@
           "minItems": 1
         },
         "schema:linkRelationship": {
-          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label.",
+          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label. Required: a typed link whose relationship is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink is for.",
+          "default": "missing",
           "x-jsonld-id": "http://schema.org/linkRelationship",
           "allOf": [
             {
@@ -10040,7 +9943,8 @@
         }
       },
       "required": [
-        "@type"
+        "@type",
+        "schema:linkRelationship"
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
@@ -10151,7 +10055,9 @@
             }
           },
           "required": [
-            "@type"
+            "@type",
+            "spdx:algorithm",
+            "spdx:checksumValue"
           ]
         },
         "dcterms:conformsTo": {
@@ -11953,6 +11859,50 @@
           "x-jsonld-id": "https://w3id.org/cdif/formats_InstanceVariable"
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "cdif:TextMapping"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cdif:index"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "cdif:LocatorMapping"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cdi:locator"
+            ]
+          }
+        }
+      ],
       "$defs": {
         "cdifConceptOrTermOrString": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/CAPD/tapp/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
@@ -14512,7 +14462,8 @@
       },
       "required": [
         "@type",
-        "cdif:hasValuesFrom"
+        "cdif:hasValuesFrom",
+        "cdif:name"
       ],
       "$defs": {
         "DescriptorValueDomain": {

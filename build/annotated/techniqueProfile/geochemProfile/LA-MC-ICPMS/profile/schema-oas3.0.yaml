@@ -1026,8 +1026,14 @@ x-defs:
                                                         - M
                                                       schema:value:
                                                         anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                        - anyOf:
+                                                          - type: number
+                                                          - type: string
+                                                        - type: array
+                                                          items:
+                                                            anyOf:
+                                                            - type: number
+                                                            - type: string
                                                     required:
                                                     - '@id'
                                                     - '@type'
@@ -1067,8 +1073,14 @@ x-defs:
                                                         - M
                                                       schema:value:
                                                         anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                        - anyOf:
+                                                          - type: number
+                                                          - type: string
+                                                        - type: array
+                                                          items:
+                                                            anyOf:
+                                                            - type: number
+                                                            - type: string
                                                     required:
                                                     - '@id'
                                                     - '@type'
@@ -1104,8 +1116,14 @@ x-defs:
                                                         - M
                                                       schema:value:
                                                         anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                        - anyOf:
+                                                          - type: number
+                                                          - type: string
+                                                        - type: array
+                                                          items:
+                                                            anyOf:
+                                                            - type: number
+                                                            - type: string
                                                     required:
                                                     - '@id'
                                                     - '@type'
@@ -1148,8 +1166,14 @@ x-defs:
                                                         - M
                                                       schema:value:
                                                         anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                        - anyOf:
+                                                          - type: number
+                                                          - type: string
+                                                        - type: array
+                                                          items:
+                                                            anyOf:
+                                                            - type: number
+                                                            - type: string
                                                     required:
                                                     - '@id'
                                                     - '@type'
@@ -1840,6 +1864,59 @@ x-defs:
                               type: array
                               items:
                                 anyOf:
+                                - title: Collector Configuration
+                                  description: "Assignment of isotope masses to Faraday
+                                    cup or ion counter detector positions for this
+                                    procedure, and the target species each position
+                                    serves. Lists the mass number monitored in each
+                                    collector position with its target species element
+                                    where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn
+                                    (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor,
+                                    no target species)'. Interference-monitor and
+                                    internal-standard positions serve no target species
+                                    and carry no parent element; the target species
+                                    list itself is given by the Target Species field
+                                    and is never inferred from the mass labels here.
+                                    For static multi-collection procedures, one configuration
+                                    applies throughout the measurement. For multi-dynamic
+                                    procedures, list all configurations and the cycling
+                                    sequence."
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValueSpecification
+                                    schema:valueName:
+                                      enum:
+                                      - collectorConfiguration
+                                    schema:name:
+                                      enum:
+                                      - Collector Configuration
+                                    ada:dataType:
+                                      enum:
+                                      - string
+                                    schema:readonlyValue:
+                                      enum:
+                                      - true
+                                    ada:tier:
+                                      enum:
+                                      - M
+                                    schema:defaultValue:
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:valueName
+                                  - schema:name
+                                  - ada:dataType
+                                  - schema:defaultValue
                                 - title: Faraday Cup Amplifier Resistor Values
                                   description: "Resistance values (\u03A9) of the
                                     feedback resistors in the Faraday cup amplifiers.
@@ -1871,7 +1948,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -1915,7 +1996,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -1949,8 +2034,14 @@ x-defs:
                                       - M
                                     schema:defaultValue:
                                       anyOf:
-                                      - type: number
-                                      - type: string
+                                      - anyOf:
+                                        - type: number
+                                        - type: string
+                                      - type: array
+                                        items:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -1991,7 +2082,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2030,7 +2125,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2068,8 +2167,14 @@ x-defs:
                                       - M
                                     schema:defaultValue:
                                       anyOf:
-                                      - type: number
-                                      - type: string
+                                      - anyOf:
+                                        - type: number
+                                        - type: string
+                                      - type: array
+                                        items:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2108,7 +2213,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2117,6 +2226,62 @@ x-defs:
                                   - ada:dataType
                                   - schema:defaultValue
                               allOf:
+                              - contains:
+                                  title: Collector Configuration
+                                  description: "Assignment of isotope masses to Faraday
+                                    cup or ion counter detector positions for this
+                                    procedure, and the target species each position
+                                    serves. Lists the mass number monitored in each
+                                    collector position with its target species element
+                                    where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn
+                                    (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor,
+                                    no target species)'. Interference-monitor and
+                                    internal-standard positions serve no target species
+                                    and carry no parent element; the target species
+                                    list itself is given by the Target Species field
+                                    and is never inferred from the mass labels here.
+                                    For static multi-collection procedures, one configuration
+                                    applies throughout the measurement. For multi-dynamic
+                                    procedures, list all configurations and the cycling
+                                    sequence."
+                                  type: object
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
+                                    '@type':
+                                      enum:
+                                      - - schema:PropertyValueSpecification
+                                    schema:valueName:
+                                      enum:
+                                      - collectorConfiguration
+                                    schema:name:
+                                      enum:
+                                      - Collector Configuration
+                                    ada:dataType:
+                                      enum:
+                                      - string
+                                    schema:readonlyValue:
+                                      enum:
+                                      - true
+                                    ada:tier:
+                                      enum:
+                                      - M
+                                    schema:defaultValue:
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
+                                  required:
+                                  - '@id'
+                                  - '@type'
+                                  - schema:valueName
+                                  - schema:name
+                                  - ada:dataType
+                                  - schema:defaultValue
+                                minContains: 0
+                                maxContains: 1
                               - contains:
                                   title: Faraday Cup Amplifier Resistor Values
                                   description: "Resistance values (\u03A9) of the
@@ -2149,7 +2314,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2196,7 +2365,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2233,8 +2406,14 @@ x-defs:
                                       - M
                                     schema:defaultValue:
                                       anyOf:
-                                      - type: number
-                                      - type: string
+                                      - anyOf:
+                                        - type: number
+                                        - type: string
+                                      - type: array
+                                        items:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2278,7 +2457,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2320,7 +2503,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2361,8 +2548,14 @@ x-defs:
                                       - M
                                     schema:defaultValue:
                                       anyOf:
-                                      - type: number
-                                      - type: string
+                                      - anyOf:
+                                        - type: number
+                                        - type: string
+                                      - type: array
+                                        items:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -2404,7 +2597,11 @@ x-defs:
                                       enum:
                                       - M
                                     schema:defaultValue:
-                                      type: string
+                                      anyOf:
+                                      - type: string
+                                      - type: array
+                                        items:
+                                          type: string
                                   required:
                                   - '@id'
                                   - '@type'
@@ -4474,6 +4671,8 @@ x-defs:
                   type: string
               required:
               - '@type'
+              - spdx:algorithm
+              - spdx:checksumValue
           required:
           - '@type'
           - schema:name
@@ -6765,6 +6964,8 @@ x-defs:
                 type: string
                 description: identifier string for coordinate reference system, e.g.,
                   'CRS84'
+        required:
+        - geosparql:asWKT
     anyOf:
     - required:
       - schema:name
@@ -8815,7 +9016,7 @@ x-defs:
     title: 'TAPP Composition Module: MCICPMS'
     description: "The shared MCICPMS block of the 2026-08-11 TAPP library (Claude
       Skills for TAPP/Module_MCICPMS.csv), composed by 3 of the sixteen delivery tables.
-      15 owned fields over 3 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      15 owned fields over 2 schema paths.\n\nGENERATED by tools/build_module_bb.py
       from the module's CSV and its schema-path sidecar \u2014 edit those, not this
       file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
       required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
@@ -8830,84 +9031,6 @@ x-defs:
           asserts once, for every analysis that follows it.'
         type: object
         properties:
-          schema:instrument:
-            type: array
-            items:
-              type: object
-              allOf:
-              - if:
-                  properties:
-                    schema:additionalType:
-                      contains:
-                        enum:
-                        - ICPMS
-                      schema:inDefinedTermSet: ada:vocab/instrumentType
-                  required:
-                  - schema:additionalType
-                then:
-                  properties:
-                    schema:hasPart:
-                      type: array
-                      items:
-                        type: object
-                        allOf:
-                        - if:
-                            properties:
-                              schema:additionalType:
-                                contains:
-                                  enum:
-                                  - Collector
-                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                            required:
-                            - schema:additionalType
-                          then:
-                            properties:
-                              schema:description:
-                                description: "Assignment of isotope masses to Faraday
-                                  cup or ion counter detector positions for this procedure,
-                                  and the target species each position serves. Lists
-                                  the mass number monitored in each collector position
-                                  with its target species element where it has one
-                                  \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn
-                                  (Sn); H1=121Sb (interference monitor, no target
-                                  species)'. Interference-monitor and internal-standard
-                                  positions serve no target species and carry no parent
-                                  element; the target species list itself is given
-                                  by the Target Species field and is never inferred
-                                  from the mass labels here. For static multi-collection
-                                  procedures, one configuration applies throughout
-                                  the measurement. For multi-dynamic procedures, list
-                                  all configurations and the cycling sequence."
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                                x-jsonld-id: http://schema.org/description
-                            required:
-                            - schema:description
-                      allOf:
-                      - contains:
-                          properties:
-                            schema:additionalType:
-                              contains:
-                                enum:
-                                - Collector
-                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                          required:
-                          - schema:additionalType
-                      x-jsonld-id: http://schema.org/hasPart
-            allOf:
-            - contains:
-                properties:
-                  schema:additionalType:
-                    contains:
-                      enum:
-                      - ICPMS
-                    schema:inDefinedTermSet: ada:vocab/instrumentType
-                required:
-                - schema:additionalType
-            x-jsonld-id: http://schema.org/instrument
           ada:internalNormalizationElementAndIsotopeRatio:
             description: Element and isotope ratio used as the internal normalization
               standard for mass bias correction. Specify the element, the monitored
@@ -8974,11 +9097,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - faradayCupArrayConfiguration
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Faraday Cup Array Configuration
           ada:dataType:
@@ -8990,7 +9111,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9019,11 +9139,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - faradayCupAmplifierResistorValues
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Faraday Cup Amplifier Resistor Values
           ada:dataType:
@@ -9035,7 +9153,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9067,11 +9184,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - faradayCupGainCalibrationMethod
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Faraday Cup Gain Calibration Method
           ada:dataType:
@@ -9083,7 +9198,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9113,18 +9227,15 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
-            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/MCICPMS/numberOfBlocksPerMeasurement
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Number of Blocks per Measurement
           schema:value:
             anyOf:
             - type: number
             - type: string
-            x-jsonld-id: http://schema.org/value
         required:
         - '@id'
         - '@type'
@@ -9147,11 +9258,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - numberOfBlocksPerMeasurementDefault
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Number of Blocks per Measurement
           ada:dataType:
@@ -9162,8 +9271,7 @@ x-defs:
             x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
             enum:
             - session
-          schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
+          schema:readonlyValue: {}
           ada:tier:
             x-jsonld-id: https://ada.astromat.org/metadata/tier
             enum:
@@ -9191,18 +9299,15 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
-            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/MCICPMS/numberOfCyclesPerBlock
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Number of Cycles per Block
           schema:value:
             anyOf:
             - type: number
             - type: string
-            x-jsonld-id: http://schema.org/value
         required:
         - '@id'
         - '@type'
@@ -9225,11 +9330,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - numberOfCyclesPerBlockDefault
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Number of Cycles per Block
           ada:dataType:
@@ -9240,8 +9343,7 @@ x-defs:
             x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
             enum:
             - session
-          schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
+          schema:readonlyValue: {}
           ada:tier:
             x-jsonld-id: https://ada.astromat.org/metadata/tier
             enum:
@@ -9265,21 +9367,17 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
-            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/MCICPMS/integrationTimePerCycle
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Integration Time per Cycle
           schema:value:
             anyOf:
             - type: number
             - type: string
-            x-jsonld-id: http://schema.org/value
           schema:unitText:
             type: string
-            x-jsonld-id: http://schema.org/unitText
         required:
         - '@id'
         - '@type'
@@ -9299,11 +9397,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - integrationTimePerCycleDefault
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Integration Time per Cycle
           ada:dataType:
@@ -9314,14 +9410,12 @@ x-defs:
             x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
             enum:
             - session
-          schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
+          schema:readonlyValue: {}
           ada:tier:
             x-jsonld-id: https://ada.astromat.org/metadata/tier
             enum:
             - R
           schema:unitText:
-            x-jsonld-id: http://schema.org/unitText
             enum:
             - s
         required:
@@ -9348,11 +9442,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - baselineMeasurementApproach
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Baseline Measurement Approach
           ada:dataType:
@@ -9364,7 +9456,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9394,11 +9485,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - massFractionationLaw
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Mass Fractionation Law
           ada:dataType:
@@ -9410,7 +9499,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9440,11 +9528,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - doubleSpikeIsotopePair
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Double Spike Isotope Pair
           ada:dataType:
@@ -9456,7 +9542,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9489,16 +9574,13 @@ x-defs:
             enum:
             - - schema:PropertyValue
           schema:propertyID:
-            x-jsonld-id: http://schema.org/propertyID
             enum:
             - - '@id': ada:parameter/module/MCICPMS/doubleSpikeMixingRatio
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Double Spike Mixing Ratio
           schema:value:
             type: string
-            x-jsonld-id: http://schema.org/value
         required:
         - '@id'
         - '@type'
@@ -9524,11 +9606,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - doubleSpikeMixingRatioDefault
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Double Spike Mixing Ratio
           ada:dataType:
@@ -9539,8 +9619,7 @@ x-defs:
             x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
             enum:
             - session
-          schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
+          schema:readonlyValue: {}
           ada:tier:
             x-jsonld-id: https://ada.astromat.org/metadata/tier
             enum:
@@ -9569,11 +9648,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - doubleSpikeInversionAlgorithm
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Double-Spike Inversion Algorithm
           ada:dataType:
@@ -9585,7 +9662,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9614,11 +9690,9 @@ x-defs:
             enum:
             - - schema:PropertyValueSpecification
           schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
             enum:
             - peakFlatnessMethodAndThreshold
           schema:name:
-            x-jsonld-id: http://schema.org/name
             enum:
             - Peak Flatness Method and Threshold
           ada:dataType:
@@ -9630,7 +9704,6 @@ x-defs:
             enum:
             - session
           schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
             enum:
             - true
           ada:tier:
@@ -9647,7 +9720,6 @@ x-defs:
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
       dqv: http://www.w3.org/ns/dqv#
-      schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.calibrationFactor:
@@ -9747,83 +9819,6 @@ x-defs:
                           type: string
                       x-jsonld-id: http://schema.org/value
             x-jsonld-id: http://schema.org/variableMeasured
-      Param_Analysis_calibrationFactorAndDeterminationMethod:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which target species, where the technique has
-          them: this field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
-          '@type':
-            enum:
-            - - schema:PropertyValue
-          schema:propertyID:
-            x-jsonld-id: http://schema.org/propertyID
-            enum:
-            - - '@id': ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod
-          schema:name:
-            x-jsonld-id: http://schema.org/name
-            enum:
-            - Calibration Factor and Determination Method
-          schema:value:
-            type: string
-            x-jsonld-id: http://schema.org/value
-        required:
-        - '@id'
-        - '@type'
-        - schema:propertyID
-        - schema:name
-        - schema:value
-      Param_Procedure_calibrationFactorAndDeterminationMethod:
-        title: Calibration Factor and Determination Method
-        description: 'An externally-calibrated factor that converts the measured quantity
-          into the reported quantity, how it was determined, and its uncertainty.
-          Applies where the conversion depends on a factor calibrated against a reference
-          of independently known value, rather than on the instrument response alone.
-          Distinct from the fields that name the calibration material and that state
-          which approach applies to which target species, where the technique has
-          them: this field records the resulting factor itself.'
-        type: object
-        properties:
-          '@id':
-            enum:
-            - ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault
-          '@type':
-            enum:
-            - - schema:PropertyValueSpecification
-          schema:valueName:
-            x-jsonld-id: http://schema.org/valueName
-            enum:
-            - calibrationFactorAndDeterminationMethodDefault
-          schema:name:
-            x-jsonld-id: http://schema.org/name
-            enum:
-            - Calibration Factor and Determination Method
-          ada:dataType:
-            enum:
-            - string
-          ada:fieldScope:
-            enum:
-            - session
-          schema:readonlyValue:
-            x-jsonld-id: http://schema.org/readonlyValue
-          ada:tier:
-            enum:
-            - R
-        required:
-        - '@id'
-        - '@type'
-        - schema:valueName
-        - schema:name
-        - ada:dataType
-        - ada:fieldScope
     x-jsonld-prefixes:
       schema: http://schema.org/
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
@@ -12949,8 +12944,11 @@ x-defs:
           - schema:LinkRole
         minItems: 1
       schema:linkRelationship:
-        description: How the target relates to the subject, as a controlled-vocabulary
-          value or a plain string label.
+        description: 'How the target relates to the subject, as a controlled-vocabulary
+          value or a plain string label. Required: a typed link whose relationship
+          is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink
+          is for.'
+        default: missing
         x-jsonld-id: http://schema.org/linkRelationship
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole/$defs/cdifConceptOrTermOrString
@@ -12983,6 +12981,7 @@ x-defs:
         x-jsonld-id: http://schema.org/target
     required:
     - '@type'
+    - schema:linkRelationship
     $defs:
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
@@ -13206,6 +13205,8 @@ x-defs:
             type: string
         required:
         - '@type'
+        - spdx:algorithm
+        - spdx:checksumValue
       dcterms:conformsTo:
         description: An identifier for a standard or specification that the distribution
           conforms to. Recommended to enable machine-actionable data access.
@@ -14921,6 +14922,29 @@ x-defs:
             description: This should be a reference to a variable defined in the schema:variableMeasured
               section.
         x-jsonld-id: https://w3id.org/cdif/formats_InstanceVariable
+    allOf:
+    - if:
+        required:
+        - '@type'
+        properties:
+          '@type':
+            contains:
+              enum:
+              - cdif:TextMapping
+      then:
+        required:
+        - cdif:index
+    - if:
+        required:
+        - '@type'
+        properties:
+          '@type':
+            contains:
+              enum:
+              - cdif:LocatorMapping
+      then:
+        required:
+        - cdi:locator
     $defs:
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
@@ -16953,6 +16977,7 @@ x-defs:
     required:
     - '@type'
     - cdif:hasValuesFrom
+    - cdif:name
     $defs:
       DescriptorValueDomain:
         type: object

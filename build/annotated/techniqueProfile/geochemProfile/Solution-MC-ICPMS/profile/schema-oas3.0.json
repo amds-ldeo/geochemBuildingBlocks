@@ -3317,6 +3317,145 @@
                                           "maxContains": 1
                                         }
                                       ]
+                                    },
+                                    "ada:collectorConfiguration": {
+                                      "type": "array",
+                                      "items": {
+                                        "title": "Collector Configuration",
+                                        "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "enum": [
+                                              "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration"
+                                            ]
+                                          },
+                                          "@type": {
+                                            "enum": [
+                                              [
+                                                "schema:PropertyValueSpecification"
+                                              ]
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "enum": [
+                                              "collectorConfiguration"
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "enum": [
+                                              "Collector Configuration"
+                                            ]
+                                          },
+                                          "ada:dataType": {
+                                            "enum": [
+                                              "string"
+                                            ]
+                                          },
+                                          "schema:readonlyValue": {
+                                            "enum": [
+                                              true
+                                            ]
+                                          },
+                                          "ada:tier": {
+                                            "enum": [
+                                              "M"
+                                            ]
+                                          },
+                                          "schema:defaultValue": {
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "string"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "schema:defaultValue"
+                                        ]
+                                      },
+                                      "allOf": [
+                                        {
+                                          "contains": {
+                                            "title": "Collector Configuration",
+                                            "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                            "type": "object",
+                                            "properties": {
+                                              "@id": {
+                                                "enum": [
+                                                  "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration"
+                                                ]
+                                              },
+                                              "@type": {
+                                                "enum": [
+                                                  [
+                                                    "schema:PropertyValueSpecification"
+                                                  ]
+                                                ]
+                                              },
+                                              "schema:valueName": {
+                                                "enum": [
+                                                  "collectorConfiguration"
+                                                ]
+                                              },
+                                              "schema:name": {
+                                                "enum": [
+                                                  "Collector Configuration"
+                                                ]
+                                              },
+                                              "ada:dataType": {
+                                                "enum": [
+                                                  "string"
+                                                ]
+                                              },
+                                              "schema:readonlyValue": {
+                                                "enum": [
+                                                  true
+                                                ]
+                                              },
+                                              "ada:tier": {
+                                                "enum": [
+                                                  "M"
+                                                ]
+                                              },
+                                              "schema:defaultValue": {
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string"
+                                                  },
+                                                  {
+                                                    "type": "array",
+                                                    "items": {
+                                                      "type": "string"
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "@id",
+                                              "@type",
+                                              "schema:valueName",
+                                              "schema:name",
+                                              "ada:dataType",
+                                              "schema:defaultValue"
+                                            ]
+                                          },
+                                          "minContains": 0,
+                                          "maxContains": 1
+                                        }
+                                      ]
                                     }
                                   }
                                 }
@@ -4606,7 +4745,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -4661,7 +4810,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -4716,7 +4875,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -4771,7 +4940,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -4830,7 +5009,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -4889,7 +5078,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -4948,7 +5147,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -5007,7 +5216,17 @@
                             ]
                           },
                           "schema:defaultValue": {
-                            "type": "string"
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
                           }
                         },
                         "required": [
@@ -6396,7 +6615,9 @@
                     }
                   },
                   "required": [
-                    "@type"
+                    "@type",
+                    "spdx:algorithm",
+                    "spdx:checksumValue"
                   ]
                 }
               },
@@ -9571,7 +9792,10 @@
                 }
               }
             }
-          }
+          },
+          "required": [
+            "geosparql:asWKT"
+          ]
         }
       },
       "anyOf": [
@@ -10915,129 +11139,13 @@
     },
     "ogch.BaseSchema.modules.mcIcpms": {
       "title": "TAPP Composition Module: MCICPMS",
-      "description": "The shared MCICPMS block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_MCICPMS.csv), composed by 3 of the sixteen delivery tables. 15 owned fields over 3 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared MCICPMS block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_MCICPMS.csv), composed by 3 of the sixteen delivery tables. 15 owned fields over 2 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "ProcedureIdentification": {
           "title": "MCICPMS on the procedure",
           "description": "Composed into a TAPP (prov:Plan) schema: what the procedure asserts once, for every analysis that follows it.",
           "type": "object",
           "properties": {
-            "schema:instrument": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "allOf": [
-                  {
-                    "if": {
-                      "properties": {
-                        "schema:additionalType": {
-                          "contains": {
-                            "enum": [
-                              "ICPMS"
-                            ]
-                          },
-                          "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                        }
-                      },
-                      "required": [
-                        "schema:additionalType"
-                      ]
-                    },
-                    "then": {
-                      "properties": {
-                        "schema:hasPart": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "allOf": [
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:additionalType": {
-                                      "contains": {
-                                        "enum": [
-                                          "Collector"
-                                        ]
-                                      },
-                                      "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:additionalType"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:description": {
-                                      "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one \u2014 e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "type": "array",
-                                          "items": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      ],
-                                      "x-jsonld-id": "http://schema.org/description"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:description"
-                                  ]
-                                }
-                              }
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:additionalType": {
-                                    "contains": {
-                                      "enum": [
-                                        "Collector"
-                                      ]
-                                    },
-                                    "schema:inDefinedTermSet": "ada:vocab/instrumentComponentType"
-                                  }
-                                },
-                                "required": [
-                                  "schema:additionalType"
-                                ]
-                              }
-                            }
-                          ],
-                          "x-jsonld-id": "http://schema.org/hasPart"
-                        }
-                      }
-                    }
-                  }
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:additionalType": {
-                        "contains": {
-                          "enum": [
-                            "ICPMS"
-                          ]
-                        },
-                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                      }
-                    },
-                    "required": [
-                      "schema:additionalType"
-                    ]
-                  }
-                }
-              ],
-              "x-jsonld-id": "http://schema.org/instrument"
-            },
             "ada:internalNormalizationElementAndIsotopeRatio": {
               "description": "Element and isotope ratio used as the internal normalization standard for mass bias correction. Specify the element, the monitored isotope ratio (e.g., 113Cd/111Cd for Sb measurements), and the certified or consensus value used for correction. Record 'N/A' where the procedure does not use internal normalization.",
               "type": "string",
@@ -11134,13 +11242,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "faradayCupArrayConfiguration"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Faraday Cup Array Configuration"
               ]
@@ -11158,7 +11264,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -11197,13 +11302,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "faradayCupAmplifierResistorValues"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Faraday Cup Amplifier Resistor Values"
               ]
@@ -11221,7 +11324,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -11260,13 +11362,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "faradayCupGainCalibrationMethod"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Faraday Cup Gain Calibration Method"
               ]
@@ -11284,7 +11384,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -11323,7 +11422,6 @@
               ]
             },
             "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
               "enum": [
                 [
                   {
@@ -11333,7 +11431,6 @@
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Number of Blocks per Measurement"
               ]
@@ -11346,8 +11443,7 @@
                 {
                   "type": "string"
                 }
-              ],
-              "x-jsonld-id": "http://schema.org/value"
+              ]
             }
           },
           "required": [
@@ -11376,13 +11472,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "numberOfBlocksPerMeasurementDefault"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Number of Blocks per Measurement"
               ]
@@ -11399,9 +11493,7 @@
                 "session"
               ]
             },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
+            "schema:readonlyValue": {},
             "ada:tier": {
               "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
               "enum": [
@@ -11436,7 +11528,6 @@
               ]
             },
             "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
               "enum": [
                 [
                   {
@@ -11446,7 +11537,6 @@
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Number of Cycles per Block"
               ]
@@ -11459,8 +11549,7 @@
                 {
                   "type": "string"
                 }
-              ],
-              "x-jsonld-id": "http://schema.org/value"
+              ]
             }
           },
           "required": [
@@ -11489,13 +11578,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "numberOfCyclesPerBlockDefault"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Number of Cycles per Block"
               ]
@@ -11512,9 +11599,7 @@
                 "session"
               ]
             },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
+            "schema:readonlyValue": {},
             "ada:tier": {
               "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
               "enum": [
@@ -11549,7 +11634,6 @@
               ]
             },
             "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
               "enum": [
                 [
                   {
@@ -11559,7 +11643,6 @@
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Integration Time per Cycle"
               ]
@@ -11572,12 +11655,10 @@
                 {
                   "type": "string"
                 }
-              ],
-              "x-jsonld-id": "http://schema.org/value"
+              ]
             },
             "schema:unitText": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/unitText"
+              "type": "string"
             }
           },
           "required": [
@@ -11607,13 +11688,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "integrationTimePerCycleDefault"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Integration Time per Cycle"
               ]
@@ -11630,9 +11709,7 @@
                 "session"
               ]
             },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
+            "schema:readonlyValue": {},
             "ada:tier": {
               "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
               "enum": [
@@ -11640,7 +11717,6 @@
               ]
             },
             "schema:unitText": {
-              "x-jsonld-id": "http://schema.org/unitText",
               "enum": [
                 "s"
               ]
@@ -11673,13 +11749,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "baselineMeasurementApproach"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Baseline Measurement Approach"
               ]
@@ -11697,7 +11771,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -11736,13 +11809,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "massFractionationLaw"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Mass Fractionation Law"
               ]
@@ -11760,7 +11831,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -11799,13 +11869,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "doubleSpikeIsotopePair"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Double Spike Isotope Pair"
               ]
@@ -11823,7 +11891,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -11862,7 +11929,6 @@
               ]
             },
             "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
               "enum": [
                 [
                   {
@@ -11872,14 +11938,12 @@
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Double Spike Mixing Ratio"
               ]
             },
             "schema:value": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/value"
+              "type": "string"
             }
           },
           "required": [
@@ -11908,13 +11972,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "doubleSpikeMixingRatioDefault"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Double Spike Mixing Ratio"
               ]
@@ -11931,9 +11993,7 @@
                 "session"
               ]
             },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
+            "schema:readonlyValue": {},
             "ada:tier": {
               "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
               "enum": [
@@ -11968,13 +12028,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "doubleSpikeInversionAlgorithm"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Double-Spike Inversion Algorithm"
               ]
@@ -11992,7 +12050,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -12031,13 +12088,11 @@
               ]
             },
             "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
               "enum": [
                 "peakFlatnessMethodAndThreshold"
               ]
             },
             "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
               "enum": [
                 "Peak Flatness Method and Threshold"
               ]
@@ -12055,7 +12110,6 @@
               ]
             },
             "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
               "enum": [
                 true
               ]
@@ -12079,8 +12133,7 @@
       },
       "x-jsonld-prefixes": {
         "ada": "https://ada.astromat.org/metadata/",
-        "dqv": "http://www.w3.org/ns/dqv#",
-        "schema": "http://schema.org/"
+        "dqv": "http://www.w3.org/ns/dqv#"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -12205,109 +12258,6 @@
               "x-jsonld-id": "http://schema.org/variableMeasured"
             }
           }
-        },
-        "Param_Analysis_calibrationFactorAndDeterminationMethod": {
-          "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValue"
-                ]
-              ]
-            },
-            "schema:propertyID": {
-              "x-jsonld-id": "http://schema.org/propertyID",
-              "enum": [
-                [
-                  {
-                    "@id": "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethod"
-                  }
-                ]
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Calibration Factor and Determination Method"
-              ]
-            },
-            "schema:value": {
-              "type": "string",
-              "x-jsonld-id": "http://schema.org/value"
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:propertyID",
-            "schema:name",
-            "schema:value"
-          ]
-        },
-        "Param_Procedure_calibrationFactorAndDeterminationMethod": {
-          "title": "Calibration Factor and Determination Method",
-          "description": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/CalibrationFactor/calibrationFactorAndDeterminationMethodDefault"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValueSpecification"
-                ]
-              ]
-            },
-            "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
-              "enum": [
-                "calibrationFactorAndDeterminationMethodDefault"
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Calibration Factor and Determination Method"
-              ]
-            },
-            "ada:dataType": {
-              "enum": [
-                "string"
-              ]
-            },
-            "ada:fieldScope": {
-              "enum": [
-                "session"
-              ]
-            },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
-            "ada:tier": {
-              "enum": [
-                "R"
-              ]
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:valueName",
-            "schema:name",
-            "ada:dataType",
-            "ada:fieldScope"
-          ]
         }
       },
       "x-jsonld-prefixes": {
@@ -17581,7 +17531,8 @@
           "minItems": 1
         },
         "schema:linkRelationship": {
-          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label.",
+          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label. Required: a typed link whose relationship is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink is for.",
+          "default": "missing",
           "x-jsonld-id": "http://schema.org/linkRelationship",
           "allOf": [
             {
@@ -17625,7 +17576,8 @@
         }
       },
       "required": [
-        "@type"
+        "@type",
+        "schema:linkRelationship"
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
@@ -17890,7 +17842,9 @@
             }
           },
           "required": [
-            "@type"
+            "@type",
+            "spdx:algorithm",
+            "spdx:checksumValue"
           ]
         },
         "dcterms:conformsTo": {
@@ -20116,6 +20070,50 @@
           "x-jsonld-id": "https://w3id.org/cdif/formats_InstanceVariable"
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "cdif:TextMapping"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cdif:index"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "cdif:LocatorMapping"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cdi:locator"
+            ]
+          }
+        }
+      ],
       "$defs": {
         "cdifConceptOrTermOrString": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/Solution-MC-ICPMS/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
@@ -23728,7 +23726,8 @@
       },
       "required": [
         "@type",
-        "cdif:hasValuesFrom"
+        "cdif:hasValuesFrom",
+        "cdif:name"
       ],
       "$defs": {
         "DescriptorValueDomain": {

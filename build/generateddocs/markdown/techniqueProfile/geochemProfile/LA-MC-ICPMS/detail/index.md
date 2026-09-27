@@ -631,8 +631,14 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - type: number
-                                                    - type: string
+                                                    - anyOf:
+                                                      - type: number
+                                                      - type: string
+                                                    - type: array
+                                                      items:
+                                                        anyOf:
+                                                        - type: number
+                                                        - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -667,8 +673,14 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - type: number
-                                                    - type: string
+                                                    - anyOf:
+                                                      - type: number
+                                                      - type: string
+                                                    - type: array
+                                                      items:
+                                                        anyOf:
+                                                        - type: number
+                                                        - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -699,8 +711,14 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - type: number
-                                                    - type: string
+                                                    - anyOf:
+                                                      - type: number
+                                                      - type: string
+                                                    - type: array
+                                                      items:
+                                                        anyOf:
+                                                        - type: number
+                                                        - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
@@ -738,8 +756,14 @@ allOf:
                                                     const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - type: number
-                                                    - type: string
+                                                    - anyOf:
+                                                      - type: number
+                                                      - type: string
+                                                    - type: array
+                                                      items:
+                                                        anyOf:
+                                                        - type: number
+                                                        - type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'

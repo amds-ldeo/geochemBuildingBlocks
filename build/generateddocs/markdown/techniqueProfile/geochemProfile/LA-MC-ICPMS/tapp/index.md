@@ -192,7 +192,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)",
           "schema:additionalProperty": [
             {
               "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
@@ -213,6 +212,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
           "ada:collectorConfiguration": [
+            {
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collectorConfiguration",
+              "schema:name": "Collector Configuration",
+              "ada:dataType": "string",
+              "schema:defaultValue": "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)"
+            },
             {
               "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
               "@type": [
@@ -812,7 +821,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "L4=\u2078\u00b3Kr (gas background monitor, no target species); L3=\u00b9\u2076\u2077Er\u00b2\u207a (interference monitor, no target species); L2=\u2078\u2074Sr (Sr); L1=\u2078\u2075Rb (Rb); C=\u2078\u2076Sr (Sr); H1=\u00b9\u2077\u00b3Yb\u00b2\u207a (interference monitor, no target species); H2=\u2078\u2077Sr (Sr); H3=\u2078\u2078Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4\u2013H3, p.2)",
           "schema:additionalProperty": [
             {
               "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
@@ -833,6 +841,16 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
           "ada:collectorConfiguration": [
+            {
+              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collectorConfiguration",
+              "schema:name": "Collector Configuration",
+              "ada:dataType": "string",
+              "schema:defaultValue": "L4=\u2078\u00b3Kr (gas background monitor, no target species); L3=\u00b9\u2076\u2077Er\u00b2\u207a (interference monitor, no target species); L2=\u2078\u2074Sr (Sr); L1=\u2078\u2075Rb (Rb); C=\u2078\u2076Sr (Sr); H1=\u00b9\u2077\u00b3Yb\u00b2\u207a (interference monitor, no target species); H2=\u2078\u2077Sr (Sr); H3=\u2078\u2078Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4\u2013H3, p.2)"
+            },
             {
               "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
               "@type": [
@@ -1257,16 +1275,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
                     schema1:name "Data acquisition" ;
@@ -1276,7 +1284,17 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1364,9 +1382,9 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
-    schema1:description "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
+    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration>,
+        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
         <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
         <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle>,
         <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod>,
@@ -1414,6 +1432,12 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:laserRepetitionRateDefault "10–30 Hz (varied based on Sr concentration in samples)" ;
     ada:laserSpotGeometryDefault "50–60 µm circular" ;
     ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)" ;
+    schema1:name "Collector Configuration" ;
+    schema1:valueName "collectorConfiguration" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "10¹¹ Ω on all nine Faraday cups (p.2)" ;
@@ -1862,6 +1886,52 @@ allOf:
                           type: array
                           items:
                             anyOf:
+                            - title: Collector Configuration
+                              description: "Assignment of isotope masses to Faraday
+                                cup or ion counter detector positions for this procedure,
+                                and the target species each position serves. Lists
+                                the mass number monitored in each collector position
+                                with its target species element where it has one \u2014
+                                e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn);
+                                H1=121Sb (interference monitor, no target species)'.
+                                Interference-monitor and internal-standard positions
+                                serve no target species and carry no parent element;
+                                the target species list itself is given by the Target
+                                Species field and is never inferred from the mass
+                                labels here. For static multi-collection procedures,
+                                one configuration applies throughout the measurement.
+                                For multi-dynamic procedures, list all configurations
+                                and the cycling sequence."
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: collectorConfiguration
+                                schema:name:
+                                  const: Collector Configuration
+                                ada:dataType:
+                                  const: string
+                                schema:readonlyValue:
+                                  const: true
+                                ada:tier:
+                                  const: M
+                                schema:defaultValue:
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - schema:defaultValue
                             - title: Faraday Cup Amplifier Resistor Values
                               description: "Resistance values (\u03A9) of the feedback
                                 resistors in the Faraday cup amplifiers. Standard
@@ -1887,7 +1957,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -1924,7 +1998,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -1954,8 +2032,14 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - type: number
-                                  - type: string
+                                  - anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -1990,7 +2074,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2023,7 +2111,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2056,8 +2148,14 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - type: number
-                                  - type: string
+                                  - anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2090,7 +2188,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2099,6 +2201,55 @@ allOf:
                               - ada:dataType
                               - schema:defaultValue
                           allOf:
+                          - contains:
+                              title: Collector Configuration
+                              description: "Assignment of isotope masses to Faraday
+                                cup or ion counter detector positions for this procedure,
+                                and the target species each position serves. Lists
+                                the mass number monitored in each collector position
+                                with its target species element where it has one \u2014
+                                e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn);
+                                H1=121Sb (interference monitor, no target species)'.
+                                Interference-monitor and internal-standard positions
+                                serve no target species and carry no parent element;
+                                the target species list itself is given by the Target
+                                Species field and is never inferred from the mass
+                                labels here. For static multi-collection procedures,
+                                one configuration applies throughout the measurement.
+                                For multi-dynamic procedures, list all configurations
+                                and the cycling sequence."
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
+                                '@type':
+                                  const:
+                                  - schema:PropertyValueSpecification
+                                schema:valueName:
+                                  const: collectorConfiguration
+                                schema:name:
+                                  const: Collector Configuration
+                                ada:dataType:
+                                  const: string
+                                schema:readonlyValue:
+                                  const: true
+                                ada:tier:
+                                  const: M
+                                schema:defaultValue:
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:valueName
+                              - schema:name
+                              - ada:dataType
+                              - schema:defaultValue
+                            minContains: 0
+                            maxContains: 1
                           - contains:
                               title: Faraday Cup Amplifier Resistor Values
                               description: "Resistance values (\u03A9) of the feedback
@@ -2125,7 +2276,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2165,7 +2320,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2198,8 +2357,14 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - type: number
-                                  - type: string
+                                  - anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2237,7 +2402,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2273,7 +2442,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2309,8 +2482,14 @@ allOf:
                                   const: M
                                 schema:defaultValue:
                                   anyOf:
-                                  - type: number
-                                  - type: string
+                                  - anyOf:
+                                    - type: number
+                                    - type: string
+                                  - type: array
+                                    items:
+                                      anyOf:
+                                      - type: number
+                                      - type: string
                               required:
                               - '@id'
                               - '@type'
@@ -2346,7 +2525,11 @@ allOf:
                                 ada:tier:
                                   const: M
                                 schema:defaultValue:
-                                  type: string
+                                  anyOf:
+                                  - type: string
+                                  - type: array
+                                    items:
+                                      type: string
                               required:
                               - '@id'
                               - '@type'

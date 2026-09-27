@@ -131,13 +131,24 @@
               "schema:value": "Seven Faraday cups \u2014 \"fitted with a 7 Faraday \u2018U\u2013Pb\u2019 collector block and 10^11 \u03a9 resistor amplifiers which permitted maximum beam sizes of 10 V per channel\" (p.4). No ion counter stated"
             }
           ],
-          "schema:description": "Two-sequence static multi-collection",
           "@type": [
             "schema:Product",
             "schema:Thing"
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "schema:name": "missing"
+          "schema:name": "missing",
+          "ada:collectorConfiguration": [
+            {
+              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "collectorConfiguration",
+              "schema:name": "Collector Configuration",
+              "ada:dataType": "string",
+              "schema:defaultValue": "Two-sequence static multi-collection"
+            }
+          ]
         },
         {
           "@type": [

@@ -2539,7 +2539,9 @@
                     }
                   },
                   "required": [
-                    "@type"
+                    "@type",
+                    "spdx:algorithm",
+                    "spdx:checksumValue"
                   ]
                 }
               },
@@ -5714,7 +5716,10 @@
                 }
               }
             }
-          }
+          },
+          "required": [
+            "geosparql:asWKT"
+          ]
         }
       },
       "anyOf": [
@@ -6929,7 +6934,8 @@
           "minItems": 1
         },
         "schema:linkRelationship": {
-          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label.",
+          "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label. Required: a typed link whose relationship is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink is for.",
+          "default": "missing",
           "x-jsonld-id": "http://schema.org/linkRelationship",
           "allOf": [
             {
@@ -6973,7 +6979,8 @@
         }
       },
       "required": [
-        "@type"
+        "@type",
+        "schema:linkRelationship"
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
@@ -7238,7 +7245,9 @@
             }
           },
           "required": [
-            "@type"
+            "@type",
+            "spdx:algorithm",
+            "spdx:checksumValue"
           ]
         },
         "dcterms:conformsTo": {
@@ -9464,6 +9473,50 @@
           "x-jsonld-id": "https://w3id.org/cdif/formats_InstanceVariable"
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "cdif:TextMapping"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cdif:index"
+            ]
+          }
+        },
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "cdif:LocatorMapping"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "cdi:locator"
+            ]
+          }
+        }
+      ],
       "$defs": {
         "cdifConceptOrTermOrString": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/adaProfile/ARGT/profile-ada/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
@@ -12756,7 +12809,8 @@
       },
       "required": [
         "@type",
-        "cdif:hasValuesFrom"
+        "cdif:hasValuesFrom",
+        "cdif:name"
       ],
       "$defs": {
         "DescriptorValueDomain": {
