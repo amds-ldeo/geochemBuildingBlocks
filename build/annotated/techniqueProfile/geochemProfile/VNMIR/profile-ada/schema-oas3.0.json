@@ -16968,7 +16968,8 @@
                             "minItems": 1,
                             "items": {
                               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/VNMIR/profile-ada/schema-oas3.0.json#/x-defs/ogch.BaseSchema.instrument"
-                            }
+                            },
+                            "x-jsonld-id": "http://schema.org/instrument"
                           }
                         }
                       }
@@ -16994,10 +16995,12 @@
                       }
                     }
                   ]
-                }
+                },
+                "x-jsonld-id": "http://www.w3.org/ns/prov#used"
               }
             }
-          }
+          },
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
         },
         "schema:additionalType": {
           "description": "Must include a VNMIR product type identifier.",
@@ -17008,7 +17011,8 @@
               "Visible, near-infrared, and mid-infrared Spectroscopy (VNMIR) Spectral Map",
               "Visible, near-, and mid-infrared spectroscopy"
             ]
-          }
+          },
+          "x-jsonld-id": "http://schema.org/additionalType"
         },
         "schema:distribution": {
           "description": "Each distribution item is EITHER a monolithic single-file dataset whose ada:componentType is a VNMIR-specific or universal value (and may carry cdi:isStructuredBy), OR a bundle whose schema:hasPart members each carry such a componentType (the ADA/SAMIS archive form).",
@@ -17035,7 +17039,8 @@
                           "ada:VNMIRSpectraPlot"
                         ]
                       }
-                    ]
+                    ],
+                    "x-jsonld-id": "https://ada.astromat.org/metadata/componentType"
                   }
                 }
               },
@@ -17069,12 +17074,14 @@
                           ]
                         }
                       ]
-                    }
+                    },
+                    "x-jsonld-id": "http://schema.org/hasPart"
                   }
                 }
               }
             ]
-          }
+          },
+          "x-jsonld-id": "http://schema.org/distribution"
         },
         "schema:subjectOf": {
           "properties": {
@@ -17092,12 +17099,25 @@
                     ]
                   }
                 }
-              }
+              },
+              "x-jsonld-id": "http://purl.org/dc/terms/conformsTo"
             }
-          }
+          },
+          "x-jsonld-id": "http://schema.org/subjectOf"
         }
       }
     }
   ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#"
+  },
   "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
 }

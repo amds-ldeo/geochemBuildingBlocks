@@ -7,6 +7,23 @@ Profile for an ADA metadata document describing X-ray diffraction products gener
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
+## Description
+
+# ADA XRD Profile (TAPP-linked)
+
+Profile for an ADA metadata document describing X-ray diffraction products generated under a registered xrdTAPP procedure. Adds the XRD analysis detail on the schema:Dataset root and pins prov:used to the xrdTAPP definition, on top of the ADA XRD component-type constraints. DRAFT - the source table has not been through Phase 0 review.
+
+## Product Types
+
+- `X-ray Diffraction (XRD) Tabular`
+- `X-ray diffraction`
+
+## Valid Component Types
+
+- `ada:XRDDiffractionPattern`
+- `ada:XRDIndexedImage`
+- `ada:XRDTabular`
+
 ## Schema
 
 ```yaml
@@ -49,6 +66,7 @@ allOf:
                       minItems: 1
                       items:
                         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                      x-jsonld-id: http://schema.org/instrument
               - if:
                   type: object
                   properties:
@@ -59,12 +77,15 @@ allOf:
                   - '@type'
                 then:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XRD/tapp/schema.yaml
+            x-jsonld-id: http://www.w3.org/ns/prov#used
+      x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
     schema:additionalType:
       description: Must include a XRD product type identifier.
       contains:
         enum:
         - X-ray Diffraction (XRD) Tabular
         - X-ray diffraction
+      x-jsonld-id: http://schema.org/additionalType
     schema:distribution:
       description: Each distribution item is EITHER a monolithic single-file dataset
         whose ada:componentType is a XRD-specific or universal value (and may carry
@@ -85,6 +106,7 @@ allOf:
                 - ada:XRDTabular
                 - ada:XRDDiffractionPattern
                 - ada:XRDIndexedImage
+              x-jsonld-id: https://ada.astromat.org/metadata/componentType
         - type: object
           required:
           - schema:hasPart
@@ -103,6 +125,8 @@ allOf:
                       - ada:XRDIndexedImage
                   required:
                   - ada:componentType
+              x-jsonld-id: http://schema.org/hasPart
+      x-jsonld-id: http://schema.org/distribution
     schema:subjectOf:
       properties:
         dcterms:conformsTo:
@@ -114,6 +138,18 @@ allOf:
             properties:
               '@id':
                 const: https://w3id.org/geochem/metadata/profiles/adaXRDFull
+          x-jsonld-id: http://purl.org/dc/terms/conformsTo
+      x-jsonld-id: http://schema.org/subjectOf
+x-jsonld-prefixes:
+  schema: http://schema.org/
+  ada: https://ada.astromat.org/metadata/
+  cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+  csvw: http://www.w3.org/ns/csvw#
+  prov: http://www.w3.org/ns/prov#
+  spdx: http://spdx.org/rdf/terms#
+  nxs: https://manual.nexusformat.org/classes/
+  dcterms: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#
 
 ```
 
