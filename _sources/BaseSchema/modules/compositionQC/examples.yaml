@@ -35,6 +35,7 @@
   content: The analysis half of the CompositionQC module, with every property populated. Generated from
     the schema, so it tracks the sidecar.
   prefixes:
+    ada: https://ada.astromat.org/metadata/
     prov: http://www.w3.org/ns/prov#
     schema: http://schema.org/
   snippets:
@@ -60,7 +61,18 @@
             "prov:used": [
               {
                 "prov:reagent": [
-                  "example value"
+                  {
+                    "@type": [
+                      "schema:DefinedTerm"
+                    ],
+                    "@id": "example value",
+                    "schema:name": "example value",
+                    "schema:description": "example value",
+                    "schema:identifier": "example value",
+                    "schema:termCode": "example value",
+                    "schema:inDefinedTermSet": "example value",
+                    "ada:reagentRole": "primaryStandard"
+                  }
                 ]
               }
             ]

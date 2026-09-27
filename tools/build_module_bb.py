@@ -335,36 +335,174 @@ def write_bb(name, doc, stats, composed_by):
     return d
 
 
-def _sample(sch):
+def _load_ref(ref, base_dir, root):
+    """What a $ref points at, plus the directory later refs resolve against.
+
+    Two forms occur: an internal '#/$defs/X', and a sibling building block by
+    relative path ('../../instrument/schema.yaml'), sometimes with a fragment.
+    Returns (subschema, new_base_dir), or (None, base_dir) if unreadable.
+    """
+    def dig(node, fragment):
+        for part in fragment.lstrip("/").split("/"):
+            if not part:
+                continue
+            node = (node or {}).get(part.replace("~1", "/").replace("~0", "~"))
+        return node
+
+    if ref.startswith("#"):
+        return dig(root, ref[1:]), base_dir
+    path, _, frag = ref.partition("#")
+    target = os.path.normpath(os.path.join(base_dir or ".", path))
+    try:
+        with open(target, encoding="utf-8") as f:
+            doc = yaml.safe_load(f) or {}
+    except (OSError, yaml.YAMLError):
+        return None, base_dir
+    return (dig(doc, frag) if frag else doc), os.path.dirname(target)
+
+
+def _contains_schemas(parts):
+    """Every `contains` an array has to satisfy, from the node or its allOf members.
+
+    A const is the common case -- @type pinned to schema:Product and schema:Thing
+    -- but a contains can be any subschema, and the technique discriminators are:
+    `contains: {const: ICPMS}` sits beside shapes with no const at all. Returning
+    the subschema rather than just its const lets the caller sample whichever it
+    is, so an array satisfies its contains instead of carrying a placeholder that
+    matches none of them.
+    """
+    out = []
+    for p in parts:
+        for node in [p] + [q for q in (p.get("allOf") or []) if isinstance(q, dict)]:
+            c = node.get("contains")
+            if isinstance(c, dict) and c not in out:
+                out.append(c)
+    return out
+
+
+def _flatten(sch, base_dir, root, seen, depth):
+    """Every schema node that contributes to ONE value, allOf and $ref followed.
+
+    A shape is routinely spread over several levels -- `{allOf: [{$ref: X}, …]}`
+    where X is itself `{title, description, allOf: [...]}` whose properties are
+    a level deeper again. Collecting only the immediate members finds no
+    `properties` and samples the whole thing as a scalar, which is how
+    `"schema:instrument": ["example value"]` was produced.
+
+    A branch that is only a condition is left out: if/then describes when a
+    constraint applies, not what the value is, and the array handler turns
+    those into one item per branch instead.
+    """
+    out, todo = [], [sch]
+    while todo and depth < 24:
+        node = todo.pop(0)
+        if not isinstance(node, dict) or set(node) <= {"if", "then", "else"}:
+            continue
+        if "$ref" in node:
+            key = (base_dir, node["$ref"])
+            rest = {k: v for k, v in node.items() if k != "$ref"}
+            if rest:
+                todo.append(rest)
+            if key in seen:
+                continue
+            seen = seen | {key}
+            target, _nb = _load_ref(node["$ref"], base_dir, root)
+            if isinstance(target, dict):
+                todo.append(target)
+            continue
+        out.append(node)
+        for member in (node.get("allOf") or []):
+            todo.append(member)
+    return out, seen
+
+
+def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
     """A plausible instance for a generated subschema — every property, not just the required ones.
 
     Covers all of them because these modules are profiles: the point of the example is to show what
     a conforming procedure looks like, and a minimal instance of a $def with no required properties
     is `{}`, which shows nothing.
+
+    Composition is followed rather than stepped over. A node is sampled from
+    ITSELF PLUS its non-conditional allOf members, so a property whose shape is
+    split across branches -- `{type: array, allOf: [{contains: {const: X}}]}`,
+    or `{allOf: [{$ref: ...}, {...}]}` -- comes out whole. Without that, every
+    such node fell through to the scalar default: icpms and laserAblation each
+    shipped an AnalysisIdentification example with
+    `"schema:instrument": ["example value"]` where an Instrument object belongs,
+    and @type came out a string where an array of two pinned terms was required.
     """
-    if not isinstance(sch, dict):
+    if _depth > 12 or not isinstance(sch, dict):
         return "example value"
+
+    if "$ref" in sch:
+        seen = _seen or frozenset()
+        key = (base_dir, sch["$ref"])
+        if key in seen:                     # recursive schema: stop rather than unroll
+            return "example value"
+        target, new_base = _load_ref(sch["$ref"], base_dir, root)
+        if target is None:
+            return "example value"
+        sibling = {k: v for k, v in sch.items() if k != "$ref"}
+        merged = {**target, **sibling} if sibling else target
+        new_root = target if isinstance(target, dict) and "$defs" in target else root
+        return _sample(merged, new_base, new_root, seen | {key}, _depth + 1)
+
     if "const" in sch:
         return sch["const"]
     if "enum" in sch:
         return sch["enum"][0]
-    if "anyOf" in sch:
-        return _sample(sch["anyOf"][0])
-    t = sch.get("type")
-    if t == "object" or "properties" in sch:
-        return {k: _sample(v) for k, v in (sch.get("properties") or {}).items()}
-    if t == "array":
-        items = sch.get("items") or {}
-        # the additionalProperty shape: one item per if/then branch, each carrying its discriminator
+
+    # The node and everything allOf'd into it describe ONE value. A branch that
+    # is only a condition contributes nothing here; the array handler below is
+    # what turns if/then into one item per branch.
+    parts, _seen = _flatten(sch, base_dir, root, _seen or frozenset(), _depth)
+
+    def first(key):
+        for p in parts:
+            if key in p:
+                return p[key]
+        return None
+
+    t = first("type")
+    has_props = any("properties" in p for p in parts)
+    has_items = any("items" in p for p in parts)
+
+    if t == "array" or (t is None and has_items):
+        items = first("items") or {}
         conds = [c for c in (items.get("allOf") or []) if isinstance(c, dict) and "if" in c]
         if conds:
+            # the additionalProperty shape: one item per if/then branch, each carrying its discriminator
             out = []
             for c in conds:
-                sel = {k: _sample(v) for k, v in (c["if"].get("properties") or {}).items()}
-                out.append({**sel, **{k: _sample(v)
+                sel = {k: _sample(v, base_dir, root, _seen, _depth + 1)
+                       for k, v in (c["if"].get("properties") or {}).items()}
+                out.append({**sel, **{k: _sample(v, base_dir, root, _seen, _depth + 1)
                                       for k, v in ((c.get("then") or {}).get("properties") or {}).items()}})
             return out
-        return [_sample(items)] if items else []
+        out = [_sample(c, base_dir, root, _seen, _depth + 1) for c in _contains_schemas(parts)]
+        if not out and items:
+            out = [_sample(items, base_dir, root, _seen, _depth + 1)]
+        min_items = first("minItems") or 0
+        while items and len(out) < min_items:
+            out.append(_sample(items, base_dir, root, _seen, _depth + 1))
+        return out
+
+    if t == "object" or has_props:
+        merged = {}
+        for p in parts:
+            for k, v in (p.get("properties") or {}).items():
+                merged[k] = _sample(v, base_dir, root, _seen, _depth + 1)
+        return merged
+
+    if "anyOf" in sch:
+        return _sample(sch["anyOf"][0], base_dir, root, _seen, _depth + 1)
+    if len(parts) > 1:                       # allOf of scalars / refs only
+        for p in parts[1:]:
+            got = _sample(p, base_dir, root, _seen, _depth + 1)
+            if got != "example value":
+                return got
+
     if t == "boolean":
         return True
     if t in ("number", "integer"):
@@ -441,10 +579,33 @@ def emit_parameter_defs(module, params):
 def write_examples(d, name, doc):
     import jsonschema
     ex, problems = [], []
+    # Sample from the RESOLVED schema when one exists. A module $def reaches a
+    # sibling building block by relative path, and that block in turn extends a
+    # CDIF base by URL -- which the sampler will not fetch, and should not: this
+    # repo pins remote refs under vendor/ precisely so a build cannot quietly
+    # reach the network. resolvedSchema.json is where both kinds are already
+    # inlined, which is the same division of labour the note below describes for
+    # the jsonschema check. Sampling the source instead yielded an Instrument
+    # with @id and nothing else.
+    # NOTE the $defs iterated below stay the SOURCE ones: the resolved document
+    # also carries every foreign def the resolver inlined (GeochemProduct,
+    # TappDefinition, WorkflowHowTo...), and iterating those would publish 26
+    # examples of other people's shapes as if the module declared them.
+    resolved_path = os.path.join(d, "resolvedSchema.json")
+    sample_doc = doc
+    if os.path.exists(resolved_path):
+        try:
+            with open(resolved_path, encoding="utf-8") as f:
+                candidate = json.load(f)
+            if isinstance(candidate, dict) and candidate.get("$defs"):
+                sample_doc = candidate
+        except (OSError, ValueError):
+            pass
     for defname, sub in doc["$defs"].items():
+        sub = (sample_doc.get("$defs") or {}).get(defname, sub)
         if defname.startswith("Param_"):
             continue          # a published parameter branch, not an instance shape
-        inst = _sample(sub)
+        inst = _sample(sub, base_dir=d, root=sample_doc)
         # A module $def may $ref a sibling building block by relative path
         # (../../geochemProduct/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
         # a relative FILE ref - it falls back to urllib and raises Unresolvable - so the sample is
@@ -453,7 +614,8 @@ def write_examples(d, name, doc):
         # unresolvable ref as an example PROBLEM would be reporting a limitation of this check.
         try:
             errs = list(jsonschema.Draft202012Validator(
-                {"$schema": "https://json-schema.org/draft/2020-12/schema", **sub}).iter_errors(inst))
+                {"$schema": "https://json-schema.org/draft/2020-12/schema",
+                 "$defs": sample_doc.get("$defs", {}), **sub}).iter_errors(inst))
         except Exception as e:
             if "Unresolvable" not in type(e).__name__ and "Unresolvable" not in str(e):
                 raise
@@ -476,11 +638,13 @@ def write_examples(d, name, doc):
     # which is exactly what a consuming TAPP unions into its own schema:additionalProperty anyOf.
     if not ex:
         for defname, sub in doc["$defs"].items():
+            sub = (sample_doc.get("$defs") or {}).get(defname, sub)
             if not defname.startswith("Param_"):
                 continue
-            inst = _sample(sub)
+            inst = _sample(sub, base_dir=d, root=sample_doc)
             errs = list(jsonschema.Draft202012Validator(
-                {"$schema": "https://json-schema.org/draft/2020-12/schema", **sub}).iter_errors(inst))
+                {"$schema": "https://json-schema.org/draft/2020-12/schema",
+                 "$defs": sample_doc.get("$defs", {}), **sub}).iter_errors(inst))
             if errs:
                 problems.append((defname, errs[0].message[:120]))
             side = "procedure" if defname.startswith("Param_Procedure") else "analysis"
