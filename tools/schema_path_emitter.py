@@ -635,10 +635,18 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
     tier = {"Basic": "M", "Advanced": "R"}.get(ptier, "O")
     valtype = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
                if jtype in ("number", "integer") else {"type": "string"})
-    if "channelColumn" in prefix:
-        # A channel property value may be a delimited list (e.g. Interfering Species reports several
-        # species) — allow an array of the base type alongside the literal. This is the ONLY place a
-        # property value is permitted to be either a literal or a list; a deliberate exception.
+    if "monitoredPropertyColumn" in prefix or "channelColumn" in prefix:
+        # A monitored-property value may be a delimited list (e.g. Interfering Species reports
+        # several species) — allow an array of the base type alongside the literal. This is the ONLY
+        # place a property value is permitted to be either a literal or a list; a deliberate
+        # exception.
+        #
+        # The test read `channelColumn` alone, which the channel -> monitoredProperty rename made
+        # unreachable: prefix is now `ada:monitoredPropertyColumn`, so the exception stopped firing
+        # while build_tapp_examples._channel_value went on splitting Interfering Species on ';'.
+        # Generator and schema disagreed, and exactly one example failed for it --
+        # examplelaMcicpmsTAPP-Zhang2022, whose cell lists five interferences. `channelColumn` is
+        # kept in the test so a legacy prefix, if one is ever passed, still behaves.
         valtype = {"anyOf": [valtype, {"type": "array", "items": valtype}]}
     if as_value:
         # A recorded column value -> schema:PropertyValue (schema:value), mirroring param_value_def.
