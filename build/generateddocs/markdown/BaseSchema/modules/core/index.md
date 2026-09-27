@@ -205,18 +205,18 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:termCode "example value" ] ;
     schema1:name "example value" ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "example value" ] ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ],
-        [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "example value" ] ] ;
+                    schema1:name "example value" ] ] ;
     ada:analyticalMode "example value" ;
     ada:reportedProperties "example value" ;
     ada:samplingUnitType "example value" ;
     bios:computationalTool [ schema1:name "example value" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ schema1:name "example value" ;
-            ada:toolRole "dataReduction" ] .
+            ada:toolRole "acquisition" ] .
 
 
 ```
@@ -251,7 +251,17 @@ The analysis half of the Core module, with every property populated. Generated f
       "prov:used": [
         {
           "bios:computationalTool": [
-            "example value"
+            {
+              "@type": [
+                "schema:SoftwareApplication"
+              ],
+              "@id": "example value",
+              "schema:name": "example value",
+              "schema:version": "example value",
+              "schema:url": "example value",
+              "schema:description": "example value",
+              "ada:toolRole": "acquisition"
+            }
           ]
         }
       ],
@@ -342,7 +352,17 @@ The analysis half of the Core module, with every property populated. Generated f
       "prov:used": [
         {
           "bios:computationalTool": [
-            "example value"
+            {
+              "@type": [
+                "schema:SoftwareApplication"
+              ],
+              "@id": "example value",
+              "schema:name": "example value",
+              "schema:version": "example value",
+              "schema:url": "example value",
+              "schema:description": "example value",
+              "ada:toolRole": "acquisition"
+            }
           ]
         }
       ],
@@ -400,7 +420,6 @@ The analysis half of the Core module, with every property populated. Generated f
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
@@ -408,10 +427,10 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:identifier "example value" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "example value" ],
-        [ schema1:linkRelationship "coupledProcedure" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
             schema1:target [ schema1:url "example value" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "example value" ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
                     schema1:name "example value" ] ] ;
@@ -426,7 +445,7 @@ The analysis half of the Core module, with every property populated. Generated f
                     schema1:name "example value" ;
                     ada:samplingUnits [ schema1:name "example value" ] ] ;
             schema1:startDate "example value" ;
-            prov:used [ bios:computationalTool "example value" ] ] .
+            prov:used [ ] ] .
 
 
 ```

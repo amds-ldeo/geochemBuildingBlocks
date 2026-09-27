@@ -156,7 +156,166 @@ The analysis half of the LaserAblation module, with every property populated. Ge
       "prov:used": [
         {
           "schema:instrument": [
-            "example value"
+            {
+              "@context": {
+                "schema": "http://schema.org/",
+                "dcterms": "http://purl.org/dc/terms/"
+              },
+              "@id": "example value",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:name": "example value",
+              "schema:description": "example value",
+              "schema:alternateName": [
+                "example value"
+              ],
+              "schema:identifier": [
+                "example value"
+              ],
+              "schema:url": "example value",
+              "schema:manufacturer": {
+                "@id": "example value",
+                "@type": [
+                  "schema:Organization"
+                ],
+                "schema:additionalType": [
+                  "example value"
+                ],
+                "schema:name": "example value",
+                "schema:alternateName": "example value",
+                "schema:description": "example value",
+                "schema:identifier": {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": "example value",
+                  "schema:value": "example value",
+                  "schema:url": "example value"
+                },
+                "schema:sameAs": [
+                  "example value"
+                ]
+              },
+              "schema:model": {
+                "@type": [
+                  "schema:ProductModel"
+                ],
+                "schema:name": "example value",
+                "schema:identifier": "example value"
+              },
+              "schema:category": [
+                {
+                  "@type": [
+                    "schema:DefinedTerm"
+                  ],
+                  "schema:name": "example value",
+                  "schema:identifier": "example value",
+                  "schema:inDefinedTermSet": "example value",
+                  "schema:termCode": "example value"
+                }
+              ],
+              "schema:owner": {
+                "@id": "example value",
+                "@type": [
+                  "schema:Organization"
+                ],
+                "schema:additionalType": [
+                  "example value"
+                ],
+                "schema:name": "example value",
+                "schema:alternateName": "example value",
+                "schema:description": "example value",
+                "schema:identifier": {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": "example value",
+                  "schema:value": "example value",
+                  "schema:url": "example value"
+                },
+                "schema:sameAs": [
+                  "example value"
+                ]
+              },
+              "schema:contributor": [
+                {
+                  "@type": [
+                    "schema:Role"
+                  ],
+                  "schema:roleName": "example value",
+                  "schema:contributor": {
+                    "@id": "example value"
+                  }
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    "example value"
+                  ],
+                  "schema:name": "example value",
+                  "schema:value": "example value",
+                  "schema:unitCode": "example value",
+                  "schema:unitText": "example value"
+                }
+              ],
+              "schema:validFrom": "example value",
+              "schema:validThrough": "example value",
+              "schema:hasPart": [
+                {
+                  "@id": "example value",
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example value",
+                  "schema:additionalType": [
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ]
+                }
+              ],
+              "schema:relatedLink": [
+                {
+                  "@type": [
+                    "schema:LinkRole"
+                  ],
+                  "schema:linkRelationship": "example value",
+                  "schema:target": {
+                    "@type": [
+                      "schema:EntryPoint"
+                    ],
+                    "schema:name": "example value",
+                    "schema:url": "example value",
+                    "schema:encodingFormat": "example value"
+                  }
+                }
+              ],
+              "schema:subjectOf": {
+                "@id": "example value",
+                "@type": [
+                  "example value"
+                ],
+                "schema:dateModified": "example value",
+                "schema:about": {
+                  "@id": "example value"
+                },
+                "dcterms:conformsTo": [
+                  "example value"
+                ]
+              }
+            }
           ]
         }
       ],
@@ -185,7 +344,166 @@ The analysis half of the LaserAblation module, with every property populated. Ge
       "prov:used": [
         {
           "schema:instrument": [
-            "example value"
+            {
+              "@context": {
+                "schema": "http://schema.org/",
+                "dcterms": "http://purl.org/dc/terms/"
+              },
+              "@id": "example value",
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                }
+              ],
+              "schema:name": "example value",
+              "schema:description": "example value",
+              "schema:alternateName": [
+                "example value"
+              ],
+              "schema:identifier": [
+                "example value"
+              ],
+              "schema:url": "example value",
+              "schema:manufacturer": {
+                "@id": "example value",
+                "@type": [
+                  "schema:Organization"
+                ],
+                "schema:additionalType": [
+                  "example value"
+                ],
+                "schema:name": "example value",
+                "schema:alternateName": "example value",
+                "schema:description": "example value",
+                "schema:identifier": {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": "example value",
+                  "schema:value": "example value",
+                  "schema:url": "example value"
+                },
+                "schema:sameAs": [
+                  "example value"
+                ]
+              },
+              "schema:model": {
+                "@type": [
+                  "schema:ProductModel"
+                ],
+                "schema:name": "example value",
+                "schema:identifier": "example value"
+              },
+              "schema:category": [
+                {
+                  "@type": [
+                    "schema:DefinedTerm"
+                  ],
+                  "schema:name": "example value",
+                  "schema:identifier": "example value",
+                  "schema:inDefinedTermSet": "example value",
+                  "schema:termCode": "example value"
+                }
+              ],
+              "schema:owner": {
+                "@id": "example value",
+                "@type": [
+                  "schema:Organization"
+                ],
+                "schema:additionalType": [
+                  "example value"
+                ],
+                "schema:name": "example value",
+                "schema:alternateName": "example value",
+                "schema:description": "example value",
+                "schema:identifier": {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": "example value",
+                  "schema:value": "example value",
+                  "schema:url": "example value"
+                },
+                "schema:sameAs": [
+                  "example value"
+                ]
+              },
+              "schema:contributor": [
+                {
+                  "@type": [
+                    "schema:Role"
+                  ],
+                  "schema:roleName": "example value",
+                  "schema:contributor": {
+                    "@id": "example value"
+                  }
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    "example value"
+                  ],
+                  "schema:name": "example value",
+                  "schema:value": "example value",
+                  "schema:unitCode": "example value",
+                  "schema:unitText": "example value"
+                }
+              ],
+              "schema:validFrom": "example value",
+              "schema:validThrough": "example value",
+              "schema:hasPart": [
+                {
+                  "@id": "example value",
+                  "@type": [
+                    "schema:Product",
+                    "schema:Thing"
+                  ],
+                  "schema:name": "example value",
+                  "schema:additionalType": [
+                    {
+                      "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ]
+                }
+              ],
+              "schema:relatedLink": [
+                {
+                  "@type": [
+                    "schema:LinkRole"
+                  ],
+                  "schema:linkRelationship": "example value",
+                  "schema:target": {
+                    "@type": [
+                      "schema:EntryPoint"
+                    ],
+                    "schema:name": "example value",
+                    "schema:url": "example value",
+                    "schema:encodingFormat": "example value"
+                  }
+                }
+              ],
+              "schema:subjectOf": {
+                "@id": "example value",
+                "@type": [
+                  "example value"
+                ],
+                "schema:dateModified": "example value",
+                "schema:about": {
+                  "@id": "example value"
+                },
+                "dcterms:conformsTo": [
+                  "example value"
+                ]
+              }
+            }
           ]
         }
       ],
@@ -202,10 +520,9 @@ The analysis half of the LaserAblation module, with every property populated. Ge
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] prov:wasGeneratedBy [ prov:used [ schema1:instrument "example value" ] ;
+[] prov:wasGeneratedBy [ prov:used [ ] ;
             ada:ablationPitDepthRate "example value" ;
             ada:ablationSpotDuration 1 ;
             ada:rasterLineSpacing "example value" ] ;

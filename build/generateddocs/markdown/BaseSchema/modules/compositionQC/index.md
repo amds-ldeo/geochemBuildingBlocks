@@ -120,10 +120,10 @@ The procedure half of the CompositionQC module, with every property populated. G
 
 [] schema1:actionProcess [ schema1:step [ schema1:name "Data reduction" ;
                     ada:detectionLimitMethod "example value" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "example value" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:primaryStandardNameDefault "example value" ;
     ada:secondaryReferenceMaterialDefault "example value" .
 
@@ -155,7 +155,18 @@ The analysis half of the CompositionQC module, with every property populated. Ge
       "prov:used": [
         {
           "prov:reagent": [
-            "example value"
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "@id": "example value",
+              "schema:name": "example value",
+              "schema:description": "example value",
+              "schema:identifier": "example value",
+              "schema:termCode": "example value",
+              "schema:inDefinedTermSet": "example value",
+              "ada:reagentRole": "primaryStandard"
+            }
           ]
         }
       ]
@@ -169,6 +180,7 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 {
   "@context": [
     {
+      "ada": "https://ada.astromat.org/metadata/",
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
@@ -193,7 +205,18 @@ The analysis half of the CompositionQC module, with every property populated. Ge
       "prov:used": [
         {
           "prov:reagent": [
-            "example value"
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "@id": "example value",
+              "schema:name": "example value",
+              "schema:description": "example value",
+              "schema:identifier": "example value",
+              "schema:termCode": "example value",
+              "schema:inDefinedTermSet": "example value",
+              "ada:reagentRole": "primaryStandard"
+            }
           ]
         }
       ]
@@ -214,7 +237,7 @@ The analysis half of the CompositionQC module, with every property populated. Ge
             schema1:value "example value" ],
         [ schema1:name "Detection Limit Method" ;
             schema1:value "example value" ] ;
-    prov:wasGeneratedBy [ prov:used [ prov:reagent "example value" ] ] .
+    prov:wasGeneratedBy [ prov:used [ ] ] .
 
 
 ```
