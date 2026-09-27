@@ -2654,3 +2654,213 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# ---------------------------------------------------------------------------
+# profile-ada companion files
+#
+# A profile-ada block ships four files beside its schema: context.jsonld,
+# description.md, rules.shacl and examples.yaml. They used to come from
+# tools/generate_profiles.py, which is now blocked -- its SCHEMA template emits
+# the retired object-form ada:componentType -- and when it stopped running,
+# nothing took the companion files over. Five blocks added afterwards (QRIS,
+# RAMAN, VNMIR, XANES, XRD) have none of them, which is 20 of the 24 findings
+# in a clean audit_building_blocks run.
+#
+# Only the schema template was wrong, so the four emitters below are the
+# retired ones, carried over unchanged in substance. What changed is where they
+# get their facts: generate_profiles read a hand-maintained PROFILES dict, and
+# two of the five blocks were never added to it. These read the block's own
+# schema.yaml and bblock.json, which already carry the title, the abstract, the
+# componentType enum and the additionalType values -- so a block that exists is
+# describable, whether or not anyone remembered to register it.
+# ---------------------------------------------------------------------------
+
+_COMPANION_CONTEXT = {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#",
+}
+
+
+def _companion_facts(block_dir):
+    """Read what the four emitters need out of the block itself.
+
+    Returns a dict, or None when the directory is not a profile-ada block.
+    """
+    block_dir = Path(block_dir)
+    schema_path = block_dir / "schema.yaml"
+    if not schema_path.exists():
+        return None
+    schema = YAML(typ="safe").load(schema_path.read_text(encoding="utf-8")) or {}
+
+    component_types, additional_types = set(), []
+
+    def walk(node):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key == "ada:componentType" and isinstance(value, dict):
+                    component_types.update(value.get("enum") or [])
+                if key == "schema:additionalType" and isinstance(value, dict):
+                    contains = value.get("contains")
+                    if isinstance(contains, dict):
+                        for token in contains.get("enum") or []:
+                            if token not in additional_types:
+                                additional_types.append(token)
+                walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    walk(schema)
+
+    bblock = {}
+    bblock_path = block_dir / "bblock.json"
+    if bblock_path.exists():
+        bblock = json.loads(bblock_path.read_text(encoding="utf-8"))
+
+    tech = block_dir.parent.name
+    return {
+        "tech": tech,
+        "title": bblock.get("name") or schema.get("title") or f"ADA {tech} Profile",
+        "abstract": bblock.get("abstract") or schema.get("description") or "",
+        "component_types": sorted(component_types),
+        "additional_types": additional_types,
+        "profile_name": (bblock.get("itemIdentifier") or "").split(".")[-1] or f"ada{tech}",
+    }
+
+
+def _companion_description_md(facts):
+    lines = [f"# {facts['title']}", "", facts["abstract"].strip(), ""]
+    if facts["additional_types"]:
+        lines += ["## Product Types", ""]
+        lines += [f"- `{t}`" for t in facts["additional_types"]]
+        lines += [""]
+    if facts["component_types"]:
+        lines += ["## Valid Component Types", ""]
+        lines += [f"- `{c}`" for c in facts["component_types"]]
+        lines += [""]
+    return "\n".join(lines)
+
+
+def _companion_rules_shacl(facts):
+    """SHACL constraining schema:additionalType to this technique's values.
+
+    Base product validation -- creator, distribution, wasGeneratedBy -- is
+    inherited from adaProduct rules.shacl; this adds only the technique
+    constraint, which is what the retired generator did too.
+    """
+    short = facts["tech"]
+    shape = short.replace("-", "").replace(" ", "").lower()
+    or_block = "\n".join(f'        [sh:hasValue "{v}"]' for v in facts["additional_types"])
+    if not or_block:
+        return None
+    return f"""@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:          <http://www.w3.org/ns/shacl#> .
+@prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema:      <http://schema.org/> .
+@prefix ada:         <https://ada.astromat.org/metadata/> .
+@prefix cdifd: <https://cdif.org/validation/0.1/shacl#> .
+@base <https://www.ogc.org/rules/template/> .
+
+# {short} technique profile SHACL rules.
+# Base product validation (creator, distribution, wasGeneratedBy, etc.)
+# is inherited from adaProduct rules.shacl.
+# This shape constrains schema:additionalType to valid {short} values.
+
+cdifd:{shape}ProductShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select \"\"\"
+            PREFIX schema: <http://schema.org/>
+            SELECT ?this
+            WHERE {{
+                ?this a schema:Dataset .
+                ?this a schema:Product .
+                MINUS {{
+                    ?parent a schema:Dataset .
+                    ?parent ?p ?this .
+                    FILTER (?parent != ?this)
+                    FILTER (?p != schema:about)
+                }}
+            }}
+        \"\"\" ;
+    ] ;
+    sh:property [
+        sh:path schema:additionalType ;
+        sh:qualifiedMinCount 1 ;
+        sh:qualifiedValueShape [
+            sh:or (
+{or_block}
+            )
+        ] ;
+        sh:message "{short} products must have at least one schema:additionalType matching a valid {short} type." ;
+    ] ;
+    sh:message "{short} technique profile: additionalType must identify a valid {short} product type." ;
+    .
+"""
+
+
+def _companion_examples_yaml(facts, example_name):
+    return f"""- title: {facts['tech']} Product Example
+  content: |-
+    Example {facts['tech']} product metadata.
+  prefixes:
+    schema: http://schema.org/
+    ada: https://ada.astromat.org/metadata/
+    cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
+    prov: http://www.w3.org/ns/prov#
+    dcterms: http://purl.org/dc/terms/
+  snippets:
+    - language: json
+      ref: {example_name}
+"""
+
+
+def write_profile_ada_companions(block_dir, overwrite=False):
+    """Write the four companion files beside a profile-ada schema.
+
+    Returns {filename: 'written' | 'kept' | 'skipped: <why>'}.
+
+    examples.yaml is written ONLY when an example*.json is actually present.
+    The retired generator always emitted it with `ref: example<profile>.json`,
+    and emitting that beside a block with no example produces a file that
+    satisfies the audit's "has examples" check while pointing at nothing --
+    which is the failure mode worth avoiding, not the one worth satisfying.
+    """
+    block_dir = Path(block_dir)
+    facts = _companion_facts(block_dir)
+    if facts is None:
+        return {"(all)": "skipped: no schema.yaml"}
+
+    out = {}
+
+    def put(name, content):
+        if content is None:
+            out[name] = "skipped: nothing to emit"
+            return
+        path = block_dir / name
+        if path.exists() and not overwrite:
+            out[name] = "kept"
+            return
+        path.write_text(content, encoding="utf-8", newline="\n")
+        out[name] = "written"
+
+    put("context.jsonld", json.dumps({"@context": _COMPANION_CONTEXT}, indent=2) + "\n")
+    put("description.md", _companion_description_md(facts))
+    put("rules.shacl", _companion_rules_shacl(facts))
+
+    examples = sorted(block_dir.glob("example*.json"))
+    if examples:
+        put("examples.yaml", _companion_examples_yaml(facts, examples[0].name))
+    else:
+        out["examples.yaml"] = "skipped: no example*.json to reference"
+    return out
