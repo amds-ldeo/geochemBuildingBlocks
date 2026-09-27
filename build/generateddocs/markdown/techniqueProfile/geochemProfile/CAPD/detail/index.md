@@ -35,7 +35,7 @@ detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Q
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800123-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Q
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800123-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=2 | no named analyst | Boston College | (BC)Q
     ada:componentType "ada:CAPDRawTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800123-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241219_CAPD_BC_OREX-800123-0_1" .
 
 <ex:capdTAPP-P0> schema1:identifier "missing" .

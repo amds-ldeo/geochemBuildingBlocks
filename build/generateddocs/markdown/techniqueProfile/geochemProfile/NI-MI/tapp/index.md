@@ -79,8 +79,8 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -165,8 +165,8 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Renishaw" ;
     ada:instrumentModel "NI: Ultra Nanoindentation Tester (UNHT3) manufactured by Anton Paar" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

@@ -44,6 +44,31 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "Representativeness of the exsolution banding \u2014 the raster \"yielded more representative sampling of the kamacite-taenite banding\", and where it \"failed to yield useful Ge abundances for Klamath Falls ... To obtain more precise Ge, a set of five 150 \u03bcm spots were analyzed ... on five of the irons\" (p.4)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Electron-microprobe mapping, for the pallasites only \u2014 \"Quantitative analysis, mixed WDS/EDS element mapping, and characterization of the mineral phases from NWA 1911 and Zinder were performed\" on the Bruker instrument, producing Si, Al, Cr, Fe, Mg, Ca, Na, P and Ni maps \"along with backscattered electron (BSE) maps\" at 6 \u03bcm per pixel (pp.5\u20136); for the irons the paper states only that the rasters were \"taken on polished surfaces\" (p.5)"
+    },
+    {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "10 \u00b5m s\u207b\u00b9 (raster scan); N/A (spot Ge)"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -164,19 +189,6 @@
       "ada:laserType": "missing"
     }
   ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
-      "schema:name": "Transect Rate Mapping Rate or Step Size",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "10 \u00b5m s\u207b\u00b9 (raster scan); N/A (spot Ge)"
-    }
-  ],
   "ada:analysisSequenceDefault": "Standards at start of session \u2192 raster unknowns \u2192 repeat \u2192 standards at end; separate session for Ge spot analyses",
   "schema:actionProcess": {
     "schema:step": [
@@ -218,6 +230,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Applied: triple mode detection at 65% duty cycle (pulse counting + analog + Faraday); specific cross-calibration not described"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Partially \u2014 the rule stated is one of combination rather than rejection: for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average (Appendix 2) and the raster average in this table\" (Table 3 note, p.4). No acceptance or rejection rule for individual results is stated. The exclusion of \"Binya and Fitzwater Pass ... from the fractional-crystallization modeling of group IIIF\" (p.5) is an interpretive exclusion downstream of the reported values, not a rule about which results make them"
           }
         ],
         "@type": [
@@ -278,6 +301,10 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Whole sample (polished specimen surface) > Region of interest (raster) \u2014 irons \"were analyzed using a raster scan over a few millimeters\" with a 50 \u03bcm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4\u20135); Ge comes from a set of five 150 \u03bcm spots on five of the irons (p.4)",
+  "ada:reportedProperties": [
+    "Abundances of 23 elements in metal, with mixed units in one table \u2014 P, Fe, Co and Ni in mg/g, and V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au in \u00b5g/g (Table 3, p.4). Values are reported as raster averages, with spot averages in Appendix 2; for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average ... and the raster average\" (p.4)"
+  ],
   "ada:ablationSamplingMode": [
     "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons"
   ],
@@ -289,6 +316,12 @@
   "ada:calibrationMeasurementFrequency": "Standards at start and end of session; external bracketing",
   "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each raster analysis; mean background subtracted",
   "ada:primaryStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:carrierGasFlowRateDefault": "missing",
@@ -300,8 +333,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",

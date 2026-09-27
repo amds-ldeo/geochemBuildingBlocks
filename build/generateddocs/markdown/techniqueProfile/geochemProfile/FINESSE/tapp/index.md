@@ -88,8 +88,8 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -183,8 +183,8 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -230,8 +230,8 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "FINESSE" ;
     ada:reportedProperties "Filename | Temperature | C ng | delta13C | delta3C 2 sigma error | N ng | delta15N | delta15N 2 sigma error" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

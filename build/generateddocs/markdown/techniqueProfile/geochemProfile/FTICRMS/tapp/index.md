@@ -101,8 +101,8 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -234,14 +234,14 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Liss, Michael" ] ;
     schema1:datePublished "missing" ;
@@ -259,8 +259,8 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "FTICR-MS 12 Tesla Solarix Infinity system" ;
     ada:reportedProperties "Intensity | Mass | Neutral mass | Composition" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

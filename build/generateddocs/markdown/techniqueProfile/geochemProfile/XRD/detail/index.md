@@ -35,7 +35,7 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800117-108 | OREX-800107-103",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800117-108 | OREX-800107-103",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
     ada:componentType "ada:XRDTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800117-108 | OREX-800107-103" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241125_xrd_nhm_orex-800117-108_1 | 20240725_xrd_nhm_orex-800107-103_1" .
 
 <ex:xrdTAPP-King2024> schema1:identifier "missing" .
@@ -123,7 +123,7 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-500005-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -159,7 +159,7 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-500005-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -176,7 +176,7 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
     ada:componentType "ada:XRDTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-500005-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20230928_xrd_jsc-ares_orex-500005-0_1" .
 
 <ex:xrdTAPP-King2024-2> schema1:identifier "missing" .
@@ -211,7 +211,7 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800032-110",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -247,7 +247,7 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800032-110",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -264,7 +264,7 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
     ada:componentType "ada:XRDTabular" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800032-110" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231124_xrd_nhm_orex-800032-110_1" .
 
 <ex:xrdTAPP-King2023> schema1:identifier "missing" .

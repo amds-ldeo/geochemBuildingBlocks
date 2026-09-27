@@ -35,7 +35,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Grant-in-Aid for Scientific Research (grants 26106002, 26220713, 16H04081, 19H00715, 19H01081, 20H04609)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: metal grains by host chondrule within each section — e.g. \"N8_02 interior ch2-1\" with LA \"spot No.\" 201, 202; \"N8_05 margin ch1\"; isolated grain \"iso1\" (table p.6; p.4) — in the sections \"NWA801-3-8, NWA7184-29-9, and DHO1432-5-5\" (p.2)",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -44,7 +44,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — the contributing counts are stated per grain, the reported ratios being \"the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (p.8). No acceptance or rejection rule is stated for the LA data; the 233/235 > 0.2 rejection (p.4) is a rule for the N-TIMS Os measurements, not for these spot analyses, and is not borrowed",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -53,6 +53,21 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -89,7 +104,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "JSPS Grant-in-Aid for Scientific Research (grants 26106002, 26220713, 16H04081, 19H00715, 19H01081, 20H04609)",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: metal grains by host chondrule within each section \u2014 e.g. \"N8_02 interior ch2-1\" with LA \"spot No.\" 201, 202; \"N8_05 margin ch1\"; isolated grain \"iso1\" (table p.6; p.4) \u2014 in the sections \"NWA801-3-8, NWA7184-29-9, and DHO1432-5-5\" (p.2)",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -98,7 +113,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the contributing counts are stated per grain, the reported ratios being \"the mean Re/Os abundance ratios for each of the 1\u20133 analytical spots measured by LA-ICP-MS\" (p.8). No acceptance or rejection rule is stated for the LA data; the 233/235 > 0.2 rejection (p.4) is a rule for the N-TIMS Os measurements, not for these spot analyses, and is not borrowed",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -107,6 +122,21 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Secondary-electron imaging on the EPMA, used to place every spot \u2014 \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 \u2026) that tie the analyses back to those images (table p.6)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -118,9 +148,10 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Nakanishi2022> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Nakanishi2022> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the contributing counts are stated per grain, the reported ratios being \"the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (p.8). No acceptance or rejection rule is stated for the LA data; the 233/235 > 0.2 rejection (p.4) is a rule for the N-TIMS Os measurements, not for these spot analyses, and is not borrowed" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -138,7 +169,7 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: metal grains by host chondrule within each section — e.g. \"N8_02 interior ch2-1\" with LA \"spot No.\" 201, 202; \"N8_05 margin ch1\"; isolated grain \"iso1\" (table p.6; p.4) — in the sections \"NWA801-3-8, NWA7184-29-9, and DHO1432-5-5\" (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:spotDiameter -9999 ;
@@ -147,6 +178,11 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
 
 <ex:laQicpmsTAPP-Nakanishi2022> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)" .
 
 
 ```
@@ -178,7 +214,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategy Priority Research Program (Category B) of Chinese Academy of Sciences (XDB0710000); NSFC 42073022",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — reference-material fusion glasses by name (JB-1b, GSR-3, AGV-2, AC-E, GSR-1, W-2A; BHVO-2 glass, p.3); \"Nine spot analyses ... were arranged in a grid\" per glass (p.5), unlabelled",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -187,7 +223,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": 45,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
   "ada:detectionLimit": "LODs for 32 elements in Li-borate glass BHVO-2: 0.005–23.5 µg g⁻¹ (dilution-limited; much higher than undiluted glass LODs); LODs for NIST 610: 0.007–0.45 µg g⁻¹; LOQ = 3.3 × LOD (Pettke 2012) for most elements; LOQ for pollution elements = blank + 10SD (Gold Book IUPAC)",
   "ada:limitOfQuantificationMethod": "LOQ = 3.3 × LOD per Pettke (2012) for most elements; LOQ = blank value + 10SD per IUPAC Gold Book for pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) where blank contribution is significant",
   "ada:countingStatisticsError": "missing",
@@ -196,6 +232,21 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Analytical results within 10% of reference values for most of 32 trace elements in 6 GRMs (mafic to felsic); precision (RSD) within 10% for most elements; lunar basalt (NWA14526) and shergottite (NWA13190) results compared with SN-ICP-MS and found reliable",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "N — the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -232,7 +283,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategy Priority Research Program (Category B) of Chinese Academy of Sciences (XDB0710000); NSFC 42073022",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 reference-material fusion glasses by name (JB-1b, GSR-3, AGV-2, AC-E, GSR-1, W-2A; BHVO-2 glass, p.3); \"Nine spot analyses ... were arranged in a grid\" per glass (p.5), unlabelled",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "ThO/Th = measured at <0.3%; U/Th = 0.95\u20131.05 (on NIST SRM 612)",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -241,7 +292,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": 45,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
   "ada:detectionLimit": "LODs for 32 elements in Li-borate glass BHVO-2: 0.005\u201323.5 \u00b5g g\u207b\u00b9 (dilution-limited; much higher than undiluted glass LODs); LODs for NIST 610: 0.007\u20130.45 \u00b5g g\u207b\u00b9; LOQ = 3.3 \u00d7 LOD (Pettke 2012) for most elements; LOQ for pollution elements = blank + 10SD (Gold Book IUPAC)",
   "ada:limitOfQuantificationMethod": "LOQ = 3.3 \u00d7 LOD per Pettke (2012) for most elements; LOQ = blank value + 10SD per IUPAC Gold Book for pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) where blank contribution is significant",
   "ada:countingStatisticsError": "missing",
@@ -250,6 +301,21 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Analytical results within 10% of reference values for most of 32 trace elements in 6 GRMs (mafic to felsic); precision (RSD) within 10% for most elements; lunar basalt (NWA14526) and shergottite (NWA13190) results compared with SN-ICP-MS and found reliable",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "N \u2014 the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -261,9 +327,10 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2024> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2024> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -281,7 +348,7 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
     ada:oxideProduction "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — reference-material fusion glasses by name (JB-1b, GSR-3, AGV-2, AC-E, GSR-1, W-2A; BHVO-2 glass, p.3); \"Nine spot analyses ... were arranged in a grid\" per glass (p.5), unlabelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime 45 ;
     ada:spotDiameter -9999 ;
@@ -290,6 +357,11 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)" .
 
 <ex:laQicpmsTAPP-Liu2024> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "N — the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)" .
 
 
 ```
@@ -321,7 +393,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -330,7 +402,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "~40 s (inferred from typical CetacAnalyte HE protocol; stable signal used)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)",
   "ada:detectionLimit": "Detection limits for Au ~0.01 ppm; Cu ~0.1 ppm in silicate melt (stated in paper)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -339,6 +411,21 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Au and Cu fully dissolved in most glasses (smooth signals); Au results consistent with Au solubility trends from literature; comparison with SN-ICP-MS (solution) for two extraterrestrial samples confirms reliability",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Optical microscopy, then EMP — \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -375,7 +462,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -384,7 +471,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "~40 s (inferred from typical CetacAnalyte HE protocol; stable signal used)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)",
   "ada:detectionLimit": "Detection limits for Au ~0.01 ppm; Cu ~0.1 ppm in silicate melt (stated in paper)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -393,6 +480,21 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Au and Cu fully dissolved in most glasses (smooth signals); Au results consistent with Au solubility trends from literature; comparison with SN-ICP-MS (solution) for two extraterrestrial samples confirms reliability",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -404,9 +506,10 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2025> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2025> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -424,7 +527,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime "~40 s (inferred from typical CetacAnalyte HE protocol; stable signal used)" ;
     ada:spotDiameter -9999 ;
@@ -433,6 +536,11 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 <ex:laQicpmsTAPP-Liu2025> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "Optical microscopy, then EMP — \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)" .
 
 
 ```
@@ -464,7 +572,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only — experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -473,7 +581,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "~40 s (same)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -482,6 +590,21 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Sulfide Au and Cu concentrations consistent with strong positive correlation with log fS₂ (Fig. 5A) confirming thermodynamic equilibrium; partitioning coefficients Dsulfide/melt consistent with literature (Li et al. 2019, 2021)",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Optical microscopy, then EMP — \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -518,7 +641,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Sample name only \u2014 experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -527,7 +650,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": "~40 s (same)",
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -536,6 +659,21 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "Sulfide Au and Cu concentrations consistent with strong positive correlation with log fS\u2082 (Fig. 5A) confirming thermodynamic equilibrium; partitioning coefficients Dsulfide/melt consistent with literature (Li et al. 2019, 2021)",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -547,9 +685,10 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2025-2> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2025-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -567,7 +706,7 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Sample name only — experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime "~40 s (same)" ;
     ada:spotDiameter -9999 ;
@@ -576,6 +715,11 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 <ex:laQicpmsTAPP-Liu2025-2> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "Optical microscopy, then EMP — \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)" .
 
 
 ```
@@ -607,7 +751,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Cosmochemistry grants NNX11AG58G (to L.A.T.) and NNN13D465T (to Y.L.); NSF EAR-1226270 (to P.D.A.) and EAR-1019770 (to R.J.B.); Y.L. supported by Jet Propulsion Laboratory",
   "ada:sampleName": "Tissint Martian meteorite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -616,7 +760,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": "Referenced in Table 3 and Table S1; specific values not directly stated in main text; REE in olivines below detection limits at 24–32 µm conditions",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -625,6 +769,21 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "For silicates: oxide-sum normalization agrees within <10% with EMP-based IS method (internal cross-check, not a separate QC standard)",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -661,7 +820,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "NASA Cosmochemistry grants NNX11AG58G (to L.A.T.) and NNN13D465T (to Y.L.); NSF EAR-1226270 (to P.D.A.) and EAR-1019770 (to R.J.B.); Y.L. supported by Jet Propulsion Laboratory",
   "ada:sampleName": "Tissint Martian meteorite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -670,7 +829,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": "Referenced in Table 3 and Table S1; specific values not directly stated in main text; REE in olivines below detection limits at 24\u201332 \u00b5m conditions",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -679,6 +838,21 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "For silicates: oxide-sum normalization agrees within <10% with EMP-based IS method (internal cross-check, not a separate QC standard)",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Petrographic microscopy, SEM and EMP \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -690,9 +864,10 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2016> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2016> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -710,7 +885,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint Martian meteorite" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:spotDiameter -9999 ;
@@ -719,6 +894,11 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 <ex:laQicpmsTAPP-Liu2016> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)" .
 
 
 ```
@@ -750,7 +930,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Same as silicate protocol",
   "ada:sampleName": "Tissint Martian meteorite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -759,7 +939,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially — the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": "Referenced in Table 3 and Table S1; specific values not directly stated in main text; merrillite REE at 14–414 ppm range above detection",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -768,6 +948,21 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 
@@ -804,7 +999,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Same as silicate protocol",
   "ada:sampleName": "Tissint Martian meteorite",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -813,7 +1008,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:mappingArea": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": "Referenced in Table 3 and Table S1; specific values not directly stated in main text; merrillite REE at 14\u2013414 ppm range above detection",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -822,6 +1017,21 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening"
+        }
+      ],
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "schema:value": "Petrographic microscopy, SEM and EMP \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)"
+    }
+  ],
   "ada:spotDiameterMeasured": -9999
 }
 ```
@@ -833,9 +1043,10 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2016-2> a ada:LAICPMSTabular ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2016-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "missing" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -853,7 +1064,7 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint Martian meteorite" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:spotDiameter -9999 ;
@@ -862,6 +1073,11 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 <ex:laQicpmsTAPP-Liu2016-2> schema1:identifier "missing" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:value "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)" .
 
 
 ```
@@ -893,7 +1109,7 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Xenotime XN02, MG-1, BS-1, XENOA, M1567; apatite Otter Lake, NW-1, MAP-3; two metamorphic garnets; NIST SRM 610",
-  "ada:samplingUnit": "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
+  "ada:samplingUnitName": "Sample name only — \"Xenotime samples included BS-1, MG-1, XN02, XENOA and M1567; apatite samples included Otter Lake, NW-1 and MAP-3; and garnet samples included 14SA36 and 12QL59\" (p.9); spots are counted per sample, not labelled",
   "ada:spotDiameter": 50,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -947,7 +1163,7 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Xenotime XN02, MG-1, BS-1, XENOA, M1567; apatite Otter Lake, NW-1, MAP-3; two metamorphic garnets; NIST SRM 610",
-  "ada:samplingUnit": "Laser spot \u2014 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
+  "ada:samplingUnitName": "Sample name only \u2014 \"Xenotime samples included BS-1, MG-1, XN02, XENOA and M1567; apatite samples included Otter Lake, NW-1 and MAP-3; and garnet samples included 14SA36 and 12QL59\" (p.9); spots are counted per sample, not labelled",
   "ada:spotDiameter": 50,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -996,7 +1212,7 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Xenotime XN02, MG-1, BS-1, XENOA, M1567; apatite Otter Lake, NW-1, MAP-3; two metamorphic garnets; NIST SRM 610" ;
-    ada:samplingUnit "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents" ;
+    ada:samplingUnitName "Sample name only — \"Xenotime samples included BS-1, MG-1, XN02, XENOA and M1567; apatite samples included Otter Lake, NW-1 and MAP-3; and garnet samples included 14SA36 and 12QL59\" (p.9); spots are counted per sample, not labelled" ;
     ada:sessionIdentifier "N — 20 analytical sessions over 3 months referenced, no identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:spotDiameter 50 ;

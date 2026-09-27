@@ -35,7 +35,7 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP.",
   "ada:sampleName": "OREX-803052-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP.",
   "ada:sampleName": "OREX-803052-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pur
     ada:componentType "ada:processingMethod" ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This study is supported by NASA grant 80NSSC22K1693 through the OREX-PSP." ;
     ada:sampleName "OREX-803052-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240409_ams_pu_multisample_1" .
 
 <ex:amsTAPP-P0> schema1:identifier "missing" .

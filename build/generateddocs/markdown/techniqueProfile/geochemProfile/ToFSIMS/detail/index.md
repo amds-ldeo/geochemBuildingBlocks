@@ -35,7 +35,7 @@ detail instance derived from ADA n=3 | Rickard, William | Curtin University | IO
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University.",
   "ada:sampleName": "OREX-501070-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=3 | Rickard, William | Curtin University | IO
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University.",
   "ada:sampleName": "OREX-501070-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=3 | Rickard, William | Curtin University | IO
     ada:componentType "ada:TOFSIMSCollection" ;
     ada:fundingSourceForAnalysis "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University." ;
     ada:sampleName "OREX-501070-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231125_tof-sims_cuwa_orex-501070-0_1" .
 
 <ex:tofsimsTAPP-P0> schema1:identifier "missing" .

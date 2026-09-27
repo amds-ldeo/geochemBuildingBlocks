@@ -118,20 +118,6 @@
       "ada:ionBeamSource": "missing"
     }
   ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "chamberPressureDefault",
-      "schema:name": "Chamber Pressure",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 25,
-      "schema:description": "25 Pa (variable pressure mode)"
-    }
-  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -153,6 +139,17 @@
       {
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome"
+          },
           {
             "@id": "ada:parameter/semTAPP/crystalStructureDatabaseDefault",
             "@type": [
@@ -193,6 +190,20 @@
       "schema:HowTo"
     ]
   },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/chamberPressureDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "chamberPressureDefault",
+      "schema:name": "Chamber Pressure",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 25,
+      "schema:description": "25 Pa (variable pressure mode)"
+    }
+  ],
   "ada:sampleTiltAngle": "70 degrees",
   "schema:object": [
     {
@@ -213,6 +224,7 @@
       "ada:sliceThicknessDefault": -9999
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 no rule is given for choosing which grains were indexed",
   "ada:monitoredElements": [
     "N/A \u2014 this procedure is EBSD. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
   ],
@@ -234,8 +246,12 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Phase > Grain \u2014 \"Electron back-scatter diffraction (EBSD) analyses were operated at 20 kV and 6 nA in focused beam mode\", the beam \"several nanometers in diameter\" with \"~30 nm\" resolution for diffracted electrons, run for \"Structural information\" on the alloy phases (p.2)",
   "ada:analyticalMode": [
     "EBSD"
+  ],
+  "ada:reportedProperties": [
+    "Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)"
   ],
   "schema:measurementTechnique": [
     {
@@ -244,6 +260,12 @@
       ],
       "schema:name": "sem",
       "schema:termCode": "sem"
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
     }
   ],
   "ada:clAcquisitionMode": "missing",
@@ -258,8 +280,6 @@
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:primaryStandardNameDefault": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,

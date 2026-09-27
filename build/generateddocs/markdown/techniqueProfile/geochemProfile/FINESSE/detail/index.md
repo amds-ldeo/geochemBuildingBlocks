@@ -35,7 +35,7 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-103001-21",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-103001-21",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=8 | no named analyst | Open University | FINE
     ada:componentType "ada:FINESSECollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-103001-21" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240302_FINESSE_OU_OREX-103001-21_1" .
 
 <ex:finesseTAPP-P0> schema1:identifier "missing" .

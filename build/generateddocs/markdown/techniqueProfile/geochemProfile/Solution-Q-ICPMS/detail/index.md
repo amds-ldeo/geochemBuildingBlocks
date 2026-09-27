@@ -35,7 +35,7 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
-  "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
+  "ada:samplingUnitName": "Sample name only — Table 2 reports \"AGV-1\", \"BHVO-1\", \"G-2\", \"SCO-1\", \"GSR-5\" with replicate counts (n = 6, 5, 7, 4, 4) and no replicate labels (p.4)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -85,7 +85,7 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites",
-  "ada:samplingUnit": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
+  "ada:samplingUnitName": "Sample name only \u2014 Table 2 reports \"AGV-1\", \"BHVO-1\", \"G-2\", \"SCO-1\", \"GSR-5\" with replicate counts (n = 6, 5, 7, 4, 4) and no replicate labels (p.4)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -129,7 +129,7 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
     ada:proceduralBlankLevel "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites" ;
-    ada:samplingUnit "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
+    ada:samplingUnitName "Sample name only — Table 2 reports \"AGV-1\", \"BHVO-1\", \"G-2\", \"SCO-1\", \"GSR-5\" with replicate counts (n = 6, 5, 7, 4, 4) and no replicate labels (p.4)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard measurements (stated section 3.1)" .
@@ -166,7 +166,7 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
-  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+  "ada:samplingUnitName": "N — only the sample type is named (core-top Cibicidoides wuellerstorfi); no sample or aliquot identifiers are stated",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": 6,
   "ada:oxideProduction": "missing",
@@ -216,7 +216,7 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods",
-  "ada:samplingUnit": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+  "ada:samplingUnitName": "N \u2014 only the sample type is named (core-top Cibicidoides wuellerstorfi); no sample or aliquot identifiers are stated",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": 6,
   "ada:oxideProduction": "missing",
@@ -260,7 +260,7 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
     ada:proceduralBlankLevel "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods" ;
-    ada:samplingUnit "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
+    ada:samplingUnitName "N — only the sample type is named (core-top Cibicidoides wuellerstorfi); no sample or aliquot identifiers are stated" ;
     ada:sessionIdentifier "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -297,13 +297,13 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
-  "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
+  "ada:samplingUnitName": "Labelled for the meteorites: \"Orgueil #1\", \"Orgueil #2\", \"Murchison #1\", \"Murchison #2\", \"Allende #1\", \"Allende #2\" (table, p.9) — \"Two powder aliquots were used for each meteorite\" (p.9); geostandards by name only",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses",
   "ada:detectionLimit": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -347,13 +347,13 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses",
-  "ada:samplingUnit": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
+  "ada:samplingUnitName": "Labelled for the meteorites: \"Orgueil #1\", \"Orgueil #2\", \"Murchison #1\", \"Murchison #2\", \"Allende #1\", \"Allende #2\" (table, p.9) \u2014 \"Two powder aliquots were used for each meteorite\" (p.9); geostandards by name only",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg",
-  "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision",
+  "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses",
   "ada:detectionLimit": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -374,7 +374,7 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
 <ex:detail-Agilent7500> a ada:SolutionICPMSTabular ;
     schema1:measurementTechnique <ex:solutionQicpmsTAPP-Agilent7500> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule stated. 113Cd was excluded as a determination channel -- \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\" -- which is a channel decision, not an analysis-inclusion decision" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)" ;
@@ -391,7 +391,7 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
     ada:proceduralBlankLevel "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses" ;
-    ada:samplingUnit "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"" ;
+    ada:samplingUnitName "Labelled for the meteorites: \"Orgueil #1\", \"Orgueil #2\", \"Murchison #1\", \"Murchison #2\", \"Allende #1\", \"Allende #2\" (table, p.9) — \"Two powder aliquots were used for each meteorite\" (p.9); geostandards by name only" ;
     ada:sessionIdentifier "N -- \"an average of eight sessions\" referenced; no session identifier stated" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard and RM analyses (stated section 2)" .
@@ -428,7 +428,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites",
-  "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
+  "ada:samplingUnitName": "Sample name only — meteorites by name (e.g. PCA 02010, PCA 02012); PCA 02010's \"Two separate fragments\" are distinguished by their values, not by labels (p.2)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -478,7 +478,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites",
-  "ada:samplingUnit": "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure",
+  "ada:samplingUnitName": "Sample name only \u2014 meteorites by name (e.g. PCA 02010, PCA 02012); PCA 02010's \"Two separate fragments\" are distinguished by their values, not by labels (p.2)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -522,7 +522,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "PCA 02010, B-7904, LON 94101 and further CM/CY chondrites" ;
-    ada:samplingUnit "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
+    ada:samplingUnitName "Sample name only — meteorites by name (e.g. PCA 02010, PCA 02012); PCA 02010's \"Two separate fragments\" are distinguished by their values, not by labels (p.2)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -559,7 +559,7 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
-  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
+  "ada:samplingUnitName": "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"–\"#8\" (p.7) are synthetic yield-test solutions, not samples",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -609,7 +609,7 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)",
-  "ada:samplingUnit": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
+  "ada:samplingUnitName": "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"\u2013\"#8\" (p.7) are synthetic yield-test solutions, not samples",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -653,7 +653,7 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
     ada:proceduralBlankLevel "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)" ;
-    ada:samplingUnit "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites" ;
+    ada:samplingUnitName "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"–\"#8\" (p.7) are synthetic yield-test solutions, not samples" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -690,7 +690,7 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N — SPM isotherm experiment at 1000 mg/L",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N — the sorption-isotherm solutions carry no sample or unit identifiers",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -740,7 +740,7 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N \u2014 SPM isotherm experiment at 1000 mg/L",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "N \u2014 the sorption-isotherm solutions carry no sample or unit identifiers",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -784,7 +784,7 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "N — SPM isotherm experiment at 1000 mg/L" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "N — the sorption-isotherm solutions carry no sample or unit identifiers" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -821,7 +821,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307",
-  "ada:samplingUnit": "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
+  "ada:samplingUnitName": "Labelled by extraction: fractions \"F1\", \"F2\", \"F3\", \"F4\" and \"F4N\" of the equilibrated sediment, \"two replicates per extraction mode\" (p.2); replicates not labelled",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -871,7 +871,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307",
-  "ada:samplingUnit": "Weighed sediment aliquot \u2014 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
+  "ada:samplingUnitName": "Labelled by extraction: fractions \"F1\", \"F2\", \"F3\", \"F4\" and \"F4N\" of the equilibrated sediment, \"two replicates per extraction mode\" (p.2); replicates not labelled",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -915,7 +915,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
     ada:proceduralBlankLevel "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307" ;
-    ada:samplingUnit "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction" ;
+    ada:samplingUnitName "Labelled by extraction: fractions \"F1\", \"F2\", \"F3\", \"F4\" and \"F4N\" of the equilibrated sediment, \"two replicates per extraction mode\" (p.2); replicates not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -952,7 +952,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N — sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f",
-  "ada:samplingUnit": "N — sub-sampled water aliquots",
+  "ada:samplingUnitName": "N — the sorption-kinetics and isotherm solutions carry no sample or unit identifiers",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -1002,7 +1002,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "N \u2014 sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f",
-  "ada:samplingUnit": "N \u2014 sub-sampled water aliquots",
+  "ada:samplingUnitName": "N \u2014 the sorption-kinetics and isotherm solutions carry no sample or unit identifiers",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
@@ -1046,7 +1046,7 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "N — sorption kinetics and isotherm solutions; CRMs CRM-TMDW and NIST 1643f" ;
-    ada:samplingUnit "N — sub-sampled water aliquots" ;
+    ada:samplingUnitName "N — the sorption-kinetics and isotherm solutions carry no sample or unit identifiers" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -1083,13 +1083,13 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder",
-  "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
+  "ada:samplingUnitName": "Sample name only — each Ryugu particle was \"individually weighed\" and digested whole, so it is its own unit: \"A0066, A0238, A0247, A0256, A0259, A0268, A0301, and A0313\" (p.3)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "N — blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%",
-  "ada:analysisInclusionAndRejectionCriteria": "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1133,13 +1133,13 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder",
-  "ada:samplingUnit": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
+  "ada:samplingUnitName": "Sample name only \u2014 each Ryugu particle was \"individually weighed\" and digested whole, so it is its own unit: \"A0066, A0238, A0247, A0256, A0259, A0268, A0301, and A0313\" (p.3)",
   "ada:sampleDescription": "missing",
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "N \u2014 blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%",
-  "ada:analysisInclusionAndRejectionCriteria": "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -1160,7 +1160,7 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
 <ex:detail-P8> a ada:SolutionICPMSTabular ;
     schema1:measurementTechnique <ex:solutionQicpmsTAPP-P8> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Explicit rule and outcome: 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis'" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
@@ -1177,7 +1177,7 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
     ada:proceduralBlankLevel "N — blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Ryugu particles A0066, A0238, A0247, A0256, A0259, A0268, A0301, A0313; Smithsonian Allende powder" ;
-    ada:samplingUnit "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
+    ada:samplingUnitName "Sample name only — each Ryugu particle was \"individually weighed\" and digested whole, so it is its own unit: \"A0066, A0238, A0247, A0256, A0259, A0268, A0301, and A0313\" (p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .

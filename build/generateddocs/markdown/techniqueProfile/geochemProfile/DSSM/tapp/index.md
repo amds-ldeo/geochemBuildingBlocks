@@ -88,8 +88,8 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -183,8 +183,8 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -230,8 +230,8 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Test Resources electromechanical press (Model 313Q)" ;
     ada:reportedProperties "Time (s) | Uncorrected Load (N) | Corrected Load (N) | Uncorrected Stress (MPa) | Corrected Stress (MPa) | Load (N) | Stress (MPa) | Displacement (mm) | Strain" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

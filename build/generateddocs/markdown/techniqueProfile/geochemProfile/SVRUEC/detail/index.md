@@ -35,7 +35,7 @@ detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800123-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program.",
   "ada:sampleName": "OREX-800123-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary |
     ada:componentType "ada:SVRUECTabular" ;
     ada:fundingSourceForAnalysis "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
     ada:sampleName "OREX-800123-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20241216_sv-ruec_uca_orex-800123-0_1" .
 
 <ex:svruecTAPP-Model5077> schema1:identifier "missing" .

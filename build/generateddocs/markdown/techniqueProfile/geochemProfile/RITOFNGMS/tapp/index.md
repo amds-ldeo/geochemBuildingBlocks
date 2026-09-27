@@ -101,8 +101,8 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -259,8 +259,8 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "RELAX" ;
     ada:reportedProperties "None" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

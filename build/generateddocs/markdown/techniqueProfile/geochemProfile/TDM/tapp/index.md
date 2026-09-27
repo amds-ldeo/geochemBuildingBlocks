@@ -88,8 +88,8 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -183,8 +183,8 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -230,8 +230,8 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)" ;
     ada:reportedProperties "Time Stamp (sec) | Temperature (K) | Magnetic Field (Oe) | Pressure (Torr) | Pressure (Pa) | DC Moment Fixed Ctr (emu) | DC Moment Err Fixed Ctr (emu) | DC Fixed Fit (unitless) | DC Scan Time (s) | DC Number of Points | Temperature (K), 5-300 K, ZFC | DC Moment Fixed Ctr (emu), 5-300 K, ZFC" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

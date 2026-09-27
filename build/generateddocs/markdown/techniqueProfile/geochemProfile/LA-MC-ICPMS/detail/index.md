@@ -35,7 +35,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
+  "ada:samplingUnitName": "Sample name only — runs in \"NWA 10597 and NWA 6950\" (p.3), counted by reduction group (\"Normal group n=36\", \"SUIA group n=244\", table p.7), not labelled; reference materials by name (NHB-9, YY12-01, YG4301, p.3)",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -45,7 +45,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:peakFlatness": "missing",
   "ada:signalIntegrationTime": 60,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)",
+  "ada:analysisInclusionAndRejectionCriteria": "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (⁸⁷Rb/⁸⁶Sr > 1; ⁸⁸Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -131,7 +131,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08",
   "ada:sampleName": "missing",
-  "ada:samplingUnit": "Analysis point \u2014 one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8",
+  "ada:samplingUnitName": "Sample name only \u2014 runs in \"NWA 10597 and NWA 6950\" (p.3), counted by reduction group (\"Normal group n=36\", \"SUIA group n=244\", table p.7), not labelled; reference materials by name (NHB-9, YY12-01, YG4301, p.3)",
   "ada:spotDiameter": -9999,
   "ada:oxideProduction": "missing",
   "ada:analysisLocationSpotCoordinates": "missing",
@@ -141,7 +141,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:peakFlatness": "missing",
   "ada:signalIntegrationTime": 60,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with \u2078\u2077Rb/\u2078\u2076Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with \u2078\u2078Sr signal < 0.2 V discarded for poor \u2078\u2077Sr/\u2078\u2076Sr precision. Run level: runs with stable signals go to the Normal group, runs with large \u2078\u2077Rb/\u2078\u2076Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial \u2078\u2077Sr/\u2078\u2076Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)",
+  "ada:analysisInclusionAndRejectionCriteria": "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large \u2078\u2077Rb/\u2078\u2076Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial \u2078\u2077Sr/\u2078\u2076Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (\u2078\u2077Rb/\u2078\u2076Sr > 1; \u2078\u2078Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -207,7 +207,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
         <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique <ex:laMcicpmsTAPP-Zhang2022> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Cycle level: the cycles at the beginning and end of ablation are discarded, leaving 60-70 of the 90 ablation cycles (p.3). Technical criteria (p.5): (a) data with ⁸⁷Rb/⁸⁶Sr > 1 deleted, the Rb interference correction being invalid above that; (b) data with ⁸⁸Sr signal < 0.2 V discarded for poor ⁸⁷Sr/⁸⁶Sr precision. Run level: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8)" ;
+    ada:analysisInclusionAndRejectionCriteria "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (⁸⁷Rb/⁸⁶Sr > 1; ⁸⁸Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -226,7 +226,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
     ada:peakFlatness "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
-    ada:samplingUnit "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8" ;
+    ada:samplingUnitName "Sample name only — runs in \"NWA 10597 and NWA 6950\" (p.3), counted by reduction group (\"Normal group n=36\", \"SUIA group n=244\", table p.7), not labelled; reference materials by name (NHB-9, YY12-01, YG4301, p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime 60 ;
     ada:spotDiameter -9999 ;

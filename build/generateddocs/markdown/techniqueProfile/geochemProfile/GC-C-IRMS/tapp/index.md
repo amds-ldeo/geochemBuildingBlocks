@@ -88,8 +88,8 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -183,8 +183,8 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -230,8 +230,8 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Agilent 7890B with Thermo Delta V GC-C-IRMS instrument" ;
     ada:reportedProperties "Date | Time | Identifier 1 | Identifier 2 | Analysis | Method | Is Ref_ | Rt | Width | d 18O/16O | BGD 44 | BGD 45" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

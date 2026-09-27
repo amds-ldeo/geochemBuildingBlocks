@@ -92,8 +92,8 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -191,8 +191,8 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -238,8 +238,8 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "Agilent 5977B GCMSD" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

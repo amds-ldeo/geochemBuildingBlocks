@@ -111,8 +111,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -233,8 +233,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -262,14 +262,14 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Hiroi, Takahiro" ] ;
     schema1:datePublished "missing" ;
@@ -295,8 +295,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Reflectance (Reflectance) | Standard Deviation" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;
@@ -409,8 +409,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -531,8 +531,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -593,8 +593,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "Wavelength (nm) (nm) | Reflectance | Standard Deviation | Reflectance (Reflectance) | Standard Deviation (Reflectance)" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;
@@ -707,8 +707,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -829,8 +829,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -858,14 +858,14 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Milliken, Ralph" ] ;
     schema1:datePublished "missing" ;
@@ -891,8 +891,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "Wavenumber (cm-1) (cm-1) | Reflectance (Reflectance)" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;
@@ -1005,8 +1005,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -1127,8 +1127,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
   "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
   "ada:numberOfScansDefault": -9999,
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
   "ada:spectralResolutionDefault": -9999,
@@ -1156,14 +1156,14 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Keller, Lindsay" ] ;
     schema1:datePublished "missing" ;
@@ -1189,8 +1189,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     ada:measurementType "missing" ;
     ada:numberOfScansDefault -9999 ;
     ada:reportedProperties "wavenumber (3999.49) | Clays (Percent transmission) | dolomite (Percent transmission) | calcite (Percent transmission) | MgPO4 (Percent transmission)" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
     ada:spectralResolutionDefault -9999 ;

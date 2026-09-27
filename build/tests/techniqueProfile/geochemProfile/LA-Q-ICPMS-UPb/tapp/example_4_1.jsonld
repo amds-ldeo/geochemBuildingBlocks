@@ -54,6 +54,44 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "Size \u2014 \"20 \u03bcm for sulfides, selecting grain sizes larger than 20 \u00b5m for the latter\" (p.4), so a sulfide grain is analysed only if it is wider than the beam",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N\u2082 or Ar mixed (same protocol as glass)"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsUPbTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsUPbTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "Single spot per location (sulfides; same acquisition parameters as glass but 20 \u00b5m spot)"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -178,32 +216,6 @@
     }
   ],
   "ada:carrierGasFlowRateDefault": "He (flow rate not stated; same system as glass protocol)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "makeUpGasAndFlowRateDefault",
-      "schema:name": "Make-up Gas and Flow Rate",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "N\u2082 or Ar mixed (same protocol as glass)"
-    },
-    {
-      "@id": "ada:parameter/laQicpmsUPbTAPP/interPassDataDependency",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laQicpmsUPbTAPP/interPassDataDependency"
-        }
-      ],
-      "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (sulfides; same acquisition parameters as glass but 20 \u00b5m spot)"
-    }
-  ],
   "ada:analysisSequenceDefault": "Same bracketing as silicate glass protocol",
   "schema:actionProcess": {
     "schema:step": [
@@ -246,6 +258,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Same approach as glass; Au spike identification critical for determining solubility vs. nugget contribution"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N \u2014 no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)"
           }
         ],
         "@type": [
@@ -303,6 +326,10 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Phase (quenched sulfide of one experimental run) > Spot \u2014 \"20 \u03bcm for sulfides, selecting grain sizes larger than 20 \u00b5m for the latter\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
+  "ada:reportedProperties": [
+    "Au and Cu contents of the quenched sulfide (ppm) per run (Table 1, p.3), which with the coexisting glass give the reported sulfide/melt partition coefficient DAu (dimensionless, p.2)"
+  ],
   "ada:ablationSpotDurationDefault": "~40 s (same protocol; grain size >20 \u00b5m selected)",
   "ada:internalStandardApproach": "Single element from EMP: Fe (FeOT from EMP for sulfide); NIST 610 as external standard",
   "ada:elementalFractionationCorrection": [
@@ -315,6 +342,28 @@
     "NIST SRM 612 and BCR-2G (same monitoring standard set as glass protocol)"
   ],
   "ada:primaryStandardNameDefault": "NIST 610 (primary external standard); Fe from EMP as IS",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    },
+    {
+      "schema:name": "Age Calculation Method",
+      "schema:value": "missing"
+    },
+    {
+      "schema:name": "Reported Date Type",
+      "schema:defaultValue": "missing"
+    },
+    {
+      "schema:name": "Inherited or Initial Signal Correction",
+      "schema:defaultValue": "missing"
+    },
+    {
+      "schema:name": "Age Model",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ageModelDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
@@ -326,8 +375,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",

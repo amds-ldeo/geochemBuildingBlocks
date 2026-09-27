@@ -44,6 +44,33 @@
       ]
     }
   ],
+  "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand \u2014 the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+      "schema:name": "Pre-Analysis Imaging and Screening",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "SEM imaging of the grain mounts, used to place the spots \u2014 \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5); the grains are the same mounts already used for EMPA (p.5)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "Single spot per location (75 \u00b5m circular)"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -195,6 +222,17 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:defaultValue": "Time steps with enhanced P, Ca, Co, Ni, Zn excluded (inclusions and heterogeneities); Grubb's test applied to EPMA data for outlier detection"
+          },
+          {
+            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
+            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Partially \u2014 the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters \u2014 analysis sums 100 \u00b1 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean \u2014 are stated for the EMPA data (p.3) and are not borrowed here"
           }
         ],
         "@type": [
@@ -212,21 +250,6 @@
       "schema:HowTo"
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
-      "@type": [
-        "schema:PropertyValue"
-      ],
-      "schema:propertyID": [
-        {
-          "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency"
-        }
-      ],
-      "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (75 \u00b5m circular)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -259,11 +282,15 @@
       "schema:url": "https://ada.astromat.org/missing"
     }
   ],
+  "ada:samplingUnitType": "Grain (olivine grain fragment) > Spot \u2014 \"The laser was run in spot mode with a 75 \u00b5m spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)",
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
       "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)"
     }
+  ],
+  "ada:reportedProperties": [
+    "Trace element concentrations in pallasite olivine (\u00b5g/g), reported as average analyses per sample with dispersion, the measured nuclides being \"25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V\" and others (p.5); P2O5 content is estimated where P was not in the protocol (\"the P2O5 content was probably ~1.5 wt%\", p.3)"
   ],
   "ada:ablationSamplingMode": [
     "Spot (stationary)"
@@ -279,6 +306,12 @@
     "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration \u2014 in-session validation)"
   ],
   "ada:primaryStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
@@ -291,8 +324,6 @@
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
-  "ada:samplingUnit": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

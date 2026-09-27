@@ -35,7 +35,7 @@ detail instance derived from ADA n=2 | no named analyst | University of Calgary 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800123-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=2 | no named analyst | University of Calgary 
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800123-0",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=2 | no named analyst | University of Calgary 
     ada:componentType "ada:DSSMTabular" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800123-0" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250328_DSSM_UCa_OREX-800123-0_1" .
 
 <ex:dssmTAPP-P0> schema1:identifier "missing" .

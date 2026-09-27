@@ -101,8 +101,8 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -209,8 +209,8 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     }
   ],
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -234,14 +234,14 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Nguyen, Ann" ] ;
     schema1:datePublished "missing" ;
@@ -259,8 +259,8 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(OU)NanoSIMS 50L" ;
     ada:reportedProperties "Sample Name | X | Y | Z | 16O Counts | 17O/16O Ratio" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

@@ -35,7 +35,7 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2",
-  "ada:samplingUnit": "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
+  "ada:samplingUnitName": "Labelled within Allende: bulk \"MS-A\", \"MS-B\"; matrix \"M1\", \"M2\", \"M3\"; chondrules \"C1\", \"C2\", \"C3m\", \"C3n\", \"C3i\", \"C4\" (Table 1, p.3). \"C3b\" and \"C2–C4c\" in the same table are weighted means, not units. BHVO-2 by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -115,7 +115,7 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2",
-  "ada:samplingUnit": "Digestion aliquot \u2014 \"All samples (0.3\u20130.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
+  "ada:samplingUnitName": "Labelled within Allende: bulk \"MS-A\", \"MS-B\"; matrix \"M1\", \"M2\", \"M3\"; chondrules \"C1\", \"C2\", \"C3m\", \"C3n\", \"C3i\", \"C4\" (Table 1, p.3). \"C3b\" and \"C2\u2013C4c\" in the same table are weighted means, not units. BHVO-2 by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -193,7 +193,7 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
     ada:proceduralBlankLevel "\"Total procedural blanks were between 0.7 and 1.2 ng and thus negligible, given that several hundred ng of Mo were analyzed for each sample\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2" ;
-    ada:samplingUnit "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"" ;
+    ada:samplingUnitName "Labelled within Allende: bulk \"MS-A\", \"MS-B\"; matrix \"M1\", \"M2\", \"M3\"; chondrules \"C1\", \"C2\", \"C3m\", \"C3n\", \"C3i\", \"C4\" (Table 1, p.3). \"C3b\" and \"C2–C4c\" in the same table are weighted means, not units. BHVO-2 by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -240,7 +240,7 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "IAEA-S-1, S-2, S-4, NBS-123; in-house standards S_Alfa and S_Spex; anhydrite mineral standard Sch-M-2; pyrite FVG-1",
-  "ada:samplingUnit": "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification",
+  "ada:samplingUnitName": "Sample name only — Table 3 lists \"IAEA-S-1\", \"IAEA-S-2\", \"IAEA-S-4\", \"NBS-123\" and the in-house standards Alfa and Spex (p.4); replicates are counted (\"# of replicates\"), not labelled",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -320,7 +320,7 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "IAEA-S-1, S-2, S-4, NBS-123; in-house standards S_Alfa and S_Spex; anhydrite mineral standard Sch-M-2; pyrite FVG-1",
-  "ada:samplingUnit": "Purified solution aliquot \u2014 \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 \u00b5g of S\" taken for column purification",
+  "ada:samplingUnitName": "Sample name only \u2014 Table 3 lists \"IAEA-S-1\", \"IAEA-S-2\", \"IAEA-S-4\", \"NBS-123\" and the in-house standards Alfa and Spex (p.4); replicates are counted (\"# of replicates\"), not labelled",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -398,7 +398,7 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
     ada:proceduralBlankLevel "\"The procedural blank, resulting from chemical processing and purification is ~0.05% (~0.25 µg per 500 µg S used for column chemistry)\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "IAEA-S-1, S-2, S-4, NBS-123; in-house standards S_Alfa and S_Spex; anhydrite mineral standard Sch-M-2; pyrite FVG-1" ;
-    ada:samplingUnit "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification" ;
+    ada:samplingUnitName "Sample name only — Table 3 lists \"IAEA-S-1\", \"IAEA-S-2\", \"IAEA-S-4\", \"NBS-123\" and the in-house standards Alfa and Spex (p.4); replicates are counted (\"# of replicates\"), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -445,7 +445,7 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a",
-  "ada:samplingUnit": "Solution aliquot of a digestion — \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
+  "ada:samplingUnitName": "Sample name only — meteorites by name, e.g. \"Toluca, Gibeon, Duchesne, Skookum, Tlacotepec\" (p.5); the digestion aliquots and ~50 mg pieces carry no labels of their own",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -525,7 +525,7 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a",
-  "ada:samplingUnit": "Solution aliquot of a digestion \u2014 \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
+  "ada:samplingUnitName": "Sample name only \u2014 meteorites by name, e.g. \"Toluca, Gibeon, Duchesne, Skookum, Tlacotepec\" (p.5); the digestion aliquots and ~50 mg pieces carry no labels of their own",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -603,7 +603,7 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
     ada:proceduralBlankLevel "\"the total procedural blank is ~70 ng and thus negligible considering that 1-2 mg Fe was purified for each sample\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Toluca, Gibeon, Duchesne, Skookum, Tlacotepec and 18 further iron meteorites; BHVO-2, BCR-2; IRMM-524a" ;
-    ada:samplingUnit "Solution aliquot of a digestion — \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"" ;
+    ada:samplingUnitName "Sample name only — meteorites by name, e.g. \"Toluca, Gibeon, Duchesne, Skookum, Tlacotepec\" (p.5); the digestion aliquots and ~50 mg pieces carry no labels of their own" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -650,7 +650,7 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9",
-  "ada:samplingUnit": "Fraction of a CAI digestion — \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
+  "ada:samplingUnitName": "Labelled: each CAI by name under its specimen number — Table 1's \"Sample\" and \"CAI name\" columns give e.g. ME-3364-25.2 \"FG-FT-3\", ME-2639-16.2 \"FG-FT-4\", AL3S5 \"FG-FT-8\", AL4S6 \"FG-FT-9\", AL8S2 \"FG-FT-10\" (p.3); † marks a second analysis of FG-FT-4, -8 and -9. BCR-2 by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -730,7 +730,7 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9",
-  "ada:samplingUnit": "Fraction of a CAI digestion \u2014 \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
+  "ada:samplingUnitName": "Labelled: each CAI by name under its specimen number \u2014 Table 1's \"Sample\" and \"CAI name\" columns give e.g. ME-3364-25.2 \"FG-FT-3\", ME-2639-16.2 \"FG-FT-4\", AL3S5 \"FG-FT-8\", AL4S6 \"FG-FT-9\", AL8S2 \"FG-FT-10\" (p.3); \u2020 marks a second analysis of FG-FT-4, -8 and -9. BCR-2 by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -808,7 +808,7 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Group II CAIs including FG-FT-4, FG-FT-8 and FG-FT-9" ;
-    ada:samplingUnit "Fraction of a CAI digestion — \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"" ;
+    ada:samplingUnitName "Labelled: each CAI by name under its specimen number — Table 1's \"Sample\" and \"CAI name\" columns give e.g. ME-3364-25.2 \"FG-FT-3\", ME-2639-16.2 \"FG-FT-4\", AL3S5 \"FG-FT-8\", AL4S6 \"FG-FT-9\", AL8S2 \"FG-FT-10\" (p.3); † marks a second analysis of FG-FT-4, -8 and -9. BCR-2 by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -855,7 +855,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution",
-  "ada:samplingUnit": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
+  "ada:samplingUnitName": "Labelled: single crystals of FC-1 — zircons \"z1\"–\"z16\" with \"3_z…\" and \"4_z…\" series (e.g. \"4_z15R\", \"4_z17\"), baddeleyites \"b1\"–\"b8\" with \"3_b…\" and \"4_b…\" series, and bulk rock \"WR1\" (Table 1, pp.4–6); \"CA\"/\"Untr.\" beside each label marks chemical abrasion, not identity",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -935,7 +935,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution",
-  "ada:samplingUnit": "Single crystal \u2014 \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
+  "ada:samplingUnitName": "Labelled: single crystals of FC-1 \u2014 zircons \"z1\"\u2013\"z16\" with \"3_z\u2026\" and \"4_z\u2026\" series (e.g. \"4_z15R\", \"4_z17\"), baddeleyites \"b1\"\u2013\"b8\" with \"3_b\u2026\" and \"4_b\u2026\" series, and bulk rock \"WR1\" (Table 1, pp.4\u20136); \"CA\"/\"Untr.\" beside each label marks chemical abrasion, not identity",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1013,7 +1013,7 @@ detail instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT.
     ada:proceduralBlankLevel "\"The total mass of non-radiogenic Pb measured in our FC-1 zircon and baddeleyite fractions is indistinguishable from the range of Pb determined in total procedural blanks\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution" ;
-    ada:samplingUnit "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"" ;
+    ada:samplingUnitName "Labelled: single crystals of FC-1 — zircons \"z1\"–\"z16\" with \"3_z…\" and \"4_z…\" series (e.g. \"4_z15R\", \"4_z17\"), baddeleyites \"b1\"–\"b8\" with \"3_b…\" and \"4_b…\" series, and bulk rock \"WR1\" (Table 1, pp.4–6); \"CA\"/\"Untr.\" beside each label marks chemical abrasion, not identity" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "External reproducibility at 2 sigma of the spiked ZrNIST measurements from each run, adopted as the uncertainty on each determination and stated to be similar to or slightly larger than the internal counting-statistics uncertainty" .
@@ -1060,7 +1060,7 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende; NIST SRM984",
-  "ada:samplingUnit": "Digestion aliquot — \"Samples of about 100 mg or less were digested\"",
+  "ada:samplingUnitName": "Labelled for the lunar rocks by Apollo sample and split number: \"12002.613\", \"12018.301\", \"12052.353\", \"10017.413\", \"74275.361\", \"77215.276\" (Table 1, p.2), the last a \"white-colored fragment\"; terrestrial rocks by name only (BCR-2, BHVO-2 …)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1153,7 +1153,7 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende; NIST SRM984",
-  "ada:samplingUnit": "Digestion aliquot \u2014 \"Samples of about 100 mg or less were digested\"",
+  "ada:samplingUnitName": "Labelled for the lunar rocks by Apollo sample and split number: \"12002.613\", \"12018.301\", \"12052.353\", \"10017.413\", \"74275.361\", \"77215.276\" (Table 1, p.2), the last a \"white-colored fragment\"; terrestrial rocks by name only (BCR-2, BHVO-2 \u2026)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1245,7 +1245,7 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
     ada:proceduralBlankLevel "\"The Rb blank of the procedure (digestion and column chemistry) is ~0.14 ng, which accounts for less than 0.5% of total Rb from a typical sample (40 ng)\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende; NIST SRM984" ;
-    ada:samplingUnit "Digestion aliquot — \"Samples of about 100 mg or less were digested\"" ;
+    ada:samplingUnitName "Labelled for the lunar rocks by Apollo sample and split number: \"12002.613\", \"12018.301\", \"12052.353\", \"10017.413\", \"74275.361\", \"77215.276\" (Table 1, p.2), the last a \"white-colored fragment\"; terrestrial rocks by name only (BCR-2, BHVO-2 …)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -1297,7 +1297,7 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "UMd, DTM, LOsST and DROsS Os isotope reference materials",
-  "ada:samplingUnit": "Reference material solution aliquot — 200 ng/ml to 2.5 µg/ml Os, ~300 µl consumed per analysis",
+  "ada:samplingUnitName": "Labelled for LOsST only: \"LOsST 17-03-06 (Aliq 1)\" (Table 8b, p.22) — the Neptune and Nu Plasma runs \"were made on two different aliquots of the LOsST RM\" (p.24); UMd, DTM and DROsS by name and session date",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1390,7 +1390,7 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "UMd, DTM, LOsST and DROsS Os isotope reference materials",
-  "ada:samplingUnit": "Reference material solution aliquot \u2014 200 ng/ml to 2.5 \u00b5g/ml Os, ~300 \u00b5l consumed per analysis",
+  "ada:samplingUnitName": "Labelled for LOsST only: \"LOsST 17-03-06 (Aliq 1)\" (Table 8b, p.22) \u2014 the Neptune and Nu Plasma runs \"were made on two different aliquots of the LOsST RM\" (p.24); UMd, DTM and DROsS by name and session date",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1482,7 +1482,7 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "UMd, DTM, LOsST and DROsS Os isotope reference materials" ;
-    ada:samplingUnit "Reference material solution aliquot — 200 ng/ml to 2.5 µg/ml Os, ~300 µl consumed per analysis" ;
+    ada:samplingUnitName "Labelled for LOsST only: \"LOsST 17-03-06 (Aliq 1)\" (Table 8b, p.22) — the Neptune and Nu Plasma runs \"were made on two different aliquots of the LOsST RM\" (p.24); UMd, DTM and DROsS by name and session date" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Short-term reproducibility of standards analysed in a single analytical session, quoted as 2 standard deviations (2SD). Distinct from the within-run internal error, which the paper quotes separately as 2SE of the mean, 2SE = 2SD/n^0.5 with n = 45 for the Neptune and n = 50 for the Nu Plasma analyses" .
@@ -1534,7 +1534,7 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "DTM and LOsST Os isotope reference materials",
-  "ada:samplingUnit": "Reference material solution aliquot — ~6400 µl consumed per analysis",
+  "ada:samplingUnitName": "Labelled for LOsST only: \"23-05-06NIGL (Aliq 2)\" (Table 8b, p.22), the second of the \"two different aliquots of the LOsST RM\" (p.24); DTM by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1627,7 +1627,7 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "DTM and LOsST Os isotope reference materials",
-  "ada:samplingUnit": "Reference material solution aliquot \u2014 ~6400 \u00b5l consumed per analysis",
+  "ada:samplingUnitName": "Labelled for LOsST only: \"23-05-06NIGL (Aliq 2)\" (Table 8b, p.22), the second of the \"two different aliquots of the LOsST RM\" (p.24); DTM by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -1719,7 +1719,7 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "DTM and LOsST Os isotope reference materials" ;
-    ada:samplingUnit "Reference material solution aliquot — ~6400 µl consumed per analysis" ;
+    ada:samplingUnitName "Labelled for LOsST only: \"23-05-06NIGL (Aliq 2)\" (Table 8b, p.22), the second of the \"two different aliquots of the LOsST RM\" (p.24); DTM by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Short-term reproducibility of standards analysed in a single analytical session, quoted as 2 standard deviations (2SD). Distinct from the within-run internal error, which the paper quotes separately as 2SE of the mean, 2SE = 2SD/n^0.5 with n = 45 for the Neptune and n = 50 for the Nu Plasma analyses" .
@@ -1771,14 +1771,14 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "GS-N, AGV-2, BCR-2, BHVO-2, EW9309 10D, AHANEMO2 D20B; Allende (duplicate splits); NIST SRM984",
-  "ada:samplingUnit": "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
+  "ada:samplingUnitName": "Labelled for the one duplicated sample: \"Allende I\" and \"Allende II\" (Table 1, p.4), \"duplicate splits from the same powder aliquot\" (p.3); every other sample by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
   "ada:deltaOrEpsilonValueReferenceStandard": "NIST SRM984 RbCl; the basalt geostandard BCR-2 used as an alternative bracketing standard in some sessions",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"",
+  "ada:analysisInclusionAndRejectionCriteria": "N — no result-level rule is stated. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\", with no criterion for admitting or rejecting a measurement; the \"any ratio outside 2σ was discarded\" rule acts within a measurement and is recorded under Spike / Outlier Filtering Approach",
   "ada:errorCorrelationBetweenReportedQuantities": -9999,
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
@@ -1877,14 +1877,14 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "GS-N, AGV-2, BCR-2, BHVO-2, EW9309 10D, AHANEMO2 D20B; Allende (duplicate splits); NIST SRM984",
-  "ada:samplingUnit": "Weighed powder aliquot \u2014 \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
+  "ada:samplingUnitName": "Labelled for the one duplicated sample: \"Allende I\" and \"Allende II\" (Table 1, p.4), \"duplicate splits from the same powder aliquot\" (p.3); every other sample by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
   "ada:deltaOrEpsilonValueReferenceStandard": "NIST SRM984 RbCl; the basalt geostandard BCR-2 used as an alternative bracketing standard in some sessions",
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
-  "ada:analysisInclusionAndRejectionCriteria": "\"any ratio outside 2\u03c3 was discarded\" \u2014 an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"",
+  "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no result-level rule is stated. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\", with no criterion for admitting or rejecting a measurement; the \"any ratio outside 2\u03c3 was discarded\" rule acts within a measurement and is recorded under Spike / Outlier Filtering Approach",
   "ada:errorCorrelationBetweenReportedQuantities": -9999,
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
@@ -1964,7 +1964,7 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach> ;
     schema1:measurementTechnique <ex:solutionMcicpmsTAPP-Moynier2017> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "\"any ratio outside 2σ was discarded\" — an explicit rejection rule, applied within a measurement. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\"" ;
+    ada:analysisInclusionAndRejectionCriteria "N — no result-level rule is stated. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\", with no criterion for admitting or rejecting a measurement; the \"any ratio outside 2σ was discarded\" rule acts within a measurement and is recorded under Spike / Outlier Filtering Approach" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "An aliquot of SRM984 passed through the full chemistry gave δ87Rb = 0.00 ± 0.03‰, \"confirming that no isotope fractionation is caused by the Rb purification procedure\"; Allende duplicate splits agreed at 0.12 ± 0.02‰ and 0.14 ± 0.04‰" ;
@@ -1983,7 +1983,7 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "GS-N, AGV-2, BCR-2, BHVO-2, EW9309 10D, AHANEMO2 D20B; Allende (duplicate splits); NIST SRM984" ;
-    ada:samplingUnit "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"" ;
+    ada:samplingUnitName "Labelled for the one duplicated sample: \"Allende I\" and \"Allende II\" (Table 1, p.4), \"duplicate splits from the same powder aliquot\" (p.3); every other sample by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -2040,7 +2040,7 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169",
-  "ada:samplingUnit": "Digestion aliquot — Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
+  "ada:samplingUnitName": "Labelled by digestion where a sample was digested more than one way: \"Ivuna PB\" and \"Ivuna high PT\", \"30 mg Tagish Lake (labeled high PT)\" and \"90 mg Tarda (high PT)\" (p.4); Ryugu A0106, A0106-A0107 and C0108 and the other samples by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2120,7 +2120,7 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169",
-  "ada:samplingUnit": "Digestion aliquot \u2014 Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
+  "ada:samplingUnitName": "Labelled by digestion where a sample was digested more than one way: \"Ivuna PB\" and \"Ivuna high PT\", \"30 mg Tagish Lake (labeled high PT)\" and \"90 mg Tarda (high PT)\" (p.4); Ryugu A0106, A0106-A0107 and C0108 and the other samples by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2198,7 +2198,7 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
     ada:proceduralBlankLevel "\"Total procedural blanks prepared together with Tarda and Tagish Lake contained 0.08 and 0.24 ng Zr, while total blanks treated alongside Ivuna were 0.09 and 0.13 ng Zr\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169" ;
-    ada:samplingUnit "Digestion aliquot — Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"" ;
+    ada:samplingUnitName "Labelled by digestion where a sample was digested more than one way: \"Ivuna PB\" and \"Ivuna high PT\", \"30 mg Tagish Lake (labeled high PT)\" and \"90 mg Tarda (high PT)\" (p.4); Ryugu A0106, A0106-A0107 and C0108 and the other samples by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -2245,7 +2245,7 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO2 and DTS-2b processed alongside the samples",
-  "ada:samplingUnit": "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
+  "ada:samplingUnitName": "Labelled where a meteorite was analysed twice: \"NWA 16569 (1)\", \"NWA 16569 (2)\", \"NWA 16554 (1)\", \"NWA 16554 (2)\" (Table 1, p.2); the other chondrites by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2325,7 +2325,7 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "BHVO2 and DTS-2b processed alongside the samples",
-  "ada:samplingUnit": "Fraction of a bulk digestion \u2014 \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
+  "ada:samplingUnitName": "Labelled where a meteorite was analysed twice: \"NWA 16569 (1)\", \"NWA 16569 (2)\", \"NWA 16554 (1)\", \"NWA 16554 (2)\" (Table 1, p.2); the other chondrites by name only",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2403,7 +2403,7 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "BHVO2 and DTS-2b processed alongside the samples" ;
-    ada:samplingUnit "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"" ;
+    ada:samplingUnitName "Labelled where a meteorite was analysed twice: \"NWA 16569 (1)\", \"NWA 16569 (2)\", \"NWA 16554 (1)\", \"NWA 16554 (2)\" (Table 1, p.2); the other chondrites by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -2450,7 +2450,7 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Oued Chebeika 002; geostandard BHVO-2; NIST SRM 3141a",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: two solutions of the OC002 fragment — \"Approximately 7 mg of sample from the LAB24-2 OC002A and OC002B solutions ... were used for potassium stable isotope analysis\" (p.3)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2530,7 +2530,7 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "Oued Chebeika 002; geostandard BHVO-2; NIST SRM 3141a",
-  "ada:samplingUnit": "missing",
+  "ada:samplingUnitName": "Labelled: two solutions of the OC002 fragment \u2014 \"Approximately 7 mg of sample from the LAB24-2 OC002A and OC002B solutions ... were used for potassium stable isotope analysis\" (p.3)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2608,7 +2608,7 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Oued Chebeika 002; geostandard BHVO-2; NIST SRM 3141a" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "Labelled: two solutions of the OC002 fragment — \"Approximately 7 mg of sample from the LAB24-2 OC002A and OC002B solutions ... were used for potassium stable isotope analysis\" (p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -2655,7 +2655,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-101 (LLNL split) and OREX-803015-100 (ETH split) of Bennu aggregate; BHVO-2",
-  "ada:samplingUnit": "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
+  "ada:samplingUnitName": "Labelled: split \"OREX-803015-0\" — \"An ~20.66 mg split of Bennu aggregate (OREX-803015-0) was dissolved at WUSTL\" (p.7); the half of the solution kept at WUSTL is given no identifier of its own. The paper states its scheme: splits take \"suffixes of -100, -101, -102\" on the parent's number (p.7)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2722,7 +2722,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-101 (LLNL split) and OREX-803015-100 (ETH split) of Bennu aggregate; BHVO-2",
-  "ada:samplingUnit": "Split of a single digest \u2014 \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
+  "ada:samplingUnitName": "Labelled: split \"OREX-803015-0\" \u2014 \"An ~20.66 mg split of Bennu aggregate (OREX-803015-0) was dissolved at WUSTL\" (p.7); the half of the solution kept at WUSTL is given no identifier of its own. The paper states its scheme: splits take \"suffixes of -100, -101, -102\" on the parent's number (p.7)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2786,7 +2786,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
     ada:proceduralBlankLevel "missing" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "OREX-803015-101 (LLNL split) and OREX-803015-100 (ETH split) of Bennu aggregate; BHVO-2" ;
-    ada:samplingUnit "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"" ;
+    ada:samplingUnitName "Labelled: split \"OREX-803015-0\" — \"An ~20.66 mg split of Bennu aggregate (OREX-803015-0) was dissolved at WUSTL\" (p.7); the half of the solution kept at WUSTL is given no identifier of its own. The paper states its scheme: splits take \"suffixes of -100, -101, -102\" on the parent's number (p.7)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
@@ -2828,7 +2828,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-100, a 5.2 mg aliquot of Bennu aggregate",
-  "ada:samplingUnit": "A 5.2 mg aliquot of Bennu aggregate",
+  "ada:samplingUnitName": "Labelled: aliquot \"OREX-803015-100\" — \"a 5.2 mg aliquot of Bennu aggregate (OREX-803015-100)\" (p.7)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2908,7 +2908,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-803015-100, a 5.2 mg aliquot of Bennu aggregate",
-  "ada:samplingUnit": "A 5.2 mg aliquot of Bennu aggregate",
+  "ada:samplingUnitName": "Labelled: aliquot \"OREX-803015-100\" \u2014 \"a 5.2 mg aliquot of Bennu aggregate (OREX-803015-100)\" (p.7)",
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
@@ -2986,7 +2986,7 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
     ada:proceduralBlankLevel "\"The total procedural blank for Ti was 3.7 ng, resulting in a maximum blank contribution of 0.18% for Ti\"" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "OREX-803015-100, a 5.2 mg aliquot of Bennu aggregate" ;
-    ada:samplingUnit "A 5.2 mg aliquot of Bennu aggregate" ;
+    ada:samplingUnitName "Labelled: aliquot \"OREX-803015-100\" — \"a 5.2 mg aliquot of Bennu aggregate (OREX-803015-100)\" (p.7)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .

@@ -35,7 +35,7 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW",
   "ada:sampleName": "OREX-800107-177",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW",
   "ada:sampleName": "OREX-800107-177",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Institut
     ada:componentType "ada:EAIRMSCollection" ;
     ada:fundingSourceForAnalysis "his material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and CIW" ;
     ada:sampleName "OREX-800107-177" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231209_ea-irms_cis_multisample_1" .
 
 <ex:eairmsTAPP-P0> schema1:identifier "missing" .

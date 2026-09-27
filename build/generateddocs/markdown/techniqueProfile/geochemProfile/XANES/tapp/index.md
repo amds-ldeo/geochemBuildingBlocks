@@ -93,8 +93,8 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -193,8 +193,8 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     ]
   },
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnit": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
   "ada:targetMaterial": "missing",
   "schema:datePublished": "missing"
 }
@@ -241,8 +241,8 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     ada:constantsAndReferenceValuesUsedDefault "missing" ;
     ada:instrumentManufacturer "Advanced Light Source (LBNL)" ;
     ada:instrumentModel "ALS STXM beamline 5.3.2.2" ;
-    ada:samplingUnit "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "missing" ;
+    ada:samplingUnitType "missing" ;
     ada:targetMaterial "missing" .
 
 

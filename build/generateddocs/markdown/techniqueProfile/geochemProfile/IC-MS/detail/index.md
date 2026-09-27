@@ -35,7 +35,7 @@ detail instance derived from ADA n=47 | no named analyst | Japan Agency for Mari
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800023-100",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=47 | no named analyst | Japan Agency for Mari
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-800023-100",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=47 | no named analyst | Japan Agency for Mari
     ada:componentType "ada:ICMSCollection" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleName "OREX-800023-100" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20250127_IC-MS_JAMSTEC_OREX-800023-100_1" .
 
 <ex:icMsTAPP-P0> schema1:identifier "missing" .

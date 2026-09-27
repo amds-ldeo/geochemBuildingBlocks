@@ -36,7 +36,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "OREX-800099-0",
-  "ada:samplingUnit": "Whole sample (single allocated Bennu particle; 928 slices)",
+  "ada:samplingUnitName": "Sample name only — the scan record's \"Sample name: OREX-800099-0\", \"Sample type: Asteroid Bennu particle\" (p.1); one whole-particle scan",
   "ada:voiApplied": "missing"
 }
 
@@ -74,7 +74,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "OREX-800099-0",
-  "ada:samplingUnit": "Whole sample (single allocated Bennu particle; 928 slices)",
+  "ada:samplingUnitName": "Sample name only \u2014 the scan record's \"Sample name: OREX-800099-0\", \"Sample type: Asteroid Bennu particle\" (p.1); one whole-particle scan",
   "ada:voiApplied": "missing"
 }
 ```
@@ -93,7 +93,7 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "OREX-800099-0" ;
-    ada:samplingUnit "Whole sample (single allocated Bennu particle; 928 slices)" ;
+    ada:samplingUnitName "Sample name only — the scan record's \"Sample name: OREX-800099-0\", \"Sample type: Asteroid Bennu particle\" (p.1); one whole-particle scan" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
@@ -130,7 +130,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "1.592 × 0.756 × 0.985 mm",
   "ada:sampleName": "A0180 (A0180-A and A0180-B)",
-  "ada:samplingUnit": "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)",
+  "ada:samplingUnitName": "Labelled: scans \"A0180-A and A0180-B\" of Ryugu sample A0180 (p.7)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -183,7 +183,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "1.592 \u00d7 0.756 \u00d7 0.985 mm",
   "ada:sampleName": "A0180 (A0180-A and A0180-B)",
-  "ada:samplingUnit": "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)",
+  "ada:samplingUnitName": "Labelled: scans \"A0180-A and A0180-B\" of Ryugu sample A0180 (p.7)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -218,7 +218,7 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "1.592 × 0.756 × 0.985 mm" ;
     ada:sampleName "A0180 (A0180-A and A0180-B)" ;
-    ada:samplingUnit "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)" ;
+    ada:samplingUnitName "Labelled: scans \"A0180-A and A0180-B\" of Ryugu sample A0180 (p.7)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -260,7 +260,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73002",
-  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
+  "ada:samplingUnitName": "Sample name only — core 73002, \"A series of six volumes was acquired\" and stitched \"to create a continuous data set for each core\" (Neuman et al. 2025, p.4); the volumes are counted, not labelled",
   "ada:numberOfSubVolumes": 6,
   "ada:voiApplied": "Full core length per sub-volume",
   "ada:subVolumeOverlap": "~380 slices per sub-volume overlap"
@@ -300,7 +300,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73002",
-  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
+  "ada:samplingUnitName": "Sample name only \u2014 core 73002, \"A series of six volumes was acquired\" and stitched \"to create a continuous data set for each core\" (Neuman et al. 2025, p.4); the volumes are counted, not labelled",
   "ada:numberOfSubVolumes": 6,
   "ada:voiApplied": "Full core length per sub-volume",
   "ada:subVolumeOverlap": "~380 slices per sub-volume overlap"
@@ -323,7 +323,7 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
     ada:numberOfSubVolumes 6 ;
     ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73002" ;
-    ada:samplingUnit "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
+    ada:samplingUnitName "Sample name only — core 73002, \"A series of six volumes was acquired\" and stitched \"to create a continuous data set for each core\" (Neuman et al. 2025, p.4); the volumes are counted, not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:subVolumeOverlap "~380 slices per sub-volume overlap" ;
     ada:voiApplied "Full core length per sub-volume" .
@@ -361,7 +361,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
-  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
+  "ada:samplingUnitName": "Sample name only — core 73001, \"A series of nine scan volumes was acquired along the length of the core\" (p.5); the volumes are counted, not labelled",
   "ada:numberOfSubVolumes": 9,
   "ada:voiApplied": "Full core length per sub-volume"
 }
@@ -400,7 +400,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~35 cm length core",
   "ada:sampleName": "Apollo 17 core 73001",
-  "ada:samplingUnit": "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)",
+  "ada:samplingUnitName": "Sample name only \u2014 core 73001, \"A series of nine scan volumes was acquired along the length of the core\" (p.5); the volumes are counted, not labelled",
   "ada:numberOfSubVolumes": 9,
   "ada:voiApplied": "Full core length per sub-volume"
 }
@@ -422,7 +422,7 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
     ada:numberOfSubVolumes 9 ;
     ada:sampleDimensions "~35 cm length core" ;
     ada:sampleName "Apollo 17 core 73001" ;
-    ada:samplingUnit "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
+    ada:samplingUnitName "Sample name only — core 73001, \"A series of nine scan volumes was acquired along the length of the core\" (p.5); the volumes are counted, not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full core length per sub-volume" .
 
@@ -459,7 +459,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "73001 CSVC",
-  "ada:samplingUnit": "Whole sample (the 73001 CSVC container assembly)",
+  "ada:samplingUnitName": "Sample name only — the 73001 CSVC; scans are identified by position and stage (\"the bottom portion of 73001 still within the CSVC before (b) and after (c) piercing\", \"the top portion\", Fig. 7, p.27), not labelled",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -512,7 +512,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "73001 CSVC",
-  "ada:samplingUnit": "Whole sample (the 73001 CSVC container assembly)",
+  "ada:samplingUnitName": "Sample name only \u2014 the 73001 CSVC; scans are identified by position and stage (\"the bottom portion of 73001 still within the CSVC before (b) and after (c) piercing\", \"the top portion\", Fig. 7, p.27), not labelled",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -547,7 +547,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "73001 CSVC" ;
-    ada:samplingUnit "Whole sample (the 73001 CSVC container assembly)" ;
+    ada:samplingUnitName "Sample name only — the 73001 CSVC; scans are identified by position and stage (\"the bottom portion of 73001 still within the CSVC before (b) and after (c) piercing\", \"the top portion\", Fig. 7, p.27), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
@@ -589,7 +589,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Multiple particles from 73001 and 73002",
-  "ada:samplingUnit": "Grain (individual extracted particles >4 mm, each individually bagged and scanned)",
+  "ada:samplingUnitName": "Sample name only — \"132 particles were scanned from 73002 ... and 220 particles from 73001\" (p.28), each \"individually bagged\"; the particles are counted and shown by lithology (Fig. 8, p.28), not labelled",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -642,7 +642,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Multiple particles from 73001 and 73002",
-  "ada:samplingUnit": "Grain (individual extracted particles >4 mm, each individually bagged and scanned)",
+  "ada:samplingUnitName": "Sample name only \u2014 \"132 particles were scanned from 73002 ... and 220 particles from 73001\" (p.28), each \"individually bagged\"; the particles are counted and shown by lithology (Fig. 8, p.28), not labelled",
   "ada:voiApplied": "missing",
   "schema:additionalProperty": [
     {
@@ -677,7 +677,7 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Multiple particles from 73001 and 73002" ;
-    ada:samplingUnit "Grain (individual extracted particles >4 mm, each individually bagged and scanned)" ;
+    ada:samplingUnitName "Sample name only — \"132 particles were scanned from 73002 ... and 220 particles from 73001\" (p.28), each \"individually bagged\"; the particles are counted and shown by lithology (Fig. 8, p.28), not labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "missing" .
 
@@ -719,7 +719,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1.1 × 1.2 × 0.8 cm",
   "ada:sampleName": "NWA 5790",
-  "ada:samplingUnit": "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)",
+  "ada:samplingUnitName": "Labelled: 2-D slices of the one scanned volume — \"XCT slice 500\" to \"XCT slice 1000\" (Table 1, p.2) — of \"a single 2.7 g chip\" of NWA 5790 (p.3)",
   "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
   "schema:additionalProperty": [
     {
@@ -772,7 +772,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1.1 \u00d7 1.2 \u00d7 0.8 cm",
   "ada:sampleName": "NWA 5790",
-  "ada:samplingUnit": "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)",
+  "ada:samplingUnitName": "Labelled: 2-D slices of the one scanned volume \u2014 \"XCT slice 500\" to \"XCT slice 1000\" (Table 1, p.2) \u2014 of \"a single 2.7 g chip\" of NWA 5790 (p.3)",
   "ada:voiApplied": "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy",
   "schema:additionalProperty": [
     {
@@ -807,7 +807,7 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~1.1 × 1.2 × 0.8 cm" ;
     ada:sampleName "NWA 5790" ;
-    ada:samplingUnit "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)" ;
+    ada:samplingUnitName "Labelled: 2-D slices of the one scanned volume — \"XCT slice 500\" to \"XCT slice 1000\" (Table 1, p.2) — of \"a single 2.7 g chip\" of NWA 5790 (p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Entire chip volume (~250 thin-section equivalents); six interspaced 2D slices at ~1 mm spacing for modal mineralogy" .
 
@@ -849,7 +849,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Murchison B (USNM 5453,1)",
-  "ada:samplingUnit": "Aliquot (~1 g crushed Murchison B in a glass vial)",
+  "ada:samplingUnitName": "Labelled: the split \"Murchison B (mass = 4.6430 g)\", scanned in its sealed vial; its counterpart \"Murchison A\" was the unscanned control (p.3)",
   "ada:voiApplied": "Full vial volume (2000 × 2000 × 2000 voxels)",
   "schema:additionalProperty": [
     {
@@ -902,7 +902,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "missing",
   "ada:sampleName": "Murchison B (USNM 5453,1)",
-  "ada:samplingUnit": "Aliquot (~1 g crushed Murchison B in a glass vial)",
+  "ada:samplingUnitName": "Labelled: the split \"Murchison B (mass = 4.6430 g)\", scanned in its sealed vial; its counterpart \"Murchison A\" was the unscanned control (p.3)",
   "ada:voiApplied": "Full vial volume (2000 \u00d7 2000 \u00d7 2000 voxels)",
   "schema:additionalProperty": [
     {
@@ -937,7 +937,7 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "missing" ;
     ada:sampleName "Murchison B (USNM 5453,1)" ;
-    ada:samplingUnit "Aliquot (~1 g crushed Murchison B in a glass vial)" ;
+    ada:samplingUnitName "Labelled: the split \"Murchison B (mass = 4.6430 g)\", scanned in its sealed vial; its counterpart \"Murchison A\" was the unscanned control (p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full vial volume (2000 × 2000 × 2000 voxels)" .
 
@@ -979,7 +979,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~4 mm fragments",
   "ada:sampleName": "NWA 8277; NWA 6963",
-  "ada:samplingUnit": "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)",
+  "ada:samplingUnitName": "Sample name only — \"fragments of about 4 mm of both meteorites\", NWA 8277 and NWA 6963 (p.5); not otherwise labelled",
   "ada:voiApplied": "5.39 mm³ total analyzed volume (NWA 8277)",
   "schema:additionalProperty": [
     {
@@ -1032,7 +1032,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~4 mm fragments",
   "ada:sampleName": "NWA 8277; NWA 6963",
-  "ada:samplingUnit": "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)",
+  "ada:samplingUnitName": "Sample name only \u2014 \"fragments of about 4 mm of both meteorites\", NWA 8277 and NWA 6963 (p.5); not otherwise labelled",
   "ada:voiApplied": "5.39 mm\u00b3 total analyzed volume (NWA 8277)",
   "schema:additionalProperty": [
     {
@@ -1067,7 +1067,7 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~4 mm fragments" ;
     ada:sampleName "NWA 8277; NWA 6963" ;
-    ada:samplingUnit "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)" ;
+    ada:samplingUnitName "Sample name only — \"fragments of about 4 mm of both meteorites\", NWA 8277 and NWA 6963 (p.5); not otherwise labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "5.39 mm³ total analyzed volume (NWA 8277)" .
 
@@ -1109,7 +1109,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1 mm olivine",
   "ada:sampleName": "Sample A (olivine)",
-  "ada:samplingUnit": "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)",
+  "ada:samplingUnitName": "Labelled: \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2), hosting one silicate melt inclusion (Fig. 1, p.4)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1162,7 +1162,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "~1 mm olivine",
   "ada:sampleName": "Sample A (olivine)",
-  "ada:samplingUnit": "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)",
+  "ada:samplingUnitName": "Labelled: \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2), hosting one silicate melt inclusion (Fig. 1, p.4)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1197,7 +1197,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "~1 mm olivine" ;
     ada:sampleName "Sample A (olivine)" ;
-    ada:samplingUnit "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)" ;
+    ada:samplingUnitName "Labelled: \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2), hosting one silicate melt inclusion (Fig. 1, p.4)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -1239,7 +1239,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 × 5 × 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
+  "ada:samplingUnitName": "Labelled: \"Sample B was scanned both entirely and on a 1.4 × 1.4 × 1.4 mm region of interest\" (p.2) — this column is the whole-sample scan; its inclusions are numbered (\"#3\", Fig. 2, p.5)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1292,7 +1292,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
+  "ada:samplingUnitName": "Labelled: \"Sample B was scanned both entirely and on a 1.4 \u00d7 1.4 \u00d7 1.4 mm region of interest\" (p.2) \u2014 this column is the whole-sample scan; its inclusions are numbered (\"#3\", Fig. 2, p.5)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1327,7 +1327,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
-    ada:samplingUnit "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
+    ada:samplingUnitName "Labelled: \"Sample B was scanned both entirely and on a 1.4 × 1.4 × 1.4 mm region of interest\" (p.2) — this column is the whole-sample scan; its inclusions are numbered (\"#3\", Fig. 2, p.5)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -1369,7 +1369,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 × 5 × 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
+  "ada:samplingUnitName": "Labelled: the region-of-interest scan of Sample B, \"shown in Fig. 2 (fluid inclusion #3)\" (Table 1 note, p.3)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1422,7 +1422,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "3 \u00d7 5 \u00d7 2 cm",
   "ada:sampleName": "Sample B (synthetic quartz)",
-  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)",
+  "ada:samplingUnitName": "Labelled: the region-of-interest scan of Sample B, \"shown in Fig. 2 (fluid inclusion #3)\" (Table 1 note, p.3)",
   "ada:voiApplied": "Full scan volume",
   "schema:additionalProperty": [
     {
@@ -1457,7 +1457,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "3 × 5 × 2 cm" ;
     ada:sampleName "Sample B (synthetic quartz)" ;
-    ada:samplingUnit "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
+    ada:samplingUnitName "Labelled: the region-of-interest scan of Sample B, \"shown in Fig. 2 (fluid inclusion #3)\" (Table 1 note, p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume" .
 
@@ -1499,7 +1499,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Varies: 0.3×0.4 to 11×11×7 mm",
   "ada:sampleName": "Samples C–I (various)",
-  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)",
+  "ada:samplingUnitName": "Labelled: \"Sample #\" C, D, E, F, G, H and I, each scanned on the Phoenix Nanotom S (Table 1, p.3)",
   "ada:voiApplied": "Full scan volume per sample",
   "schema:additionalProperty": [
     {
@@ -1552,7 +1552,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "Varies: 0.3\u00d70.4 to 11\u00d711\u00d77 mm",
   "ada:sampleName": "Samples C\u2013I (various)",
-  "ada:samplingUnit": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)",
+  "ada:samplingUnitName": "Labelled: \"Sample #\" C, D, E, F, G, H and I, each scanned on the Phoenix Nanotom S (Table 1, p.3)",
   "ada:voiApplied": "Full scan volume per sample",
   "schema:additionalProperty": [
     {
@@ -1587,7 +1587,7 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "Varies: 0.3×0.4 to 11×11×7 mm" ;
     ada:sampleName "Samples C–I (various)" ;
-    ada:samplingUnit "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)" ;
+    ada:samplingUnitName "Labelled: \"Sample #\" C, D, E, F, G, H and I, each scanned on the Phoenix Nanotom S (Table 1, p.3)" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full scan volume per sample" .
 
@@ -1629,7 +1629,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "8 mm diameter core",
   "ada:sampleName": "Watson 012",
-  "ada:samplingUnit": "Whole sample (8 mm core) > Phase (plagioclase network)",
+  "ada:samplingUnitName": "Sample name only — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9); not otherwise labelled",
   "ada:voiApplied": "Full 8 mm core volume",
   "schema:additionalProperty": [
     {
@@ -1682,7 +1682,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleDimensions": "8 mm diameter core",
   "ada:sampleName": "Watson 012",
-  "ada:samplingUnit": "Whole sample (8 mm core) > Phase (plagioclase network)",
+  "ada:samplingUnitName": "Sample name only \u2014 \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9); not otherwise labelled",
   "ada:voiApplied": "Full 8 mm core volume",
   "schema:additionalProperty": [
     {
@@ -1717,7 +1717,7 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
     ada:fundingSourceForAnalysis "missing" ;
     ada:sampleDimensions "8 mm diameter core" ;
     ada:sampleName "Watson 012" ;
-    ada:samplingUnit "Whole sample (8 mm core) > Phase (plagioclase network)" ;
+    ada:samplingUnitName "Sample name only — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9); not otherwise labelled" ;
     ada:sessionIdentifier "missing" ;
     ada:voiApplied "Full 8 mm core volume" .
 

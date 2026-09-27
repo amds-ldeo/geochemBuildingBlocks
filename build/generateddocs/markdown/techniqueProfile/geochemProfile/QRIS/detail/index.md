@@ -35,7 +35,7 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)",
   "ada:sampleName": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 
 ```
@@ -71,7 +71,7 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
   "ada:analysisEndDate": "missing",
   "ada:fundingSourceForAnalysis": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)",
   "ada:sampleName": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)",
-  "ada:samplingUnit": "missing"
+  "ada:samplingUnitName": "missing"
 }
 ```
 
@@ -88,7 +88,7 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
     ada:componentType "ada:QRISRaw" ;
     ada:fundingSourceForAnalysis "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)" ;
     ada:sampleName "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ;
-    ada:samplingUnit "missing" ;
+    ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231023_qris_jsc-ares_orex-800013-0_1 | 20231023_qris_jsc-ares_orex-800012-0_1 | (+3 more)" .
 
 <ex:qrisTAPP-Golish2024> schema1:identifier "missing" .
