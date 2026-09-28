@@ -42,6 +42,13 @@ python tools/audit_building_blocks.py             # completeness, schema<->JSON 
 python tools/check_componentType.py               # componentType vocab/enum drift (annotation-only base layer, so JSON Schema alone misses it)
 ```
 
+`resolve_schema.py` REFUSES to write a schema whose refs did not resolve, and exits 1 naming each
+one and its JSON path. `--allow-unresolved` writes anyway, leaving placeholders where the content
+should be; reach for it only to get past a known-broken ref deliberately. The check exists because
+`validate_examples` reads `resolvedSchema.json`, so a schema quietly missing a branch makes the
+examples that should have failed pass instead — and because a transient file-read error in an
+earlier stage would otherwise become a permanently degraded artifact on the next run.
+
 Render the human-readable pages (dataset record + TAPP definition, into `build/htmlViews/`):
 
 ```
@@ -202,7 +209,7 @@ module and technique `$defs` should therefore differ **only** in that `@id`.
 consuming technique already constrains each of these as a CLOSED shape from its own table, so two
 universal constraints on one array can never both hold: `schema:additionalProperty` (a closed
 `anyOf` over the table's parameters), a **keyed-table COLUMN array** (`ada:targetSpeciesColumns`,
-`ada:monitoredPropertyColumns`, `ada:reportedPropertyColumns`, `ada:collectorConfiguration` — narrowed to the
+`ada:monitoredPropertyColumns`, `ada:reportedPropertyColumns` — narrowed to the
 technique's generated column defs), and a **default-ROW array** (`ada:defaultTargetSpecies`,
 `ada:defaultMonitoredProperties`). `build_module_bb.is_composable()` is the single predicate;
 `module_composition._is_composable` delegates to it so the generator and the planner cannot drift.
@@ -338,6 +345,38 @@ See auto-memory `reference_related_repos.md` / `ecosystem_ci_and_w3id.md` for th
 - w3id.org redirects under `C:\GithubC\smrgeoinfo\w3id.org\`
 - amds-ldeo / ada_metadata_forms (Django app under `C:\GithubC\amds-ldeo\`; `amds-ldeo/metadata` is itself a git repo, the parent is not; monolithic schema not yet derived from BBs)
 
+### The collector: a string, a table, and the N=1 fallback (E1)
+
+`schema:instrument.schema:hasPart[additionalType 'Collector']` carries two properties, defined on
+the **instrument** building block so every technique with a Collector part inherits them. They come
+from our instrument representation, not from a delivered TAPP table — Ruolin's E1 answer says so
+explicitly — which is why they are not generated from a sidecar row.
+
+  `ada:collectorConfiguration`  the assignment as the SOURCE states it, free text
+  `ada:collectors`              the collector table, `schema:name` the referenceable label
+
+They are not the same information twice: the string is the claim, the table is the reading of it.
+
+**The table follows Decision 6 (`TAPP-keyed-values-design.md` §1.1), not a second fallback shape.**
+"Rather than admit two shapes, always emit the table: a declaration that does not parse into members
+yields a one-row table whose row key is the text as written. The fallback is then not a separate
+branch but N=1." So: one member per position when the string parses; ONE member carrying the text
+when it does not, with the source fields riding in `schema:additionalProperty` as name/value pairs.
+A consumer reads one shape either way. Parsing these strings to individual collectors is not
+tractable in general — they are written for a person — so **N=1 is the expected case**.
+
+**An N=1 member names no cup, so it makes no per-cup claim.** That is deliberate and load-bearing:
+the resistor values are attested per MASS (`Proposal_Monitored_Property_2026-09-10` §10), and a
+fallback that quietly moved them onto the collector axis would undo the withdrawal §10 argued for.
+
+**`ada:collectorConfiguration` is NOT a keyed table, and was until 2026-09-27.** It was registered in
+`KEYED_TABLES` as the monitored-property column array itself, which made one property the container
+for eight unrelated items — each emitted as a `PropertyValueSpecification` column with a pinned
+`schema:valueName` — while its own sidecar row declared it `Text (free)`. Declared type and emitted
+shape contradicted each other from the start. The seven other items are now ordinary
+`schema:additionalProperty` entries on the Collector, `@type` `schema:PropertyValue`: a column
+DEFINITION specifies, a property on a part RECORDS.
+
 ## Recurring consistency-bug patterns to watch for
 
 These are real past incidents, not hypothetical:
@@ -348,6 +387,19 @@ These are real past incidents, not hypothetical:
 - Stale `register.json` entries vs `_sources/` directory listing
 - A `$ref` that exists but sits at the wrong node — present to `grep`, invisible to a reader
   scanning `allOf`, and in an `anyOf` it constrains nothing at all
+- **A count taken against a technique's own overlay is not a count of what the technique has.**
+  Checking whether a placement change had lost seven fields, they read 0/7 and 4/7 in the
+  techniques' `tapp/schema.yaml` — gone. They had not gone: four are module-owned, so the generator
+  emits a `$ref` into the module rather than restating them, and they arrive by composition. The
+  composed artifact is `resolvedSchema.json`, and that is where a placement question has to be
+  asked. The overlay count would have justified reverting a correct change.
+- **Two files, one `@id`, is a fork — and which one wins is read order.** Nothing `$ref`s a
+  vocabulary FILE; consumers resolve the `@id`. Seven empaTAPP vocabularies existed twice with
+  DIFFERENT terms (`Raster` vs `Rastered`) after a filename convention changed without removing
+  what it superseded. The ADA registry ingests sorted by filename and upserts on `@id`, so the
+  alphabetically last file won and four of the seven resolved to the stale fork.
+  `audit_building_blocks.check_vocab_identifier_collisions` now fails on a repeat; it runs once over
+  the catalog, because a collision is a relationship BETWEEN files that no per-block check can see.
 - **A conditional whose `if` is too broad fires on things it was never meant to pin.**
   `geochemProduct`'s TAPP conditional keyed on `@type` containing `ada:TAPPDefinition` alone, so it
   held every `{@id, @type}` *reference* to the whole TAPP schema and failed it on the four

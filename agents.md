@@ -209,6 +209,7 @@ and provisional; the library's modules are Ruolin's to author (see
 | `validate_application_grid.py` | Check the analytical-mode Y/N grid in the TAPP tables — blanks, non-Y/N values, rows that are N for every application, and applications no row applies to. Reads the CSVs the wired techniques build from (via `TAPP_CONFIGS`), so it always checks the revision the generator reads. Reads the span POSITIONALLY (`Keyed By` → `Literature Assessment`), unlike `build_tapp.mode_columns`, which also requires every cell to be Y/N — applying that filter here would let a column holding one bad value vanish from the grid instead of being reported. |
 | `validate_instance.py` | Profile-aware validation of metadata instances. Auto-detects profile from `dcterms:conformsTo`. Supports `--dir`, `--profile`, `--termcode-fallback`. |
 | `compare_schemas.py` | Detect drift between schema.yaml and *Schema.json (missing properties, type mismatches). |
+| `audit_building_blocks.py` — `check_vocab_identifier_collisions` | Runs once over `registry/vocab`, not per block: two files claiming one `@id` is a relationship BETWEEN files that no per-block check can see. Nothing `$ref`s a vocabulary file — consumers resolve the `@id` — so a duplicate is a fork whose winner is decided by directory read order. Seven empaTAPP vocabularies were forked this way with different terms (`Raster` vs `Rastered`). |
 
 ### Data collection
 
@@ -227,7 +228,7 @@ and provisional; the library's modules are Ruolin's to author (see
 
 ### Tool provenance
 
-`resolve_schema.py` and `regenerate_schema_json.py` are synced from the canonical copies in [metadataBuildingBlocks/tools/](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/tools). Do not edit locally. The audit, validation, and report tools were also sourced from that repository.
+`resolve_schema.py` and `regenerate_schema_json.py` are synced from the canonical copies in [metadataBuildingBlocks/tools/](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/tools) — but **by merging, not copying**: neither side is a superset. This repo's copy carries `resolve_and_write_structured` (which `build_pathdriven.py` calls) and the `vendor/` remote lock that pins upstream CDIF fetches; mbb's carries the unresolved-ref gate and the type-library guard. A blind `shutil.copy2` in either direction breaks the other's pipeline. Do not edit locally beyond a deliberate merge. The audit, validation, and report tools were also sourced from that repository.
 
 ## CI/CD pipeline
 
