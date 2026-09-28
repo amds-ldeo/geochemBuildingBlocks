@@ -1093,7 +1093,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id015
+            - &id024
               title: Background Counting Time
               description: Total time spent counting at off-peak background position(s) in seconds, summed
                 across all background positions.
@@ -1116,8 +1116,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id015
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id015
               required:
               - '@id'
               - '@type'
@@ -1125,7 +1129,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id016
+            - &id025
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in
                 mm or sin-theta, and whether on the high- or low-energy side.
@@ -1147,14 +1151,18 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id016
+                    type: string
+                  - type: array
+                    items: *id016
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id017
+            - &id026
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator).
               type: object
@@ -1175,7 +1183,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id017
+                    type: string
+                  - type: array
+                    items: *id017
               required:
               - '@id'
               - '@type'
@@ -1183,7 +1195,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id018
+            - &id027
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging
                 modes) or on each step position during compositional mapping (EDS and WDS mapping modes),
@@ -1208,8 +1220,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id018
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id018
               required:
               - '@id'
               - '@type'
@@ -1217,7 +1233,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id019
+            - &id028
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments
                 stay within procedure-defined bounds.
@@ -1240,8 +1256,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id019
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id019
               required:
               - '@id'
               - '@type'
@@ -1249,7 +1269,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id020
+            - &id029
               title: Proportional Counter / Detector
               description: Type of detector used.
               type: object
@@ -1270,14 +1290,18 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id020
+                    type: string
+                  - type: array
+                    items: *id020
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id021
+            - &id030
               title: Sequence
               description: Order in which spectrometer assignments are acquired, and — where the element
                 suite exceeds the number of spectrometers — the passes the acquisition is divided into.
@@ -1303,15 +1327,19 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id021
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id021
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id022
+            - &id031
               title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
                 all pulses above a threshold; Differential mode selects a narrow energy window to reject
@@ -1334,14 +1362,18 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id022
+                    type: string
+                  - type: array
+                    items: *id022
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id023
+            - &id032
               title: X-ray Line
               description: X-ray emission line measured.
               type: object
@@ -1362,7 +1394,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id023
+                    type: string
+                  - type: array
+                    items: *id023
               required:
               - '@id'
               - '@type'
@@ -1371,38 +1407,38 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id015
+          - contains: *id024
             minContains: 0
             maxContains: 1
-          - contains: *id016
+          - contains: *id025
             minContains: 0
             maxContains: 1
-          - contains: *id017
+          - contains: *id026
             minContains: 0
             maxContains: 1
-          - contains: *id018
+          - contains: *id027
             minContains: 0
             maxContains: 1
-          - contains: *id019
+          - contains: *id028
             minContains: 0
             maxContains: 1
-          - contains: *id020
+          - contains: *id029
             minContains: 0
             maxContains: 1
-          - contains: *id021
+          - contains: *id030
             minContains: 0
             maxContains: 1
-          - contains: *id022
+          - contains: *id031
             minContains: 0
             maxContains: 1
-          - contains: *id023
+          - contains: *id032
             minContains: 0
             maxContains: 1
     schema:additionalProperty:
       type: array
       items:
         anyOf:
-        - &id024
+        - &id033
           title: Beam Damage Minimization
           description: 'Describes any measures taken to reduce electron beam damage to the sample during
             analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered
@@ -1433,7 +1469,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id025
+        - &id034
           title: Beam Raster Dimensions
           description: Dimensions of the small area over which the beam is rastered at a single analysis
             point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the
@@ -1466,7 +1502,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id026
+        - &id035
           title: Chamber Pressure
           description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
             and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
@@ -1499,7 +1535,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id027
+        - &id036
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis
             of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
@@ -1529,7 +1565,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id028
+        - &id037
           title: Drift Correction
           description: 'Describes whether and how stage or beam drift was monitored and corrected during
             the measurement session. Examples: periodic stage realignment to a fiducial marker, automated
@@ -1561,7 +1597,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id029
+        - &id038
           title: EBSD Frame Time
           description: Acquisition time per EBSD diffraction pattern frame in milliseconds.
           type: object
@@ -1618,7 +1654,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id030
+        - &id039
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
             Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
@@ -1649,7 +1685,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id031
+        - &id040
           title: Image Pixel Size
           description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area
             mosaic imaging, report the pixel size of individual tiles and the number and arrangement of
@@ -1708,22 +1744,22 @@ allOf:
           - schema:value
           readOnly: true
       allOf:
-      - contains: *id024
+      - contains: *id033
         minContains: 0
         maxContains: 1
-      - contains: *id025
+      - contains: *id034
         minContains: 0
         maxContains: 1
-      - contains: *id026
+      - contains: *id035
         minContains: 0
         maxContains: 1
-      - contains: *id027
+      - contains: *id036
         minContains: 0
         maxContains: 1
-      - contains: *id028
+      - contains: *id037
         minContains: 0
         maxContains: 1
-      - contains: *id029
+      - contains: *id038
         minContains: 0
         maxContains: 1
       - contains:
@@ -1755,10 +1791,10 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id030
+      - contains: *id039
         minContains: 0
         maxContains: 1
-      - contains: *id031
+      - contains: *id040
         minContains: 0
         maxContains: 1
       - contains:

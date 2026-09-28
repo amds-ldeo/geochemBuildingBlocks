@@ -5683,962 +5683,394 @@
                             "then": {
                               "properties": {
                                 "ada:collectorConfiguration": {
-                                  "type": "array",
-                                  "items": {
-                                    "anyOf": [
-                                      {
-                                        "title": "Collector Configuration",
-                                        "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "collectorConfiguration"
-                                          },
-                                          "schema:name": {
-                                            "const": "Collector Configuration"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Faraday Cup Amplifier Resistor Values",
-                                        "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "faradayCupAmplifierResistorValues"
-                                          },
-                                          "schema:name": {
-                                            "const": "Faraday Cup Amplifier Resistor Values"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Faraday Cup Gain Calibration Method",
-                                        "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "faradayCupGainCalibrationMethod"
-                                          },
-                                          "schema:name": {
-                                            "const": "Faraday Cup Gain Calibration Method"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Integration Time per Cycle",
-                                        "description": "Duration of signal integration per measurement cycle (seconds).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "integrationTimePerCycle"
-                                          },
-                                          "schema:name": {
-                                            "const": "Integration Time per Cycle"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Interference Correction Method",
-                                        "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "interferenceCorrectionMethod"
-                                          },
-                                          "schema:name": {
-                                            "const": "Interference Correction Method"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Interfering Species",
-                                        "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "interferingSpecies"
-                                          },
-                                          "schema:name": {
-                                            "const": "Interfering Species"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Ion Counter Dead Time",
-                                        "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "ionCounterDeadTime"
-                                          },
-                                          "schema:name": {
-                                            "const": "Ion Counter Dead Time"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      {
-                                        "title": "Mass Resolution Assignment",
-                                        "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "massResolutionAssignment"
-                                          },
-                                          "schema:name": {
-                                            "const": "Mass Resolution Assignment"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
+                                  "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "readOnly": true
+                                    },
+                                    {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "readOnly": true
                                       }
-                                    ]
-                                  },
-                                  "allOf": [
-                                    {
-                                      "contains": {
-                                        "title": "Collector Configuration",
-                                        "description": "Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "collectorConfiguration"
-                                          },
-                                          "schema:name": {
-                                            "const": "Collector Configuration"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Faraday Cup Amplifier Resistor Values",
-                                        "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "faradayCupAmplifierResistorValues"
-                                          },
-                                          "schema:name": {
-                                            "const": "Faraday Cup Amplifier Resistor Values"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Faraday Cup Gain Calibration Method",
-                                        "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "faradayCupGainCalibrationMethod"
-                                          },
-                                          "schema:name": {
-                                            "const": "Faraday Cup Gain Calibration Method"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Integration Time per Cycle",
-                                        "description": "Duration of signal integration per measurement cycle (seconds).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "integrationTimePerCycle"
-                                          },
-                                          "schema:name": {
-                                            "const": "Integration Time per Cycle"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Interference Correction Method",
-                                        "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "interferenceCorrectionMethod"
-                                          },
-                                          "schema:name": {
-                                            "const": "Interference Correction Method"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Interfering Species",
-                                        "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "interferingSpecies"
-                                          },
-                                          "schema:name": {
-                                            "const": "Interfering Species"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Ion Counter Dead Time",
-                                        "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "ionCounterDeadTime"
-                                          },
-                                          "schema:name": {
-                                            "const": "Ion Counter Dead Time"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "number"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": false
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "number"
-                                                  },
-                                                  {
-                                                    "type": "string"
-                                                  }
-                                                ]
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "number"
-                                                    },
-                                                    {
-                                                      "type": "string"
-                                                    }
-                                                  ]
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
-                                    },
-                                    {
-                                      "contains": {
-                                        "title": "Mass Resolution Assignment",
-                                        "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                                        "type": "object",
-                                        "properties": {
-                                          "@id": {
-                                            "const": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment"
-                                          },
-                                          "@type": {
-                                            "const": [
-                                              "schema:PropertyValueSpecification"
-                                            ]
-                                          },
-                                          "schema:valueName": {
-                                            "const": "massResolutionAssignment"
-                                          },
-                                          "schema:name": {
-                                            "const": "Mass Resolution Assignment"
-                                          },
-                                          "ada:dataType": {
-                                            "const": "string"
-                                          },
-                                          "schema:readonlyValue": {
-                                            "const": true
-                                          },
-                                          "ada:tier": {
-                                            "const": "M"
-                                          },
-                                          "schema:defaultValue": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@id",
-                                          "@type",
-                                          "schema:valueName",
-                                          "schema:name",
-                                          "ada:dataType",
-                                          "schema:defaultValue"
-                                        ]
-                                      },
-                                      "minContains": 0,
-                                      "maxContains": 1
                                     }
                                   ]
                                 },
                                 "schema:additionalProperty": {
                                   "type": "array",
                                   "items": {
-                                    "title": "Faraday Cup Array Configuration",
-                                    "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block.",
-                                    "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
-                                      },
-                                      "@type": {
-                                        "const": [
-                                          "schema:PropertyValueSpecification"
+                                    "anyOf": [
+                                      {
+                                        "title": "Faraday Cup Amplifier Resistor Values",
+                                        "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "faradayCupAmplifierResistorValues"
+                                          },
+                                          "schema:name": {
+                                            "const": "Faraday Cup Amplifier Resistor Values"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
                                         ]
                                       },
-                                      "schema:valueName": {
-                                        "const": "faradayCupArrayConfiguration"
+                                      {
+                                        "title": "Faraday Cup Array Configuration",
+                                        "description": "Description of the multi-collector Faraday cup array. Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "faradayCupArrayConfiguration"
+                                          },
+                                          "schema:name": {
+                                            "const": "Faraday Cup Array Configuration"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
-                                      "schema:name": {
-                                        "const": "Faraday Cup Array Configuration"
+                                      {
+                                        "title": "Faraday Cup Gain Calibration Method",
+                                        "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "faradayCupGainCalibrationMethod"
+                                          },
+                                          "schema:name": {
+                                            "const": "Faraday Cup Gain Calibration Method"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
-                                      "ada:dataType": {
-                                        "const": "string"
+                                      {
+                                        "title": "Integration Time per Cycle",
+                                        "description": "Duration of signal integration per measurement cycle (seconds).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "integrationTimePerCycleDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Integration Time per Cycle"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "s"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
                                       },
-                                      "ada:fieldScope": {
-                                        "const": "session"
+                                      {
+                                        "title": "Interference Correction Method",
+                                        "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Interference Correction Method"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
                                       },
-                                      "schema:readonlyValue": {
-                                        "const": true
+                                      {
+                                        "title": "Interfering Species",
+                                        "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/interferingSpecies"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/interferingSpecies"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Interfering Species"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
                                       },
-                                      "ada:tier": {
-                                        "const": "R"
+                                      {
+                                        "title": "Ion Counter Dead Time",
+                                        "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Ion Counter Dead Time"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      {
+                                        "title": "Mass Resolution Assignment",
+                                        "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/massResolutionAssignment"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/massResolutionAssignment"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Mass Resolution Assignment"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
                                       }
-                                    },
-                                    "required": [
-                                      "@id",
-                                      "@type",
-                                      "schema:valueName",
-                                      "schema:name",
-                                      "ada:dataType",
-                                      "ada:fieldScope"
                                     ]
                                   },
                                   "allOf": [
+                                    {
+                                      "contains": {
+                                        "title": "Faraday Cup Amplifier Resistor Values",
+                                        "description": "Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "faradayCupAmplifierResistorValues"
+                                          },
+                                          "schema:name": {
+                                            "const": "Faraday Cup Amplifier Resistor Values"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
                                     {
                                       "contains": {
                                         "title": "Faraday Cup Array Configuration",
@@ -6683,10 +6115,276 @@
                                       },
                                       "minContains": 0,
                                       "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Faraday Cup Gain Calibration Method",
+                                        "description": "Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "faradayCupGainCalibrationMethod"
+                                          },
+                                          "schema:name": {
+                                            "const": "Faraday Cup Gain Calibration Method"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "string"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": true
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Integration Time per Cycle",
+                                        "description": "Duration of signal integration per measurement cycle (seconds).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValueSpecification"
+                                            ]
+                                          },
+                                          "schema:valueName": {
+                                            "const": "integrationTimePerCycleDefault"
+                                          },
+                                          "schema:name": {
+                                            "const": "Integration Time per Cycle"
+                                          },
+                                          "ada:dataType": {
+                                            "const": "number"
+                                          },
+                                          "ada:fieldScope": {
+                                            "const": "session"
+                                          },
+                                          "schema:readonlyValue": {
+                                            "const": false
+                                          },
+                                          "ada:tier": {
+                                            "const": "R"
+                                          },
+                                          "schema:unitText": {
+                                            "const": "s"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:valueName",
+                                          "schema:name",
+                                          "ada:dataType",
+                                          "ada:fieldScope"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Interference Correction Method",
+                                        "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Interference Correction Method"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Interfering Species",
+                                        "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/interferingSpecies"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/interferingSpecies"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Interfering Species"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Ion Counter Dead Time",
+                                        "description": "Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Ion Counter Dead Time"
+                                          },
+                                          "schema:value": {
+                                            "anyOf": [
+                                              {
+                                                "type": "number"
+                                              },
+                                              {
+                                                "type": "string"
+                                              }
+                                            ]
+                                          },
+                                          "schema:unitText": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value",
+                                          "schema:unitText"
+                                        ]
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
+                                    },
+                                    {
+                                      "contains": {
+                                        "title": "Mass Resolution Assignment",
+                                        "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                                        "type": "object",
+                                        "properties": {
+                                          "@id": {
+                                            "const": "ada:parameter/laMcicpmsTAPP/massResolutionAssignment"
+                                          },
+                                          "@type": {
+                                            "const": [
+                                              "schema:PropertyValue"
+                                            ]
+                                          },
+                                          "schema:propertyID": {
+                                            "const": [
+                                              {
+                                                "@id": "ada:parameter/laMcicpmsTAPP/massResolutionAssignment"
+                                              }
+                                            ]
+                                          },
+                                          "schema:name": {
+                                            "const": "Mass Resolution Assignment"
+                                          },
+                                          "schema:value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "@id",
+                                          "@type",
+                                          "schema:propertyID",
+                                          "schema:name",
+                                          "schema:value"
+                                        ],
+                                        "readOnly": true
+                                      },
+                                      "minContains": 0,
+                                      "maxContains": 1
                                     }
                                   ]
                                 }
-                              }
+                              },
+                              "required": [
+                                "ada:collectorConfiguration"
+                              ]
                             }
                           },
                           {
@@ -11582,6 +11280,64 @@
                           "properties": {
                             "@id": {
                               "const": "https://www.wikidata.org/wiki/Q3099911"
+                            }
+                          }
+                        }
+                      },
+                      "ada:collectorConfiguration": {
+                        "description": "How masses are assigned to collector positions for this procedure, AS THE SOURCE STATES IT. Free text on purpose: submitters write this as prose or as a semicolon-separated list in no agreed syntax (\"L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn ...\"), and in many cases it cannot be parsed at all. Recording the statement verbatim is what can always be done; ada:collectors below is what can sometimes be done as well. Meaningful on a component whose schema:additionalType includes 'Collector'.",
+                        "type": "string"
+                      },
+                      "ada:collectors": {
+                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "@type",
+                            "schema:name"
+                          ],
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "const": "ada:Collector"
+                              }
+                            },
+                            "schema:name": {
+                              "description": "The collector position label as the instrument names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class multicollector. This is the identifier other properties reference. In the N=1 fallback there is no position to name, so it is the fixed label 'Collector configuration description' and nothing should join to it.",
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "ada:targetSpecies": {
+                              "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
+                              "type": "string"
+                            },
+                            "schema:description": {
+                              "type": "string"
+                            },
+                            "schema:additionalProperty": {
+                              "description": "Quantities carried on this member as name/value pairs. In the parsed form these are per-position quantities that cannot be restated per mass -- a baseline, a gain factor. In the N=1 form they are the source fields themselves, each as its item name and the text as written, which is how an unparseable per-collector statement is preserved without inventing an assignment it does not make.",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "schema:name"
+                                ],
+                                "properties": {
+                                  "schema:name": {
+                                    "description": "The item name, e.g. 'Faraday Cup Amplifier Resistor Values'.",
+                                    "type": "string"
+                                  },
+                                  "schema:value": {
+                                    "description": "The value, as written when it did not parse."
+                                  }
+                                }
+                              }
                             }
                           }
                         }

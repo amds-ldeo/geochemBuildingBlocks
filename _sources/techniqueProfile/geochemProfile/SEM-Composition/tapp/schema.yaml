@@ -1051,7 +1051,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id019
+            - &id028
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging
                 modes) or on each step position during compositional mapping (EDS and WDS mapping modes),
@@ -1076,8 +1076,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id019
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id019
               required:
               - '@id'
               - '@type'
@@ -1085,7 +1089,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id020
+            - &id029
               title: X-ray Line
               description: X-ray emission line measured.
               type: object
@@ -1106,7 +1110,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id020
+                    type: string
+                  - type: array
+                    items: *id020
               required:
               - '@id'
               - '@type'
@@ -1114,7 +1122,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id021
+            - &id030
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator).
               type: object
@@ -1135,7 +1143,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id021
+                    type: string
+                  - type: array
+                    items: *id021
               required:
               - '@id'
               - '@type'
@@ -1143,7 +1155,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id022
+            - &id031
               title: Sequence
               description: Order in which spectrometer assignments are acquired, and — where the element
                 suite exceeds the number of spectrometers — the passes the acquisition is divided into.
@@ -1169,15 +1181,19 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id022
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id022
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id023
+            - &id032
               title: Proportional Counter / Detector
               description: Type of detector used.
               type: object
@@ -1198,14 +1214,18 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id023
+                    type: string
+                  - type: array
+                    items: *id023
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id024
+            - &id033
               title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
                 all pulses above a threshold; Differential mode selects a narrow energy window to reject
@@ -1228,14 +1248,18 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id024
+                    type: string
+                  - type: array
+                    items: *id024
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id025
+            - &id034
               title: Peak Counting Time
               description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments
                 stay within procedure-defined bounds.
@@ -1258,8 +1282,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id025
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id025
               required:
               - '@id'
               - '@type'
@@ -1267,7 +1295,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id026
+            - &id035
               title: Background Counting Time
               description: Total time spent counting at off-peak background position(s) in seconds, summed
                 across all background positions.
@@ -1290,8 +1318,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id026
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id026
               required:
               - '@id'
               - '@type'
@@ -1299,7 +1331,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id027
+            - &id036
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in
                 mm or sin-theta, and whether on the high- or low-energy side.
@@ -1321,7 +1353,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id027
+                    type: string
+                  - type: array
+                    items: *id027
               required:
               - '@id'
               - '@type'
@@ -1329,31 +1365,31 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id019
+          - contains: *id028
             minContains: 0
             maxContains: 1
-          - contains: *id020
+          - contains: *id029
             minContains: 0
             maxContains: 1
-          - contains: *id021
+          - contains: *id030
             minContains: 0
             maxContains: 1
-          - contains: *id022
+          - contains: *id031
             minContains: 0
             maxContains: 1
-          - contains: *id023
+          - contains: *id032
             minContains: 0
             maxContains: 1
-          - contains: *id024
+          - contains: *id033
             minContains: 0
             maxContains: 1
-          - contains: *id025
+          - contains: *id034
             minContains: 0
             maxContains: 1
-          - contains: *id026
+          - contains: *id035
             minContains: 0
             maxContains: 1
-          - contains: *id027
+          - contains: *id036
             minContains: 0
             maxContains: 1
     ada:edsAcquisitionMode:

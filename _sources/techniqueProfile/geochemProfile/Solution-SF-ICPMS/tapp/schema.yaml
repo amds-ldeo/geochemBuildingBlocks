@@ -1074,7 +1074,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id014
+            - &id015
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species may be acquired
                 at more than one resolution, so the assignment is per acquired mass rather than per element.
@@ -1098,7 +1098,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id014
+                    type: string
+                  - type: array
+                    items: *id014
               required:
               - '@id'
               - '@type'
@@ -1107,7 +1111,7 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id014
+          - contains: *id015
             minContains: 0
             maxContains: 1
     ada:numberOfScansPerReplicate:

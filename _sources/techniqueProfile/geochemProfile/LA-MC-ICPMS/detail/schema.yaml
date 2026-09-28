@@ -291,46 +291,12 @@ allOf:
                                         - schema:additionalType
                                       then:
                                         properties:
-                                          ada:collectorConfiguration:
+                                          schema:additionalProperty:
                                             type: array
                                             items:
                                               anyOf:
-                                              - &id005
-                                                title: Integration Time per Cycle
-                                                description: Duration of signal integration per measurement
-                                                  cycle (seconds).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  schema:name:
-                                                    const: Integration Time per Cycle
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
-                                                  schema:value:
-                                                    anyOf:
-                                                    - &id003
-                                                      anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items: *id003
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - ada:dataType
-                                                - schema:value
-                                              - &id006
+                                              - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
+                                              - &id003
                                                 title: Ion Counter Dead Time
                                                 description: Dead time of the ion-counting detector(s),
                                                   used in the dead-time correction applied to high count
@@ -340,39 +306,34 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                                   schema:name:
                                                     const: Ion Counter Dead Time
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - &id004
-                                                      anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items: *id004
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
                                                 - schema:propertyID
                                                 - schema:name
-                                                - ada:dataType
                                                 - schema:value
+                                                - schema:unitText
                                             allOf:
-                                            - contains: *id005
+                                            - contains:
+                                                $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
                                               minContains: 0
                                               maxContains: 1
-                                            - contains: *id006
+                                            - contains: *id003
                                               minContains: 0
                                               maxContains: 1
                                     - if:
@@ -423,7 +384,7 @@ allOf:
                                   type: array
                                   items:
                                     anyOf:
-                                    - &id007
+                                    - &id004
                                       title: Doubly-Charged Species Monitor
                                       description: The mass ratio monitored to estimate doubly-charged
                                         ion (M²⁺) formation during instrument tuning. The monitor species
@@ -449,7 +410,7 @@ allOf:
                                       - schema:propertyID
                                       - schema:name
                                       - schema:value
-                                    - &id008
+                                    - &id005
                                       title: Doubly-Charged Species Production
                                       description: Measured percentage of doubly-charged ion production
                                         for the monitored species at the time of instrument tuning. The
@@ -479,10 +440,10 @@ allOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
                                   allOf:
-                                  - contains: *id007
+                                  - contains: *id004
                                     minContains: 0
                                     maxContains: 1
-                                  - contains: *id008
+                                  - contains: *id005
                                     minContains: 0
                                     maxContains: 1
                                   - contains:

@@ -1678,7 +1678,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id025
+            - &id027
               title: EELS Background Subtraction Method
               description: Method used to subtract the background beneath the ionization edge of interest
                 to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic
@@ -1701,14 +1701,18 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - &id025
+                    type: string
+                  - type: array
+                    items: *id025
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id026
+            - &id028
               title: EELS Detection Limit
               description: Estimated detection limit or minimum detectable concentration for target edges
                 under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
@@ -1731,8 +1735,12 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - &id026
+                    anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items: *id026
               required:
               - '@id'
               - '@type'
@@ -1740,10 +1748,10 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id025
+          - contains: *id027
             minContains: 0
             maxContains: 1
-          - contains: *id026
+          - contains: *id028
             minContains: 0
             maxContains: 1
     ada:edsCalibrationStandardDefault:
