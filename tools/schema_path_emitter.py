@@ -159,33 +159,29 @@ KEYED_TABLES = {
                     "#/$defs/ReportedPropertyIdentifierColumn"
         },
     },
-    # An MC-ICP-MS collector: ada:collectorConfiguration IS the channel-column array directly (it
-    # lives on instrument[ICPMS].hasPart[Collector], not in a top-level template, and has no
-    # identifier column). Channel column @ids use the ada:monitoredPropertyColumn namespace.
-    "ada:collectorConfiguration": {
-        "template": None,
-        "registry": "monitoredPropertyColumns",
-        "identifier_ref": None,
-    },
+    # ada:collectorConfiguration is deliberately NOT here. It used to serve as the
+    # monitored-property column array directly, which made it the container for eight unrelated
+    # items and contradicted its own declared Data Type of Text (free). It is now what the sidecar
+    # always said it was -- the collector assignment as the source states it, a string -- and the
+    # per-position table beside it is ada:collectors on the instrument component (E1). The seven
+    # items that used to ride inside it are ordinary schema:additionalProperty entries on the
+    # Collector part, the shape two of them already used.
 }
 
 
 def normalize_path(p):
-    """Collapse the collectorConfiguration channel table to its emitted shape.
+    """Collapse sidecar addressing forms onto the shape actually emitted.
 
-    The sidecar addresses MC-ICP-MS channels as `…collectorConfiguration.ada:monitoredPropertyColumns[]` and
-    the default channel list as `…collectorConfiguration.ada:defaultMonitoredProperties[]`, but the emitted
-    structure is `ada:collectorConfiguration` = the channel-column array itself, with
-    `ada:defaultMonitoredProperties` a SIBLING of it on the Collector (an array cannot also hold a
-    defaultChannels key). Rewrite both so schema and example agree without touching the sidecar.
+    `…collectorConfiguration.ada:defaultMonitoredProperties` becomes a SIBLING of
+    ada:collectorConfiguration on the Collector: an array cannot also hold a defaults key, and
+    since E1 ada:collectorConfiguration is a string, which certainly cannot.
 
     Also collapse a trailing `[]` on a default-ROW array (ada:defaultTargetSpecies[]/ada:defaultMonitoredProperties[]):
     the emitter carries the transcribed member list as a single scalar leaf on the template (the way
     the reference LA-MC-ICPMS sidecar addresses it — no brackets), whereas the array-segment form
     routes into the append leaf and would emit the raw items schema instead of the members. The
     schema side keys off the property NAME, so both grammars still emit the same array constraint."""
-    return (p.replace(".ada:collectorConfiguration.ada:monitoredPropertyColumns", ".ada:collectorConfiguration")
-             .replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
+    return (p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
              .replace(".ada:defaultTargetSpecies[]", ".ada:defaultTargetSpecies")
              .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties"))
 
