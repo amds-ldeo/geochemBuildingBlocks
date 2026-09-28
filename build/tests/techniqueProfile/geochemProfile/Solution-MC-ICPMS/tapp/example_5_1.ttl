@@ -14,15 +14,19 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -36,14 +40,10 @@
                             schema1:name "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -140,7 +140,7 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -173,12 +173,6 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\"" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

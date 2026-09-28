@@ -78,17 +78,6 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -183,17 +172,6 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -226,11 +204,6 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;

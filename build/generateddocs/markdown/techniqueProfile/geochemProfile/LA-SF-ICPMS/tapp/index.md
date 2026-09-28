@@ -728,9 +728,9 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -742,9 +742,9 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished metal slabs and thin sections; no acid treatment described" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -765,13 +765,13 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
                     schema1:value "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -1870,9 +1870,9 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -1886,9 +1886,9 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -3157,17 +3157,17 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
                     ada:detectionLimitMethod "Longerich et al. (1996); LOQ = 10SD criterion (same equation)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -4391,16 +4391,6 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; same as olivine mapping preparation" ;
                     schema1:name "Sample preparation" ;
@@ -4410,7 +4400,17 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -6434,6 +6434,15 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996) — implemented in iolite 4; sample-individual LOD calculated per analysis" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
@@ -6444,16 +6453,7 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "Longerich et al. (1996) — implemented in iolite 4; sample-individual LOD calculated per analysis" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;

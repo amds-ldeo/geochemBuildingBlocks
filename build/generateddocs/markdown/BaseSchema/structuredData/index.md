@@ -135,9 +135,9 @@ container, not tabular text).
     cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
             cdif:name "intensity" ],
         [ a cdi:DimensionComponent ;
-            cdif:name "y" ],
+            cdif:name "x" ],
         [ a cdi:DimensionComponent ;
-            cdif:name "x" ] ;
+            cdif:name "y" ] ;
     schema1:name "Elemental map cube structure" .
 
 

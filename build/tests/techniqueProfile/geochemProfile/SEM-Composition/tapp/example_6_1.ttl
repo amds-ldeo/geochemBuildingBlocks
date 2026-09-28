@@ -13,17 +13,17 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -58,10 +58,10 @@
     ada:samplingUnitType "Whole sample (polished slab) > Phase — elemental mapping of the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4), acquired on \"almost the same portion of the VIS-IR SPIM images\" (p.4) so the two datasets can be compared pixel for pixel" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;

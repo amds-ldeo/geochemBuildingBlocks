@@ -13,11 +13,13 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "Longerich et al. (1996) — implemented in iolite 4; sample-individual LOD calculated per analysis" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
@@ -27,13 +29,11 @@
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "Longerich et al. (1996) — implemented in iolite 4; sample-individual LOD calculated per analysis" ] ] ;
+                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -61,15 +61,15 @@
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Age Model" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ] ;
+            schema1:value "missing" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
     ada:ablationSpotDurationDefault "40 s on-sample ablation (after 20 s background measurement)" ;

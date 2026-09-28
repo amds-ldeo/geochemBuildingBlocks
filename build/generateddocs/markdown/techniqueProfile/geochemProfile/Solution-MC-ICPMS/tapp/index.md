@@ -289,18 +289,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -872,18 +861,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -1189,12 +1167,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
@@ -1211,7 +1183,13 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ] ] ;
+                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -1305,7 +1283,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -1340,12 +1318,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -1897,18 +1869,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "32S(L3), 33S(C), 34S(H3)"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -2575,18 +2536,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "32S(L3), 33S(C), 34S(H3)"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -2875,14 +2825,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -2898,7 +2840,15 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -2988,7 +2938,7 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -3029,12 +2979,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "32S(L3), 33S(C), 34S(H3)" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -3609,18 +3553,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -4287,18 +4220,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -4625,16 +4547,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
                     schema1:name "Sample preparation" ;
@@ -4649,7 +4561,17 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl" ] ] ] ;
+                            schema1:name "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -4746,7 +4668,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -4783,12 +4705,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -5209,18 +5125,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Static mode for most REEs; a subconfiguration for Dy and Yb to monitor isobaric interferences"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -5676,18 +5581,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Static mode for most REEs; a subconfiguration for Dy and Yb to monitor isobaric interferences"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -5954,13 +5848,14 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "1: HF/HNO3 in 3:1 proportion with a few drops of HClO4, hot plate 160 deg C, 2 weeks | 2: evaporated to dryness and redissolved in a 2:1 mixture of HCl:HNO3, 1 week on a hot plate. \"These steps were performed twice to ensure complete digestion\" -- the PAIR is repeated, so under the 2026-09-08 grain rule the members are 2, not 4. The subsequent concentrated HNO3 and 3 M HNO3 are dry-down and uptake, not steps. Resolves the cell left open on 2026-09-08." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08." ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -5969,14 +5864,13 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: HF/HNO3 in 3:1 proportion with a few drops of HClO4, hot plate 160 deg C, 2 weeks | 2: evaporated to dryness and redissolved in a 2:1 mixture of HCl:HNO3, 1 week on a hot plate. \"These steps were performed twice to ensure complete digestion\" -- the PAIR is repeated, so under the 2026-09-08 grain rule the members are 2, not 4. The subsequent concentrated HNO3 and 3 M HNO3 are dry-down and uptake, not steps. Resolves the cell left open on 2026-09-08." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08." ] ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -6053,7 +5947,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -6084,12 +5978,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Static mode for most REEs; a subconfiguration for Dy and Yb to monitor isobaric interferences" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -6472,18 +6360,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\""
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -7077,18 +6954,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\""
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -7411,15 +7277,19 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -7433,14 +7303,10 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
                             schema1:name "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -7537,7 +7403,7 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -7570,12 +7436,6 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Masses 90, 91, 92, 93, 94, 95, 96 and 98 \"measured in static mode at 0.5 amu spacing in the Nu Plasma II collector block\"" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -8035,18 +7895,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "85Rb, 87Rb+87Sr and 88Sr on three collectors, 88Sr on H1"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -8627,18 +8476,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "85Rb, 87Rb+87Sr and 88Sr on three collectors, 88Sr on H1"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -8934,18 +8772,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
@@ -8961,7 +8787,19 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Three steps of concentrated HF–HNO3–HCl–HClO4; step (i) \"4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4\"" ] ] ] ;
+                            schema1:name "Three steps of concentrated HF–HNO3–HCl–HClO4; step (i) \"4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4\"" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -9049,7 +8887,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -9084,12 +8922,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "85Rb, 87Rb+87Sr and 88Sr on three collectors, 88Sr on H1" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -9417,18 +9249,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -10035,18 +9856,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -10508,11 +10318,9 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A - reference material solutions, no digestion." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ],
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -10533,9 +10341,11 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "N/A - reference material solutions, no digestion." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in 3 or 5 mol/l Teflon-distilled HCl" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -10631,7 +10441,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -10665,12 +10475,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "L4=182W, L3=184Os, L2=185Re, L1=186Os, Ax=187Os, H1=188Os, H2=189Os, H3=190Os, H4=192Os, with 184W, 186W and 187Re as interference monitors" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -11002,18 +10806,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Two-sequence static multi-collection"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -11545,18 +11338,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Two-sequence static multi-collection"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -11954,9 +11736,11 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "N/A - reference material solutions, no digestion." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -11965,21 +11749,19 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "N/A - reference material solutions, no digestion." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -12062,7 +11844,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -12096,12 +11878,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Two-sequence static multi-collection" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -12582,18 +12358,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -13192,18 +12957,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -13593,7 +13347,7 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -13630,12 +13384,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -14127,18 +13875,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "90Zr–96Zr and 95Mo on 10^11 Ω cups; 99Ru and 101Ru on 10^12 Ω cups"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -14747,18 +14484,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "90Zr\u201396Zr and 95Mo on 10^11 \u03a9 cups; 99Ru and 101Ru on 10^12 \u03a9 cups"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -15076,14 +14802,10 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -15097,10 +14819,14 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
                             schema1:name "Concentrated HF-HNO3, then a HNO3-HCl mixture, then a HNO3-H2O2 mixture; Ivuna high PT: concentrated HF-HNO3 for 3 days then concentrated HCl for 2 days" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -15195,7 +14921,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -15229,12 +14955,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "90Zr–96Zr and 95Mo on 10^11 Ω cups; 99Ru and 101Ru on 10^12 Ω cups" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -15703,18 +15423,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "49Ti, 51V, 56Fe alongside 50Cr, 52Cr, 53Cr, 54Cr; 24Mg, 25Mg, 26Mg"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -16297,18 +16006,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "49Ti, 51V, 56Fe alongside 50Cr, 52Cr, 53Cr, 54Cr; 24Mg, 25Mg, 26Mg"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -16622,6 +16320,15 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                             schema1:name "Cr/Mg route: 6 M HCl loading, 10 M HCl pretreatment, 0.5 M HCl, 0.5 M HNO3, 1 M HF, 6 M HCl elutions; Si route: NaOH fusion then Milli-Q water and HNO3" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk powder; for the Si aliquot, NaOH fusion in silver crucibles" ;
                     schema1:name "Sample preparation" ;
@@ -16631,16 +16338,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -16730,7 +16428,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -16764,12 +16462,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "49Ti, 51V, 56Fe alongside 50Cr, 52Cr, 53Cr, 54Cr; 24Mg, 25Mg, 26Mg" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -17172,18 +16864,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -17684,18 +17365,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -17968,6 +17638,20 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: 3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate 150 deg C, about 1 week | 2: dried down, dissolved in 1 ml concentrated HNO3, with 1 ml H2O2 added slowly in 0.1 ml increments | 3: dried down, dissolved in double-distilled HCl. The final 5 ml 2% HNO3 is the uptake, not a step." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
@@ -17981,21 +17665,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate 150 deg C, about 1 week | 2: dried down, dissolved in 1 ml concentrated HNO3, with 1 ml H2O2 added slowly in 0.1 ml increments | 3: dried down, dissolved in double-distilled HCl. The final 5 ml 2% HNO3 is the uptake, not a step." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
@@ -18079,7 +17749,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -18111,12 +17781,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -18498,18 +18162,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -19011,18 +18664,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -19273,18 +18915,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -19301,7 +18931,19 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
@@ -19388,7 +19030,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -19421,12 +19063,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -19645,18 +19281,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -20124,18 +19749,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collector",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Two cup configurations: (1) \u2074\u2076Ti\u2013\u2075\u2070Ti and \u2074\u2074Ca; (2) \u2074\u2079Ti, \u2075\u2070Ti, \u2075\u00b9V, \u2075\u00b2Cr, \u2075\u00b3Cr \u2014 \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "@type": [
@@ -20507,12 +20121,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -20522,17 +20130,23 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Coordinated dissolution shared with the WUSTL split - see the WUSTL column." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Coordinated dissolution shared with the WUSTL split — see the WUSTL column" ] ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Coordinated dissolution shared with the WUSTL split - see the WUSTL column." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Coordinated dissolution shared with the WUSTL split — see the WUSTL column" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -20627,7 +20241,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -20658,12 +20272,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -21371,103 +20979,29 @@ allOf:
                             minContains: 0
                             maxContains: 1
                         ada:collectorConfiguration:
-                          type: array
-                          items:
-                            title: Collector Configuration
-                            description: "Assignment of isotope masses to Faraday
-                              cup or ion counter detector positions for this procedure,
-                              and the target species each position serves. Lists the
-                              mass number monitored in each collector position with
-                              its target species element where it has one \u2014 e.g.
-                              'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb
-                              (interference monitor, no target species)'. Interference-monitor
-                              and internal-standard positions serve no target species
-                              and carry no parent element; the target species list
-                              itself is given by the Target Species field and is never
-                              inferred from the mass labels here. For static multi-collection
-                              procedures, one configuration applies throughout the
-                              measurement. For multi-dynamic procedures, list all
-                              configurations and the cycling sequence."
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration
-                              '@type':
-                                const:
-                                - schema:PropertyValueSpecification
-                              schema:valueName:
-                                const: collectorConfiguration
-                              schema:name:
-                                const: Collector Configuration
-                              ada:dataType:
-                                const: string
-                              schema:readonlyValue:
-                                const: true
-                              ada:tier:
-                                const: M
-                              schema:defaultValue:
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - schema:defaultValue
-                          allOf:
-                          - contains:
-                              title: Collector Configuration
-                              description: "Assignment of isotope masses to Faraday
-                                cup or ion counter detector positions for this procedure,
-                                and the target species each position serves. Lists
-                                the mass number monitored in each collector position
-                                with its target species element where it has one \u2014
-                                e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn);
-                                H1=121Sb (interference monitor, no target species)'.
-                                Interference-monitor and internal-standard positions
-                                serve no target species and carry no parent element;
-                                the target species list itself is given by the Target
-                                Species field and is never inferred from the mass
-                                labels here. For static multi-collection procedures,
-                                one configuration applies throughout the measurement.
-                                For multi-dynamic procedures, list all configurations
-                                and the cycling sequence."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: collectorConfiguration
-                                schema:name:
-                                  const: Collector Configuration
-                                ada:dataType:
-                                  const: string
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
-                            minContains: 0
-                            maxContains: 1
+                          description: "Assignment of isotope masses to Faraday cup
+                            or ion counter detector positions for this procedure,
+                            and the target species each position serves. Lists the
+                            mass number monitored in each collector position with
+                            its target species element where it has one \u2014 e.g.
+                            'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb
+                            (interference monitor, no target species)'. Interference-monitor
+                            and internal-standard positions serve no target species
+                            and carry no parent element; the target species list itself
+                            is given by the Target Species field and is never inferred
+                            from the mass labels here. For static multi-collection
+                            procedures, one configuration applies throughout the measurement.
+                            For multi-dynamic procedures, list all configurations
+                            and the cycling sequence."
+                          anyOf:
+                          - type: string
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              readOnly: true
+                      required:
+                      - ada:collectorConfiguration
                 allOf:
                 - contains:
                     properties:

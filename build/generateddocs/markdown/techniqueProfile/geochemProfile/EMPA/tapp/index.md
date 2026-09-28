@@ -557,17 +557,17 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
@@ -1212,17 +1212,17 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "missing" ;
@@ -1897,12 +1897,12 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
                     schema1:value "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide (chromite, ulvospinel, ilmenite) | Sulfide | Phosphate (merrillite) | Glass (melt pocket)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -2557,12 +2557,12 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
                     schema1:value "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -3224,17 +3224,17 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
@@ -3254,12 +3254,12 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
                     schema1:value "Silicate mineral (liebermannite, lingunite, maskelynite, augite, pigeonite)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -3275,10 +3275,10 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     ada:secondaryReferenceMaterialDefault "Feldspar standards run as unknowns (material names N beyond what is listed above)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -4600,10 +4600,10 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     ada:secondaryReferenceMaterialDefault "Smithsonian Microbeam standards (specific materials and values N)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA microanalysis software" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -5247,17 +5247,17 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/halogenCorrectionOnOxygenDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -5279,12 +5279,12 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
                     schema1:value "Phosphate (apatite)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -5916,12 +5916,12 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
                     schema1:value "Silicate mineral | Oxide (eucrite phases)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -6532,17 +6532,17 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "missing" ;
@@ -6562,12 +6562,12 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
                     schema1:value "Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -7171,17 +7171,17 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished section; 20 nm carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished section; 20 nm carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. Zega" ] ;
     schema1:datePublished "missing" ;
@@ -7836,17 +7836,17 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s/bg each side. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak, 10 s/bg each side. Carbonates: 15 kV, 4 nA, 2 µm, 10 s peak, 5 s/bg each side. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper." ;
@@ -8500,17 +8500,17 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
@@ -9163,12 +9163,12 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
                     schema1:value "Silicate mineral (olivine, pyroxene) in Bennu aggregate particles" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -9437,7 +9437,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:valueName": "backgroundCountingTime",
         "schema:name": "Background Counting Time",
         "ada:dataType": "number",
-        "schema:defaultValue": 1
+        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition",
@@ -9466,7 +9466,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:valueName": "dwellTimePerPixel",
         "schema:name": "Dwell Time per Pixel",
         "ada:dataType": "number",
-        "schema:defaultValue": 1
+        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime",
@@ -9476,7 +9476,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:valueName": "peakCountingTime",
         "schema:name": "Peak Counting Time",
         "ada:dataType": "number",
-        "schema:defaultValue": 1
+        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector",
@@ -9824,7 +9824,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:valueName": "backgroundCountingTime",
         "schema:name": "Background Counting Time",
         "ada:dataType": "number",
-        "schema:defaultValue": 1
+        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition",
@@ -9853,7 +9853,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:valueName": "dwellTimePerPixel",
         "schema:name": "Dwell Time per Pixel",
         "ada:dataType": "number",
-        "schema:defaultValue": 1
+        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime",
@@ -9863,7 +9863,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:valueName": "peakCountingTime",
         "schema:name": "Peak Counting Time",
         "ada:dataType": "number",
-        "schema:defaultValue": 1
+        "schema:defaultValue": "example value"
       },
       {
         "@id": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector",
@@ -10026,15 +10026,15 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ],
+                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
@@ -10053,13 +10053,13 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
                     schema1:value "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
                     schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -10093,10 +10093,10 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     ada:samplingUnitType "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
     ada:stepSizePixelSizeDefault "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)" ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -10141,7 +10141,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue "example value" ;
     schema1:name "Background Counting Time" ;
     schema1:valueName "backgroundCountingTime" ;
     ada:dataType "number" .
@@ -10158,13 +10158,13 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/dwellTimePerPixel> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue "example value" ;
     schema1:name "Dwell Time per Pixel" ;
     schema1:valueName "dwellTimePerPixel" ;
     ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 1 ;
+    schema1:defaultValue "example value" ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
@@ -11235,8 +11235,14 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11266,7 +11272,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11293,7 +11303,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11325,8 +11339,14 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11356,8 +11376,14 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11385,7 +11411,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11419,8 +11449,14 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11450,7 +11486,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11477,7 +11517,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11509,8 +11553,14 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11543,7 +11593,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11573,7 +11627,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11608,8 +11666,14 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11642,8 +11706,14 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11674,7 +11744,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11711,8 +11785,14 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - type: number
-                  - type: string
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
               required:
               - '@id'
               - '@type'
@@ -11745,7 +11825,11 @@ allOf:
                 ada:tier:
                   const: R
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'
@@ -11775,7 +11859,11 @@ allOf:
                 ada:tier:
                   const: M
                 schema:defaultValue:
-                  type: string
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
               required:
               - '@id'
               - '@type'

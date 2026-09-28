@@ -19,12 +19,6 @@
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
@@ -41,7 +35,13 @@
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ] ] ;
+                            schema1:name "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -135,7 +135,7 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -170,12 +170,6 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

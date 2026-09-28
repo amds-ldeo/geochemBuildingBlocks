@@ -189,6 +189,17 @@
           ],
           "schema:additionalProperty": [
             {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupAmplifierResistorValues",
+              "schema:name": "Faraday Cup Amplifier Resistor Values",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "10\u00b9\u00b9 \u03a9 on all nine Faraday cups (p.2)"
+            },
+            {
               "@id": "ada:parameter/module/MCICPMS/faradayCupArrayConfiguration",
               "@type": [
                 "schema:PropertyValueSpecification"
@@ -198,6 +209,57 @@
               "ada:dataType": "string",
               "ada:fieldScope": "session",
               "schema:value": "Nine Faraday cups fitted with 10\u00b9\u00b9 \u03a9 resistors, plus seven fixed electron multiplier ion counters; the Faraday collector array spans L4 to H3 (p.2)"
+            },
+            {
+              "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "integrationTimePerCycleDefault",
+              "schema:name": "Integration Time per Cycle",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:value": 0.524,
+              "schema:description": "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)"
+            },
+            {
+              "@id": "ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod"
+                }
+              ],
+              "schema:name": "Interference Correction Method",
+              "schema:value": "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er\u00b2\u207a and 173Yb\u00b2\u207a signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias"
+            },
+            {
+              "@id": "ada:parameter/laMcicpmsTAPP/interferingSpecies",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laMcicpmsTAPP/interferingSpecies"
+                }
+              ],
+              "schema:name": "Interfering Species",
+              "schema:value": "\u00b9\u2076\u2078Er\u00b2\u207a on \u2078\u2074Sr; \u00b9\u2077\u2070Er\u00b2\u207a + \u00b9\u2077\u2070Yb\u00b2\u207a on \u2078\u2075Rb; \u00b9\u2077\u00b2Yb\u00b2\u207a on \u2078\u2076Sr; \u00b9\u2077\u2074Yb\u00b2\u207a on \u2078\u2077Sr; \u2078\u2077Rb on \u2078\u2077Sr (isobaric)"
+            },
+            {
+              "@id": "ada:parameter/laMcicpmsTAPP/massResolutionAssignment",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/laMcicpmsTAPP/massResolutionAssignment"
+                }
+              ],
+              "schema:name": "Mass Resolution Assignment",
+              "schema:value": "Low resolution for all eight monitored masses \u2014 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout"
             }
           ],
           "@type": [
@@ -206,95 +268,7 @@
           ],
           "@id": "ex:instrument/ICPMS/part/Collector",
           "schema:name": "missing",
-          "ada:collectorConfiguration": [
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "collectorConfiguration",
-              "schema:name": "Collector Configuration",
-              "ada:dataType": "string",
-              "schema:defaultValue": "L4=\u2078\u00b3Kr (gas background monitor, no target species); L3=\u00b9\u2076\u2077Er\u00b2\u207a (interference monitor, no target species); L2=\u2078\u2074Sr (Sr); L1=\u2078\u2075Rb (Rb); C=\u2078\u2076Sr (Sr); H1=\u00b9\u2077\u00b3Yb\u00b2\u207a (interference monitor, no target species); H2=\u2078\u2077Sr (Sr); H3=\u2078\u2078Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4\u2013H3, p.2)"
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "faradayCupAmplifierResistorValues",
-              "schema:name": "Faraday Cup Amplifier Resistor Values",
-              "ada:dataType": "string",
-              "schema:defaultValue": "10\u00b9\u00b9 \u03a9 on all nine Faraday cups (p.2)"
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "faradayCupGainCalibrationMethod",
-              "schema:name": "Faraday Cup Gain Calibration Method",
-              "ada:dataType": "string",
-              "schema:defaultValue": "missing"
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "integrationTimePerCycle",
-              "schema:name": "Integration Time per Cycle",
-              "ada:dataType": "number",
-              "schema:defaultValue": 0.524,
-              "schema:description": "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)"
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "interferenceCorrectionMethod",
-              "schema:name": "Interference Correction Method",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er\u00b2\u207a and 173Yb\u00b2\u207a signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias"
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "interferingSpecies",
-              "schema:name": "Interfering Species",
-              "ada:dataType": "string",
-              "schema:defaultValue": [
-                "\u00b9\u2076\u2078Er\u00b2\u207a on \u2078\u2074Sr",
-                "\u00b9\u2077\u2070Er\u00b2\u207a + \u00b9\u2077\u2070Yb\u00b2\u207a on \u2078\u2075Rb",
-                "\u00b9\u2077\u00b2Yb\u00b2\u207a on \u2078\u2076Sr",
-                "\u00b9\u2077\u2074Yb\u00b2\u207a on \u2078\u2077Sr",
-                "\u2078\u2077Rb on \u2078\u2077Sr (isobaric)"
-              ]
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "ionCounterDeadTime",
-              "schema:name": "Ion Counter Dead Time",
-              "ada:dataType": "number",
-              "schema:defaultValue": -9999
-            },
-            {
-              "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment",
-              "@type": [
-                "schema:PropertyValueSpecification"
-              ],
-              "schema:valueName": "massResolutionAssignment",
-              "schema:name": "Mass Resolution Assignment",
-              "ada:dataType": "string",
-              "schema:defaultValue": "Low resolution for all eight monitored masses \u2014 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout"
-            }
-          ]
+          "ada:collectorConfiguration": "missing"
         },
         {
           "schema:additionalType": [

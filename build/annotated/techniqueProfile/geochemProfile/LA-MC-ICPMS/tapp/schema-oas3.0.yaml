@@ -6958,6 +6958,99 @@ x-defs:
                         enum:
                         - https://www.wikidata.org/wiki/Q3099911
                   x-jsonld-id: http://schema.org/additionalType
+                ada:collectorConfiguration:
+                  description: 'How masses are assigned to collector positions for
+                    this procedure, AS THE SOURCE STATES IT. Free text on purpose:
+                    submitters write this as prose or as a semicolon-separated list
+                    in no agreed syntax ("L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn ..."),
+                    and in many cases it cannot be parsed at all. Recording the statement
+                    verbatim is what can always be done; ada:collectors below is what
+                    can sometimes be done as well. Meaningful on a component whose
+                    schema:additionalType includes ''Collector''.'
+                  type: string
+                ada:collectors:
+                  description: "The collector table. One member per position when
+                    ada:collectorConfiguration parses into positions, and ONE member
+                    carrying the text as written when it does not -- the N=1 form
+                    of the flattening fallback that TAPP-keyed-values-design.md Decision
+                    6 settles for every keyed axis: \"rather than admit two shapes,
+                    always emit the table: a declaration that does not parse into
+                    members yields a one-row table whose row key is the text as written.
+                    The fallback is then not a separate branch but N=1.\"\nSo a consumer
+                    reads one shape either way. In the N=1 form schema:name is a fixed
+                    label rather than a cup ('Collector configuration description'),
+                    schema:description carries the unparsed string, and the per-item
+                    values ride in schema:additionalProperty as name/value pairs.
+                    Parsing these strings to individual collectors is not tractable
+                    in general -- they are written for a person to read -- so N=1
+                    is expected to be the common case, not the exception.\nThis exists
+                    because a cup label has to be referenceable WHEN there is one.
+                    A per-cup quantity (a baseline, a gain factor) and a monitored
+                    property that names the position reporting it both need something
+                    to point AT, and a label buried in a sentence is not something
+                    a consumer can join to. schema:name is that anchor.\nNote what
+                    an N=1 member does NOT assert: it names no cup, so it makes no
+                    per-cup claim. That matters because the resistor values are attested
+                    per MASS, not per cup (Proposal_Monitored_Property_2026-09-10
+                    \xA710), and the fallback must not quietly move them onto the
+                    collector axis."
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - '@type'
+                    - schema:name
+                    properties:
+                      '@type':
+                        type: array
+                        minItems: 1
+                        items:
+                          type: string
+                        contains:
+                          enum:
+                          - ada:Collector
+                      schema:name:
+                        description: The collector position label as the instrument
+                          names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class
+                          multicollector. This is the identifier other properties
+                          reference. In the N=1 fallback there is no position to name,
+                          so it is the fixed label 'Collector configuration description'
+                          and nothing should join to it.
+                        type: string
+                        minLength: 1
+                        x-jsonld-id: http://schema.org/name
+                      ada:targetSpecies:
+                        description: 'The mass or species this position monitors in
+                          this configuration, e.g. ''116Sn''. Absent when the position
+                          is assigned no mass -- which is a real state, not missing
+                          data: an unassigned cup can still report a baseline.'
+                        type: string
+                      schema:description:
+                        type: string
+                        x-jsonld-id: http://schema.org/description
+                      schema:additionalProperty:
+                        description: Quantities carried on this member as name/value
+                          pairs. In the parsed form these are per-position quantities
+                          that cannot be restated per mass -- a baseline, a gain factor.
+                          In the N=1 form they are the source fields themselves, each
+                          as its item name and the text as written, which is how an
+                          unparseable per-collector statement is preserved without
+                          inventing an assignment it does not make.
+                        type: array
+                        items:
+                          type: object
+                          required:
+                          - schema:name
+                          properties:
+                            schema:name:
+                              description: The item name, e.g. 'Faraday Cup Amplifier
+                                Resistor Values'.
+                              type: string
+                              x-jsonld-id: http://schema.org/name
+                            schema:value:
+                              description: The value, as written when it did not parse.
+                              x-jsonld-id: http://schema.org/value
+                        x-jsonld-id: http://schema.org/additionalProperty
             - type: object
               additionalProperties: false
               description: Reference by node @id to a component described elsewhere.
@@ -14642,192 +14735,35 @@ allOf:
                     then:
                       properties:
                         ada:collectorConfiguration:
+                          description: "Assignment of isotope masses to Faraday cup
+                            or ion counter detector positions for this procedure,
+                            and the target species each position serves. Lists the
+                            mass number monitored in each collector position with
+                            its target species element where it has one \u2014 e.g.
+                            'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb
+                            (interference monitor, no target species)'. Interference-monitor
+                            and internal-standard positions serve no target species
+                            and carry no parent element; the target species list itself
+                            is given by the Target Species field and is never inferred
+                            from the mass labels here. For static multi-collection
+                            procedures, one configuration applies throughout the measurement.
+                            For multi-dynamic procedures, list all configurations
+                            and the cycling sequence."
+                          anyOf:
+                          - type: string
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              readOnly: true
+                        schema:additionalProperty:
                           type: array
                           items:
                             anyOf:
-                            - title: Collector Configuration
-                              description: "Assignment of isotope masses to Faraday
-                                cup or ion counter detector positions for this procedure,
-                                and the target species each position serves. Lists
-                                the mass number monitored in each collector position
-                                with its target species element where it has one \u2014
-                                e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn);
-                                H1=121Sb (interference monitor, no target species)'.
-                                Interference-monitor and internal-standard positions
-                                serve no target species and carry no parent element;
-                                the target species list itself is given by the Target
-                                Species field and is never inferred from the mass
-                                labels here. For static multi-collection procedures,
-                                one configuration applies throughout the measurement.
-                                For multi-dynamic procedures, list all configurations
-                                and the cycling sequence."
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - collectorConfiguration
-                                schema:name:
-                                  enum:
-                                  - Collector Configuration
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
-                            - title: Faraday Cup Amplifier Resistor Values
-                              description: "Resistance values (\u03A9) of the feedback
-                                resistors in the Faraday cup amplifiers. Standard
-                                amplifiers use 10\xB9\xB9 \u03A9 resistors, yielding
-                                1 V per ~6.24 \xD7 10\u2076 ion counts per second.
-                                Report the resistor value per cup position, or note
-                                'all 10\xB9\xB9 \u03A9' if uniform."
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - faradayCupAmplifierResistorValues
-                                schema:name:
-                                  enum:
-                                  - Faraday Cup Amplifier Resistor Values
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
-                            - title: Faraday Cup Gain Calibration Method
-                              description: 'Method used to calibrate the relative
-                                gain (amplification factor) of each Faraday cup amplifier
-                                at the start of or during each analytical session.
-                                Common approaches: instrument internal gain calibration
-                                routine (measures signal in each cup sequentially
-                                using a common beam), amplifier rotation procedure,
-                                or measurement of a known isotope ratio solution in
-                                each cup. For instruments with SEM detectors, also
-                                describes the SEM-to-Faraday cross-calibration sequence.
-                                Specify frequency (per session, per block, weekly).'
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - faradayCupGainCalibrationMethod
-                                schema:name:
-                                  enum:
-                                  - Faraday Cup Gain Calibration Method
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
-                            - title: Integration Time per Cycle
-                              description: Duration of signal integration per measurement
-                                cycle (seconds).
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - integrationTimePerCycle
-                                schema:name:
-                                  enum:
-                                  - Integration Time per Cycle
-                                ada:dataType:
-                                  enum:
-                                  - number
-                                schema:readonlyValue: {}
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupAmplifierResistorValues
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupArrayConfiguration
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupGainCalibrationMethod
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_integrationTimePerCycle
                             - title: Interference Correction Method
                               description: Equation or procedure used to calculate
                                 and remove each interference contribution, together
@@ -14841,38 +14777,25 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+                                  - ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - interferenceCorrectionMethod
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod
                                 schema:name:
                                   enum:
                                   - Interference Correction Method
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              readOnly: true
                             - title: Interfering Species
                               description: The isobaric, polyatomic and doubly charged
                                 species that overlap the measured masses and are corrected
@@ -14884,38 +14807,25 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies
+                                  - ada:parameter/laMcicpmsTAPP/interferingSpecies
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - interferingSpecies
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/interferingSpecies
                                 schema:name:
                                   enum:
                                   - Interfering Species
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              readOnly: true
                             - title: Ion Counter Dead Time
                               description: Dead time of the ion-counting detector(s),
                                 used in the dead-time correction applied to high count
@@ -14926,40 +14836,29 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                  - ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - ionCounterDeadTime
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                 schema:name:
                                   enum:
                                   - Ion Counter Dead Time
-                                ada:dataType:
-                                  enum:
-                                  - number
-                                schema:readonlyValue: {}
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
+                                schema:value:
                                   anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
+                                  - type: number
+                                  - type: string
+                                schema:unitText:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              - schema:unitText
                             - title: Mass Resolution Assignment
                               description: Mass resolution mode used for acquisition.
                                 One target species may be acquired at more than one
@@ -14971,232 +14870,40 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment
+                                  - ada:parameter/laMcicpmsTAPP/massResolutionAssignment
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - massResolutionAssignment
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/massResolutionAssignment
                                 schema:name:
                                   enum:
                                   - Mass Resolution Assignment
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              readOnly: true
                           allOf:
                           - contains:
-                              title: Collector Configuration
-                              description: "Assignment of isotope masses to Faraday
-                                cup or ion counter detector positions for this procedure,
-                                and the target species each position serves. Lists
-                                the mass number monitored in each collector position
-                                with its target species element where it has one \u2014
-                                e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn);
-                                H1=121Sb (interference monitor, no target species)'.
-                                Interference-monitor and internal-standard positions
-                                serve no target species and carry no parent element;
-                                the target species list itself is given by the Target
-                                Species field and is never inferred from the mass
-                                labels here. For static multi-collection procedures,
-                                one configuration applies throughout the measurement.
-                                For multi-dynamic procedures, list all configurations
-                                and the cycling sequence."
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - collectorConfiguration
-                                schema:name:
-                                  enum:
-                                  - Collector Configuration
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupAmplifierResistorValues
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Faraday Cup Amplifier Resistor Values
-                              description: "Resistance values (\u03A9) of the feedback
-                                resistors in the Faraday cup amplifiers. Standard
-                                amplifiers use 10\xB9\xB9 \u03A9 resistors, yielding
-                                1 V per ~6.24 \xD7 10\u2076 ion counts per second.
-                                Report the resistor value per cup position, or note
-                                'all 10\xB9\xB9 \u03A9' if uniform."
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - faradayCupAmplifierResistorValues
-                                schema:name:
-                                  enum:
-                                  - Faraday Cup Amplifier Resistor Values
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupArrayConfiguration
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Faraday Cup Gain Calibration Method
-                              description: 'Method used to calibrate the relative
-                                gain (amplification factor) of each Faraday cup amplifier
-                                at the start of or during each analytical session.
-                                Common approaches: instrument internal gain calibration
-                                routine (measures signal in each cup sequentially
-                                using a common beam), amplifier rotation procedure,
-                                or measurement of a known isotope ratio solution in
-                                each cup. For instruments with SEM detectors, also
-                                describes the SEM-to-Faraday cross-calibration sequence.
-                                Specify frequency (per session, per block, weekly).'
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - faradayCupGainCalibrationMethod
-                                schema:name:
-                                  enum:
-                                  - Faraday Cup Gain Calibration Method
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupGainCalibrationMethod
                             minContains: 0
                             maxContains: 1
                           - contains:
-                              title: Integration Time per Cycle
-                              description: Duration of signal integration per measurement
-                                cycle (seconds).
-                              type: object
-                              properties:
-                                '@id':
-                                  enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                '@type':
-                                  enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  enum:
-                                  - integrationTimePerCycle
-                                schema:name:
-                                  enum:
-                                  - Integration Time per Cycle
-                                ada:dataType:
-                                  enum:
-                                  - number
-                                schema:readonlyValue: {}
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_integrationTimePerCycle
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -15213,38 +14920,25 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod
+                                  - ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - interferenceCorrectionMethod
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/interferenceCorrectionMethod
                                 schema:name:
                                   enum:
                                   - Interference Correction Method
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              readOnly: true
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -15259,38 +14953,25 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies
+                                  - ada:parameter/laMcicpmsTAPP/interferingSpecies
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - interferingSpecies
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/interferingSpecies
                                 schema:name:
                                   enum:
                                   - Interfering Species
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              readOnly: true
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -15304,40 +14985,29 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                  - ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - ionCounterDeadTime
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                 schema:name:
                                   enum:
                                   - Ion Counter Dead Time
-                                ada:dataType:
-                                  enum:
-                                  - number
-                                schema:readonlyValue: {}
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
+                                schema:value:
                                   anyOf:
-                                  - anyOf:
-                                    - type: number
-                                    - type: string
-                                  - type: array
-                                    items:
-                                      anyOf:
-                                      - type: number
-                                      - type: string
+                                  - type: number
+                                  - type: string
+                                schema:unitText:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              - schema:unitText
                             minContains: 0
                             maxContains: 1
                           - contains:
@@ -15352,49 +15022,29 @@ allOf:
                               properties:
                                 '@id':
                                   enum:
-                                  - ada:monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment
+                                  - ada:parameter/laMcicpmsTAPP/massResolutionAssignment
                                 '@type':
                                   enum:
-                                  - - schema:PropertyValueSpecification
-                                schema:valueName:
+                                  - - schema:PropertyValue
+                                schema:propertyID:
                                   enum:
-                                  - massResolutionAssignment
+                                  - - '@id': ada:parameter/laMcicpmsTAPP/massResolutionAssignment
                                 schema:name:
                                   enum:
                                   - Mass Resolution Assignment
-                                ada:dataType:
-                                  enum:
-                                  - string
-                                schema:readonlyValue:
-                                  enum:
-                                  - true
-                                ada:tier:
-                                  enum:
-                                  - M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
+                                schema:value:
+                                  type: string
                               required:
                               - '@id'
                               - '@type'
-                              - schema:valueName
+                              - schema:propertyID
                               - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
+                              - schema:value
+                              readOnly: true
                             minContains: 0
                             maxContains: 1
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupArrayConfiguration
-                          allOf:
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_faradayCupArrayConfiguration
-                            minContains: 0
-                            maxContains: 1
+                      required:
+                      - ada:collectorConfiguration
                   - if:
                       properties:
                         schema:additionalType:

@@ -20,18 +20,18 @@
                     ada:chemicalAbrasionConditions "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -55,16 +55,16 @@
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Age Model" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
     ada:ablationSpotDurationDefault -9999 ;

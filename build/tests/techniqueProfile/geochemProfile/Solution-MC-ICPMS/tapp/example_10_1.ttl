@@ -19,14 +19,10 @@
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -40,10 +36,14 @@
                             schema1:name "Concentrated HF-HNO3, then a HNO3-HCl mixture, then a HNO3-H2O2 mixture; Ivuna high PT: concentrated HF-HNO3 for 3 days then concentrated HCl for 2 days" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -138,7 +138,7 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -172,12 +172,6 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "90Zr–96Zr and 95Mo on 10^11 Ω cups; 99Ru and 101Ru on 10^12 Ω cups" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
