@@ -1308,8 +1308,6 @@ def main():
     # instance-bound tool descriptions (role=description rows targeting a named computationalTool)
     tool_desc_items = {it: sel for it, sp in sp_by_item.items()
                        if (sel := tool_desc_selector(sp)) is not None}
-    analyte_row = next((it for it, sp in sp_by_item.items()
-                        if "analyteTemplate.ada:defaultTargetSpecies" in sp or it == "Analyte"), None)
     acols = []
     for b in R["analyte_cols"]:
         for c in b["cols"]:

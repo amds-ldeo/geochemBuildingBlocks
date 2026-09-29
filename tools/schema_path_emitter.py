@@ -114,13 +114,20 @@ WRAPPER_ITEM_REF = {
 # rather than consuming the row's leaf.
 BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
 
-# ada:defaultTargetSpecies (and the analogous ada:defaultMonitoredProperties) hold the template's DEFAULT ROWS: a
-# list of analyte/channel identifiers, each a bare string OR a schema:DefinedTerm — never an object
-# carrying per-column values (those live in the columns array). Whether the sidecar row targets the
-# property directly or with a bare "[]", the array's item shape is this anyOf, not the row's scalar.
+# ada:defaultTargetSpecies and ada:defaultMonitoredProperties hold the template's DEFAULT ROWS: a
+# list of identifiers, each a bare string, a schema:DefinedTerm, OR a row object keyed by the
+# columns' schema:valueName. Whether the sidecar row targets the property directly or with a bare
+# "[]", the array's item shape is this anyOf, not the row's scalar Data Type.
+#
+# The row-object branch has to be HERE as well as in tappDefinition. The base admits it and this
+# overlay narrows the same array, and allOf intersects -- so an overlay that stops at
+# string|DefinedTerm makes the base's row object unsatisfiable, and every mapped row fails with
+# "{'monitoredProperty': '11B'} is not valid under any of the given schemas" while the base reads
+# as though it allows exactly that.
 DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
-                               {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"}]}
+                               {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"},
+                               {"type": "object"}]}
 
 # The per-analyte column array. Each row targeting it names one column; the emitter generates a
 # column def per row and narrows the array to those columns plus the base's identifier column.

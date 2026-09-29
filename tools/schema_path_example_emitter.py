@@ -245,6 +245,274 @@ def _split_top_level(v):
     return out
 
 
+NOT_STATED = {"n", "n/a", "na", "none", "not stated", "-"}
+# A parenthetical naming where the list came from -- '(Table 1)', '(Table 2a)', '(p.11)'. It is
+# evidence FOR the list, never a member OF it, and it is not always set off by a dash.
+CITATION = re.compile(r"""\(\s*(?:table|tables|fig|figs|figure|figures|p|pp|page|pages|section|
+                                 appendix|supp|supplementary|eq|eqn)\b[^)]*\)""",
+                      re.IGNORECASE | re.VERBOSE)
+
+
+def _strip_provenance(v):
+    """Keep the list, drop the evidence for it.
+
+    The transcriber's convention throughout these tables is `<list> - <why we believe it>`, where
+    the justification is a citation, a quotation from the paper, or both:
+
+        '⁸⁴Sr (L2), ⁸⁵Rb (L1) - Table 2, p.3. ⁸⁵Rb and ⁸⁷Rb serve the target species Rb'
+        '⁵⁴Fe, ⁵⁶Fe (Fe); ⁵³Cr, ⁶⁰Ni (interference monitors) - "Ion counter gains were ..."'
+
+    Cutting at the first spaced em/en dash takes the list and leaves the argument. Matching only
+    citation-shaped tails ('table', 'p.') was too narrow: a tail that opens with a quotation
+    survived, carried 20-72 words into the last group, and the whole cell was then rejected as
+    unparseable -- nine examples lost lists that were perfectly good up to the dash.
+
+    But the dash is not the only separator used. Some cells cite in parentheses and then simply
+    continue in prose, with no dash anywhere:
+
+        '95Mo, 111Cd, ... 209Bi (Table 1). Cd is determined on 111Cd only: "113Cd was not ..."'
+
+    Eight clean masses, then a sentence. Without cutting at the citation the tail lands inside the
+    last member, and the eight are thrown away with it. So a citation parenthetical ALSO ends the
+    list: everything from it onward is provenance. A trailing citation with nothing after it is
+    dropped for the same reason -- otherwise '(Table 2a)' is read as a qualifier on the whole group
+    and silently offered to _classify as if it might name a species or a collector.
+
+    A cell whose list is just a not-stated marker yields nothing. 'N - the paper states "the cup
+    configurations are presented in Table S1"' means the masses were NOT given; emitting 'N' as a
+    monitored property would turn an explicit absence into a measurement.
+    """
+    # The dash must be at paren-depth 0. One cell explains itself INSIDE the parenthetical
+    # ("Rb, Sr (the paper determines ... - they carry the interference corrections)"), and
+    # cutting there left an unclosed "(" that _qualifier_of could no longer strip, so the
+    # annotation stayed glued to the last member and the cell was thrown away.
+    head, depth = v, 0
+    for m in re.finditer(r"\(|\)|\s+[–—]\s+|\s+--\s+", v):
+        t = m.group(0)
+        if t == "(":
+            depth += 1
+        elif t == ")":
+            depth = max(0, depth - 1)
+        elif depth == 0:
+            head = v[:m.start()]
+            break
+    head = head.strip()
+    m = CITATION.search(head)
+    if m:
+        head = head[:m.start()].strip().rstrip(",;.")
+    if head.lower().rstrip(".") in NOT_STATED:
+        return ""
+    return head
+
+COLLECTOR_LABEL = re.compile(r"^(?:L|H|IC)[0-9]{1,2}$|^(?:C|Ax|axial|centre|center)$", re.I)
+
+MEMBER_MAX_WORDS = 2
+
+
+def _is_member(text):
+    """One member's worth of the guard, so a caller can drop a member instead of the whole cell."""
+    return len(re.sub(r"\s*\+\s*", "+", text).split()) <= MEMBER_MAX_WORDS
+
+
+def _looks_like_members(rows):
+    """Did this cell parse into members, or into sentence fragments?
+
+    A monitored property is an identifier -- a mass, an isotope, an energy-loss edge. Measured
+    across the 141 members the corpus held before this check existed, 98 are one or two words; the
+    rest are prose that the old flat splitter shredded out of a paragraph, e.g.
+
+        "N - spectrometer-to-element assignments not stated"
+        "p.3. ⁸⁵Rb and ⁸⁷Rb serve the target species Rb"
+
+    Those are not monitored properties. They are what a cell looks like when nobody checked whether
+    it was a list. Two words is the ceiling because the annotated forms this parser already strips
+    ("⁸⁸Sr (interference monitor...)" -> "⁸⁸Sr") and the awkward case the design notes flag
+    ("Fe L2,3 (707 eV)" -> "Fe L2,3") both fall under it.
+
+    A '+' joins two species into ONE member and does not spend the word budget. '⁸⁷Rb + ⁸⁷Sr' is a
+    single Faraday cup carrying two unresolved isobars -- one collector, one measured quantity, and
+    the very reason ⁸⁸Sr is monitored. Counted naively it is three words, which rejected a cell
+    whose five members and five collectors had all parsed perfectly.
+
+    The whole cell is rejected, not the offending member. A half-parsed list is worse than none:
+    "here are four of the eight monitored properties" reads as complete and is not, whereas an empty
+    table plus the text in ada:collectorConfiguration says exactly what is known. That is the rule --
+    when `defines: monitored property per target species` or `Collector Configuration` cannot be
+    parsed, the text description in Collector Configuration IS the answer.
+    """
+    if not rows:
+        return False
+    return all(len(re.sub(r"\s*\+\s*", "+", r["member"]).split()) <= MEMBER_MAX_WORDS
+               for r in rows)
+
+def _qualifier_of(text):
+    """(body, qualifier) for a trailing parenthetical, or (text, None)."""
+    m = re.search(r"\(([^()]*)\)\s*$", text)
+    return (text[:m.start()].strip(), m.group(1).strip()) if m else (text.strip(), None)
+
+
+def _classify(qualifier, known):
+    """A qualifier is the parent species, the collector, or neither.
+
+    Recognised rather than parsed, which is the whole approach here: the target species are
+    enumerated by their own definer row, so anything matching one IS the parent. A collector label
+    is the other thing a qualifier is ever observed to be. Everything else -- 'interference
+    monitor', 'monitors, no target species' -- is an annotation, and the member is an orphan. That
+    test is why no syntax for "this one has no parent" is needed.
+    """
+    if not qualifier:
+        return None, None
+    if qualifier.lower() in known:
+        return qualifier, None
+    if COLLECTOR_LABEL.match(qualifier):
+        return None, qualifier
+    return None, None
+
+
+# 'L2' in 'Fe L2,3' -- letters then digits, the shape of an energy-loss edge or an X-ray line
+# label whose sub-level list continues after a comma. A member that is a bare mass ('90') does NOT
+# match, which is what keeps a plain mass list from being glued into one member.
+SUBLEVEL_HOST = re.compile(r"^[A-Za-z]+\d+$")
+# A leading label the transcriber wrote before the list itself: 'Masses 90, 91, 92'.
+LIST_LABEL = re.compile(r"^(?:masses|mass|isotopes|isotope|ions|ion|m/z)\s+(?=[\d²³¹⁰-₟])",
+                        re.IGNORECASE)
+
+
+# A leading label ending in a colon: "48 trace elements:", "Session 1:", "Run 1 (major):".
+# No comma or semicolon may precede the colon, so a real member list is never truncated.
+GROUP_LABEL = re.compile(r"^[^,;:]{0,40}:\s+")
+
+
+def _parse_grouped_members(v, known=()):
+    """Members of a `defines: <x> per <y>` cell, which is TWO levels, not one.
+
+    Semicolons separate GROUPS; commas separate members WITHIN a group:
+
+        84Sr, 86Sr, 87Sr, 88Sr (Sr); 85Rb (Rb); 83Kr, 167Er2+, 173Yb2+ (monitors, no target species)
+
+    -> eight members, four qualified 'Sr', one 'Rb', three qualified by an annotation that is not a
+    species at all. Splitting on commas AND semicolons alike gives nine members and attaches each
+    parenthetical to whichever one happened to precede it.
+
+    A parenthetical qualifies the whole group when only the LAST member carries one, and each
+    member individually when several do:
+
+        32S (L3), 33S (C), 34S (H3)     -> three members, three different collectors
+
+    Both forms occur in the corpus and they mean different things, so which it is has to be decided
+    rather than assumed. Returns [{"member", "parent", "collector"?}, ...].
+    """
+    norm = {str(k).strip().lower() for k in known}
+    out = []
+    for group in _split_depth0(_strip_provenance(v), ";"):
+        # '96 and 98' is two members. The lookahead must include U+00B2/B3/B9: the
+        # superscripts 1, 2 and 3 live in Latin-1, NOT in the U+2070 superscript block,
+        # and a bare element symbol counts too: 'Fe, Cr and Mg' is three species. Only a
+        # capitalised symbol qualifies, so 'Major and trace elements' stays one phrase
+        # and is still rejected as the prose it is.
+        # so a class of ⁰-₟ alone misses every mass starting 1xx, 2xx or 3xx.
+        # That silently dropped the nine-member Os/Re/W cell, whose every mass is 18x. The transcriber ends a list in prose style as often as not,
+        # and treating 'and' as ordinary text left a member three words wide that failed the guard
+        # and took the other seven masses down with it.
+        group = re.sub(r",?\s+and\s+(?=(?:[\d²³¹⁰-₟]|[A-Z][a-z]?(?=[,;)\s]|$)))", ", ", group)
+        # A group may open with a label: "48 trace elements: Li, Be, ...", "Session 1: Al,
+        # ...", "Run 1 (major): 25Mg, ...". The label is a header for the list, not a member
+        # of it, but it sits before the first comma and so became the first member -- and
+        # being several words wide it then failed the guard and took the whole list with it.
+        group = GROUP_LABEL.sub("", group.strip())
+        group = LIST_LABEL.sub("", group.strip())
+        body, group_qualifier = _qualifier_of(group)
+        members = []
+        for part in _split_depth0(body if group_qualifier else group, ","):
+            if not part:
+                continue
+            # A comma inside a member is not a separator: 'Fe L2,3 (707 eV)' is ONE edge, the
+            # sub-level list of the L edge. But this must not fire on a plain mass list -- '90, 91,
+            # 92' is three masses, and gluing bare numbers onto whatever preceded them turned every
+            # numeric list in the corpus into a single member. So the join is allowed only where the
+            # PREVIOUS member ends in a label that can carry a sub-level ('L2'), never where it
+            # ends in a bare mass.
+            prev = members[-1].split()[-1] if members else ""
+            if (members and SUBLEVEL_HOST.match(prev)
+                    and not any(c.isalpha() for c in _qualifier_of(part)[0])):
+                members[-1] = members[-1] + "," + part
+            else:
+                members.append(part)
+        own = [_qualifier_of(m) for m in members]
+        per_member = sum(1 for _, q in own if q) > 1
+        for (member_body, member_qualifier), raw in zip(own, members):
+            qualifier = member_qualifier if per_member else group_qualifier
+            text = member_body if per_member else _qualifier_of(raw)[0]
+            parent, collector = _classify(qualifier, norm)
+            row = {"member": text or raw, "parent": parent}
+            if collector:
+                row["collector"] = collector
+            out.append(row)
+    return out
+
+def _split_depth0(v, seps):
+    """Split on any character in `seps`, at parenthesis depth zero."""
+    out, buf, depth = [], [], 0
+    for ch in v:
+        if ch in "([":
+            depth += 1
+        elif ch in ")]":
+            depth = max(0, depth - 1)
+        if ch in seps and depth == 0:
+            if "".join(buf).strip():
+                out.append("".join(buf).strip())
+            buf = []
+        else:
+            buf.append(ch)
+    if "".join(buf).strip():
+        out.append("".join(buf).strip())
+    return out
+
+
+def _known_target_species(values):
+    """Members of the `defines: target species` cell, the vocabulary a qualifier is tested against."""
+    for item, cell in (values or {}).items():
+        if item.strip().lower() in ("target species", "analyte", "analytes"):
+            if isinstance(cell, str):
+                return [m["member"] for m in _parse_grouped_members(cell)]
+    return []
+
+
+def _collector_map(values, members):
+    """monitored property -> collector, read out of the Collector Configuration cell.
+
+    The cell is a list of `L2=⁸⁴Sr (Sr)`, and the collector token is not declared anywhere: no
+    column says "this part is the cup". It does not need to be. The monitored property and the
+    target species are both already enumerated by their own definer rows, so an entry can be
+    RECOGNISED rather than parsed -- whatever is left once the known tokens are accounted for is the
+    collector. That survives a change of separator, of order, or of spacing, which a syntax-specific
+    regex would not.
+
+    Returns {} when nothing recognisable is found, which is the common case: most of these cells are
+    prose. An absent mapping is the honest answer, not a guess.
+    """
+    cell = None
+    for item, v in (values or {}).items():
+        if item.strip().lower() == "collector configuration" and isinstance(v, str):
+            cell = v
+            break
+    if not cell:
+        return {}
+    out = {}
+    for entry in _split_depth0(_strip_provenance(cell), ";"):
+        body = re.sub(r"\(([^()]*)\)\s*$", "", entry).strip()      # drop the qualifier
+        hit = next((m for m in members if m and m in body), None)   # the member we already know
+        if not hit:
+            continue
+        # Take what PRECEDES the member, not the whole entry: the last entry commonly runs on
+        # into prose ("H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout"),
+        # and everything after the member is that sentence, not a label.
+        residue = body.split(hit)[0].strip(" =:" + chr(8212) + "-" + chr(9))
+        if residue and len(residue) <= 12 and chr(10) not in residue:
+            out[hit] = residue
+    return out
+
+
 def build_example(tapp, values=None, emit_reported_property=False):
     """{root -> instance dict} built from the canonical paths, reusing the schema-emitter merger.
 
@@ -351,11 +619,61 @@ def build_example(tapp, values=None, emit_reported_property=False):
                 # synthetic mode omits the rich base-owned objects (placeholders cannot build them)
                 continue
             if pub and parsed.segments[-1].prop in DEFAULT_ROWS:
-                # a default-row array: split the transcribed list into members on top-level commas /
-                # semicolons only — a parenthetical like "H3 (⁸⁸Sr) (7 cups monitoring Kr, Rb, …)"
-                # keeps its internal commas rather than being shredded into bogus members.
+                # a default-row array. The monitored-property rows are parsed two-level and come out
+                # as ROW OBJECTS carrying their parent species and, where the Collector
+                # Configuration cell supplies it, the collector each is measured on. Target-species
+                # rows keep the flat split they have always had.
                 v = strip_annotation(values[item], m)
-                items = _split_top_level(v) if isinstance(v, str) else v
+                if not isinstance(v, str):
+                    items = v
+                elif parsed.segments[-1].prop == "ada:defaultMonitoredProperties":
+                    known = _known_target_species(values)
+                    rows = _parse_grouped_members(v, known)
+                    if not _looks_like_members(rows):
+                        # Did not parse. Emit NO members rather than fragments; the cell's text is
+                        # already carried verbatim by ada:collectorConfiguration, which is the
+                        # answer in this case.
+                        continue
+                    collectors = _collector_map(values, {r["member"] for r in rows})
+                    items = []
+                    for r in rows:
+                        row = {"monitoredProperty": r["member"]}
+                        if r["parent"]:
+                            row["targetSpecies"] = r["parent"]
+                        if r["member"] in collectors:
+                            row["collector"] = collectors[r["member"]]
+                        items.append(row)
+                else:
+                    # Target-species rows are flat -- no parent, no collector -- but they are
+                    # written in the same style as the monitored ones, so they need the same
+                    # treatment: 'Mg, Al, ... Cr (ten elements, collected in two passes)' is TEN
+                    # species, not nine and a sentence. A plain split kept the annotation glued to
+                    # the last member and emitted 'Cr (ten elements, collected in two passes)' as a
+                    # species. Parse, then flatten to the bare names.
+                    rows = _parse_grouped_members(v)
+                    kept = [r["member"] for r in rows if _is_member(r["member"])]
+                    # Unlike the monitored side, rejecting the whole cell here LOSES the data:
+                    # ada:targetSpeciesTemplate has no free-text field to fall back on the way
+                    # ada:collectorConfiguration catches an unparseable collector string. So keep
+                    # the species that were recognised and record the declaration verbatim
+                    # alongside them whenever anything was dropped -- a partial list then cannot be
+                    # mistaken for a complete one, because the statement it came from sits next to
+                    # it. 'Mn (55Mn), ... Pb (207Pb) in seawater' yields eight species plus the
+                    # sentence; 'Major and trace elements' yields no species and only the sentence.
+                    if (len(kept) != len(rows) or not kept) and isinstance(v, str) and v.strip():
+                        # Place it the same way as everything else -- through e.insert on its own
+                        # path. The tree here is an e.Obj, not a dict, so walking it by hand to set
+                        # a sibling raised AttributeError on five techniques.
+                        # normalize_path has already dropped the trailing '[]', so match the
+                        # bare segment at the END of the path -- replacing 'ada:defaultTargetSpecies[]'
+                        # matched nothing and skipped the declaration without complaining.
+                        decl = re.sub(r"ada:defaultTargetSpecies$",
+                                      "ada:targetSpeciesDeclaration", path)
+                        if decl != path:
+                            e.insert(roots[parsed.root], spp.parse(decl), v.strip())
+                    if not kept:
+                        continue
+                    items = kept
                 e.insert(roots[parsed.root], parsed, items)
                 continue
             if e._is_addl_param(parsed):

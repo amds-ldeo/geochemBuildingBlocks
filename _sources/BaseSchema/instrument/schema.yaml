@@ -134,6 +134,13 @@ allOf:
                 the position reporting it both need something to point AT, and a label buried in a
                 sentence is not something a consumer can join to. schema:name is that anchor.
 
+                What a collector does NOT carry is which monitored property it measures. That
+                assignment is procedure configuration, not hardware -- the same physical array is
+                wired differently by another procedure, and an analysis may override it -- so it
+                lives as the 'collector' column of ada:monitoredPropertyColumns on the method
+                definition, whose values are these schema:names. Putting it here would invert the
+                dependency and make the instrument description procedure-specific.
+
                 Note what an N=1 member does NOT assert: it names no cup, so it makes no per-cup
                 claim. That matters because the resistor values are attested per MASS, not per cup
                 (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly
@@ -161,12 +168,6 @@ allOf:
                       nothing should join to it.
                     type: string
                     minLength: 1
-                  'ada:targetSpecies':
-                    description: >-
-                      The mass or species this position monitors in this configuration, e.g.
-                      '116Sn'. Absent when the position is assigned no mass -- which is a real
-                      state, not missing data: an unassigned cup can still report a baseline.
-                    type: string
                   'schema:description':
                     type: string
                   'schema:additionalProperty':
