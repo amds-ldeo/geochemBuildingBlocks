@@ -253,6 +253,22 @@ CITATION = re.compile(r"""\(\s*(?:table|tables|fig|figs|figure|figures|p|pp|page
                       re.IGNORECASE | re.VERBOSE)
 
 
+def _split_members(text):
+    """Members of already-trimmed text. Used to decide WHICH side of a dash holds the list, so it
+    must not strip provenance itself -- _strip_provenance would recurse."""
+    out = []
+    for group in _split_depth0(text, ";"):
+        group = re.sub(r",?\s+and\s+(?=(?:[\d²³¹⁰-₟]|[A-Z][a-z]?(?=[,;)\s]|$)))",
+                       ", ", group)
+        group = GROUP_LABEL.sub("", group.strip())
+        group = LIST_LABEL.sub("", group.strip())
+        body, q = _qualifier_of(group)
+        for part in _split_depth0(body if q else group, ","):
+            if part:
+                out.append({"member": _qualifier_of(part)[0] or part, "parent": None})
+    return out
+
+
 def _strip_provenance(v):
     """Keep the list, drop the evidence for it.
 
@@ -294,7 +310,15 @@ def _strip_provenance(v):
         elif t == ")":
             depth = max(0, depth - 1)
         elif depth == 0:
-            head = v[:m.start()]
+            head, tail = v[:m.start()], v[m.end():]
+            # The dash usually separates the list from the evidence for it. Sometimes it INTRODUCES
+            # the list instead -- "The rare earth elements - La, Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb and
+            # Y" -- and cutting there threw ten species away and kept the words "The rare earth
+            # elements". Which side is the list is not guessed: whichever side parses as members is.
+            # Only when the head does NOT and the tail DOES is the tail taken, so the ordinary
+            # `<list> - <citation>` reading is untouched.
+            if not _looks_like_members(_split_members(head))                     and _looks_like_members(_split_members(tail)):
+                head = tail
             break
     head = head.strip()
     m = CITATION.search(head)
@@ -404,7 +428,7 @@ def _parse_grouped_members(v, known=()):
     """
     norm = {str(k).strip().lower() for k in known}
     out = []
-    for group in _split_depth0(_strip_provenance(v), ";"):
+    for gi, group in enumerate(_split_depth0(_strip_provenance(v), ";")):
         # '96 and 98' is two members. The lookahead must include U+00B2/B3/B9: the
         # superscripts 1, 2 and 3 live in Latin-1, NOT in the U+2070 superscript block,
         # and a bare element symbol counts too: 'Fe, Cr and Mg' is three species. Only a
@@ -444,7 +468,7 @@ def _parse_grouped_members(v, known=()):
             qualifier = member_qualifier if per_member else group_qualifier
             text = member_body if per_member else _qualifier_of(raw)[0]
             parent, collector = _classify(qualifier, norm)
-            row = {"member": text or raw, "parent": parent}
+            row = {"member": text or raw, "parent": parent, "group": gi}
             if collector:
                 row["collector"] = collector
             out.append(row)
@@ -651,7 +675,20 @@ def build_example(tapp, values=None, emit_reported_property=False):
                     # the last member and emitted 'Cr (ten elements, collected in two passes)' as a
                     # species. Parse, then flatten to the bare names.
                     rows = _parse_grouped_members(v)
-                    kept = [r["member"] for r in rows if _is_member(r["member"])]
+                    # Keep per GROUP, not per member. The leading text of a group is where its
+                    # category sits, so when the FIRST member fails the test what follows are
+                    # fragments of a phrase, not siblings of it -- and keeping them states
+                    # something false rather than something partial. Measured 2026-09-29:
+                    # "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors
+                    # 202Hg, 203Tl, 205Tl" kept ONLY 203Tl and 205Tl, so a Pb procedure declared
+                    # thallium as its target species and no Pb at all. A group whose first member
+                    # survives is the ordinary trailing-annotation case and keeps the rest.
+                    kept = []
+                    for gi in sorted({r["group"] for r in rows}):
+                        grp = [r for r in rows if r["group"] == gi]
+                        if not grp or not _is_member(grp[0]["member"]):
+                            continue
+                        kept += [r["member"] for r in grp if _is_member(r["member"])]
                     # Unlike the monitored side, rejecting the whole cell here LOSES the data:
                     # ada:targetSpeciesTemplate has no free-text field to fall back on the way
                     # ada:collectorConfiguration catches an unparseable collector string. So keep

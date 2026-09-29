@@ -638,6 +638,19 @@ def conform(value, sub):
 # ex.fill_required_types already types nodes properly; leave them to it.
 NEVER_SENTINEL = {"@type", "@id", "@context"}
 
+# Arrays whose sentinel is an EMPTY array, never ["missing"]. The comment in sentinel_for defends
+# ["missing"] in a scalar array as "a true statement -- this value was not reported", and for most
+# properties it is. For these two it is not: the members ARE the statement, so a lone "missing"
+# asserts a target species, or a monitored mass, actually called that -- and it validates, because
+# the row shape admits any string. Measured 2026-09-29: three examples whose declaration could not
+# be parsed carried ada:defaultTargetSpecies: ["missing"].
+#
+# The honest state is no rows plus ada:targetSpeciesDeclaration holding the statement verbatim,
+# which is exactly what that field was added for. An empty array still satisfies `required`; where
+# a schema genuinely demands members it says minItems, which sentinel_for still honours.
+EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
+                        "ada:defaultReportedProperties"}
+
 
 SENTINEL_URI = "nil:missing"
 SENTINEL_TEXT = "missing"
@@ -851,7 +864,10 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                     if key in NEVER_SENTINEL:
                         continue
                     sub = (c.schema.get("properties") or {}).get(key) or {}
-                    got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema)
+                    if key in EMPTY_ARRAY_SENTINEL:
+                        got = []
+                    else:
+                        got = sentinel_by_jtype(jtype_by_prop.get(key), sub, resolved_schema)
                     if got is not None and key not in parent:
                         parent[key] = got
                         changed += 1
