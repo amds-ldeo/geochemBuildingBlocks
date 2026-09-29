@@ -13,19 +13,19 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -58,16 +58,16 @@
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Age Model" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSpotDurationDefault "~40 s (inferred from typical CetacAnalyte HE protocol for glass)" ;
     ada:ageModelDefault "missing" ;

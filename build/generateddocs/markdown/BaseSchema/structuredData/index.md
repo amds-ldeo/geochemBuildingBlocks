@@ -134,10 +134,10 @@ container, not tabular text).
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
     cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
             cdif:name "x" ],
-        [ a cdi:DimensionComponent ;
-            cdif:name "y" ],
         [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ] ;
+            cdif:name "intensity" ],
+        [ a cdi:DimensionComponent ;
+            cdif:name "y" ] ;
     schema1:name "Elemental map cube structure" .
 
 

@@ -14,15 +14,15 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -54,10 +54,10 @@
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished thin section) > Region of interest — \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)" ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
