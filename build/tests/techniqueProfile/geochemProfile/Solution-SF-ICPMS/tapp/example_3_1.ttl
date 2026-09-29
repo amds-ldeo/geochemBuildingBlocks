@@ -14,18 +14,9 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -38,9 +29,18 @@
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2)." ;
@@ -80,6 +80,27 @@
     ada:samplingUnitType "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites" ;
     ada:secondaryReferenceMaterialDefault "USGS and GSJ geological RMs and carbonaceous chondrites (stated section 2.5)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "missing" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:targetSpeciesDeclaration "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS; stated section 2.1.2" ] ;
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)" .
 
@@ -273,4 +294,67 @@
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 

@@ -371,6 +371,164 @@
   ],
   "ada:carrierGasFlowRateDefault": "He: 0.7 l min\u207b\u00b9 (chamber) + 0.1 l min\u207b\u00b9 (cup gas)",
   "ada:analysisSequenceDefault": "Gas blank (25 s) \u2192 ablation (45 s) \u2192 washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u00b2\u00b9Sc",
+      "\u2075\u00b9V",
+      "\u2075\u00b2Cr",
+      "\u2075\u2079Co",
+      "\u2076\u2070Ni",
+      "\u2076\u00b3Cu",
+      "\u2076\u2076Zn",
+      "\u2076\u2079Ga",
+      "\u2078\u2075Rb",
+      "\u2078\u2078Sr",
+      "\u2078\u2079Y",
+      "\u2079\u2070Zr",
+      "\u2079\u00b3Nb",
+      "\u00b9\u00b3\u00b3Cs",
+      "\u00b9\u00b3\u2077Ba",
+      "\u00b9\u00b3\u2079La",
+      "\u00b9\u2074\u2070Ce",
+      "\u00b9\u2074\u00b9Pr",
+      "\u00b9\u2074\u2076Nd",
+      "\u00b9\u2074\u2077Sm",
+      "\u00b9\u2075\u00b3Eu",
+      "\u00b9\u2075\u2077Gd",
+      "\u00b9\u2075\u2079Tb",
+      "\u00b9\u2076\u00b3Dy",
+      "\u00b9\u2076\u2075Ho",
+      "\u00b9\u2076\u2076Er",
+      "\u00b9\u2076\u2079Tm",
+      "\u00b9\u2077\u00b2Yb",
+      "\u00b9\u2077\u2075Lu",
+      "\u00b9\u2077\u2078Hf",
+      "\u00b9\u2078\u00b9Ta",
+      "\u00b2\u00b3\u00b2Th",
+      "\u00b2\u00b3\u2078U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "25 s gas blank before each ablation",
   "schema:measurementTechnique": [
     {

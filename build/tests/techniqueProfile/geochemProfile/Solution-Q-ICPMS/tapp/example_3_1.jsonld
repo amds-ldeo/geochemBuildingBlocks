@@ -304,17 +304,111 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Cd",
+      "In",
+      "Tl",
+      "Bi"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "95Mo",
-      "111Cd",
-      "113Cd",
-      "115In",
-      "118Sn",
-      "149Sm",
-      "205Tl",
-      "209Bi (Table 1). Cd is determined on 111Cd only: \"113Cd was not used for Cd determination",
-      "because the correction of 113In was far larger than the MoO correction\""
+      {
+        "monitoredProperty": "95Mo"
+      },
+      {
+        "monitoredProperty": "111Cd"
+      },
+      {
+        "monitoredProperty": "113Cd"
+      },
+      {
+        "monitoredProperty": "115In"
+      },
+      {
+        "monitoredProperty": "118Sn"
+      },
+      {
+        "monitoredProperty": "149Sm"
+      },
+      {
+        "monitoredProperty": "205Tl"
+      },
+      {
+        "monitoredProperty": "209Bi"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

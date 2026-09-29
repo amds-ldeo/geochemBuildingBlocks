@@ -65,6 +65,20 @@
     ada:samplingUnitType "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)" ;
     ada:spectroscopicDetectorDefault "EDS and EELS" ;
     ada:stemDwellTimePerPixelDefault "8 µs (EDS spectrum image frame time per pixel)" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "C",
+                "Fe",
+                "Mg",
+                "Ni",
+                "S",
+                "Si" ;
+            ada:targetSpeciesColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)" ;
             ada:toolRole "dataReduction" ] .
 

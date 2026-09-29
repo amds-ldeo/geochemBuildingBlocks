@@ -205,6 +205,164 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
     }
   ],
   "ada:analysisSequenceDefault": "Standards at start of session → raster unknowns → repeat → standards at end; separate session for Ge spot analyses",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "³¹P",
+      "⁵¹V",
+      "⁵³Cr",
+      "⁵⁵Mn",
+      "⁵⁷Fe",
+      "⁵⁹Co",
+      "⁶⁰Ni",
+      "⁶³Cu",
+      "⁷¹Ga",
+      "⁷⁴Ge",
+      "⁷⁵As",
+      "⁹⁵Mo",
+      "¹⁰²Ru",
+      "¹⁰³Rh",
+      "¹⁰⁶Pd",
+      "¹²⁰Sn",
+      "¹²¹Sb",
+      "¹⁸²W",
+      "¹⁸⁵Re",
+      "¹⁹⁰Os",
+      "¹⁹³Ir",
+      "¹⁹⁵Pt",
+      "¹⁹⁷Au"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -560,6 +718,164 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
     }
   ],
   "ada:analysisSequenceDefault": "Standards at start of session \u2192 raster unknowns \u2192 repeat \u2192 standards at end; separate session for Ge spot analyses",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u00b3\u00b9P",
+      "\u2075\u00b9V",
+      "\u2075\u00b3Cr",
+      "\u2075\u2075Mn",
+      "\u2075\u2077Fe",
+      "\u2075\u2079Co",
+      "\u2076\u2070Ni",
+      "\u2076\u00b3Cu",
+      "\u2077\u00b9Ga",
+      "\u2077\u2074Ge",
+      "\u2077\u2075As",
+      "\u2079\u2075Mo",
+      "\u00b9\u2070\u00b2Ru",
+      "\u00b9\u2070\u00b3Rh",
+      "\u00b9\u2070\u2076Pd",
+      "\u00b9\u00b2\u2070Sn",
+      "\u00b9\u00b2\u00b9Sb",
+      "\u00b9\u2078\u00b2W",
+      "\u00b9\u2078\u2075Re",
+      "\u00b9\u2079\u2070Os",
+      "\u00b9\u2079\u00b3Ir",
+      "\u00b9\u2079\u2075Pt",
+      "\u00b9\u2079\u2077Au"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -727,18 +1043,18 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -765,13 +1081,13 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
                     schema1:value "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -798,6 +1114,49 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
     ada:samplingUnitSelectionCriteriaDefault "Representativeness of the exsolution banding — the raster \"yielded more representative sampling of the kamacite-taenite banding\", and where it \"failed to yield useful Ge abundances for Klamath Falls ... To obtain more precise Ge, a set of five 150 μm spots were analyzed ... on five of the irons\" (p.4)" ;
     ada:samplingUnitType "Whole sample (polished specimen surface) > Region of interest (raster) — irons \"were analyzed using a raster scan over a few millimeters\" with a 50 μm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4–5); Ge comes from a set of five 150 μm spots on five of the irons (p.4)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "³¹P",
+                "¹²¹Sb",
+                "¹²⁰Sn",
+                "¹⁰²Ru",
+                "¹⁰³Rh",
+                "¹⁰⁶Pd",
+                "¹⁸²W",
+                "¹⁸⁵Re",
+                "¹⁹³Ir",
+                "¹⁹⁰Os",
+                "¹⁹⁵Pt",
+                "¹⁹⁷Au",
+                "⁵³Cr",
+                "⁵¹V",
+                "⁵⁵Mn",
+                "⁵⁷Fe",
+                "⁵⁹Co",
+                "⁶³Cu",
+                "⁶⁰Ni",
+                "⁷¹Ga",
+                "⁷⁴Ge",
+                "⁷⁵As",
+                "⁹⁵Mo" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" .
 
@@ -894,6 +1253,75 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -1284,6 +1712,155 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ]
   },
   "ada:analysisSequenceDefault": "(i) Gas blanks → (ii) all glass GRMs for external calibration → (iii) 1–3 cosmic spherule unknowns → (iv) blanks → (v) all glass GRMs again",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "²⁵Mg",
+      "²⁷Al",
+      "²⁹Si",
+      "³¹P",
+      "⁴⁵Sc",
+      "⁵¹V",
+      "⁵³Cr",
+      "⁵⁵Mn",
+      "⁵⁷Fe",
+      "⁶⁰Ni",
+      "⁷¹Ga",
+      "¹³⁹La",
+      "¹⁵³Eu",
+      "¹⁹⁵Pt"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "Scans for gas blank: 10 per line (before each mapping line); 80 scans during ablation",
   "schema:measurementTechnique": [
     {
@@ -1765,6 +2342,155 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ]
   },
   "ada:analysisSequenceDefault": "(i) Gas blanks \u2192 (ii) all glass GRMs for external calibration \u2192 (iii) 1\u20133 cosmic spherule unknowns \u2192 (iv) blanks \u2192 (v) all glass GRMs again",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u00b2\u2075Mg",
+      "\u00b2\u2077Al",
+      "\u00b2\u2079Si",
+      "\u00b3\u00b9P",
+      "\u2074\u2075Sc",
+      "\u2075\u00b9V",
+      "\u2075\u00b3Cr",
+      "\u2075\u2075Mn",
+      "\u2075\u2077Fe",
+      "\u2076\u2070Ni",
+      "\u2077\u00b9Ga",
+      "\u00b9\u00b3\u2079La",
+      "\u00b9\u2075\u00b3Eu",
+      "\u00b9\u2079\u2075Pt"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "Scans for gas blank: 10 per line (before each mapping line); 80 scans during ablation",
   "schema:measurementTechnique": [
     {
@@ -1941,6 +2667,40 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (2D map) — \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)" ;
     ada:secondaryReferenceMaterialDefault "MPI-DING glasses: GOR132-G, StHs6/80-G, T1-G; USGS: BCR-2G, BHVO-2G — measured as unknowns alongside samples and compared to GeoReM preferred values (Table 1 and Section 3.3)" ;
     ada:signalIntegrationIntervalMethod "Manual visual inspection of time-resolved signal per line; anomalous spikes (inclusions, cracks, veinlets) excluded; P-rich veinlet regions identified and excluded from olivine averages" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "²⁵Mg",
+                "²⁷Al",
+                "²⁹Si",
+                "³¹P",
+                "¹³⁹La",
+                "¹⁵³Eu",
+                "¹⁹⁵Pt",
+                "⁴⁵Sc",
+                "⁵³Cr",
+                "⁵¹V",
+                "⁵⁵Mn",
+                "⁵⁷Fe",
+                "⁶⁰Ni",
+                "⁷¹Ga" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C1)" ;
@@ -2120,6 +2880,75 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -2536,6 +3365,171 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min⁻¹; MFC-2 0.22 l min⁻¹",
   "ada:analysisSequenceDefault": "GRM block (3–5×) → unknowns → GRM block (3–5×); same structure for run 1 and run 2",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "²⁵Mg",
+      "²⁹Si",
+      "³¹P",
+      "⁴⁴Ca",
+      "⁵³Cr",
+      "⁵⁵Mn",
+      "⁵⁷Fe",
+      "⁷Li",
+      "⁴⁵Sc",
+      "⁵¹V",
+      "⁵³Cr",
+      "⁵⁹Co",
+      "⁶⁰Ni",
+      "⁶³Cu",
+      "⁶⁶Zn",
+      "⁸⁹Y",
+      "⁹⁰Zr",
+      "⁹³Nb",
+      "¹³³Cs",
+      "¹³⁷Ba",
+      "¹³⁹La–¹⁷⁵Lu",
+      "¹⁸⁰Hf",
+      "¹⁸¹Ta",
+      "¹⁸²W",
+      "¹⁸⁵Re",
+      "¹⁹³Ir",
+      "¹⁹⁵Pt",
+      "¹⁹⁷Au",
+      "²³²Th",
+      "²³⁸U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans",
   "schema:measurementTechnique": [
     {
@@ -3043,6 +4037,171 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min\u207b\u00b9; MFC-2 0.22 l min\u207b\u00b9",
   "ada:analysisSequenceDefault": "GRM block (3\u20135\u00d7) \u2192 unknowns \u2192 GRM block (3\u20135\u00d7); same structure for run 1 and run 2",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u00b2\u2075Mg",
+      "\u00b2\u2079Si",
+      "\u00b3\u00b9P",
+      "\u2074\u2074Ca",
+      "\u2075\u00b3Cr",
+      "\u2075\u2075Mn",
+      "\u2075\u2077Fe",
+      "\u2077Li",
+      "\u2074\u2075Sc",
+      "\u2075\u00b9V",
+      "\u2075\u00b3Cr",
+      "\u2075\u2079Co",
+      "\u2076\u2070Ni",
+      "\u2076\u00b3Cu",
+      "\u2076\u2076Zn",
+      "\u2078\u2079Y",
+      "\u2079\u2070Zr",
+      "\u2079\u00b3Nb",
+      "\u00b9\u00b3\u00b3Cs",
+      "\u00b9\u00b3\u2077Ba",
+      "\u00b9\u00b3\u2079La\u2013\u00b9\u2077\u2075Lu",
+      "\u00b9\u2078\u2070Hf",
+      "\u00b9\u2078\u00b9Ta",
+      "\u00b9\u2078\u00b2W",
+      "\u00b9\u2078\u2075Re",
+      "\u00b9\u2079\u00b3Ir",
+      "\u00b9\u2079\u2075Pt",
+      "\u00b9\u2079\u2077Au",
+      "\u00b2\u00b3\u00b2Th",
+      "\u00b2\u00b3\u2078U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans",
   "schema:measurementTechnique": [
     {
@@ -3157,17 +4316,17 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
                     ada:detectionLimitMethod "Longerich et al. (1996); LOQ = 10SD criterion (same equation)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -3221,6 +4380,55 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (line scan) — \"a second line-scan was completed on top of the first one, using a laser spot of 130 μm diameter ... and a translation speed of 10 μm s−1\" (p.3)" ;
     ada:secondaryReferenceMaterialDefault "Same GRM set measured as unknowns for accuracy assessment" ;
     ada:signalIntegrationIntervalMethod "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "²³²Th",
+                "²³⁸U",
+                "²⁵Mg",
+                "²⁹Si",
+                "³¹P",
+                "¹³³Cs",
+                "¹³⁷Ba",
+                "¹³⁹La–¹⁷⁵Lu",
+                "¹⁸²W",
+                "¹⁸¹Ta",
+                "¹⁸⁰Hf",
+                "¹⁸⁵Re",
+                "¹⁹³Ir",
+                "¹⁹⁵Pt",
+                "¹⁹⁷Au",
+                "⁴⁴Ca",
+                "⁴⁵Sc",
+                "⁵³Cr",
+                "⁵¹V",
+                "⁵⁵Mn",
+                "⁵⁷Fe",
+                "⁵⁹Co",
+                "⁶³Cu",
+                "⁶⁰Ni",
+                "⁶⁶Zn",
+                "⁷Li",
+                "⁸⁹Y",
+                "⁹³Nb",
+                "⁹⁰Zr" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C2)" ;
@@ -3407,6 +4615,75 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -3804,6 +5081,171 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ]
   },
   "ada:analysisSequenceDefault": "MPI-DING and USGS GRMs at beginning → unknowns → repeated GRM at end",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "²³Na",
+      "²⁵Mg",
+      "²⁷Al",
+      "²⁹Si",
+      "³¹P",
+      "³⁹K",
+      "⁴⁴Ca",
+      "⁴⁵Sc",
+      "⁴⁷Ti",
+      "⁵¹V",
+      "⁵³Cr",
+      "⁵⁵Mn",
+      "⁵⁷Fe",
+      "⁵⁹Co",
+      "⁶⁰Ni",
+      "⁶³Cu",
+      "⁶⁶Zn",
+      "⁸⁵Rb",
+      "⁸⁸Sr",
+      "⁸⁹Y",
+      "⁹⁰Zr",
+      "⁹³Nb",
+      "¹³³Cs",
+      "¹³⁷Ba",
+      "¹³⁹La–¹⁷⁵Lu",
+      "¹⁸⁰Hf",
+      "¹⁸¹Ta",
+      "²⁰⁸Pb",
+      "²³²Th",
+      "²³⁸U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "schema:measurementTechnique": [
     {
@@ -4287,6 +5729,171 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ]
   },
   "ada:analysisSequenceDefault": "MPI-DING and USGS GRMs at beginning \u2192 unknowns \u2192 repeated GRM at end",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u00b2\u00b3Na",
+      "\u00b2\u2075Mg",
+      "\u00b2\u2077Al",
+      "\u00b2\u2079Si",
+      "\u00b3\u00b9P",
+      "\u00b3\u2079K",
+      "\u2074\u2074Ca",
+      "\u2074\u2075Sc",
+      "\u2074\u2077Ti",
+      "\u2075\u00b9V",
+      "\u2075\u00b3Cr",
+      "\u2075\u2075Mn",
+      "\u2075\u2077Fe",
+      "\u2075\u2079Co",
+      "\u2076\u2070Ni",
+      "\u2076\u00b3Cu",
+      "\u2076\u2076Zn",
+      "\u2078\u2075Rb",
+      "\u2078\u2078Sr",
+      "\u2078\u2079Y",
+      "\u2079\u2070Zr",
+      "\u2079\u00b3Nb",
+      "\u00b9\u00b3\u00b3Cs",
+      "\u00b9\u00b3\u2077Ba",
+      "\u00b9\u00b3\u2079La\u2013\u00b9\u2077\u2075Lu",
+      "\u00b9\u2078\u2070Hf",
+      "\u00b9\u2078\u00b9Ta",
+      "\u00b2\u2070\u2078Pb",
+      "\u00b2\u00b3\u00b2Th",
+      "\u00b2\u00b3\u2078U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
   "schema:measurementTechnique": [
     {
@@ -4392,12 +5999,6 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "PMG thick sections polished; same as olivine mapping preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -4410,7 +6011,13 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "PMG thick sections polished; same as olivine mapping preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -4463,6 +6070,56 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     ada:samplingUnitType "Grain (phosphate crystal) > Spot — compositions are reported per named phosphate grain (\"Ph1\" … \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)" ;
     ada:secondaryReferenceMaterialDefault "Same MPI-DING and USGS glasses measured as unknowns for accuracy assessment" ;
     ada:signalIntegrationIntervalMethod "Anomalous time steps excluded (inclusions, cracks, heterogeneity); manual inspection" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "²³Na",
+                "²³²Th",
+                "²³⁸U",
+                "²⁰⁸Pb",
+                "²⁵Mg",
+                "²⁷Al",
+                "²⁹Si",
+                "³¹P",
+                "³⁹K",
+                "¹³³Cs",
+                "¹³⁷Ba",
+                "¹³⁹La–¹⁷⁵Lu",
+                "¹⁸¹Ta",
+                "¹⁸⁰Hf",
+                "⁴⁴Ca",
+                "⁴⁵Sc",
+                "⁴⁷Ti",
+                "⁵³Cr",
+                "⁵¹V",
+                "⁵⁵Mn",
+                "⁵⁷Fe",
+                "⁵⁹Co",
+                "⁶³Cu",
+                "⁶⁰Ni",
+                "⁶⁶Zn",
+                "⁸⁵Rb",
+                "⁸⁸Sr",
+                "⁸⁹Y",
+                "⁹³Nb",
+                "⁹⁰Zr" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "In-house MatLab script (Appendix C3)" ;
@@ -4635,6 +6292,75 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -4833,6 +6559,160 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
     }
   ],
   "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "²⁵Mg",
+      "²⁷Al",
+      "³¹P",
+      "⁴³Ca",
+      "⁴⁴Ca",
+      "⁴⁵Sc",
+      "⁴⁷Ti",
+      "⁴⁹Ti",
+      "⁵¹V",
+      "⁵²Cr",
+      "⁵³Cr",
+      "⁵⁹Co",
+      "⁶⁰Ni",
+      "⁶¹Ni",
+      "⁶²Ni",
+      "⁶⁴Zn",
+      "⁶⁶Zn",
+      "⁶⁹Ga",
+      "⁷¹Ga"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -5178,6 +7058,160 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
     }
   ],
   "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u00b2\u2075Mg",
+      "\u00b2\u2077Al",
+      "\u00b3\u00b9P",
+      "\u2074\u00b3Ca",
+      "\u2074\u2074Ca",
+      "\u2074\u2075Sc",
+      "\u2074\u2077Ti",
+      "\u2074\u2079Ti",
+      "\u2075\u00b9V",
+      "\u2075\u00b2Cr",
+      "\u2075\u00b3Cr",
+      "\u2075\u2079Co",
+      "\u2076\u2070Ni",
+      "\u2076\u00b9Ni",
+      "\u2076\u00b2Ni",
+      "\u2076\u2074Zn",
+      "\u2076\u2076Zn",
+      "\u2076\u2079Ga",
+      "\u2077\u00b9Ga"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -5349,18 +7383,18 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -5410,6 +7444,45 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
     ada:samplingUnitType "Grain (olivine grain fragment) > Spot — \"The laser was run in spot mode with a 75 µm spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)" ;
     ada:secondaryReferenceMaterialDefault "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)" ;
     ada:signalIntegrationIntervalMethod "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "²⁵Mg",
+                "²⁷Al",
+                "³¹P",
+                "⁴³Ca",
+                "⁴⁴Ca",
+                "⁴⁵Sc",
+                "⁴⁷Ti",
+                "⁴⁹Ti",
+                "⁵²Cr",
+                "⁵³Cr",
+                "⁵¹V",
+                "⁵⁹Co",
+                "⁶²Ni",
+                "⁶¹Ni",
+                "⁶⁰Ni",
+                "⁶⁴Zn",
+                "⁶⁶Zn",
+                "⁶⁹Ga",
+                "⁷¹Ga" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
@@ -5494,6 +7567,75 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -5869,6 +8011,160 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "ada:analysisSequenceDefault": "NIST SRM 612(×3) → North Chile(×3) → unknowns(×10) → NIST SRM 612(×2) → North Chile(×2) → unknowns(×10) → … (bracketing every 15)",
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "⁵²Cr, ⁵⁷Fe, ⁵⁹Co, ⁶¹Ni, ⁶⁵Cu, ⁶⁹Ga, ⁷²Ge, ⁷⁵As, ⁹⁹Ru, ¹⁰³Rh, ¹⁰⁵Pd, ¹⁸²W, ¹⁸⁵Re, ¹⁸⁹Os, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au (17 isotopes); low relative abundance isotopes chosen for Ni and Fe (analog mode)",
+    "ada:defaultTargetSpecies": [
+      "⁵²Cr",
+      "⁵⁷Fe",
+      "⁵⁹Co",
+      "⁶¹Ni",
+      "⁶⁵Cu",
+      "⁶⁹Ga",
+      "⁷²Ge",
+      "⁷⁵As",
+      "⁹⁹Ru",
+      "¹⁰³Rh",
+      "¹⁰⁵Pd",
+      "¹⁸²W",
+      "¹⁸⁵Re",
+      "¹⁸⁹Os",
+      "¹⁹³Ir",
+      "¹⁹⁵Pt",
+      "¹⁹⁷Au",
+      "Fe"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "20 s background measurement (laser shutter closed) before each 40 s ablation",
   "schema:measurementTechnique": [
     {
@@ -6330,6 +8626,160 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
   "ada:analysisSequenceDefault": "NIST SRM 612(\u00d73) \u2192 North Chile(\u00d73) \u2192 unknowns(\u00d710) \u2192 NIST SRM 612(\u00d72) \u2192 North Chile(\u00d72) \u2192 unknowns(\u00d710) \u2192 \u2026 (bracketing every 15)",
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "\u2075\u00b2Cr, \u2075\u2077Fe, \u2075\u2079Co, \u2076\u00b9Ni, \u2076\u2075Cu, \u2076\u2079Ga, \u2077\u00b2Ge, \u2077\u2075As, \u2079\u2079Ru, \u00b9\u2070\u00b3Rh, \u00b9\u2070\u2075Pd, \u00b9\u2078\u00b2W, \u00b9\u2078\u2075Re, \u00b9\u2078\u2079Os, \u00b9\u2079\u00b3Ir, \u00b9\u2079\u2075Pt, \u00b9\u2079\u2077Au (17 isotopes); low relative abundance isotopes chosen for Ni and Fe (analog mode)",
+    "ada:defaultTargetSpecies": [
+      "\u2075\u00b2Cr",
+      "\u2075\u2077Fe",
+      "\u2075\u2079Co",
+      "\u2076\u00b9Ni",
+      "\u2076\u2075Cu",
+      "\u2076\u2079Ga",
+      "\u2077\u00b2Ge",
+      "\u2077\u2075As",
+      "\u2079\u2079Ru",
+      "\u00b9\u2070\u00b3Rh",
+      "\u00b9\u2070\u2075Pd",
+      "\u00b9\u2078\u00b2W",
+      "\u00b9\u2078\u2075Re",
+      "\u00b9\u2078\u2079Os",
+      "\u00b9\u2079\u00b3Ir",
+      "\u00b9\u2079\u2075Pt",
+      "\u00b9\u2079\u2077Au",
+      "Fe"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "20 s background measurement (laser shutter closed) before each 40 s ablation",
   "schema:measurementTechnique": [
     {
@@ -6506,6 +8956,45 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
     ada:samplingUnitType "Whole sample (polished ~1 cm fragment) > Spot — \"fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3); the reported quantity is the meteorite's bulk composition for chemical classification (Table 1, p.2)" ;
     ada:secondaryReferenceMaterialDefault "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)" ;
     ada:signalIntegrationIntervalMethod "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Fe",
+                "¹⁰³Rh",
+                "¹⁰⁵Pd",
+                "¹⁸²W",
+                "¹⁸⁵Re",
+                "¹⁸⁹Os",
+                "¹⁹³Ir",
+                "¹⁹⁵Pt",
+                "¹⁹⁷Au",
+                "⁵²Cr",
+                "⁵⁷Fe",
+                "⁵⁹Co",
+                "⁶¹Ni",
+                "⁶⁵Cu",
+                "⁶⁹Ga",
+                "⁷²Ge",
+                "⁷⁵As",
+                "⁹⁹Ru" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:targetSpeciesDeclaration "⁵²Cr, ⁵⁷Fe, ⁵⁹Co, ⁶¹Ni, ⁶⁵Cu, ⁶⁹Ga, ⁷²Ge, ⁷⁵As, ⁹⁹Ru, ¹⁰³Rh, ¹⁰⁵Pd, ¹⁸²W, ¹⁸⁵Re, ¹⁸⁹Os, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au (17 isotopes); low relative abundance isotopes chosen for Ni and Fe (analog mode)" ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
@@ -6661,6 +9150,75 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
@@ -7034,6 +9592,158 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "Background (1 min) → NIST SRM 612(×3) → North Chile(×3) → unknown map (30 min) → North Chile(×3) → NIST SRM 612(×3) → background",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "⁵²Cr",
+      "⁵⁷Fe",
+      "⁵⁹Co",
+      "⁶¹Ni",
+      "⁶⁵Cu",
+      "⁶⁹Ga",
+      "⁷²Ge",
+      "⁷⁵As",
+      "⁹⁹Ru",
+      "¹⁰³Rh",
+      "¹⁰⁵Pd",
+      "¹⁸²W",
+      "¹⁸⁵Re",
+      "¹⁸⁹Os",
+      "¹⁹³Ir",
+      "¹⁹⁵Pt",
+      "¹⁹⁷Au"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
   "schema:measurementTechnique": [
     {
@@ -7493,6 +10203,158 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell",
   "ada:analysisSequenceDefault": "Background (1 min) \u2192 NIST SRM 612(\u00d73) \u2192 North Chile(\u00d73) \u2192 unknown map (30 min) \u2192 North Chile(\u00d73) \u2192 NIST SRM 612(\u00d73) \u2192 background",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "\u2075\u00b2Cr",
+      "\u2075\u2077Fe",
+      "\u2075\u2079Co",
+      "\u2076\u00b9Ni",
+      "\u2076\u2075Cu",
+      "\u2076\u2079Ga",
+      "\u2077\u00b2Ge",
+      "\u2077\u2075As",
+      "\u2079\u2079Ru",
+      "\u00b9\u2070\u00b3Rh",
+      "\u00b9\u2070\u2075Pd",
+      "\u00b9\u2078\u00b2W",
+      "\u00b9\u2078\u2075Re",
+      "\u00b9\u2078\u2079Os",
+      "\u00b9\u2079\u00b3Ir",
+      "\u00b9\u2079\u2075Pt",
+      "\u00b9\u2079\u2077Au"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:backgroundCountTimeDefault": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
   "schema:measurementTechnique": [
     {
@@ -7597,6 +10459,12 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
@@ -7610,13 +10478,7 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -7669,6 +10531,43 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
     ada:samplingUnitType "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)" ;
     ada:secondaryReferenceMaterialDefault "North Chile and NIST SRM 612 measured before and after mapping session as QC materials" ;
     ada:signalIntegrationIntervalMethod "Same procedure as spot protocol; signal integration for mapping not separately described" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "¹⁰³Rh",
+                "¹⁰⁵Pd",
+                "¹⁸²W",
+                "¹⁸⁵Re",
+                "¹⁸⁹Os",
+                "¹⁹³Ir",
+                "¹⁹⁵Pt",
+                "¹⁹⁷Au",
+                "⁵²Cr",
+                "⁵⁷Fe",
+                "⁵⁹Co",
+                "⁶¹Ni",
+                "⁶⁵Cu",
+                "⁶⁹Ga",
+                "⁷²Ge",
+                "⁷⁵As",
+                "⁹⁹Ru" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "missing" ;
     bios:computationalTool [ schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
@@ -7831,6 +10730,75 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -8616,6 +11584,13 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -9462,6 +12437,8 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:massResolutionAssignment:
       description: Mass resolution mode used for acquisition. One target species may
         be acquired at more than one resolution, so the assignment is per acquired

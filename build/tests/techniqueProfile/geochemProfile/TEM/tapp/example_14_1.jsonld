@@ -284,6 +284,28 @@
   ],
   "ada:stemDwellTimePerPixelDefault": "50 \u00b5s (kept short to prevent beam damage)",
   "ada:edsAcquisitionModeDefault": "Map",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe",
+      "Ni",
+      "S",
+      "Si",
+      "O",
+      "Mg",
+      "Ca"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "HRTEM lattice fringe imaging + FFT; EDS composition maps (no SAED; phase ID by d-spacings from HRTEM); phases identified: pentlandite, Fe-Ni-S, magnetite, serpentine, chrysotile, olivine, metallic Fe",
   "schema:measurementTechnique": [
     {

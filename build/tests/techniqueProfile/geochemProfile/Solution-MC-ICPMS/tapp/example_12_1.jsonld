@@ -371,12 +371,94 @@
       "schema:defaultValue": "N/A \u2014 no double spike used"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "K"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM 3141a",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "\u00b3\u2079K",
-      "\u2074\u00b9K (K) \u2014 \u03b4\u2074\u00b9K is defined from the \u2074\u00b9K/\u00b3\u2079K ratio (p.4). \u2074\u2070Ar\u00b9H\u207a is named as the interference on \u2074\u00b9K\u207a (p.4) but is not itself a monitored mass"
+      {
+        "monitoredProperty": "\u00b3\u2079K",
+        "targetSpecies": "K"
+      },
+      {
+        "monitoredProperty": "\u2074\u00b9K",
+        "targetSpecies": "K"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

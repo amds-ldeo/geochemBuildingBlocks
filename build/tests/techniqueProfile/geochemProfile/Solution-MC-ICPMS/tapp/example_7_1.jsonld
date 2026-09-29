@@ -359,6 +359,82 @@
       "schema:value": "\"Instrument electronic baselines and amplifier gains were then measured ... while the Neptune was allowed to warm up for half an hour\""
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Os"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -482,16 +558,40 @@
   "ada:massBiasCorrectionStrategy": "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "\u00b9\u2078\u2074Os",
-      "\u00b9\u2078\u2076Os",
-      "\u00b9\u2078\u2077Os",
-      "\u00b9\u2078\u2078Os",
-      "\u00b9\u2078\u2079Os",
-      "\u00b9\u2079\u2070Os",
-      "\u00b9\u2079\u00b2Os (Os)",
-      "\u00b9\u2078\u2075Re and \u00b9\u2078\u00b2W/\u00b9\u2078\u2074W/\u00b9\u2078\u2076W (interference monitors, no target species) \u2014 the Os masses are those whose ratios to \u00b9\u2078\u2078Os the paper measures and reports",
-      "the Re and W monitors are named throughout the interference-correction discussion (\u00a73.6, pp.12\u201318)",
-      "and the L3 detector is named as carrying \u00b9\u2078\u2074Os (p.26). The paper gives no single cup-configuration table"
+      {
+        "monitoredProperty": "\u00b9\u2078\u2074Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2078\u2076Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2078\u2077Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2078\u2078Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2078\u2079Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2079\u2070Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2079\u00b2Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2078\u2075Re"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2078\u00b2W/\u00b9\u2078\u2074W/\u00b9\u2078\u2076W"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

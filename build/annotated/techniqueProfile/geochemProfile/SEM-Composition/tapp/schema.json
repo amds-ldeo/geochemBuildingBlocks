@@ -1598,8 +1598,27 @@
                   "maxContains": 1
                 }
               ]
+            },
+            "ada:defaultTargetSpecies": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
             }
-          }
+          },
+          "required": [
+            "ada:defaultTargetSpecies"
+          ]
         },
         "schema:additionalProperty": {
           "type": "array",

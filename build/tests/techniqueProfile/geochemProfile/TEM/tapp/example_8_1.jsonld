@@ -246,6 +246,28 @@
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
   "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe",
+      "S",
+      "O",
+      "Si",
+      "Ca",
+      "Mg",
+      "Pt"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "HR-STEM + FFT: imaging of (001) plane stacking and distortions in iron sulfides; qualitative lattice fringe analysis (no explicit d-spacing phase matching stated)",
   "schema:measurementTechnique": [
     {

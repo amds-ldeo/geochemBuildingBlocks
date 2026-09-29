@@ -13,17 +13,17 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Ultramicrotomy" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
@@ -61,7 +61,22 @@
     ada:samplingUnitSelectionCriteriaDefault "N — the particles were allocated rather than chosen (\"We were allocated particles RA-QD02-0125 and RA-QD02-0211\", p.2), and no rule is given for the ultramicrotome sections taken from them" ;
     ada:samplingUnitType "Grain > Region of interest (spectrum image) — the JEOL 2500SE \"was used to measure chemical compositions using EDX as well as to acquire quantitative elemental maps (spectrum images) of individual grains. Spectrum images contain a high-count EDX spectrum in each pixel\" (p.3), in ultramicrotome thin sections of two particles (p.2)" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault "50 µs/pixel" .
+    ada:stemDwellTimePerPixelDefault "50 µs/pixel" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Fe",
+                "Mg",
+                "O",
+                "S",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;

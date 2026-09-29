@@ -277,6 +277,22 @@
       "schema:defaultValue": "Peak position and lineshape comparison to reference standards (qualitative Fe valence state determination: Fe\u2070, Fe\u00b2\u207a, Fe\u00b3\u207a)"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:eelsAcquisitionModeDefault": "Line scan",
   "ada:eelsEdgesDefault": [
     "Fe L3,2 edge (~707\u2013709 eV; L3 peak at 707.7 eV for Fe\u2070, 707.2 eV for Fe\u00b2\u207a, 709.0 eV for Fe\u00b3\u207a)"

@@ -62,6 +62,23 @@
     ada:samplingUnitType "Sub-volume (FIB section) > Grain (apatite) — one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)" ;
     ada:spectroscopicDetectorDefault "N/A" ;
     ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
+                "Cl",
+                "F",
+                "Fe",
+                "Mg",
+                "Mn",
+                "Na",
+                "O",
+                "P",
+                "Si" ;
+            ada:targetSpeciesColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "SingleCrystal (CrystalMaker Software)" ;
             ada:toolRole "dataReduction" ],
         [ schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;

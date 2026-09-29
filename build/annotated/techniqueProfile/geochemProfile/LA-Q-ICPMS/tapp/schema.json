@@ -1332,6 +1332,22 @@
         "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
+            "ada:defaultTargetSpecies": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            },
             "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
@@ -2298,7 +2314,10 @@
                 }
               ]
             }
-          }
+          },
+          "required": [
+            "ada:defaultTargetSpecies"
+          ]
         },
         "ada:signalCollectionMode": {
           "description": "Mode used to collect ion signal across the monitored masses. In peak hopping mode, the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning mode, the quadrupole sweeps continuously across a defined mass range.",

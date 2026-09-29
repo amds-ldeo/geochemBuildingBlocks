@@ -94,7 +94,6 @@ path	@id	schema
 /schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectorConfiguration		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
 /schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectors		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
 /schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectors/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-/schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectors/ada:targetSpecies		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
 /schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectors/schema:description	http://schema.org/description	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
 /schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectors/schema:additionalProperty	http://schema.org/additionalProperty	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
 /schema:instrument/_anyOf/0/schema:hasPart/_anyOf/0/ada:collectors/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
@@ -203,6 +202,7 @@ path	@id	schema
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/ada:cdifPropertyPath	https://ada.astromat.org/metadata/cdifPropertyPath	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+/ada:targetSpeciesTemplate/ada:targetSpeciesDeclaration	https://ada.astromat.org/metadata/targetSpeciesDeclaration	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:targetSpeciesTemplate/ada:defaultTargetSpecies	https://ada.astromat.org/metadata/defaultTargetSpecies	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema.yaml
 /ada:targetSpeciesTemplate/ada:defaultTargetSpecies/_anyOf/2/targetSpecies		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:monitoredPropertyTemplate	https://ada.astromat.org/metadata/monitoredPropertyTemplate	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -214,6 +214,9 @@ path	@id	schema
 /ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/ada:cdifPropertyPath	https://ada.astromat.org/metadata/cdifPropertyPath	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties	https://ada.astromat.org/metadata/defaultMonitoredProperties	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties/_anyOf/2/monitoredProperty		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties/_anyOf/2/targetSpecies		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
+/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties/_anyOf/2/collector		https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:reportedPropertyTemplate	https://ada.astromat.org/metadata/reportedPropertyTemplate	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:reportedPropertyTemplate/ada:reportedPropertyColumns	https://ada.astromat.org/metadata/reportedPropertyColumns	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 /ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -264,72 +267,6 @@ path	@id	schema
 /schema:actionProcess/schema:step/_then/ada:detectionLimitMethod	https://ada.astromat.org/metadata/detectionLimitMethod	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
 /ada:secondaryReferenceMaterialDefault	https://ada.astromat.org/metadata/secondaryReferenceMaterialDefault	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
 /ada:primaryStandardNameDefault	https://ada.astromat.org/metadata/primaryStandardNameDefault	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
-/schema:instrument/_then/schema:hasPart/schema:additionalType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:instrument/_then/schema:model		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:model/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/0/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/0/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/0/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/0/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/0/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/0/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/2/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/2/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/2/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/2/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/2/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:additionalProperty/_anyOf/2/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:manufacturer		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:instrument/_then/schema:manufacturer/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:object/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:object/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:object/_then/schema:additionalProperty/_then/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
-/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
-/schema:additionalProperty/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
-/schema:additionalProperty/_anyOf/1/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/1/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/1/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/1/schema:unitText		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/2/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/2/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
-/schema:additionalProperty/_anyOf/2/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/_anyOf/1/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/_anyOf/1/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/_anyOf/1/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
@@ -396,6 +333,72 @@ path	@id	schema
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/_anyOf/11/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/_anyOf/11/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:targetSpeciesTemplate/ada:targetSpeciesColumns/_anyOf/11/schema:defaultValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:hasPart/schema:additionalType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:hasPart/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:instrument/_then/schema:model		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:model/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/0/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/0/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/0/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/0/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/0/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/0/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/2/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/2/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/2/ada:dataType		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/2/ada:fieldScope		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/2/schema:readonlyValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:additionalProperty/_anyOf/2/ada:tier		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:manufacturer		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:instrument/_then/schema:manufacturer/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:object/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:object/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:object/_then/schema:additionalProperty/_then/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
+/schema:actionProcess/schema:step/_then/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:additionalProperty/schema:valueName	http://schema.org/valueName	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:additionalProperty/schema:name	http://schema.org/name	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:additionalProperty/ada:dataType	https://ada.astromat.org/metadata/dataType	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:additionalProperty/ada:fieldScope	https://ada.astromat.org/metadata/fieldScope	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:additionalProperty/schema:readonlyValue	http://schema.org/readonlyValue	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:additionalProperty/ada:tier	https://ada.astromat.org/metadata/tier	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml
+/schema:additionalProperty/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/schema:unitText	http://schema.org/unitText	https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml
+/schema:additionalProperty/_anyOf/1/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/1/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/1/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/1/schema:unitText		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/2/schema:propertyID		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/2/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
+/schema:additionalProperty/_anyOf/2/schema:value		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema:name		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema:defaultValue		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml
 /ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/_anyOf/1/schema:valueName		/github/workspace/build/annotated/techniqueProfile/geochemProfile/Solution-SF-ICPMS/tapp/schema.yaml

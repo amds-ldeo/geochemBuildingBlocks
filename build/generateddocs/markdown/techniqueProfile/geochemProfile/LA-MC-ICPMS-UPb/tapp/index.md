@@ -1096,46 +1096,18 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - title: Monitored Masses
-              description: Specific masses monitored in this procedure, grouped by
-                the target species element they serve where they serve one. Covers
-                atomic isotopes and, where a reaction cell shifts an target species
-                onto a different mass, the product mass actually measured. Includes
-                interference-monitor and internal-standard masses, which serve no
-                target species and so have no parent element. The target species list
-                is given by the Target Species field and is never inferred from the
-                element symbols appearing here.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredMasses
-                schema:name:
-                  const: Monitored Masses
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
@@ -1472,44 +1444,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains:
-              title: Monitored Masses
-              description: Specific masses monitored in this procedure, grouped by
-                the target species element they serve where they serve one. Covers
-                atomic isotopes and, where a reaction cell shifts an target species
-                onto a different mass, the product mass actually measured. Includes
-                interference-monitor and internal-standard masses, which serve no
-                target species and so have no parent element. The target species list
-                is given by the Target Species field and is never inferred from the
-                element symbols appearing here.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredMasses
-                schema:name:
-                  const: Monitored Masses
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
           - contains:
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species
@@ -1875,6 +1809,20 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
+    ada:monitoredPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultMonitoredProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultMonitoredProperties
     ada:massesMeasuredDefault:
       description: Specific masses monitored in this procedure, grouped by the target
         species element they serve where they serve one. Covers atomic isotopes and,

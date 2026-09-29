@@ -284,6 +284,30 @@
   "ada:convergenceSemiAngle": "10.5 mrad",
   "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Na",
+      "Ca",
+      "C",
+      "O",
+      "Mg",
+      "Fe",
+      "Si",
+      "F",
+      "Cl"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "SAED (few reflections due to beam sensitivity / poor crystallinity) matched against literature crystal structures (Dickens and Brown 1969 for gaylussite/pirssonite; McKie and Frankis 1977 for nyerereite); EDS cation ratios compared to theoretical mineral formulae (H and reliable O not measurable by EDS)",
   "schema:measurementTechnique": [
     {

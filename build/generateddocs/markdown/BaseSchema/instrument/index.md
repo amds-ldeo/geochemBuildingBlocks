@@ -204,11 +204,17 @@ allOf:
                 A per-cup quantity (a baseline, a gain factor) and a monitored property
                 that names the position reporting it both need something to point
                 AT, and a label buried in a sentence is not something a consumer can
-                join to. schema:name is that anchor.\nNote what an N=1 member does
-                NOT assert: it names no cup, so it makes no per-cup claim. That matters
-                because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10
-                \xA710), and the fallback must not quietly move them onto the collector
-                axis."
+                join to. schema:name is that anchor.\nWhat a collector does NOT carry
+                is which monitored property it measures. That assignment is procedure
+                configuration, not hardware -- the same physical array is wired differently
+                by another procedure, and an analysis may override it -- so it lives
+                as the 'collector' column of ada:monitoredPropertyColumns on the method
+                definition, whose values are these schema:names. Putting it here would
+                invert the dependency and make the instrument description procedure-specific.\nNote
+                what an N=1 member does NOT assert: it names no cup, so it makes no
+                per-cup claim. That matters because the resistor values are attested
+                per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 \xA710),
+                and the fallback must not quietly move them onto the collector axis."
               type: array
               items:
                 type: object
@@ -233,12 +239,6 @@ allOf:
                     type: string
                     minLength: 1
                     x-jsonld-id: http://schema.org/name
-                  ada:targetSpecies:
-                    description: 'The mass or species this position monitors in this
-                      configuration, e.g. ''116Sn''. Absent when the position is assigned
-                      no mass -- which is a real state, not missing data: an unassigned
-                      cup can still report a baseline.'
-                    type: string
                   schema:description:
                     type: string
                     x-jsonld-id: http://schema.org/description

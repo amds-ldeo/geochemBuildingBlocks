@@ -347,6 +347,22 @@
         "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
+            "ada:defaultTargetSpecies": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            },
             "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
@@ -1389,7 +1405,10 @@
                 }
               ]
             }
-          }
+          },
+          "required": [
+            "ada:defaultTargetSpecies"
+          ]
         },
         "ada:monitoredPropertyTemplate": {
           "type": "object",
@@ -2473,6 +2492,9 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
                   }
                 ]
               }

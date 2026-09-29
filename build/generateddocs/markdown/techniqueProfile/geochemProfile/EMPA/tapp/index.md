@@ -121,6 +121,146 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -391,6 +531,146 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -586,12 +866,12 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
                     schema1:value "Silicate mineral (tissintite clinopyroxene, plagioclase, maskelynite) | Oxide | Glass (melt pocket)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -605,11 +885,41 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     ada:samplingUnitSelectionCriteriaDefault "Textural position relative to the shock-melt pockets — the analyses are grouped as \"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite associated with wormy tissintite\" and \"Maskelynite away from melt pockets\" (Table 1, p.5), the phase itself occurring \"only in maskelynite less than ~25 μm of a shock melt pocket\" (p.1)" ;
     ada:samplingUnitType "Phase > Analysis point — Table 1 reports one column per phase and textural setting (\"Wormy type tissintite\", \"Maskelynite away from melt pockets\" …), each the mean of n = 5–17 focused-beam point analyses (p.5)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -665,6 +975,70 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -782,6 +1156,146 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -1049,6 +1563,146 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -1212,17 +1866,17 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "missing" ;
@@ -1242,12 +1896,12 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
                     schema1:value "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -1261,6 +1915,36 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by electron probe microanalysis\" (p.2); points are grouped by phase, not reported individually in the archived PDF" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Bence-Albee method" ;
             ada:toolRole "dataReduction" ] .
@@ -1319,6 +2003,70 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -1436,6 +2184,148 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Cr",
+      "Ni",
+      "Na",
+      "K",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -1704,6 +2594,148 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Cr",
+      "Ni",
+      "Na",
+      "K",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -1868,17 +2900,17 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin sections (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin sections (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated." ;
@@ -1916,6 +2948,38 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     ada:samplingUnitSelectionCriteriaDefault "N — the map areas are shown rather than specified: a \"Red box outlines the area of X-ray maps\" on an olivine megacryst (Fig. 3 caption, p.7), with no stated rule for placing them" ;
     ada:samplingUnitType "Whole sample (thin section) > Phase — \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)" ;
     ada:stepSizePixelSizeDefault "8-12 µm (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 µm (olivine megacryst Ka maps; instrument ambiguous)" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Ni",
+                "P",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -1979,6 +3043,70 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -2096,6 +3224,148 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Cr",
+      "Ni",
+      "Na",
+      "K",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -2364,6 +3634,148 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Cr",
+      "Ni",
+      "Na",
+      "K",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -2557,12 +3969,12 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
                     schema1:value "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -2576,6 +3988,38 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Ni",
+                "P",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -2639,6 +4083,70 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -2756,6 +4264,146 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Al",
+      "K",
+      "Na",
+      "Ca",
+      "Fe",
+      "Mg",
+      "Ti",
+      "Cr",
+      "Mn"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -3042,6 +4690,146 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Al",
+      "K",
+      "Na",
+      "Ca",
+      "Fe",
+      "Mg",
+      "Ti",
+      "Cr",
+      "Mn"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -3274,11 +5062,41 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)" ;
     ada:secondaryReferenceMaterialDefault "Feldspar standards run as unknowns (material names N beyond what is listed above)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -3341,6 +5159,70 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -3458,6 +5340,150 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Al",
+      "Ti",
+      "K",
+      "Na",
+      "Fe",
+      "Mg",
+      "Ca",
+      "S",
+      "Mn",
+      "Cr",
+      "Ni",
+      "P",
+      "V"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -3716,6 +5742,150 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Al",
+      "Ti",
+      "K",
+      "Na",
+      "Fe",
+      "Mg",
+      "Ca",
+      "S",
+      "Mn",
+      "Cr",
+      "Ni",
+      "P",
+      "V"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -3870,17 +6040,17 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group." ;
     schema1:instrument <ex:instrument/EPMA>,
@@ -3918,6 +6088,40 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     ada:samplingUnitType "Phase > Analysis point — \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI" ;
     ada:secondaryReferenceMaterialDefault "USNM San Carlos olivine (Fo90); Kakanui kaersutite" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Ni",
+                "P",
+                "S",
+                "Si",
+                "Ti",
+                "V" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -3974,6 +6178,70 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -4091,6 +6359,138 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "F (explicitly stated); full analyte list N in methods",
+    "ada:defaultTargetSpecies": [
+      "F"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -4373,6 +6773,138 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "F (explicitly stated); full analyte list N in methods",
+    "ada:defaultTargetSpecies": [
+      "F"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -4579,12 +7111,12 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
                     schema1:value "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -4599,11 +7131,33 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     ada:samplingUnitType "Region of interest > Phase — \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)" ;
     ada:secondaryReferenceMaterialDefault "Smithsonian Microbeam standards (specific materials and values N)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "F" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ;
+            ada:targetSpeciesDeclaration "F (explicitly stated); full analyte list N in methods" ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Probe for EPMA microanalysis software" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -4659,6 +7213,70 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> a schema1:PropertyValue ;
     schema1:name "Stage Scan vs. Beam Scan" ;
@@ -4781,6 +7399,146 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "P",
+      "F",
+      "Cl",
+      "Ca",
+      "Mn",
+      "Fe",
+      "Na",
+      "Mg",
+      "Si",
+      "S"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -5066,6 +7824,146 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "P",
+      "F",
+      "Cl",
+      "Ca",
+      "Mn",
+      "Fe",
+      "Na",
+      "Mg",
+      "Si",
+      "S"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",
@@ -5298,6 +8196,36 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     ada:samplingUnitSelectionCriteriaDefault "Identification by EDS, then by CL — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)" ;
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per apatite grain (\"Ap. #1\" … \"Ap. #5\") within each of the three particles (p.7)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
+                "Cl",
+                "F",
+                "Fe",
+                "Mg",
+                "Mn",
+                "Na",
+                "P",
+                "S",
+                "Si" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -5368,6 +8296,70 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -5485,6 +8477,147 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -5739,6 +8872,147 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -5916,12 +9190,12 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
                     schema1:value "Silicate mineral | Oxide (eucrite phases)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -5935,6 +9209,37 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     ada:samplingUnitSelectionCriteriaDefault "Spatial position within the shock assemblage — garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule" ;
     ada:samplingUnitType "Phase > Analysis point — compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 ± 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "P",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -5991,6 +9296,70 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -6108,6 +9477,151 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Ni",
+      "Cr",
+      "Al",
+      "Si",
+      "Ti",
+      "K",
+      "Na"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -6372,6 +9886,151 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Ni",
+      "Cr",
+      "Al",
+      "Si",
+      "Ti",
+      "K",
+      "Na"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -6562,12 +10221,12 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
                     schema1:value "Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -6582,6 +10241,37 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
     ada:samplingUnitType "Phase > Analysis point — \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)" ;
     ada:secondaryReferenceMaterialDefault "Carbonates: calcite, dolomite, rhodochrosite; Silicates/oxides: magnetite, San Carlos olivine USNM 111312, Springwater olivine USNM 2566" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Ni",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -6638,6 +10328,70 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -6755,6 +10509,154 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Na",
+      "Si",
+      "Mg",
+      "Ca",
+      "Mn",
+      "P",
+      "S",
+      "Fe",
+      "F",
+      "P",
+      "Ca",
+      "Si",
+      "Mg",
+      "Fe",
+      "Al",
+      "S",
+      "K",
+      "Cl"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -7015,6 +10917,154 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Na",
+      "Si",
+      "Mg",
+      "Ca",
+      "Mn",
+      "P",
+      "S",
+      "Fe",
+      "F",
+      "P",
+      "Ca",
+      "Si",
+      "Mg",
+      "Fe",
+      "Al",
+      "S",
+      "K",
+      "Cl"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -7171,17 +11221,17 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished section; 20 nm carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished section; 20 nm carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. Zega" ] ;
     schema1:datePublished "missing" ;
@@ -7200,12 +11250,12 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
                     schema1:value "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -7219,6 +11269,38 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cl",
+                "F",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "P",
+                "S",
+                "Si" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -7275,6 +11357,70 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -8066,6 +12212,156 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Al",
+      "Ti",
+      "Ca",
+      "Cr",
+      "Mn",
+      "Ni",
+      "Mg",
+      "Fe",
+      "Si",
+      "Na",
+      "K",
+      "Al",
+      "Ti",
+      "Ca",
+      "Cr",
+      "Mn",
+      "Ni",
+      "Mg",
+      "Fe",
+      "Si"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamRasterDimensionsDefault",
@@ -8335,6 +12631,156 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Al",
+      "Ti",
+      "Ca",
+      "Cr",
+      "Mn",
+      "Ni",
+      "Mg",
+      "Fe",
+      "Si",
+      "Na",
+      "K",
+      "Al",
+      "Ti",
+      "Ca",
+      "Cr",
+      "Mn",
+      "Ni",
+      "Mg",
+      "Fe",
+      "Si"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamRasterDimensionsDefault",
@@ -8500,17 +12946,17 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
@@ -8548,6 +12994,37 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     ada:samplingUnitSelectionCriteriaDefault "Size — \"Aggregate particles (<1 mm) were mounted in epoxy, polished and were subsequently carbon coated\" (p.11); the grains analysed within them are not otherwise chosen by a stated rule" ;
     ada:samplingUnitType "Grain > Analysis point — \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 µm\", the beam rastered \"over 5 × 5 µm2\" for carbonates (p.11)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Ni",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -8612,6 +13089,70 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 
 ```
@@ -9135,17 +13676,17 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
     schema1:instrument <ex:instrument/EPMA>,
@@ -9356,6 +13897,146 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Al",
+      "Fe",
+      "Ca",
+      "Ti",
+      "Na",
+      "Si",
+      "Mn",
+      "K",
+      "Cr"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamRasterDimensionsDefault",
@@ -9412,111 +14093,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
   ],
   "ada:matrixCorrectionMethod": "ZAF",
   "ada:stepSizePixelSizeDefault": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)",
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "N - spectrometer-to-element assignments not stated"
-    ],
-    "ada:monitoredPropertyColumns": [
-      {
-        "schema:valueName": "monitoredProperty",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerPixel",
-        "schema:name": "Dwell Time per Pixel",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/sequence",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "sequence",
-        "schema:name": "Sequence",
-        "ada:dataType": "integer"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/xRayLine",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "xRayLine",
-        "schema:name": "X-ray Line",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
   "ada:samplingUnitSelectionCriteriaDefault": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
   "ada:monitoredElements": [
     "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)"
@@ -9743,6 +14319,146 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Al",
+      "Fe",
+      "Ca",
+      "Ti",
+      "Na",
+      "Si",
+      "Mn",
+      "K",
+      "Cr"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamRasterDimensionsDefault",
@@ -9799,111 +14515,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
   ],
   "ada:matrixCorrectionMethod": "ZAF",
   "ada:stepSizePixelSizeDefault": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)",
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "N - spectrometer-to-element assignments not stated"
-    ],
-    "ada:monitoredPropertyColumns": [
-      {
-        "schema:valueName": "monitoredProperty",
-        "ada:dataType": "string",
-        "schema:readonlyValue": true,
-        "schema:valueRequired": true,
-        "ada:tier": "M",
-        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:name": "example instrumentName"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundCountingTime",
-        "schema:name": "Background Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "backgroundPosition",
-        "schema:name": "Background Position(s)",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "diffractingCrystal",
-        "schema:name": "Diffracting Crystal",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "dwellTimePerPixel",
-        "schema:name": "Dwell Time per Pixel",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "peakCountingTime",
-        "schema:name": "Peak Counting Time",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "proportionalCounterDetector",
-        "schema:name": "Proportional Counter / Detector",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/sequence",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "sequence",
-        "schema:name": "Sequence",
-        "ada:dataType": "integer"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "wdsPhaSetting",
-        "schema:name": "WDS PHA Setting",
-        "ada:dataType": "string"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/empaTAPP/xRayLine",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "xRayLine",
-        "schema:name": "X-ray Line",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      }
-    ]
-  },
   "ada:samplingUnitSelectionCriteriaDefault": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
   "ada:monitoredElements": [
     "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)"
@@ -10053,13 +14664,13 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
                     schema1:value "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
                     schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -10069,34 +14680,46 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "ZAF" ;
     ada:monitoredElements "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)" ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "N - spectrometer-to-element assignments not stated" ;
-            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "monitoredProperty" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundPosition>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/diffractingCrystal>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/dwellTimePerPixel>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/proportionalCounterDetector>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/sequence>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/xRayLine> ] ;
     ada:primaryStandardNameDefault "N - 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named" ;
     ada:reportedProperties "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)" ;
     ada:samplingUnitSelectionCriteriaDefault "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated" ;
     ada:samplingUnitType "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
     ada:stepSizePixelSizeDefault "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -10140,56 +14763,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
             schema1:name "JEOL JXA-8200" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/dwellTimePerPixel> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Dwell Time per Pixel" ;
-    schema1:valueName "dwellTimePerPixel" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/sequence> a schema1:PropertyValueSpecification ;
-    schema1:name "Sequence" ;
-    schema1:valueName "sequence" ;
-    ada:dataType "integer" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/xRayLine> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "X-ray Line" ;
-    schema1:valueName "xRayLine" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N/A - stage scan, not beam scan" ;
     schema1:name "Beam Raster Dimensions" ;
@@ -10203,6 +14776,70 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> a schema1:PropertyValue ;
     schema1:name "Stage Scan vs. Beam Scan" ;
@@ -10447,6 +15084,13 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -11205,6 +15849,8 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:monitoredPropertyTemplate:
       type: object
       properties:
@@ -11879,6 +16525,7 @@ allOf:
             anyOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
     schema:additionalProperty:
       type: array
       items:

@@ -61,7 +61,16 @@
     ada:samplingUnitSelectionCriteriaDefault "Size, and irradiation state — \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 μm) to extract FIB sections\" (p.3)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Region of interest (altered rim) — \"We analyzed the FIB sections using different imaging modes\" and \"collected EDS maps and profiles using a probe size of <1 nm\" (p.3); the reported profiles run across the rim and \"The underlying unaltered magnetite\" (p.7)" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault -9999 .
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Fe",
+                "O" ;
+            ada:targetSpeciesColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;

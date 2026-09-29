@@ -106,6 +106,146 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "P",
+      "F",
+      "Cl",
+      "Ca",
+      "Mn",
+      "Fe",
+      "Na",
+      "Mg",
+      "Si",
+      "S"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "epmaTechniquePerTargetSpecies",
+        "schema:name": "EPMA Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/empaTAPP/beamDamageMinimizationDefault",

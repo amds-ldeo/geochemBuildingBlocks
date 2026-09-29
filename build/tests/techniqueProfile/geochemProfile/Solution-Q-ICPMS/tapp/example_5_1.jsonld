@@ -460,22 +460,133 @@
       "schema:value": "None"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "B",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf",
+      "Ta"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "10B",
-      "11B",
-      "90Zr",
-      "91Zr",
-      "93Nb",
-      "95Mo",
-      "97Mo",
-      "118Sn",
-      "119Sn",
-      "121Sb",
-      "123Sb",
-      "178Hf",
-      "179Hf",
-      "181Ta (Table 2a)"
+      {
+        "monitoredProperty": "10B"
+      },
+      {
+        "monitoredProperty": "11B"
+      },
+      {
+        "monitoredProperty": "90Zr"
+      },
+      {
+        "monitoredProperty": "91Zr"
+      },
+      {
+        "monitoredProperty": "93Nb"
+      },
+      {
+        "monitoredProperty": "95Mo"
+      },
+      {
+        "monitoredProperty": "97Mo"
+      },
+      {
+        "monitoredProperty": "118Sn"
+      },
+      {
+        "monitoredProperty": "119Sn"
+      },
+      {
+        "monitoredProperty": "121Sb"
+      },
+      {
+        "monitoredProperty": "123Sb"
+      },
+      {
+        "monitoredProperty": "178Hf"
+      },
+      {
+        "monitoredProperty": "179Hf"
+      },
+      {
+        "monitoredProperty": "181Ta"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

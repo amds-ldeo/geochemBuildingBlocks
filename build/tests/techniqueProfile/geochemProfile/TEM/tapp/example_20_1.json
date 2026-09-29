@@ -237,6 +237,23 @@
   "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-TEM",
   "ada:edsAcquisitionModeDefault": "Map",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe",
+      "O"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "FFT of DF image lattice fringes for phase ID (olivine d-spacings); EDS composition maps",
   "schema:measurementTechnique": [
     {

@@ -451,6 +451,116 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       "schema:value": "Partially -- instrument conditioning before tuning is stated: \"Drift was minimized by flushing through a rock solution for 30 min before tuning the instrument for a run\". No warm-up time after plasma ignition and no session duration limit stated"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Li",
+      "Be",
+      "B",
+      "Sc",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Ge",
+      "As",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Cd",
+      "In",
+      "Sn",
+      "Sb",
+      "Te",
+      "Cs",
+      "Ba",
+      "La-Lu",
+      "Hf",
+      "Ta",
+      "W",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:massCyclesPerReplicate": "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
   "schema:measurementTechnique": [
@@ -953,6 +1063,116 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
       "schema:value": "Partially -- instrument conditioning before tuning is stated: \"Drift was minimized by flushing through a rock solution for 30 min before tuning the instrument for a run\". No warm-up time after plasma ignition and no session duration limit stated"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Li",
+      "Be",
+      "B",
+      "Sc",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Ge",
+      "As",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Cd",
+      "In",
+      "Sn",
+      "Sb",
+      "Te",
+      "Cs",
+      "Ba",
+      "La-Lu",
+      "Hf",
+      "Ta",
+      "W",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:massCyclesPerReplicate": "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)",
   "ada:driftCorrectionMethod": "Standard bracketing",
   "schema:measurementTechnique": [
@@ -1041,15 +1261,15 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
@@ -1087,6 +1307,55 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     ada:secondaryReferenceMaterialDefault "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "As",
+                "B",
+                "Ba",
+                "Be",
+                "Bi",
+                "Cd",
+                "Co",
+                "Cr",
+                "Cs",
+                "Cu",
+                "Ga",
+                "Ge",
+                "Hf",
+                "In",
+                "La-Lu",
+                "Li",
+                "Mo",
+                "Nb",
+                "Ni",
+                "Pb",
+                "Rb",
+                "Sb",
+                "Sc",
+                "Sn",
+                "Sr",
+                "Ta",
+                "Te",
+                "Th",
+                "Tl",
+                "U",
+                "V",
+                "W",
+                "Y",
+                "Zn",
+                "Zr" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
     ada:washTimeBetweenSamples -9999 .
 
@@ -1293,6 +1562,39 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
     schema1:valueName "doublyChargedSpeciesProductionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -1594,18 +1896,122 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       "schema:value": "Partially -- session duration is characterised but not enforced: \"blanks for all isotopes were stable during a typical run (~5 hr)\""
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "9 Me/Ca ratios: Li, B, Mg, Al, Mn, Zn, Sr, Cd, U relative to Ca (stated Table 1)",
+    "ada:defaultTargetSpecies": [
+      "Li",
+      "B",
+      "Mg",
+      "Al",
+      "Mn",
+      "Zn",
+      "Sr",
+      "Cd"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "7Li",
-      "11B",
-      "25Mg",
-      "46Ca",
-      "27Al",
-      "55Mn",
-      "66Zn",
-      "87Sr",
-      "111Cd",
-      "238U (Table 1)"
+      {
+        "monitoredProperty": "7Li"
+      },
+      {
+        "monitoredProperty": "11B"
+      },
+      {
+        "monitoredProperty": "25Mg"
+      },
+      {
+        "monitoredProperty": "46Ca"
+      },
+      {
+        "monitoredProperty": "27Al"
+      },
+      {
+        "monitoredProperty": "55Mn"
+      },
+      {
+        "monitoredProperty": "66Zn"
+      },
+      {
+        "monitoredProperty": "87Sr"
+      },
+      {
+        "monitoredProperty": "111Cd"
+      },
+      {
+        "monitoredProperty": "238U"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -2118,18 +2524,122 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
       "schema:value": "Partially -- session duration is characterised but not enforced: \"blanks for all isotopes were stable during a typical run (~5 hr)\""
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "9 Me/Ca ratios: Li, B, Mg, Al, Mn, Zn, Sr, Cd, U relative to Ca (stated Table 1)",
+    "ada:defaultTargetSpecies": [
+      "Li",
+      "B",
+      "Mg",
+      "Al",
+      "Mn",
+      "Zn",
+      "Sr",
+      "Cd"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "7Li",
-      "11B",
-      "25Mg",
-      "46Ca",
-      "27Al",
-      "55Mn",
-      "66Zn",
-      "87Sr",
-      "111Cd",
-      "238U (Table 1)"
+      {
+        "monitoredProperty": "7Li"
+      },
+      {
+        "monitoredProperty": "11B"
+      },
+      {
+        "monitoredProperty": "25Mg"
+      },
+      {
+        "monitoredProperty": "46Ca"
+      },
+      {
+        "monitoredProperty": "27Al"
+      },
+      {
+        "monitoredProperty": "55Mn"
+      },
+      {
+        "monitoredProperty": "66Zn"
+      },
+      {
+        "monitoredProperty": "87Sr"
+      },
+      {
+        "monitoredProperty": "111Cd"
+      },
+      {
+        "monitoredProperty": "238U"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -2355,9 +2865,21 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "1: ambient dissolution in 0.075 M HNO3 (section 2). A single attack, though the paper does not describe it as a digestion -- Digestion Acid(s) records N/A on that reading." ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -2366,19 +2888,7 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
@@ -2411,16 +2921,16 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     ada:internalStandardElement "None (matrix-matched external calibration; stated section 2)" ;
     ada:isotopeDilutionSpike "None" ;
     ada:massCyclesPerReplicate "250 sweeps per replicate (Table 1)" ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "111Cd",
-                "11B",
-                "238U (Table 1)",
-                "25Mg",
-                "27Al",
-                "46Ca",
-                "55Mn",
-                "66Zn",
-                "7Li",
-                "87Sr" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -2441,6 +2951,29 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     ada:samplingUnitType "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)" ;
     ada:signalCollectionMode "Peak hopping" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "B",
+                "Cd",
+                "Li",
+                "Mg",
+                "Mn",
+                "Sr",
+                "Zn" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:targetSpeciesDeclaration "9 Me/Ca ratios: Li, B, Mg, Al, Mn, Zn, Sr, Cd, U relative to Ca (stated Table 1)" ] ;
     ada:uncertaintyLevel "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"" ;
     ada:washTimeBetweenSamples "60 s (Table 1)" .
 
@@ -2641,6 +3174,39 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -2946,17 +3512,111 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Cd",
+      "In",
+      "Tl",
+      "Bi"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "95Mo",
-      "111Cd",
-      "113Cd",
-      "115In",
-      "118Sn",
-      "149Sm",
-      "205Tl",
-      "209Bi (Table 1). Cd is determined on 111Cd only: \"113Cd was not used for Cd determination",
-      "because the correction of 113In was far larger than the MoO correction\""
+      {
+        "monitoredProperty": "95Mo"
+      },
+      {
+        "monitoredProperty": "111Cd"
+      },
+      {
+        "monitoredProperty": "113Cd"
+      },
+      {
+        "monitoredProperty": "115In"
+      },
+      {
+        "monitoredProperty": "118Sn"
+      },
+      {
+        "monitoredProperty": "149Sm"
+      },
+      {
+        "monitoredProperty": "205Tl"
+      },
+      {
+        "monitoredProperty": "209Bi"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -3373,17 +4033,111 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Cd",
+      "In",
+      "Tl",
+      "Bi"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "95Mo",
-      "111Cd",
-      "113Cd",
-      "115In",
-      "118Sn",
-      "149Sm",
-      "205Tl",
-      "209Bi (Table 1). Cd is determined on 111Cd only: \"113Cd was not used for Cd determination",
-      "because the correction of 113In was far larger than the MoO correction\""
+      {
+        "monitoredProperty": "95Mo"
+      },
+      {
+        "monitoredProperty": "111Cd"
+      },
+      {
+        "monitoredProperty": "113Cd"
+      },
+      {
+        "monitoredProperty": "115In"
+      },
+      {
+        "monitoredProperty": "118Sn"
+      },
+      {
+        "monitoredProperty": "149Sm"
+      },
+      {
+        "monitoredProperty": "205Tl"
+      },
+      {
+        "monitoredProperty": "209Bi"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -3517,6 +4271,12 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
                     ada:detectionLimitMethod "3 sigma blank (stated section 2)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -3530,13 +4290,7 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder or glass chips (stated section 2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
@@ -3563,15 +4317,14 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     ada:internalStandardElement "149Sm (as ID-IS reference; stated section 2)" ;
     ada:isotopeDilutionSpike "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)" ;
     ada:massCyclesPerReplicate -9999 ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "111Cd",
-                "113Cd",
-                "115In",
-                "118Sn",
-                "149Sm",
-                "205Tl",
-                "209Bi (Table 1). Cd is determined on 111Cd only: \"113Cd was not used for Cd determination",
-                "95Mo",
-                "because the correction of 113In was far larger than the MoO correction\"" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -3593,6 +4346,24 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     ada:secondaryReferenceMaterialDefault "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Bi",
+                "Cd",
+                "In",
+                "Tl" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"" ;
     ada:washTimeBetweenSamples ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)" .
 
@@ -3725,6 +4496,39 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -3957,6 +4761,83 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:value": "None"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "Major and trace elements (masses 23-75, Na to As; stated Methods)",
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ],
+    "ada:defaultTargetSpecies": [
+      "missing"
+    ]
+  },
   "ada:driftCorrectionMethod": "IS normalization",
   "schema:actionProcess": {
     "schema:step": [
@@ -4322,6 +5203,83 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
       "schema:value": "None"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:targetSpeciesDeclaration": "Major and trace elements (masses 23-75, Na to As; stated Methods)",
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ],
+    "ada:defaultTargetSpecies": [
+      "missing"
+    ]
+  },
   "ada:driftCorrectionMethod": "IS normalization",
   "schema:actionProcess": {
     "schema:step": [
@@ -4470,8 +5428,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -4482,8 +5440,8 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -4530,6 +5488,22 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     ada:samplingUnitType "N -- no digestion mass or aliquot stated for the elemental (Q-ICP-MS) determination; the \"approximately 35 mg of homogenized bulk powder\" in Methods belongs to the Zn-isotope MC-ICP-MS procedure" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "missing" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
+            ada:targetSpeciesDeclaration "Major and trace elements (masses 23-75, Na to As; stated Methods)" ] ;
     ada:uncertaintyLevel "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results" ;
     ada:washTimeBetweenSamples -9999 .
 
@@ -4642,6 +5616,39 @@ solutionQicpmsTAPP instance derived from Long+etal2025 | Agilent 7900 | IPGP Fra
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 
 ```
@@ -5103,22 +6110,133 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "schema:value": "None"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "B",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf",
+      "Ta"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "10B",
-      "11B",
-      "90Zr",
-      "91Zr",
-      "93Nb",
-      "95Mo",
-      "97Mo",
-      "118Sn",
-      "119Sn",
-      "121Sb",
-      "123Sb",
-      "178Hf",
-      "179Hf",
-      "181Ta (Table 2a)"
+      {
+        "monitoredProperty": "10B"
+      },
+      {
+        "monitoredProperty": "11B"
+      },
+      {
+        "monitoredProperty": "90Zr"
+      },
+      {
+        "monitoredProperty": "91Zr"
+      },
+      {
+        "monitoredProperty": "93Nb"
+      },
+      {
+        "monitoredProperty": "95Mo"
+      },
+      {
+        "monitoredProperty": "97Mo"
+      },
+      {
+        "monitoredProperty": "118Sn"
+      },
+      {
+        "monitoredProperty": "119Sn"
+      },
+      {
+        "monitoredProperty": "121Sb"
+      },
+      {
+        "monitoredProperty": "123Sb"
+      },
+      {
+        "monitoredProperty": "178Hf"
+      },
+      {
+        "monitoredProperty": "179Hf"
+      },
+      {
+        "monitoredProperty": "181Ta"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -5704,22 +6822,133 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
       "schema:value": "None"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "B",
+      "Zr",
+      "Nb",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf",
+      "Ta"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "10B",
-      "11B",
-      "90Zr",
-      "91Zr",
-      "93Nb",
-      "95Mo",
-      "97Mo",
-      "118Sn",
-      "119Sn",
-      "121Sb",
-      "123Sb",
-      "178Hf",
-      "179Hf",
-      "181Ta (Table 2a)"
+      {
+        "monitoredProperty": "10B"
+      },
+      {
+        "monitoredProperty": "11B"
+      },
+      {
+        "monitoredProperty": "90Zr"
+      },
+      {
+        "monitoredProperty": "91Zr"
+      },
+      {
+        "monitoredProperty": "93Nb"
+      },
+      {
+        "monitoredProperty": "95Mo"
+      },
+      {
+        "monitoredProperty": "97Mo"
+      },
+      {
+        "monitoredProperty": "118Sn"
+      },
+      {
+        "monitoredProperty": "119Sn"
+      },
+      {
+        "monitoredProperty": "121Sb"
+      },
+      {
+        "monitoredProperty": "123Sb"
+      },
+      {
+        "monitoredProperty": "178Hf"
+      },
+      {
+        "monitoredProperty": "179Hf"
+      },
+      {
+        "monitoredProperty": "181Ta"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -5857,6 +7086,22 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging." ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)" ;
                     schema1:name "Sample preparation" ;
@@ -5869,23 +7114,7 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (stated section 2.1.1)" ] ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
     schema1:description "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1)." ;
@@ -5917,20 +7146,20 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ada:internalStandardElement "None (ID-IS method: spike isotope ratios used; stated section 2.1)" ;
     ada:isotopeDilutionSpike "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)" ;
     ada:massCyclesPerReplicate "48 scans per 30 s acquisition (stated section 2.1.1)" ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "10B",
-                "118Sn",
-                "119Sn",
-                "11B",
-                "121Sb",
-                "123Sb",
-                "178Hf",
-                "179Hf",
-                "181Ta (Table 2a)",
-                "90Zr",
-                "91Zr",
-                "93Nb",
-                "95Mo",
-                "97Mo" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -5952,6 +7181,28 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ada:secondaryReferenceMaterialDefault "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "B",
+                "Hf",
+                "Mo",
+                "Nb",
+                "Sb",
+                "Sn",
+                "Ta",
+                "Zr" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
     ada:washTimeBetweenSamples "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)" .
 
@@ -6193,6 +7444,39 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
 
 ```
 
@@ -6361,10 +7645,91 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Te",
+      "Se"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "125Te",
-      "77Se"
+      {
+        "monitoredProperty": "125Te"
+      },
+      {
+        "monitoredProperty": "77Se"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -6712,10 +8077,91 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Te",
+      "Se"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "125Te",
-      "77Se"
+      {
+        "monitoredProperty": "125Te"
+      },
+      {
+        "monitoredProperty": "77Se"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -6915,12 +8361,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ],
                 [ a cdi:Activity,
@@ -6928,7 +8368,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v87.csv)." ;
@@ -6955,8 +8401,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
     ada:internalStandardElement "103Rh, to correct for matrix effects" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "125Te",
-                "77Se" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -6977,6 +8423,22 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
     ada:samplingUnitType "missing" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Se",
+                "Te" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
 
@@ -7065,6 +8527,39 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
     schema1:valueName "reactionGasType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -7350,9 +8845,90 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Te"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "125Te and 126Te (and their O-shifted products)"
+      {
+        "monitoredProperty": "125Te"
+      },
+      {
+        "monitoredProperty": "126Te"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -7759,9 +9335,90 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Te"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "125Te and 126Te (and their O-shifted products)"
+      {
+        "monitoredProperty": "125Te"
+      },
+      {
+        "monitoredProperty": "126Te"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {
@@ -7908,9 +9565,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -7925,9 +9582,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v87.csv)." ;
@@ -7955,7 +9612,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
     ada:internalStandardElement "missing" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "125Te and 126Te (and their O-shifted products)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -7977,6 +9635,21 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
     ada:secondaryReferenceMaterialDefault "NCS 73307 stream sediment" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Te" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "Mean +/- SD" ;
     ada:washTimeBetweenSamples -9999 .
 
@@ -8095,6 +9768,39 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -8269,13 +9975,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "N — Se isotopes not individually stated"
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Se"
     ],
-    "ada:monitoredPropertyColumns": [
+    "ada:targetSpeciesColumns": [
       {
-        "schema:valueName": "monitoredProperty",
+        "schema:valueName": "targetSpecies",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -8287,44 +9993,61 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "spectralInterferenceCorrectionsApplied",
-        "schema:name": "Spectral Interference Corrections Applied",
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
       }
     ]
   },
@@ -8633,13 +10356,13 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "N \u2014 Se isotopes not individually stated"
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Se"
     ],
-    "ada:monitoredPropertyColumns": [
+    "ada:targetSpeciesColumns": [
       {
-        "schema:valueName": "monitoredProperty",
+        "schema:valueName": "targetSpecies",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -8651,44 +10374,61 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "spectralInterferenceCorrectionsApplied",
-        "schema:name": "Spectral Interference Corrections Applied",
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
       }
     ]
   },
@@ -8843,8 +10583,8 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -8855,14 +10595,14 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
@@ -8890,19 +10630,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     ada:internalStandardElement "103Rh and 115In" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "N — Se isotopes not individually stated" ;
-            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "monitoredProperty" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -8912,6 +10639,21 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     ada:secondaryReferenceMaterialDefault "CRM-TMDW drinking water and NIST 1643f freshwater" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Se" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "missing" ;
     ada:washTimeBetweenSamples -9999 .
 
@@ -8963,30 +10705,6 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Dwell Time per Mass" ;
-    schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Correction Method" ;
-    schema1:valueName "interferenceCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interfering Species" ;
-    schema1:valueName "interferingSpecies" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Spectral Interference Corrections Applied" ;
-    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
     schema1:name "Collision Gas Type" ;
     schema1:value "He+H2 mixture at 92% : 8%, to minimise 40Ar37Cl interferences" ;
@@ -9007,6 +10725,39 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | K
     schema1:valueName "collisionReactionGasMixtureRatioDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -9317,15 +11068,53 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "54 elements measured in three groups: Group-1 trace elements",
-      "Group-2 major and minor elements",
-      "Group-3 HFSE plus Mo and W"
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Li",
+      "Be",
+      "Sc",
+      "Ga",
+      "As",
+      "Se",
+      "Rb",
+      "Sr",
+      "Y",
+      "Ag",
+      "Cd",
+      "In",
+      "Cs",
+      "Ba",
+      "La-Lu",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U",
+      "Na",
+      "Mg",
+      "Al",
+      "P",
+      "K",
+      "Ca",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ti",
+      "Zr",
+      "Nb",
+      "Hf",
+      "Ta",
+      "Mo",
+      "W"
     ],
-    "ada:monitoredPropertyColumns": [
+    "ada:targetSpeciesColumns": [
       {
-        "schema:valueName": "monitoredProperty",
+        "schema:valueName": "targetSpecies",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -9337,44 +11126,61 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "spectralInterferenceCorrectionsApplied",
-        "schema:name": "Spectral Interference Corrections Applied",
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
       }
     ]
   },
@@ -9753,15 +11559,53 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "54 elements measured in three groups: Group-1 trace elements",
-      "Group-2 major and minor elements",
-      "Group-3 HFSE plus Mo and W"
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Li",
+      "Be",
+      "Sc",
+      "Ga",
+      "As",
+      "Se",
+      "Rb",
+      "Sr",
+      "Y",
+      "Ag",
+      "Cd",
+      "In",
+      "Cs",
+      "Ba",
+      "La-Lu",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U",
+      "Na",
+      "Mg",
+      "Al",
+      "P",
+      "K",
+      "Ca",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ti",
+      "Zr",
+      "Nb",
+      "Hf",
+      "Ta",
+      "Mo",
+      "W"
     ],
-    "ada:monitoredPropertyColumns": [
+    "ada:targetSpeciesColumns": [
       {
-        "schema:valueName": "monitoredProperty",
+        "schema:valueName": "targetSpecies",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -9773,44 +11617,61 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "spectralInterferenceCorrectionsApplied",
-        "schema:name": "Spectral Interference Corrections Applied",
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
       }
     ]
   },
@@ -9898,9 +11759,9 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -9911,6 +11772,12 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -9919,13 +11786,7 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
     schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v87.csv)." ;
@@ -9953,21 +11814,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
     ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
     ada:massCyclesPerReplicate -9999 ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "54 elements measured in three groups: Group-1 trace elements",
-                "Group-2 major and minor elements",
-                "Group-3 HFSE plus Mo and W" ;
-            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "monitoredProperty" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
@@ -9977,6 +11823,61 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     ada:secondaryReferenceMaterialDefault "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ag",
+                "Al",
+                "As",
+                "Ba",
+                "Be",
+                "Bi",
+                "Ca",
+                "Cd",
+                "Co",
+                "Cr",
+                "Cs",
+                "Cu",
+                "Fe",
+                "Ga",
+                "Hf",
+                "In",
+                "K",
+                "La-Lu",
+                "Li",
+                "Mg",
+                "Mn",
+                "Mo",
+                "Na",
+                "Nb",
+                "Ni",
+                "P",
+                "Pb",
+                "Rb",
+                "Sc",
+                "Se",
+                "Sr",
+                "Ta",
+                "Th",
+                "Ti",
+                "Tl",
+                "U",
+                "V",
+                "W",
+                "Y",
+                "Zn",
+                "Zr" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material" ;
     ada:washTimeBetweenSamples -9999 .
 
@@ -10027,30 +11928,6 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Torch" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Dwell Time per Mass" ;
-    schema1:valueName "dwellTimePerMass" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interference Correction Method" ;
-    schema1:valueName "interferenceCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Interfering Species" ;
-    schema1:valueName "interferingSpecies" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Spectral Interference Corrections Applied" ;
-    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units" ;
@@ -10109,6 +11986,39 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Analytical Accuracy and Assessment Method" ;
+    schema1:valueName "analyticalAccuracyAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Between-Session (Long-Term) Analytical Precision and Assessment Method" ;
+    schema1:valueName "betweenSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Within-Session Analytical Precision and Assessment Method" ;
+    schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
@@ -10913,377 +12823,16 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-    ada:monitoredPropertyTemplate:
+    ada:targetSpeciesTemplate:
       type: object
       properties:
-        ada:defaultMonitoredProperties:
+        ada:defaultTargetSpecies:
           type: array
           items:
             anyOf:
             - type: string
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
-        ada:monitoredPropertyColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - title: Dwell Time per Mass
-              description: Count (dwell) time at the mass position, in milliseconds.
-                Where the procedure defines it per sweep or per scan rather than per
-                measurement, state that basis.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: dwellTimePerMass
-                schema:name:
-                  const: Dwell Time per Mass
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Spectral Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric, polyatomic
-                or residual interferences are applied in data reduction, supplementary
-                to any suppression already achieved by chemical separation, mass resolution,
-                or a collision/reaction cell. Detail for each affected mass is carried
-                by Interfering Species and Interference Correction Method.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: spectralInterferenceCorrectionsApplied
-                schema:name:
-                  const: Spectral Interference Corrections Applied
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Interfering Species
-              description: The isobaric, polyatomic and doubly charged species that
-                overlap the measured masses and are corrected in data reduction -
-                direct isobars, oxides and argides, hydrides, and abundance-sensitivity
-                tailing from an adjacent large beam. Name each species and the mass
-                it affects.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferingSpecies
-                schema:name:
-                  const: Interfering Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Interference Correction Method
-              description: Equation or procedure used to calculate and remove each
-                interference contribution, together with how its magnitude was established
-                - a monitor mass measured simultaneously and scaled by natural abundance
-                ratios, a production-rate factor measured on a reference material
-                or interference standard solution, or a tailing factor measured on
-                a pure standard. Name the reference material used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionMethod
-                schema:name:
-                  const: Interference Correction Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-          allOf:
-          - contains:
-              title: Dwell Time per Mass
-              description: Count (dwell) time at the mass position, in milliseconds.
-                Where the procedure defines it per sweep or per scan rather than per
-                measurement, state that basis.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: dwellTimePerMass
-                schema:name:
-                  const: Dwell Time per Mass
-                ada:dataType:
-                  const: number
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - anyOf:
-                    - type: number
-                    - type: string
-                  - type: array
-                    items:
-                      anyOf:
-                      - type: number
-                      - type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Spectral Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric, polyatomic
-                or residual interferences are applied in data reduction, supplementary
-                to any suppression already achieved by chemical separation, mass resolution,
-                or a collision/reaction cell. Detail for each affected mass is carried
-                by Interfering Species and Interference Correction Method.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: spectralInterferenceCorrectionsApplied
-                schema:name:
-                  const: Spectral Interference Corrections Applied
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Interfering Species
-              description: The isobaric, polyatomic and doubly charged species that
-                overlap the measured masses and are corrected in data reduction -
-                direct isobars, oxides and argides, hydrides, and abundance-sensitivity
-                tailing from an adjacent large beam. Name each species and the mass
-                it affects.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferingSpecies
-                schema:name:
-                  const: Interfering Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Interference Correction Method
-              description: Equation or procedure used to calculate and remove each
-                interference contribution, together with how its magnitude was established
-                - a monitor mass measured simultaneously and scaled by natural abundance
-                ratios, a production-rate factor measured on a reference material
-                or interference standard solution, or a tailing factor measured on
-                a pure standard. Name the reference material used.
-              type: object
-              properties:
-                '@id':
-                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: interferenceCorrectionMethod
-                schema:name:
-                  const: Interference Correction Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  anyOf:
-                  - type: string
-                  - type: array
-                    items:
-                      type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-      required:
-      - ada:defaultMonitoredProperties
-    ada:massCyclesPerReplicate:
-      description: "Number of complete mass scans accumulated per analytical replicate.
-        A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal
-        of the monitored masses by a sequentially scanning analyser, so the scan count
-        multiplied by the per-mass dwell time gives the total integration time per
-        replicate. Distinct from a cycle in simultaneous multi-collection, which is
-        one readout of all detectors at once rather than a traversal of masses."
-      anyOf:
-      - type: integer
-      - type: string
-      readOnly: true
-    ada:numberOfReplicatesPerSample:
-      description: Number of replicate measurements performed on the same sample,
-        or on the same nominal location where the technique is spatially resolved.
-        For spot analysis this is the number of individual spots per grain or location;
-        for transects, the number of replicate lines; for mapping, the number of map
-        acquisitions of the same area; for solution work, the number of discrete replicate
-        measurements acquired per sample solution.
-      anyOf:
-      - type: integer
-      - type: string
-    ada:signalCollectionMode:
-      description: Mode used to collect ion signal across the monitored masses. In
-        peak hopping mode, the quadrupole jumps sequentially between pre-set mass
-        positions and dwells at each peak; in scanning mode, the quadrupole sweeps
-        continuously across a defined mass range.
-      type: string
-      enum:
-      - Peak hopping
-      - Scanning
-      - N/A
-      - None
-      - missing
-      readOnly: true
-    ada:driftCorrectionMethod:
-      description: Method used to correct for instrumental signal drift across a session.
-      type: string
-      enum:
-      - IS normalization
-      - Standard bracketing
-      - IS normalization + bracketing
-      - None
-      - N/A
-      - missing
-      readOnly: true
-    ada:targetSpeciesTemplate:
-      type: object
-      properties:
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -11722,6 +13271,377 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
+    ada:monitoredPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultMonitoredProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+        ada:monitoredPropertyColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
+            - title: Dwell Time per Mass
+              description: Count (dwell) time at the mass position, in milliseconds.
+                Where the procedure defines it per sweep or per scan rather than per
+                measurement, state that basis.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerMass
+                schema:name:
+                  const: Dwell Time per Mass
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Spectral Interference Corrections Applied
+              description: Whether mathematical corrections for isobaric, polyatomic
+                or residual interferences are applied in data reduction, supplementary
+                to any suppression already achieved by chemical separation, mass resolution,
+                or a collision/reaction cell. Detail for each affected mass is carried
+                by Interfering Species and Interference Correction Method.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: spectralInterferenceCorrectionsApplied
+                schema:name:
+                  const: Spectral Interference Corrections Applied
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Interfering Species
+              description: The isobaric, polyatomic and doubly charged species that
+                overlap the measured masses and are corrected in data reduction -
+                direct isobars, oxides and argides, hydrides, and abundance-sensitivity
+                tailing from an adjacent large beam. Name each species and the mass
+                it affects.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
+                schema:name:
+                  const: Interfering Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Interference Correction Method
+              description: Equation or procedure used to calculate and remove each
+                interference contribution, together with how its magnitude was established
+                - a monitor mass measured simultaneously and scaled by natural abundance
+                ratios, a production-rate factor measured on a reference material
+                or interference standard solution, or a tailing factor measured on
+                a pure standard. Name the reference material used.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferenceCorrectionMethod
+                schema:name:
+                  const: Interference Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains:
+              title: Dwell Time per Mass
+              description: Count (dwell) time at the mass position, in milliseconds.
+                Where the procedure defines it per sweep or per scan rather than per
+                measurement, state that basis.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: dwellTimePerMass
+                schema:name:
+                  const: Dwell Time per Mass
+                ada:dataType:
+                  const: number
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - anyOf:
+                    - type: number
+                    - type: string
+                  - type: array
+                    items:
+                      anyOf:
+                      - type: number
+                      - type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Spectral Interference Corrections Applied
+              description: Whether mathematical corrections for isobaric, polyatomic
+                or residual interferences are applied in data reduction, supplementary
+                to any suppression already achieved by chemical separation, mass resolution,
+                or a collision/reaction cell. Detail for each affected mass is carried
+                by Interfering Species and Interference Correction Method.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: spectralInterferenceCorrectionsApplied
+                schema:name:
+                  const: Spectral Interference Corrections Applied
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Interfering Species
+              description: The isobaric, polyatomic and doubly charged species that
+                overlap the measured masses and are corrected in data reduction -
+                direct isobars, oxides and argides, hydrides, and abundance-sensitivity
+                tailing from an adjacent large beam. Name each species and the mass
+                it affects.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferingSpecies
+                schema:name:
+                  const: Interfering Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Interference Correction Method
+              description: Equation or procedure used to calculate and remove each
+                interference contribution, together with how its magnitude was established
+                - a monitor mass measured simultaneously and scaled by natural abundance
+                ratios, a production-rate factor measured on a reference material
+                or interference standard solution, or a tailing factor measured on
+                a pure standard. Name the reference material used.
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: interferenceCorrectionMethod
+                schema:name:
+                  const: Interference Correction Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+      required:
+      - ada:defaultMonitoredProperties
+    ada:massCyclesPerReplicate:
+      description: "Number of complete mass scans accumulated per analytical replicate.
+        A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal
+        of the monitored masses by a sequentially scanning analyser, so the scan count
+        multiplied by the per-mass dwell time gives the total integration time per
+        replicate. Distinct from a cycle in simultaneous multi-collection, which is
+        one readout of all detectors at once rather than a traversal of masses."
+      anyOf:
+      - type: integer
+      - type: string
+      readOnly: true
+    ada:numberOfReplicatesPerSample:
+      description: Number of replicate measurements performed on the same sample,
+        or on the same nominal location where the technique is spatially resolved.
+        For spot analysis this is the number of individual spots per grain or location;
+        for transects, the number of replicate lines; for mapping, the number of map
+        acquisitions of the same area; for solution work, the number of discrete replicate
+        measurements acquired per sample solution.
+      anyOf:
+      - type: integer
+      - type: string
+    ada:signalCollectionMode:
+      description: Mode used to collect ion signal across the monitored masses. In
+        peak hopping mode, the quadrupole jumps sequentially between pre-set mass
+        positions and dwells at each peak; in scanning mode, the quadrupole sweeps
+        continuously across a defined mass range.
+      type: string
+      enum:
+      - Peak hopping
+      - Scanning
+      - N/A
+      - None
+      - missing
+      readOnly: true
+    ada:driftCorrectionMethod:
+      description: Method used to correct for instrumental signal drift across a session.
+      type: string
+      enum:
+      - IS normalization
+      - Standard bracketing
+      - IS normalization + bracketing
+      - None
+      - N/A
+      - missing
+      readOnly: true
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the
         passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures

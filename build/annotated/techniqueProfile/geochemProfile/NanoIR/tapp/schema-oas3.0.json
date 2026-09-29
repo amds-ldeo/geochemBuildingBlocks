@@ -318,12 +318,12 @@
           "x-jsonld-id": "http://schema.org/additionalProperty"
         },
         "ada:targetSpeciesTemplate": {
-          "description": "Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
+          "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
           "type": "object",
           "properties": {
             "ada:targetSpeciesColumns": {
               "type": "array",
-              "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+              "description": "Columns of the per-target-species parameter table. Must include exactly one column with schema:valueName \"targetSpecies\" that identifies the analyzed constituent named in each row.",
               "minItems": 1,
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetSpeciesColumn"
@@ -334,9 +334,14 @@
               "maxContains": 1,
               "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesColumns"
             },
+            "ada:targetSpeciesDeclaration": {
+              "type": "string",
+              "description": "What this procedure analyses, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:collectorConfiguration on the instrument side: submitters write the target species as a list, as a list with a sentence attached (\"Mn (55Mn), Fe (57Fe) ... Pb (207Pb) in seawater\"), or as prose that names no species individually at all (\"Major and trace elements, masses 23-75\"). ada:defaultTargetSpecies below carries the members that could be recognised; this carries the statement they were recognised FROM, so a cell that parses only in part loses nothing. Present whenever the declaration said more than the parsed rows record.",
+              "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesDeclaration"
+            },
             "ada:defaultTargetSpecies": {
               "type": "array",
-              "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+              "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every target species, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between target species.",
               "items": {
                 "anyOf": [
                   {
@@ -387,12 +392,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesTemplate"
         },
         "ada:monitoredPropertyTemplate": {
-          "description": "Template for per-channel parameters, a channel being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
+          "description": "Template for per-monitored-property parameters, a monitored property being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the monitored-property domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
           "type": "object",
           "properties": {
             "ada:monitoredPropertyColumns": {
               "type": "array",
-              "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
+              "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
               "minItems": 1,
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MonitoredPropertyColumn"
@@ -405,7 +410,7 @@
             },
             "ada:defaultMonitoredProperties": {
               "type": "array",
-              "description": "The channels this procedure defines by default \u2014 the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
+              "description": "The monitored properties this procedure defines by default \u2014 the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"\u2078\u2074Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: \u2078\u00b3Kr, \u00b9\u2076\u2077Er\u00b2\u207a and \u00b9\u2077\u00b3Yb\u00b2\u207a in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
               "items": {
                 "anyOf": [
                   {
@@ -413,6 +418,45 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-monitored-property row",
+                    "description": "One row of the table, keyed by column schema:valueName.",
+                    "required": [
+                      "monitoredProperty"
+                    ],
+                    "properties": {
+                      "monitoredProperty": {
+                        "description": "The selection position measured, e.g. '\u2078\u2074Sr'. Becomes a schema:variableMeasured entry on the data product.",
+                        "type": "string"
+                      },
+                      "targetSpecies": {
+                        "description": "The species this property helps determine, when it determines one. Absent for a monitor.",
+                        "type": "string"
+                      },
+                      "collector": {
+                        "description": "schema:name of the collector carrying this property, matching an entry in schema:instrument\u2026hasPart[Collector].ada:collectors.",
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": {
+                      "nullable": true,
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
                   }
                 ]
               },
@@ -929,7 +973,7 @@
             },
             "schema:minValue": {
               "type": "number",
-              "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate.",
+              "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate.",
               "x-jsonld-id": "http://schema.org/minValue"
             },
             "schema:maxValue": {
@@ -1073,7 +1117,7 @@
         },
         "KeyedTableColumn": {
           "type": "object",
-          "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+          "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- a target species, a reported property, a monitored property -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
           "properties": {
             "@type": {
               "type": "array",
@@ -1194,12 +1238,12 @@
             },
             "schema:readonlyValue": {
               "type": "boolean",
-              "description": "true = constant across all analytes (read-only column).",
+              "description": "true = constant across all target species (read-only column).",
               "x-jsonld-id": "http://schema.org/readonlyValue"
             },
             "schema:valueRequired": {
               "type": "boolean",
-              "description": "true = must be provided for every analyte row.",
+              "description": "true = must be provided for every target-species row.",
               "x-jsonld-id": "http://schema.org/valueRequired"
             },
             "schema:minValue": {
@@ -1251,7 +1295,7 @@
           ]
         },
         "TargetSpeciesColumn": {
-          "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+          "description": "One column of the per-target-species parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetSpeciesColumns registry $ref it.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn"
@@ -1259,7 +1303,7 @@
           ]
         },
         "ReportedPropertyColumn": {
-          "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the analytes and channels it ACQUIRES. Structurally a KeyedTableColumn.",
+          "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the target species and monitored properties it ACQUIRES. Structurally a KeyedTableColumn.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn"
@@ -1267,7 +1311,7 @@
           ]
         },
         "MonitoredPropertyColumn": {
-          "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
+          "description": "One column of the monitored-property table. A monitored property is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of target species: the target species is what is measured, the monitored property is the position it is measured on, and the two are independent. One target species may occupy several monitored properties, and MC-ICP-MS cups routinely monitor interferences that are not target species at all. Structurally a KeyedTableColumn.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn"
@@ -1275,7 +1319,7 @@
           ]
         },
         "MonitoredPropertyIdentifierColumn": {
-          "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+          "description": "The mandatory monitored-property-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn"
@@ -1332,7 +1376,7 @@
           ]
         },
         "ReportedPropertyIdentifierColumn": {
-          "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
+          "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (target species, monitored property, reported property) over one logical variable registry, not one table per document.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn"
@@ -1389,7 +1433,7 @@
           ]
         },
         "TargetSpeciesIdentifierColumn": {
-          "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+          "description": "The mandatory target-species-identifier column. Each row in the species table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetSpeciesColumn"
@@ -3294,7 +3338,7 @@
                         "type": "string"
                       },
                       "ada:collectors": {
-                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 \u00a710), and the fallback must not quietly move them onto the collector axis.",
+                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nWhat a collector does NOT carry is which monitored property it measures. That assignment is procedure configuration, not hardware -- the same physical array is wired differently by another procedure, and an analysis may override it -- so it lives as the 'collector' column of ada:monitoredPropertyColumns on the method definition, whose values are these schema:names. Putting it here would invert the dependency and make the instrument description procedure-specific.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 \u00a710), and the fallback must not quietly move them onto the collector axis.",
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -3320,10 +3364,6 @@
                               "type": "string",
                               "minLength": 1,
                               "x-jsonld-id": "http://schema.org/name"
-                            },
-                            "ada:targetSpecies": {
-                              "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
-                              "type": "string"
                             },
                             "schema:description": {
                               "type": "string",
@@ -7262,12 +7302,12 @@
           "x-jsonld-id": "http://schema.org/additionalProperty"
         },
         "ada:targetSpeciesTemplate": {
-          "description": "Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
+          "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
           "type": "object",
           "properties": {
             "ada:targetSpeciesColumns": {
               "type": "array",
-              "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+              "description": "Columns of the per-target-species parameter table. Must include exactly one column with schema:valueName \"targetSpecies\" that identifies the analyzed constituent named in each row.",
               "minItems": 1,
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/TargetSpeciesColumn"
@@ -7278,9 +7318,14 @@
               "maxContains": 1,
               "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesColumns"
             },
+            "ada:targetSpeciesDeclaration": {
+              "type": "string",
+              "description": "What this procedure analyses, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:collectorConfiguration on the instrument side: submitters write the target species as a list, as a list with a sentence attached (\"Mn (55Mn), Fe (57Fe) ... Pb (207Pb) in seawater\"), or as prose that names no species individually at all (\"Major and trace elements, masses 23-75\"). ada:defaultTargetSpecies below carries the members that could be recognised; this carries the statement they were recognised FROM, so a cell that parses only in part loses nothing. Present whenever the declaration said more than the parsed rows record.",
+              "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesDeclaration"
+            },
             "ada:defaultTargetSpecies": {
               "type": "array",
-              "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+              "description": "The target species (analyzed constituents) this method targets by default \u2014 the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every target species, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between target species.",
               "items": {
                 "anyOf": [
                   {
@@ -7331,12 +7376,12 @@
           "x-jsonld-id": "https://ada.astromat.org/metadata/targetSpeciesTemplate"
         },
         "ada:monitoredPropertyTemplate": {
-          "description": "Template for per-channel parameters, a channel being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
+          "description": "Template for per-monitored-property parameters, a monitored property being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the monitored-property domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
           "type": "object",
           "properties": {
             "ada:monitoredPropertyColumns": {
               "type": "array",
-              "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
+              "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
               "minItems": 1,
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/MonitoredPropertyColumn"
@@ -7349,7 +7394,7 @@
             },
             "ada:defaultMonitoredProperties": {
               "type": "array",
-              "description": "The channels this procedure defines by default \u2014 the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
+              "description": "The monitored properties this procedure defines by default \u2014 the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"\u2078\u2074Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: \u2078\u00b3Kr, \u00b9\u2076\u2077Er\u00b2\u207a and \u00b9\u2077\u00b3Yb\u00b2\u207a in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
               "items": {
                 "anyOf": [
                   {
@@ -7357,6 +7402,45 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-monitored-property row",
+                    "description": "One row of the table, keyed by column schema:valueName.",
+                    "required": [
+                      "monitoredProperty"
+                    ],
+                    "properties": {
+                      "monitoredProperty": {
+                        "description": "The selection position measured, e.g. '\u2078\u2074Sr'. Becomes a schema:variableMeasured entry on the data product.",
+                        "type": "string"
+                      },
+                      "targetSpecies": {
+                        "description": "The species this property helps determine, when it determines one. Absent for a monitor.",
+                        "type": "string"
+                      },
+                      "collector": {
+                        "description": "schema:name of the collector carrying this property, matching an entry in schema:instrument\u2026hasPart[Collector].ada:collectors.",
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": {
+                      "nullable": true,
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
                   }
                 ]
               },
@@ -7873,7 +7957,7 @@
             },
             "schema:minValue": {
               "type": "number",
-              "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate.",
+              "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate.",
               "x-jsonld-id": "http://schema.org/minValue"
             },
             "schema:maxValue": {
@@ -8017,7 +8101,7 @@
         },
         "KeyedTableColumn": {
           "type": "object",
-          "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+          "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- a target species, a reported property, a monitored property -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
           "properties": {
             "@type": {
               "type": "array",
@@ -8138,12 +8222,12 @@
             },
             "schema:readonlyValue": {
               "type": "boolean",
-              "description": "true = constant across all analytes (read-only column).",
+              "description": "true = constant across all target species (read-only column).",
               "x-jsonld-id": "http://schema.org/readonlyValue"
             },
             "schema:valueRequired": {
               "type": "boolean",
-              "description": "true = must be provided for every analyte row.",
+              "description": "true = must be provided for every target-species row.",
               "x-jsonld-id": "http://schema.org/valueRequired"
             },
             "schema:minValue": {
@@ -8195,7 +8279,7 @@
           ]
         },
         "TargetSpeciesColumn": {
-          "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+          "description": "One column of the per-target-species parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetSpeciesColumns registry $ref it.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/KeyedTableColumn"
@@ -8203,7 +8287,7 @@
           ]
         },
         "ReportedPropertyColumn": {
-          "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the analytes and channels it ACQUIRES. Structurally a KeyedTableColumn.",
+          "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the target species and monitored properties it ACQUIRES. Structurally a KeyedTableColumn.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/KeyedTableColumn"
@@ -8211,7 +8295,7 @@
           ]
         },
         "MonitoredPropertyColumn": {
-          "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
+          "description": "One column of the monitored-property table. A monitored property is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of target species: the target species is what is measured, the monitored property is the position it is measured on, and the two are independent. One target species may occupy several monitored properties, and MC-ICP-MS cups routinely monitor interferences that are not target species at all. Structurally a KeyedTableColumn.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/KeyedTableColumn"
@@ -8219,7 +8303,7 @@
           ]
         },
         "MonitoredPropertyIdentifierColumn": {
-          "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+          "description": "The mandatory monitored-property-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/KeyedTableColumn"
@@ -8276,7 +8360,7 @@
           ]
         },
         "ReportedPropertyIdentifierColumn": {
-          "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
+          "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (target species, monitored property, reported property) over one logical variable registry, not one table per document.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/KeyedTableColumn"
@@ -8333,7 +8417,7 @@
           ]
         },
         "TargetSpeciesIdentifierColumn": {
-          "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+          "description": "The mandatory target-species-identifier column. Each row in the species table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/NanoIR/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/TargetSpeciesColumn"

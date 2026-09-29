@@ -122,6 +122,64 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ]
   },
   "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Rb",
+      "Sr"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:analyticalAccuracy": "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion",
   "schema:instrument": [
     {
@@ -489,6 +547,58 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "ada:constantsAndReferenceValuesUsedDefault": "⁸⁷Rb decay constant 1.393 ± 0.004 x 10⁻¹¹ yr⁻¹ (Nebel et al. 2011), p.1; ⁸⁸Sr/⁸⁶Sr = 8.37520933 for mass fractionation correction (p.4); ⁸⁷Rb/⁸⁵Rb = 0.385706 and ⁸⁶Sr/⁸⁸Sr = 0.119351 for the ⁸⁷Rb/⁸⁶Sr calculation (p.4); natural ⁸⁷Rb/⁸⁵Rb of 0.38571 cited for the interference-correction principle (p.1)",
   "ada:isobaricInterferenceCorrectionsApplied": "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)",
   "ada:massBiasCorrectionStrategy": "Internal normalisation to an assumed ⁸⁸Sr/⁸⁶Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The ⁸⁷Rb isobaric correction on ⁸⁷Sr uses the ⁸⁵Rb signal and a user-specified ⁸⁷Rb/⁸⁵Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known ⁸⁷Sr/⁸⁶Sr (p.4)",
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
+      {
+        "monitoredProperty": "⁸⁴Sr",
+        "targetSpecies": "Sr",
+        "collector": "L2"
+      },
+      {
+        "monitoredProperty": "⁸⁶Sr",
+        "targetSpecies": "Sr",
+        "collector": "C"
+      },
+      {
+        "monitoredProperty": "⁸⁷Sr",
+        "targetSpecies": "Sr",
+        "collector": "H2"
+      },
+      {
+        "monitoredProperty": "⁸⁸Sr",
+        "targetSpecies": "Sr",
+        "collector": "H3"
+      },
+      {
+        "monitoredProperty": "⁸⁵Rb",
+        "targetSpecies": "Rb",
+        "collector": "L1"
+      },
+      {
+        "monitoredProperty": "⁸³Kr",
+        "collector": "L4"
+      },
+      {
+        "monitoredProperty": "¹⁶⁷Er²⁺",
+        "collector": "L3"
+      },
+      {
+        "monitoredProperty": "¹⁷³Yb²⁺",
+        "collector": "H1"
+      }
+    ],
+    "ada:monitoredPropertyColumns": [
+      {
+        "schema:valueName": "monitoredProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -725,6 +835,64 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ]
   },
   "ada:analysisSequenceDefault": "14 reference glasses analyzed to evaluate accuracy and provide calibration factors; natural minerals as unknowns for data quality evaluation; 1 block of 120 cycles per analysis",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Rb",
+      "Sr"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:analyticalAccuracy": "87Sr/86Sr relative errors <0.2\u2030 for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within \u00b13% for 11 glasses; exceptions: NIST 610 (\u22122.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) \u2014 all within stated \u00b13% criterion",
   "schema:instrument": [
     {
@@ -1092,6 +1260,58 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
   "ada:constantsAndReferenceValuesUsedDefault": "\u2078\u2077Rb decay constant 1.393 \u00b1 0.004 x 10\u207b\u00b9\u00b9 yr\u207b\u00b9 (Nebel et al. 2011), p.1; \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 for mass fractionation correction (p.4); \u2078\u2077Rb/\u2078\u2075Rb = 0.385706 and \u2078\u2076Sr/\u2078\u2078Sr = 0.119351 for the \u2078\u2077Rb/\u2078\u2076Sr calculation (p.4); natural \u2078\u2077Rb/\u2078\u2075Rb of 0.38571 cited for the interference-correction principle (p.1)",
   "ada:isobaricInterferenceCorrectionsApplied": "Yes \u2014 correction for doubly charged ions: \u00b9\u2076\u2078Er\u00b2\u207a on \u2078\u2074Sr; \u00b9\u2077\u2070Er\u00b2\u207a and \u00b9\u2077\u2070Yb\u00b2\u207a on \u2078\u2075Rb; \u00b9\u2077\u00b2Yb\u00b2\u207a on \u2078\u2076Sr; \u00b9\u2077\u2074Yb\u00b2\u207a on \u2078\u2077Sr; \u2078\u2077Rb isobaric on \u2078\u2077Sr (corrected using 85Rb signal and exponential law)",
   "ada:massBiasCorrectionStrategy": "Internal normalisation to an assumed \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The \u2078\u2077Rb isobaric correction on \u2078\u2077Sr uses the \u2078\u2075Rb signal and a user-specified \u2078\u2077Rb/\u2078\u2075Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known \u2078\u2077Sr/\u2078\u2076Sr (p.4)",
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
+      {
+        "monitoredProperty": "\u2078\u2074Sr",
+        "targetSpecies": "Sr",
+        "collector": "L2"
+      },
+      {
+        "monitoredProperty": "\u2078\u2076Sr",
+        "targetSpecies": "Sr",
+        "collector": "C"
+      },
+      {
+        "monitoredProperty": "\u2078\u2077Sr",
+        "targetSpecies": "Sr",
+        "collector": "H2"
+      },
+      {
+        "monitoredProperty": "\u2078\u2078Sr",
+        "targetSpecies": "Sr",
+        "collector": "H3"
+      },
+      {
+        "monitoredProperty": "\u2078\u2075Rb",
+        "targetSpecies": "Rb",
+        "collector": "L1"
+      },
+      {
+        "monitoredProperty": "\u2078\u00b3Kr",
+        "collector": "L4"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2076\u2077Er\u00b2\u207a",
+        "collector": "L3"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2077\u00b3Yb\u00b2\u207a",
+        "collector": "H1"
+      }
+    ],
+    "ada:monitoredPropertyColumns": [
+      {
+        "schema:valueName": "monitoredProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -1224,12 +1444,6 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -1242,7 +1456,13 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1263,11 +1483,11 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "fs-LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
-    schema1:object [ a schema1:DefinedTerm,
+    schema1:object [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ],
+        [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ],
-        [ schema1:name "Lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zhang et al. (2022) At. Spectrosc. 43; ISO-Compass software; Zhang et al. (2018)" ] ;
@@ -1292,6 +1512,21 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:internalStandardElement "No conventional IS; ⁸⁵Rb used to calculate ⁸⁷Rb/⁸⁶Sr via 87Rb/85Rb; external calibration for Rb/Sr elemental fractionation using reference glasses" ;
     ada:isobaricInterferenceCorrectionsApplied "Yes — correction for doubly charged ions: ¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ and ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb isobaric on ⁸⁷Sr (corrected using 85Rb signal and exponential law)" ;
     ada:massBiasCorrectionStrategy "Internal normalisation to an assumed ⁸⁸Sr/⁸⁶Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The ⁸⁷Rb isobaric correction on ⁸⁷Sr uses the ⁸⁵Rb signal and a user-specified ⁸⁷Rb/⁸⁵Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known ⁸⁷Sr/⁸⁶Sr (p.4)" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            ada:monitoredPropertyColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     ada:numberOfAcquisitionPasses "1" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
     ada:primaryStandardNameDefault "NIST 610 for instrument parameter optimization; series of reference glasses (NIST 612, BHVO-2G, BCR-2G, NKT-1G, TB-1G, ATHO-G, KL2-G, ML3B-G, StHs6/80-G, T1-G) for external calibration of ⁸⁷Rb/⁸⁶Sr ratio; natural clinopyroxenes (NHB-9, YY12-01) and anorthite (YG4301) as unknown samples for ⁸⁷Sr/⁸⁶Sr data quality evaluation" ;
@@ -1302,6 +1537,20 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:samplingUnitType "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8" ;
     ada:secondaryReferenceMaterialDefault "Natural clinopyroxenes NHB-9 and YY12-01 (reference values given in Table 2); anorthite YG4301 — measured as unknowns for 87Sr/86Sr data quality evaluation" ;
     ada:signalIntegrationIntervalMethod "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Rb",
+                "Sr" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment> ] ;
     ada:uncertaintyLevel "2SD for reference-material mean values (Table 2); within-run repeatability quoted as U_SD and U_SE at 95% confidence (Eqs. 1-2, p.5); isochron ages quoted with IsoplotR and Monte Carlo uncertainties (Table 3)" ;
     ada:withinSessionPrecision "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" ;
     bios:computationalTool [ schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
@@ -1526,6 +1775,28 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Calibration Strategy per Target Species" ;
+    schema1:valueName "calibrationStrategyPerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Internal (Within-Measurement) Analytical Precision and Assessment Method" ;
+    schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:valueName "massResolutionAssignment" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency> a schema1:PropertyValue ;
     schema1:name "Inter-Pass Data Dependency" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency> ;
@@ -1692,6 +1963,306 @@ allOf:
                   const: Data acquisition
               required:
               - schema:name
+    ada:targetSpeciesTemplate:
+      type: object
+      properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+        ada:targetSpeciesColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
+            - title: Mass Resolution Assignment
+              description: Mass resolution mode used for acquisition. One target species
+                may be acquired at more than one resolution, so the assignment is
+                per acquired mass rather than per element. The overall mode(s) used
+                in the procedure are recorded in Mass Resolution Setting (Group 3).
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionAssignment
+                schema:name:
+                  const: Mass Resolution Assignment
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Calibration Strategy per Target Species
+              description: Approach used to convert measured ion signals to reported
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
+                - different primary standards for different mass ranges or phases,
+                or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: calibrationStrategyPerTargetSpecies
+                schema:name:
+                  const: Calibration Strategy per Target Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - title: Counting Statistics Error
+              description: "Uncertainty predicted from counting statistics \u2014
+                the theoretical limit set by the Poisson distribution of the counts
+                accumulated \u2014 for each reported quantity per analysis, with the
+                sigma level stated. Derived from the counts on the target species
+                together with those on any background or blank subtracted from it.
+                Distinct from the scatter actually observed within a measurement or
+                between repeated measurements, which is recorded separately."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - title: Internal (Within-Measurement) Analytical Precision and Assessment
+                Method
+              description: Precision of a single measurement, derived from the scatter
+                of the cycles, sweeps or integrations that make it up, together with
+                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
+                the number of cycles it is computed over, and the reported quantity
+                it applies to. Distinct from Counting Statistics Error, which records
+                the uncertainty predicted from the counts rather than the scatter
+                observed; where a procedure reports both, record the observed value
+                here and the predicted value there.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment
+                    Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains:
+              title: Mass Resolution Assignment
+              description: Mass resolution mode used for acquisition. One target species
+                may be acquired at more than one resolution, so the assignment is
+                per acquired mass rather than per element. The overall mode(s) used
+                in the procedure are recorded in Mass Resolution Setting (Group 3).
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: massResolutionAssignment
+                schema:name:
+                  const: Mass Resolution Assignment
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Calibration Strategy per Target Species
+              description: Approach used to convert measured ion signals to reported
+                concentrations, and specifically any case where different target species
+                or target species groups within one procedure are calibrated differently
+                - different primary standards for different mass ranges or phases,
+                or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all target species,
+                record that strategy. Where the procedure reports isotope ratios only
+                and no concentrations, record 'Not applicable (isotope ratios only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: calibrationStrategyPerTargetSpecies
+                schema:name:
+                  const: Calibration Strategy per Target Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Counting Statistics Error
+              description: "Uncertainty predicted from counting statistics \u2014
+                the theoretical limit set by the Poisson distribution of the counts
+                accumulated \u2014 for each reported quantity per analysis, with the
+                sigma level stated. Derived from the counts on the target species
+                together with those on any background or blank subtracted from it.
+                Distinct from the scatter actually observed within a measurement or
+                between repeated measurements, which is recorded separately."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: Internal (Within-Measurement) Analytical Precision and Assessment
+                Method
+              description: Precision of a single measurement, derived from the scatter
+                of the cycles, sweeps or integrations that make it up, together with
+                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
+                the number of cycles it is computed over, and the reported quantity
+                it applies to. Distinct from Counting Statistics Error, which records
+                the uncertainty predicted from the counts rather than the scatter
+                observed; where a procedure reports both, record the observed value
+                here and the predicted value there.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment
+                    Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            minContains: 0
+            maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:analyticalAccuracy:
       description: Offset between measured and accepted values for secondary reference
         materials, and the method used to assess it. Specify the reference material
@@ -2715,370 +3286,18 @@ allOf:
         element, and applies wherever the procedure reports isotope ratios.'
       type: string
       readOnly: true
-    ada:targetSpeciesTemplate:
+    ada:monitoredPropertyTemplate:
       type: object
       properties:
-        ada:targetSpeciesColumns:
+        ada:defaultMonitoredProperties:
           type: array
           items:
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One target species
-                may be acquired at more than one resolution, so the assignment is
-                per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionAssignment
-                schema:name:
-                  const: Mass Resolution Assignment
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Monitored Masses
-              description: Specific masses monitored in this procedure, grouped by
-                the target species element they serve where they serve one. Covers
-                atomic isotopes and, where a reaction cell shifts an target species
-                onto a different mass, the product mass actually measured. Includes
-                interference-monitor and internal-standard masses, which serve no
-                target species and so have no parent element. The target species list
-                is given by the Target Species field and is never inferred from the
-                element symbols appearing here.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredMasses
-                schema:name:
-                  const: Monitored Masses
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Calibration Strategy per Target Species
-              description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different target species
-                or target species groups within one procedure are calibrated differently
-                - different primary standards for different mass ranges or phases,
-                or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all target species,
-                record that strategy. Where the procedure reports isotope ratios only
-                and no concentrations, record 'Not applicable (isotope ratios only)'.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: calibrationStrategyPerTargetSpecies
-                schema:name:
-                  const: Calibration Strategy per Target Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - title: Counting Statistics Error
-              description: "Uncertainty predicted from counting statistics \u2014
-                the theoretical limit set by the Poisson distribution of the counts
-                accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the target species
-                together with those on any background or blank subtracted from it.
-                Distinct from the scatter actually observed within a measurement or
-                between repeated measurements, which is recorded separately."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: countingStatisticsError
-                schema:name:
-                  const: Counting Statistics Error
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - title: Internal (Within-Measurement) Analytical Precision and Assessment
-                Method
-              description: Precision of a single measurement, derived from the scatter
-                of the cycles, sweeps or integrations that make it up, together with
-                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
-                the number of cycles it is computed over, and the reported quantity
-                it applies to. Distinct from Counting Statistics Error, which records
-                the uncertainty predicted from the counts rather than the scatter
-                observed; where a procedure reports both, record the observed value
-                here and the predicted value there.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: internalAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Internal (Within-Measurement) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-          allOf:
-          - contains:
-              title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One target species
-                may be acquired at more than one resolution, so the assignment is
-                per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: massResolutionAssignment
-                schema:name:
-                  const: Mass Resolution Assignment
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Monitored Masses
-              description: Specific masses monitored in this procedure, grouped by
-                the target species element they serve where they serve one. Covers
-                atomic isotopes and, where a reaction cell shifts an target species
-                onto a different mass, the product mass actually measured. Includes
-                interference-monitor and internal-standard masses, which serve no
-                target species and so have no parent element. The target species list
-                is given by the Target Species field and is never inferred from the
-                element symbols appearing here.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredMasses
-                schema:name:
-                  const: Monitored Masses
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Calibration Strategy per Target Species
-              description: Approach used to convert measured ion signals to reported
-                concentrations, and specifically any case where different target species
-                or target species groups within one procedure are calibrated differently
-                - different primary standards for different mass ranges or phases,
-                or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all target species,
-                record that strategy. Where the procedure reports isotope ratios only
-                and no concentrations, record 'Not applicable (isotope ratios only)'.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: calibrationStrategyPerTargetSpecies
-                schema:name:
-                  const: Calibration Strategy per Target Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Counting Statistics Error
-              description: "Uncertainty predicted from counting statistics \u2014
-                the theoretical limit set by the Poisson distribution of the counts
-                accumulated \u2014 for each reported quantity per analysis, with the
-                sigma level stated. Derived from the counts on the target species
-                together with those on any background or blank subtracted from it.
-                Distinct from the scatter actually observed within a measurement or
-                between repeated measurements, which is recorded separately."
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: countingStatisticsError
-                schema:name:
-                  const: Counting Statistics Error
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: Internal (Within-Measurement) Analytical Precision and Assessment
-                Method
-              description: Precision of a single measurement, derived from the scatter
-                of the cycles, sweeps or integrations that make it up, together with
-                the method used to assess it. State the statistic (2SE, 2SD, 1s RSD),
-                the number of cycles it is computed over, and the reported quantity
-                it applies to. Distinct from Counting Statistics Error, which records
-                the uncertainty predicted from the counts rather than the scatter
-                observed; where a procedure reports both, record the observed value
-                here and the predicted value there.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: internalAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Internal (Within-Measurement) Analytical Precision and Assessment
-                    Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            minContains: 0
-            maxContains: 1
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultMonitoredProperties
     schema:object:
       type: array
       items:

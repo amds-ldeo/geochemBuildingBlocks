@@ -247,6 +247,30 @@
   "ada:analyticalSubModeDefault": "BF-STEM",
   "ada:convergenceSemiAngle": "0.1\u20130.3 mrad (for nanodiffraction in STEM mode)",
   "ada:cameraLengthDefault": "295 mm (stated for nanodiffraction)",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Si",
+      "C",
+      "O",
+      "S",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "Electron nanodiffraction (STEM mode, 0.1\u20130.3 mrad convergence, 295 mm camera length) + EDS; SAED for crystallographic characterization; FFT from HRTEM images (dolomite, ankerite, phosphide barringerite); d-spacing comparisons for carbonate phases",
   "schema:measurementTechnique": [
     {

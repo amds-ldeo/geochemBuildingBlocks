@@ -236,6 +236,32 @@
   "ada:spectroscopicDetectorDefault": "EDS only",
   "ada:analyticalSubModeDefault": "ADF",
   "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Ca",
+      "Fe",
+      "Mn",
+      "Si",
+      "Al",
+      "Cr",
+      "C",
+      "O",
+      "S",
+      "P"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3\u2013CaCO3\u2013(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5\u201310 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
   "schema:additionalProperty": [
     {

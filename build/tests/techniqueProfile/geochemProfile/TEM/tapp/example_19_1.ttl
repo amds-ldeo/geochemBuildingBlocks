@@ -67,7 +67,21 @@
     ada:samplingUnitSelectionCriteriaDefault "Position on the space-weathered surface — the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx,”\" which \"was first protected with a 1–2 lm thick layer of electron beam deposited amorphous carbon\" (p.3)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Grain (pyroxene) — one section carrying the grains \"1pyx\" and \"2pyx\" (p.3); \"Both EELS and EDS data were acquired as spectrum images (SI), in which a spectrum is acquired at each pixel in a given image\" (p.3)" ;
     ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 .
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Fe",
+                "Mg",
+                "O",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;

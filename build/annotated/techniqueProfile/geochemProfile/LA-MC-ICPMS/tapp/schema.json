@@ -255,6 +255,382 @@
             }
           }
         },
+        "ada:targetSpeciesTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultTargetSpecies": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "ada:targetSpeciesColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/TargetSpeciesIdentifierColumn"
+                  },
+                  {
+                    "title": "Mass Resolution Assignment",
+                    "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionAssignment"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution Assignment"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Calibration Strategy per Target Species",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "calibrationStrategyPerTargetSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Calibration Strategy per Target Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Counting Statistics Error",
+                    "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "countingStatisticsError"
+                      },
+                      "schema:name": {
+                        "const": "Counting Statistics Error"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  {
+                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                    "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Mass Resolution Assignment",
+                    "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "massResolutionAssignment"
+                      },
+                      "schema:name": {
+                        "const": "Mass Resolution Assignment"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Calibration Strategy per Target Species",
+                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "calibrationStrategyPerTargetSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Calibration Strategy per Target Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Counting Statistics Error",
+                    "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "countingStatisticsError"
+                      },
+                      "schema:name": {
+                        "const": "Counting Statistics Error"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                    "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
+                      },
+                      "schema:name": {
+                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "R"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          },
+          "required": [
+            "ada:defaultTargetSpecies"
+          ]
+        },
         "ada:analyticalAccuracy": {
           "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
           "type": "string"
@@ -1747,448 +2123,29 @@
           "type": "string",
           "readOnly": true
         },
-        "ada:targetSpeciesTemplate": {
+        "ada:monitoredPropertyTemplate": {
           "type": "object",
           "properties": {
-            "ada:targetSpeciesColumns": {
+            "ada:defaultMonitoredProperties": {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/TargetSpeciesIdentifierColumn"
+                    "type": "string"
                   },
                   {
-                    "title": "Mass Resolution Assignment",
-                    "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "massResolutionAssignment"
-                      },
-                      "schema:name": {
-                        "const": "Mass Resolution Assignment"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
                   },
                   {
-                    "title": "Monitored Masses",
-                    "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "monitoredMasses"
-                      },
-                      "schema:name": {
-                        "const": "Monitored Masses"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Calibration Strategy per Target Species",
-                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "calibrationStrategyPerTargetSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Calibration Strategy per Target Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Counting Statistics Error",
-                    "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "countingStatisticsError"
-                      },
-                      "schema:name": {
-                        "const": "Counting Statistics Error"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                    "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
+                    "type": "object"
                   }
                 ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "title": "Mass Resolution Assignment",
-                    "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/massResolutionAssignment"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "massResolutionAssignment"
-                      },
-                      "schema:name": {
-                        "const": "Mass Resolution Assignment"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Monitored Masses",
-                    "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/monitoredMasses"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "monitoredMasses"
-                      },
-                      "schema:name": {
-                        "const": "Monitored Masses"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Calibration Strategy per Target Species",
-                    "description": "Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "calibrationStrategyPerTargetSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Calibration Strategy per Target Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Counting Statistics Error",
-                    "description": "Uncertainty predicted from counting statistics \u2014 the theoretical limit set by the Poisson distribution of the counts accumulated \u2014 for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/countingStatisticsError"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "countingStatisticsError"
-                      },
-                      "schema:name": {
-                        "const": "Counting Statistics Error"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                    "description": "Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/laMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "internalAnalyticalPrecisionAndAssessmentMethod"
-                      },
-                      "schema:name": {
-                        "const": "Internal (Within-Measurement) Analytical Precision and Assessment Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "R"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                }
-              ]
+              }
             }
-          }
+          },
+          "required": [
+            "ada:defaultMonitoredProperties"
+          ]
         },
         "schema:object": {
           "type": "array",

@@ -247,6 +247,31 @@
   "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-STEM",
   "ada:edsAcquisitionModeDefault": "Map",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Ca",
+      "P",
+      "Na",
+      "Mn",
+      "O",
+      "Mg",
+      "Si",
+      "F",
+      "Cl",
+      "Fe"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [

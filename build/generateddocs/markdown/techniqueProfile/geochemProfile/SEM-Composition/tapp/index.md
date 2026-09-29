@@ -2114,17 +2114,17 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -2353,6 +2353,153 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     }
   ],
   "ada:edsAcquisitionMode": "N/A",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Si",
+      "Fe",
+      "Ni",
+      "S",
+      "Na",
+      "Ca",
+      "Al"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "techniquePerTargetSpecies",
+        "schema:name": "Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
   "schema:actionProcess": {
     "schema:step": [
@@ -2615,6 +2762,153 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     }
   ],
   "ada:edsAcquisitionMode": "N/A",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Si",
+      "Fe",
+      "Ni",
+      "S",
+      "Na",
+      "Ca",
+      "Al"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "techniquePerTargetSpecies",
+        "schema:name": "Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
   "schema:actionProcess": {
     "schema:step": [
@@ -2783,6 +3077,35 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Phase > Analysis point — \"semi-quantitative analyses with virtual standards present within the INCA software\" (p.3), to \"determine its elemental composition\" for the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Fe",
+                "Mg",
+                "Na",
+                "Ni",
+                "S",
+                "Si" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
             ada:toolRole "dataReduction" ],
@@ -2840,6 +3163,75 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Technique per Target Species" ;
+    schema1:valueName "techniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
+    schema1:name "WDS Spectrometer Channel" ;
+    schema1:valueName "wdsSpectrometerChannel" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> a schema1:PropertyValue ;
     schema1:name "EDS Spectral Processing Type" ;
@@ -2996,6 +3388,153 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Si",
+      "Fe",
+      "Ni",
+      "S",
+      "Na",
+      "Ca",
+      "Al"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "techniquePerTargetSpecies",
+        "schema:name": "Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
   "ada:stepSizePixelSizeDefault": "2.5 µm",
   "schema:actionProcess": {
@@ -3258,6 +3797,153 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     }
   ],
   "ada:edsAcquisitionMode": "Map",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mg",
+      "Si",
+      "Fe",
+      "Ni",
+      "S",
+      "Na",
+      "Ca",
+      "Al"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "techniquePerTargetSpecies",
+        "schema:name": "Technique per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "wdsSpectrometerChannel",
+        "schema:name": "WDS Spectrometer Channel",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/semCompositionTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      }
+    ]
+  },
   "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
   "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
   "schema:actionProcess": {
@@ -3382,17 +4068,17 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "missing" ;
@@ -3426,6 +4112,35 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Whole sample (polished slab) > Phase — elemental mapping of the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4), acquired on \"almost the same portion of the VIS-IR SPIM images\" (p.4) so the two datasets can be compared pixel for pixel" ;
     ada:stepSizePixelSizeDefault "2.5 µm" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Fe",
+                "Mg",
+                "Na",
+                "Ni",
+                "S",
+                "Si" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
             ada:toolRole "dataReduction" ],
@@ -3483,6 +4198,75 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/techniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Technique per Target Species" ;
+    schema1:valueName "techniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/wdsSpectrometerChannel> a schema1:PropertyValueSpecification ;
+    schema1:name "WDS Spectrometer Channel" ;
+    schema1:valueName "wdsSpectrometerChannel" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> a schema1:PropertyValue ;
     schema1:name "EDS Spectral Processing Type" ;
@@ -4016,10 +4800,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:samplingUnitType "Region of interest > Analysis point — \"The Oxford AZtec 'Point & ID' programme was used for the acquisition of images and point spectra\" (p.9)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford AZtec" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "Oxford AZtec" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -4593,10 +5377,10 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
     ada:samplingUnitType "Whole sample (particle) > Phase — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9)" ;
     ada:stepSizePixelSizeDefault -9999 ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -6352,6 +7136,15 @@ allOf:
               - ada:dataType
             minContains: 0
             maxContains: 1
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetSpecies
     schema:additionalProperty:
       type: array
       items:

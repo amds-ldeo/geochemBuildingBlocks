@@ -61,7 +61,21 @@
     ada:samplingUnitSelectionCriteriaDefault "Position within the one section — mapping targets the space-weathered rim and the phases beneath it, the section having been cut where \"the iron sulfides ... are exposed on the surface of grain\" (p.3)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Phase — \"STEM-EDS mapping and high-resolution STEM imaging\" of the same section (p.3), read for the sulfide, metallic iron and pyroxene phases it contains (p.3)" ;
     ada:spectroscopicDetectorDefault "EDS only" ;
-    ada:stemDwellTimePerPixelDefault -9999 .
+    ada:stemDwellTimePerPixelDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
+                "Fe",
+                "Mg",
+                "O",
+                "Pt",
+                "S",
+                "Si" ;
+            ada:targetSpeciesColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/TEM> a schema1:Product,
         schema1:Thing ;

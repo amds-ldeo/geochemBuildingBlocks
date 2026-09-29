@@ -41,13 +41,13 @@
                     schema1:value "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections" ],
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
                     schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -57,34 +57,46 @@
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "ZAF" ;
     ada:monitoredElements "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)" ;
-    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties "N - spectrometer-to-element assignments not stated" ;
-            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "example instrumentName" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "monitoredProperty" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundPosition>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/diffractingCrystal>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/dwellTimePerPixel>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/proportionalCounterDetector>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/sequence>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/wdsPhaSetting>,
-                <https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/xRayLine> ] ;
     ada:primaryStandardNameDefault "N - 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named" ;
     ada:reportedProperties "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)" ;
     ada:samplingUnitSelectionCriteriaDefault "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated" ;
     ada:samplingUnitType "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
     ada:stepSizePixelSizeDefault "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)" ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -128,56 +140,6 @@
             schema1:name "JEOL JXA-8200" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Background Counting Time" ;
-    schema1:valueName "backgroundCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/backgroundPosition> a schema1:PropertyValueSpecification ;
-    schema1:name "Background Position(s)" ;
-    schema1:valueName "backgroundPosition" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/diffractingCrystal> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Diffracting Crystal" ;
-    schema1:valueName "diffractingCrystal" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/dwellTimePerPixel> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Dwell Time per Pixel" ;
-    schema1:valueName "dwellTimePerPixel" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "Peak Counting Time" ;
-    schema1:valueName "peakCountingTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/proportionalCounterDetector> a schema1:PropertyValueSpecification ;
-    schema1:name "Proportional Counter / Detector" ;
-    schema1:valueName "proportionalCounterDetector" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/sequence> a schema1:PropertyValueSpecification ;
-    schema1:name "Sequence" ;
-    schema1:valueName "sequence" ;
-    ada:dataType "integer" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/wdsPhaSetting> a schema1:PropertyValueSpecification ;
-    schema1:name "WDS PHA Setting" ;
-    schema1:valueName "wdsPhaSetting" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/empaTAPP/xRayLine> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "X-ray Line" ;
-    schema1:valueName "xRayLine" ;
-    ada:dataType "string" .
-
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N/A - stage scan, not beam scan" ;
     schema1:name "Beam Raster Dimensions" ;
@@ -191,6 +153,70 @@
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> a schema1:PropertyValue ;
     schema1:name "Stage Scan vs. Beam Scan" ;

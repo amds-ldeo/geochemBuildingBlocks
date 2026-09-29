@@ -1285,10 +1285,10 @@
             }
           ]
         },
-        "ada:monitoredPropertyTemplate": {
+        "ada:targetSpeciesTemplate": {
           "type": "object",
           "properties": {
-            "ada:defaultMonitoredProperties": {
+            "ada:defaultTargetSpecies": {
               "type": "array",
               "items": {
                 "anyOf": [
@@ -1297,530 +1297,13 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
                   }
                 ]
               }
             },
-            "ada:monitoredPropertyColumns": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/MonitoredPropertyIdentifierColumn"
-                  },
-                  {
-                    "title": "Dwell Time per Mass",
-                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "dwellTimePerMass"
-                      },
-                      "schema:name": {
-                        "const": "Dwell Time per Mass"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Spectral Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "spectralInterferenceCorrectionsApplied"
-                      },
-                      "schema:name": {
-                        "const": "Spectral Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Interfering Species",
-                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Interference Correction Method",
-                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  }
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "title": "Dwell Time per Mass",
-                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "dwellTimePerMass"
-                      },
-                      "schema:name": {
-                        "const": "Dwell Time per Mass"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Spectral Interference Corrections Applied",
-                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "spectralInterferenceCorrectionsApplied"
-                      },
-                      "schema:name": {
-                        "const": "Spectral Interference Corrections Applied"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interfering Species",
-                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferingSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Interfering Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Interference Correction Method",
-                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "interferenceCorrectionMethod"
-                      },
-                      "schema:name": {
-                        "const": "Interference Correction Method"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                }
-              ]
-            }
-          },
-          "required": [
-            "ada:defaultMonitoredProperties"
-          ]
-        },
-        "ada:massCyclesPerReplicate": {
-          "description": "Number of complete mass scans accumulated per analytical replicate. A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal of the monitored masses by a sequentially scanning analyser, so the scan count multiplied by the per-mass dwell time gives the total integration time per replicate. Distinct from a cycle in simultaneous multi-collection, which is one readout of all detectors at once rather than a traversal of masses.",
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "string"
-            }
-          ],
-          "readOnly": true
-        },
-        "ada:numberOfReplicatesPerSample": {
-          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution.",
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:signalCollectionMode": {
-          "description": "Mode used to collect ion signal across the monitored masses. In peak hopping mode, the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning mode, the quadrupole sweeps continuously across a defined mass range.",
-          "type": "string",
-          "enum": [
-            "Peak hopping",
-            "Scanning",
-            "N/A",
-            "None",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:driftCorrectionMethod": {
-          "description": "Method used to correct for instrumental signal drift across a session.",
-          "type": "string",
-          "enum": [
-            "IS normalization",
-            "Standard bracketing",
-            "IS normalization + bracketing",
-            "None",
-            "N/A",
-            "missing"
-          ],
-          "readOnly": true
-        },
-        "ada:targetSpeciesTemplate": {
-          "type": "object",
-          "properties": {
             "ada:targetSpeciesColumns": {
               "type": "array",
               "items": {
@@ -2343,7 +1826,546 @@
                 }
               ]
             }
-          }
+          },
+          "required": [
+            "ada:defaultTargetSpecies"
+          ]
+        },
+        "ada:monitoredPropertyTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:defaultMonitoredProperties": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "ada:monitoredPropertyColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/MonitoredPropertyIdentifierColumn"
+                  },
+                  {
+                    "title": "Dwell Time per Mass",
+                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "dwellTimePerMass"
+                      },
+                      "schema:name": {
+                        "const": "Dwell Time per Mass"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Spectral Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spectralInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Spectral Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interfering Species",
+                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Interference Correction Method",
+                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Dwell Time per Mass",
+                    "description": "Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "dwellTimePerMass"
+                      },
+                      "schema:name": {
+                        "const": "Dwell Time per Mass"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "anyOf": [
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "string"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Spectral Interference Corrections Applied",
+                    "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "spectralInterferenceCorrectionsApplied"
+                      },
+                      "schema:name": {
+                        "const": "Spectral Interference Corrections Applied"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interfering Species",
+                    "description": "The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferingSpecies"
+                      },
+                      "schema:name": {
+                        "const": "Interfering Species"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Interference Correction Method",
+                    "description": "Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "interferenceCorrectionMethod"
+                      },
+                      "schema:name": {
+                        "const": "Interference Correction Method"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            }
+          },
+          "required": [
+            "ada:defaultMonitoredProperties"
+          ]
+        },
+        "ada:massCyclesPerReplicate": {
+          "description": "Number of complete mass scans accumulated per analytical replicate. A scan \u2014 also called a sweep or a pass \u2014 is one complete traversal of the monitored masses by a sequentially scanning analyser, so the scan count multiplied by the per-mass dwell time gives the total integration time per replicate. Distinct from a cycle in simultaneous multi-collection, which is one readout of all detectors at once rather than a traversal of masses.",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "readOnly": true
+        },
+        "ada:numberOfReplicatesPerSample": {
+          "description": "Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution.",
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "ada:signalCollectionMode": {
+          "description": "Mode used to collect ion signal across the monitored masses. In peak hopping mode, the quadrupole jumps sequentially between pre-set mass positions and dwells at each peak; in scanning mode, the quadrupole sweeps continuously across a defined mass range.",
+          "type": "string",
+          "enum": [
+            "Peak hopping",
+            "Scanning",
+            "N/A",
+            "None",
+            "missing"
+          ],
+          "readOnly": true
+        },
+        "ada:driftCorrectionMethod": {
+          "description": "Method used to correct for instrumental signal drift across a session.",
+          "type": "string",
+          "enum": [
+            "IS normalization",
+            "Standard bracketing",
+            "IS normalization + bracketing",
+            "None",
+            "N/A",
+            "missing"
+          ],
+          "readOnly": true
         },
         "ada:numberOfAcquisitionPasses": {
           "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",

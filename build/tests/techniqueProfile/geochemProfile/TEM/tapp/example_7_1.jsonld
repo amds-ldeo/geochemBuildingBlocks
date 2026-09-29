@@ -247,6 +247,24 @@
   "ada:analyticalSubModeDefault": "BF-TEM",
   "ada:edsAcquisitionModeDefault": "Line scan",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Fe",
+      "S",
+      "Ni"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:phaseIdentificationMethod": "Quantitative EDX (Cliff-Lorimer): Fe/S atomic ratio to distinguish troilite (Fe/S \u2248 1.03 \u00b1 0.04) from NC-pyrrhotite; EDX maps used to confirm elemental distributions (Fe, S, O, Si, Ca)",
   "ada:edsCalibrationStandardDefault": "Troilite nodule from Cape York iron meteorite (Fe, S); terrestrial millerite from Sanany, Ural, Russia (Ni, S)",
   "schema:measurementTechnique": [

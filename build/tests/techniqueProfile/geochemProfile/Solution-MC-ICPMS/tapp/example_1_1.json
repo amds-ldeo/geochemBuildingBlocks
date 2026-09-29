@@ -425,20 +425,120 @@
       "schema:defaultValue": "N/A \u2014 no double spike used"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Mo"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
   "ada:massBiasCorrectionStrategy": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "\u2079\u00b2Mo",
-      "\u2079\u2074Mo",
-      "\u2079\u2075Mo",
-      "\u2079\u2076Mo",
-      "\u2079\u2077Mo",
-      "\u2079\u2078Mo",
-      "\u00b9\u2070\u2070Mo (Mo)",
-      "\u2079\u00b9Zr",
-      "\u2079\u2079Ru (interference monitors, no target species) \u2014 \"Isobaric interferences of Zr and Ru on Mo masses were corrected by monitoring 91Zr and 99Ru\" (p.2)",
-      "mass bias normalised to 98Mo/96Mo and \u03b5\u2079\u00b2/\u2079\u2074/\u2079\u2075/\u2079\u2077/\u00b9\u2070\u2070Mo reported (pp.2\u20133)"
+      {
+        "monitoredProperty": "\u2079\u00b2Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u2079\u2074Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u2079\u2075Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u2079\u2076Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u2079\u2077Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u2079\u2078Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u00b9\u2070\u2070Mo",
+        "targetSpecies": "Mo"
+      },
+      {
+        "monitoredProperty": "\u2079\u00b9Zr"
+      },
+      {
+        "monitoredProperty": "\u2079\u2079Ru"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

@@ -63,11 +63,41 @@
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)" ;
     ada:secondaryReferenceMaterialDefault "Feldspar standards run as unknowns (material names N beyond what is listed above)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -130,4 +160,68 @@
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "EPMA Technique per Target Species" ;
+    schema1:valueName "epmaTechniquePerTargetSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
 
