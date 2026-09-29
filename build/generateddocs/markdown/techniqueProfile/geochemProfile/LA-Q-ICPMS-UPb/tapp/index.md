@@ -927,13 +927,6 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -945,7 +938,14 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -977,16 +977,16 @@ laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondri
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Age Model" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
     ada:ablationSpotDurationDefault -9999 ;
@@ -2152,22 +2152,22 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ] ] ;
+                    ada:detectionLimitMethod "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:creator [ a schema1:Person ;
@@ -2194,15 +2194,15 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial
             schema1:target [ schema1:name "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "missing" ;
             schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ] ;
+            schema1:name "Age Model" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary; single spot at 1 Hz)" ;
     ada:ablationSpotDurationDefault "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;
@@ -3227,16 +3227,16 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sil
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
+    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
+            schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Age Model" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ] ;
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSpotDurationDefault "~40 s (inferred from typical CetacAnalyte HE protocol for glass)" ;
     ada:ageModelDefault "missing" ;
@@ -4150,9 +4150,10 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
@@ -4164,10 +4165,9 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Same capsule section as silicate glass; sulfide grains ≥20 µm selected by SEM-BSE" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -4197,9 +4197,9 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sul
     schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "missing" ;
             schema1:name "Age Model" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
@@ -5082,13 +5082,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
@@ -5097,7 +5090,14 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:datePublished "missing" ;
@@ -5116,22 +5116,22 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     schema1:value "Martian meteorite (Tissint) silicates, oxides, and glass: olivine, low-Ca pyroxene, augite, maskelynite, Fe-Ti-Cr oxides, shock melt glass, fusion crust" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified" ;
                     schema1:name "EPMA (EMP)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ],
-        [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Age Model" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "missing" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
@@ -5999,12 +5999,6 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -6016,7 +6010,13 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ] ] ;
+                    ada:chemicalAbrasionConditions "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
     schema1:datePublished "missing" ;
@@ -6035,24 +6035,24 @@ laQicpmsUPbTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian 
                     schema1:value "Martian meteorite (Tissint) phosphate: sodium-merrillite" ],
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Same as silicate protocol" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Same as silicate protocol" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Age Model" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ] ;
+            schema1:value "missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "Spot (stationary)" ;
     ada:ablationSpotDurationDefault -9999 ;

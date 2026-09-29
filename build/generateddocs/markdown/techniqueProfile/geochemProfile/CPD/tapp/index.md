@@ -64,17 +64,6 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -150,17 +139,6 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -192,12 +170,7 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space Center | (JSC) Nikon Nikor S Camera (publication column of CPD_TAPP_draft_v2.csv)." ;
     schema1:location [ a schema1:Place ;

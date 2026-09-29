@@ -606,46 +606,11 @@ allOf:
                                         - schema:additionalType
                                       then:
                                         properties:
-                                          ada:collectorConfiguration:
+                                          schema:additionalProperty:
                                             type: array
                                             items:
                                               anyOf:
-                                              - title: Integration Time per Cycle
-                                                description: Duration of signal integration
-                                                  per measurement cycle (seconds).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  schema:name:
-                                                    const: Integration Time per Cycle
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
-                                                  schema:value:
-                                                    anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - ada:dataType
-                                                - schema:value
+                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
                                               - title: Ion Counter Dead Time
                                                 description: Dead time of the ion-counting
                                                   detector(s), used in the dead-time
@@ -658,74 +623,31 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                                   schema:name:
                                                     const: Ion Counter Dead Time
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
                                                 - schema:propertyID
                                                 - schema:name
-                                                - ada:dataType
                                                 - schema:value
+                                                - schema:unitText
                                             allOf:
                                             - contains:
-                                                title: Integration Time per Cycle
-                                                description: Duration of signal integration
-                                                  per measurement cycle (seconds).
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle
-                                                  schema:name:
-                                                    const: Integration Time per Cycle
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
-                                                  schema:value:
-                                                    anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - ada:dataType
-                                                - schema:value
+                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
                                               minContains: 0
                                               maxContains: 1
                                             - contains:
@@ -741,36 +663,28 @@ allOf:
                                                 type: object
                                                 properties:
                                                   '@id':
-                                                    const: ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                                   '@type':
                                                     const:
                                                     - schema:PropertyValue
                                                   schema:propertyID:
                                                     const:
-                                                    - '@id': ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime
+                                                    - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
                                                   schema:name:
                                                     const: Ion Counter Dead Time
-                                                  ada:dataType:
-                                                    const: number
-                                                  ada:tier:
-                                                    const: M
                                                   schema:value:
                                                     anyOf:
-                                                    - anyOf:
-                                                      - type: number
-                                                      - type: string
-                                                    - type: array
-                                                      items:
-                                                        anyOf:
-                                                        - type: number
-                                                        - type: string
+                                                    - type: number
+                                                    - type: string
+                                                  schema:unitText:
+                                                    type: string
                                                 required:
                                                 - '@id'
                                                 - '@type'
                                                 - schema:propertyID
                                                 - schema:name
-                                                - ada:dataType
                                                 - schema:value
+                                                - schema:unitText
                                               minContains: 0
                                               maxContains: 1
                                     - if:

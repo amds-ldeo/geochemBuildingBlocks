@@ -13,16 +13,6 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
                     schema1:name "Data acquisition" ;
@@ -32,7 +22,17 @@
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin section (two-volume cell)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -117,18 +117,16 @@
 
 <ex:instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferenceCorrectionMethod>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferingSpecies>,
+        <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionAssignment>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration>,
+        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collector" ;
     schema1:name "missing" ;
-    ada:collectorConfiguration <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime>,
-        <https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment> .
+    ada:collectorConfiguration "missing" .
 
 <ex:instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
@@ -170,59 +168,6 @@
     ada:laserRepetitionRateDefault "10–30 Hz (varied based on Sr concentration in samples)" ;
     ada:laserSpotGeometryDefault "50–60 µm circular" ;
     ada:laserType "257 nm Yb:KGW femtosecond; pulse duration 300 fs (PHAROS system)" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/collectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "L4=⁸³Kr (gas background monitor, no target species); L3=¹⁶⁷Er²⁺ (interference monitor, no target species); L2=⁸⁴Sr (Sr); L1=⁸⁵Rb (Rb); C=⁸⁶Sr (Sr); H1=¹⁷³Yb²⁺ (interference monitor, no target species); H2=⁸⁷Sr (Sr); H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout (Table 1 'Cup-configuration', p.2; array spans L4–H3, p.2)" ;
-    schema1:name "Collector Configuration" ;
-    schema1:valueName "collectorConfiguration" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupAmplifierResistorValues> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "10¹¹ Ω on all nine Faraday cups (p.2)" ;
-    schema1:name "Faraday Cup Amplifier Resistor Values" ;
-    schema1:valueName "faradayCupAmplifierResistorValues" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/faradayCupGainCalibrationMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "missing" ;
-    schema1:name "Faraday Cup Gain Calibration Method" ;
-    schema1:valueName "faradayCupGainCalibrationMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 5.24e-01 ;
-    schema1:description "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)" ;
-    schema1:name "Integration Time per Cycle" ;
-    schema1:valueName "integrationTimePerCycle" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er²⁺ and 173Yb²⁺ signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias" ;
-    schema1:name "Interference Correction Method" ;
-    schema1:valueName "interferenceCorrectionMethod" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "¹⁶⁸Er²⁺ on ⁸⁴Sr",
-        "¹⁷²Yb²⁺ on ⁸⁶Sr",
-        "¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb",
-        "¹⁷⁴Yb²⁺ on ⁸⁷Sr",
-        "⁸⁷Rb on ⁸⁷Sr (isobaric)" ;
-    schema1:name "Interfering Species" ;
-    schema1:valueName "interferingSpecies" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue -9999 ;
-    schema1:name "Ion Counter Dead Time" ;
-    schema1:valueName "ionCounterDeadTime" ;
-    ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/monitoredPropertyColumn/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Low resolution for all eight monitored masses — 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout" ;
-    schema1:name "Mass Resolution Assignment" ;
-    schema1:valueName "massResolutionAssignment" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:name "Analysis Inclusion and Rejection Criteria" ;
@@ -319,11 +264,26 @@
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupAmplifierResistorValues> a schema1:PropertyValueSpecification ;
+    schema1:name "Faraday Cup Amplifier Resistor Values" ;
+    schema1:value "10¹¹ Ω on all nine Faraday cups (p.2)" ;
+    schema1:valueName "faradayCupAmplifierResistorValues" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupArrayConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Faraday Cup Array Configuration" ;
     schema1:value "Nine Faraday cups fitted with 10¹¹ Ω resistors, plus seven fixed electron multiplier ion counters; the Faraday collector array spans L4 to H3 (p.2)" ;
     schema1:valueName "faradayCupArrayConfiguration" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault> a schema1:PropertyValueSpecification ;
+    schema1:description "0.524 s integration time per cycle (one block of 120 cycles = 62.88 s total)" ;
+    schema1:name "Integration Time per Cycle" ;
+    schema1:value 5.24e-01 ;
+    schema1:valueName "integrationTimePerCycleDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/massFractionationLaw> a schema1:PropertyValueSpecification ;
@@ -360,4 +320,19 @@
     schema1:name "Inter-Pass Data Dependency" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interPassDataDependency> ;
     schema1:value "Single line scan per location (1 block of 120 cycles at 0.524 s integration)" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValue ;
+    schema1:name "Interference Correction Method" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferenceCorrectionMethod> ;
+    schema1:value "Sequential interference correction: (a) doubly charged Er and Yb corrections on Sr masses using measured 167Er²⁺ and 173Yb²⁺ signals and natural isotope ratios; (b) 87Rb isobaric correction on 87Sr using measured 85Rb signal and user-specified 87Rb/85Rb calculated from exponential law for mass bias" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferingSpecies> a schema1:PropertyValue ;
+    schema1:name "Interfering Species" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/interferingSpecies> ;
+    schema1:value "¹⁶⁸Er²⁺ on ⁸⁴Sr; ¹⁷⁰Er²⁺ + ¹⁷⁰Yb²⁺ on ⁸⁵Rb; ¹⁷²Yb²⁺ on ⁸⁶Sr; ¹⁷⁴Yb²⁺ on ⁸⁷Sr; ⁸⁷Rb on ⁸⁷Sr (isobaric)" .
+
+<https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionAssignment> a schema1:PropertyValue ;
+    schema1:name "Mass Resolution Assignment" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/massResolutionAssignment> ;
+    schema1:value "Low resolution for all eight monitored masses — 'the mass spectrometer was operated in low mass resolution mode' (p.3); Table 1 'Instrument resolution ~ 400 (low mode)'. Single acquisition pass, so one assignment applies throughout" .
 

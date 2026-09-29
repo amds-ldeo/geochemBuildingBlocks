@@ -6926,6 +6926,71 @@
                           }
                         },
                         "x-jsonld-id": "http://schema.org/additionalType"
+                      },
+                      "ada:collectorConfiguration": {
+                        "description": "How masses are assigned to collector positions for this procedure, AS THE SOURCE STATES IT. Free text on purpose: submitters write this as prose or as a semicolon-separated list in no agreed syntax (\"L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn ...\"), and in many cases it cannot be parsed at all. Recording the statement verbatim is what can always be done; ada:collectors below is what can sometimes be done as well. Meaningful on a component whose schema:additionalType includes 'Collector'.",
+                        "type": "string"
+                      },
+                      "ada:collectors": {
+                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 \u00a710), and the fallback must not quietly move them onto the collector axis.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "@type",
+                            "schema:name"
+                          ],
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "enum": [
+                                  "ada:Collector"
+                                ]
+                              }
+                            },
+                            "schema:name": {
+                              "description": "The collector position label as the instrument names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class multicollector. This is the identifier other properties reference. In the N=1 fallback there is no position to name, so it is the fixed label 'Collector configuration description' and nothing should join to it.",
+                              "type": "string",
+                              "minLength": 1,
+                              "x-jsonld-id": "http://schema.org/name"
+                            },
+                            "ada:targetSpecies": {
+                              "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
+                              "type": "string"
+                            },
+                            "schema:description": {
+                              "type": "string",
+                              "x-jsonld-id": "http://schema.org/description"
+                            },
+                            "schema:additionalProperty": {
+                              "description": "Quantities carried on this member as name/value pairs. In the parsed form these are per-position quantities that cannot be restated per mass -- a baseline, a gain factor. In the N=1 form they are the source fields themselves, each as its item name and the text as written, which is how an unparseable per-collector statement is preserved without inventing an assignment it does not make.",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "schema:name"
+                                ],
+                                "properties": {
+                                  "schema:name": {
+                                    "description": "The item name, e.g. 'Faraday Cup Amplifier Resistor Values'.",
+                                    "type": "string",
+                                    "x-jsonld-id": "http://schema.org/name"
+                                  },
+                                  "schema:value": {
+                                    "description": "The value, as written when it did not parse.",
+                                    "x-jsonld-id": "http://schema.org/value"
+                                  }
+                                }
+                              },
+                              "x-jsonld-id": "http://schema.org/additionalProperty"
+                            }
+                          }
+                        }
                       }
                     }
                   },
@@ -8554,6 +8619,71 @@
                           }
                         },
                         "x-jsonld-id": "http://schema.org/additionalType"
+                      },
+                      "ada:collectorConfiguration": {
+                        "description": "How masses are assigned to collector positions for this procedure, AS THE SOURCE STATES IT. Free text on purpose: submitters write this as prose or as a semicolon-separated list in no agreed syntax (\"L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn ...\"), and in many cases it cannot be parsed at all. Recording the statement verbatim is what can always be done; ada:collectors below is what can sometimes be done as well. Meaningful on a component whose schema:additionalType includes 'Collector'.",
+                        "type": "string"
+                      },
+                      "ada:collectors": {
+                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 \u00a710), and the fallback must not quietly move them onto the collector axis.",
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "@type",
+                            "schema:name"
+                          ],
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "string"
+                              },
+                              "contains": {
+                                "enum": [
+                                  "ada:Collector"
+                                ]
+                              }
+                            },
+                            "schema:name": {
+                              "description": "The collector position label as the instrument names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class multicollector. This is the identifier other properties reference. In the N=1 fallback there is no position to name, so it is the fixed label 'Collector configuration description' and nothing should join to it.",
+                              "type": "string",
+                              "minLength": 1,
+                              "x-jsonld-id": "http://schema.org/name"
+                            },
+                            "ada:targetSpecies": {
+                              "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
+                              "type": "string"
+                            },
+                            "schema:description": {
+                              "type": "string",
+                              "x-jsonld-id": "http://schema.org/description"
+                            },
+                            "schema:additionalProperty": {
+                              "description": "Quantities carried on this member as name/value pairs. In the parsed form these are per-position quantities that cannot be restated per mass -- a baseline, a gain factor. In the N=1 form they are the source fields themselves, each as its item name and the text as written, which is how an unparseable per-collector statement is preserved without inventing an assignment it does not make.",
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "schema:name"
+                                ],
+                                "properties": {
+                                  "schema:name": {
+                                    "description": "The item name, e.g. 'Faraday Cup Amplifier Resistor Values'.",
+                                    "type": "string",
+                                    "x-jsonld-id": "http://schema.org/name"
+                                  },
+                                  "schema:value": {
+                                    "description": "The value, as written when it did not parse.",
+                                    "x-jsonld-id": "http://schema.org/value"
+                                  }
+                                }
+                              },
+                              "x-jsonld-id": "http://schema.org/additionalProperty"
+                            }
+                          }
+                        }
                       }
                     }
                   },
@@ -20205,87 +20335,12 @@
                                                   },
                                                   "then": {
                                                     "properties": {
-                                                      "ada:collectorConfiguration": {
+                                                      "schema:additionalProperty": {
                                                         "type": "array",
                                                         "items": {
                                                           "anyOf": [
                                                             {
-                                                              "title": "Integration Time per Cycle",
-                                                              "description": "Duration of signal integration per measurement cycle (seconds).",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "enum": [
-                                                                    "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                  ]
-                                                                },
-                                                                "@type": {
-                                                                  "enum": [
-                                                                    [
-                                                                      "schema:PropertyValue"
-                                                                    ]
-                                                                  ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                  "enum": [
-                                                                    [
-                                                                      {
-                                                                        "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                      }
-                                                                    ]
-                                                                  ]
-                                                                },
-                                                                "schema:name": {
-                                                                  "enum": [
-                                                                    "Integration Time per Cycle"
-                                                                  ]
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "enum": [
-                                                                    "number"
-                                                                  ]
-                                                                },
-                                                                "ada:tier": {
-                                                                  "enum": [
-                                                                    "M"
-                                                                  ]
-                                                                },
-                                                                "schema:value": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
-                                                              ]
+                                                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/detail/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_integrationTimePerCycle"
                                                             },
                                                             {
                                                               "title": "Ion Counter Dead Time",
@@ -20294,7 +20349,7 @@
                                                               "properties": {
                                                                 "@id": {
                                                                   "enum": [
-                                                                    "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                    "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
                                                                   ]
                                                                 },
                                                                 "@type": {
@@ -20308,7 +20363,7 @@
                                                                   "enum": [
                                                                     [
                                                                       {
-                                                                        "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                        "@id": "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
                                                                       }
                                                                     ]
                                                                   ]
@@ -20318,42 +20373,18 @@
                                                                     "Ion Counter Dead Time"
                                                                   ]
                                                                 },
-                                                                "ada:dataType": {
-                                                                  "enum": [
-                                                                    "number"
-                                                                  ]
-                                                                },
-                                                                "ada:tier": {
-                                                                  "enum": [
-                                                                    "M"
-                                                                  ]
-                                                                },
                                                                 "schema:value": {
                                                                   "anyOf": [
                                                                     {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
+                                                                      "type": "number"
                                                                     },
                                                                     {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
+                                                                      "type": "string"
                                                                     }
                                                                   ]
+                                                                },
+                                                                "schema:unitText": {
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -20361,8 +20392,8 @@
                                                                 "@type",
                                                                 "schema:propertyID",
                                                                 "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
+                                                                "schema:value",
+                                                                "schema:unitText"
                                                               ]
                                                             }
                                                           ]
@@ -20370,82 +20401,7 @@
                                                         "allOf": [
                                                           {
                                                             "contains": {
-                                                              "title": "Integration Time per Cycle",
-                                                              "description": "Duration of signal integration per measurement cycle (seconds).",
-                                                              "type": "object",
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "enum": [
-                                                                    "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                  ]
-                                                                },
-                                                                "@type": {
-                                                                  "enum": [
-                                                                    [
-                                                                      "schema:PropertyValue"
-                                                                    ]
-                                                                  ]
-                                                                },
-                                                                "schema:propertyID": {
-                                                                  "enum": [
-                                                                    [
-                                                                      {
-                                                                        "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/integrationTimePerCycle"
-                                                                      }
-                                                                    ]
-                                                                  ]
-                                                                },
-                                                                "schema:name": {
-                                                                  "enum": [
-                                                                    "Integration Time per Cycle"
-                                                                  ]
-                                                                },
-                                                                "ada:dataType": {
-                                                                  "enum": [
-                                                                    "number"
-                                                                  ]
-                                                                },
-                                                                "ada:tier": {
-                                                                  "enum": [
-                                                                    "M"
-                                                                  ]
-                                                                },
-                                                                "schema:value": {
-                                                                  "anyOf": [
-                                                                    {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
-                                                                    },
-                                                                    {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
-                                                                    }
-                                                                  ]
-                                                                }
-                                                              },
-                                                              "required": [
-                                                                "@id",
-                                                                "@type",
-                                                                "schema:propertyID",
-                                                                "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
-                                                              ]
+                                                              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/detail/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Analysis_integrationTimePerCycle"
                                                             },
                                                             "minContains": 0,
                                                             "maxContains": 1
@@ -20458,7 +20414,7 @@
                                                               "properties": {
                                                                 "@id": {
                                                                   "enum": [
-                                                                    "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                    "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
                                                                   ]
                                                                 },
                                                                 "@type": {
@@ -20472,7 +20428,7 @@
                                                                   "enum": [
                                                                     [
                                                                       {
-                                                                        "@id": "ada:monitoredPropertyColumn/laMcicpmsTAPP/ionCounterDeadTime"
+                                                                        "@id": "ada:parameter/laMcicpmsTAPP/ionCounterDeadTime"
                                                                       }
                                                                     ]
                                                                   ]
@@ -20482,42 +20438,18 @@
                                                                     "Ion Counter Dead Time"
                                                                   ]
                                                                 },
-                                                                "ada:dataType": {
-                                                                  "enum": [
-                                                                    "number"
-                                                                  ]
-                                                                },
-                                                                "ada:tier": {
-                                                                  "enum": [
-                                                                    "M"
-                                                                  ]
-                                                                },
                                                                 "schema:value": {
                                                                   "anyOf": [
                                                                     {
-                                                                      "anyOf": [
-                                                                        {
-                                                                          "type": "number"
-                                                                        },
-                                                                        {
-                                                                          "type": "string"
-                                                                        }
-                                                                      ]
+                                                                      "type": "number"
                                                                     },
                                                                     {
-                                                                      "type": "array",
-                                                                      "items": {
-                                                                        "anyOf": [
-                                                                          {
-                                                                            "type": "number"
-                                                                          },
-                                                                          {
-                                                                            "type": "string"
-                                                                          }
-                                                                        ]
-                                                                      }
+                                                                      "type": "string"
                                                                     }
                                                                   ]
+                                                                },
+                                                                "schema:unitText": {
+                                                                  "type": "string"
                                                                 }
                                                               },
                                                               "required": [
@@ -20525,8 +20457,8 @@
                                                                 "@type",
                                                                 "schema:propertyID",
                                                                 "schema:name",
-                                                                "ada:dataType",
-                                                                "schema:value"
+                                                                "schema:value",
+                                                                "schema:unitText"
                                                               ]
                                                             },
                                                             "minContains": 0,

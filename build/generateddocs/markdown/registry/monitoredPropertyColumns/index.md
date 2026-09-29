@@ -44,8 +44,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -75,7 +81,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -103,7 +113,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -135,8 +149,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -167,8 +187,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -197,7 +223,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -231,8 +261,14 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -262,7 +298,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -290,7 +330,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -917,8 +961,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -948,7 +998,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -976,7 +1030,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1009,8 +1067,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1041,8 +1105,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1071,7 +1141,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1105,8 +1179,14 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1136,7 +1216,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1164,7 +1248,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1195,8 +1283,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1226,7 +1320,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1254,7 +1352,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1287,8 +1389,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1319,8 +1427,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1349,7 +1463,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1383,8 +1501,14 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1414,7 +1538,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1442,7 +1570,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1892,8 +2024,14 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'
@@ -1926,7 +2064,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -1958,7 +2100,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -2058,7 +2204,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -2090,7 +2240,11 @@ $defs:
       ada:tier:
         const: M
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -2121,7 +2275,11 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
-        type: string
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
     required:
     - '@id'
     - '@type'
@@ -2152,8 +2310,14 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - type: number
-        - type: string
+        - anyOf:
+          - type: number
+          - type: string
+        - type: array
+          items:
+            anyOf:
+            - type: number
+            - type: string
     required:
     - '@id'
     - '@type'

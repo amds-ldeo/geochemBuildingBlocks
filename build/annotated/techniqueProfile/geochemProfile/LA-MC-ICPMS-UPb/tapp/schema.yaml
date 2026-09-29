@@ -876,103 +876,29 @@ allOf:
                             minContains: 0
                             maxContains: 1
                         ada:collectorConfiguration:
-                          type: array
-                          items:
-                            title: Collector Configuration
-                            description: "Assignment of isotope masses to Faraday
-                              cup or ion counter detector positions for this procedure,
-                              and the target species each position serves. Lists the
-                              mass number monitored in each collector position with
-                              its target species element where it has one \u2014 e.g.
-                              'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb
-                              (interference monitor, no target species)'. Interference-monitor
-                              and internal-standard positions serve no target species
-                              and carry no parent element; the target species list
-                              itself is given by the Target Species field and is never
-                              inferred from the mass labels here. For static multi-collection
-                              procedures, one configuration applies throughout the
-                              measurement. For multi-dynamic procedures, list all
-                              configurations and the cycling sequence."
-                            type: object
-                            properties:
-                              '@id':
-                                const: ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/collectorConfiguration
-                              '@type':
-                                const:
-                                - schema:PropertyValueSpecification
-                              schema:valueName:
-                                const: collectorConfiguration
-                              schema:name:
-                                const: Collector Configuration
-                              ada:dataType:
-                                const: string
-                              schema:readonlyValue:
-                                const: true
-                              ada:tier:
-                                const: M
-                              schema:defaultValue:
-                                anyOf:
-                                - type: string
-                                - type: array
-                                  items:
-                                    type: string
-                            required:
-                            - '@id'
-                            - '@type'
-                            - schema:valueName
-                            - schema:name
-                            - ada:dataType
-                            - schema:defaultValue
-                          allOf:
-                          - contains:
-                              title: Collector Configuration
-                              description: "Assignment of isotope masses to Faraday
-                                cup or ion counter detector positions for this procedure,
-                                and the target species each position serves. Lists
-                                the mass number monitored in each collector position
-                                with its target species element where it has one \u2014
-                                e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn);
-                                H1=121Sb (interference monitor, no target species)'.
-                                Interference-monitor and internal-standard positions
-                                serve no target species and carry no parent element;
-                                the target species list itself is given by the Target
-                                Species field and is never inferred from the mass
-                                labels here. For static multi-collection procedures,
-                                one configuration applies throughout the measurement.
-                                For multi-dynamic procedures, list all configurations
-                                and the cycling sequence."
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:monitoredPropertyColumn/laMcicpmsUPbTAPP/collectorConfiguration
-                                '@type':
-                                  const:
-                                  - schema:PropertyValueSpecification
-                                schema:valueName:
-                                  const: collectorConfiguration
-                                schema:name:
-                                  const: Collector Configuration
-                                ada:dataType:
-                                  const: string
-                                schema:readonlyValue:
-                                  const: true
-                                ada:tier:
-                                  const: M
-                                schema:defaultValue:
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:valueName
-                              - schema:name
-                              - ada:dataType
-                              - schema:defaultValue
-                            minContains: 0
-                            maxContains: 1
+                          description: "Assignment of isotope masses to Faraday cup
+                            or ion counter detector positions for this procedure,
+                            and the target species each position serves. Lists the
+                            mass number monitored in each collector position with
+                            its target species element where it has one \u2014 e.g.
+                            'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb
+                            (interference monitor, no target species)'. Interference-monitor
+                            and internal-standard positions serve no target species
+                            and carry no parent element; the target species list itself
+                            is given by the Target Species field and is never inferred
+                            from the mass labels here. For static multi-collection
+                            procedures, one configuration applies throughout the measurement.
+                            For multi-dynamic procedures, list all configurations
+                            and the cycling sequence."
+                          anyOf:
+                          - type: string
+                            readOnly: true
+                          - type: array
+                            items:
+                              type: string
+                              readOnly: true
+                      required:
+                      - ada:collectorConfiguration
                   - if:
                       properties:
                         schema:additionalType:

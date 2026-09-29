@@ -64,17 +64,6 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -150,17 +139,6 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -192,12 +170,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv)." ;
     schema1:location [ a schema1:Place ;

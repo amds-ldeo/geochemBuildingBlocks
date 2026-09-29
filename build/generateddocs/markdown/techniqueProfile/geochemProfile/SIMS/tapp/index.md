@@ -80,17 +80,6 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -188,17 +177,6 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -236,12 +214,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Marrocchi, Yves" ] ;
     schema1:datePublished "missing" ;

@@ -67,17 +67,6 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -162,17 +151,6 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
         ],
         "schema:position": 1,
         "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
       }
     ]
   },
@@ -210,12 +188,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv)." ;
     schema1:location [ a schema1:Place ;

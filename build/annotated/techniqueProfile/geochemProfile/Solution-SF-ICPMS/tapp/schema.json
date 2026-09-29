@@ -2211,7 +2211,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
@@ -2256,7 +2266,17 @@
                         "const": "M"
                       },
                       "schema:defaultValue": {
-                        "type": "string"
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
                       }
                     },
                     "required": [
