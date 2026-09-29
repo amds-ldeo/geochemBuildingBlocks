@@ -11,7 +11,7 @@ Analysis End Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,new in this revision (needs mapping),
 Analysis Start Date,N/A,Basic,Date,,module,shared,placement owned by Module Core,
 Analyst,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,
-Target Species,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: target species
+Target Species,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[],technique,shared,placement is technique-owned: no built module carries the default-ROWS array,defines: target species
 Target Species Estimation Method,Advanced,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,target species
 Analytical Accuracy,Advanced,Basic,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,standard x reported property
 Analytical Mode,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,

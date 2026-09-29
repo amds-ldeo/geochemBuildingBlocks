@@ -94,7 +94,7 @@ Doubly-Charged Species Production,Advanced,Editable,Text (free),$MethodDefinitio
 Instrument Warm-up / Session Duration Limit,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Instrument Warm up Session Duration Limit'].schema:value,authored,shared,,
 Analysis Sequence,Basic,Editable,Text (free),,module,divergent,placement owned by Module ICPMS,
 Analysis Sequence,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Analysis Sequence'].schema:value,authored,divergent,tier rule: session parameter is an additionalProperty on the analysis,
-Target Species,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: target species
+Target Species,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[],technique,shared,placement is technique-owned: no built module carries the default-ROWS array,defines: target species
 Monitored Masses,Basic,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,defines: monitored property per target species
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core (reviewer settled the reported-property list as $MethodDefinition.ada:reportedProperties[]),defines: reported property
 Mass Resolution Assignment,Basic,Read-Only,Text (free),$MethodDefinition.ada:massResolutionAssignment,inferred,,,acquisition pass

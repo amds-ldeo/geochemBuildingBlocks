@@ -53,7 +53,7 @@ Chamber Pressure,Advanced,Editable,Numeric + unit,$MethodDefinition.schema:addit
 Chamber Pressure,Advanced,Editable,Numeric + unit,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Chamber Pressure'].schema:value,inferred,shared,path corrected: analysis-tier value hangs off prov:wasGeneratedBy,
 Dwell Time per Pixel,Basic,Editable,Numeric + unit,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,shared,channel keyed table (was mis-mapped),monitored property
 EDS Acquisition Mode,Basic,Read-Only,Controlled list,$MethodDefinition.ada:edsAcquisitionMode,inferred,shared,,
-Target Species,Basic,Editable,Text (free),,module,shared,placement owned by Module Analyte,defines: target species
+Target Species,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[],technique,shared,placement is technique-owned: no built module carries the default-ROWS array,defines: target species
 Reported Variables and Units,Basic,Read-Only,Text (free),,module,,placement owned by Module Core,defines: reported property
 Technique per Target Species,Basic,Read-Only,Controlled list,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,,,target species
 X-ray Line,Basic,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,divergent,channel keyed table (was mis-mapped),monitored property
