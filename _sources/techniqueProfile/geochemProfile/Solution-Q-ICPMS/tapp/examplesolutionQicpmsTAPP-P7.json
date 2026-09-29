@@ -158,13 +158,13 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:monitoredPropertyTemplate": {
-    "ada:defaultMonitoredProperties": [
-      "N — Se isotopes not individually stated"
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Se"
     ],
-    "ada:monitoredPropertyColumns": [
+    "ada:targetSpeciesColumns": [
       {
-        "schema:valueName": "monitoredProperty",
+        "schema:valueName": "targetSpecies",
         "ada:dataType": "string",
         "schema:readonlyValue": true,
         "schema:valueRequired": true,
@@ -176,44 +176,61 @@
         "schema:name": "example instrumentName"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "dwellTimePerMass",
-        "schema:name": "Dwell Time per Mass",
-        "ada:dataType": "number",
-        "schema:defaultValue": "example value"
-      },
-      {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "spectralInterferenceCorrectionsApplied",
-        "schema:name": "Spectral Interference Corrections Applied",
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferingSpecies",
-        "schema:name": "Interfering Species",
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
       },
       {
-        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "interferenceCorrectionMethod",
-        "schema:name": "Interference Correction Method",
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
         "ada:dataType": "string",
         "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
       }
     ]
   },

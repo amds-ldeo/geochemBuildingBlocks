@@ -702,6 +702,13 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -1138,6 +1145,8 @@ allOf:
           - contains: *id014
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:massResolutionAssignment:
       description: Mass resolution mode used for acquisition. One target species may be acquired at more
         than one resolution, so the assignment is per acquired mass rather than per element. The overall

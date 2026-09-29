@@ -14380,7 +14380,7 @@
                                 "properties": {
                                   "ada:monitoredPropertyColumns": {
                                     "type": "array",
-                                    "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
+                                    "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
                                     "minItems": 1,
                                     "items": {
                                       "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
@@ -14433,7 +14433,7 @@
                                   },
                                   "ada:defaultMonitoredProperties": {
                                     "type": "array",
-                                    "description": "The channels this procedure defines by default — the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
+                                    "description": "The monitored properties this procedure defines by default — the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"⁸⁴Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: ⁸³Kr, ¹⁶⁷Er²⁺ and ¹⁷³Yb²⁺ in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -14441,6 +14441,37 @@
                                         },
                                         {
                                           "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "title": "Per-monitored-property row",
+                                          "description": "One row of the table, keyed by column schema:valueName.",
+                                          "required": [
+                                            "monitoredProperty"
+                                          ],
+                                          "properties": {
+                                            "monitoredProperty": {
+                                              "description": "The selection position measured, e.g. '⁸⁴Sr'. Becomes a schema:variableMeasured entry on the data product.",
+                                              "type": "string"
+                                            },
+                                            "targetSpecies": {
+                                              "description": "The species this property helps determine, when it determines one. Absent for a monitor.",
+                                              "type": "string"
+                                            },
+                                            "collector": {
+                                              "description": "schema:name of the collector carrying this property, matching an entry in schema:instrument…hasPart[Collector].ada:collectors.",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "additionalProperties": {
+                                            "type": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean",
+                                              "null"
+                                            ]
+                                          }
                                         }
                                       ]
                                     }
@@ -17912,7 +17943,7 @@
                                 "properties": {
                                   "ada:monitoredPropertyColumns": {
                                     "type": "array",
-                                    "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
+                                    "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
                                     "minItems": 1,
                                     "items": {
                                       "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
@@ -17965,7 +17996,7 @@
                                   },
                                   "ada:defaultMonitoredProperties": {
                                     "type": "array",
-                                    "description": "The channels this procedure defines by default — the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
+                                    "description": "The monitored properties this procedure defines by default — the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"⁸⁴Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: ⁸³Kr, ¹⁶⁷Er²⁺ and ¹⁷³Yb²⁺ in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -17973,6 +18004,37 @@
                                         },
                                         {
                                           "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "title": "Per-monitored-property row",
+                                          "description": "One row of the table, keyed by column schema:valueName.",
+                                          "required": [
+                                            "monitoredProperty"
+                                          ],
+                                          "properties": {
+                                            "monitoredProperty": {
+                                              "description": "The selection position measured, e.g. '⁸⁴Sr'. Becomes a schema:variableMeasured entry on the data product.",
+                                              "type": "string"
+                                            },
+                                            "targetSpecies": {
+                                              "description": "The species this property helps determine, when it determines one. Absent for a monitor.",
+                                              "type": "string"
+                                            },
+                                            "collector": {
+                                              "description": "schema:name of the collector carrying this property, matching an entry in schema:instrument…hasPart[Collector].ada:collectors.",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "additionalProperties": {
+                                            "type": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean",
+                                              "null"
+                                            ]
+                                          }
                                         }
                                       ]
                                     }
@@ -20158,7 +20220,7 @@
                         "type": "string"
                       },
                       "ada:collectors": {
-                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
+                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nWhat a collector does NOT carry is which monitored property it measures. That assignment is procedure configuration, not hardware -- the same physical array is wired differently by another procedure, and an analysis may override it -- so it lives as the 'collector' column of ada:monitoredPropertyColumns on the method definition, whose values are these schema:names. Putting it here would invert the dependency and make the instrument description procedure-specific.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -20181,10 +20243,6 @@
                               "description": "The collector position label as the instrument names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class multicollector. This is the identifier other properties reference. In the N=1 fallback there is no position to name, so it is the fixed label 'Collector configuration description' and nothing should join to it.",
                               "type": "string",
                               "minLength": 1
-                            },
-                            "ada:targetSpecies": {
-                              "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
-                              "type": "string"
                             },
                             "schema:description": {
                               "type": "string"

@@ -224,6 +224,13 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -628,6 +635,8 @@ allOf:
           - contains: *id012
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:monitoredPropertyTemplate:
       type: object
       properties:
@@ -982,6 +991,7 @@ allOf:
             anyOf:
             - type: string
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
     schema:additionalProperty:
       type: array
       items:

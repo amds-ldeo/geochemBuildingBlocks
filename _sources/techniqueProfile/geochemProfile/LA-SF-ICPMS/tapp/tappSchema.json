@@ -1248,6 +1248,22 @@
                 "ada:targetSpeciesTemplate": {
                     "type": "object",
                     "properties": {
+                        "ada:defaultTargetSpecies": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        },
                         "ada:targetSpeciesColumns": {
                             "type": "array",
                             "items": {
@@ -2300,7 +2316,10 @@
                                 }
                             ]
                         }
-                    }
+                    },
+                    "required": [
+                        "ada:defaultTargetSpecies"
+                    ]
                 },
                 "ada:massResolutionAssignment": {
                     "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",

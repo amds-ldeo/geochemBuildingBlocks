@@ -688,6 +688,241 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
+    ada:targetSpeciesTemplate:
+      type: object
+      properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+        ada:targetSpeciesColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
+            - &id004
+              title: Calibration Strategy per Target Species
+              description: Approach used to convert measured ion signals to reported concentrations, and
+                specifically any case where different target species or target species groups within one
+                procedure are calibrated differently - different primary standards for different mass
+                ranges or phases, or one element serving as internal standard while others are externally
+                calibrated. Where a single strategy applies to all target species, record that strategy.
+                Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable
+                (isotope ratios only)'.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: calibrationStrategyPerTargetSpecies
+                schema:name:
+                  const: Calibration Strategy per Target Species
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id005
+              title: Within-Session Analytical Precision and Assessment Method
+              description: Precision of repeated measurements within a single analytical session and the
+                method used to assess it. Report both the assessment method and the precision values.
+                The assessment method must specify the reference material or standard measured, the number
+                of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct
+                from the internal precision of a single measurement, which derives from counting statistics
+                over the cycles of that measurement rather than from repeated analyses.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Within-Session Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id006
+              title: Between-Session (Long-Term) Analytical Precision and Assessment Method
+              description: Precision of measurements across multiple analytical sessions over weeks to
+                months — long-term or intermediate precision — and the method used to assess it. Report
+                both the assessment method and the precision values, specifying the reference material,
+                the number of measurements and sessions, the time span covered, and the statistic reported.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Between-Session (Long-Term) Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id007
+              title: Analytical Accuracy and Assessment Method
+              description: Offset between measured and accepted values for secondary reference materials,
+                and the method used to assess it. Specify the reference material and the source of its
+                accepted values, the number of analyses, and the quantities assessed. Report systematic
+                biases and their likely causes. Express the offset in the form appropriate to what the
+                procedure reports - percent relative bias for concentrations, or deviation in delta or
+                ratio units for isotopic quantities.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: analyticalAccuracyAndAssessmentMethod
+                schema:name:
+                  const: Analytical Accuracy and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id008
+              title: Counting Statistics Error
+              description: Uncertainty predicted from counting statistics — the theoretical limit set
+                by the Poisson distribution of the counts accumulated — for each reported quantity per
+                analysis, with the sigma level stated. Derived from the counts on the target species together
+                with those on any background or blank subtracted from it. Distinct from the scatter actually
+                observed within a measurement or between repeated measurements, which is recorded separately.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: countingStatisticsError
+                schema:name:
+                  const: Counting Statistics Error
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+            - &id009
+              title: Internal (Within-Measurement) Analytical Precision and Assessment Method
+              description: Precision of a single measurement, derived from the scatter of the cycles,
+                sweeps or integrations that make it up, together with the method used to assess it. State
+                the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported
+                quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty
+                predicted from the counts rather than the scatter observed; where a procedure reports
+                both, record the observed value here and the predicted value there.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: internalAnalyticalPrecisionAndAssessmentMethod
+                schema:name:
+                  const: Internal (Within-Measurement) Analytical Precision and Assessment Method
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: R
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+          allOf:
+          - contains: *id004
+            minContains: 0
+            maxContains: 1
+          - contains: *id005
+            minContains: 0
+            maxContains: 1
+          - contains: *id006
+            minContains: 0
+            maxContains: 1
+          - contains: *id007
+            minContains: 0
+            maxContains: 1
+          - contains: *id008
+            minContains: 0
+            maxContains: 1
+          - contains: *id009
+            minContains: 0
+            maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:monitoredPropertyTemplate:
       type: object
       properties:
@@ -697,12 +932,13 @@ allOf:
             anyOf:
             - type: string
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:monitoredPropertyColumns:
           type: array
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id008
+            - &id014
               title: Dwell Time per Mass
               description: Count (dwell) time at the mass position, in milliseconds. Where the procedure
                 defines it per sweep or per scan rather than per measurement, state that basis.
@@ -725,12 +961,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id004
+                  - &id010
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id004
+                    items: *id010
               required:
               - '@id'
               - '@type'
@@ -738,7 +974,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id015
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -763,10 +999,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id005
+                  - &id011
                     type: string
                   - type: array
-                    items: *id005
+                    items: *id011
               required:
               - '@id'
               - '@type'
@@ -774,7 +1010,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id016
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -799,10 +1035,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id006
+                  - &id012
                     type: string
                   - type: array
-                    items: *id006
+                    items: *id012
               required:
               - '@id'
               - '@type'
@@ -810,7 +1046,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id017
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -836,10 +1072,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id007
+                  - &id013
                     type: string
                   - type: array
-                    items: *id007
+                    items: *id013
               required:
               - '@id'
               - '@type'
@@ -848,16 +1084,16 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id008
+          - contains: *id014
             minContains: 0
             maxContains: 1
-          - contains: *id009
+          - contains: *id015
             minContains: 0
             maxContains: 1
-          - contains: *id010
+          - contains: *id016
             minContains: 0
             maxContains: 1
-          - contains: *id011
+          - contains: *id017
             minContains: 0
             maxContains: 1
       required:
@@ -904,232 +1140,6 @@ allOf:
       - N/A
       - missing
       readOnly: true
-    ada:targetSpeciesTemplate:
-      type: object
-      properties:
-        ada:targetSpeciesColumns:
-          type: array
-          items:
-            anyOf:
-            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - &id012
-              title: Calibration Strategy per Target Species
-              description: Approach used to convert measured ion signals to reported concentrations, and
-                specifically any case where different target species or target species groups within one
-                procedure are calibrated differently - different primary standards for different mass
-                ranges or phases, or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all target species, record that strategy.
-                Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable
-                (isotope ratios only)'.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/calibrationStrategyPerTargetSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: calibrationStrategyPerTargetSpecies
-                schema:name:
-                  const: Calibration Strategy per Target Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id013
-              title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical session and the
-                method used to assess it. Report both the assessment method and the precision values.
-                The assessment method must specify the reference material or standard measured, the number
-                of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct
-                from the internal precision of a single measurement, which derives from counting statistics
-                over the cycles of that measurement rather than from repeated analyses.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: withinSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Within-Session Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id014
-              title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-              description: Precision of measurements across multiple analytical sessions over weeks to
-                months — long-term or intermediate precision — and the method used to assess it. Report
-                both the assessment method and the precision values, specifying the reference material,
-                the number of measurements and sessions, the time span covered, and the statistic reported.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: betweenSessionAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Between-Session (Long-Term) Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id015
-              title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary reference materials,
-                and the method used to assess it. Specify the reference material and the source of its
-                accepted values, the number of analyses, and the quantities assessed. Report systematic
-                biases and their likely causes. Express the offset in the form appropriate to what the
-                procedure reports - percent relative bias for concentrations, or deviation in delta or
-                ratio units for isotopic quantities.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: analyticalAccuracyAndAssessmentMethod
-                schema:name:
-                  const: Analytical Accuracy and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id016
-              title: Counting Statistics Error
-              description: Uncertainty predicted from counting statistics — the theoretical limit set
-                by the Poisson distribution of the counts accumulated — for each reported quantity per
-                analysis, with the sigma level stated. Derived from the counts on the target species together
-                with those on any background or blank subtracted from it. Distinct from the scatter actually
-                observed within a measurement or between repeated measurements, which is recorded separately.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: countingStatisticsError
-                schema:name:
-                  const: Counting Statistics Error
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-            - &id017
-              title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-              description: Precision of a single measurement, derived from the scatter of the cycles,
-                sweeps or integrations that make it up, together with the method used to assess it. State
-                the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported
-                quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty
-                predicted from the counts rather than the scatter observed; where a procedure reports
-                both, record the observed value here and the predicted value there.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: internalAnalyticalPrecisionAndAssessmentMethod
-                schema:name:
-                  const: Internal (Within-Measurement) Analytical Precision and Assessment Method
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: false
-                ada:tier:
-                  const: R
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-          allOf:
-          - contains: *id012
-            minContains: 0
-            maxContains: 1
-          - contains: *id013
-            minContains: 0
-            maxContains: 1
-          - contains: *id014
-            minContains: 0
-            maxContains: 1
-          - contains: *id015
-            minContains: 0
-            maxContains: 1
-          - contains: *id016
-            minContains: 0
-            maxContains: 1
-          - contains: *id017
-            minContains: 0
-            maxContains: 1
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the passes enumerated in
         Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that

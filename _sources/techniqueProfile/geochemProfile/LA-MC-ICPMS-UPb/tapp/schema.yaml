@@ -910,46 +910,19 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - &id006
-              title: Monitored Masses
-              description: Specific masses monitored in this procedure, grouped by the target species
-                element they serve where they serve one. Covers atomic isotopes and, where a reaction
-                cell shifts an target species onto a different mass, the product mass actually measured.
-                Includes interference-monitor and internal-standard masses, which serve no target species
-                and so have no parent element. The target species list is given by the Target Species
-                field and is never inferred from the element symbols appearing here.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: monitoredMasses
-                schema:name:
-                  const: Monitored Masses
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id007
               title: Mass Resolution Assignment
               description: Mass resolution mode used for acquisition. One target species may be acquired
                 at more than one resolution, so the assignment is per acquired mass rather than per element.
@@ -981,7 +954,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id008
+            - &id007
               title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and
                 specifically any case where different target species or target species groups within one
@@ -1016,7 +989,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id008
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
                 are applied in data reduction, supplementary to any suppression already achieved by chemical
@@ -1048,7 +1021,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id009
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured
                 masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
@@ -1080,7 +1053,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id010
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution,
                 together with how its magnitude was established - a monitor mass measured simultaneously
@@ -1113,7 +1086,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id012
+            - &id011
               title: Within-Session Analytical Precision and Assessment Method
               description: Precision of repeated measurements within a single analytical session and the
                 method used to assess it. Report both the assessment method and the precision values.
@@ -1147,7 +1120,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id013
+            - &id012
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
               description: Precision of measurements across multiple analytical sessions over weeks to
                 months — long-term or intermediate precision — and the method used to assess it. Report
@@ -1178,7 +1151,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id014
+            - &id013
               title: Analytical Accuracy and Assessment Method
               description: Offset between measured and accepted values for secondary reference materials,
                 and the method used to assess it. Specify the reference material and the source of its
@@ -1212,7 +1185,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id015
+            - &id014
               title: Counting Statistics Error
               description: Uncertainty predicted from counting statistics — the theoretical limit set
                 by the Poisson distribution of the counts accumulated — for each reported quantity per
@@ -1244,7 +1217,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id016
+            - &id015
               title: Internal (Within-Measurement) Analytical Precision and Assessment Method
               description: Precision of a single measurement, derived from the scatter of the cycles,
                 sweeps or integrations that make it up, together with the method used to assess it. State
@@ -1308,9 +1281,20 @@ allOf:
           - contains: *id015
             minContains: 0
             maxContains: 1
-          - contains: *id016
-            minContains: 0
-            maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
+    ada:monitoredPropertyTemplate:
+      type: object
+      properties:
+        ada:defaultMonitoredProperties:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultMonitoredProperties
     ada:massesMeasuredDefault:
       description: Specific masses monitored in this procedure, grouped by the target species element
         they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target

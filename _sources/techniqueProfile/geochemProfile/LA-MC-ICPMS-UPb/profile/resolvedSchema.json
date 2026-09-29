@@ -11491,7 +11491,7 @@
                             "properties": {
                               "ada:monitoredPropertyColumns": {
                                 "type": "array",
-                                "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
+                                "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
                                 "minItems": 1,
                                 "items": {
                                   "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
@@ -11544,7 +11544,7 @@
                               },
                               "ada:defaultMonitoredProperties": {
                                 "type": "array",
-                                "description": "The channels this procedure defines by default — the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
+                                "description": "The monitored properties this procedure defines by default — the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"⁸⁴Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: ⁸³Kr, ¹⁶⁷Er²⁺ and ¹⁷³Yb²⁺ in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
                                 "items": {
                                   "anyOf": [
                                     {
@@ -11552,6 +11552,37 @@
                                     },
                                     {
                                       "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                    },
+                                    {
+                                      "type": "object",
+                                      "title": "Per-monitored-property row",
+                                      "description": "One row of the table, keyed by column schema:valueName.",
+                                      "required": [
+                                        "monitoredProperty"
+                                      ],
+                                      "properties": {
+                                        "monitoredProperty": {
+                                          "description": "The selection position measured, e.g. '⁸⁴Sr'. Becomes a schema:variableMeasured entry on the data product.",
+                                          "type": "string"
+                                        },
+                                        "targetSpecies": {
+                                          "description": "The species this property helps determine, when it determines one. Absent for a monitor.",
+                                          "type": "string"
+                                        },
+                                        "collector": {
+                                          "description": "schema:name of the collector carrying this property, matching an entry in schema:instrument…hasPart[Collector].ada:collectors.",
+                                          "type": "string"
+                                        }
+                                      },
+                                      "additionalProperties": {
+                                        "type": [
+                                          "string",
+                                          "number",
+                                          "integer",
+                                          "boolean",
+                                          "null"
+                                        ]
+                                      }
                                     }
                                   ]
                                 }
@@ -21975,7 +22006,7 @@
                                 "properties": {
                                   "ada:monitoredPropertyColumns": {
                                     "type": "array",
-                                    "description": "Columns of the per-channel parameter table. Must include exactly one column with schema:valueName \"channel\" identifying the selection position named in each row.",
+                                    "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
                                     "minItems": 1,
                                     "items": {
                                       "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
@@ -22028,7 +22059,7 @@
                                   },
                                   "ada:defaultMonitoredProperties": {
                                     "type": "array",
-                                    "description": "The channels this procedure defines by default — the ROWS of the channel table. Each is a bare string or a schema:DefinedTerm identifying the channel; per-channel column VALUES live in the analysis record's collectorConfiguration array, not here.",
+                                    "description": "The monitored properties this procedure defines by default — the ROWS of the table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns above, which is what carries the mapping:\n\n  {\"monitoredProperty\": \"⁸⁴Sr\", \"targetSpecies\": \"Sr\", \"collector\": \"L2\"}\n\ntargetSpecies is OPTIONAL and its absence is meaningful, not missing data. A procedure routinely monitors masses that determine no target species -- interference monitors, gas background monitors -- and those rows are orphans by design: ⁸³Kr, ¹⁶⁷Er²⁺ and ¹⁷³Yb²⁺ in the Zhang 2022 Rb-Sr procedure are monitored and corrected for, never determined.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -22036,6 +22067,37 @@
                                         },
                                         {
                                           "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        },
+                                        {
+                                          "type": "object",
+                                          "title": "Per-monitored-property row",
+                                          "description": "One row of the table, keyed by column schema:valueName.",
+                                          "required": [
+                                            "monitoredProperty"
+                                          ],
+                                          "properties": {
+                                            "monitoredProperty": {
+                                              "description": "The selection position measured, e.g. '⁸⁴Sr'. Becomes a schema:variableMeasured entry on the data product.",
+                                              "type": "string"
+                                            },
+                                            "targetSpecies": {
+                                              "description": "The species this property helps determine, when it determines one. Absent for a monitor.",
+                                              "type": "string"
+                                            },
+                                            "collector": {
+                                              "description": "schema:name of the collector carrying this property, matching an entry in schema:instrument…hasPart[Collector].ada:collectors.",
+                                              "type": "string"
+                                            }
+                                          },
+                                          "additionalProperties": {
+                                            "type": [
+                                              "string",
+                                              "number",
+                                              "integer",
+                                              "boolean",
+                                              "null"
+                                            ]
+                                          }
                                         }
                                       ]
                                     }
@@ -28934,6 +28996,40 @@
                                   }
                                 ]
                               },
+                              "ada:monitoredPropertyTemplate": {
+                                "type": "object",
+                                "properties": {
+                                  "ada:defaultMonitoredProperties": {
+                                    "type": "array",
+                                    "items": {
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                                        },
+                                        {
+                                          "type": "object"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "ada:defaultMonitoredProperties"
+                                ]
+                              },
+                              "ada:massesMeasuredDefault": {
+                                "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
+                                "type": "string",
+                                "readOnly": true
+                              },
+                              "ada:massResolutionAssignment": {
+                                "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
+                                "type": "string",
+                                "readOnly": true
+                              },
                               "ada:targetSpeciesTemplate": {
                                 "type": "object",
                                 "properties": {
@@ -28943,47 +29039,6 @@
                                       "anyOf": [
                                         {
                                           "$ref": "#/$defs/TargetSpeciesIdentifierColumn"
-                                        },
-                                        {
-                                          "title": "Monitored Masses",
-                                          "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "monitoredMasses"
-                                            },
-                                            "schema:name": {
-                                              "const": "Monitored Masses"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
                                         },
                                         {
                                           "title": "Mass Resolution Assignment",
@@ -29395,51 +29450,6 @@
                                       ]
                                     },
                                     "allOf": [
-                                      {
-                                        "contains": {
-                                          "title": "Monitored Masses",
-                                          "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                                          "type": "object",
-                                          "properties": {
-                                            "@id": {
-                                              "const": "ada:targetSpeciesColumn/laMcicpmsUPbTAPP/monitoredMasses"
-                                            },
-                                            "@type": {
-                                              "const": [
-                                                "schema:PropertyValueSpecification"
-                                              ]
-                                            },
-                                            "schema:valueName": {
-                                              "const": "monitoredMasses"
-                                            },
-                                            "schema:name": {
-                                              "const": "Monitored Masses"
-                                            },
-                                            "ada:dataType": {
-                                              "const": "string"
-                                            },
-                                            "schema:readonlyValue": {
-                                              "const": true
-                                            },
-                                            "ada:tier": {
-                                              "const": "M"
-                                            },
-                                            "schema:defaultValue": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id",
-                                            "@type",
-                                            "schema:valueName",
-                                            "schema:name",
-                                            "ada:dataType",
-                                            "schema:defaultValue"
-                                          ]
-                                        },
-                                        "minContains": 0,
-                                        "maxContains": 1
-                                      },
                                       {
                                         "contains": {
                                           "title": "Mass Resolution Assignment",
@@ -29890,16 +29900,6 @@
                                     ]
                                   }
                                 }
-                              },
-                              "ada:massesMeasuredDefault": {
-                                "description": "Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.",
-                                "type": "string",
-                                "readOnly": true
-                              },
-                              "ada:massResolutionAssignment": {
-                                "description": "Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).",
-                                "type": "string",
-                                "readOnly": true
                               },
                               "ada:massBiasCorrectionStrategy": {
                                 "description": "Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.",
@@ -31248,7 +31248,7 @@
                         "type": "string"
                       },
                       "ada:collectors": {
-                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
+                        "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nWhat a collector does NOT carry is which monitored property it measures. That assignment is procedure configuration, not hardware -- the same physical array is wired differently by another procedure, and an analysis may override it -- so it lives as the 'collector' column of ada:monitoredPropertyColumns on the method definition, whose values are these schema:names. Putting it here would invert the dependency and make the instrument description procedure-specific.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -31271,10 +31271,6 @@
                               "description": "The collector position label as the instrument names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class multicollector. This is the identifier other properties reference. In the N=1 fallback there is no position to name, so it is the fixed label 'Collector configuration description' and nothing should join to it.",
                               "type": "string",
                               "minLength": 1
-                            },
-                            "ada:targetSpecies": {
-                              "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
-                              "type": "string"
                             },
                             "schema:description": {
                               "type": "string"
@@ -38049,6 +38045,149 @@
         }
       ]
     },
+    "TappDefinition_DefinedTerm": {
+      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:DefinedTerm"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "text label for the term that is useful to human user"
+        },
+        "schema:identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:PropertyValue"
+                  },
+                  "minItems": 1
+                },
+                "schema:propertyID": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:termCode": {
+          "type": "string",
+          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            },
+            {
+              "required": [
+                "schema:termCode"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "TargetSpeciesIdentifierColumn": {
       "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
       "allOf": [
@@ -38426,149 +38565,6 @@
       "required": [
         "@type",
         "schema:name"
-      ]
-    },
-    "TappDefinition_DefinedTerm": {
-      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:DefinedTerm"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "text label for the term that is useful to human user"
-        },
-        "schema:identifier": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:PropertyValue"
-                  },
-                  "minItems": 1
-                },
-                "schema:propertyID": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "required": [
-                        "@id"
-                      ],
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ],
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                },
-                "schema:value": {
-                  "type": "string",
-                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:url"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "schema:inDefinedTermSet": {
-          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:termCode": {
-          "type": "string",
-          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:name"
-              ]
-            },
-            {
-              "required": [
-                "schema:identifier"
-              ]
-            },
-            {
-              "required": [
-                "schema:termCode"
-              ]
-            }
-          ]
-        }
       ]
     },
     "ComputationalTool": {

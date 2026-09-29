@@ -816,6 +816,13 @@ allOf:
     ada:targetSpeciesTemplate:
       type: object
       properties:
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
         ada:targetSpeciesColumns:
           type: array
           items:
@@ -1217,6 +1224,8 @@ allOf:
           - contains: *id016
             minContains: 0
             maxContains: 1
+      required:
+      - ada:defaultTargetSpecies
     ada:massesMeasuredDefault:
       description: Specific masses monitored in this procedure, grouped by the target species element
         they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target

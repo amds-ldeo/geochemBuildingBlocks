@@ -3320,6 +3320,30 @@
                     ],
                     "readOnly": true
                 },
+                "ada:targetSpeciesTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultTargetSpecies": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultTargetSpecies"
+                    ]
+                },
                 "ada:eelsAcquisitionModeDefault": {
                     "description": "Mode of EELS data acquisition. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).",
                     "type": "string",

@@ -755,6 +755,15 @@ allOf:
           - contains: *id013
             minContains: 0
             maxContains: 1
+        ada:defaultTargetSpecies:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetSpecies
     schema:additionalProperty:
       type: array
       items:

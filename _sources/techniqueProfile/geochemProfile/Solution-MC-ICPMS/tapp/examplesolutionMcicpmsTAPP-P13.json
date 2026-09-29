@@ -174,6 +174,82 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Ti"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -323,20 +399,39 @@
   "ada:massBiasCorrectionStrategy": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "⁴⁶Ti",
-      "⁴⁷Ti",
-      "⁴⁸Ti",
-      "⁴⁹Ti",
-      "⁵⁰Ti (Ti)",
-      "⁴⁴Ca",
-      "⁵¹V",
-      "⁵²Cr",
-      "⁵³Cr (interference monitors, no target species) — \"Titanium isotopes were collected in two cup configurations. First",
-      "all five Ti isotopes and 44Ca were measured enabling correction of the Ca interference on 46Ti and 48Ti. The second configuration included 49Ti",
-      "50Ti",
-      "51V",
-      "52Cr and 53Cr to correct for isobaric interferences from V and Cr on 50Ti\" (p.8). ⁴⁵Sc belongs to the LLNL procedure in the same paper",
-      "not this one"
+      {
+        "monitoredProperty": "⁴⁶Ti",
+        "targetSpecies": "Ti"
+      },
+      {
+        "monitoredProperty": "⁴⁷Ti",
+        "targetSpecies": "Ti"
+      },
+      {
+        "monitoredProperty": "⁴⁸Ti",
+        "targetSpecies": "Ti"
+      },
+      {
+        "monitoredProperty": "⁴⁹Ti",
+        "targetSpecies": "Ti"
+      },
+      {
+        "monitoredProperty": "⁵⁰Ti",
+        "targetSpecies": "Ti",
+        "collector": "(2) ⁴⁹Ti,"
+      },
+      {
+        "monitoredProperty": "⁴⁴Ca"
+      },
+      {
+        "monitoredProperty": "⁵¹V"
+      },
+      {
+        "monitoredProperty": "⁵²Cr"
+      },
+      {
+        "monitoredProperty": "⁵³Cr"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

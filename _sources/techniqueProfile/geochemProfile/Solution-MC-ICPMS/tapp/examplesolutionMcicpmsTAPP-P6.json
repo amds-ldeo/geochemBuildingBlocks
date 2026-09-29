@@ -349,6 +349,82 @@
       "schema:value": "\"Instrument electronic baselines and amplifier gains were then measured ... while the Neptune was allowed to warm up for half an hour\""
     }
   ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Os"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/solutionMcicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -472,16 +548,40 @@
   "ada:massBiasCorrectionStrategy": "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
-      "¹⁸⁴Os",
-      "¹⁸⁶Os",
-      "¹⁸⁷Os",
-      "¹⁸⁸Os",
-      "¹⁸⁹Os",
-      "¹⁹⁰Os",
-      "¹⁹²Os (Os)",
-      "¹⁸⁵Re and ¹⁸²W/¹⁸⁴W/¹⁸⁶W (interference monitors, no target species) — the Os masses are those whose ratios to ¹⁸⁸Os the paper measures and reports",
-      "the Re and W monitors are named throughout the interference-correction discussion (§3.6, pp.12–18)",
-      "and the L3 detector is named as carrying ¹⁸⁴Os (p.26). The paper gives no single cup-configuration table"
+      {
+        "monitoredProperty": "¹⁸⁴Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁸⁶Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁸⁷Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁸⁸Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁸⁹Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁹⁰Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁹²Os",
+        "targetSpecies": "Os"
+      },
+      {
+        "monitoredProperty": "¹⁸⁵Re"
+      },
+      {
+        "monitoredProperty": "¹⁸²W/¹⁸⁴W/¹⁸⁶W"
+      }
     ],
     "ada:monitoredPropertyColumns": [
       {

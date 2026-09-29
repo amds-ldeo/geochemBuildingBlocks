@@ -347,6 +347,22 @@
                 "ada:targetSpeciesTemplate": {
                     "type": "object",
                     "properties": {
+                        "ada:defaultTargetSpecies": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        },
                         "ada:targetSpeciesColumns": {
                             "type": "array",
                             "items": {
@@ -1389,7 +1405,10 @@
                                 }
                             ]
                         }
-                    }
+                    },
+                    "required": [
+                        "ada:defaultTargetSpecies"
+                    ]
                 },
                 "ada:monitoredPropertyTemplate": {
                     "type": "object",
@@ -2473,6 +2492,9 @@
                                     },
                                     {
                                         "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
                                     }
                                 ]
                             }

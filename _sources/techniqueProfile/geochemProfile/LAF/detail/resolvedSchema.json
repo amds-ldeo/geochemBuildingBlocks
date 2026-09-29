@@ -9425,7 +9425,7 @@
                                 "type": "string"
                               },
                               "ada:collectors": {
-                                "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
+                                "description": "The collector table. One member per position when ada:collectorConfiguration parses into positions, and ONE member carrying the text as written when it does not -- the N=1 form of the flattening fallback that TAPP-keyed-values-design.md Decision 6 settles for every keyed axis: \"rather than admit two shapes, always emit the table: a declaration that does not parse into members yields a one-row table whose row key is the text as written. The fallback is then not a separate branch but N=1.\"\nSo a consumer reads one shape either way. In the N=1 form schema:name is a fixed label rather than a cup ('Collector configuration description'), schema:description carries the unparsed string, and the per-item values ride in schema:additionalProperty as name/value pairs. Parsing these strings to individual collectors is not tractable in general -- they are written for a person to read -- so N=1 is expected to be the common case, not the exception.\nThis exists because a cup label has to be referenceable WHEN there is one. A per-cup quantity (a baseline, a gain factor) and a monitored property that names the position reporting it both need something to point AT, and a label buried in a sentence is not something a consumer can join to. schema:name is that anchor.\nWhat a collector does NOT carry is which monitored property it measures. That assignment is procedure configuration, not hardware -- the same physical array is wired differently by another procedure, and an analysis may override it -- so it lives as the 'collector' column of ada:monitoredPropertyColumns on the method definition, whose values are these schema:names. Putting it here would invert the dependency and make the instrument description procedure-specific.\nNote what an N=1 member does NOT assert: it names no cup, so it makes no per-cup claim. That matters because the resistor values are attested per MASS, not per cup (Proposal_Monitored_Property_2026-09-10 §10), and the fallback must not quietly move them onto the collector axis.",
                                 "type": "array",
                                 "items": {
                                   "type": "object",
@@ -9448,10 +9448,6 @@
                                       "description": "The collector position label as the instrument names it -- L5..L1, C or Ax, H1..H5, IC1..IC8 on a Neptune-class multicollector. This is the identifier other properties reference. In the N=1 fallback there is no position to name, so it is the fixed label 'Collector configuration description' and nothing should join to it.",
                                       "type": "string",
                                       "minLength": 1
-                                    },
-                                    "ada:targetSpecies": {
-                                      "description": "The mass or species this position monitors in this configuration, e.g. '116Sn'. Absent when the position is assigned no mass -- which is a real state, not missing data: an unassigned cup can still report a baseline.",
-                                      "type": "string"
                                     },
                                     "schema:description": {
                                       "type": "string"
@@ -10115,7 +10111,7 @@
                   },
                   "schema:minValue": {
                     "type": "number",
-                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
+                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
                   },
                   "schema:maxValue": {
                     "type": "number",
