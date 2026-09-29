@@ -9956,6 +9956,7 @@ x-defs:
             type: string
             description: Identifier for this DataStructure node
           cdif:has_ForeignKey:
+            description: Variables whose values identify records in a different dataset.
             type: array
             items:
               anyOf:
@@ -9972,6 +9973,7 @@ x-defs:
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
           cdif:has_PrimaryKey:
+            description: Variables in the structure that uniquely identify a record.
             x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
@@ -10012,10 +10014,12 @@ x-defs:
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
           cdif:has_PrimaryKey:
+            description: Variables in the structure that uniquely identify a record.
             x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
           cdif:has_ForeignKey:
+            description: Variables whose values identify records in a different dataset.
             type: array
             items:
               anyOf:
@@ -10070,6 +10074,7 @@ x-defs:
             minItems: 3
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
           cdif:has_PrimaryKey:
+            description: Variables in the structure that uniquely identify a record.
             x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
@@ -10103,10 +10108,12 @@ x-defs:
             minItems: 1
             x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent
           cdif:has_PrimaryKey:
+            description: Variables in the structure that uniquely identify a record.
             x-jsonld-id: https://w3id.org/cdif/has_PrimaryKey
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifDataStructure/$defs/PrimaryKey
           cdif:has_ForeignKey:
+            description: Variables whose values identify records in a different dataset.
             type: array
             items:
               anyOf:
@@ -10144,7 +10151,7 @@ x-defs:
             items:
               type: string
             minItems: 1
-            description: Human understandable name (liguistic signifier, word, phrase,
+            description: Human understandable name (linguistic signifier, word, phrase,
               or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
               context provided to specify usage.
             x-jsonld-id: https://w3id.org/cdif/name
@@ -13136,7 +13143,7 @@ x-defs:
             items:
               type: string
             minItems: 1
-            description: Human understandable name (liguistic signifier, word, phrase,
+            description: Human understandable name (linguistic signifier, word, phrase,
               or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
               context provided to specify usage.
             x-jsonld-id: https://w3id.org/cdif/name
@@ -13308,6 +13315,12 @@ x-defs:
             type: string
             description: Identifier for this VariableDescriptorComponent node
           cdif:isDefinedBy_DescriptorVariable:
+            description: Variable that provides codes for variable identification
+              in the context of a data structure. Descriptor Variables hold values
+              which reference the logical variables in the data set, indicating which
+              one the associated value in the corresponding Reference Variable is
+              a measure/value for. Descriptor Variables are presentational variables
+              found only in Long Data Sets.
             x-jsonld-id: https://w3id.org/cdif/isDefinedBy_DescriptorVariable
             allOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDescriptorVariable
@@ -13847,7 +13860,7 @@ x-defs:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS-UPb/tapp/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       schema:name:
         type: string
-        description: Human understandable name (liguistic signifier, word, phrase,
+        description: Human understandable name (linguistic signifier, word, phrase,
           or mnemonic).
         x-jsonld-id: http://schema.org/name
       cdif:references:
@@ -13993,6 +14006,8 @@ x-defs:
           provided to specify usage.
         x-jsonld-id: https://w3id.org/cdif/name
       cdif:uses_Concept:
+        description: Specifies the concept(s) that this variable expresses or aligns
+          with.
         type: array
         items:
           anyOf:
@@ -14053,7 +14068,7 @@ x-defs:
             items:
               type: string
             minItems: 1
-            description: Human understandable name (liguistic signifier, word, phrase,
+            description: Human understandable name (linguistic signifier, word, phrase,
               or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have
               context provided to specify usage.
             x-jsonld-id: https://w3id.org/cdif/name
@@ -14141,6 +14156,8 @@ x-defs:
               context provided to specify usage.
             x-jsonld-id: https://w3id.org/cdif/name
           cdif:uses_Concept:
+            description: Specifies the concept(s) that this variable expresses or
+              aligns with.
             type: array
             items:
               anyOf:
