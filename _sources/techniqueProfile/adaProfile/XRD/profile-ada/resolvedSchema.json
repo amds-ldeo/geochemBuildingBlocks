@@ -951,6 +951,7 @@
                                       "description": "Identifier for this DataStructure node"
                                     },
                                     "cdif:has_ForeignKey": {
+                                      "description": "Variables whose values identify records in a different dataset.",
                                       "type": "array",
                                       "items": {
                                         "anyOf": [
@@ -1024,7 +1025,8 @@
                                       "minItems": 1
                                     },
                                     "cdif:has_PrimaryKey": {
-                                      "$ref": "#/$defs/PrimaryKey"
+                                      "$ref": "#/$defs/PrimaryKey",
+                                      "description": "Variables in the structure that uniquely identify a record."
                                     }
                                   },
                                   "required": [
@@ -1087,9 +1089,11 @@
                                       "minItems": 1
                                     },
                                     "cdif:has_PrimaryKey": {
-                                      "$ref": "#/$defs/PrimaryKey"
+                                      "$ref": "#/$defs/PrimaryKey",
+                                      "description": "Variables in the structure that uniquely identify a record."
                                     },
                                     "cdif:has_ForeignKey": {
+                                      "description": "Variables whose values identify records in a different dataset.",
                                       "type": "array",
                                       "items": {
                                         "anyOf": [
@@ -1184,7 +1188,8 @@
                                       "minItems": 3
                                     },
                                     "cdif:has_PrimaryKey": {
-                                      "$ref": "#/$defs/PrimaryKey"
+                                      "$ref": "#/$defs/PrimaryKey",
+                                      "description": "Variables in the structure that uniquely identify a record."
                                     }
                                   },
                                   "required": [
@@ -1243,9 +1248,11 @@
                                       "minItems": 1
                                     },
                                     "cdif:has_PrimaryKey": {
-                                      "$ref": "#/$defs/PrimaryKey"
+                                      "$ref": "#/$defs/PrimaryKey",
+                                      "description": "Variables in the structure that uniquely identify a record."
                                     },
                                     "cdif:has_ForeignKey": {
+                                      "description": "Variables whose values identify records in a different dataset.",
                                       "type": "array",
                                       "items": {
                                         "anyOf": [
@@ -15174,7 +15181,7 @@
                                         },
                                         "schema:minValue": {
                                           "type": "number",
-                                          "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
+                                          "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
                                         },
                                         "schema:maxValue": {
                                           "type": "number",
@@ -15302,15 +15309,15 @@
                                 }
                               },
                               "ada:targetSpeciesTemplate": {
-                                "description": "Template for per-analyte (element-specific) parameters. Defines the columns that appear in the element table, each with scope, datatype, and constraints. Analyte rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
+                                "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
                                 "type": "object",
                                 "properties": {
                                   "ada:targetSpeciesColumns": {
                                     "type": "array",
-                                    "description": "Columns of the per-analyte parameter table. Must include exactly one column with schema:valueName \"analyte\" that identifies the analyzed constituent named in each row.",
+                                    "description": "Columns of the per-target-species parameter table. Must include exactly one column with schema:valueName \"targetSpecies\" that identifies the analyzed constituent named in each row.",
                                     "minItems": 1,
                                     "items": {
-                                      "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+                                      "description": "One column of the per-target-species parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetSpeciesColumns registry $ref it.",
                                       "allOf": [
                                         {
                                           "$ref": "#/$defs/KeyedTableColumn"
@@ -15318,10 +15325,10 @@
                                       ]
                                     },
                                     "contains": {
-                                      "description": "The mandatory analyte-identifier column. Each row in the analyte table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
+                                      "description": "The mandatory target-species-identifier column. Each row in the species table must carry a value for this column naming the analyzed constituent (e.g. \"SiO2\", \"Fe\"). Pinned constants enforce the column's role: readonly (the identifier of a row, not an editable parameter), required, mandatory tier, and a fixed mapping into schema:variableMeasured/schema:name. Long-term the value space should be a DefinedTermSet; for now a string.",
                                       "allOf": [
                                         {
-                                          "description": "One column of the per-analyte parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared analyteColumns registry $ref it.",
+                                          "description": "One column of the per-target-species parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetSpeciesColumns registry $ref it.",
                                           "allOf": [
                                             {
                                               "$ref": "#/$defs/KeyedTableColumn"
@@ -15363,9 +15370,13 @@
                                     },
                                     "maxContains": 1
                                   },
+                                  "ada:targetSpeciesDeclaration": {
+                                    "type": "string",
+                                    "description": "What this procedure analyses, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:collectorConfiguration on the instrument side: submitters write the target species as a list, as a list with a sentence attached (\"Mn (55Mn), Fe (57Fe) ... Pb (207Pb) in seawater\"), or as prose that names no species individually at all (\"Major and trace elements, masses 23-75\"). ada:defaultTargetSpecies below carries the members that could be recognised; this carries the statement they were recognised FROM, so a cell that parses only in part loses nothing. Present whenever the declaration said more than the parsed rows record."
+                                  },
                                   "ada:defaultTargetSpecies": {
                                     "type": "array",
-                                    "description": "The target species (analyzed constituents) this method targets by default — the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every analyte, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between analytes.",
+                                    "description": "The target species (analyzed constituents) this method targets by default — the ROWS of the per-species table. An entry is a bare string or a schema:DefinedTerm naming the species, or a row object binding that species to per-species values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetSpeciesColumns, and MUST carry the 'targetSpecies' key - the column that sibling description requires to identify the constituent named in each row.\nWhich values belong here follows the TAPP's Analysis-Level Tier. A column marked Read-Only is fixed by the procedure, so its value belongs on the row. A column marked Editable takes a starting value here that an analysis may override; the value actually used is reported per result, as a column of the data table, and surfaces as schema:variableMeasured on the data product. Values that vary per result and are not defaulted do not belong here at all.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every target species, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between target species.",
                                     "items": {
                                       "anyOf": [
                                         {
@@ -15406,7 +15417,7 @@
                                 ]
                               },
                               "ada:monitoredPropertyTemplate": {
-                                "description": "Template for per-channel parameters, a channel being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the channel domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
+                                "description": "Template for per-monitored-property parameters, a monitored property being an instrument selection position (a mass, a Faraday cup, an energy-loss edge, an X-ray line). Declares the monitored-property domain and the columns that repeat over it. The domain is declared by different fields per technique -- Monitored Isotopes for ICP-MS, Collector Configuration for MC-ICP-MS, EELS Edges for TEM.",
                                 "type": "object",
                                 "properties": {
                                   "ada:monitoredPropertyColumns": {
@@ -15414,7 +15425,7 @@
                                     "description": "Columns of the per-monitored-property table. Must include exactly one column with schema:valueName \"monitoredProperty\" identifying the selection position named in each row. (\"channel\" was that name before the 2026-09 rename.)\nA 'collector' column is the optional one worth knowing about: it maps each monitored property to the collector that carries it. That mapping is procedure CONFIGURATION, not instrument hardware -- the same array can be wired differently by another procedure, and an analysis may override it -- which is why it belongs here on the method definition and not on schema:instrument. The collectors themselves are hardware and live there, in hasPart[Collector].ada:collectors; this column's values are their schema:name.",
                                     "minItems": 1,
                                     "items": {
-                                      "description": "One column of the channel table. A channel is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of analyte: the analyte is what is measured, the channel is the position it is measured on, and the two are independent. One analyte may occupy several channels, and MC-ICP-MS cups routinely monitor interferences that are not analytes at all. Structurally a KeyedTableColumn.",
+                                      "description": "One column of the monitored-property table. A monitored property is an instrument SELECTION POSITION -- a mass, a Faraday cup, an energy-loss edge, an X-ray line. It is not a flavour of target species: the target species is what is measured, the monitored property is the position it is measured on, and the two are independent. One target species may occupy several monitored properties, and MC-ICP-MS cups routinely monitor interferences that are not target species at all. Structurally a KeyedTableColumn.",
                                       "allOf": [
                                         {
                                           "$ref": "#/$defs/KeyedTableColumn"
@@ -15422,7 +15433,7 @@
                                       ]
                                     },
                                     "contains": {
-                                      "description": "The mandatory channel-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                                      "description": "The mandatory monitored-property-identifier column, naming the selection position in each row. Mirrors TargetSpeciesIdentifierColumn and ReportedPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the variable list is shared across a procedure's table parts rather than owned by any one of them.",
                                       "allOf": [
                                         {
                                           "$ref": "#/$defs/KeyedTableColumn"
@@ -15521,7 +15532,7 @@
                                     "description": "Columns of the reported-property table. Must include exactly one column with schema:valueName \"reportedProperty\" identifying the reported variable named in each row.",
                                     "minItems": 1,
                                     "items": {
-                                      "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the analytes and channels it ACQUIRES. Structurally a KeyedTableColumn.",
+                                      "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the target species and monitored properties it ACQUIRES. Structurally a KeyedTableColumn.",
                                       "allOf": [
                                         {
                                           "$ref": "#/$defs/KeyedTableColumn"
@@ -15529,7 +15540,7 @@
                                       ]
                                     },
                                     "contains": {
-                                      "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (analyte, channel, reported property) over one logical variable registry, not one table per document.",
+                                      "description": "The mandatory reported-property identifier column, naming the reported variable in each row. Mirrors TargetSpeciesIdentifierColumn: pinned constants fix the column's role as a row identifier rather than an editable parameter. Both identifier columns map into schema:variableMeasured/schema:name because the variable list is SHARED -- a procedure yields several tables (target species, monitored property, reported property) over one logical variable registry, not one table per document.",
                                       "allOf": [
                                         {
                                           "$ref": "#/$defs/KeyedTableColumn"
@@ -17430,6 +17441,7 @@
                             "description": "Identifier for this DataStructure node"
                           },
                           "cdif:has_ForeignKey": {
+                            "description": "Variables whose values identify records in a different dataset.",
                             "type": "array",
                             "items": {
                               "anyOf": [
@@ -17503,7 +17515,8 @@
                             "minItems": 1
                           },
                           "cdif:has_PrimaryKey": {
-                            "$ref": "#/$defs/PrimaryKey"
+                            "$ref": "#/$defs/PrimaryKey",
+                            "description": "Variables in the structure that uniquely identify a record."
                           }
                         },
                         "required": [
@@ -17566,9 +17579,11 @@
                             "minItems": 1
                           },
                           "cdif:has_PrimaryKey": {
-                            "$ref": "#/$defs/PrimaryKey"
+                            "$ref": "#/$defs/PrimaryKey",
+                            "description": "Variables in the structure that uniquely identify a record."
                           },
                           "cdif:has_ForeignKey": {
+                            "description": "Variables whose values identify records in a different dataset.",
                             "type": "array",
                             "items": {
                               "anyOf": [
@@ -17663,7 +17678,8 @@
                             "minItems": 3
                           },
                           "cdif:has_PrimaryKey": {
-                            "$ref": "#/$defs/PrimaryKey"
+                            "$ref": "#/$defs/PrimaryKey",
+                            "description": "Variables in the structure that uniquely identify a record."
                           }
                         },
                         "required": [
@@ -17722,9 +17738,11 @@
                             "minItems": 1
                           },
                           "cdif:has_PrimaryKey": {
-                            "$ref": "#/$defs/PrimaryKey"
+                            "$ref": "#/$defs/PrimaryKey",
+                            "description": "Variables in the structure that uniquely identify a record."
                           },
                           "cdif:has_ForeignKey": {
+                            "description": "Variables whose values identify records in a different dataset.",
                             "type": "array",
                             "items": {
                               "anyOf": [
@@ -35056,7 +35074,7 @@
                   },
                   "schema:minValue": {
                     "type": "number",
-                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in the analyteTemplate."
+                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
                   },
                   "schema:maxValue": {
                     "type": "number",
@@ -35282,7 +35300,7 @@
     },
     "KeyedTableColumn": {
       "type": "object",
-      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- an analyte, a reported property, a channel -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
+      "description": "Definition of one column of a KEYED TABLE, typed as schema:PropertyValueSpecification. A keyed table has one row per member of some domain -- a target species, a reported property, a monitored property -- and one column per field whose value repeats over that domain (the TAPP workbook's `Keyed By` column). Rows become schema:variableMeasured entries; columns become schema:additionalProperty within each. TargetSpeciesColumn and ReportedPropertyColumn are the two domains modelled so far; both are this shape.",
       "properties": {
         "@type": {
           "type": "array",
@@ -35426,11 +35444,11 @@
         },
         "schema:readonlyValue": {
           "type": "boolean",
-          "description": "true = constant across all analytes (read-only column)."
+          "description": "true = constant across all target species (read-only column)."
         },
         "schema:valueRequired": {
           "type": "boolean",
-          "description": "true = must be provided for every analyte row."
+          "description": "true = must be provided for every target-species row."
         },
         "schema:minValue": {
           "type": "number"
