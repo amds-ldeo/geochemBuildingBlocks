@@ -160,6 +160,10 @@
                                         {
                                             "type": "object",
                                             "properties": {
+                                                "schema:additionalType": {
+                                                    "schema:inDefinedTermSet": "ada:vocab/componentType",
+                                                    "description": "ADA file-type classification for this bundle member, as a schema:DefinedTerm drawn from ada:vocab/componentType or in the bare string form. The SHAPE comes from cdifManifest's archivePartItem, which geochemProduct composes for any distribution typed schema:Collection; this only names the vocabulary. Supersedes ada:componentType below, which stays for compatibility."
+                                                },
                                                 "ada:componentType": {
                                                     "type": "string",
                                                     "description": "ADA file-type classification, expressed as a single string drawn from a universal set or a technique-specific set. Technique profiles add an anyOf at the hasPart level: one branch declares the universal componentType enum; other branches $ref technique-specific detail schemas (e.g. detailEMPA) that enumerate technique componentType values and contribute detail-specific sibling properties (e.g. ada:spectrometersUsed)."

@@ -170,13 +170,6 @@
                           },
                           "minItems": 1
                         },
-                        "schema:additionalType": {
-                          "type": "array",
-                          "description": "Other classifiers for the file. ADA componentTypes are specified in the specific file type schemas attached by $refs.",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
                         "schema:name": {
                           "type": "string",
                           "description": "String name of file, must be unique within the containing package."
@@ -1083,6 +1076,21 @@
                                           },
                                           {
                                             "$ref": "#/$defs/DimensionComponent"
+                                          },
+                                          {
+                                            "title": "Object Reference",
+                                            "description": "A reference to a node defined elsewhere, by its @id.",
+                                            "type": "object",
+                                            "properties": {
+                                              "@id": {
+                                                "type": "string",
+                                                "description": "resolvable @id of the referenced node"
+                                              }
+                                            },
+                                            "required": [
+                                              "@id"
+                                            ],
+                                            "additionalProperties": false
                                           }
                                         ]
                                       },
@@ -1159,6 +1167,21 @@
                                           },
                                           {
                                             "$ref": "#/$defs/AttributeComponent"
+                                          },
+                                          {
+                                            "title": "Object Reference",
+                                            "description": "A reference to a node defined elsewhere, by its @id.",
+                                            "type": "object",
+                                            "properties": {
+                                              "@id": {
+                                                "type": "string",
+                                                "description": "resolvable @id of the referenced node"
+                                              }
+                                            },
+                                            "required": [
+                                              "@id"
+                                            ],
+                                            "additionalProperties": false
                                           }
                                         ]
                                       },
@@ -1900,6 +1923,10 @@
                 {
                   "type": "object",
                   "properties": {
+                    "schema:additionalType": {
+                      "schema:inDefinedTermSet": "ada:vocab/componentType",
+                      "description": "ADA file-type classification for this bundle member, as a schema:DefinedTerm drawn from ada:vocab/componentType or in the bare string form. The SHAPE comes from cdifManifest's archivePartItem, which geochemProduct composes for any distribution typed schema:Collection; this only names the vocabulary. Supersedes ada:componentType below, which stays for compatibility."
+                    },
                     "ada:componentType": {
                       "type": "string",
                       "description": "ADA file-type classification, expressed as a single string drawn from a universal set or a technique-specific set. Technique profiles add an anyOf at the hasPart level: one branch declares the universal componentType enum; other branches $ref technique-specific detail schemas (e.g. detailEMPA) that enumerate technique componentType values and contribute detail-specific sibling properties (e.g. ada:spectrometersUsed)."
@@ -8616,6 +8643,183 @@
                                       "type": "string"
                                     }
                                   },
+                                  "schema:additionalType": {
+                                    "type": "array",
+                                    "description": "Domain-specific type classification for this member file: what KIND of thing it is, beyond its MIME type. The @type above says only that it is a schema:MediaObject, and using @type to carry a domain classification conflates \"what this node is\" with \"what it is about\". A plain string is accepted; a schema:DefinedTerm carrying schema:inDefinedTermSet is preferred where the value comes from a controlled vocabulary.",
+                                    "items": {
+                                      "title": "CDIF Concept-or-Term-or-String",
+                                      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+                                          "anyOf": [
+                                            {
+                                              "type": "object",
+                                              "required": [
+                                                "@id"
+                                              ],
+                                              "additionalProperties": false,
+                                              "properties": {
+                                                "@id": {
+                                                  "type": "string",
+                                                  "description": "reference to a skos concept for the data type"
+                                                }
+                                              }
+                                            },
+                                            {
+                                              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+                                              "type": "object",
+                                              "properties": {
+                                                "@type": {
+                                                  "type": "array",
+                                                  "items": {
+                                                    "type": "string"
+                                                  },
+                                                  "contains": {
+                                                    "const": "schema:DefinedTerm"
+                                                  },
+                                                  "minItems": 1
+                                                },
+                                                "schema:name": {
+                                                  "type": "string",
+                                                  "description": "text label for the term that is useful to human user"
+                                                },
+                                                "schema:identifier": {
+                                                  "anyOf": [
+                                                    {
+                                                      "type": "string"
+                                                    },
+                                                    {
+                                                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                                                      "type": "object",
+                                                      "properties": {
+                                                        "@type": {
+                                                          "type": "array",
+                                                          "items": {
+                                                            "type": "string"
+                                                          },
+                                                          "contains": {
+                                                            "const": "schema:PropertyValue"
+                                                          },
+                                                          "minItems": 1
+                                                        },
+                                                        "schema:propertyID": {
+                                                          "anyOf": [
+                                                            {
+                                                              "type": "string"
+                                                            },
+                                                            {
+                                                              "type": "object",
+                                                              "additionalProperties": false,
+                                                              "required": [
+                                                                "@id"
+                                                              ],
+                                                              "properties": {
+                                                                "@id": {
+                                                                  "type": "string"
+                                                                }
+                                                              }
+                                                            }
+                                                          ],
+                                                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                                                        },
+                                                        "schema:value": {
+                                                          "type": "string",
+                                                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                                                        },
+                                                        "schema:url": {
+                                                          "type": "string",
+                                                          "format": "uri",
+                                                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                                                        }
+                                                      },
+                                                      "allOf": [
+                                                        {
+                                                          "required": [
+                                                            "@type"
+                                                          ]
+                                                        },
+                                                        {
+                                                          "anyOf": [
+                                                            {
+                                                              "required": [
+                                                                "schema:value"
+                                                              ]
+                                                            },
+                                                            {
+                                                              "required": [
+                                                                "schema:url"
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                "schema:inDefinedTermSet": {
+                                                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                                                  "anyOf": [
+                                                    {
+                                                      "type": "string"
+                                                    },
+                                                    {
+                                                      "type": "object",
+                                                      "required": [
+                                                        "@id"
+                                                      ],
+                                                      "additionalProperties": false,
+                                                      "properties": {
+                                                        "@id": {
+                                                          "type": "string"
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                "schema:termCode": {
+                                                  "type": "string",
+                                                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                                                }
+                                              },
+                                              "allOf": [
+                                                {
+                                                  "required": [
+                                                    "@type"
+                                                  ]
+                                                },
+                                                {
+                                                  "anyOf": [
+                                                    {
+                                                      "required": [
+                                                        "schema:name"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "required": [
+                                                        "schema:identifier"
+                                                      ]
+                                                    },
+                                                    {
+                                                      "required": [
+                                                        "schema:termCode"
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "$ref": "#/$defs/Concept"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  },
                                   "schema:size": {
                                     "type": "object",
                                     "description": "File size as a QuantitativeValue.",
@@ -9291,23 +9495,7 @@
                                       "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
                                       "type": "array",
                                       "items": {
-                                        "anyOf": [
-                                          {
-                                            "type": "string"
-                                          },
-                                          {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "type": "string"
-                                              }
-                                            }
-                                          }
-                                        ]
+                                        "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                                       },
                                       "minItems": 1
                                     },
@@ -10182,23 +10370,7 @@
                                                 "description": "Component type classification.",
                                                 "type": "array",
                                                 "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "string"
-                                                    },
-                                                    {
-                                                      "type": "object",
-                                                      "additionalProperties": false,
-                                                      "required": [
-                                                        "@id"
-                                                      ],
-                                                      "properties": {
-                                                        "@id": {
-                                                          "type": "string"
-                                                        }
-                                                      }
-                                                    }
-                                                  ]
+                                                  "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                                                 }
                                               },
                                               "schema:additionalProperty": {
@@ -12824,27 +12996,7 @@
                                 "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
                                 "type": "array",
                                 "items": {
-                                  "anyOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "$ref": "#/$defs/SpatialExtent_DefinedTerm"
-                                    },
-                                    {
-                                      "type": "object",
-                                      "additionalProperties": false,
-                                      "required": [
-                                        "@id"
-                                      ],
-                                      "properties": {
-                                        "@id": {
-                                          "type": "string",
-                                          "description": "reference to a term defined elsewhere"
-                                        }
-                                      }
-                                    }
-                                  ]
+                                  "$ref": "#/$defs/SpatialExtent_cdifConceptOrTermOrString"
                                 }
                               },
                               "schema:name": {
@@ -14226,27 +14378,7 @@
                                         "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
                                         "type": "array",
                                         "items": {
-                                          "anyOf": [
-                                            {
-                                              "type": "string"
-                                            },
-                                            {
-                                              "$ref": "#/$defs/SpatialExtent_DefinedTerm"
-                                            },
-                                            {
-                                              "type": "object",
-                                              "additionalProperties": false,
-                                              "required": [
-                                                "@id"
-                                              ],
-                                              "properties": {
-                                                "@id": {
-                                                  "type": "string",
-                                                  "description": "reference to a term defined elsewhere"
-                                                }
-                                              }
-                                            }
-                                          ]
+                                          "$ref": "#/$defs/SpatialExtent_cdifConceptOrTermOrString"
                                         }
                                       },
                                       "schema:name": {
@@ -16411,27 +16543,7 @@
                             "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
                             "type": "array",
                             "items": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "$ref": "#/$defs/SpatialExtent_DefinedTerm"
-                                },
-                                {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "required": [
-                                    "@id"
-                                  ],
-                                  "properties": {
-                                    "@id": {
-                                      "type": "string",
-                                      "description": "reference to a term defined elsewhere"
-                                    }
-                                  }
-                                }
-                              ]
+                              "$ref": "#/$defs/SpatialExtent_cdifConceptOrTermOrString"
                             }
                           },
                           "schema:name": {
@@ -16928,27 +17040,7 @@
                     "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
                     "type": "array",
                     "items": {
-                      "anyOf": [
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/$defs/SpatialExtent_DefinedTerm"
-                        },
-                        {
-                          "type": "object",
-                          "additionalProperties": false,
-                          "required": [
-                            "@id"
-                          ],
-                          "properties": {
-                            "@id": {
-                              "type": "string",
-                              "description": "reference to a term defined elsewhere"
-                            }
-                          }
-                        }
-                      ]
+                      "$ref": "#/$defs/SpatialExtent_cdifConceptOrTermOrString"
                     }
                   },
                   "schema:name": {
@@ -17573,6 +17665,21 @@
                                 },
                                 {
                                   "$ref": "#/$defs/DimensionComponent"
+                                },
+                                {
+                                  "title": "Object Reference",
+                                  "description": "A reference to a node defined elsewhere, by its @id.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string",
+                                      "description": "resolvable @id of the referenced node"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false
                                 }
                               ]
                             },
@@ -17649,6 +17756,21 @@
                                 },
                                 {
                                   "$ref": "#/$defs/AttributeComponent"
+                                },
+                                {
+                                  "title": "Object Reference",
+                                  "description": "A reference to a node defined elsewhere, by its @id.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string",
+                                      "description": "resolvable @id of the referenced node"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "additionalProperties": false
                                 }
                               ]
                             },
@@ -18366,23 +18488,7 @@
               "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
               },
               "minItems": 1
             },
@@ -19257,23 +19363,7 @@
                         "description": "Component type classification.",
                         "type": "array",
                         "items": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          ]
+                          "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                         }
                       },
                       "schema:additionalProperty": {
@@ -26149,6 +26239,179 @@
         }
       ]
     },
+    "Instrument_cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/Concept"
+            }
+          ]
+        }
+      ]
+    },
     "Instrument_Identifier": {
       "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
       "type": "object",
@@ -26869,6 +27132,179 @@
       ]
     },
     "LabeledLink_cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/Concept"
+            }
+          ]
+        }
+      ]
+    },
+    "SpatialExtent_cdifConceptOrTermOrString": {
       "title": "CDIF Concept-or-Term-or-String",
       "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
       "anyOf": [
