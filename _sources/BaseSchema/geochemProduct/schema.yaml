@@ -244,16 +244,46 @@ allOf:
                           type: string
                         "ada:targetMaterial":
                           description: >-
-                            The entry in the procedure's ada:targetMaterials that this unit belongs
-                            to -- a foreign key into that table, matched on its schema:name. It is
-                            what links the unit to the point-analysis conditions registered for its
-                            material, which is why the five electron-beam fields are keyed by
-                            target material rather than by sampling unit from the 2026-10-01
-                            delivery onward.
+                            Which material this unit IS -- a foreign key into the procedure's
+                            ada:targetMaterials, matched on schema:name. A material sample is
+                            composed of several target materials (the different mineral particles
+                            making up a rock), and a sampling unit is one of them: a grain of
+                            olivine, a spot on a maskelynite. That is what links the unit to the
+                            point-analysis conditions registered for its material, and why the
+                            five electron-beam fields are keyed by target material rather than by
+                            sampling unit from the 2026-10-01 delivery onward.
+
+                            The procedure declares the material TYPES it expects to find, and they
+                            are assumed present in ANY sample it analyses. There is deliberately NO
+                            per-sample list of contained materials: nothing maps a particular
+                            schema:object to the materials inside it, and this property is the only
+                            place a sample meets a target material. Do not add such a list -- the
+                            mapping is per UNIT because that is the granularity at which it is
+                            observed, and a per-sample list would duplicate it while being unable
+                            to say which unit was which.
+
+                            Hence the tier split: Target Material is Basic/Read-Only on the
+                            procedure, while the sample's own identifier and this assignment are
+                            analysis-tier.
+
+                            TWO CONSTRAINTS hold that this schema cannot check, recorded here
+                            because nothing else records them:
+
+                              * the unit is partOf the sample that is the object of the analysis.
+                                Guaranteed by construction -- a unit nested in this sample IS part
+                                of it -- which is why there is no separate partOf property. Note
+                                the contrast with ada:combinedResults, which sits on the ACTIVITY
+                                because a combined result need not belong to exactly one sample.
+                              * this value must be one of the procedure's declared
+                                ada:targetMaterials. NOT checkable in JSON Schema or SHACL: a
+                                record references its TAPP as {@id, @type} rather than inlining
+                                it, so the declared list is in a different document and never
+                                enters this graph. It needs a validator that resolves the TAPP by
+                                @id, and until one does, this FK is an assertion rather than a
+                                checked reference.
 
                             Not required: a procedure analysing one material type never needs to
-                            say which, and a sampling unit can be measured before its material is
-                            assigned.
+                            say which, and a unit can be measured before its material is assigned.
                           type: string
             "schema:identifier":
               description: >-

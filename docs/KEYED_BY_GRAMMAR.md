@@ -3,46 +3,75 @@
 Written 2026-08-11 against the delivery in `TAPPS20260811/` (16 TAPPs, 1691 content rows). The
 field names, tiers, counts and examples below are taken from those CSVs.
 
-**Re-checked 2026-08-23 against the delivery now wired** (the `tapp/` submodule, after every
-technique moved to a current table). The `Keyed By` column has grown: the wired tables carry **17
-distinct forms**, not the eight described here —
+**Re-checked 2026-10-01 against `tapp @ 94fa379`**, the delivery that enforces the keyed-value
+notation on all sixteen TAPPs (`KEYED_NOTATION_EXEMPT` is now empty). **Two renames have happened
+since this document was written and it has not been reworded throughout: `analyte` is now
+`target species`, and `channel` is now `monitored property`.** Read the older sections with that
+substitution; the paths in them (`ada:targetSpeciesColumns[]`,
+`ada:monitoredPropertyColumns[]`) are current.
+
+The column now carries **24 distinct forms**, not the eight described here:
 
 ```
-channel 109   reported property 101   analyte 38   standard x reported property 33   sample 32
-sample > sampling unit x reported property 21        sample > sampling unit 16
-defines: sample 16   defines: sampling unit 16   defines: reported property 16
-defines: analyte 13  defines: channel per analyte 13   defines: standard 9
-preparation step 9   pair: reported property 7   defines: standard per analyte 3
+monitored property 115   reported property 99   acquisition pass 83   sample 48
+target species 40   standard x reported property 33   combined result x reported property 26
+sample > sampling unit 25   sample > sampling unit x reported property 21
+defines: target material 16   defines: sample 16   defines: sample > sampling unit 16
+target material 16   defines: reported property 16   defines: target species 13
+defines: monitored property per target species 13   combined result 13
+defines: combined result 13   target material x target species 12   defines: standard 12
+defines: acquisition pass 9   preparation step 9   pair: reported property 7
 defines: preparation step 3
 ```
 
-**Nine are implemented** in `bootstrap_schemapaths.keyed_path()`: `analyte`, `channel`,
-`reported property`, `sample`, `sample persistent identifier`, and the `defines:` forms for
-`analyte`, `reported property`, `sample` and `sampling unit`. The rest are flagged rather than
-guessed at, which is the point — an inferred placement for a domain nobody has modelled is worse
-than an empty cell, because it looks decided.
+**Thirteen are routed** by `bootstrap_schemapaths.keyed_path()`: `target species`,
+`monitored property`, `reported property`, `sample`, `target material`, `combined result`,
+`combined result x reported property`, `sample persistent identifier`, and the `defines:` forms for
+`target species`, `reported property`, `sample`, `sample > sampling unit`, `target material` and
+`combined result`.
 
-The grammar below is unchanged; what has changed is how much of the column it covers.
+**Eleven are flagged rather than guessed at**: `acquisition pass`, `standard x reported property`,
+`sample > sampling unit`, `sample > sampling unit x reported property`,
+`defines: monitored property per target species`, `target material x target species`,
+`defines: standard`, `defines: acquisition pass`, `preparation step`, `pair: reported property`,
+`defines: preparation step`. That is the point — an inferred placement for a domain nobody has
+modelled is worse than an empty cell, because it looks decided.
 
-**Status: partly implemented (updated 2026-08-19).** Beyond the analyte-column tier rules (§2.1),
-the three keyed-table domains — `analyte`, `channel`, `reported property` — now generate as keyed
-tables (a `…Columns[]` template plus a `…defaults[]` array, with registry catalogs under
-`_sources/registry/`), and `bootstrap_schemapaths.py:keyed_path()` routes the `defines: analyte`,
-`analyte`, `defines: reported property`, `reported property`, and `sample` declarations to their
-canonical paths. The remaining domains and the compound forms (§5–§9) are still unbuilt — rows
-carrying them are flagged, not guessed. §12 logs what has been decided and what is still open.
+**The authoritative statement of the notation is now the delivery's own `Legends` worksheet**, not
+this file. It defines the four constructions in one place:
 
-Column I (`Keyed By`) states what a field's value repeats over. It decides schema *shape*, and we
-currently model one of its six domains. Companion reading:
-`README_TAPP_for_Schema_Generation_v2.md` §4, and `SCHEMA_PATH_GRAMMAR.md` for the
-families we already have.
+| notation | meaning |
+|---|---|
+| `(none)` | scalar — one value per procedure or analysis |
+| `X` | one value per member of X — **a column in X's table** |
+| `defines: X` | **the header of X's child table, not a column in it** — enumerates the domain |
+| `X x Y` | cross-product, "for each X, one value per Y" |
+| `a > b` | containment — b exists only within a |
+
+This document says where each construction lands in the schema, and §1.2 says how the member list
+inside a `defines:` cell is read.
+
+**Status: partly implemented (updated 2026-10-01).** The three original keyed-table domains —
+target species, monitored property, reported property — generate as keyed tables (a `…Columns[]`
+template plus a `…defaults[]` array, with registry catalogs under `_sources/registry/`). Three more
+row axes exist without that triple: `sample > sampling unit`, `target material` and
+`combined result` (§1.3). Thirteen of the 24 forms route, eleven are flagged — the header lists
+both. The member grammar inside a `defines:` cell is implemented (§1.2), which is the part this
+document previously deferred. §12 logs what is decided and what is open.
+
+Column I (`Keyed By`) states what a field's value repeats over, and it decides schema *shape*.
+Companion reading: the delivery's own **`Legends` worksheet**, which is now the authoritative
+statement of the notation; `README_TAPP_for_Schema_Generation_v2.md` §4; and
+`SCHEMA_PATH_GRAMMAR.md` for the path families.
 
 ---
 
 ## 1. The model
 
-1. **A key names a domain**: `analyte`, `channel`, `reported property`, `sampling unit`,
-   `standard`, `preparation step`.
+1. **A key names a domain.** Nine are in use as of 2026-10-01: `target species` (was `analyte`),
+   `monitored property` (was `channel`), `reported property`, `sample`, `sampling unit` (always
+   nested, `sample > sampling unit`), `standard`, `preparation step`, `acquisition pass`, and the
+   two the 2026-10-01 delivery added — **`target material`** and **`combined result`**.
 2. **Exactly one field declares each domain**, marked `defines: X`. Its *value* supplies the
    members — and that value is authored when a TAPP instance is created, not fixed here.
 3. **Each instance of the domain carries every property whose `Keyed By` names that domain.** So a
@@ -77,14 +106,106 @@ Data types of the eight declaring fields:
 | `Controlled list / Text` | Sampling Unit | **a type, not members** — see §5 |
 | `Integer` | Number of Digestion Steps | ordinals 1..N — see §6 |
 
-### 1.2 The parse belongs to the authoring app
+### 1.2 The `defines: X` list grammar — IMPLEMENTED 2026-09-29
 
-Splitting the declaration into members is a pipeline responsibility, and the right place is the
-forms app at TAPP-instance authoring — split it, show the author the rows just created, let them
-correct it. A bad split then shows up as "you declared 8 analytes, here they are" instead of
-surfacing as a malformed table later.
+**This section used to say the parse belonged to the authoring app and the pipeline should not
+attempt it. That is no longer true.** `tools/schema_path_example_emitter.py` parses these cells
+(`_parse_grouped_members`, and the guard `_looks_like_members`), and the grammar below is what it
+implements. The authoring app should still confirm a split with the author — a bad split is best
+caught as "you declared 8 target species, here they are" — but it is no longer the only thing
+standing between a cell and a table.
 
-That matters, because the examples in the library do not agree with one another:
+**A `defines: X` cell has TWO levels, not one.**
+
+```
+84Sr, 86Sr, 87Sr, 88Sr (Sr); 85Rb (Rb); 83Kr, 167Er2+, 173Yb2+ (monitors, no target species)
+└──────── group 1 ────────┘  └─ group 2 ─┘ └──────────── group 3 ─────────────┘
+```
+
+- **`;` separates groups. `,` separates members within a group.** Splitting on both alike gives
+  nine members here instead of eight, and attaches each parenthetical to whichever member happened
+  to precede it.
+- Both splits are at **parenthesis depth zero**, so a separator inside `(...)` or `[...]` is
+  ordinary text. `BHVO-2 (Fe isotopes; Dauphas & Rouxel 2006 compilation)` is one member.
+
+**A parenthetical qualifies the group or the member, and which is DECIDED, not assumed:**
+
+| form | reading |
+|---|---|
+| only the **last** member of a group carries one | it qualifies the **whole group** — `84Sr, 86Sr, 88Sr (Sr)` is three members of parent `Sr` |
+| **several** members carry one | each qualifies **its own** member — `32S (L3), 33S (C), 34S (H3)` is three members with three collectors |
+
+Both forms occur in the corpus and they mean different things.
+
+**A qualifier is recognised, not parsed** (`_classify`). It is the parent species if it matches a
+member of the `defines: target species` cell, a collector if it matches a collector label, and
+otherwise an annotation — in which case the member is an orphan with no parent. That recognition
+is why no syntax for "this one has no parent" is needed: `(monitors, no target species)` matches
+nothing and the member simply has none.
+
+**Four normalisations, each put in for a cell it was silently corrupting:**
+
+1. **`and` is a separator** when what follows looks like a member — a digit, a superscript, or a
+   capitalised element symbol. `Fe, Cr and Mg` is three species. Without this a member three words
+   wide failed the guard and took its whole list down. Note the superscripts ¹ ² ³ live in
+   **Latin-1**, not the U+2070 superscript block, so a character class of `⁰-₟` alone misses every
+   mass starting 1xx, 2xx or 3xx — that dropped a nine-member Os/Re/W cell whose every mass is 18x.
+2. **A leading label is stripped**, not taken as the first member: `48 trace elements: Li, Be, …`,
+   `Session 1: Al, …`, `masses 90, 91, 92`. It sits before the first comma, so it became member one,
+   and being several words wide then failed the guard.
+3. **A comma inside a member is not a separator** where the previous member ends in a sub-level
+   host — letters then digits, the shape of an energy-loss edge. `Fe L2,3 (707 eV)` is ONE member.
+   Deliberately narrow: a bare mass does not match, which is what stops `90, 91, 92` being glued
+   into one.
+4. **A `+` joins two species into one member and does not spend the word budget.** `⁸⁷Rb + ⁸⁷Sr` is
+   a single Faraday cup carrying two unresolved isobars — one collector, one measured quantity.
+
+**The guard, and why it rejects the whole cell.** A member is at most two words
+(`MEMBER_MAX_WORDS`), measured against the corpus: of the 141 "members" the flat splitter produced,
+98 were one or two words and the rest were prose shredded out of a paragraph — one read literally
+`"N - spectrometer-to-element assignments not stated"`. If **any** member fails, the whole cell
+yields **no members**, not the ones that parsed. A half-parsed list is worse than none: "here are
+four of the eight" reads as complete and is not.
+
+**Rejection must not lose the data.** An unparseable cell keeps its text verbatim in the
+declaration field beside the table — `ada:collectorConfiguration` for monitored properties,
+`ada:targetSpeciesDeclaration` for target species, which was added for exactly this reason. A
+partly-parsed cell yields the members that were recognised **plus** the statement they were
+recognised from, so nothing is discarded. Where a declaration cannot be parsed, that text IS the
+answer.
+
+### 1.2.1 How values in fields keyed to X are processed
+
+A field keyed `X` is a column of X's table, so its cell holds **one value per member of X, in the
+member order the `defines: X` cell established**. Since the 2026-10-01 delivery that cell is
+**value-only**: the key is no longer repeated inside it.
+
+```
+Keyed By: monitored property
+  before   'Si=Sp1; Ti=Sp2; Cr=Sp2+Sp3 (aggregate intensity counting); Fe=Sp3'
+  after    'Sp1' | 'Sp2+Sp3 (aggregate intensity counting)' | 'Sp4'
+```
+
+That change is why Column F parsing improved rather than broke: the old form made
+`enum_terms()` emit `'Si=Sp1; Ti=Sp2; …'` as a **single** vocabulary concept. Only two fields
+feeding vocabularies were affected (`Plasma Thermal Mode`, `Sample Preparation Method`), but for
+those the published concepts were malformed.
+
+Three rules for reading a keyed cell:
+
+1. **Positional against the definer.** Value *i* belongs to member *i*. A cell with fewer values
+   than members leaves the rest unstated; it does not shift.
+2. **A cross-product `X x Y` is still one column.** `combined result x reported property` rides on
+   the combined-result row as a per-reported-property value — the Y half is carried by the column's
+   `schema:valueName`, not by a second container. A consequence worth knowing: **a cross-product is
+   not recoverable from a path**, because `combined result` and `combined result x reported
+   property` route to the same row array, so `backfill_keyby` returns the simple key. Same
+   limitation already applies to the channel and standard keys.
+3. **The N=1 fallback applies here too** (§1.1, Decision 6): a keyed cell that does not parse into
+   per-member values becomes one value against a one-row table whose key is the text as written.
+
+The examples below are why rule 1 needs stating at all — the library's cells do not agree with one
+another:
 
 ```
 Analyte                'Fe, O, Si, Mg, Ca, Al' | 'Fe, O, Si, Mg, Ca, Al, Ti (EDS); Fe, O (EELS)'
@@ -109,12 +230,37 @@ Parenthesis-aware splitting handles (3). Nothing handles (1) without the author.
 
 | domain | template | columns | row axis |
 |---|---|---|---|
-| analyte | `ada:targetSpeciesTemplate` | `ada:targetSpeciesColumns[]` | `ada:defaultTargetSpecies[]` |
-| channel | `ada:monitoredPropertyTemplate` | `ada:monitoredPropertyColumns[]` | `ada:defaultMonitoredProperties[]` |
+| target species (was analyte) | `ada:targetSpeciesTemplate` | `ada:targetSpeciesColumns[]` | `ada:defaultTargetSpecies[]` |
+| monitored property (was channel) | `ada:monitoredPropertyTemplate` | `ada:monitoredPropertyColumns[]` | `ada:defaultMonitoredProperties[]` |
 | reported property | `ada:reportedPropertyTemplate` | `ada:reportedPropertyColumns[]` | `ada:defaultReportedProperties[]` |
-| sampling unit | `ada:samplingUnitTemplate` | `ada:samplingUnitColumns[]` | `ada:samplingUnitType` (scalar) |
 | preparation step | — (ordinal, §6) | — | `schema:numberOfItems` |
 | standard | — (never standalone, §7) | — | `ada:secondaryReferenceMaterials[]` |
+
+The three domains added since, which do **not** use the template/columns/defaults triple — their
+rows carry their keyed values directly, so there is no separate column-definition array:
+
+| domain | row axis | side | added |
+|---|---|---|---|
+| sample > sampling unit | `$Dataset…schema:object[materialsample].ada:samplingUnits[].schema:name` | analysis | 2026-09-25 |
+| target material | `$MethodDefinition.ada:targetMaterials[].schema:name` | **procedure** | 2026-10-01 |
+| combined result | `$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name` | analysis | 2026-10-01 |
+
+Three things about those three are worth stating, because each was a decision and none is obvious
+from the paths:
+
+- **`sampling unit` is never standalone.** The old `defines: sampling unit` is retired. A unit
+  exists only within a sample, so the key is the containment form and the rows nest inside
+  `schema:object`. `ada:samplingUnitType` survives as a plain procedure property holding a
+  controlled TYPE, and defines nothing — a type cannot enumerate its own instances.
+- **`target material` is procedure-side**, alone among the row axes here, because it is what the
+  procedure declares it expects to find. The materials are assumed present in any sample the
+  procedure analyses; there is deliberately **no** per-sample list of contained materials. A sample
+  meets a material only through `ada:samplingUnits[].ada:targetMaterial`, which is the FK, at the
+  granularity the assignment is actually observed.
+- **`combined result` sits on the ACTIVITY, not in a sample**, because a combined result names its
+  own sample and need not belong to exactly one — an isochron over 36 runs is the case in hand.
+  That is the exact opposite of a sampling unit, which nests in the sample precisely because a unit
+  cannot belong to two. When the next domain arrives, this is the question to ask first.
 
 ---
 
@@ -383,7 +529,14 @@ Column F into an `enum` is, per README §6, the most common way to over-constrai
 schema.
 
 When building `examples`, split on the outer `|` — those *are* alternative example strings — and
-strip the `e.g.,` prefix. Do not split further; see §1.2.
+strip the `e.g.,` prefix. **Do not split further for this purpose.** That is a different job from
+reading a `defines:` cell into members (§1.2), and the two must not be confused: `examples` is a
+non-validating annotation showing the author what a cell may look like, so an alternative is one
+example string and splitting inside it would offer fragments as guidance. §1.2's grammar runs only
+where a cell is being turned into table ROWS.
+
+`tools/build_tapp.enum_terms()` is the `|` splitter, and it strips the `e.g.` prefix. It is also
+what the 2026-10-01 value-only notation improved: see §1.2.1.
 
 ---
 
@@ -416,10 +569,38 @@ Settled 2026-08-11:
 6. **An unparseable declaration yields a one-row table**, not a second schema shape. §1.1
 7. **Column tiers follow the procedure-level tier** — implemented. §2.1
 
+Settled since:
+
+8. **The `defines: X` member grammar is implemented, not deferred to the forms app.** Two levels
+   (`;` groups, `,` members), depth-zero splitting, group-or-member qualifiers decided by how many
+   carry one, and a two-word guard that rejects the WHOLE cell rather than half a list. §1.2,
+   2026-09-29.
+9. **A rejected cell keeps its text** in the declaration field beside the table
+   (`ada:collectorConfiguration`, `ada:targetSpeciesDeclaration`). Rejecting without that field
+   discarded the data, which is why the target-species counterpart was added. §1.2
+10. **A keyed cell is positional against its definer**, and since 2026-10-01 is value-only — the
+    key is no longer repeated inside it. §1.2.1
+11. **`target material` is procedure-side; `combined result` is activity-side.** Neither uses the
+    template/columns/defaults triple. The deciding question is whether a member can belong to more
+    than one sample: a sampling unit cannot, so it nests in the sample; a combined result can, so
+    it sits on the activity. §1.3, 2026-10-01.
+12. **No per-sample list of contained target materials.** The procedure's list is what is expected
+    in any sample it analyses; a sample meets a material only through
+    `ada:samplingUnits[].ada:targetMaterial`, at the granularity the assignment is observed. §1.3
+
 Open:
 
-1. **The channel/analyte binding**, and the shifting definition of `analyte` across techniques.
-   §3.1 — for Ruolin.
+1. **The monitored-property / target-species binding**, and the shifting definition of the latter
+   across techniques. §3.1 — for Ruolin. (Written as channel/analyte; both were renamed.)
+2. **Eleven of the 24 forms are still flagged rather than routed** — see the header for the list.
+   The two that now have consumers and no home are `target material x target species` (12 rows,
+   `Primary Calibration Standard Name`, module-owned by CompositionQC) and `acquisition pass`
+   (83 rows, the largest unrouted domain in the column).
+3. **The 55 legacy cross-product rows do not follow this grammar.** `standard x reported property`
+   (33) and `sample > sampling unit x reported property` (22) are all parked on
+   `ada:targetSpeciesColumns[]` — the wrong domain — as a keyed-value-column fallback that predates
+   the Legends sheet. The 2026-10-01 domains follow the Legend instead, so the two conventions now
+   coexist until those 55 migrate.
 2. **Per-domain templates, or one generic keyed table?** This document instantiates the
    `analyteTemplate` precedent per domain. A generic
    `ada:keyedTable[ada:key='analyte'].ada:columns[]` would be more uniform and would make
