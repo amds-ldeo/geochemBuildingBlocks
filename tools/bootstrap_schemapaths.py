@@ -271,6 +271,34 @@ def keyed_path(row):
                    f".schema:additionalProperty[schema:name='{it}'].schema:defaultValue",
                    f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
                    f".schema:additionalProperty[schema:name='{it}'].schema:value"],
+
+        # --- the 2026-10-01 delivery's two new domains (tapp @ 94fa379) -----------------------
+        #
+        # Routed to follow the keying model the Legends sheet now states outright: `defines: X` is
+        # "the header of the child table, not a column in it", a bare domain is a column in that
+        # table, and `X x Y` is a composite key. So a definer gets the row's identifying property
+        # and a plain key gets the row array itself.
+        #
+        # target material is PROCEDURE-side: it is what the procedure declares it can analyse
+        # (Basic/Read-Only), and the five electron-beam conditions plus Primary Calibration
+        # Standard Name are keyed by it, so the per-material values ride on these rows.
+        "defines: target material": ["$MethodDefinition.ada:targetMaterials[].schema:name"],
+        "target material": ["$MethodDefinition.ada:targetMaterials[]"],
+
+        # combined result is ANALYSIS-side only. The procedure can say HOW results will be
+        # combined (Combination Method, keyed by reported property) but never WHICH were, so
+        # there is no procedure-side counterpart to route. It sits on the ACTIVITY rather than in
+        # a sample because a combined result names its own sample and need not belong to exactly
+        # one -- an isochron over 36 runs is the case in hand -- which is the opposite of
+        # sampling units, nested in the sample precisely because a unit cannot belong to two.
+        "defines: combined result":
+            ["$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name"],
+        "combined result": ["$Dataset.prov:wasGeneratedBy.ada:combinedResults[]"],
+        # Goodness-of-Fit or Dispersion Statistic, and Other Statistics. The cross-product rides
+        # on the combined-result row as a per-reported-property value; the reported-property half
+        # of the key is carried by the column's valueName, not by a second container.
+        "combined result x reported property":
+            ["$Dataset.prov:wasGeneratedBy.ada:combinedResults[]"],
     }
 
     # The Rule 7 key vocabulary was renamed twice under these routes, and because an

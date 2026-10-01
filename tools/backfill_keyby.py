@@ -33,6 +33,23 @@ def kb_from_path(p):
     # nothing (a controlled type cannot enumerate its own instances -- amds-ldeo/tapp#8), while the
     # NAME on the sample's ada:samplingUnits[] is the definer. Order matters: the sampling-unit
     # branch must precede `defines: sample`, because both end in `.schema:name` under schema:object[.
+    # The 2026-10-01 domains. Both branches must precede the generic schema:object[ ones below,
+    # for the same reason the sampling-unit branch does: the target-material FK sits inside
+    # ada:samplingUnits[], which sits inside schema:object[.
+    if "ada:samplingUnits[" in p and p.endswith(".ada:targetMaterial"):
+        return "sample > sampling unit"
+    if p.endswith("ada:targetMaterials[].schema:name"):
+        return "defines: target material"
+    if p.endswith("ada:targetMaterials[]"):
+        return "target material"
+    # `combined result` and `combined result x reported property` BOTH route to the bare row
+    # array, so the array alone cannot tell them apart. Return the simple key: a cross-product is
+    # not recoverable from the path, which is the same limitation this function already documents
+    # for channel and standard keys.
+    if p.endswith("ada:combinedResults[].schema:name"):
+        return "defines: combined result"
+    if p.endswith("ada:combinedResults[]"):
+        return "combined result"
     if "ada:samplingUnits[" in p and p.endswith(".schema:name"):
         return "defines: sample > sampling unit"
     if "schema:object[" in p and p.endswith(".schema:name"):

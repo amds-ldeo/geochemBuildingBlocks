@@ -134,6 +134,12 @@ def recognize(s):
         return None, "no recognizable root"
     fams = [
         (r"^\$MethodDefinition\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "direct-ada"),
+        # The target-material table, `defines: target material` (2026-10-01). PROCEDURE-side,
+        # because it is what the procedure declares it can analyse. The bare row array is already
+        # admitted by direct-ada above -- that is where fields keyed `target material` land, the
+        # five electron-beam conditions among them -- so this family adds only the row's
+        # identifying property, which is what the definer routes to.
+        (r"^\$MethodDefinition\.ada:targetMaterials\[\]\.schema:(name|description)$", "method-target-material"),
         (r"^\$Dataset\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "dataset-scalar"),
         (r"^\$MethodDefinition\.ada:targetSpeciesTemplate\.ada:targetSpeciesColumns\[\]$", "analyte-template"),
         # the analyte-identifier column; special_resolve() already emits this for the `Analyte` row
@@ -266,6 +272,17 @@ def recognize(s):
         # the domain's existing consumers are NOT relocated here, so nothing else is admitted yet.
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.schema:(name|description)$", "dataset-sampling-unit"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sampling-unit-parameter"),
+        # The sampling unit's foreign key into the procedure's target-material table, matched on
+        # schema:name. `Target Material of Sampling Unit` (2026-10-01), keyed
+        # `sample > sampling unit`, so one value per unit -- a column of that table.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.ada:targetMaterial$", "dataset-sampling-unit-target-material"),
+        # The combined-result table, `defines: combined result` (2026-10-01). On the ACTIVITY, not
+        # in a sample: a combined result names its own sample and need not belong to exactly one.
+        # Analysis-side only -- the procedure cannot know which results were combined. The row
+        # array itself is admitted because `combined result` and
+        # `combined result x reported property` route to it as columns.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.ada:combinedResults\[\](\.schema:(name|description))?$", "dataset-combined-result"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.ada:combinedResults\[\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-combined-result-parameter"),
         # Funding mirrors the procedure side, which the catch-all `inherited-identity` family
         # above already admits in this exact shape. `schema:MonetaryGrant` is an UpperCamel
         # @type-assertion segment, not navigation — the same device `dataset-measurement-technique`

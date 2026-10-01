@@ -234,6 +234,36 @@ properties:
         - $ref: '#/$defs/MethodParameterValue'
 
 
+  'ada:targetMaterials':
+    description: >-
+      The material types this procedure is designed to analyse -- the ROWS of the target-material
+      table, and the domain that `defines: target material` enumerates (Rule 7, see the Legends
+      sheet of any delivered TAPP). One entry per material type.
+
+      It is a table rather than a bare list because fields are keyed BY it: the five electron-beam
+      conditions (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage
+      Minimization) each carry one value per material type, and Primary Calibration Standard Name
+      is keyed `target material x target species`. Those per-material values ride on the row
+      alongside schema:name, keyed by the valueName of whichever column declared them -- the same
+      arrangement ada:defaultTargetSpecies uses for its species rows.
+
+      schema:name is REQUIRED: a material nothing can name gives a field keyed by target material
+      no row to attach its value to.
+    type: array
+    items:
+      type: object
+      required: ['schema:name']
+      properties:
+        '@id':
+          description: Optional identifier for this target material.
+          type: string
+        'schema:name':
+          description: >-
+            The material type, from the controlled list the TAPP's Target Material field offers
+            (Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or
+            alloy, N/A, None) optionally qualified in the same cell.
+          type: string
+
   'ada:targetSpeciesTemplate':
     description: >-
       Template for per-target-species (element-specific) parameters. Defines the columns that appear in
