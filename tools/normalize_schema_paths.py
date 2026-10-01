@@ -264,18 +264,11 @@ def recognize(s):
         (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
-        # A sampling unit nested in the sample it belongs to, from Core v8's split of the old
-        # `Sampling Unit` (amds-ldeo/tapp#8). The TYPE stays a procedure property
-        # (`ada:samplingUnitType`, admitted by the procedure ada- family); these are the named
-        # INSTANCES, and they are analysis-side only because which grains or spots were measured
-        # cannot be known until the session runs. Kept to schema:name plus per-unit parameters:
-        # the domain's existing consumers are NOT relocated here, so nothing else is admitted yet.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.schema:(name|description)$", "dataset-sampling-unit"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sampling-unit-parameter"),
-        # The sampling unit's foreign key into the procedure's target-material table, matched on
-        # schema:name. `Target Material of Sampling Unit` (2026-10-01), keyed
-        # `sample > sampling unit`, so one value per unit -- a column of that table.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.ada:samplingUnits\[\]\.ada:targetMaterial$", "dataset-sampling-unit-target-material"),
+        # No sampling-unit families. A particular unit is a COLUMN in a distribution, declared
+        # as a schema:variableMeasured, which dataset-variable-measured below already admits --
+        # and its binding to a target material lives in the instance data table, not here. Three
+        # families (dataset-sampling-unit, -parameter, -target-material) were added on 2026-09-25
+        # for an array of unit objects in the record and retired on 2026-10-01 with it.
         # The combined-result table, `defines: combined result` (2026-10-01). On the ACTIVITY, not
         # in a sample: a combined result names its own sample and need not belong to exactly one.
         # Analysis-side only -- the procedure cannot know which results were combined. The row

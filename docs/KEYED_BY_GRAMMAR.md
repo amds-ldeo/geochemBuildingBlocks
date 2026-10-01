@@ -241,26 +241,33 @@ rows carry their keyed values directly, so there is no separate column-definitio
 
 | domain | row axis | side | added |
 |---|---|---|---|
-| sample > sampling unit | `$Dataset…schema:object[materialsample].ada:samplingUnits[].schema:name` | analysis | 2026-09-25 |
+| sample > sampling unit | `$Dataset.schema:variableMeasured[schema:name=…]` — a DATA COLUMN | analysis | 2026-09-25, corrected 2026-10-01 |
 | target material | `$MethodDefinition.ada:targetMaterials[].schema:name` | **procedure** | 2026-10-01 |
 | combined result | `$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name` | analysis | 2026-10-01 |
 
-Three things about those three are worth stating, because each was a decision and none is obvious
-from the paths:
+**One of these is not metadata, and that is the most important distinction in this section.**
 
-- **`sampling unit` is never standalone.** The old `defines: sampling unit` is retired. A unit
-  exists only within a sample, so the key is the containment form and the rows nest inside
-  `schema:object`. `ada:samplingUnitType` survives as a plain procedure property holding a
-  controlled TYPE, and defines nothing — a type cannot enumerate its own instances.
-- **`target material` is procedure-side**, alone among the row axes here, because it is what the
-  procedure declares it expects to find. The materials are assumed present in any sample the
-  procedure analyses; there is deliberately **no** per-sample list of contained materials. A sample
-  meets a material only through `ada:samplingUnits[].ada:targetMaterial`, which is the FK, at the
-  granularity the assignment is actually observed.
-- **`combined result` sits on the ACTIVITY, not in a sample**, because a combined result names its
-  own sample and need not belong to exactly one — an isochron over 36 runs is the case in hand.
-  That is the exact opposite of a sampling unit, which nests in the sample precisely because a unit
-  cannot belong to two. When the next domain arrives, this is the question to ask first.
+- **A sampling unit is DATA.** The procedure and the analysis can state only the KIND of unit —
+  `ada:samplingUnitType`, a controlled type that defines nothing, because a type cannot enumerate
+  its own instances. A *particular* unit (a microprobe analysis point) is a **column in one of the
+  dataset's distributions**, and the record holds only the `schema:variableMeasured` that names
+  that column. The binding from a unit to its target material is in that same instance data table,
+  beside the analytical results for that unit — `Target Material of Sampling Unit` therefore
+  declares a column too, not a property of anything in the record.
+
+  This was got wrong first: on 2026-09-25 an `ada:samplingUnits[]` array of unit OBJECTS was added
+  to `geochemProduct`, nested in the sample, with a `schema:name` and an `ada:targetMaterial` FK.
+  It was removed on 2026-10-01. The lesson is the one worth keeping: **before giving a domain a
+  container in the record, ask whether its members are metadata at all.** A domain whose members
+  are only ever observed per data row belongs in the data, and its `defines:` row declares the
+  column rather than the members.
+- **`target material` is procedure-side**, because it is what the procedure declares it expects to
+  find, and the materials are assumed present in any sample it analyses. There is deliberately
+  **no** per-sample list of contained materials — nothing maps a `schema:object` to the materials
+  inside it. The only place a sample meets a material is the data column above.
+- **`combined result` sits on the ACTIVITY and IS metadata**, because a combined result is a
+  statement the record makes about its own contents, and it names its own sample rather than
+  belonging to exactly one — an isochron over 36 runs is the case in hand.
 
 ---
 

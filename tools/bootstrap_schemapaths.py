@@ -260,9 +260,15 @@ def keyed_path(row):
         # `sampling unit per sample`, whose `per` parent is documented nullable. The old
         # `defines: sampling unit` is retired: `ada:samplingUnitType` holds a controlled type and
         # defines nothing, so it routes as a plain procedure property with no key.
+        # The identifier of a PARTICULAR sampling unit is not metadata. The procedure and the
+        # analysis can state only the KIND of unit (ada:samplingUnitType); a particular unit is a
+        # column in one of the dataset's distributions, declared here as the variableMeasured that
+        # names it. Settled 2026-10-01, after an array of sampling-unit OBJECTS was tried on
+        # 2026-09-25 and removed: the binding from a unit to its target material exists only in the
+        # instance data table beside the analytical results, so there is nothing for the record to
+        # hold but the column declaration.
         "defines: sample > sampling unit":
-            [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
-             ".ada:samplingUnits[].schema:name"],
+            [f"$Dataset.schema:variableMeasured[schema:name='{it}']"],
         "defines: sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}'].schema:name"],
         # Dual-homed, like `reported property`: the procedure states a default for the sample
         # property, and each analysis supplies its own value. Routing only the $Dataset half left

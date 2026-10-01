@@ -219,72 +219,6 @@ allOf:
                     type: array
                     items:
                       type: object
-                  "ada:samplingUnits":
-                    description: >-
-                      The sampling units of this sample that were analysed -- the grains, spots,
-                      phases, sub-volumes or regions of interest that one row of reported values
-                      corresponds to. A sampling unit belongs to exactly one sample, which is why
-                      it is nested here rather than sitting on the activity. The unit TYPE is
-                      stated once by the procedure (ada:samplingUnitType); these are the instances,
-                      and they cannot be known until the session runs.
-                    type: array
-                    items:
-                      type: object
-                      required: ["schema:name"]
-                      properties:
-                        "@id":
-                          description: Optional identifier for this sampling unit.
-                          type: string
-                        "schema:name":
-                          description: >-
-                            The laboratory's label for this sampling unit -- a spot number, grain
-                            label, map or region-of-interest name, or aliquot identifier. Required,
-                            because a unit nothing can name gives a field keyed by sampling unit no
-                            row to attach its value to.
-                          type: string
-                        "ada:targetMaterial":
-                          description: >-
-                            Which material this unit IS -- a foreign key into the procedure's
-                            ada:targetMaterials, matched on schema:name. A material sample is
-                            composed of several target materials (the different mineral particles
-                            making up a rock), and a sampling unit is one of them: a grain of
-                            olivine, a spot on a maskelynite. That is what links the unit to the
-                            point-analysis conditions registered for its material, and why the
-                            five electron-beam fields are keyed by target material rather than by
-                            sampling unit from the 2026-10-01 delivery onward.
-
-                            The procedure declares the material TYPES it expects to find, and they
-                            are assumed present in ANY sample it analyses. There is deliberately NO
-                            per-sample list of contained materials: nothing maps a particular
-                            schema:object to the materials inside it, and this property is the only
-                            place a sample meets a target material. Do not add such a list -- the
-                            mapping is per UNIT because that is the granularity at which it is
-                            observed, and a per-sample list would duplicate it while being unable
-                            to say which unit was which.
-
-                            Hence the tier split: Target Material is Basic/Read-Only on the
-                            procedure, while the sample's own identifier and this assignment are
-                            analysis-tier.
-
-                            TWO CONSTRAINTS hold that this schema cannot check, recorded here
-                            because nothing else records them:
-
-                              * the unit is partOf the sample that is the object of the analysis.
-                                Guaranteed by construction -- a unit nested in this sample IS part
-                                of it -- which is why there is no separate partOf property. Note
-                                the contrast with ada:combinedResults, which sits on the ACTIVITY
-                                because a combined result need not belong to exactly one sample.
-                              * this value must be one of the procedure's declared
-                                ada:targetMaterials. NOT checkable in JSON Schema or SHACL: a
-                                record references its TAPP as {@id, @type} rather than inlining
-                                it, so the declared list is in a different document and never
-                                enters this graph. It needs a validator that resolves the TAPP by
-                                @id, and until one does, this FK is an assertion rather than a
-                                checked reference.
-
-                            Not required: a procedure analysing one material type never needs to
-                            say which, and a unit can be measured before its material is assigned.
-                          type: string
             "schema:identifier":
               description: >-
                 The analytical session's own identifier -- the laboratory's run,
@@ -312,8 +246,17 @@ allOf:
 
                 On the ACTIVITY rather than on a sample, because a combined result names its own
                 sample and need not belong to exactly one -- an isochron over 36 runs is the case
-                in hand. That is the difference from ada:samplingUnits, which nests in the sample
-                precisely because a unit cannot belong to two.
+                in hand.
+
+                It is METADATA, unlike a sampling unit, and the difference is worth being clear
+                about because an earlier design got it wrong. A combined result is a statement the
+                record makes about its own contents, so it belongs here. An individual sampling
+                unit is not: the procedure and the analysis can state only the KIND of unit
+                (ada:samplingUnitType), while a particular unit's identifier is a
+                schema:variableMeasured naming a COLUMN in one of the distributions, and the
+                binding from that unit to its target material exists only in the instance data
+                table beside the results. There is therefore no array of sampling-unit objects
+                here; one was added on 2026-09-25 and removed on 2026-10-01 once that was settled.
 
                 Analysis-side only: the procedure can say HOW results will be combined
                 (Combination Method, keyed by reported property) but not WHICH were, so there is

@@ -36,8 +36,6 @@ def kb_from_path(p):
     # The 2026-10-01 domains. Both branches must precede the generic schema:object[ ones below,
     # for the same reason the sampling-unit branch does: the target-material FK sits inside
     # ada:samplingUnits[], which sits inside schema:object[.
-    if "ada:samplingUnits[" in p and p.endswith(".ada:targetMaterial"):
-        return "sample > sampling unit"
     if p.endswith("ada:targetMaterials[].schema:name"):
         return "defines: target material"
     if p.endswith("ada:targetMaterials[]"):
@@ -50,8 +48,6 @@ def kb_from_path(p):
         return "defines: combined result"
     if p.endswith("ada:combinedResults[]"):
         return "combined result"
-    if "ada:samplingUnits[" in p and p.endswith(".schema:name"):
-        return "defines: sample > sampling unit"
     if "schema:object[" in p and p.endswith(".schema:name"):
         return "defines: sample"
     if "schema:object[" in p and ".schema:additionalProperty[" in p:
