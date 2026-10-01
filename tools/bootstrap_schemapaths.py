@@ -290,6 +290,13 @@ def keyed_path(row):
         # Standard Name are keyed by it, so the per-material values ride on these rows.
         "defines: target material": ["$MethodDefinition.ada:targetMaterials[].schema:name"],
         "target material": ["$MethodDefinition.ada:targetMaterials[]"],
+        # Primary Calibration Standard Name, 12 tables, module-owned by CompositionQC. Same
+        # treatment as `combined result x reported property`: the cross-product is ONE column on
+        # the X rows, and the Y half -- here the target species -- is carried by the column's
+        # schema:valueName rather than by a second container. Routed to the Legend's model rather
+        # than to the pre-Legend fallback that still holds the other 55 cross-product rows on
+        # ada:targetSpeciesColumns[].
+        "target material x target species": ["$MethodDefinition.ada:targetMaterials[]"],
 
         # combined result is ANALYSIS-side only. The procedure can say HOW results will be
         # combined (Combination Method, keyed by reported property) but never WHICH were, so
