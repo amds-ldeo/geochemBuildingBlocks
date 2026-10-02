@@ -41,6 +41,7 @@ Skeleton `exampleadaEMPA.json` validates with 1 error(s); this instance validate
 | `/schema:distribution/0/schema:hasPart/0/schema:additionalProperty` | MD | analysis-level parameter EDS Spectral Processing Type |
 | `/schema:distribution/0/schema:hasPart/0/schema:additionalProperty` | MD | analysis-level parameter EDS Live Time per Point or Pixel |
 | `/dqv:hasQualityMeasurement` | SENTINEL | Goodness-of-Fit is empty in all 15 literature columns |
+| `/schema:variableMeasured` | ADA+SENTINEL | the sampling-unit identifier. ADA: the session reports per analysis point across two spectrometer passes, so the column is structurally present. SENTINEL: no source gives the column's own label, so `schema:name` carries the TAPP item label, as Detection Limit and the other TAPP-labelled variables in this file do. Required by the profile from 2026-10-02, when `defines: sample > sampling unit` was routed to a data column. |
 
 ## Rejected — kept out because they would have broken validation
 
