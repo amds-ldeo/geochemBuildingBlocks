@@ -134,7 +134,7 @@ Additional Notes,Advanced,Advanced,Text (free),,module,,placement owned by Modul
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 EELS Chemical State Determination Method,Advanced,Editable,Controlled list / Text,$MethodDefinition.schema:additionalProperty[schema:name='EELS Chemical State Determination Method'].schema:defaultValue,authored,,"new in the 2026-09 delivery. Advanced/Editable and unkeyed, so the dual-homed pair on the plain additionalProperty route, matching Sample Holder and the sibling EELS Energy Resolution.",
 EELS Chemical State Determination Method,Advanced,Editable,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='EELS Chemical State Determination Method'].schema:value,authored,,"new in the 2026-09 delivery. Advanced/Editable and unkeyed, so the dual-homed pair on the plain additionalProperty route, matching Sample Holder and the sibling EELS Energy Resolution.",
-Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit
-Combination Method,Basic,Editable,Text (free),,flagged,,new in this revision (needs mapping),reported property
-Combined Results,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: combined result
-Other Statistics,N/A,Advanced,Text (free),,flagged,,new in this revision (needs mapping),combined result x reported property
+Sampling Unit Name,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name'],keyed,,keyed route for `defines: sample > sampling unit`,defines: sample > sampling unit
+Combination Method,Basic,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Combination Method'].schema:value,keyed,,keyed route for `reported property`,reported property
+Combined Results,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name,keyed,,keyed route for `defines: combined result`,defines: combined result
+Other Statistics,N/A,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[],keyed,,keyed route for `combined result x reported property`,combined result x reported property

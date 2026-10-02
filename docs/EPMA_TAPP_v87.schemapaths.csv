@@ -98,12 +98,12 @@ Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placemen
 ,,,,,,,,
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Monitored Elements,Basic,Read-Only,Text (free),$MethodDefinition.ada:monitoredElements[],authored,,list of strings.  ,defines: monitored property per target species
-Sampling Unit Name,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: sample > sampling unit
+Sampling Unit Name,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name'],keyed,,keyed route for `defines: sample > sampling unit`,defines: sample > sampling unit
 Target Material of Sampling Unit,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Target Material of Sampling Unit'].schema:value,authored,,"declares the COLUMN binding each sampling unit to its target material, in the instance data table beside the analytical results. The procedure declares only the materials it EXPECTS (ada:targetMaterials); nothing maps a sample to the materials inside it, and this binding is observed per unit, which is the granularity the data carries.",sample > sampling unit
 Mapping Beam Mode,Basic,Read-Only,Controlled list / Text,,flagged,,new in this revision (needs mapping),sample > sampling unit
 Mapping Beam Current,Basic,Editable,Numeric (nA),,flagged,,new in this revision (needs mapping),sample > sampling unit
 Mapping Beam Diameter,Basic,Editable,Numeric (µm) / Text,,flagged,,new in this revision (needs mapping),sample > sampling unit
-X-ray Detection Method per Monitored Element,Basic,Read-Only,Controlled list,,flagged,,new in this revision (needs mapping),monitored property
-Combination Method,Basic,Editable,Text (free),,flagged,,new in this revision (needs mapping),reported property
-Combined Results,N/A,Basic,Text (free),,flagged,,new in this revision (needs mapping),defines: combined result
-Other Statistics,N/A,Advanced,Text (free),,flagged,,new in this revision (needs mapping),combined result x reported property
+X-ray Detection Method per Monitored Element,Basic,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,,keyed route for `monitored property`,monitored property
+Combination Method,Basic,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Combination Method'].schema:value,keyed,,keyed route for `reported property`,reported property
+Combined Results,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name,keyed,,keyed route for `defines: combined result`,defines: combined result
+Other Statistics,N/A,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[],keyed,,keyed route for `combined result x reported property`,combined result x reported property
