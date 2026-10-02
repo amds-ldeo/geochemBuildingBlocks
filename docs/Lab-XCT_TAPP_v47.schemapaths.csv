@@ -16,7 +16,7 @@ Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owne
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
-Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterials[].schema:name,authored,shared,the definer of the target-material domain: the materials the procedure expects in any sample it analyses. Was on schema:object -- a property OF the sample -- which the 2026-10-01 delivery superseded by making this field `defines: target material` and giving the domain its own table. Nothing maps a sample to the materials inside it.,defines: target material
+Target Material,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module Core,defines: target material
 Target Feature(s),Basic,Read-Only,Text (free),$MethodDefinition.ada:targetFeature,inferred,,,
 Applicable Sample Dimension Range,Basic,Read-Only,Text (free),$MethodDefinition.ada:applicableSampleDimensionRange,inferred,,,
 Sample Dimensions (L × W × H),Advanced,Basic,Text (free),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Dimensions L W H'].schema:defaultValue,authored,,dual-home decision: protocol default,
@@ -121,4 +121,4 @@ Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.schema
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='XCT'].schema:model.schema:name,authored,,new in v21; follows the existing XCT/EPMA convention,
 Data Processing Software(s),Basic,Editable,Text (free),,module,,placement owned by Module Core,
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,module,covered by a composed module; the module owns the placement,sample
-Sampling Unit Name,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name'],keyed,,keyed route for `defines: sample > sampling unit`,defines: sample > sampling unit
+Sampling Unit Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample > sampling unit

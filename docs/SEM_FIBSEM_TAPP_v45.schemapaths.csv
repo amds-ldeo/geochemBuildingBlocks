@@ -17,7 +17,7 @@ Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owne
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
-Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterials[].schema:name,authored,shared,the definer of the target-material domain: the materials the procedure expects in any sample it analyses. Was on schema:object -- a property OF the sample -- which the 2026-10-01 delivery superseded by making this field `defines: target material` and giving the domain its own table. Nothing maps a sample to the materials inside it.,defines: target material
+Target Material,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module Core,defines: target material
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,sample
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
 Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
@@ -63,5 +63,5 @@ Segmentation Method,Basic,Editable,Controlled list / Text,$Dataset.prov:wasGener
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP",
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP",
 Additional Notes,Advanced,Advanced,Text (free),,module,shared,placement owned by Module Core,
-Sampling Unit Name,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name'],keyed,,keyed route for `defines: sample > sampling unit`,defines: sample > sampling unit
+Sampling Unit Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample > sampling unit
 Mapping Beam Current,Basic,Editable,Numeric (nA),,flagged,,new in this revision (needs mapping),sample > sampling unit

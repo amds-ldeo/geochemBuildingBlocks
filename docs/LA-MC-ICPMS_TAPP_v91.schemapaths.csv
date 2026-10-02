@@ -157,7 +157,7 @@ Signal Smoothing,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.sche
 Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Filtering Approach'].schema:defaultValue,authored,shared,divergence decision applied,
 Spike / Outlier Filtering Approach,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Filtering Approach'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
 Spot Diameter (Measured),N/A,Basic,Numeric (µm),,module,,placement owned by Module LaserAblation,
-Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterials[].schema:name,authored,shared,the definer of the target-material domain: the materials the procedure expects in any sample it analyses. Was on schema:object -- a property OF the sample -- which the 2026-10-01 delivery superseded by making this field `defines: target material` and giving the domain its own table. Nothing maps a sample to the materials inside it.,defines: target material
+Target Material,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module Core,defines: target material
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,inferred,,path from owning module,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module TargetSelection,
 Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
@@ -180,7 +180,7 @@ Reaction Product Ion / Mass-Shift Transition,Advanced,Read-Only,Text (free),$Met
 Inter-Pass Data Dependency,Advanced,Read-Only,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Inter-Pass Data Dependency'].schema:value,authored,,"off-step procedure property, per the reviewer's rule: the step is used only where a 'defines: acquisition pass' value exists. Advanced/Read-Only takes a single $MethodDefinition home (104 of 104 such item-instances) with a schema:value terminal (73 of 73)",acquisition pass
 Acquisition Pass,Basic,Read-Only,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data acquisition'].schema:description,authored,,"definer: the Data acquisition step's description, per the settled mapping. Emits only when the cell has a value; empty in 56 of 57 publication columns, and an empty cell never reaches the emitter",defines: acquisition pass
 Number of Acquisition Passes,Basic,Read-Only,Integer,$MethodDefinition.ada:numberOfAcquisitionPasses,authored,,"count of the passes enumerated in Acquisition Pass; keyed (none), so it needs no pass identifier and is placeable ahead of the rest of the pass family",
-Sampling Unit Name,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name'],keyed,,keyed route for `defines: sample > sampling unit`,defines: sample > sampling unit
-Combination Method,Basic,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Combination Method'].schema:value,keyed,,keyed route for `reported property`,reported property
-Combined Results,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name,keyed,,keyed route for `defines: combined result`,defines: combined result
-Other Statistics,N/A,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[],keyed,,keyed route for `combined result x reported property`,combined result x reported property
+Sampling Unit Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample > sampling unit
+Combination Method,Basic,Editable,Text (free),,module,,placement owned by Module Aggregation,reported property
+Combined Results,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,defines: combined result
+Other Statistics,N/A,Advanced,Text (free),,module,,placement owned by Module Aggregation,combined result x reported property

@@ -75,7 +75,7 @@ Sequence,Advanced,Read-Only,Integer,$MethodDefinition.ada:monitoredPropertyTempl
 Stage Scan vs. Beam Scan,Advanced,Read-Only,Controlled list,$MethodDefinition.schema:additionalProperty[schema:name='Stage Scan vs Beam Scan'].schema:value,inferred,shared,,
 Step Size / Pixel Size,Basic,Editable,Numeric (µm) / Text,$MethodDefinition.ada:stepSizePixelSizeDefault,authored,shared,divergence decision applied,
 Step Size / Pixel Size,Basic,Editable,Numeric (µm) / Text,$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Step Size / Pixel Size'].schema:value,inferred,shared,dual-home counterpart (tier matrix),
-Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterials[].schema:name,authored,shared,the definer of the target-material domain: the materials the procedure expects in any sample it analyses. Was on schema:object -- a property OF the sample -- which the 2026-10-01 delivery superseded by making this field `defines: target material` and giving the domain its own table. Nothing maps a sample to the materials inside it.,defines: target material
+Target Material,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module Core,defines: target material
 Technique,Basic,Read-Only,Controlled list,,module,shared,placement owned by Module Core,
 Time-Dependent Intensity Correction,Advanced,Editable,Controlled list,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,divergence decision applied,target species
 WDS Dead Time Correction,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:wdsDeadTimeCorrection,inferred,shared,,
@@ -98,12 +98,12 @@ Goodness-of-Fit or Dispersion Statistic,N/A,Basic,Text (free),,module,,"placemen
 ,,,,,,,,
 Session Identifier,N/A,Basic,Text (free),,module,,placement owned by Module Core,
 Monitored Elements,Basic,Read-Only,Text (free),$MethodDefinition.ada:monitoredElements[],authored,,list of strings.  ,defines: monitored property per target species
-Sampling Unit Name,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Sampling Unit Name'],keyed,,keyed route for `defines: sample > sampling unit`,defines: sample > sampling unit
+Sampling Unit Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample > sampling unit
 Target Material of Sampling Unit,N/A,Basic,Text (free),$Dataset.schema:variableMeasured[schema:name='Target Material of Sampling Unit'].schema:value,authored,,"declares the COLUMN binding each sampling unit to its target material, in the instance data table beside the analytical results. The procedure declares only the materials it EXPECTS (ada:targetMaterials); nothing maps a sample to the materials inside it, and this binding is observed per unit, which is the granularity the data carries.",sample > sampling unit
 Mapping Beam Mode,Basic,Read-Only,Controlled list / Text,,flagged,,new in this revision (needs mapping),sample > sampling unit
 Mapping Beam Current,Basic,Editable,Numeric (nA),,flagged,,new in this revision (needs mapping),sample > sampling unit
 Mapping Beam Diameter,Basic,Editable,Numeric (µm) / Text,,flagged,,new in this revision (needs mapping),sample > sampling unit
 X-ray Detection Method per Monitored Element,Basic,Read-Only,Controlled list,$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[],keyed,,keyed route for `monitored property`,monitored property
-Combination Method,Basic,Editable,Text (free),$Dataset.schema:variableMeasured[schema:name='Combination Method'].schema:value,keyed,,keyed route for `reported property`,reported property
-Combined Results,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name,keyed,,keyed route for `defines: combined result`,defines: combined result
-Other Statistics,N/A,Advanced,Text (free),$Dataset.prov:wasGeneratedBy.ada:combinedResults[],keyed,,keyed route for `combined result x reported property`,combined result x reported property
+Combination Method,Basic,Editable,Text (free),,module,,placement owned by Module Aggregation,reported property
+Combined Results,N/A,Basic,Text (free),,module,,placement owned by Module Aggregation,defines: combined result
+Other Statistics,N/A,Advanced,Text (free),,module,,placement owned by Module Aggregation,combined result x reported property
