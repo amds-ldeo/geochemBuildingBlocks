@@ -133,7 +133,16 @@ def main():
             if a.tapp:
                 for t in a.tapp:
                     cmd += ["--only", b.TECH_DIR.get(t, t)]
-            fail += [(stage, "")] if run(cmd, a.dry_run) else []
+            # attempts=1: no Errno 22 retry here, unlike every other stage. run() re-runs the
+            # whole command, and this one command is the better part of an hour, so a lock in its
+            # last minute costs another full pass from the start -- three of which do not fit in
+            # the time a run gets. On 2026-10-02 that killed a run at its two-hour limit on
+            # attempt 2, with profile-2, examples and mirrors never reached.
+            #
+            # It is also the stage that needs the retry least: resolve_schema writes only files
+            # whose bytes changed and refuses to write one whose refs did not resolve, so the next
+            # ordinary run repairs whatever a lock cost. Re-run the stage, do not retry inside it.
+            fail += [(stage, "")] if run(cmd, a.dry_run, attempts=1) else []
         elif stage == "mirrors":
             fail += [(stage, "")] if run(["", os.path.join(TOOLS, "regenerate_schema_json.py")],
                                          a.dry_run) else []

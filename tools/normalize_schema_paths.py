@@ -151,6 +151,10 @@ def recognize(s):
         # the channel table: instrument selection positions (a mass, a cup, an energy-loss edge)
         (r"^\$MethodDefinition\.ada:monitoredPropertyTemplate\.ada:monitoredPropertyColumns\[\]$", "channel-template"),
         (r"^\$MethodDefinition\.ada:monitoredPropertyTemplate\.ada:defaultMonitoredProperties\[\]$", "channel-identifier"),
+        # the target-material table: the material types a procedure is designed to analyse.
+        # Same shape again -- one row per material, one column per field keyed by it.
+        (r"^\$MethodDefinition\.ada:targetMaterialTemplate\.ada:targetMaterialColumns\[\]$", "target-material-template"),
+        (r"^\$MethodDefinition\.ada:targetMaterialTemplate\.ada:defaultTargetMaterials\[\]$", "target-material-identifier"),
         # the shared logical variable registry every table part references. Bare-[] identity form
         # (registering a reported variable and its name/units), plus the reported-VALUE form: a
         # reported property is dual-homed like any parameter. On $MethodDefinition it takes .value

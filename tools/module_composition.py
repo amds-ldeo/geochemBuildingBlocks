@@ -139,6 +139,50 @@ def _module_placed(name):
     return {k: set(v) for k, v in (_EMITTED.get(name) or {}).items()}
 
 
+def module_paths(source_path, item):
+    """[(module, path)] -- where the modules this TAPP composes place `item`.
+
+    The PATH can only come from the module's sidecar; emitted.json records which fields and roots
+    a built $def carries, not where. Pairing the two is what keeps a stale build safe: the path is
+    returned only for a field the manifest confirms the module actually carries, so a module whose
+    schema predates its sidecar yields nothing rather than a placement it never emitted.
+
+    Only composable placements are returned. A parameter, a keyed-table column array or a
+    default-row array is not something a module constrains, so there is no module placement for an
+    example to use -- those go through param_refs instead.
+    """
+    entry = _manifest_entry(source_path)
+    if not entry:
+        return []
+    nm = ms._norm(ms.rename(item))
+    out = []
+    for m in entry.get("modules") or []:
+        name = m.get("name")
+        if not name or nm not in _module_placed(name):
+            continue
+        sidecar = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                               "docs", "modules", f"Module_{name}.schemapaths.csv")
+        try:
+            spec = schemapath_io.load_spec(sidecar)
+        except OSError:
+            continue
+        for key, rec in spec.items():
+            if ms._norm(ms.rename(key)) != nm:
+                continue
+            paths = rec["path"] if isinstance(rec["path"], list) else [rec["path"]]
+            for p in paths:
+                if p and _is_composable(p):
+                    out.append((name, p))
+    # A publication cell is one scalar, so a path that ends at a scalar leaf comes first and a
+    # path ending at a bare `[]` last: the array form is a ROW AXIS whose member shape the module
+    # defines, not a slot for a transcribed value. Goodness-of-Fit is the case that showed it --
+    # Aggregation offers both ada:combinedResults[] (keyed `combined result x reported property`)
+    # and the unkeyed dqv:hasQualityMeasurement default, and CLAUDE.md's placement rule makes the
+    # dqv one the default, which is exactly the one that does not end in an array.
+    out.sort(key=lambda mp: mp[1].rstrip().endswith("[]"))
+    return out
+
+
 def plan(source_path):
     """([(module, [$def names]) ...], {root -> {normalized item}}) for one TAPP.
 

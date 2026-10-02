@@ -124,7 +124,8 @@ BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
 # string|DefinedTerm makes the base's row object unsatisfiable, and every mapped row fails with
 # "{'monitoredProperty': '11B'} is not valid under any of the given schemas" while the base reads
 # as though it allows exactly that.
-DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties"}
+DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
+                      "ada:defaultTargetMaterials"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
                                {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"},
                                {"type": "object"}]}
@@ -156,6 +157,14 @@ KEYED_TABLES = {
         "identifier_ref": {
             "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
                     "#/$defs/MonitoredPropertyIdentifierColumn"
+        },
+    },
+    "ada:targetMaterialColumns": {
+        "template": "ada:targetMaterialTemplate",
+        "registry": "targetMaterialColumns",
+        "identifier_ref": {
+            "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
+                    "#/$defs/TargetMaterialIdentifierColumn"
         },
     },
     "ada:reportedPropertyColumns": {
@@ -190,7 +199,8 @@ def normalize_path(p):
     schema side keys off the property NAME, so both grammars still emit the same array constraint."""
     return (p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
              .replace(".ada:defaultTargetSpecies[]", ".ada:defaultTargetSpecies")
-             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties"))
+             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties")
+             .replace(".ada:defaultTargetMaterials[]", ".ada:defaultTargetMaterials"))
 
 
 class AddlType:
