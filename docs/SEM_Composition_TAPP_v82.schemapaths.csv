@@ -17,7 +17,7 @@ Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owne
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
-Target Material,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module Core,defines: target material
+Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterialTemplate.ada:defaultTargetMaterials[],keyed,shared,keyed route for `defines: target material`. Returned to the technique: the module that covered it cannot constrain this container.,defines: target material
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,sample
 Sample Name,N/A,Basic,Text (free),,module,shared,placement owned by Module Core,defines: sample
 Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
@@ -86,7 +86,7 @@ Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:pr
 Analysis Inclusion and Rejection Criteria,Basic,Basic,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:defaultValue,authored,,data-reduction step parameter,combined result
 Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:defaultValue,authored,,"data-reduction step parameter, following geochronTAPP",
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[schema:name='Data reduction'].schema:additionalProperty[schema:name='Constants Reference Values'].schema:value,authored,,"data-reduction step parameter, following geochronTAPP",
-Primary Calibration Standard Name,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,target material x target species
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[],keyed,divergent,keyed route for `target material x target species`. Returned to the technique: the module that covered it cannot constrain this container.,target material x target species
 Secondary Reference Materials,Basic,Editable,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,divergent,per-element in electron-beam techniques; ICP-MS keeps the per-run scalar,defines: standard
 X-ray Line Overlap Corrections Applied,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,target species
 Interfering Elements,Advanced,Read-Only,Text (free),$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],keyed,shared,,target species

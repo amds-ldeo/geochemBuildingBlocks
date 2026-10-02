@@ -16,7 +16,7 @@ Coupled Technique(s),Advanced,Editable,Text (free),,module,shared,placement owne
 Coupling Description,Advanced,Editable,Text (free),,module,shared,placement owned by Module Core,
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,shared,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,shared,placement owned by Module Core,
-Target Material,Basic,Read-Only,Controlled list / Text,,module,shared,placement owned by Module Core,defines: target material
+Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterialTemplate.ada:defaultTargetMaterials[],keyed,shared,keyed route for `defines: target material`. Returned to the technique: the module that covered it cannot constrain this container.,defines: target material
 Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,shared,placement owned by Module Core,sample
 Sample Description,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:description,authored,shared,analysis-instance (needs mapping),
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,divergent,placement owned by Module Core,sample
@@ -103,7 +103,7 @@ Memory Effect Mitigation,Advanced,Editable,Text (free),$Dataset.prov:wasGenerate
 Memory Effect Mitigation,Advanced,Editable,Text (free),$MethodDefinition.schema:instrument[schema:additionalType='ICPMS'].schema:additionalProperty[schema:name='Memory Effect Mitigation'].schema:defaultValue,authored,shared,,
 Uncertainty Propagation Method,Advanced,Editable,Text (free),,module,shared,placement owned by Module ICPMS,reported property
 Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module,shared,placement owned by Module CompositionQC,reported property
-Primary Calibration Standard Name,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,target material x target species
+Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[],keyed,divergent,keyed route for `target material x target species`. Returned to the technique: the module that covered it cannot constrain this container.,target material x target species
 Calibration Standard Measurement Frequency,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,
 Secondary Reference Materials,Basic,Editable,Text (free),,module,divergent,placement owned by Module CompositionQC,defines: standard
 Detection Limit,Advanced,Basic,Numeric + unit / Text,,module,shared,placement owned by Module CompositionQC,reported property
