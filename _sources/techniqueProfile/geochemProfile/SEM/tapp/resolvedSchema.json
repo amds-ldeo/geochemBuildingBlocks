@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
-  "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v74.csv via the path-driven pipeline.",
+  "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v84.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -2185,6 +2185,114 @@
         ]
       }
     },
+    "ada:targetMaterialTemplate": {
+      "description": "Template for per-target-material parameters, a target material being a material type this procedure is designed to analyse (Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares the target-material domain and the columns that repeat over it.\nThe domain is declared by the TAPP's Target Material field, marked `defines: target material`; the fields keyed BY it are the electron-beam conditions (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization), and Primary Calibration Standard Name is keyed `target material x target species`.\nTarget materials are assumed present in any sample the procedure would analyse. The binding between a particular sampling unit and the material it hit is instance data, not procedure metadata, so it is recorded as a data-table column and NOT here -- this template carries only the kinds of material expected and the values that repeat over them.",
+      "type": "object",
+      "properties": {
+        "ada:targetMaterialColumns": {
+          "type": "array",
+          "description": "Columns of the per-target-material parameter table. Must include exactly one column with schema:valueName \"targetMaterial\" that identifies the material named in each row.",
+          "minItems": 1,
+          "items": {
+            "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
+            "allOf": [
+              {
+                "$ref": "#/$defs/KeyedTableColumn"
+              }
+            ]
+          },
+          "contains": {
+            "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+            "allOf": [
+              {
+                "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/KeyedTableColumn"
+                  }
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "schema:valueName": {
+                    "const": "targetMaterial"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "schema:readonlyValue": {
+                    "const": true
+                  },
+                  "schema:valueRequired": {
+                    "const": true
+                  },
+                  "ada:tier": {
+                    "const": "M"
+                  },
+                  "ada:cdifPropertyPath": {
+                    "const": "#/schema:variableMeasured/schema:name"
+                  }
+                },
+                "required": [
+                  "schema:valueName",
+                  "ada:dataType",
+                  "schema:readonlyValue",
+                  "schema:valueRequired",
+                  "ada:tier",
+                  "ada:cdifPropertyPath"
+                ]
+              }
+            ]
+          },
+          "maxContains": 1
+        },
+        "ada:targetMaterialDeclaration": {
+          "type": "string",
+          "description": "The material types analysed, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration: a submitter may name the materials as a list, or as prose that names none individually. ada:defaultTargetMaterials carries the members that could be recognised; this carries the statement they were recognised FROM, so a cell that parses only in part loses nothing."
+        },
+        "ada:defaultTargetMaterials": {
+          "type": "array",
+          "description": "The material types this procedure targets by default - the ROWS of the per-material table, and the domain `defines: target material` enumerates. An entry is a bare string or a schema:DefinedTerm naming the material, or a row object binding that material to per-material values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetMaterialColumns, and MUST carry the 'targetMaterial' key - the column that sibling description requires to identify the material named in each row.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every material, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between materials.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              },
+              {
+                "type": "object",
+                "title": "Per-target-material row",
+                "description": "One row of the per-material table, keyed by column schema:valueName. null records a value that is deliberately absent for this material rather than merely unstated.",
+                "required": [
+                  "targetMaterial"
+                ],
+                "properties": {
+                  "targetMaterial": {
+                    "type": "string",
+                    "description": "The material type this row is for (e.g. \"Silicate mineral\"), from the controlled list the TAPP's Target Material field offers, optionally qualified in the same cell. The key is the schema:valueName of the identifier column, which ada:targetMaterialColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                  }
+                },
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number",
+                    "integer",
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "ada:targetMaterialColumns"
+      ]
+    },
     "ada:targetSpeciesTemplate": {
       "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
       "type": "object",
@@ -3796,14 +3904,10 @@
             "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
             "type": "string"
           }
-        },
-        "ada:primaryStandardNameDefault": {
-          "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
-          "type": "string"
         }
       },
       "required": [
-        "ada:primaryStandardNameDefault"
+        "schema:actionProcess"
       ]
     },
     {
@@ -3868,7 +3972,7 @@
                       ]
                     },
                     "ada:beamDiameterDefault": {
-                      "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                      "description": "Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -4458,11 +4562,11 @@
                             "anyOf": [
                               {
                                 "title": "Analysis Inclusion and Rejection Criteria",
-                                "description": "The rules determining which individual results contribute to a reported aggregate value, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure aggregates. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the reported value, and on what grounds.",
+                                "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/semTAPP/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -4585,11 +4689,11 @@
                             {
                               "contains": {
                                 "title": "Analysis Inclusion and Rejection Criteria",
-                                "description": "The rules determining which individual results contribute to a reported aggregate value, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure aggregates. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the reported value, and on what grounds.",
+                                "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
-                                    "const": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
+                                    "const": "ada:parameter/semTAPP/analysisInclusionAndRejectionCriteriaDefault"
                                   },
                                   "@type": {
                                     "const": [
@@ -5159,7 +5263,7 @@
                   },
                   {
                     "title": "Beam Current",
-                    "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
+                    "description": "Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5404,47 +5508,6 @@
                       "schema:valueName",
                       "schema:name",
                       "ada:dataType"
-                    ]
-                  },
-                  {
-                    "title": "Technique per Target Species",
-                    "description": "Records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously. List in the same order as the Target Species field.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "techniquePerTargetSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Technique per Target Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -5710,7 +5773,7 @@
                 {
                   "contains": {
                     "title": "Beam Current",
-                    "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
+                    "description": "Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -5975,51 +6038,6 @@
                       "schema:valueName",
                       "schema:name",
                       "ada:dataType"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Technique per Target Species",
-                    "description": "Records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously. List in the same order as the Target Species field.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "techniquePerTargetSpecies"
-                      },
-                      "schema:name": {
-                        "const": "Technique per Target Species"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": true
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   "minContains": 0,
@@ -6676,6 +6694,57 @@
                       "ada:dataType",
                       "schema:defaultValue"
                     ]
+                  },
+                  {
+                    "title": "X-ray Detection Method per Monitored Element",
+                    "description": "The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/semTAPP/xRayDetectionMethodPerMonitoredElement"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "xRayDetectionMethodPerMonitoredElement"
+                      },
+                      "schema:name": {
+                        "const": "X-ray Detection Method per Monitored Element"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
                   }
                 ]
               },
@@ -7191,6 +7260,61 @@
                       },
                       "schema:name": {
                         "const": "X-ray Line"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": true
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "X-ray Detection Method per Monitored Element",
+                    "description": "The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:monitoredPropertyColumn/semTAPP/xRayDetectionMethodPerMonitoredElement"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "xRayDetectionMethodPerMonitoredElement"
+                      },
+                      "schema:name": {
+                        "const": "X-ray Detection Method per Monitored Element"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -8267,75 +8391,6 @@
                           "type": "string"
                         }
                       ]
-                    },
-                    "schema:additionalProperty": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "allOf": [
-                          {
-                            "if": {
-                              "properties": {
-                                "schema:name": {
-                                  "const": "Target Material"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            },
-                            "then": {
-                              "properties": {
-                                "schema:value": {
-                                  "type": "array",
-                                  "items": {
-                                    "description": "General description of the material type(s) this procedure is designed to analyse.",
-                                    "anyOf": [
-                                      {
-                                        "type": "string",
-                                        "enum": [
-                                          "Silicate mineral",
-                                          "Silicate glass",
-                                          "Oxide",
-                                          "Sulfide",
-                                          "Carbonate",
-                                          "Phosphate",
-                                          "Metal or alloy",
-                                          "Organic matter",
-                                          "Regolith",
-                                          "Porous material",
-                                          "Whole rock",
-                                          "N/A",
-                                          "None",
-                                          "missing"
-                                        ]
-                                      },
-                                      {
-                                        "type": "string"
-                                      }
-                                    ],
-                                    "readOnly": true
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        ]
-                      },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "Target Material"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          }
-                        }
-                      ]
                     }
                   },
                   "required": [
@@ -8402,6 +8457,166 @@
             }
           ],
           "readOnly": true
+        },
+        "ada:targetMaterialTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:targetMaterialColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                    "allOf": [
+                      {
+                        "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/KeyedTableColumn"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "targetMaterial"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Primary Calibration Standard Name",
+                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "primaryCalibrationStandardName"
+                      },
+                      "schema:name": {
+                        "const": "Primary Calibration Standard Name"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Primary Calibration Standard Name",
+                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "primaryCalibrationStandardName"
+                      },
+                      "schema:name": {
+                        "const": "Primary Calibration Standard Name"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            },
+            "ada:defaultTargetMaterials": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
         },
         "ada:sampleTiltAngle": {
           "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.",
@@ -8477,7 +8692,7 @@
         "ada:monitoredElements": {
           "type": "array",
           "items": {
-            "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
+            "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. A target species determined by stoichiometry or by difference, rather than measured, has no monitored element. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
             "type": "string",
             "readOnly": true
           }

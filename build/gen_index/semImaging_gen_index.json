@@ -11,6 +11,7 @@
   "ada:reportedVariablesAndUnits",
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
+  "ada:mappingBeamCurrentDefault",
   "ada:workingDistanceDefault",
   "ada:dwellTimePerPixelDefault",
   "ada:clAcquisitionMode",
@@ -42,6 +43,7 @@
   "semImaging_dataProcessingSoftware",
   "semImaging_acceleratingVoltage",
   "semImaging_beamCurrent",
+  "semImaging_mappingBeamCurrent",
   "semImaging_workingDistance",
   "semImaging_chamberPressure",
   "semImaging_dwellTimePerPixel",
@@ -63,6 +65,7 @@
   "fundingSourceForAnalysis",
   "sampleName",
   "samplingUnitName",
+  "targetMaterialOfSamplingUnit",
   "imagePixelSize",
   "ebsdMeanAngularDeviation",
   "ebsdIndexingRate"
@@ -86,7 +89,7 @@
   "ada:analyticalMode",
   "ada:reportedVariablesAndUnits",
   "ada:acceleratingVoltageDefault",
-  "ada:beamCurrentDefault",
+  "ada:mappingBeamCurrentDefault",
   "ada:workingDistanceDefault",
   "ada:clAcquisitionMode",
   "ada:clWavelengthRange",
@@ -107,14 +110,14 @@
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 18,
+   "cov": 17,
    "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 18,
+   "cov": 17,
    "required": true
   },
   {
@@ -149,14 +152,14 @@
    "key": "ada:analyticalMode",
    "item": "Analytical Mode",
    "jtype": "string",
-   "cov": 18,
+   "cov": 17,
    "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 18,
+   "cov": 17,
    "required": true
   },
   {
@@ -169,6 +172,13 @@
   {
    "key": "ada:beamCurrentDefault",
    "item": "Beam Current",
+   "jtype": "number",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:mappingBeamCurrentDefault",
+   "item": "Mapping Beam Current",
    "jtype": "number",
    "cov": 3,
    "required": true

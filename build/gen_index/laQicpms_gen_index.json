@@ -1,6 +1,5 @@
 {
  "tapp_props": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -58,6 +57,7 @@
   "ada:isotopeDilutionDataReductionMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -97,7 +97,6 @@
  "pv_keys": [
   "laQicpms_coupledProcedureDoi",
   "laQicpms_coupledDatasetOrPublicationReference",
-  "laQicpms_sampleFormAnalyticalSubstrate",
   "laQicpms_samplePersistentIdentifier",
   "laQicpms_fusionFluxAndDilutionRatio",
   "laQicpms_samplePreparationMethod",
@@ -142,9 +141,11 @@
   "laQicpms_memoryEffectMitigation",
   "laQicpms_normalizationStandardsBasedCorrection",
   "laQicpms_calibrationFactorAndDeterminationMethod",
+  "laQicpms_combinationMethod",
   "laQicpms_constantsAndReferenceValuesUsed",
   "laQicpms_primaryCalibrationStandardName",
-  "laQicpms_secondaryReferenceMaterials"
+  "laQicpms_secondaryReferenceMaterials",
+  "laQicpms_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -164,6 +165,7 @@
   "signalIntegrationTime",
   "proceduralBlankLevel",
   "analysisInclusionAndRejectionCriteria",
+  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
   "countingStatisticsError",
@@ -181,7 +183,6 @@
   "ada:LAICPMSTransect"
  ],
  "basic_required": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -200,6 +201,7 @@
   "ada:laserRepetitionRateDefault",
   "ada:laserPulseDuration",
   "ada:ablationDurationPerSpotDefault",
+  "ada:rasterLineSpacingDefault",
   "ada:carrierGasAndFlowRateDefault",
   "ada:coolantGasFlowRateDefault",
   "ada:auxiliaryGasFlowRateDefault",
@@ -224,6 +226,7 @@
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -233,13 +236,6 @@
   "ada:analyticalAccuracyAndAssessmentMethod"
  ],
  "basic_props": [
-  {
-   "key": "ada:sampleFormAnalyticalSubstrateDefault",
-   "item": "Sample Form / Analytical Substrate",
-   "jtype": "string",
-   "cov": 6,
-   "required": true
-  },
   {
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
@@ -251,7 +247,7 @@
    "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
-   "cov": 5,
+   "cov": 7,
    "required": true
   },
   {
@@ -272,7 +268,7 @@
    "key": "ada:icpMsType",
    "item": "ICP-MS Type",
    "jtype": "string",
-   "cov": 2,
+   "cov": 5,
    "required": true
   },
   {
@@ -293,7 +289,7 @@
    "key": "ada:massResolutionSettingDefault",
    "item": "Mass Resolution Setting",
    "jtype": "string",
-   "cov": 5,
+   "cov": 1,
    "required": true
   },
   {
@@ -349,14 +345,14 @@
    "key": "ada:laserSpotGeometryDefault",
    "item": "Laser Spot Geometry",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:laserSpotPathAblationMode",
    "item": "Laser Spot Path / Ablation Mode",
    "jtype": "string",
-   "cov": 5,
+   "cov": 7,
    "required": true
   },
   {
@@ -398,35 +394,35 @@
    "key": "ada:rasterLineSpacingDefault",
    "item": "Raster Line Spacing (Mapping Only)",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:carrierGasAndFlowRateDefault",
    "item": "Carrier Gas and Flow Rate",
    "jtype": "string",
-   "cov": 5,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:coolantGasFlowRateDefault",
    "item": "Coolant (Plasma) Gas Flow Rate",
    "jtype": "number",
-   "cov": 3,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:auxiliaryGasFlowRateDefault",
    "item": "Auxiliary Gas Flow Rate",
    "jtype": "number",
-   "cov": 1,
+   "cov": 3,
    "required": true
   },
   {
    "key": "ada:rfPowerDefault",
    "item": "RF Power",
    "jtype": "number",
-   "cov": 3,
+   "cov": 5,
    "required": true
   },
   {
@@ -440,7 +436,7 @@
    "key": "ada:oxideProductionMethodAndThreshold",
    "item": "Oxide Production Method and Threshold",
    "jtype": "string",
-   "cov": 2,
+   "cov": 4,
    "required": true
   },
   {
@@ -454,14 +450,14 @@
    "key": "ada:targetSpeciesDefault",
    "item": "Target Species",
    "jtype": "string",
-   "cov": 5,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
-   "cov": 1,
+   "cov": 7,
    "required": true
   },
   {
@@ -566,7 +562,7 @@
    "key": "ada:elementalFractionationCorrection",
    "item": "Elemental Fractionation Correction",
    "jtype": "string",
-   "cov": 6,
+   "cov": 2,
    "required": true
   },
   {
@@ -587,7 +583,7 @@
    "key": "ada:signalIntegrationIntervalMethod",
    "item": "Signal Integration Interval Method",
    "jtype": "string",
-   "cov": 6,
+   "cov": 3,
    "required": true
   },
   {
@@ -601,7 +597,7 @@
    "key": "ada:spectralInterferenceCorrectionsApplied",
    "item": "Spectral Interference Corrections Applied",
    "jtype": "string",
-   "cov": 5,
+   "cov": 3,
    "required": true
   },
   {
@@ -615,7 +611,7 @@
    "key": "ada:interferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
-   "cov": 3,
+   "cov": 1,
    "required": true
   },
   {
@@ -640,6 +636,13 @@
    "required": true
   },
   {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 7,
+   "required": true
+  },
+  {
    "key": "ada:constantsAndReferenceValuesUsedDefault",
    "item": "Constants and Reference Values Used",
    "jtype": "string",
@@ -657,21 +660,21 @@
    "key": "ada:calibrationStandardMeasurementFrequency",
    "item": "Calibration Standard Measurement Frequency",
    "jtype": "string",
-   "cov": 5,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:secondaryReferenceMaterialsDefault",
    "item": "Secondary Reference Materials",
    "jtype": "string",
-   "cov": 5,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:detectionLimitMethod",
    "item": "Detection Limit Method",
    "jtype": "string",
-   "cov": 1,
+   "cov": 4,
    "required": true
   },
   {

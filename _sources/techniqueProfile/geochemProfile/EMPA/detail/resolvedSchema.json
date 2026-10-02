@@ -86,21 +86,6 @@
                                 }
                               }
                             ]
-                          },
-                          "ada:samplingUnits": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "schema:name": {
-                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            }
                           }
                         },
                         "required": [
@@ -495,6 +480,26 @@
               }
             ]
           }
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Sampling Unit Name"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
         }
       }
     },
@@ -557,7 +562,7 @@
                 "if": {
                   "properties": {
                     "schema:name": {
-                      "const": "Goodness-of-Fit or Dispersion Statistic"
+                      "const": "Combination Method"
                     }
                   },
                   "required": [
@@ -567,7 +572,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -580,28 +585,26 @@
                         }
                       ]
                     }
-                  },
-                  "required": [
-                    "schema:value"
-                  ]
+                  }
                 }
               }
             ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "properties": {
-                  "schema:name": {
-                    "const": "Goodness-of-Fit or Dispersion Statistic"
-                  }
-                },
-                "required": [
-                  "schema:name"
-                ]
+          }
+        },
+        "prov:wasGeneratedBy": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ada:combinedResults": {
+                "type": "array",
+                "items": {
+                  "description": "Any statistic reported for a combined result beyond the dispersion statistic, with the statistic named and its value.",
+                  "type": "string"
+                }
               }
             }
-          ]
+          }
         },
         "dqv:hasQualityMeasurement": {
           "type": "array",
@@ -622,7 +625,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                      "description": "The statistic reported to show whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -917,36 +920,6 @@
                                         "properties": {
                                           "schema:name": {
                                             "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ]
-                                          }
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "ada:reagentRole": {
-                                            "const": "primaryStandard"
-                                          }
-                                        },
-                                        "required": [
-                                          "ada:reagentRole"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                                             "anyOf": [
                                               {
                                                 "type": "string"
@@ -3949,6 +3922,110 @@
                   "schema:name",
                   "schema:value",
                   "schema:unitText"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Target Material of Sampling Unit",
+                "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Target Material of Sampling Unit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Target Material of Sampling Unit",
+                "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Target Material of Sampling Unit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
                 ]
               },
               "minContains": 0,

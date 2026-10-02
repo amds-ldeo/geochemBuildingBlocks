@@ -15,7 +15,24 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol — Neuman2025-2",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v42.csv). Reported detail: ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode).",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Lunar regolith"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)",
   "schema:object": [
     {
       "@type": [
@@ -24,12 +41,6 @@
         "schema:Thing"
       ],
       "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Lunar regolith (Apollo 17 drive-tube core, steel sleeve)"
-          ]
-        },
         {
           "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
           "@type": [
@@ -44,7 +55,6 @@
       ]
     }
   ],
-  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
@@ -55,7 +65,7 @@
       "schema:name": "Sample Mounting Method",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Custom PVC tube"
+      "schema:defaultValue": "Custom PVC tube; core left in its stainless-steel outer sleeve — \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning. The core was positioned for scanning in a custom PVC tube mount\" (Neuman et al. 2025, pp.4–5)"
     },
     {
       "@id": "ada:parameter/labxctTAPP/detectorArraySize",
@@ -82,11 +92,47 @@
       "schema:defaultValue": "Post-reconstruction ring corrections applied"
     }
   ],
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "190 kV",
+      "ada:xRayPreFilterDefault": "None (steel sleeve acts as effective filter)",
+      "schema:manufacturer": {
+        "schema:name": "North Star Imaging",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/XCT",
+      "schema:name": "example instrumentName",
+      "ada:tubeCurrentDefault": -9999,
+      "ada:voxelSizeDefault": -9999
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Steel outer sleeve retained for scan",
+        "schema:description": "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -125,42 +171,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
-  "ada:detectorType": "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)",
-  "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "XCT",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "ada:acceleratingVoltageDefault": "190 kV",
-      "ada:xRayPreFilterDefault": "None (steel sleeve acts as effective filter)",
-      "schema:manufacturer": {
-        "schema:name": "North Star Imaging",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName",
-      "ada:tubeCurrentDefault": -9999,
-      "ada:voxelSizeDefault": -9999
-    }
-  ],
-  "ada:rotationModeDefault": "Continuous rotation",
-  "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
   "schema:measurementTechnique": [
     {
       "@type": [

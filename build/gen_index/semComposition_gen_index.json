@@ -9,13 +9,16 @@
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
   "ada:beamDiameterDefault",
+  "ada:mappingBeamMode",
+  "ada:mappingBeamCurrentDefault",
+  "ada:mappingBeamDiameterDefault",
   "ada:workingDistanceDefault",
   "ada:dwellTimePerPixelDefault",
   "ada:edsAcquisitionMode",
   "ada:targetSpeciesDefault",
   "ada:monitoredElements",
   "ada:reportedVariablesAndUnits",
-  "ada:techniquePerTargetSpecies",
+  "ada:xRayDetectionMethodPerMonitoredElement",
   "ada:xRayLine",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
@@ -28,6 +31,7 @@
   "ada:wdsDeadTimeCorrection",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
@@ -64,6 +68,8 @@
   "semComposition_beamDiameter",
   "semComposition_beamRasterDimensions",
   "semComposition_beamDamageMinimization",
+  "semComposition_mappingBeamCurrent",
+  "semComposition_mappingBeamDiameter",
   "semComposition_driftCorrection",
   "semComposition_workingDistance",
   "semComposition_chamberPressure",
@@ -80,9 +86,11 @@
   "semComposition_blankCorrection",
   "semComposition_normalizationStandardsBasedCorrection",
   "semComposition_calibrationFactorAndDeterminationMethod",
+  "semComposition_combinationMethod",
   "semComposition_constantsAndReferenceValuesUsed",
   "semComposition_primaryCalibrationStandardName",
-  "semComposition_secondaryReferenceMaterials"
+  "semComposition_secondaryReferenceMaterials",
+  "semComposition_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -93,10 +101,12 @@
   "fundingSourceForAnalysis",
   "sampleName",
   "samplingUnitName",
+  "targetMaterialOfSamplingUnit",
   "edsMapDimensions",
   "mapArea",
   "proceduralBlankLevel",
   "analysisInclusionAndRejectionCriteria",
+  "combinedResults",
   "detectionLimit",
   "analyticalPrecision",
   "analyticalAccuracy",
@@ -117,15 +127,20 @@
   "ada:samplingUnitSelectionCriteriaDefault",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
+  "ada:beamMode",
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
+  "ada:beamDiameterDefault",
+  "ada:mappingBeamDiameterDefault",
   "ada:edsAcquisitionMode",
   "ada:targetSpeciesDefault",
   "ada:monitoredElements",
   "ada:reportedVariablesAndUnits",
+  "ada:xRayDetectionMethodPerMonitoredElement",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
   "ada:matrixCorrectionMethod",
+  "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
   "ada:primaryCalibrationStandardNameDefault"
  ],
@@ -169,8 +184,8 @@
    "key": "ada:beamMode",
    "item": "Beam Mode",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:acceleratingVoltageDefault",
@@ -190,8 +205,29 @@
    "key": "ada:beamDiameterDefault",
    "item": "Beam Diameter",
    "jtype": "number",
+   "cov": 2,
+   "required": true
+  },
+  {
+   "key": "ada:mappingBeamMode",
+   "item": "Mapping Beam Mode",
+   "jtype": "string",
    "cov": 0,
    "required": false
+  },
+  {
+   "key": "ada:mappingBeamCurrentDefault",
+   "item": "Mapping Beam Current",
+   "jtype": "number",
+   "cov": 0,
+   "required": false
+  },
+  {
+   "key": "ada:mappingBeamDiameterDefault",
+   "item": "Mapping Beam Diameter",
+   "jtype": "number",
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:workingDistanceDefault",
@@ -236,11 +272,11 @@
    "required": true
   },
   {
-   "key": "ada:techniquePerTargetSpecies",
-   "item": "Technique per Target Species",
+   "key": "ada:xRayDetectionMethodPerMonitoredElement",
+   "item": "X-ray Detection Method per Monitored Element",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 9,
+   "required": true
   },
   {
    "key": "ada:xRayLine",
@@ -316,8 +352,8 @@
    "key": "ada:calibrationFactorAndDeterminationMethodDefault",
    "item": "Calibration Factor and Determination Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 3,
+   "required": true
   },
   {
    "key": "ada:analysisInclusionAndRejectionCriteria",
@@ -325,6 +361,13 @@
    "jtype": "string",
    "cov": 9,
    "required": true
+  },
+  {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 0,
+   "required": false
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",

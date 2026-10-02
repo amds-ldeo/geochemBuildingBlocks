@@ -974,6 +974,68 @@
             ]
           }
         },
+        "ada:targetMaterialTemplate": {
+          "description": "Template for per-target-material parameters, a target material being a material type this procedure is designed to analyse (Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares the target-material domain and the columns that repeat over it.\nThe domain is declared by the TAPP's Target Material field, marked `defines: target material`; the fields keyed BY it are the electron-beam conditions (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization), and Primary Calibration Standard Name is keyed `target material x target species`.\nTarget materials are assumed present in any sample the procedure would analyse. The binding between a particular sampling unit and the material it hit is instance data, not procedure metadata, so it is recorded as a data-table column and NOT here -- this template carries only the kinds of material expected and the values that repeat over them.",
+          "type": "object",
+          "properties": {
+            "ada:targetMaterialColumns": {
+              "type": "array",
+              "description": "Columns of the per-target-material parameter table. Must include exactly one column with schema:valueName \"targetMaterial\" that identifies the material named in each row.",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/TargetMaterialColumn"
+              },
+              "contains": {
+                "$ref": "#/$defs/TargetMaterialIdentifierColumn"
+              },
+              "maxContains": 1
+            },
+            "ada:targetMaterialDeclaration": {
+              "type": "string",
+              "description": "The material types analysed, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration: a submitter may name the materials as a list, or as prose that names none individually. ada:defaultTargetMaterials carries the members that could be recognised; this carries the statement they were recognised FROM, so a cell that parses only in part loses nothing."
+            },
+            "ada:defaultTargetMaterials": {
+              "type": "array",
+              "description": "The material types this procedure targets by default - the ROWS of the per-material table, and the domain `defines: target material` enumerates. An entry is a bare string or a schema:DefinedTerm naming the material, or a row object binding that material to per-material values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetMaterialColumns, and MUST carry the 'targetMaterial' key - the column that sibling description requires to identify the material named in each row.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every material, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between materials.",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-target-material row",
+                    "description": "One row of the per-material table, keyed by column schema:valueName. null records a value that is deliberately absent for this material rather than merely unstated.",
+                    "required": [
+                      "targetMaterial"
+                    ],
+                    "properties": {
+                      "targetMaterial": {
+                        "type": "string",
+                        "description": "The material type this row is for (e.g. \"Silicate mineral\"), from the controlled list the TAPP's Target Material field offers, optionally qualified in the same cell. The key is the schema:valueName of the identifier column, which ada:targetMaterialColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                      }
+                    },
+                    "additionalProperties": {
+                      "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:targetMaterialColumns"
+          ]
+        },
         "ada:targetSpeciesTemplate": {
           "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
           "type": "object",
@@ -2879,6 +2941,53 @@
       "required": [
         "schema:name",
         "schema:value"
+      ]
+    },
+    "TargetMaterialColumn": {
+      "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/KeyedTableColumn"
+        }
+      ]
+    },
+    "TargetMaterialIdentifierColumn": {
+      "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+      "allOf": [
+        {
+          "$ref": "#/$defs/TargetMaterialColumn"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schema:valueName": {
+              "const": "targetMaterial"
+            },
+            "ada:dataType": {
+              "const": "string"
+            },
+            "schema:readonlyValue": {
+              "const": true
+            },
+            "schema:valueRequired": {
+              "const": true
+            },
+            "ada:tier": {
+              "const": "M"
+            },
+            "ada:cdifPropertyPath": {
+              "const": "#/schema:variableMeasured/schema:name"
+            }
+          },
+          "required": [
+            "schema:valueName",
+            "ada:dataType",
+            "schema:readonlyValue",
+            "schema:valueRequired",
+            "ada:tier",
+            "ada:cdifPropertyPath"
+          ]
+        }
       ]
     },
     "TargetSpeciesColumn": {

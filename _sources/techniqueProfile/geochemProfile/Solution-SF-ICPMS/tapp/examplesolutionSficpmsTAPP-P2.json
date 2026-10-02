@@ -15,9 +15,11 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P2",
-  "schema:description": "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2).",
+  "schema:description": "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples — 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (§2.7).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS; stated section 2.1.2",
+    "ada:defaultTargetSpecies": [
+      "Ti"
+    ],
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -138,8 +140,7 @@
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       }
-    ],
-    "ada:defaultTargetSpecies": []
+    ]
   },
   "schema:instrument": [
     {
@@ -192,7 +193,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1.1 kW; stated section 2.1.2)"
+              "schema:value": "N — plasma power 1.1 kW (Table 1b)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -345,7 +346,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, pulse counting (stated section 2.1.2)"
+          "schema:value": "Pulse counting mode — §2.1.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
@@ -367,7 +368,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)"
+          "schema:defaultValue": "0.5 mol/l HF carrier and wash solution; ~3 min wash per sample — §2.1.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -395,23 +396,38 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials and carbonaceous chondrites (basalt, andesite, peridotite, chondrites; stated section 2.5)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "peridotite",
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -451,31 +467,10 @@
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations with Nb as ID internal standard for Ti (stated section 2.1.2)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated"
-          },
-          {
-            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "constantsReferenceValuesDefault",
-            "schema:name": "Constants Reference Values",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated"
+            "schema:value": "N — Ti is determined by internal standardisation, not isotope dilution"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3σ — Table 2b",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -483,8 +478,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -499,12 +493,24 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "TFM bomb (TFM-981; stated section 2.1.1)"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 70,
+            "schema:description": "ultrasonic HF decomposition: <70 °C; bomb HF decomposition: 245 °C; re-dissolution: N — abstract"
           }
         ],
-        "schema:description": "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging.",
+        "schema:description": "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 30 mol/l HF, 245 °C, mannitol added); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5",
         "bios:reagent": [
           {
-            "schema:name": "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)",
+            "schema:name": "ultrasonic HF decomposition: HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -524,22 +530,9 @@
       "schema:HowTo"
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
-  "ada:numberOfScansPerReplicate": "30 scans in 50 s (stated section 2.1.2)",
-  "ada:analysisSequenceDefault": "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:numberOfScansPerReplicate": "all: 30 scans in 50 s — Table 1b 'Middle resolution 50 s with 30 scans (continuous nebulization)'",
+  "ada:analysisSequenceDefault": "Standard solution every two samples; each sample measurement ~6 min, including ~3 min washing — §2.1.2",
+  "ada:driftCorrectionMethod": "N/A",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -559,7 +552,7 @@
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
         "schema:name": "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)",
-        "schema:description": "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1"
+        "schema:description": "The SF-ICP-MS measures Ti as the (47Ti + 49Ti)/93Nb ratio; the Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta on the same solutions and gives the Nb concentration used for Ti — abstract; §2.7"
       },
       "@type": [
         "schema:CreativeWork"
@@ -572,17 +565,19 @@
     "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\""
   ],
   "ada:reportedProperties": [
-    "Ti and Nb mass fractions by ICP-SFMS (ug g-1); TiO2 also reported; detection limits in solution (ng g-1) and in rock (ug g-1) [Table 2b]"
+    "Ti (µg/g); TiO2 — Ti by ICP-SFMS; Nb is from the ICP-QMS. Detection limits in solution (ng/g) and in rock (µg/g) in Table 2b"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.2)",
-  "ada:washTimeBetweenSamples": "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)",
+  "ada:isotopeDilutionSpike": "N — Ti is not spiked; the Zr–Hf and Mo–Sn–Sb spikes serve the ICP-QMS elements",
+  "ada:finalSolutionMatrix": "all: 0.5 mol/l HF with mannitol, diluted — 'The mannitol and HF concentrations in all samples and standard solutions were diluted to be similar to each other' (§2.5)",
+  "ada:washTimeBetweenSamples": "~3 min with 0.5 mol/l HF — §2.1.2; Table 1b: background measured before each sample 'after 200 s wash'",
   "ada:uncertaintyLevel": "RSD% with observed ranges in parentheses",
   "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.2)",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.2)",
-  "ada:blankBackgroundCorrectionMethod": "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)",
-  "ada:internalStandardElement": "Nb (93Nb as ID internal standard for Ti; stated section 2.1.2)",
+  "ada:blankBackgroundCorrectionMethod": "Background measured before each sample after a 200 s wash — Table 1b",
+  "ada:internalStandardElement": "all: Nb (93Nb) — §2.1.2",
   "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological RMs and carbonaceous chondrites (stated section 2.5)"
+    "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — GSJ and USGS silicate reference materials (§2.3); the chondrites are samples"
   ],
   "schema:variableMeasured": [
     {
@@ -590,11 +585,8 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:finalSolutionMatrix": "missing",
-  "ada:isotopeDilutionSpike": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

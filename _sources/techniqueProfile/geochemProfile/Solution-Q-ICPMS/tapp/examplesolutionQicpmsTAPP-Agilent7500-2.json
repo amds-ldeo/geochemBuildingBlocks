@@ -15,29 +15,44 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent7500-2",
-  "schema:description": "Pseudo-flow injection (pFI) acquisition: 30 s / 48 scans / 1 pt per mass; 0.5 mol/l HF as carrier and wash; shield torch on; Pt cones; self-aspiration PFA-20 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.1).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials (basalt, andesite, peridotite) and carbonaceous chondrites (stated section 2.5)"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "peridotite",
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Whole-rock powder (decomposed in TFM bomb with HF; stated section 2.1.1)",
+        "schema:description": "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -59,7 +74,7 @@
             "schema:name": "Guard Electrode",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "On (shield torch system used; stated section 2.1.1)"
+            "schema:value": "Shield torch used — §2.1.1"
           }
         ],
         "@type": [
@@ -76,6 +91,17 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "all: P/A factor determined each day before measurement — §2.1.1"
+          },
+          {
             "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -84,18 +110,7 @@
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations (ID-IS method; stated section 2.1)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated"
+            "schema:value": "Eq. 1 with the pseudo-concentration Q calibrated on spike–standard mixtures, and the mass discrimination correction factor applied to the measured ratios — §2.7"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -106,9 +121,10 @@
             "schema:name": "Constants Reference Values",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated"
+            "schema:defaultValue": "Spike ratios 91Zr/90Zr 29.0, 97Mo/95Mo 201, 119Sn/118Sn 30.1, 121Sb/123Sb 199, 179Hf/178Hf 25.1, against natural 0.218, 0.600, 0.355, 1.34, 0.499 (Rosman and Taylor 1998); 11B/10B spike 0.05348 and natural 4.053 by TIMS (Makishima et al. 1997) — §2.7"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -116,8 +132,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -131,13 +146,25 @@
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "TFM bomb (TFM-981; stated section 2.1.1)"
+            "schema:value": "Teflon (TFM-PTFE) bomb for peridotites and meteorites — §2.2.3, §2.5"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 70,
+            "schema:description": "ultrasonic HF decomposition: <70 °C; bomb HF decomposition: 245 °C; re-dissolution: N — abstract"
           }
         ],
-        "schema:description": "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging.",
+        "schema:description": "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5",
         "bios:reagent": [
           {
-            "schema:name": "0.5 mol/l HF (stated section 2.1.1)",
+            "schema:name": "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -157,6 +184,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 20,
+          "schema:description": "~20 mg (basalts and andesites); ~50 mg (peridotites); ~10 mg (meteorites) — §2.5"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -239,7 +289,7 @@
               "schema:name": "Spray Chamber Type and Cooling Temperature",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Scott double-pass, cooled at 2 deg C, Teflon (stated Table in section 2.1.1)"
+              "schema:value": "Scott double-pass, cooled at 2 °C, made of Teflon — Table 1a"
             },
             {
               "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
@@ -250,8 +300,8 @@
               "schema:name": "Sample Uptake Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
-              "schema:defaultValue": 2.1,
-              "schema:description": "Self-aspiration; volumetric flow rate N (stated Table in section 2.1.1)"
+              "schema:defaultValue": 1,
+              "schema:description": "N — self-aspiration (Table 1a); pseudo-FI uses 0.013 ml per sample (§2.6)"
             },
             {
               "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault",
@@ -326,7 +376,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1.6 kW; stated section 2.1.1)"
+              "schema:value": "N — plasma power 1.6 kW (Table 1a)"
             }
           ],
           "@type": [
@@ -343,7 +393,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "Quartz glass torch with Pt injector (stated Table in section 2.1.1)",
+          "schema:name": "Quartz glass torch with Pt injector — Table 1a",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -357,7 +407,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "STD (standard mode, no gas; collision gases not introduced into cell; stated section 2.1.1)",
+          "schema:name": "all: no gas introduced into the octopole collision cell — 'collision gases were not introduced into the cell' (§2.1.1)",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -367,17 +417,6 @@
       ],
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
-        },
-        {
           "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -386,7 +425,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Dual mode: pulse counting + analog (crossover ~10^6 cps; stated section 2.1.1)"
+          "schema:value": "Pulse counting and analog (>10^6 cps), switched automatically — Zr, Nb, Mo and Sb sometimes in analog at DF < ~250 (§2.1.1)"
         },
         {
           "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -398,7 +437,7 @@
           "ada:dataType": "number",
           "ada:fieldScope": "session",
           "schema:defaultValue": 0.25,
-          "schema:description": "0.25 L/min supplementary Ar for PFA micronebulizer (stated Table in section 2.1.1)"
+          "schema:description": "Ar, 0.25 l/min — Table 1a"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -409,18 +448,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "~3 min washout; ~3 min uptake stabilization (stated section 2.1.1)"
-        },
-        {
-          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "icpTuningDefault",
-          "schema:name": "ICP Tuning",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Partially -- an oxide acceptance criterion is registered in the operating conditions, \"Oxide forming rate <1% (CeO+/Ce+)\"; no tuning solution or tuning procedure stated"
+          "schema:defaultValue": "0.5 mol/l HF as carrier and wash, which washes out Zr, Nb, Hf and Ta; ~20 min of 0.5 mol/l HF after REE work in HNO3 — §2.1.1"
         }
       ],
       "schema:manufacturer": {
@@ -435,19 +463,6 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -536,46 +551,60 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "10B"
+        "monitoredProperty": "10B",
+        "targetSpecies": "B"
       },
       {
-        "monitoredProperty": "11B"
+        "monitoredProperty": "11B",
+        "targetSpecies": "B"
       },
       {
-        "monitoredProperty": "90Zr"
+        "monitoredProperty": "90Zr",
+        "targetSpecies": "Zr"
       },
       {
-        "monitoredProperty": "91Zr"
+        "monitoredProperty": "91Zr",
+        "targetSpecies": "Zr"
       },
       {
-        "monitoredProperty": "93Nb"
+        "monitoredProperty": "93Nb",
+        "targetSpecies": "Nb"
       },
       {
-        "monitoredProperty": "95Mo"
+        "monitoredProperty": "95Mo",
+        "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "97Mo"
+        "monitoredProperty": "97Mo",
+        "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "118Sn"
+        "monitoredProperty": "118Sn",
+        "targetSpecies": "Sn"
       },
       {
-        "monitoredProperty": "119Sn"
+        "monitoredProperty": "119Sn",
+        "targetSpecies": "Sn"
       },
       {
-        "monitoredProperty": "121Sb"
+        "monitoredProperty": "121Sb",
+        "targetSpecies": "Sb"
       },
       {
-        "monitoredProperty": "123Sb"
+        "monitoredProperty": "123Sb",
+        "targetSpecies": "Sb"
       },
       {
-        "monitoredProperty": "178Hf"
+        "monitoredProperty": "178Hf",
+        "targetSpecies": "Hf"
       },
       {
-        "monitoredProperty": "179Hf"
+        "monitoredProperty": "179Hf",
+        "targetSpecies": "Hf"
       },
       {
-        "monitoredProperty": "181Ta"
+        "monitoredProperty": "181Ta",
+        "targetSpecies": "Ta"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -633,9 +662,10 @@
       }
     ]
   },
-  "ada:massCyclesPerReplicate": "48 scans per 30 s acquisition (stated section 2.1.1)",
-  "ada:analysisSequenceDefault": "Standard solution measured every two samples (stated section 2.1.1)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:massCyclesPerReplicate": "all: 48 scans in 30 s, 1 point per mass — Table 1a",
+  "ada:analysisSequenceDefault": "Standard solution every two samples; each sample ~6 min including ~3 min wash. Pseudo-FI: a 40 s background step with the probe in the sample, then 30 s of sample signal — §2.1.1, §2.6",
+  "ada:signalCollectionMode": "N/A",
+  "ada:driftCorrectionMethod": "N/A",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -654,8 +684,8 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "SF-ICP-MS (Finnigan ELEMENT at PML; for Ti measurements; stated section 2.1.2)",
-        "schema:description": "Q-ICP-MS (7500cs) measured B, Zr, Nb, Mo, Sn, Sb, Hf, Ta; SF-ICP-MS (ELEMENT) measured Ti and Nb; both techniques on same digested solutions; stated section 2.1"
+        "schema:name": "SF-ICP-MS — Ti on a Finnigan ELEMENT at PML (§2.1.2)",
+        "schema:description": "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions — §2.5, §2.8"
       },
       "@type": [
         "schema:CreativeWork"
@@ -668,30 +698,28 @@
     "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
   ],
   "ada:reportedProperties": [
-    "B, Ti, Zr, Nb, Mo, Sn, Sb, Hf and Ta mass fractions (ug g-1); detection limits in solution (pg g-1) and in rock (ng g-1) [Table 2a]"
+    "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta (µg/g) — Tables 5–8; Nb from Nb/Zr and Nb/Mo, Ta from Ta/Mo and Ta/Hf, and their averages"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.1)",
-  "ada:isotopeDilutionSpike": "Multi-element enriched isotope spikes (Mo, Sn, Sb, Zr, Hf, Ta, B spikes; stated section 2.1)",
-  "ada:finalSolutionMatrix": "0.5 mol/l HF (stated section 2.1.1)",
-  "ada:washTimeBetweenSamples": "~180 s (~3 min; stated: each measurement ~6 min including ~3 min wash; section 2.1.1)",
+  "ada:chromatographicSeparationApplied": "None — the method 'does not require ion-exchange separation' (§1); only the Zr–Hf spike was purified",
+  "ada:isotopeDilutionSpike": "10B spike; 91Zr–179Hf mixed spike; 97Mo–119Sn–121Sb mixed spike — §2.2.2–2.2.4; Nb and Ta are not spiked",
+  "ada:finalSolutionMatrix": "all: 0.5 mol/l HF with mannitol, diluted — 'The mannitol and HF concentrations in all samples and standard solutions were diluted to be similar to each other' (§2.5)",
+  "ada:washTimeBetweenSamples": "~3 min with 0.5 mol/l HF — §2.1.1; background measured after a 200 s wash (Table 1a)",
   "ada:uncertaintyLevel": "RSD% with observed ranges in parentheses",
-  "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.1)",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.1)",
-  "ada:internalStandardElement": "None (ID-IS method: spike isotope ratios used; stated section 2.1)",
+  "ada:calibrationMeasurementFrequency": "Every two samples — §2.1.1",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% — Table 1a",
+  "ada:blankBackgroundCorrectionMethod": "Background measured before each sample after a 200 s wash, and procedural blank corrections from Table 4 applied to all analyses — Table 1a; §3.6, corrections usually <1% in basalts and andesites and <4% in peridotites and meteorites",
+  "ada:internalStandardElement": "all: the ID-determined Zr, Mo and Hf, as references for Nb and Ta (ID-IS) — §2.8, §3.5; Mo is preferred",
   "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological reference materials and carbonaceous chondrites (stated Table 5)"
+    "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples"
   ],
-  "ada:primaryStandardNameDefault": "Multi-element standard solution (not formally named; stated section 2.1.1)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

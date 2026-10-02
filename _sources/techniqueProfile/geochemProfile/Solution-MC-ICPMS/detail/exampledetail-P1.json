@@ -24,19 +24,20 @@
   "ada:sampleDescription": "missing",
   "ada:oxideProduction": "missing",
   "ada:peakFlatness": "missing",
-  "ada:deltaOrEpsilonValueReferenceStandard": "V-CDT scale via IAEA-S-1, S-2, S-4 and NBS-123",
+  "ada:deltaOrEpsilonValueReferenceStandard": "S: V-CDT, through in-house S_Spex and S_Alfa calibrated against IAEA-S-1 (δ34S = −0.3‰) — §2.4",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "\"The procedural blank, resulting from chemical processing and purification is ~0.05% (~0.25 µg per 500 µg S used for column chemistry)\"",
-  "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:proceduralBlankLevel": "S: ~0.05% (~0.25 µg per 500 µg S) — §2.2",
+  "ada:analysisInclusionAndRejectionCriteria": "Rule: data showing mass-bias drift greater than ~0.5‰ during an individual sample are discarded; no count stated — 'Data that show clear and large mass bias drift (greater than ∼0.5‰) during individual samples should be discarded'",
   "ada:errorCorrelationBetweenReportedQuantities": -9999,
+  "ada:combinedResults": "the reference materials and in-house standards of Table 3, each over its stated number of replicates (3–20) — Table 3",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "\"Long-term reproducibility of S isotope compositions is typically 0.20‰ and 0.45‰ (2σ) for solution and laser\"; long-term reproducibility of in-house solution standards within ±0.2‰",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Assessed against IAEA and NBS reference materials on the V-CDT scale and against geological reference samples with known compositions",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "Alfa [δ34S: ±0.21‰, 2σ, 20–30 replicates]; Sch-M-2 [δ34S: ±0.45‰, 2σ, 12 replicates, laser] — §3.2; S_Spex ±0.18‰; δ³³S an order of magnitude worse",
+  "ada:analyticalAccuracyAndAssessmentMethod": "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123 [δ34S: consistent with published consensus values within uncertainty] — §2.4, Table 3",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "ada:goodnessOfFitOrDispersionStatistic": "δ34S, δ33S: two standard deviations of the replicates — Table 3 note",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock",
@@ -49,7 +50,7 @@
         }
       ],
       "schema:name": "Number of Cycles per Block",
-      "schema:value": 20
+      "schema:value": "all: 20 cycles — Table 1, §2.4"
     },
     {
       "@id": "ada:parameter/solutionMcicpmsTAPP/doubleSpikeMixingRatio",
@@ -63,6 +64,19 @@
       ],
       "schema:name": "Double-Spike Mixing Ratio",
       "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionMcicpmsTAPP/spikeOutlierFilteringApproach"
+        }
+      ],
+      "schema:name": "Spike / Outlier Filtering Approach",
+      "schema:value": "None, no automatic 2σ rejection of outlying cycles — 'Automatic rejection of outlying cycles (2σ outlier criterion) offered within the NEPTUNE software is not performed' (§2.4)"
     }
   ]
 }

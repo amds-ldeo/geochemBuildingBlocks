@@ -32,77 +32,6 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "schema:object": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "allOf": [
-                                        {
-                                            "if": {
-                                                "properties": {
-                                                    "@type": {
-                                                        "contains": {
-                                                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                                                        }
-                                                    }
-                                                },
-                                                "required": [
-                                                    "@type"
-                                                ]
-                                            },
-                                            "then": {
-                                                "properties": {
-                                                    "schema:additionalProperty": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "anyOf": [
-                                                                {
-                                                                    "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate"
-                                                                },
-                                                                {
-                                                                    "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription"
-                                                                }
-                                                            ]
-                                                        },
-                                                        "allOf": [
-                                                            {
-                                                                "contains": {
-                                                                    "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate"
-                                                                },
-                                                                "minContains": 0,
-                                                                "maxContains": 1
-                                                            },
-                                                            {
-                                                                "contains": {
-                                                                    "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription"
-                                                                },
-                                                                "minContains": 0,
-                                                                "maxContains": 1
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    ]
-                                },
-                                "allOf": [
-                                    {
-                                        "contains": {
-                                            "properties": {
-                                                "@type": {
-                                                    "contains": {
-                                                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                                                    }
-                                                }
-                                            },
-                                            "required": [
-                                                "@type"
-                                            ]
-                                        }
-                                    }
-                                ]
-                            },
                             "schema:actionProcess": {
                                 "type": "object",
                                 "properties": {
@@ -1353,6 +1282,63 @@
                                         }
                                     ]
                                 }
+                            },
+                            "schema:object": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "allOf": [
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "@type": {
+                                                        "contains": {
+                                                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "@type"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:additionalProperty": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription"
+                                                        },
+                                                        "allOf": [
+                                                            {
+                                                                "contains": {
+                                                                    "$ref": "../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription"
+                                                                },
+                                                                "minContains": 0,
+                                                                "maxContains": 1
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "allOf": [
+                                    {
+                                        "contains": {
+                                            "properties": {
+                                                "@type": {
+                                                    "contains": {
+                                                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "@type"
+                                            ]
+                                        }
+                                    }
+                                ]
                             },
                             "ada:proceduralBlankLevel": {
                                 "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",

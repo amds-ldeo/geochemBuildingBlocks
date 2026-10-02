@@ -86,21 +86,6 @@
                                 }
                               }
                             ]
-                          },
-                          "ada:samplingUnits": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "schema:name": {
-                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            }
                           }
                         },
                         "required": [
@@ -495,6 +480,26 @@
               }
             ]
           }
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Sampling Unit Name"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
         }
       }
     },
@@ -3583,6 +3588,110 @@
                   "dqv:isMeasurementOf"
                 ]
               }
+            }
+          ]
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Target Material of Sampling Unit",
+                "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Target Material of Sampling Unit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Target Material of Sampling Unit",
+                "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Target Material of Sampling Unit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             }
           ]
         }

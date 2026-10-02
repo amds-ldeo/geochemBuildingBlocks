@@ -15,35 +15,34 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1",
-  "schema:description": "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "CR chondrite metal grains (interior, margin, and isolated types)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ — polished epoxy thick section (petropoxy 154 resin, 0.5 µm diamond finish)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "laQicpmsUPbTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology (publication column of LA-Q-ICP-MS_UPb_TAPP_v96.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "CR chondrite metal — interior, margin and isolated metal grains (p.1); the IVB iron meteorites are the standards",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laQicpmsUPbTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Picked off prior electron images — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the grains themselves are sorted by setting into interior, margin and isolated metal (p.1)",
   "schema:additionalProperty": [
     {
@@ -58,6 +57,17 @@
       "schema:defaultValue": "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)"
     },
     {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — spot mode"
+    },
+    {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -67,7 +77,29 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.9,
-      "schema:description": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
+      "schema:description": "Ar, 0.9–1.2 L/min — Table 1, 'Make-up gas'"
+    },
+    {
+      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "discordanceDefinitionAndValues",
+      "schema:name": "Discordance Definition and Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N — the procedure reports no date"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
+      "schema:name": "Error Correlation Between Reported Quantities",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N — the procedure reports no date"
     },
     {
       "@id": "ada:parameter/laQicpmsUPbTAPP/interPassDataDependency",
@@ -80,7 +112,7 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (30 µm circular)"
+      "schema:value": "N/A — a single acquisition pass"
     }
   ],
   "schema:instrument": [
@@ -116,7 +148,7 @@
               "schema:name": "Configuration",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Ni micro-skimmer cone Xs; Ni sampler cone"
+              "schema:value": "Nickel micro-skimmer cone, Xs; nickel sampler cone — Table 1"
             }
           ],
           "@type": [
@@ -143,8 +175,20 @@
               "schema:name": "Coolant Plasma Gas Flow Rate",
               "ada:dataType": "number",
               "ada:fieldScope": "session",
-              "schema:defaultValue": 12,
-              "schema:description": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹"
+              "schema:defaultValue": 16,
+              "schema:description": "Ar, plasma gas 16 L/min; cool gas 12–13 L/min — Table 1 lists both rows under 'Ar gas flow rate'"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.6,
+              "schema:description": "Ar, 0.6–1.2 L/min — Table 1, 'Auxiliary'"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -167,6 +211,20 @@
           "schema:name": "missing"
         },
         {
+          "schema:additionalType": [
+            "Torch",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "Quartz torch with quartz injector — Table 1",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Torch"
+        },
+        {
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -179,33 +237,6 @@
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Torch",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Torch"
-        }
-      ],
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Unit resolution (quadrupole fixed)"
         }
       ],
       "@type": [
@@ -248,9 +279,9 @@
         ]
       },
       "ada:laserType": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
-      "ada:laserSpotGeometryDefault": "30 µm circular",
+      "ada:laserSpotGeometryDefault": "all: 30 µm diameter — 'Each spot analysis on the sample produced a pit of 30 µm in diameter' (p.3)",
       "ada:laserFluenceDefault": "12 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "20 Hz",
+      "ada:laserRepetitionRateDefault": "all: 20 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -259,23 +290,19 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:carrierGasFlowRateDefault": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
-  "ada:analysisSequenceDefault": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
+  "ada:carrierGasFlowRateDefault": "Ar, 0.6 L/min — Table 1, under 'Ar gas flow rate': 'Carrier gas 0.6 L/min'",
+  "ada:analysisSequenceDefault": "N — Warburton Range and Tawallah Valley 'were used as an external standard and a secondary standard, respectively' (p.3); the order of analyses is not described",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "⁵⁹Co, ¹⁰¹Ru, ¹⁰³Rh, ¹⁰⁵Pd, ¹⁸⁵Re, ¹⁸⁹Os, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au (9 HSE isotopes); ²⁴Mg, ²⁹Si, ³¹P, ³³S monitored for inclusion detection; ⁶¹Ni as internal standard",
     "ada:defaultTargetSpecies": [
-      "⁵⁹Co",
-      "¹⁰¹Ru",
-      "¹⁰³Rh",
-      "¹⁰⁵Pd",
-      "¹⁸⁵Re",
-      "¹⁸⁹Os",
-      "¹⁹³Ir",
-      "¹⁹⁵Pt",
-      "¹⁹⁷Au",
-      "²⁴Mg",
-      "²⁹Si",
-      "³¹P"
+      "Co",
+      "Ru",
+      "Rh",
+      "Pd",
+      "Re",
+      "Os",
+      "Ir",
+      "Pt",
+      "Au"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -399,11 +426,13 @@
       }
     ]
   },
+  "ada:massesMeasuredDefault": "⁵⁹Co → Co; ¹⁰¹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ⁶¹Ni, ²⁴Mg, ²⁹Si, ³¹P, ³³S → none — Table 1 'Measured isotopes' and 'Monitored isotopes'; ⁶¹Ni 'was monitored for internal standardization', and Mg, Si, P and S 'to check the involvement of micro-inclusions' (p.3)",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA",
+        "schema:description": "Thick sections embedded in petropoxy 154 resin, the surface finalised by polishing with 0.5 µm diamond paste; carbon-coated before the EPMA measurements (§2.1–2.2). Whether the coat was removed before ablation is not stated; the later 0.5 µm polish (§2.5) preceded micromilling, not ablation",
+        "ada:chemicalAbrasionConditions": "N — the procedure reports no date",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -411,8 +440,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "ada:chemicalAbrasionConditions": "missing"
+        "schema:position": 1
       },
       {
         "@type": [
@@ -439,18 +467,18 @@
             "schema:name": "Filtering Approach",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Monitoring of Mg, Si, P, S to check for micro-inclusions (sulfides); analyses with elevated inclusion signals excluded entirely"
+            "schema:defaultValue": "N — ²⁴Mg, ²⁹Si, ³¹P and ³³S 'were simultaneously monitored to check the involvement of micro-inclusions' (p.3); what was done with an affected analysis is not stated"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@id": "ada:parameter/module/UPb/intermediateDaughterDisequilibriumCorrection",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "schema:valueName": "intermediateDaughterDisequilibriumCorrection",
+            "schema:name": "Intermediate Daughter Disequilibrium Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "Partially — the contributing counts are stated per grain, the reported ratios being \"the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (p.8). No acceptance or rejection rule is stated for the LA data; the 233/235 > 0.2 rejection (p.4) is a rule for the N-TIMS Os measurements, not for these spot analyses, and is not borrowed"
+            "schema:value": "N — the procedure reports no date"
           }
         ],
         "@type": [
@@ -493,7 +521,7 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "JSPS KAKENHI; Tokyo Institute of Technology"
+      "schema:name": "N — the JSPS Grants-in-Aid support the study as a whole and are recorded under Funding Source for Analysis"
     }
   ],
   "schema:relatedLink": [
@@ -521,22 +549,29 @@
   ],
   "ada:samplingUnitType": "Grain > Spot — HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit — interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)",
   "ada:reportedProperties": [
-    "Highly siderophile element abundances in metal (ppm: Ru, Rh, Pd, Re, Os, Ir, Pt, Au — e.g. \"Ir abundance ranging from 1.08 to 2.53 ppm\", p.5), with major element abundances from EPMA alongside; HSE/Ir ratios; and the Re/Os abundance ratio that feeds the reported 187Re/188Os, \"determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (Table 3, p.8)"
+    "Ru, Rh, Pd, Re, Os, Ir, Pt, Au (ppm); HSE/Ir ratios; Re/Os abundance ratio — HSE abundances in metal, e.g. 'Ir abundance ranging from 1.08 to 2.53 ppm' (p.5), with major element abundances from EPMA alongside; the Re/Os abundance ratio feeds the reported 187Re/188Os, 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3, p.8)"
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "all: Spot — 'ablated by a spot analysis mode' (p.3)"
   ],
-  "ada:internalStandardApproach": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
+  "ada:rasterLineSpacingDefault": "N/A — spot mode",
+  "ada:internalStandardApproach": "all: single element, its concentration measured by EPMA at the ablated spot — '61Ni was monitored for internal standardization. The concentration of Ni in the ablated spot was obtained by EPMA' (p.3)",
   "ada:elementalFractionationCorrection": [
-    "External calibration using calibration curve method with IVB iron meteorite standards; ⁶¹Ni as IS from EPMA corrects for ablation yield differences between sample and standard"
+    "N — quantification is by 'the calibration curve method' against Warburton Range with ⁶¹Ni internal standardization (p.3); no fractionation correction as such is described"
   ],
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
-  "ada:internalStandardElement": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
+  "ada:ageCalculationMethod": [
+    "N — the procedure reports no date"
+  ],
+  "ada:reportedDateType": [
+    "N — the procedure reports no date"
+  ],
+  "ada:inheritedOrInitialSignalCorrectionDefault": "N — the procedure reports no date",
+  "ada:blankBackgroundCorrectionMethod": "N — the signal 'decayed to the background level immediately after the end of ablation' (p.3); the background correction is not described",
+  "ada:internalStandardElement": "all: Ni (⁶¹Ni) — concentration from EPMA at the ablated spot (p.3)",
+  "ada:signalIntegrationIntervalMethod": "N — the paper says only that 'the intensities of individual isotopes rapidly increased to the maximum and decayed to the background level immediately after the end of ablation' (p.3)",
   "ada:secondaryReferenceMaterialDefault": [
-    "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns"
+    "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)"
   ],
-  "ada:primaryStandardNameDefault": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -553,23 +588,15 @@
     {
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:defaultValue": "missing"
-    },
-    {
-      "schema:name": "Age Model",
-      "schema:defaultValue": "missing"
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:ablationSpotDurationDefault": -9999,
-  "ada:ageModelDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
-  "ada:massesMeasuredDefault": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,

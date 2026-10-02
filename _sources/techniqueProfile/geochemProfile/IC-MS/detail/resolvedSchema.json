@@ -86,21 +86,6 @@
                                 }
                               }
                             ]
-                          },
-                          "ada:samplingUnits": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "schema:name": {
-                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            }
                           }
                         },
                         "required": [
@@ -495,6 +480,26 @@
               }
             ]
           }
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Sampling Unit Name"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
         }
       }
     },

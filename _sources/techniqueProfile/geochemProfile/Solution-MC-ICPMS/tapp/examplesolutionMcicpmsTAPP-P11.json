@@ -15,37 +15,49 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P11",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "CI chondrite Oued Chebeika 002 and geostandard"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "CI chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
+        "schema:name": "Sample preparation",
+        "schema:description": "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample preparation",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:position": 1
       },
       {
         "@type": [
@@ -73,17 +85,6 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "N/A — no isotope dilution applied"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — \"Each sample was measured approximately 20 times\". No rejection rule stated"
           },
           {
             "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
@@ -122,6 +123,17 @@
         "schema:name": "Sample digestion",
         "schema:additionalProperty": [
           {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "PFA vials"
+          },
+          {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -130,8 +142,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 150,
-            "schema:description": "150 deg C (hotplate). The 70 and 140 deg C previously recorded here belong to the carbonate-removal pre-treatment and to the cosmogenic-radionuclide dissolution, which are different preparations in the same paper."
+            "schema:defaultValue": 3,
+            "schema:description": "HF–HNO3 attack: 150 °C; other: N"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -142,10 +154,18 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "About 1 week for the HF-HNO3 step. The 20 h previously recorded here is the cosmogenic-radionuclide dissolution, a different preparation."
+            "schema:defaultValue": "HF–HNO3 attack: ~1 week; other: N"
           }
         ],
-        "schema:description": "1: 3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate 150 deg C, about 1 week | 2: dried down, dissolved in 1 ml concentrated HNO3, with 1 ml H2O2 added slowly in 0.1 ml increments | 3: dried down, dissolved in double-distilled HCl. The final 5 ml 2% HNO3 is the uptake, not a step.",
+        "schema:description": "HF–HNO3 attack (3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate, 150 °C, ~1 week); H2O2 step (dried under a heat lamp, 1 mL concentrated HNO3 with 1 mL H2O2 added in 0.1 mL increments); HCl step (dried, dissolved in double-distilled HCl); final uptake (dried, 5 mL 2% HNO3) — after Lauretta et al. (2024)",
+        "bios:reagent": [
+          {
+            "schema:name": "HF–HNO3 attack: 3:2 HF : HNO3; H2O2 step: concentrated HNO3 + H2O2; HCl step: HCl; final uptake: 2% HNO3",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -153,14 +173,36 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 4,
-        "bios:reagent": []
+        "schema:position": 4
       }
     ],
     "@type": [
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 7,
+          "schema:description": "~7 mg of sample — from the OC002A and OC002B solutions"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -207,7 +249,7 @@
               "schema:name": "Nebulizer Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Elemental Scientific APEX Omega desolvating nebulizer"
+              "schema:value": "N — introduction through an Elemental Scientific APEX Omega desolvating nebulizer"
             }
           ],
           "@type": [
@@ -313,7 +355,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Elemental Scientific APEX Omega"
+      "schema:value": "all: Elemental Scientific APEX Omega — 'to improve sensitivity and minimize the generation of hydrides'"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -336,7 +378,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 20,
-      "schema:description": "\"Each sample was measured approximately 20 times\""
+      "schema:description": "N — 'Each sample was measured approximately 20 times'"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
@@ -442,11 +484,11 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "³⁹K",
+        "monitoredProperty": "39K",
         "targetSpecies": "K"
       },
       {
-        "monitoredProperty": "⁴¹K",
+        "monitoredProperty": "41K",
         "targetSpecies": "K"
       }
     ],
@@ -536,18 +578,17 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "δ41K in permil relative to NIST SRM 3141a"
+    "δ41K — ‰ relative to NIST SRM 3141a"
   ],
-  "ada:chromatographicSeparationApplied": "Yes — twice through 1.5 mL Bio-Rad AG50W-X8 100–200 mesh cation resin, loading, matrix elution and K elution all in 0.5 M HNO3",
+  "ada:chromatographicSeparationApplied": "Yes, twice through 1.5 mL Bio-Rad AG50W-X8 100–200 mesh cation resin, loading, matrix elution and K elution all in 0.5 M HNO3",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "300 ppb K solution",
-  "ada:uncertaintyLevel": "Stated as ± values on δ41K without an explicit convention in the section read",
+  "ada:finalSolutionMatrix": "all: 300 ppb K — the acid is not stated",
+  "ada:uncertaintyLevel": "N — ± values on δ⁴¹K without a stated convention",
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing)",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM 3141a",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

@@ -1,6 +1,5 @@
 {
  "tapp_props": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -68,6 +67,7 @@
   "ada:internalNormalizationElementAndIsotopeRatio",
   "ada:doubleSpikeIsotopePair",
   "ada:doubleSpikeInversionAlgorithm",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -107,7 +107,6 @@
  "pv_keys": [
   "laMcicpms_coupledProcedureDoi",
   "laMcicpms_coupledDatasetOrPublicationReference",
-  "laMcicpms_sampleFormAnalyticalSubstrate",
   "laMcicpms_samplePersistentIdentifier",
   "laMcicpms_fusionFluxAndDilutionRatio",
   "laMcicpms_samplePreparationMethod",
@@ -153,9 +152,11 @@
   "laMcicpms_normalizationStandardsBasedCorrection",
   "laMcicpms_calibrationFactorAndDeterminationMethod",
   "laMcicpms_doubleSpikeMixingRatio",
+  "laMcicpms_combinationMethod",
   "laMcicpms_constantsAndReferenceValuesUsed",
   "laMcicpms_primaryCalibrationStandardName",
-  "laMcicpms_secondaryReferenceMaterials"
+  "laMcicpms_secondaryReferenceMaterials",
+  "laMcicpms_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -176,6 +177,7 @@
   "signalIntegrationTime",
   "proceduralBlankLevel",
   "analysisInclusionAndRejectionCriteria",
+  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
   "countingStatisticsError",
@@ -193,7 +195,6 @@
   "ada:LAICPMSTransect"
  ],
  "basic_required": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -247,6 +248,7 @@
   "ada:analysisInclusionAndRejectionCriteria",
   "ada:massFractionationLaw",
   "ada:internalNormalizationElementAndIsotopeRatio",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
@@ -254,13 +256,6 @@
   "ada:analyticalAccuracyAndAssessmentMethod"
  ],
  "basic_props": [
-  {
-   "key": "ada:sampleFormAnalyticalSubstrateDefault",
-   "item": "Sample Form / Analytical Substrate",
-   "jtype": "string",
-   "cov": 1,
-   "required": true
-  },
   {
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
@@ -729,6 +724,13 @@
    "jtype": "string",
    "cov": 0,
    "required": false
+  },
+  {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",

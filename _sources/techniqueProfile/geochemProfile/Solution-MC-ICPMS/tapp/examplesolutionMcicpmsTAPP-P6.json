@@ -15,7 +15,34 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P6",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Os reference material solution — UMd, DTM, LOsST and DROsS",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -24,12 +51,6 @@
         "schema:Thing"
       ],
       "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Osmium isotope reference material solutions"
-          ]
-        },
         {
           "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
           "@type": [
@@ -139,7 +160,7 @@
               "schema:name": "Faraday Cup Amplifier Resistor Values",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "10^11 Ω"
+              "schema:value": "all: 10^11 Ω — a maximum beam of 50 V per channel"
             }
           ],
           "@type": [
@@ -255,7 +276,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "None — \"Although greater sensitivity could be attained using a desolvating nebuliser such systems have been shown to suffer severe memory problems for Os\""
+      "schema:value": "all: none — desolvating nebulisers 'have been shown to suffer severe memory problems for Os' (§3.1)"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -290,7 +311,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
-      "schema:description": "5 cycles per block"
+      "schema:description": "all: 5 cycles — 9 blocks (§3.1)"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -302,7 +323,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 4,
-      "schema:description": "4 s"
+      "schema:description": "all: 4 s"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
@@ -314,6 +335,17 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:value": "Electronic baselines \"measured, on peak with the line of sight valve closed\"; peak centering and baselines \"were not carried out at the start of each analysis to reduce measurement time and conserve sample but were repeated several times during an analytical session\""
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "massFractionationLaw",
+      "schema:name": "Mass Fractionation Law",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Exponential law — §3.5"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
@@ -466,17 +498,6 @@
             "schema:value": "N/A — no isotope dilution applied"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — n = 45 per analysis. No rejection rule stated"
-          },
-          {
             "@id": "ada:parameter/module/MCICPMS/faradayCupGainCalibrationMethod",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -485,7 +506,7 @@
             "schema:name": "Faraday Cup Gain Calibration Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "\"Instrument electronic baselines and amplifier gains were then measured, on peak with the line of sight valve closed\"; \"Although amplifier gains were measured at the start of each session the Virtual Amplifier was used in rotation mode to cancel out amplifier gains\""
+            "schema:value": "all: amplifier gains measured on peak with the line of sight valve closed at the start of each session, with the Virtual Amplifier in rotation mode to cancel them — §3.1"
           },
           {
             "@id": "ada:parameter/module/MCICPMS/peakFlatnessMethodAndThreshold",
@@ -545,42 +566,42 @@
       "schema:HowTo"
     ]
   },
-  "ada:massBiasCorrectionStrategy": "Instrumental mass bias correction applied offline in Excel alongside abundance sensitivity and W/Re interference corrections",
+  "ada:massBiasCorrectionStrategy": "Internal normalisation, applied offline in Excel with the abundance-sensitivity and W/Re corrections — §3.1, §3.5",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "¹⁸⁴Os",
+        "monitoredProperty": "184Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁸⁶Os",
+        "monitoredProperty": "186Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁸⁷Os",
+        "monitoredProperty": "187Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁸⁸Os",
+        "monitoredProperty": "188Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁸⁹Os",
+        "monitoredProperty": "189Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁹⁰Os",
+        "monitoredProperty": "190Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁹²Os",
+        "monitoredProperty": "192Os",
         "targetSpecies": "Os"
       },
       {
-        "monitoredProperty": "¹⁸⁵Re"
+        "monitoredProperty": "182W"
       },
       {
-        "monitoredProperty": "¹⁸²W/¹⁸⁴W/¹⁸⁶W"
+        "monitoredProperty": "185Re"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -663,16 +684,19 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "187Os/188Os, 186Os/188Os and 184Os/188Os ratios"
+    "190Os/188Os, 189Os/188Os, 187Os/188Os, 186Os/188Os, 184Os/188Os — Table 7a"
   ],
+  "ada:internalNormalizationElementAndIsotopeRatio": "192Os/188Os = 3.083 — 189Os/188Os = 1.21978 also used for comparison",
   "ada:chromatographicSeparationApplied": "N/A — reference material solutions",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "3 or 5 mol/l Teflon-distilled HCl",
+  "ada:finalSolutionMatrix": "all: Teflon-distilled 3 or 5 mol/l HCl — 200 ng/ml to 2.5 µg/ml Os",
   "ada:washTimeBetweenSamples": "\"Teflon-distilled (TD) 3 or 5 mol/l HCl acid was aspirated between analyses until the 192Os beam decreased to acceptable background levels\"; not required in single-RM sessions",
   "ada:uncertaintyLevel": "2SD for short- and long-term reproducibility; within-run errors as \"2 standard errors of the mean (2SE = 2SD/n^0.5; where n = 45 for the Neptune analyses\"",
-  "ada:blankBackgroundCorrectionMethod": "Corrections applied offline for abundance sensitivity, W and Re atomic interferences and instrumental mass bias",
+  "ada:blankBackgroundCorrectionMethod": "Abundance sensitivity (0.5–1 ppm, from the low-mass tail of a 30 V 192Os beam on the SEM) corrected offline — §3.1",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:primaryStandardNameDefault": "UMd, DTM, LOsST and DROsS Os reference materials",
+  "ada:secondaryReferenceMaterialDefault": [
+    "UMd, DTM, LOsST, DROsS"
+  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -684,7 +708,6 @@
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

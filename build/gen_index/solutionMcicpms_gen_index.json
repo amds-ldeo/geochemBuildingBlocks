@@ -64,6 +64,7 @@
   "ada:uncertaintyLevel",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -133,9 +134,11 @@
   "solutionMcicpms_uncertaintyPropagationMethod",
   "solutionMcicpms_normalizationStandardsBasedCorrection",
   "solutionMcicpms_calibrationFactorAndDeterminationMethod",
+  "solutionMcicpms_combinationMethod",
   "solutionMcicpms_constantsAndReferenceValuesUsed",
   "solutionMcicpms_primaryCalibrationStandardName",
-  "solutionMcicpms_secondaryReferenceMaterials"
+  "solutionMcicpms_secondaryReferenceMaterials",
+  "solutionMcicpms_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -154,6 +157,7 @@
   "proceduralBlankLevel",
   "analysisInclusionAndRejectionCriteria",
   "errorCorrelationBetweenReportedQuantities",
+  "combinedResults",
   "countingStatisticsError",
   "internalAnalyticalPrecisionAndAssessmentMethod",
   "withinSessionAnalyticalPrecisionAndAssessmentMethod",
@@ -198,6 +202,7 @@
   "ada:targetSpeciesDefault",
   "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
+  "ada:massResolutionAssignment",
   "ada:collectorConfiguration",
   "ada:numberOfBlocksPerMeasurementDefault",
   "ada:numberOfCyclesPerBlockDefault",
@@ -208,6 +213,8 @@
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
   "ada:peakFlatnessMethodAndThreshold",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:massBiasCorrectionStrategy",
   "ada:massFractionationLaw",
   "ada:doubleSpikeIsotopePair",
@@ -222,6 +229,7 @@
   "ada:isotopeDilutionDataReductionMethod",
   "ada:uncertaintyLevel",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -241,21 +249,21 @@
    "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
-   "cov": 10,
+   "cov": 14,
    "required": true
   },
   {
    "key": "ada:digestionAcid",
    "item": "Digestion Acid(s)",
    "jtype": "string",
-   "cov": 13,
+   "cov": 14,
    "required": true
   },
   {
    "key": "ada:digestionVesselType",
    "item": "Digestion Vessel Type",
    "jtype": "string",
-   "cov": 8,
+   "cov": 11,
    "required": true
   },
   {
@@ -269,14 +277,14 @@
    "key": "ada:digestionTemperatureDefault",
    "item": "Digestion Temperature",
    "jtype": "number",
-   "cov": 9,
+   "cov": 11,
    "required": true
   },
   {
    "key": "ada:digestionDurationDefault",
    "item": "Digestion Duration",
    "jtype": "string",
-   "cov": 9,
+   "cov": 11,
    "required": true
   },
   {
@@ -332,7 +340,7 @@
    "key": "ada:faradayCupAmplifierResistorValues",
    "item": "Faraday Cup Amplifier Resistor Values",
    "jtype": "string",
-   "cov": 5,
+   "cov": 7,
    "required": true
   },
   {
@@ -346,7 +354,7 @@
    "key": "ada:massResolutionSettingDefault",
    "item": "Mass Resolution Setting",
    "jtype": "string",
-   "cov": 7,
+   "cov": 8,
    "required": true
   },
   {
@@ -360,14 +368,14 @@
    "key": "ada:nebulizerType",
    "item": "Nebulizer Type",
    "jtype": "string",
-   "cov": 8,
+   "cov": 9,
    "required": true
   },
   {
    "key": "ada:sprayChamberTypeAndCoolingTemperature",
    "item": "Spray Chamber Type and Cooling Temperature",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
@@ -451,8 +459,8 @@
    "key": "ada:massResolutionAssignment",
    "item": "Mass Resolution Assignment",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 3,
+   "required": true
   },
   {
    "key": "ada:collectorConfiguration",
@@ -486,7 +494,7 @@
    "key": "ada:baselineMeasurementApproach",
    "item": "Baseline Measurement Approach",
    "jtype": "string",
-   "cov": 6,
+   "cov": 8,
    "required": true
   },
   {
@@ -500,7 +508,7 @@
    "key": "ada:analysisSequenceDefault",
    "item": "Analysis Sequence",
    "jtype": "string",
-   "cov": 10,
+   "cov": 11,
    "required": true
   },
   {
@@ -542,7 +550,7 @@
    "key": "ada:peakFlatnessMethodAndThreshold",
    "item": "Peak Flatness Method and Threshold",
    "jtype": "string",
-   "cov": 3,
+   "cov": 4,
    "required": true
   },
   {
@@ -556,15 +564,15 @@
    "key": "ada:acquisitionPass",
    "item": "Acquisition Pass",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:numberOfAcquisitionPasses",
    "item": "Number of Acquisition Passes",
    "jtype": "integer",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:massBiasCorrectionStrategy",
@@ -577,7 +585,7 @@
    "key": "ada:massFractionationLaw",
    "item": "Mass Fractionation Law",
    "jtype": "string",
-   "cov": 4,
+   "cov": 7,
    "required": true
   },
   {
@@ -598,14 +606,14 @@
    "key": "ada:internalNormalizationElementAndIsotopeRatio",
    "item": "Internal Normalization Element and Isotope Ratio",
    "jtype": "string",
-   "cov": 5,
+   "cov": 8,
    "required": true
   },
   {
    "key": "ada:isotopeRatioReported",
    "item": "Isotope Ratio Reported",
    "jtype": "string",
-   "cov": 11,
+   "cov": 13,
    "required": true
   },
   {
@@ -626,7 +634,7 @@
    "key": "ada:blankBackgroundCorrectionMethod",
    "item": "Blank / Background Correction Method",
    "jtype": "string",
-   "cov": 6,
+   "cov": 10,
    "required": true
   },
   {
@@ -640,14 +648,14 @@
    "key": "ada:interferingSpecies",
    "item": "Interfering Species",
    "jtype": "string",
-   "cov": 12,
+   "cov": 14,
    "required": true
   },
   {
    "key": "ada:interferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
-   "cov": 9,
+   "cov": 14,
    "required": true
   },
   {
@@ -661,7 +669,7 @@
    "key": "ada:uncertaintyLevel",
    "item": "Uncertainty Level",
    "jtype": "string",
-   "cov": 12,
+   "cov": 14,
    "required": true
   },
   {
@@ -675,7 +683,14 @@
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 9,
+   "cov": 12,
+   "required": true
+  },
+  {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 14,
    "required": true
   },
   {
@@ -689,7 +704,7 @@
    "key": "ada:primaryCalibrationStandardNameDefault",
    "item": "Primary Calibration Standard Name",
    "jtype": "string",
-   "cov": 13,
+   "cov": 14,
    "required": true
   },
   {
@@ -703,21 +718,21 @@
    "key": "ada:secondaryReferenceMaterialsDefault",
    "item": "Secondary Reference Materials",
    "jtype": "string",
-   "cov": 9,
+   "cov": 13,
    "required": true
   },
   {
    "key": "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
    "item": "Within-Session Analytical Precision and Assessment Method",
    "jtype": "string",
-   "cov": 3,
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:analyticalAccuracyAndAssessmentMethod",
    "item": "Analytical Accuracy and Assessment Method",
    "jtype": "string",
-   "cov": 10,
+   "cov": 13,
    "required": true
   },
   {

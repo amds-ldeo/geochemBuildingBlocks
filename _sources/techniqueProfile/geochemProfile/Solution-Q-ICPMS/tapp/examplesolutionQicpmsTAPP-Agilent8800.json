@@ -15,7 +15,133 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — Agilent8800",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v87.csv).",
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v94.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "suspended particulate matter — digestates of the particles from the 1000 mg/L SPM isotherm experiments in freshwater (§2.3, §2.4)",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "Closed PP tubes (DigiTUBEs, SCP Science) for Te; microwave vessels (START 1500, MLS) then PTFE vessels for Se — §2.2"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 110,
+            "schema:description": "tri-acid digestion: 110 °C; re-dissolution: 120 °C (evaporation); microwave digestion: up to 210 °C; Se recovery: 70 °C — §2.2"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionDurationDefault",
+            "schema:name": "Digestion Duration",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "tri-acid digestion: 2 h; microwave digestion: 10 min at 210 °C, then cooled overnight; Se recovery: 1 h; other: N — §2.2"
+          }
+        ],
+        "schema:description": "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se",
+        "bios:reagent": [
+          {
+            "schema:name": "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -25,10 +151,16 @@
       ],
       "schema:additionalProperty": [
         {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Estuarine suspended particulate matter and sediment (Gironde Estuary sorption experiments)"
-          ]
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 30,
+          "schema:description": "30 mg (Te, tri-acid); 40–50 mg (Se, microwave) — §2.2"
         }
       ]
     }
@@ -66,7 +198,7 @@
               "schema:name": "Collision Gas Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "O2 (used as the collision/reaction gas for the mass shift)"
+              "schema:value": "125Te, 77Se: O2; other: N — 'oxygen-shift mode using O2 as collision gas' (§2.3)"
             },
             {
               "@id": "ada:parameter/module/CollisionCell/reactionGasType",
@@ -77,10 +209,10 @@
               "schema:name": "Reaction Gas Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "O2"
+              "schema:value": "N — the paper calls the O2 a collision gas"
             }
           ],
-          "schema:name": "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas",
+          "schema:name": "125Te, 77Se: oxygen-shift mode with O2 as cell gas; other: N — §2.3, §2.4",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -238,10 +370,15 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "125Te"
+        "monitoredProperty": "125Te",
+        "targetSpecies": "Te"
       },
       {
-        "monitoredProperty": "77Se"
+        "monitoredProperty": "77Se",
+        "targetSpecies": "Se"
+      },
+      {
+        "monitoredProperty": "103Rh"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -311,7 +448,7 @@
         }
       ],
       "schema:name": "Reaction Product Ion / Mass-Shift Transition",
-      "schema:value": "125Te + 16O -> 141TeO; 77Se + 16O -> 93SeO"
+      "schema:value": "125Te: 125Te + 16O → 141TeO; 77Se: 77Se + 16O → 93SeO; other: N — §2.3, §2.4"
     }
   ],
   "schema:measurementTechnique": [
@@ -332,65 +469,14 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "Te and Se concentrations (ug L-1; mg kg-1)"
+    "Te, Se — particulate concentrations from the digestates; units not stated for this instrument"
   ],
+  "ada:finalSolutionMatrix": "N — Te digests brought to 10 mL with Milli-Q water, Se digests to 6 mL (§2.2)",
   "ada:uncertaintyLevel": "Mean +/- SD",
-  "ada:internalStandardElement": "103Rh, to correct for matrix effects",
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample digestion",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4,
-        "schema:description": "missing"
-      }
-    ]
-  },
+  "ada:internalStandardElement": "all: 103Rh — 'to correct for matrix effects' (§2.3)",
+  "ada:secondaryReferenceMaterialDefault": [
+    "NCS 73307 — stream sediment, for the total digestions"
+  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -402,13 +488,11 @@
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:finalSolutionMatrix": "missing",
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:samplingUnitType": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",

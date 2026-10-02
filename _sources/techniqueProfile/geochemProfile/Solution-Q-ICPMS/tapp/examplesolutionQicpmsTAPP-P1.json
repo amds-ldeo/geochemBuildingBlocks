@@ -15,7 +15,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol — P1",
-  "schema:description": "Peak hopping scan mode explicitly stated in Table 1 [NOTE: no dedicated Signal Collection Mode field in TAPP v2; Phase 4 flag]; pulse counting detection; autolens on (Table 1); 0.03 mm ID pump tubing for ~60 uL/min uptake Reported detail: ada:signalCollectionMode = Peak hopping (stated Table 1); ada:driftCorrectionMethod = Standard bracketing (matrix-matched standards at fixed intervals; stated section 2).",
+  "schema:description": "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5) Reported detail: ada:signalCollectionMode = Peak hopping — Table 1; ada:driftCorrectionMethod = Drift monitors of intermediate concentration every 3 samples, corrected off-line by linear interpolation between two consecutive monitors — §3.4.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "foraminiferal calcite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:object": [
     {
       "@type": [
@@ -25,10 +54,16 @@
       ],
       "schema:additionalProperty": [
         {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Foraminifera calcite (benthic and planktonic species; stated abstract)"
-          ]
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 300,
+          "schema:description": "Ten to twenty tests, about 300 µg of shells — §2; one measurement uses 250 µl at 100 ppm Ca, equivalent to 60 µg calcite"
         }
       ]
     }
@@ -50,15 +85,15 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
             "schema:PropertyValueSpecification"
           ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
+          "schema:valueName": "detectorConfiguration",
+          "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
+          "schema:value": "Pulse counting for all isotopes — Table 1; 'We determined all isotopes using pulse mode to avoid the need for cross calibration' (§3.1)"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -69,7 +104,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "60 s wash between samples (stated Table 1)"
+          "schema:defaultValue": "Longer washout and uptake times for B, and a quartz spray chamber to reduce B blanks — §2, §3.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -199,7 +234,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 1)"
+              "schema:value": "N — RF power 1300 W (Table 1)"
             }
           ],
           "@type": [
@@ -216,7 +251,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "STD (standard mode, no gas; DRC II instrument but no reaction gas stated; stated section 2)",
+          "schema:name": "N — an Elan DRC II; no cell gas or cell mode is described",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -266,32 +301,7 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    },
-    {
-      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
-      "schema:name": "Instrument Warm up Session Duration Limit",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Partially -- session duration is characterised but not enforced: \"blanks for all isotopes were stable during a typical run (~5 hr)\""
-    }
-  ],
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "9 Me/Ca ratios: Li, B, Mg, Al, Mn, Zn, Sr, Cd, U relative to Ca (stated Table 1)",
     "ada:defaultTargetSpecies": [
       "Li",
       "B",
@@ -300,7 +310,8 @@
       "Mn",
       "Zn",
       "Sr",
-      "Cd"
+      "Cd",
+      "U"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -377,34 +388,43 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "7Li"
+        "monitoredProperty": "7Li",
+        "targetSpecies": "Li"
       },
       {
-        "monitoredProperty": "11B"
+        "monitoredProperty": "11B",
+        "targetSpecies": "B"
       },
       {
-        "monitoredProperty": "25Mg"
+        "monitoredProperty": "25Mg",
+        "targetSpecies": "Mg"
       },
       {
         "monitoredProperty": "46Ca"
       },
       {
-        "monitoredProperty": "27Al"
+        "monitoredProperty": "27Al",
+        "targetSpecies": "Al"
       },
       {
-        "monitoredProperty": "55Mn"
+        "monitoredProperty": "55Mn",
+        "targetSpecies": "Mn"
       },
       {
-        "monitoredProperty": "66Zn"
+        "monitoredProperty": "66Zn",
+        "targetSpecies": "Zn"
       },
       {
-        "monitoredProperty": "87Sr"
+        "monitoredProperty": "87Sr",
+        "targetSpecies": "Sr"
       },
       {
-        "monitoredProperty": "111Cd"
+        "monitoredProperty": "111Cd",
+        "targetSpecies": "Cd"
       },
       {
-        "monitoredProperty": "238U"
+        "monitoredProperty": "238U",
+        "targetSpecies": "U"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -462,15 +482,16 @@
       }
     ]
   },
-  "ada:massCyclesPerReplicate": "250 sweeps per replicate (Table 1)",
-  "ada:numberOfReplicatesPerSample": "6 replicates (Table 1)",
+  "ada:massCyclesPerReplicate": "all: 250 sweeps per reading, 1 reading per replicate — Table 1",
+  "ada:numberOfReplicatesPerSample": "6 — Table 1",
+  "ada:analysisSequenceDefault": "8 external calibration standards, then 50–80 samples interspersed with drift correction standards every 3 samples — 6–10 hours (§3.4)",
   "ada:signalCollectionMode": "Peak hopping",
-  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:driftCorrectionMethod": "N/A",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned mechanically and chemically then dissolved; no grinding (stated section 2)",
+        "schema:description": "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -496,6 +517,17 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N/A — all isotopes in pulse mode 'to avoid the need for cross calibration' (§3.1)"
+          },
+          {
             "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -505,17 +537,6 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -529,6 +550,7 @@
             "schema:defaultValue": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 × SD/m, with SD of several measurements of a sample whose ratio is close to the blank and m the calibration slope — Table 2 note b",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -536,12 +558,19 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
-        "schema:description": "1: ambient dissolution in 0.075 M HNO3 (section 2). A single attack, though the paper does not describe it as a digestion -- Digestion Acid(s) records N/A on that reading.",
+        "schema:description": "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion",
+        "bios:reagent": [
+          {
+            "schema:name": "dissolution: 0.075 M HNO3 — §2",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -556,6 +585,19 @@
       "schema:HowTo"
     ]
   },
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Cone conditioning with pure Ca solution (100 ppm) for 0.5–1 hours before optimisation — §3.4; blanks stable over a typical run of ~5 hr (§3.2)"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -588,25 +630,26 @@
     "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
   ],
   "ada:reportedProperties": [
-    "Element/Ca ratios: Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (umol/mol); U/Ca (nmol/mol)"
+    "Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (µmol/mol); Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); U/Ca (nmol/mol) — Table 2 note a"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis of dissolved foraminifera)",
+  "ada:chromatographicSeparationApplied": "None",
   "ada:isotopeDilutionSpike": "None",
-  "ada:finalSolutionMatrix": "0.075 M HNO3 at 100 ppm Ca (stated section 2)",
-  "ada:washTimeBetweenSamples": "60 s (Table 1)",
+  "ada:finalSolutionMatrix": "all: 0.075 M HNO3 at 100 ppm Ca — §2; working standards diluted with the same acid",
+  "ada:washTimeBetweenSamples": "60 s — Table 1; uptake time 65 s",
   "ada:uncertaintyLevel": "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"",
-  "ada:oxideProductionMethodAndThreshold": "CeO/Ce < 3% (stated section 2)",
-  "ada:blankBackgroundCorrectionMethod": "On-peak zero (stated implicitly; calibration standards include procedural blank equivalent)",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2)",
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 100 ppm Ca (not formally named; stated section 2)",
+  "ada:calibrationMeasurementFrequency": "8 calibration standards per run, drift monitors every 3 samples — §3.4",
+  "ada:oxideProductionMethodAndThreshold": "CeO/Ce within 3% — 'Plasma robustness was monitored by constraining CeO/Ce ratio within 3%' (§2)",
+  "ada:blankBackgroundCorrectionMethod": "Average blank subtracted from the average raw intensities of 6 replicate scans — blanks in the same acid as used for dissolution and dilution (§3.2)",
+  "ada:internalStandardElement": "all: none — element/Ca intensity ratios against matrix-matched external standards (§3)",
+  "ada:secondaryReferenceMaterialDefault": [
+    "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)"
+  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"

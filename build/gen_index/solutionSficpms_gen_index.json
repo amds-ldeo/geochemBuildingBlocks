@@ -49,6 +49,7 @@
   "ada:uncertaintyLevel",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -110,9 +111,11 @@
   "solutionSficpms_uncertaintyPropagationMethod",
   "solutionSficpms_normalizationStandardsBasedCorrection",
   "solutionSficpms_calibrationFactorAndDeterminationMethod",
+  "solutionSficpms_combinationMethod",
   "solutionSficpms_constantsAndReferenceValuesUsed",
   "solutionSficpms_primaryCalibrationStandardName",
-  "solutionSficpms_secondaryReferenceMaterials"
+  "solutionSficpms_secondaryReferenceMaterials",
+  "solutionSficpms_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -129,6 +132,7 @@
   "signalIntegrationTime",
   "proceduralBlankLevel",
   "analysisInclusionAndRejectionCriteria",
+  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
   "countingStatisticsError",
@@ -176,6 +180,8 @@
   "ada:washTimeBetweenSamples",
   "ada:internalStandardElement",
   "ada:oxideProductionMethodAndThreshold",
+  "ada:acquisitionPass",
+  "ada:numberOfAcquisitionPasses",
   "ada:driftCorrectionMethod",
   "ada:calibrationStrategyPerTargetSpecies",
   "ada:blankBackgroundCorrectionMethod",
@@ -186,6 +192,7 @@
   "ada:uncertaintyLevel",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -213,14 +220,14 @@
    "key": "ada:digestionAcid",
    "item": "Digestion Acid(s)",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:digestionVesselType",
    "item": "Digestion Vessel Type",
    "jtype": "string",
-   "cov": 3,
+   "cov": 5,
    "required": true
   },
   {
@@ -234,7 +241,7 @@
    "key": "ada:digestionTemperatureDefault",
    "item": "Digestion Temperature",
    "jtype": "number",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -248,7 +255,7 @@
    "key": "ada:finalSolutionMatrix",
    "item": "Final Solution Matrix",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -262,7 +269,7 @@
    "key": "ada:isotopeDilutionSpike",
    "item": "Isotope Dilution Spike",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -290,14 +297,14 @@
    "key": "ada:massResolutionSettingDefault",
    "item": "Mass Resolution Setting",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:detectorConfiguration",
    "item": "Detector Configuration",
    "jtype": "string",
-   "cov": 5,
+   "cov": 4,
    "required": true
   },
   {
@@ -388,14 +395,14 @@
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
-   "cov": 4,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:massResolutionAssignment",
    "item": "Mass Resolution Assignment",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
@@ -416,7 +423,7 @@
    "key": "ada:analysisSequenceDefault",
    "item": "Analysis Sequence",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -451,21 +458,21 @@
    "key": "ada:acquisitionPass",
    "item": "Acquisition Pass",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 2,
+   "required": true
   },
   {
    "key": "ada:numberOfAcquisitionPasses",
    "item": "Number of Acquisition Passes",
    "jtype": "integer",
-   "cov": 0,
-   "required": false
+   "cov": 2,
+   "required": true
   },
   {
    "key": "ada:driftCorrectionMethod",
    "item": "Drift Correction Method",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
@@ -486,28 +493,28 @@
    "key": "ada:blankBackgroundCorrectionMethod",
    "item": "Blank / Background Correction Method",
    "jtype": "string",
-   "cov": 4,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:spectralInterferenceCorrectionsApplied",
    "item": "Spectral Interference Corrections Applied",
    "jtype": "string",
-   "cov": 3,
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:interferingSpecies",
    "item": "Interfering Species",
    "jtype": "string",
-   "cov": 2,
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:interferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -539,24 +546,31 @@
    "required": true
   },
   {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 6,
+   "required": true
+  },
+  {
    "key": "ada:constantsAndReferenceValuesUsedDefault",
    "item": "Constants and Reference Values Used",
    "jtype": "string",
-   "cov": 4,
+   "cov": 3,
    "required": true
   },
   {
    "key": "ada:primaryCalibrationStandardNameDefault",
    "item": "Primary Calibration Standard Name",
    "jtype": "string",
-   "cov": 3,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:calibrationStandardMeasurementFrequency",
    "item": "Calibration Standard Measurement Frequency",
    "jtype": "string",
-   "cov": 2,
+   "cov": 3,
    "required": true
   },
   {
@@ -570,14 +584,14 @@
    "key": "ada:detectionLimitMethod",
    "item": "Detection Limit Method",
    "jtype": "string",
-   "cov": 1,
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
    "item": "Within-Session Analytical Precision and Assessment Method",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {

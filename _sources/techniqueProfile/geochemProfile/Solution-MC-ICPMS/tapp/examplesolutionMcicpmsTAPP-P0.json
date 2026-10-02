@@ -15,36 +15,38 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P0",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Chondrules, matrix separates and bulk rock of the Allende CV3 chondrite"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 0.3,
-          "schema:description": "0.3–0.5 g digested; ~100 ng Mo consumed per measurement"
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "chondrule",
+      "matrix",
+      "bulk chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -85,17 +87,6 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "N/A — no isotope dilution applied"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — \"For samples analyzed several times, reported values represent the mean of pooled solution replicates\". No acceptance or rejection rule stated"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -145,10 +136,10 @@
             "schema:value": "\"closed Savillex beakers\""
           }
         ],
-        "schema:description": "1: HF-HNO3 (-HClO4), closed Savillex beakers on a hotplate | 2: inverse aqua regia. Both steps stated; conditions not given beyond 'on a hotplate'.",
+        "schema:description": "HF–HNO3(–HClO4) attack (closed Savillex beakers on a hotplate); inverse aqua regia — §2",
         "bios:reagent": [
           {
-            "schema:name": "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"",
+            "schema:name": "HF–HNO3(–HClO4) attack: HF + HNO3 (+ HClO4); inverse aqua regia: HNO3 + HCl — §2",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -168,6 +159,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 0.3,
+          "schema:description": "0.3–0.5 g digested; ~100 ng Mo consumed per measurement"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -343,7 +357,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Cetac Aridus II"
+      "schema:value": "all: Cetac Aridus II — with a Savillex C-Flow PFA nebulizer"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -366,7 +380,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 100,
-      "schema:description": "100 isotope ratio measurements, preceded by 40 baseline integrations"
+      "schema:description": "all: 100 isotope ratio measurements, preceded by 40 baseline integrations — §2"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -378,7 +392,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 8.4,
-      "schema:description": "8.4 s"
+      "schema:description": "all: 8.4 s — §2"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
@@ -506,38 +520,38 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "⁹²Mo",
+        "monitoredProperty": "92Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "⁹⁴Mo",
+        "monitoredProperty": "94Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "⁹⁵Mo",
+        "monitoredProperty": "95Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "⁹⁶Mo",
+        "monitoredProperty": "96Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "⁹⁷Mo",
+        "monitoredProperty": "97Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "⁹⁸Mo",
+        "monitoredProperty": "98Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "¹⁰⁰Mo",
+        "monitoredProperty": "100Mo",
         "targetSpecies": "Mo"
       },
       {
-        "monitoredProperty": "⁹¹Zr"
+        "monitoredProperty": "91Zr"
       },
       {
-        "monitoredProperty": "⁹⁹Ru"
+        "monitoredProperty": "99Ru"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -626,18 +640,17 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "εiMo relative to the Alfa Aesar solution standard, εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4"
+    "ε92Mo, ε94Mo, ε95Mo, ε97Mo, ε100Mo — εⁱMo = [(ⁱMo/⁹⁶Mo)sample/(ⁱMo/⁹⁶Mo)standard − 1] × 10⁴, relative to the Alfa Aesar standard"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "98Mo/96Mo = 1.453173",
-  "ada:chromatographicSeparationApplied": "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
+  "ada:chromatographicSeparationApplied": "Yes, two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:uncertaintyLevel": "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)",
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero baseline integrations subtracted",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\""
+    "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'"
   ],
-  "ada:primaryStandardNameDefault": "Alfa Aesar Mo solution standard",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
