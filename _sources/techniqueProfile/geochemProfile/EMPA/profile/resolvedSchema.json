@@ -17852,8 +17852,8 @@
               "ada:combinedResults": {
                 "type": "array",
                 "items": {
-                  "description": "Any statistic reported for a combined result beyond the dispersion statistic, with the statistic named and its value.",
-                  "type": "string"
+                  "type": "object",
+                  "properties": {}
                 }
               }
             }
@@ -23738,7 +23738,10 @@
                                       ]
                                     }
                                   }
-                                }
+                                },
+                                "required": [
+                                  "ada:defaultTargetMaterials"
+                                ]
                               },
                               "ada:stepSizePixelSizeDefault": {
                                 "description": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.",

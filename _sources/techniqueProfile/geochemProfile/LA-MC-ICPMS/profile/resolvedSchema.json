@@ -20059,8 +20059,8 @@
               "ada:combinedResults": {
                 "type": "array",
                 "items": {
-                  "description": "Any statistic reported for a combined result beyond the dispersion statistic, with the statistic named and its value.",
-                  "type": "string"
+                  "type": "object",
+                  "properties": {}
                 }
               }
             }
@@ -28664,7 +28664,10 @@
                                       ]
                                     }
                                   }
-                                }
+                                },
+                                "required": [
+                                  "ada:defaultTargetMaterials"
+                                ]
                               },
                               "ada:withinSessionPrecision": {
                                 "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
