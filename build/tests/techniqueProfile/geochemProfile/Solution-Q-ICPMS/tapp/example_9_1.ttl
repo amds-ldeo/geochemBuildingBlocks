@@ -19,12 +19,6 @@
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
@@ -40,7 +34,13 @@
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF-HNO3 attack: HF + HNO3; HNO3-HCl step: HNO3 + HCl; HNO3 step: HNO3; final uptake: 0.5 M HNO3" ] ] ] ;
+                            schema1:name "HF-HNO3 attack: HF + HNO3; HNO3-HCl step: HNO3 + HCl; HNO3 step: HNO3; final uptake: 0.5 M HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
     schema1:instrument <ex:instrument/ICPMS> ;

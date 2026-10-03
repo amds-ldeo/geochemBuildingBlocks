@@ -494,14 +494,14 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -1145,13 +1145,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
@@ -1162,7 +1155,14 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
     schema1:instrument <ex:instrument/FIBSEM>,
@@ -3027,15 +3027,15 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
@@ -3738,17 +3738,17 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ] ] ;
+                    ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <ex:instrument/FIBSEM>,

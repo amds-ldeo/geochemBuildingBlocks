@@ -22,6 +22,13 @@
                     ada:detectionLimitMethod "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
                     schema1:name "Sample preparation" ;
@@ -35,14 +42,7 @@
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8." ;
     schema1:instrument <ex:instrument/ICPMS> ;

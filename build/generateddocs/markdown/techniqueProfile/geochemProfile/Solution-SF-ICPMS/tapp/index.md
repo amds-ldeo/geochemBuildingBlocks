@@ -1108,12 +1108,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -1132,7 +1126,13 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
@@ -2685,17 +2685,17 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -4273,12 +4273,6 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
@@ -4292,6 +4286,12 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "ultrasonic HF decomposition: HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
@@ -5822,10 +5822,13 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -5836,19 +5839,16 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
                     ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10–12 samples — 'to assess instrument drift and mass bias' (§2.4)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
@@ -7382,15 +7382,15 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
@@ -9023,6 +9023,17 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
                     ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 °C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 °C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 °C, then evaporated at 50 °C); final uptake (5 ml 7 mol/l HNO3) — Samples and sample preparation" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
                     schema1:name "Data acquisition" ;
@@ -9032,18 +9043,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 °C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 °C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 °C, then evaporated at 50 °C); final uptake (5 ml 7 mol/l HNO3) — Samples and sample preparation" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'." ;
