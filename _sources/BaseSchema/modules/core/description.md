@@ -11,7 +11,7 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 | `$def` | composed into | properties | required |
 |---|---|---|---|
 | `ProcedureIdentification` | a TAPP schema (`prov:Plan`) | 13 | 3 |
-| `AnalysisIdentification` | a technique detail (`schema:Dataset`) | 5 | 0 |
+| `AnalysisIdentification` | a technique detail (`schema:Dataset`) | 6 | 0 |
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.
 
@@ -19,6 +19,7 @@ Requiredness follows the TAPP tier matrix: a field Basic on a side is required t
 
 These fields belong to the module but have no schema path in any sidecar, so they are absent from the schema until one is authored:
 
+- Target Material
 - Instrument Manufacturer
 - Instrument Model
 

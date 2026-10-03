@@ -41,6 +41,7 @@ Skeleton `exampleadaEMPA.json` validates with 1 error(s); this instance with 0.
 | `/schema:distribution/0/schema:hasPart/0/schema:additionalProperty` | INST | analysis-level parameter Map Dimensions |
 | `/schema:distribution/0/schema:hasPart/0/schema:additionalProperty` | INST | analysis-level parameter Map Area |
 | `/dqv:hasQualityMeasurement` | INST | the profile pins the measurement label, so the label is kept and the value says what this procedure reports instead |
+| `/schema:variableMeasured` | ADA+SENT | the sampling-unit identifier. ADA: the record reports one row per WDS analysis point, so the column is structurally present. SENT: no source available here gives the column's own label, so `schema:name` carries the TAPP item label, as Detection Limit and the other TAPP-labelled variables in this file do. Required by the profile from 2026-10-02, when `defines: sample > sampling unit` was routed to a data column. |
 
 ## Rejected -- kept out because they would have broken validation
 

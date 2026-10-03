@@ -287,6 +287,42 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  empa_xRayDetectionMethodPerMonitoredElement:
+    title: X-ray Detection Method per Monitored Element
+    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
+      (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
+      counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy
+      at once. Applies where a procedure uses both.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayDetectionMethodPerMonitoredElement
+      schema:name:
+        const: X-ray Detection Method per Monitored Element
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id009
+          type: string
+        - type: array
+          items: *id009
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   empa_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
@@ -309,10 +345,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id009
+        - &id010
           type: string
         - type: array
-          items: *id009
+          items: *id010
     required:
     - '@id'
     - '@type'
@@ -349,10 +385,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id010
+        - &id011
           type: string
         - type: array
-          items: *id010
+          items: *id011
     required:
     - '@id'
     - '@type'
@@ -450,10 +486,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id011
+        - &id012
           type: string
         - type: array
-          items: *id011
+          items: *id012
     required:
     - '@id'
     - '@type'
@@ -515,10 +551,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id012
+        - &id013
           type: string
         - type: array
-          items: *id012
+          items: *id013
     required:
     - '@id'
     - '@type'
@@ -553,10 +589,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id013
+        - &id014
           type: string
         - type: array
-          items: *id013
+          items: *id014
     required:
     - '@id'
     - '@type'
@@ -586,12 +622,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id014
+        - &id015
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id014
+          items: *id015
     required:
     - '@id'
     - '@type'
@@ -624,10 +660,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id015
+        - &id016
           type: string
         - type: array
-          items: *id015
+          items: *id016
     required:
     - '@id'
     - '@type'
@@ -659,10 +695,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id016
+        - &id017
           type: string
         - type: array
-          items: *id016
+          items: *id017
     required:
     - '@id'
     - '@type'
@@ -693,12 +729,12 @@ $defs:
         const: M
       schema:value:
         anyOf:
-        - &id017
+        - &id018
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id017
+          items: *id018
     required:
     - '@id'
     - '@type'
@@ -730,10 +766,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id018
+        - &id019
           type: string
         - type: array
-          items: *id018
+          items: *id019
     required:
     - '@id'
     - '@type'
@@ -917,12 +953,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id019
+        - &id020
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id019
+          items: *id020
     required:
     - '@id'
     - '@type'
@@ -953,10 +989,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id020
+        - &id021
           type: string
         - type: array
-          items: *id020
+          items: *id021
     required:
     - '@id'
     - '@type'
@@ -985,10 +1021,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id021
+        - &id022
           type: string
         - type: array
-          items: *id021
+          items: *id022
     required:
     - '@id'
     - '@type'
@@ -1020,12 +1056,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id022
+        - &id023
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id022
+          items: *id023
     required:
     - '@id'
     - '@type'
@@ -1056,12 +1092,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id023
+        - &id024
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id023
+          items: *id024
     required:
     - '@id'
     - '@type'
@@ -1091,10 +1127,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id024
+        - &id025
           type: string
         - type: array
-          items: *id024
+          items: *id025
     required:
     - '@id'
     - '@type'
@@ -1127,12 +1163,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id025
+        - &id026
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id025
+          items: *id026
     required:
     - '@id'
     - '@type'
@@ -1163,16 +1199,52 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id026
+        - &id027
           type: string
         - type: array
-          items: *id026
+          items: *id027
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+  semComposition_xRayDetectionMethodPerMonitoredElement:
+    title: X-ray Detection Method per Monitored Element
+    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
+      (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
+      counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy
+      at once. Applies where a procedure uses both.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/semCompositionTAPP/xRayDetectionMethodPerMonitoredElement
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayDetectionMethodPerMonitoredElement
+      schema:name:
+        const: X-ray Detection Method per Monitored Element
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id028
+          type: string
+        - type: array
+          items: *id028
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   semComposition_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
@@ -1195,10 +1267,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id027
+        - &id029
           type: string
         - type: array
-          items: *id027
+          items: *id029
     required:
     - '@id'
     - '@type'
@@ -1229,12 +1301,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id028
+        - &id030
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id028
+          items: *id030
     required:
     - '@id'
     - '@type'
@@ -1265,10 +1337,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id029
+        - &id031
           type: string
         - type: array
-          items: *id029
+          items: *id031
     required:
     - '@id'
     - '@type'
@@ -1297,10 +1369,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id030
+        - &id032
           type: string
         - type: array
-          items: *id030
+          items: *id032
     required:
     - '@id'
     - '@type'
@@ -1332,12 +1404,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id031
+        - &id033
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id031
+          items: *id033
     required:
     - '@id'
     - '@type'
@@ -1368,12 +1440,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id032
+        - &id034
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id032
+          items: *id034
     required:
     - '@id'
     - '@type'
@@ -1403,10 +1475,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id033
+        - &id035
           type: string
         - type: array
-          items: *id033
+          items: *id035
     required:
     - '@id'
     - '@type'
@@ -1439,12 +1511,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id034
+        - &id036
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id034
+          items: *id036
     required:
     - '@id'
     - '@type'
@@ -1475,16 +1547,52 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id035
+        - &id037
           type: string
         - type: array
-          items: *id035
+          items: *id037
     required:
     - '@id'
     - '@type'
     - schema:valueName
     - schema:name
     - ada:dataType
+  sem_xRayDetectionMethodPerMonitoredElement:
+    title: X-ray Detection Method per Monitored Element
+    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
+      (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
+      counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy
+      at once. Applies where a procedure uses both.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/semTAPP/xRayDetectionMethodPerMonitoredElement
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayDetectionMethodPerMonitoredElement
+      schema:name:
+        const: X-ray Detection Method per Monitored Element
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - &id038
+          type: string
+        - type: array
+          items: *id038
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   sem_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
@@ -1507,10 +1615,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id036
+        - &id039
           type: string
         - type: array
-          items: *id036
+          items: *id039
     required:
     - '@id'
     - '@type'
@@ -1547,10 +1655,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id037
+        - &id040
           type: string
         - type: array
-          items: *id037
+          items: *id040
     required:
     - '@id'
     - '@type'
@@ -1709,10 +1817,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id038
+        - &id041
           type: string
         - type: array
-          items: *id038
+          items: *id041
     required:
     - '@id'
     - '@type'
@@ -1744,10 +1852,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id039
+        - &id042
           type: string
         - type: array
-          items: *id039
+          items: *id042
     required:
     - '@id'
     - '@type'
@@ -1781,10 +1889,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id040
+        - &id043
           type: string
         - type: array
-          items: *id040
+          items: *id043
     required:
     - '@id'
     - '@type'
@@ -1816,10 +1924,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id041
+        - &id044
           type: string
         - type: array
-          items: *id041
+          items: *id044
     required:
     - '@id'
     - '@type'
@@ -1883,10 +1991,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id042
+        - &id045
           type: string
         - type: array
-          items: *id042
+          items: *id045
     required:
     - '@id'
     - '@type'
@@ -1947,12 +2055,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id043
+        - &id046
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id043
+          items: *id046
     required:
     - '@id'
     - '@type'
@@ -1985,10 +2093,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id044
+        - &id047
           type: string
         - type: array
-          items: *id044
+          items: *id047
     required:
     - '@id'
     - '@type'
@@ -2020,10 +2128,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id045
+        - &id048
           type: string
         - type: array
-          items: *id045
+          items: *id048
     required:
     - '@id'
     - '@type'
@@ -2054,10 +2162,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id046
+        - &id049
           type: string
         - type: array
-          items: *id046
+          items: *id049
     required:
     - '@id'
     - '@type'
@@ -2121,10 +2229,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id047
+        - &id050
           type: string
         - type: array
-          items: *id047
+          items: *id050
     required:
     - '@id'
     - '@type'
@@ -2156,10 +2264,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id048
+        - &id051
           type: string
         - type: array
-          items: *id048
+          items: *id051
     required:
     - '@id'
     - '@type'
@@ -2190,10 +2298,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id049
+        - &id052
           type: string
         - type: array
-          items: *id049
+          items: *id052
     required:
     - '@id'
     - '@type'
@@ -2202,8 +2310,8 @@ $defs:
     - ada:dataType
   tem_eelsDetectionLimit:
     title: EELS Detection Limit
-    description: Estimated detection limit or minimum detectable concentration for target edges under
-      this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+    description: Estimated detection limit or minimum detectable concentration, under this procedure,
+      of each quantity determined by EELS. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -2223,12 +2331,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id050
+        - &id053
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id050
+          items: *id053
     required:
     - '@id'
     - '@type'
@@ -2259,10 +2367,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id051
+        - &id054
           type: string
         - type: array
-          items: *id051
+          items: *id054
     required:
     - '@id'
     - '@type'

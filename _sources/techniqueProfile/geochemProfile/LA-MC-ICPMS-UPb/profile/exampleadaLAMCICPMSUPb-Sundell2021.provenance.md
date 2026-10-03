@@ -29,6 +29,7 @@ Skeleton validates with 1 error(s); this instance with 0.
 | `/prov:wasGeneratedBy/0/schema:actionProcess` | LIT |  |
 | `/schema:variableMeasured` | LIT | Table 1, 'Collector configuration - mass': the paper states which mass is measured on which named cup, which is the join ADA's own MC-ICP-MS deposits do not carry |
 | `/dqv:hasQualityMeasurement` | LIT | the profile pins all three labels; only Goodness-of-Fit is reported |
+| `/schema:variableMeasured` | ADA+SENTINEL | the sampling-unit identifier. the session reports one row per ablation spot, so the column is structurally present; no source available here gives its own label, so `schema:name` carries the TAPP item label as the other TAPP-labelled variables here do. Required by the profile from 2026-10-02, when `defines: sample > sampling unit` was routed to a data column. |
 
 ## Rejected
 

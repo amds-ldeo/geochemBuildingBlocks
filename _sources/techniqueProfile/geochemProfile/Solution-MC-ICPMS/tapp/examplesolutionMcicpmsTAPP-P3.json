@@ -15,49 +15,61 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P3",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Calcium-aluminium-rich inclusions (CAIs)"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "calcium-aluminium-rich inclusion"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
+        "schema:name": "Sample preparation",
+        "schema:description": "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample preparation",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "main configuration; subconfiguration — for Dy and Yb 'a subconfiguration was used to monitor isobaric interferences'; the cup configurations are in table S2",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -73,17 +85,6 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "N/A — no isotope dilution applied"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — \"On average, LREEs were measured nine times\"; replicate matrix cuts were measured but \"are not used, however, for data interpretation to avoid unnecessary influence of stable isotopic fractionation potentially induced by Mo chemistry\" — an explicit exclusion, on chemical rather than statistical grounds"
           },
           {
             "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
@@ -119,8 +120,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 160,
-            "schema:description": "160 deg C (hot plate)"
+            "schema:defaultValue": 3,
+            "schema:description": "HF–HNO3–HClO4 attack: 160 °C; other: N"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -131,13 +132,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "2 weeks for the HF-HNO3-HClO4 step and 1 week for the HCl-HNO3 step, the pair performed twice"
+            "schema:defaultValue": "HF–HNO3–HClO4 attack: 2 weeks; HCl–HNO3 attack: 1 week; final uptake: N"
           }
         ],
-        "schema:description": "1: HF/HNO3 in 3:1 proportion with a few drops of HClO4, hot plate 160 deg C, 2 weeks | 2: evaporated to dryness and redissolved in a 2:1 mixture of HCl:HNO3, 1 week on a hot plate. \"These steps were performed twice to ensure complete digestion\" -- the PAIR is repeated, so under the 2026-09-08 grain rule the members are 2, not 4. The subsequent concentrated HNO3 and 3 M HNO3 are dry-down and uptake, not steps. Resolves the cell left open on 2026-09-08.",
+        "schema:description": "HF–HNO3–HClO4 attack (3:1 HF/HNO3 with a few drops of HClO4, hot plate, 160 °C, 2 weeks); HCl–HNO3 attack (evaporated, then 2:1 HCl:HNO3, 1 week on a hot plate); final uptake (dried, dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged) — the two attacks 'were performed twice to ensure complete digestion'",
         "bios:reagent": [
           {
-            "schema:name": "HF/HNO3 in 3:1 proportion with a few drops of HClO4, then -- after evaporation to dryness -- a 2:1 mixture of HCl:HNO3; dried down and dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged. The first HF/HNO3-HClO4 attack was missing from this cell before 2026-09-08.",
+            "schema:name": "HF–HNO3–HClO4 attack: 3:1 HF/HNO3 + HClO4; HCl–HNO3 attack: 2:1 HCl:HNO3; final uptake: concentrated HNO3, then 3 M HNO3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -157,6 +158,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 30,
+          "schema:description": "N — ~30% of the U/TEVA matrix cut, equivalent to 24% of the whole CAI; CAIs of 15–440 mg"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -273,9 +297,89 @@
       "schema:name": "example instrumentName"
     }
   ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "desolvationSystem",
+      "schema:name": "Desolvation System",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "all: Apex Omega desolvating nebulizer — Materials and Methods"
+    },
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "internalStandardConcentration",
+      "schema:name": "Internal Standard Concentration",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no added internal standard element"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfCyclesPerBlockDefault",
+      "schema:name": "Number of Cycles per Block",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 40,
+      "schema:description": "main configuration: 40 cycles; subconfiguration: 2, measured at the beginning — Materials and Methods"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "integrationTimePerCycleDefault",
+      "schema:name": "Integration Time per Cycle",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8.184,
+      "schema:description": "all: 8.184 s — 4.142 s in the subconfiguration"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "60 s baseline after 60 s take-up, per measurement — idle time zero between cycles of one configuration, 10 s after a configuration change"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeIsotopePair",
+      "schema:name": "Double Spike Isotope Pair",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N/A — no double spike used"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "doubleSpikeMixingRatioDefault",
+      "schema:name": "Double Spike Mixing Ratio",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — no double spike used"
+    }
+  ],
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "La",
       "Ce",
       "Nd",
       "Sm",
@@ -283,8 +387,7 @@
       "Gd",
       "Dy",
       "Er",
-      "Yb",
-      "Y"
+      "Yb"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -359,66 +462,138 @@
     ]
   },
   "ada:analysisSequenceDefault": "Standard-sample bracketing — \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "internalStandardConcentration",
-      "schema:name": "Internal Standard Concentration",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:value": "N/A — no added internal standard element"
-    },
-    {
-      "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "numberOfCyclesPerBlockDefault",
-      "schema:name": "Number of Cycles per Block",
-      "ada:dataType": "integer",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 40,
-      "schema:description": "40 cycles in the main configuration; the subconfiguration measured twice"
-    },
-    {
-      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "integrationTimePerCycleDefault",
-      "schema:name": "Integration Time per Cycle",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 4.142,
-      "schema:description": "4.142 s in the subconfiguration"
-    },
-    {
-      "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "doubleSpikeIsotopePair",
-      "schema:name": "Double Spike Isotope Pair",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "N/A — no double spike used"
-    },
-    {
-      "@id": "ada:parameter/module/MCICPMS/doubleSpikeMixingRatioDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "doubleSpikeMixingRatioDefault",
-      "schema:name": "Double Spike Mixing Ratio",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": "N/A — no double spike used"
-    }
-  ],
-  "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against OL-REE standards — \"SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies\"",
+  "ada:massBiasCorrectionStrategy": "Standard-sample bracketing, each sample ratio normalised to the average of the two bracketing OL-REE standards, diluted to the same concentration in the same acid — 'SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies'",
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
+      {
+        "monitoredProperty": "140Ce",
+        "targetSpecies": "Ce"
+      },
+      {
+        "monitoredProperty": "142Ce",
+        "targetSpecies": "Ce"
+      },
+      {
+        "monitoredProperty": "142Nd",
+        "targetSpecies": "Nd"
+      },
+      {
+        "monitoredProperty": "144Nd",
+        "targetSpecies": "Nd"
+      },
+      {
+        "monitoredProperty": "146Nd",
+        "targetSpecies": "Nd"
+      },
+      {
+        "monitoredProperty": "148Sm",
+        "targetSpecies": "Sm"
+      },
+      {
+        "monitoredProperty": "152Sm",
+        "targetSpecies": "Sm"
+      },
+      {
+        "monitoredProperty": "151Eu",
+        "targetSpecies": "Eu"
+      },
+      {
+        "monitoredProperty": "153Eu",
+        "targetSpecies": "Eu"
+      },
+      {
+        "monitoredProperty": "156Gd",
+        "targetSpecies": "Gd"
+      },
+      {
+        "monitoredProperty": "158Gd",
+        "targetSpecies": "Gd"
+      },
+      {
+        "monitoredProperty": "162Dy",
+        "targetSpecies": "Dy"
+      },
+      {
+        "monitoredProperty": "163Dy",
+        "targetSpecies": "Dy"
+      },
+      {
+        "monitoredProperty": "164Dy",
+        "targetSpecies": "Dy"
+      },
+      {
+        "monitoredProperty": "166Er",
+        "targetSpecies": "Er"
+      },
+      {
+        "monitoredProperty": "168Er",
+        "targetSpecies": "Er"
+      },
+      {
+        "monitoredProperty": "172Yb",
+        "targetSpecies": "Yb"
+      },
+      {
+        "monitoredProperty": "174Yb",
+        "targetSpecies": "Yb"
+      }
+    ],
+    "ada:monitoredPropertyColumns": [
+      {
+        "schema:valueName": "monitoredProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionMcicpmsTAPP/massResolutionAssignment",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "massResolutionAssignment",
+        "schema:name": "Mass Resolution Assignment",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:numberOfAcquisitionPasses": "2 — the subconfiguration only for Dy and Yb",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -438,16 +613,19 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "Mass-dependent REE isotopic fractionation relative to the OL-REE standards, in delta notation"
+    "φCe, φNd, φSm, φEu, φGd, φDy, φEr, φYb — ‰/amu relative to the OL-REE standards (Eq. 1)"
   ],
-  "ada:chromatographicSeparationApplied": "Yes — U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25–50 µm resin, 94 steps, 188 ml, 16 h at 70 °C, 0.17 ml/min). Overall yields >95%",
+  "ada:chromatographicSeparationApplied": "Yes, U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25–50 µm resin, 94 steps, 188 ml, 16 h at 70 °C, 0.17 ml/min). Overall yields >95%",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "15–25 ppb for the most abundant isotope",
+  "ada:finalSolutionMatrix": "N — standards 'diluted to the same concentration as the sample, in the same acid'; 15–25 ppb for the LREEs, 1.5–10 ppb for Eu and the HREEs",
   "ada:washTimeBetweenSamples": "300 s rinsing between bracketed measurements",
-  "ada:uncertaintyLevel": "Not stated in the section read",
+  "ada:uncertaintyLevel": "95% confidence interval — Student's t, from the sample's own φE values with six or more brackets, otherwise from standards bracketed by standards",
   "ada:calibrationMeasurementFrequency": "Every sample, spaced by 300 s rinsing",
+  "ada:blankBackgroundCorrectionMethod": "Background corrected off-line in a spreadsheet, from the 60 s baseline — 'correcting for background and isobaric interferences'",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:primaryStandardNameDefault": "OL-REE series",
+  "ada:secondaryReferenceMaterialDefault": [
+    "BCR-2 — 'processed with the CAIs'"
+  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -457,9 +635,7 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"

@@ -15,20 +15,37 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P1",
-  "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = IS normalization (103Rh; stated Table 1).",
+  "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2).",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "REEs",
+      "Li",
+      "Be",
+      "Sc",
       "Cr",
       "Co",
       "Ni",
       "Cu",
       "Zn",
-      "Li",
+      "Ge",
       "Rb",
       "Sr",
+      "Y",
       "Cs",
-      "Ba"
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -203,7 +220,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 1)"
+              "schema:value": "N — RF power 1300 W (Table 1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -334,7 +351,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, pulse counting only (stated Table 1: counting mode)"
+          "schema:value": "Counting — Table 1 'Detection mode'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -373,35 +390,36 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Magnetite and pyrite (mineral separates from skarn deposits; stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg mineral powder (stated section 2.3)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "magnetite",
+      "pyrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -442,19 +460,9 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -462,8 +470,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -488,7 +495,7 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "48 h (stated section 2.3)"
+            "schema:defaultValue": "HCl-HNO3 attack: 48 h; re-dissolution: N — §2.3.1"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -499,14 +506,14 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 deg C (stated section 2.3)"
+            "schema:defaultValue": 3,
+            "schema:description": "HCl-HNO3 attack: 130 °C; re-dissolution: 130 °C (evaporation) — §2.3.1"
           }
         ],
-        "schema:description": "1: 6 M HCl (1.5 ml) + 8 M HNO3 (0.5 ml), 130 deg C / 48 h | 2: evaporation then re-dissolution in 10 M HCl (1.5 ml). Step 2 changes the acid, so it is a distinct attack rather than an evaporation belonging to step 1 (section 2.3.1).",
+        "schema:description": "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h",
         "bios:reagent": [
           {
-            "schema:name": "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1",
+            "schema:name": "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -540,7 +547,30 @@
       "schema:description": "5 ng/ml Rh (stated section 2.3)"
     }
   ],
-  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "~100 mg mineral powder (stated section 2.3)"
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -560,17 +590,17 @@
     "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\""
   ],
   "ada:reportedProperties": [
-    "Mass fractions of Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Rb, Sr, Ge, Cs, Ba, Y and the REE; detection limits in ng mL-1 [Table 2]. Concentration unit is not stated in the Table 4 header"
+    "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header"
   ],
   "ada:chromatographicSeparationApplied": "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)",
   "ada:isotopeDilutionSpike": "None (external calibration used; stated section 2.3)",
-  "ada:finalSolutionMatrix": "2% HNO3 + 5 ng/ml Rh (stated section 2.3)",
-  "ada:washTimeBetweenSamples": "60 s (Table 1)",
+  "ada:finalSolutionMatrix": "all: 2% HNO3 containing 5 ng/mL Rh — §2.3.2",
+  "ada:washTimeBetweenSamples": "60 s — Table 1; '1 min with 3% v/v HNO3' (§2.1)",
   "ada:uncertaintyLevel": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"",
-  "ada:blankBackgroundCorrectionMethod": "Solution blank (stated section 2.3)",
-  "ada:internalStandardElement": "Rh (103Rh; Table 1)",
+  "ada:blankBackgroundCorrectionMethod": "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described",
+  "ada:internalStandardElement": "all: Rh (103Rh) — Table 1",
   "ada:secondaryReferenceMaterialDefault": [
-    "FER-2 and geological RMs in Table 5 (BHVO-2, BCR-2, etc.; stated section 2.3.2)"
+    "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)"
   ],
   "schema:variableMeasured": [
     {
@@ -584,7 +614,6 @@
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

@@ -3,7 +3,7 @@ title: TEM Technique-Aligned Protocol Profile (temTAPP)
 description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extension of the base TAPP definition.
   Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are
   schema:additionalProperty[] entries; an ada:targetSpeciesTemplate carries per-element columns. Generated
-  from tapp/Current TAPPs/TEM_TAPP_v60.csv by tools/build_tapp.py.'
+  from tapp/Current TAPPs/TEM_TAPP_v67.csv by tools/build_tapp.py.'
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -12,75 +12,18 @@ allOf:
 - $ref: ../../../../BaseSchema/modules/targetSpecies/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:object:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              '@type':
-                contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-            required:
-            - '@type'
-          then:
-            properties:
-              schema:additionalProperty:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Target Material
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:value:
-                          type: array
-                          items:
-                            description: General description of the material type(s) this procedure is
-                              designed to analyse.
-                            anyOf:
-                            - type: string
-                              enum:
-                              - Silicate mineral
-                              - Silicate glass
-                              - Oxide
-                              - Sulfide
-                              - Carbonate
-                              - Phosphate
-                              - Metal or alloy
-                              - Organic matter
-                              - Amorphous phase
-                              - Nanoparticle
-                              - N/A
-                              - None
-                              - missing
-                            - type: string
-                            readOnly: true
-                allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Target Material
-                    required:
-                    - schema:name
-                - contains:
-                    $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
-                  minContains: 0
-                  maxContains: 1
-      allOf:
-      - contains:
-          properties:
-            '@type':
-              contains:
-                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-          required:
-          - '@type'
+    ada:targetMaterialTemplate:
+      type: object
+      properties:
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetMaterials
     schema:actionProcess:
       type: object
       properties:
@@ -214,7 +157,44 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - &id004
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual results contribute to a combined
+                          result, together with the outcome of applying them: how many results were obtained,
+                          how many were included, and on what grounds any were excluded. An individual
+                          result is the value of the reported quantity obtained from one acquisition:
+                          a replicate measurement of the same solution or location, a spot or grain within
+                          a sample, or an independently prepared aliquot or digestion, whichever the procedure
+                          combines. Distinct from filtering the acquired signal during data reduction
+                          (removing spikes, cycles or scans, or discarding an acquisition whose signal
+                          is compromised): this field records which finished results enter the combined
+                          result, and on what grounds.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/temTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains: *id002
@@ -223,8 +203,7 @@ allOf:
                     - contains: *id003
                       minContains: 0
                       maxContains: 1
-                    - contains:
-                        $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                    - contains: *id004
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -238,6 +217,29 @@ allOf:
                   const: Data reduction
               required:
               - schema:name
+    schema:object:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              '@type':
+                contains:
+                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+            required:
+            - '@type'
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                allOf:
+                - contains:
+                    $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
+                  minContains: 0
+                  maxContains: 1
     schema:instrument:
       type: array
       items:
@@ -534,7 +536,7 @@ allOf:
                 - type: string
               schema:additionalProperty:
                 type: array
-                items: &id004
+                items: &id005
                   title: TEM Objective Aperture
                   description: Objective aperture diameter used to select the imaging beam condition in
                     TEM mode.
@@ -565,7 +567,7 @@ allOf:
                   - ada:dataType
                   - ada:fieldScope
                 allOf:
-                - contains: *id004
+                - contains: *id005
                   minContains: 0
                   maxContains: 1
             required:
@@ -585,7 +587,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id005
+        - &id006
           title: Sample Holder
           description: Type of specimen holder used.
           type: object
@@ -614,7 +616,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id006
+        - &id007
           title: EFTEM Energy Window
           description: 'Energy window(s) used for EFTEM elemental mapping: center energy, width, and acquisition
             method (three-window or jump-ratio). Record ''N/A'' where EFTEM is not listed in Analytical
@@ -645,7 +647,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
+        - &id008
           title: HAADF Collection Angles
           description: Inner and outer collection angles of the HAADF detector in milliradians (mrad).
             Inner angle can be derived from camera length and detector geometry.
@@ -675,7 +677,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
+        - &id009
           title: STEM Probe Diameter
           description: 'Nominal or measured diameter of the focused electron probe at the sample, reported
             in nm. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected
@@ -710,7 +712,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id010
           title: STEM Probe Current
           description: Probe current in picoamperes (pA) or nanoamperes (nA). Also governs STEM-EDS and
             STEM-EELS acquisition where those detectors are used.
@@ -742,7 +744,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id011
           title: STEM Scan Dimensions
           description: Number of pixels in the STEM scan frame (X × Y pixels). Also governs STEM-EDS and
             STEM-EELS acquisition where those detectors are used.
@@ -774,7 +776,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id012
           title: STEM Frame Averaging
           description: Number of frames averaged (with drift correction if applicable) to produce the
             final STEM image. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are
@@ -805,7 +807,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id013
           title: Selected-Area Aperture Size
           description: Diameter of the selected-area aperture used in SAED mode, defining the specimen
             region that contributes to the diffraction pattern.
@@ -835,7 +837,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id014
           title: Precession Angle
           description: Precession semi-angle in degrees for precession electron diffraction (PED). Not
             applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed
@@ -868,7 +870,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id015
           title: 4D-STEM Scan Grid and Area
           description: Number of probe positions in the 4D-STEM dataset (scan pixels × scan pixels) and
             the physical area covered. Probe step size is the physical area divided by scan pixel count.
@@ -899,7 +901,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id016
           title: 4D-STEM Dwell Time per Probe Position
           description: Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds.
             Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
@@ -931,7 +933,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
+        - &id017
           title: Diffraction Camera Length Calibration Method
           description: Method used to calibrate the camera length constant and convert pixel distances
             in diffraction patterns to d-spacings or reciprocal lattice vectors.
@@ -961,7 +963,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id018
           title: EDS Live Time per Point or Pixel
           description: EDS spectral acquisition live time per analysis point (point/line mode) or per
             pixel (spectrum image) in seconds. Also referred to as "EDS Acquisition Time" in EPMA and
@@ -995,7 +997,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id019
           title: EDS Energy Range
           description: Energy range of EDS spectrum acquisition in keV. Record 'N/A' where EDS is not
             listed in Spectroscopic Detector(s).
@@ -1135,7 +1137,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id019
+        - &id020
           title: Specimen Thickness Determination Method
           description: Method used to estimate TEM foil thickness.
           type: object
@@ -1164,7 +1166,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id020
+        - &id021
           title: EELS Energy Calibration
           description: Method and reference used to calibrate the EELS energy axis. Record 'N/A' where
             EELS is not listed in Spectroscopic Detector(s).
@@ -1194,7 +1196,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id021
+        - &id022
           title: Diffraction Calibration Reference
           description: Reference material or internal standard used to calibrate the electron diffraction
             camera constant (camera length × electron wavelength), enabling conversion of pixel distances
@@ -1225,7 +1227,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id022
+        - &id023
           title: EDS Detection Limit
           description: Estimated detection limits by EDS under this procedure's conditions, one per reported
             concentration variable (one per target species, these being the same set). Record 'N/A' where
@@ -1258,7 +1260,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id023
+        - &id024
           title: EDS Counting Statistics / Accumulation Criterion
           description: Quality criterion used to determine when sufficient EDS signal has been accumulated
             for a given pixel or point, in lieu of or in addition to a fixed live time. Expressed as a
@@ -1292,7 +1294,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id024
+        - &id025
           title: EELS Chemical State Determination Method
           description: Method used to determine the chemical or oxidation state of an element from the
             fine structure of its ionization edge (ELNES), together with the reference data or calibration
@@ -1325,9 +1327,6 @@ allOf:
           - ada:dataType
           - ada:fieldScope
       allOf:
-      - contains: *id005
-        minContains: 0
-        maxContains: 1
       - contains: *id006
         minContains: 0
         maxContains: 1
@@ -1365,6 +1364,9 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id018
+        minContains: 0
+        maxContains: 1
+      - contains: *id019
         minContains: 0
         maxContains: 1
       - contains:
@@ -1489,9 +1491,6 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id019
-        minContains: 0
-        maxContains: 1
       - contains: *id020
         minContains: 0
         maxContains: 1
@@ -1505,6 +1504,9 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id024
+        minContains: 0
+        maxContains: 1
+      - contains: *id025
         minContains: 0
         maxContains: 1
     ada:spectroscopicDetectorDefault:
@@ -1690,7 +1692,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id027
+            - &id028
               title: EELS Background Subtraction Method
               description: Method used to subtract the background beneath the ionization edge of interest
                 to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic
@@ -1714,20 +1716,21 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id025
+                  - &id026
                     type: string
                   - type: array
-                    items: *id025
+                    items: *id026
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id028
+            - &id029
               title: EELS Detection Limit
-              description: Estimated detection limit or minimum detectable concentration for target edges
-                under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+              description: Estimated detection limit or minimum detectable concentration, under this procedure,
+                of each quantity determined by EELS. Record 'N/A' where EELS is not listed in Spectroscopic
+                Detector(s).
               type: object
               properties:
                 '@id':
@@ -1747,12 +1750,12 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id026
+                  - &id027
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id026
+                    items: *id027
               required:
               - '@id'
               - '@type'
@@ -1760,10 +1763,10 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id027
+          - contains: *id028
             minContains: 0
             maxContains: 1
-          - contains: *id028
+          - contains: *id029
             minContains: 0
             maxContains: 1
     ada:edsCalibrationStandardDefault:
@@ -1788,9 +1791,9 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - *id022
+        - *id023
       allOf:
-      - contains: *id022
+      - contains: *id023
         minContains: 0
         maxContains: 1
     ada:analyticalMode:

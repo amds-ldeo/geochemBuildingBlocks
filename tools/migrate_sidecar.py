@@ -208,6 +208,44 @@ ALIASES = {
     # a TYPE from a controlled list, so the domain's 44 consumers were keyed on something nothing
     # enumerated.
     "Sampling Unit": "Sampling Unit Type",
+
+    # --- 2026-10-01 delivery (amds-ldeo/tapp @ 94fa379): keyed notation enforced on all 16 ---
+    #
+    # ONE alias, out of six candidates. The other five are deliberately NOT aliased, and the
+    # reason is the same each time: carrying a path that is no longer right is worse than losing
+    # it, because a wrong authored path survives review while a flagged new row does not. This is
+    # the `CT System Manufacturer and Model` rule applied five more times.
+    #
+    # `Combination Method` generalises `Age Model` from "a single reported age" to any reported
+    # variable -- same Basic/Editable tiers, same Text (free) type, same `reported property` key,
+    # and the new Description carries the old wording almost verbatim with the scope widened.
+    # Geochronology and UPb both renamed it, 3 tables. The technique rows are `Source = module`
+    # with blank paths, so nothing authored is at risk here; the real placements are in those two
+    # module sidecars and the rename has to be applied there too.
+    "Age Model": "Combination Method",
+
+    # NOT aliased, with the evidence:
+    #
+    # `Technique per Target Species` / `EPMA Technique per Target Species` ->
+    #   `X-ray Detection Method per Monitored Element`. Re-keyed `target species` ->
+    #   `monitored property`, and all three rows sit on
+    #   ada:targetSpeciesTemplate.ada:targetSpeciesColumns[] -- the wrong domain now. Two are
+    #   `Source = keyed`, so the routing re-derives them from the new key by itself; EPMA's is
+    #   authored and would carry the stale path. Let all three drop and route to
+    #   ada:monitoredPropertyColumns[] from the key.
+    #
+    # `Beam Current` -> `Mapping Beam Current`. Not a rename at all: the delivery SPLIT EPMA's
+    #   beam conditions into point and map fields, and 15 tables keep both -- `Beam Current`
+    #   re-keyed to `target material`, `Mapping Beam Current` new beside it on
+    #   `sample > sampling unit`. Only SEM_FIBSEM lost the general field, and its authored path is
+    #   a targetSpecies column while the new field is sampling-unit keyed. A 1->1 alias cannot
+    #   express a split, and here it would also cross domains.
+    #
+    # `Sample Form / Analytical Substrate` (6 tables, 12 authored rows, plus 2 in
+    #   Module_LaserAblation) and `Sample Preparation Notes` (Lab-XCT, 2 authored rows). Both are
+    #   RETIRED with their values folded into `Sample Preparation Method`, which already exists in
+    #   every one of those tables with its own placement. Aliasing would stack a second and third
+    #   authored path onto one item.
 }
 
 # Items that DROP in the 2026-09 deliveries and are deliberately not aliased. Recorded

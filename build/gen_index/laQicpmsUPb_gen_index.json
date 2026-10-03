@@ -1,6 +1,5 @@
 {
  "tapp_props": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -62,7 +61,7 @@
   "ada:ageCalculationMethod",
   "ada:reportedDateTypeDefault",
   "ada:inheritedOrInitialSignalCorrectionDefault",
-  "ada:ageModelDefault",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -104,7 +103,6 @@
  "pv_keys": [
   "laQicpmsUPb_coupledProcedureDoi",
   "laQicpmsUPb_coupledDatasetOrPublicationReference",
-  "laQicpmsUPb_sampleFormAnalyticalSubstrate",
   "laQicpmsUPb_samplePersistentIdentifier",
   "laQicpmsUPb_fusionFluxAndDilutionRatio",
   "laQicpmsUPb_samplePreparationMethod",
@@ -151,10 +149,11 @@
   "laQicpmsUPb_calibrationFactorAndDeterminationMethod",
   "laQicpmsUPb_reportedDateType",
   "laQicpmsUPb_inheritedOrInitialSignalCorrection",
-  "laQicpmsUPb_ageModel",
+  "laQicpmsUPb_combinationMethod",
   "laQicpmsUPb_constantsAndReferenceValuesUsed",
   "laQicpmsUPb_primaryCalibrationStandardName",
-  "laQicpmsUPb_secondaryReferenceMaterials"
+  "laQicpmsUPb_secondaryReferenceMaterials",
+  "laQicpmsUPb_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -177,6 +176,7 @@
   "radiogenicFractionOfMeasuredSignal",
   "ageDatumReferenceEpoch",
   "errorCorrelationBetweenReportedQuantities",
+  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
   "countingStatisticsError",
@@ -191,14 +191,13 @@
   "ada:LAICPMSGeochronTabular"
  ],
  "basic_required": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
+  "ada:chemicalAbrasionConditions",
   "ada:laserManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
-  "ada:massResolutionSettingDefault",
   "ada:detectorConfiguration",
   "ada:laserWavelengthAndType",
   "ada:dataProcessingSoftwareDefault",
@@ -209,12 +208,15 @@
   "ada:laserRepetitionRateDefault",
   "ada:laserPulseDuration",
   "ada:ablationDurationPerSpotDefault",
+  "ada:rasterLineSpacingDefault",
   "ada:carrierGasAndFlowRateDefault",
   "ada:coolantGasFlowRateDefault",
+  "ada:auxiliaryGasFlowRateDefault",
   "ada:rfPowerDefault",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
   "ada:targetSpeciesDefault",
+  "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
   "ada:dwellTimePerMassDefault",
   "ada:backgroundCountTimeDefault",
@@ -225,8 +227,11 @@
   "ada:blankBackgroundCorrectionMethod",
   "ada:spectralInterferenceCorrectionsApplied",
   "ada:interferingSpecies",
-  "ada:interferenceCorrectionMethod",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:ageCalculationMethod",
+  "ada:reportedDateTypeDefault",
+  "ada:inheritedOrInitialSignalCorrectionDefault",
+  "ada:combinationMethodDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
   "ada:secondaryReferenceMaterialsDefault",
@@ -235,13 +240,6 @@
   "ada:analyticalAccuracyAndAssessmentMethod"
  ],
  "basic_props": [
-  {
-   "key": "ada:sampleFormAnalyticalSubstrateDefault",
-   "item": "Sample Form / Analytical Substrate",
-   "jtype": "string",
-   "cov": 6,
-   "required": true
-  },
   {
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
@@ -253,7 +251,7 @@
    "key": "ada:samplePreparationMethodDefault",
    "item": "Sample Preparation Method",
    "jtype": "string",
-   "cov": 4,
+   "cov": 6,
    "required": true
   },
   {
@@ -267,8 +265,8 @@
    "key": "ada:chemicalAbrasionConditions",
    "item": "Chemical Abrasion Conditions",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:laserManufacturerModel",
@@ -281,7 +279,7 @@
    "key": "ada:icpMsType",
    "item": "ICP-MS Type",
    "jtype": "string",
-   "cov": 1,
+   "cov": 4,
    "required": true
   },
   {
@@ -302,8 +300,8 @@
    "key": "ada:massResolutionSettingDefault",
    "item": "Mass Resolution Setting",
    "jtype": "string",
-   "cov": 4,
-   "required": true
+   "cov": 0,
+   "required": false
   },
   {
    "key": "ada:detectorConfiguration",
@@ -365,7 +363,7 @@
    "key": "ada:laserSpotPathAblationMode",
    "item": "Laser Spot Path / Ablation Mode",
    "jtype": "string",
-   "cov": 4,
+   "cov": 6,
    "required": true
   },
   {
@@ -407,35 +405,35 @@
    "key": "ada:rasterLineSpacingDefault",
    "item": "Raster Line Spacing (Mapping Only)",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:carrierGasAndFlowRateDefault",
    "item": "Carrier Gas and Flow Rate",
    "jtype": "string",
-   "cov": 4,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:coolantGasFlowRateDefault",
    "item": "Coolant (Plasma) Gas Flow Rate",
    "jtype": "number",
-   "cov": 2,
+   "cov": 4,
    "required": true
   },
   {
    "key": "ada:auxiliaryGasFlowRateDefault",
    "item": "Auxiliary Gas Flow Rate",
    "jtype": "number",
-   "cov": 0,
-   "required": false
+   "cov": 2,
+   "required": true
   },
   {
    "key": "ada:rfPowerDefault",
    "item": "RF Power",
    "jtype": "number",
-   "cov": 2,
+   "cov": 4,
    "required": true
   },
   {
@@ -449,7 +447,7 @@
    "key": "ada:oxideProductionMethodAndThreshold",
    "item": "Oxide Production Method and Threshold",
    "jtype": "string",
-   "cov": 1,
+   "cov": 3,
    "required": true
   },
   {
@@ -463,15 +461,15 @@
    "key": "ada:targetSpeciesDefault",
    "item": "Target Species",
    "jtype": "string",
-   "cov": 4,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
@@ -575,7 +573,7 @@
    "key": "ada:elementalFractionationCorrection",
    "item": "Elemental Fractionation Correction",
    "jtype": "string",
-   "cov": 6,
+   "cov": 2,
    "required": true
   },
   {
@@ -596,7 +594,7 @@
    "key": "ada:signalIntegrationIntervalMethod",
    "item": "Signal Integration Interval Method",
    "jtype": "string",
-   "cov": 6,
+   "cov": 3,
    "required": true
   },
   {
@@ -610,7 +608,7 @@
    "key": "ada:spectralInterferenceCorrectionsApplied",
    "item": "Spectral Interference Corrections Applied",
    "jtype": "string",
-   "cov": 4,
+   "cov": 2,
    "required": true
   },
   {
@@ -624,8 +622,8 @@
    "key": "ada:interferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
-   "cov": 2,
-   "required": true
+   "cov": 0,
+   "required": false
   },
   {
    "key": "ada:isotopeDilutionDataReductionMethod",
@@ -652,29 +650,29 @@
    "key": "ada:ageCalculationMethod",
    "item": "Age Calculation Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:reportedDateTypeDefault",
    "item": "Reported Date Type",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:inheritedOrInitialSignalCorrectionDefault",
    "item": "Inherited or Initial Signal Correction",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
-   "key": "ada:ageModelDefault",
-   "item": "Age Model",
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 6,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",
@@ -694,21 +692,21 @@
    "key": "ada:calibrationStandardMeasurementFrequency",
    "item": "Calibration Standard Measurement Frequency",
    "jtype": "string",
-   "cov": 5,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:secondaryReferenceMaterialsDefault",
    "item": "Secondary Reference Materials",
    "jtype": "string",
-   "cov": 4,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:detectionLimitMethod",
    "item": "Detection Limit Method",
    "jtype": "string",
-   "cov": 1,
+   "cov": 4,
    "required": true
   },
   {

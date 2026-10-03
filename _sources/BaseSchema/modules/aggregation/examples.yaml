@@ -2,7 +2,9 @@
   content: The analysis half of the Aggregation module, with every property populated. Generated from
     the schema, so it tracks the sidecar.
   prefixes:
+    ada: https://ada.astromat.org/metadata/
     dqv: http://www.w3.org/ns/dqv#
+    prov: http://www.w3.org/ns/prov#
     schema: http://schema.org/
   snippets:
   - language: json
@@ -10,8 +12,15 @@
       {
         "schema:variableMeasured": [
           {
-            "schema:name": "Goodness-of-Fit or Dispersion Statistic",
+            "schema:name": "Combination Method",
             "schema:value": "example value"
+          }
+        ],
+        "prov:wasGeneratedBy": [
+          {
+            "ada:combinedResults": [
+              "example value"
+            ]
           }
         ],
         "dqv:hasQualityMeasurement": [

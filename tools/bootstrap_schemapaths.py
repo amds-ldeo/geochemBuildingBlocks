@@ -260,9 +260,15 @@ def keyed_path(row):
         # `sampling unit per sample`, whose `per` parent is documented nullable. The old
         # `defines: sampling unit` is retired: `ada:samplingUnitType` holds a controlled type and
         # defines nothing, so it routes as a plain procedure property with no key.
+        # The identifier of a PARTICULAR sampling unit is not metadata. The procedure and the
+        # analysis can state only the KIND of unit (ada:samplingUnitType); a particular unit is a
+        # column in one of the dataset's distributions, declared here as the variableMeasured that
+        # names it. Settled 2026-10-01, after an array of sampling-unit OBJECTS was tried on
+        # 2026-09-25 and removed: the binding from a unit to its target material exists only in the
+        # instance data table beside the analytical results, so there is nothing for the record to
+        # hold but the column declaration.
         "defines: sample > sampling unit":
-            [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
-             ".ada:samplingUnits[].schema:name"],
+            [f"$Dataset.schema:variableMeasured[schema:name='{it}']"],
         "defines: sample": [f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}'].schema:name"],
         # Dual-homed, like `reported property`: the procedure states a default for the sample
         # property, and each analysis supplies its own value. Routing only the $Dataset half left
@@ -271,6 +277,41 @@ def keyed_path(row):
                    f".schema:additionalProperty[schema:name='{it}'].schema:defaultValue",
                    f"$Dataset.prov:wasGeneratedBy.schema:object[@type='{_ISAMPLE}']"
                    f".schema:additionalProperty[schema:name='{it}'].schema:value"],
+
+        # --- the 2026-10-01 delivery's two new domains (tapp @ 94fa379) -----------------------
+        #
+        # Routed to follow the keying model the Legends sheet now states outright: `defines: X` is
+        # "the header of the child table, not a column in it", a bare domain is a column in that
+        # table, and `X x Y` is a composite key. So a definer gets the row's identifying property
+        # and a plain key gets the row array itself.
+        #
+        # target material is PROCEDURE-side: it is what the procedure declares it can analyse
+        # (Basic/Read-Only), and the five electron-beam conditions plus Primary Calibration
+        # Standard Name are keyed by it, so the per-material values ride on these rows.
+        "defines: target material": ["$MethodDefinition.ada:targetMaterialTemplate.ada:defaultTargetMaterials[]"],
+        "target material": ["$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"],
+        # Primary Calibration Standard Name, 12 tables, module-owned by CompositionQC. Same
+        # treatment as `combined result x reported property`: the cross-product is ONE column on
+        # the X rows, and the Y half -- here the target species -- is carried by the column's
+        # schema:valueName rather than by a second container. Routed to the Legend's model rather
+        # than to the pre-Legend fallback that still holds the other 55 cross-product rows on
+        # ada:targetSpeciesColumns[].
+        "target material x target species": ["$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"],
+
+        # combined result is ANALYSIS-side only. The procedure can say HOW results will be
+        # combined (Combination Method, keyed by reported property) but never WHICH were, so
+        # there is no procedure-side counterpart to route. It sits on the ACTIVITY rather than in
+        # a sample because a combined result names its own sample and need not belong to exactly
+        # one -- an isochron over 36 runs is the case in hand -- which is the opposite of
+        # sampling units, nested in the sample precisely because a unit cannot belong to two.
+        "defines: combined result":
+            ["$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:name"],
+        "combined result": ["$Dataset.prov:wasGeneratedBy.ada:combinedResults[]"],
+        # Goodness-of-Fit or Dispersion Statistic, and Other Statistics. The cross-product rides
+        # on the combined-result row as a per-reported-property value; the reported-property half
+        # of the key is carried by the column's valueName, not by a second container.
+        "combined result x reported property":
+            ["$Dataset.prov:wasGeneratedBy.ada:combinedResults[]"],
     }
 
     # The Rule 7 key vocabulary was renamed twice under these routes, and because an

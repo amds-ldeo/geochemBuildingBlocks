@@ -15,24 +15,24 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol — Liu2017",
-  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v39.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper states the scope of the model rather than a rule for siting the volume: it \"only focuses on the coal sample #1\" (p.8)",
   "schema:instrument": [
     {
@@ -241,7 +241,7 @@
     "3D Tomography"
   ],
   "ada:reportedProperties": [
-    "Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)"
+    "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)"
   ],
   "schema:measurementTechnique": [
     {

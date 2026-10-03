@@ -404,6 +404,8 @@ KEYED_TABLES = [
      "monitored property"),
     ("ada:reportedPropertyTemplate",  "ada:defaultReportedProperties", "ada:reportedPropertyColumns",
      "reported property"),
+    ("ada:targetMaterialTemplate",    "ada:defaultTargetMaterials",   "ada:targetMaterialColumns",
+     "target material"),
 ]
 
 

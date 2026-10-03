@@ -25,6 +25,7 @@
   "ada:phaseIdentificationMethod",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:edsCalibrationStandardDefault",
   "schema:additionalProperty"
@@ -101,11 +102,13 @@
   "tem_imageProcessingMethodsApplied",
   "tem_specimenThicknessDeterminationMethod",
   "tem_calibrationFactorAndDeterminationMethod",
+  "tem_combinationMethod",
   "tem_constantsAndReferenceValuesUsed",
   "tem_edsCalibrationStandard",
   "tem_eelsEnergyCalibration",
   "tem_diffractionCalibrationReference",
-  "tem_edsCountingStatisticsAccumulationCriterion"
+  "tem_edsCountingStatisticsAccumulationCriterion",
+  "tem_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -117,6 +120,7 @@
   "sampleName",
   "samplingUnitName",
   "analysisInclusionAndRejectionCriteria",
+  "combinedResults",
   "edsDetectionLimit",
   "edsDeadTime",
   "eelsDetectionLimit",
@@ -154,6 +158,7 @@
   "ada:eelsEnergyLossRangeDefault",
   "ada:phaseIdentificationMethod",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:edsCalibrationStandardDefault"
  ],
  "basic_props": [
@@ -330,6 +335,13 @@
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
    "cov": 21,
+   "required": true
+  },
+  {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 2,
    "required": true
   },
   {

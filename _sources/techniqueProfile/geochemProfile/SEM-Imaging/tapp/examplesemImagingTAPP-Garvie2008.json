@@ -16,23 +16,22 @@
   ],
   "schema:name": "semImaging protocol — Garvie2008",
   "schema:description": "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous nanoglobules"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — no rule is given for which globules were imaged; the stated criterion is at sample level, \"Several millimeter-sized pieces of the pristine Tagish Lake meteorite free of fusion crust were digested in HCl and HF in order to concentrate the carbonaceous materials\" (p.1)",
   "schema:instrument": [
     {
@@ -133,7 +132,7 @@
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
+    "globule morphology (nominal); globule size (µm); surface structure (nominal) — Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [

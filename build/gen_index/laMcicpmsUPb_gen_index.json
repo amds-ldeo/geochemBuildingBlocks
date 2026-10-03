@@ -1,6 +1,5 @@
 {
  "tapp_props": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -72,7 +71,7 @@
   "ada:ageCalculationMethod",
   "ada:reportedDateTypeDefault",
   "ada:inheritedOrInitialSignalCorrectionDefault",
-  "ada:ageModelDefault",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -114,7 +113,6 @@
  "pv_keys": [
   "laMcicpmsUPb_coupledProcedureDoi",
   "laMcicpmsUPb_coupledDatasetOrPublicationReference",
-  "laMcicpmsUPb_sampleFormAnalyticalSubstrate",
   "laMcicpmsUPb_samplePersistentIdentifier",
   "laMcicpmsUPb_fusionFluxAndDilutionRatio",
   "laMcicpmsUPb_samplePreparationMethod",
@@ -162,10 +160,11 @@
   "laMcicpmsUPb_doubleSpikeMixingRatio",
   "laMcicpmsUPb_reportedDateType",
   "laMcicpmsUPb_inheritedOrInitialSignalCorrection",
-  "laMcicpmsUPb_ageModel",
+  "laMcicpmsUPb_combinationMethod",
   "laMcicpmsUPb_constantsAndReferenceValuesUsed",
   "laMcicpmsUPb_primaryCalibrationStandardName",
-  "laMcicpmsUPb_secondaryReferenceMaterials"
+  "laMcicpmsUPb_secondaryReferenceMaterials",
+  "laMcicpmsUPb_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -189,6 +188,7 @@
   "radiogenicFractionOfMeasuredSignal",
   "ageDatumReferenceEpoch",
   "errorCorrelationBetweenReportedQuantities",
+  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
   "countingStatisticsError",
@@ -204,13 +204,6 @@
  ],
  "basic_required": [],
  "basic_props": [
-  {
-   "key": "ada:sampleFormAnalyticalSubstrateDefault",
-   "item": "Sample Form / Analytical Substrate",
-   "jtype": "string",
-   "cov": 0,
-   "required": false
-  },
   {
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
@@ -709,8 +702,8 @@
    "required": false
   },
   {
-   "key": "ada:ageModelDefault",
-   "item": "Age Model",
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
    "jtype": "string",
    "cov": 0,
    "required": false

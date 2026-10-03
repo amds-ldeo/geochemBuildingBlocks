@@ -36,6 +36,7 @@ Skeleton validates with 1 error(s); this instance with 0.
 | `/schema:variableMeasured` | EXP | one entry per measurand column, parsed from the .exp header where each column is '<cup configuration>:<mass><element>'; the published record carried none at all |
 | `/prov:wasGeneratedBy/0/schema:additionalProperty` | LOG | baseline integration time, 30 cycles per baseline |
 | `/dqv:hasQualityMeasurement` | MD | the profile pins all three labels; each value says what this session actually reports |
+| `/schema:variableMeasured` | ADA+SENTINEL | the sampling-unit identifier. the deposited Neptune run reports one row per analysis, so the column is structurally present; no source available here gives its own label, so `schema:name` carries the TAPP item label as the other TAPP-labelled variables here do. Required by the profile from 2026-10-02, when `defines: sample > sampling unit` was routed to a data column. |
 
 ## Rejected — would have broken validation
 

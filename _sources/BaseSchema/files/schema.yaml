@@ -21,13 +21,16 @@ allOf:
         contains:
           const: "schema:DataDownload"
       minItems: 1
-    'schema:additionalType':
-      type: array
-      description: >-
-        Other classifiers for the file. ADA componentTypes are specified
-        in the specific file type schemas attached by $refs.
-      items:
-        type: string
+    # schema:additionalType is NOT declared here on purpose. cdifManifest's
+    # archivePartItem declares it for every bundle member, as
+    # string | {@id} | DefinedTerm | cdif:Concept, and geochemProduct composes that
+    # profile for any distribution typed schema:Collection -- which is 7,445 of the
+    # 7,446 ADA records. Re-declaring it here as `items: {type: string}` did not add
+    # a constraint, it SUBTRACTED one: allOf intersects, so the narrower local shape
+    # reduced the union back to strings and a DefinedTerm carrying
+    # schema:inDefinedTermSet could never validate. The same trap as the
+    # default-ROW arrays in 2026-09: an overlay can only narrow what the base admits,
+    # so the base is the only place a widening can live.
     'schema:name':
       type: string
       description: >-

@@ -15,35 +15,35 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1",
-  "schema:description": "Raster scans used for main element dataset (23 elements); separate spot analyses on 5 irons for more precise Ge abundances (150 µm spot, 50 Hz, 20 s); two different analysis modes represent distinct protocols but are reported in same paper",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Polished metal slab (in situ)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "The raster pass gives the 23-element dataset; a separate set of 150 µm spots on five irons gives more precise Ge, since the raster 'failed to yield useful Ge abundances for Klamath Falls' (§2.2)",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Representativeness of the exsolution banding — the raster \"yielded more representative sampling of the kamacite-taenite banding\", and where it \"failed to yield useful Ge abundances for Klamath Falls ... To obtain more precise Ge, a set of five 150 μm spots were analyzed ... on five of the irons\" (p.4)",
   "schema:additionalProperty": [
     {
@@ -66,7 +66,20 @@
       "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "10 µm s⁻¹ (raster scan); N/A (spot Ge)"
+      "schema:defaultValue": "raster: 10 µm/s; Ge spots: N/A — 'scanned at 10 µm/s' (§2.2)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "N — the Ge value combines both passes (Combination Method), but no pass uses another's data"
     }
   ],
   "schema:instrument": [
@@ -104,7 +117,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Triple mode detection (pulse counting + analog + Faraday) at 65% duty cycle"
+          "schema:value": "Triple mode detection at 65% duty cycle — 'triple mode detection at 65% duty cycle' (§2.2)"
         }
       ],
       "@type": [
@@ -172,13 +185,13 @@
         }
       ],
       "schema:model": {
-        "schema:name": "ESI New Wave UP193FX (193 nm Nd:YAG frequency-quintupled solid state)",
+        "schema:name": "ElectroScientific Instruments New Wave UP193FX — §2.2",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "ada:laserSpotGeometryDefault": "Raster: 50 µm circular beam spot; Spot (Ge): 150 µm circular",
-      "ada:laserRepetitionRateDefault": "Raster: 50 Hz; Spot (Ge): 50 Hz",
+      "ada:laserSpotGeometryDefault": "raster: 50 µm beam spot; Ge spots: 150 µm — §2.2",
+      "ada:laserRepetitionRateDefault": "raster: 50 Hz; Ge spots: 50 Hz — §2.2",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -189,32 +202,31 @@
       "ada:laserType": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "Standards at start of session → raster unknowns → repeat → standards at end; separate session for Ge spot analyses",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "³¹P",
-      "⁵¹V",
-      "⁵³Cr",
-      "⁵⁵Mn",
-      "⁵⁷Fe",
-      "⁵⁹Co",
-      "⁶⁰Ni",
-      "⁶³Cu",
-      "⁷¹Ga",
-      "⁷⁴Ge",
-      "⁷⁵As",
-      "⁹⁵Mo",
-      "¹⁰²Ru",
-      "¹⁰³Rh",
-      "¹⁰⁶Pd",
-      "¹²⁰Sn",
-      "¹²¹Sb",
-      "¹⁸²W",
-      "¹⁸⁵Re",
-      "¹⁹⁰Os",
-      "¹⁹³Ir",
-      "¹⁹⁵Pt",
-      "¹⁹⁷Au"
+      "P",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Ga",
+      "Ge",
+      "As",
+      "Mo",
+      "Ru",
+      "Rh",
+      "Pd",
+      "Sn",
+      "Sb",
+      "W",
+      "Re",
+      "Os",
+      "Ir",
+      "Pt",
+      "Au"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -352,7 +364,7 @@
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Polished metal slabs and thin sections; no acid treatment described",
+        "schema:description": "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -363,16 +375,16 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -387,18 +399,7 @@
             "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: triple mode detection at 65% duty cycle (pulse counting + analog + Faraday); specific cross-calibration not described"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "Partially — the rule stated is one of combination rather than rejection: for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average (Appendix 2) and the raster average in this table\" (Table 3 note, p.4). No acceptance or rejection rule for individual results is stated. The exclusion of \"Binya and Fitzwater Pass ... from the fractional-crystallization modeling of group IIIF\" (p.5) is an interpretive exclusion downstream of the reported values, not a rule about which results make them"
+            "schema:defaultValue": "N — 'triple mode detection at 65% duty cycle' (§2.2); a cross-calibration is not described"
           }
         ],
         "@type": [
@@ -460,20 +461,24 @@
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished specimen surface) > Region of interest (raster) — irons \"were analyzed using a raster scan over a few millimeters\" with a 50 μm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4–5); Ge comes from a set of five 150 μm spots on five of the irons (p.4)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named"
+    }
+  ],
   "ada:reportedProperties": [
-    "Abundances of 23 elements in metal, with mixed units in one table — P, Fe, Co and Ni in mg/g, and V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au in µg/g (Table 3, p.4). Values are reported as raster averages, with spot averages in Appendix 2; for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average ... and the raster average\" (p.4)"
+    "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'"
   ],
   "ada:ablationSamplingMode": [
-    "Raster area (2D mapping) for most irons; Spot (stationary) for Ge analysis on 5 irons"
+    "raster: raster scan over a few millimeters; Ge spots: spot — §2.2"
   ],
-  "ada:ablationSpotDurationDefault": "N/A (raster) / 20 s (spot Ge at 50 Hz)",
-  "ada:internalStandardApproach": "Standardization techniques followed those of Humayun (2012) [Section 2.2; specific IS approach not restated in this paper]",
+  "ada:ablationSpotDurationDefault": "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated",
+  "ada:internalStandardApproach": "N — 'Standardization techniques followed those of Humayun (2012)' (§2.2)",
   "ada:elementalFractionationCorrection": [
-    "Multi-point external calibration using series of iron meteorite reference materials (North Chile Filomena as primary standard for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au)"
+    "N — 'Standardization techniques followed those of Humayun (2012)' (§2.2); the standards are under Primary Calibration Standard Name"
   ],
-  "ada:calibrationMeasurementFrequency": "Standards at start and end of session; external bracketing",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each raster analysis; mean background subtracted",
-  "ada:primaryStandardNameDefault": "North Chile Filomena (IIAB iron meteorite; Wasson et al. 1989) for Fe/Co/Ni/Cu/Ga/Ge/As/W/Au; Hoba (IVB; Walker et al. 2008) for Ru/Rh/Pd/Re/Os/Ir/Pt; NIST SRM 1263a V-Cr steel (Campbell & Humayun 2005) for V/Cr/Fe/Co/Ni/Cu/As/Mo/W/Au",
+  "ada:internalStandardElement": "N — not stated; standardization follows Humayun (2012)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -481,10 +486,12 @@
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
+  "ada:analysisSequenceDefault": "missing",
   "ada:backgroundCountTimeDefault": -9999,
+  "ada:blankBackgroundCorrectionMethod": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
   "ada:carrierGasFlowRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:internalStandardElement": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:massResolutionAssignment": "missing",
   "ada:numberOfAcquisitionPasses": -9999,

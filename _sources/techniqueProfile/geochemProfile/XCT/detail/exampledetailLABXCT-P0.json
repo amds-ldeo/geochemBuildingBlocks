@@ -62,12 +62,7 @@
             }
           ],
           "schema:name": "example sampleName",
-          "schema:identifier": "example samplePersistentIdentifier",
-          "ada:samplingUnits": [
-            {
-              "schema:name": "example samplingUnitName"
-            }
-          ]
+          "schema:identifier": "example samplePersistentIdentifier"
         }
       ],
       "schema:additionalProperty": [
@@ -377,58 +372,6 @@
           "schema:value": "example value"
         }
       ],
-      "schema:actionProcess": {
-        "schema:step": [
-          {
-            "schema:name": "Sample preparation",
-            "schema:description": "Bulk specimen or fragment (as received)"
-          },
-          {
-            "schema:name": "Data reduction",
-            "schema:additionalProperty": [
-              {
-                "@id": "ada:parameter/labxctTAPP/flatFieldCorrection",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/labxctTAPP/flatFieldCorrection"
-                  }
-                ],
-                "schema:name": "Flat Field Correction",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
-                  }
-                ],
-                "schema:name": "Sub-volume Stitching and Registration Method",
-                "schema:value": "example value"
-              },
-              {
-                "@id": "ada:parameter/module/Core/constantsReferenceValues",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:propertyID": [
-                  {
-                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
-                  }
-                ],
-                "schema:name": "Constants Reference Values",
-                "schema:value": "example value"
-              }
-            ]
-          }
-        ]
-      },
       "prov:used": [
         {
           "bios:computationalTool": [
@@ -524,6 +467,58 @@
           ]
         }
       ],
+      "schema:actionProcess": {
+        "schema:step": [
+          {
+            "schema:name": "Data reduction",
+            "schema:additionalProperty": [
+              {
+                "@id": "ada:parameter/labxctTAPP/flatFieldCorrection",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/labxctTAPP/flatFieldCorrection"
+                  }
+                ],
+                "schema:name": "Flat Field Correction",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
+                  }
+                ],
+                "schema:name": "Sub-volume Stitching and Registration Method",
+                "schema:value": "example value"
+              },
+              {
+                "@id": "ada:parameter/module/Core/constantsReferenceValues",
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                  }
+                ],
+                "schema:name": "Constants Reference Values",
+                "schema:value": "example value"
+              }
+            ]
+          },
+          {
+            "schema:name": "Sample preparation",
+            "schema:description": "Bulk specimen or fragment (as received)"
+          }
+        ]
+      },
       "schema:location": {
         "@type": [
           "schema:Place"

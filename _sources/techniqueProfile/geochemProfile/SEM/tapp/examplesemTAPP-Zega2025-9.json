@@ -123,87 +123,37 @@
       "schema:description": "missing"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "ada:coarseMillingConditionsDefault": "missing",
-        "ada:finePolishingConditionsDefault": "missing",
-        "ada:liftOutMethod": "missing",
-        "ada:protectiveCoatingDepositionDefault": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing",
-        "ada:ebsdIndexingMethod": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "schema:description": "missing"
-      }
+  "ada:clAcquisitionMode": "Monochromatic imaging",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "carbonate"
     ],
-    "@type": [
-      "schema:HowTo"
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
     ]
   },
-  "ada:clAcquisitionMode": "Monochromatic imaging",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
-          ]
-        }
-      ],
-      "ada:foilThicknessDefault": -9999,
-      "ada:sliceThicknessDefault": -9999
-    }
-  ],
   "ada:samplingUnitSelectionCriteriaDefault": "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "ada:monitoredElements": [
     "N/A — this procedure is CL Mapping. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
@@ -231,8 +181,56 @@
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal"
+    "panchromatic CL images; monochromatic CL images; hyperspectral CL; luminescence zoning (nominal) — Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "ada:coarseMillingConditionsDefault": "missing",
+        "ada:finePolishingConditionsDefault": "missing",
+        "ada:liftOutMethod": "missing",
+        "ada:protectiveCoatingDepositionDefault": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing",
+        "ada:ebsdIndexingMethod": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "schema:description": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -258,7 +256,6 @@
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",

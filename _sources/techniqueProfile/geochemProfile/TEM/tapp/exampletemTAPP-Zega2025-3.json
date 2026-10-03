@@ -15,35 +15,27 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Zega2025-3",
-  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v60.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (sheet silicates: serpentine/saponite); Sulfide (pyrrhotite/pentlandite); Oxide (magnetite); Carbonate; Organic matter/IOM (C nanoglobules) — OSIRIS-REx Bennu returned samples"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-          "schema:name": "Pre-Analysis Imaging and Screening",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "N — this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step"
-        }
-      ]
-    }
-  ],
+  "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v67.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "serpentine/saponite)",
+      "Sulfide",
+      "Oxide",
+      "Carbonate",
+      "Organic matter/IOM"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -72,24 +64,11 @@
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — no contributing count and no acceptance or rejection rule is stated for this laboratory's analyses"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -101,6 +80,28 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory crushed its material rather than sectioning it (\"TEM samples were prepared by crushing the grain\", p.10), and no rule is given for which grains were taken",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N — this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -311,7 +312,7 @@
     }
   ],
   "ada:reportedProperties": [
-    "Phase identifications from TEM images and SAED patterns of the crushed material (nominal); compositions from STEM-HAADF and EDS with four windowless detectors, reported as atomic proportions (At%, p.10)"
+    "phase identification (nominal); phase composition (At%) — Phase identifications from TEM images and SAED patterns of the crushed material (nominal); compositions from STEM-HAADF and EDS with four windowless detectors, reported as atomic proportions (At%, p.10)"
   ],
   "schema:variableMeasured": [
     {

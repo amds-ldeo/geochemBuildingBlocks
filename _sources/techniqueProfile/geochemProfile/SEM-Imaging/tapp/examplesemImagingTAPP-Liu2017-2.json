@@ -16,23 +16,23 @@
   ],
   "schema:name": "semImaging protocol — Liu2017-2",
   "schema:description": "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas",
   "schema:instrument": [
     {
@@ -146,7 +146,7 @@
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
+    "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [

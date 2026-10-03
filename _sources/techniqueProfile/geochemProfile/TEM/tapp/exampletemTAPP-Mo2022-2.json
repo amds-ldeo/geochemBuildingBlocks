@@ -15,35 +15,22 @@
     "bios:LabProtocol"
   ],
   "schema:name": "tem protocol — Mo2022-2",
-  "schema:description": "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5–0.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe⁰), 707.2 eV (Fe²⁺), 709.0 eV (Fe³⁺). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe⁰/Fe²⁺; terrestrial hematite for Fe³⁺; wüstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-          "schema:name": "Pre-Analysis Imaging and Screening",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "The earlier analyses on the same foil — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5), the foil having been sited from the BSE image (Fig. 1, p.3)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5–0.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe⁰), 707.2 eV (Fe²⁺), 709.0 eV (Fe³⁺). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe⁰/Fe²⁺; terrestrial hematite for Fe³⁺; wüstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:spectroscopicDetectorDefault = EELS (Gatan GIF Quantum ER System Model 965); ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS.",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "lunar soil grains — Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 µm; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -72,24 +59,11 @@
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — the EELS results are reported as point and line analyses against standard references (p.5); no contributing count and no acceptance or rejection rule is stated"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -101,6 +75,28 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Continuity with the earlier analyses — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "The earlier analyses on the same foil — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5), the foil having been sited from the BSE image (Fig. 1, p.3)"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -295,7 +291,7 @@
   },
   "ada:eelsAcquisitionModeDefault": "Line scan",
   "ada:eelsEdgesDefault": [
-    "Fe L3,2 edge (~707–709 eV; L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺)"
+    "\"Fe L3,2 edge\" (~707–709 eV) → Fe — L3 peak at 707.7 eV for Fe⁰, 707.2 eV for Fe²⁺, 709.0 eV for Fe³⁺"
   ],
   "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
   "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
@@ -329,7 +325,7 @@
   ],
   "ada:samplingUnitType": "Grain > Sub-volume (FIB foil) — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\", reported as \"TEM-EELS point and line analysis results\" (p.5)",
   "ada:reportedProperties": [
-    "Iron oxidation state from TEM-EELS, acquired in DualEELS mode with 0.5–0.7 eV energy resolution at the zero-loss peak (p.3) and reported as Fe L3,2 spectra for point and line analyses against standard references (Figs 4–5, p.5); the derived output is the Fe0/Fe2+/Fe3+ assignment per point (nominal)"
+    "\"Fe L3,2 spectra\"; Fe oxidation state (nominal) — Iron oxidation state from TEM-EELS, acquired in DualEELS mode with 0.5–0.7 eV energy resolution at the zero-loss peak (p.3) and reported as Fe L3,2 spectra for point and line analyses against standard references (Figs 4–5, p.5); the derived output is the Fe0/Fe2+/Fe3+ assignment per point (nominal)"
   ],
   "schema:variableMeasured": [
     {

@@ -1,7 +1,7 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Lab-XCT Technique-Aligned Protocol Profile (labxctTAPP)",
-    "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:targetSpeciesTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v42.csv by tools/build_tapp.py.",
+    "description": "Laboratory X-ray computed tomography (polychromatic cone-beam) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. XCT has no per-element analyte axis, so no ada:targetSpeciesTemplate is defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v47.csv by tools/build_tapp.py.",
     "allOf": [
         {
             "$ref": "../../../../BaseSchema/tappDefinition/tappDefinitionSchema.json"
@@ -18,6 +18,40 @@
         {
             "type": "object",
             "properties": {
+                "ada:targetMaterialTemplate": {
+                    "type": "object",
+                    "properties": {
+                        "ada:defaultTargetMaterials": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "ada:defaultTargetMaterials"
+                    ]
+                },
+                "ada:targetFeature": {
+                    "description": "The 3D internal features or properties the procedure is designed to characterize.",
+                    "type": "string",
+                    "readOnly": true
+                },
+                "ada:applicableSampleDimensionRange": {
+                    "description": "The range of sample sizes compatible with this procedure at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the procedure's target magnification: FOV ≈ detector array width × pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: ~10 voxels across the smallest dimension.",
+                    "type": "string",
+                    "readOnly": true
+                },
                 "schema:object": {
                     "type": "array",
                     "items": {
@@ -41,67 +75,54 @@
                                         "schema:additionalProperty": {
                                             "type": "array",
                                             "items": {
-                                                "type": "object",
-                                                "allOf": [
+                                                "anyOf": [
                                                     {
-                                                        "if": {
-                                                            "properties": {
-                                                                "schema:name": {
-                                                                    "const": "Target Material"
-                                                                }
+                                                        "title": "Sample Dimensions (L × W × H)",
+                                                        "description": "Physical dimensions of the sample in mm, reported as length × width × height (or equivalent three orthogonal measurements).",
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "@id": {
+                                                                "const": "ada:parameter/labxctTAPP/sampleDimensionsDefault"
                                                             },
-                                                            "required": [
-                                                                "schema:name"
-                                                            ]
-                                                        },
-                                                        "then": {
-                                                            "properties": {
-                                                                "schema:value": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "description": "General description of the material type(s) this procedure is designed to analyse.",
-                                                                        "anyOf": [
-                                                                            {
-                                                                                "type": "string",
-                                                                                "enum": [
-                                                                                    "Chondrite meteorite",
-                                                                                    "Achondrite meteorite",
-                                                                                    "Lunar sample",
-                                                                                    "Mission-returned sample",
-                                                                                    "Drill core (rock)",
-                                                                                    "Sediment core",
-                                                                                    "Terrestrial rock",
-                                                                                    "Cosmic spherule",
-                                                                                    "N/A",
-                                                                                    "None",
-                                                                                    "missing"
-                                                                                ]
-                                                                            },
-                                                                            {
-                                                                                "type": "string"
-                                                                            }
-                                                                        ],
-                                                                        "readOnly": true
-                                                                    }
-                                                                }
+                                                            "@type": {
+                                                                "const": [
+                                                                    "schema:PropertyValueSpecification"
+                                                                ]
+                                                            },
+                                                            "schema:valueName": {
+                                                                "const": "sampleDimensionsDefault"
+                                                            },
+                                                            "schema:name": {
+                                                                "const": "Sample Dimensions (L × W × H)"
+                                                            },
+                                                            "ada:dataType": {
+                                                                "const": "string"
+                                                            },
+                                                            "ada:fieldScope": {
+                                                                "const": "session"
+                                                            },
+                                                            "schema:readonlyValue": {
+                                                                "const": false
+                                                            },
+                                                            "ada:tier": {
+                                                                "const": "R"
                                                             }
-                                                        }
+                                                        },
+                                                        "required": [
+                                                            "@id",
+                                                            "@type",
+                                                            "schema:valueName",
+                                                            "schema:name",
+                                                            "ada:dataType",
+                                                            "ada:fieldScope"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "$ref": "../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening"
                                                     }
                                                 ]
                                             },
                                             "allOf": [
-                                                {
-                                                    "contains": {
-                                                        "properties": {
-                                                            "schema:name": {
-                                                                "const": "Target Material"
-                                                            }
-                                                        },
-                                                        "required": [
-                                                            "schema:name"
-                                                        ]
-                                                    }
-                                                },
                                                 {
                                                     "contains": {
                                                         "title": "Sample Dimensions (L × W × H)",
@@ -177,16 +198,6 @@
                             }
                         }
                     ]
-                },
-                "ada:targetFeature": {
-                    "description": "The 3D internal features or properties the procedure is designed to characterize.",
-                    "type": "string",
-                    "readOnly": true
-                },
-                "ada:applicableSampleDimensionRange": {
-                    "description": "The range of sample sizes compatible with this procedure at the target voxel size and geometric configuration. The upper bound is a hard constraint set by the instrument field of view (FOV) at the procedure's target magnification: FOV ≈ detector array width × pixel size / geometric magnification (divide additionally by optical objective multiplier for Versa-class systems using optical magnification). For Mode A (single-volume): all three sample dimensions must fall within the FOV. For Mode B (multi-volume stitching): sample diameter must fall within the FOV; sample length along the rotation axis is effectively unlimited through stitching. The lower bound is a practical guideline: ~10 voxels across the smallest dimension.",
-                    "type": "string",
-                    "readOnly": true
                 },
                 "schema:additionalProperty": {
                     "type": "array",
@@ -2009,270 +2020,6 @@
                         }
                     ]
                 },
-                "schema:actionProcess": {
-                    "type": "object",
-                    "properties": {
-                        "schema:step": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "allOf": [
-                                    {
-                                        "if": {
-                                            "properties": {
-                                                "schema:name": {
-                                                    "const": "Sample preparation"
-                                                }
-                                            },
-                                            "required": [
-                                                "schema:name"
-                                            ]
-                                        },
-                                        "then": {
-                                            "properties": {
-                                                "schema:description": {
-                                                    "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. Note any exceptions.",
-                                                    "anyOf": [
-                                                        {
-                                                            "type": "string"
-                                                        },
-                                                        {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            }
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "if": {
-                                            "properties": {
-                                                "schema:name": {
-                                                    "const": "Data reduction"
-                                                }
-                                            },
-                                            "required": [
-                                                "schema:name"
-                                            ]
-                                        },
-                                        "then": {
-                                            "properties": {
-                                                "schema:additionalProperty": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "anyOf": [
-                                                            {
-                                                                "title": "Flat Field Correction",
-                                                                "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "flatFieldCorrectionDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Flat Field Correction"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
-                                                            },
-                                                            {
-                                                                "title": "Sub-volume Stitching and Registration Method",
-                                                                "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "subVolumeStitchingAndRegistrationMethodDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Sub-volume Stitching and Registration Method"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
-                                                            },
-                                                            {
-                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
-                                                            }
-                                                        ]
-                                                    },
-                                                    "allOf": [
-                                                        {
-                                                            "contains": {
-                                                                "title": "Flat Field Correction",
-                                                                "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "flatFieldCorrectionDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Flat Field Correction"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
-                                                            },
-                                                            "minContains": 0,
-                                                            "maxContains": 1
-                                                        },
-                                                        {
-                                                            "contains": {
-                                                                "title": "Sub-volume Stitching and Registration Method",
-                                                                "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "@id": {
-                                                                        "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault"
-                                                                    },
-                                                                    "@type": {
-                                                                        "const": [
-                                                                            "schema:PropertyValueSpecification"
-                                                                        ]
-                                                                    },
-                                                                    "schema:valueName": {
-                                                                        "const": "subVolumeStitchingAndRegistrationMethodDefault"
-                                                                    },
-                                                                    "schema:name": {
-                                                                        "const": "Sub-volume Stitching and Registration Method"
-                                                                    },
-                                                                    "ada:dataType": {
-                                                                        "const": "string"
-                                                                    },
-                                                                    "ada:fieldScope": {
-                                                                        "const": "session"
-                                                                    },
-                                                                    "schema:readonlyValue": {
-                                                                        "const": false
-                                                                    },
-                                                                    "ada:tier": {
-                                                                        "const": "R"
-                                                                    }
-                                                                },
-                                                                "required": [
-                                                                    "@id",
-                                                                    "@type",
-                                                                    "schema:valueName",
-                                                                    "schema:name",
-                                                                    "ada:dataType",
-                                                                    "ada:fieldScope"
-                                                                ]
-                                                            },
-                                                            "minContains": 0,
-                                                            "maxContains": 1
-                                                        },
-                                                        {
-                                                            "contains": {
-                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
-                                                            },
-                                                            "minContains": 0,
-                                                            "maxContains": 1
-                                                        }
-                                                    ]
-                                                }
-                                            }
-                                        }
-                                    }
-                                ]
-                            },
-                            "allOf": [
-                                {
-                                    "contains": {
-                                        "properties": {
-                                            "schema:name": {
-                                                "const": "Data reduction"
-                                            }
-                                        },
-                                        "required": [
-                                            "schema:name"
-                                        ]
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
                 "ada:xRaySourceConfiguration": {
                     "description": "Focal spot geometry and scale of the X-ray tube.",
                     "anyOf": [
@@ -2527,6 +2274,240 @@
                             "type": "string"
                         }
                     ]
+                },
+                "schema:actionProcess": {
+                    "type": "object",
+                    "properties": {
+                        "schema:step": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "allOf": [
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "schema:name": {
+                                                    "const": "Data reduction"
+                                                }
+                                            },
+                                            "required": [
+                                                "schema:name"
+                                            ]
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "schema:additionalProperty": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "anyOf": [
+                                                            {
+                                                                "title": "Flat Field Correction",
+                                                                "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "flatFieldCorrectionDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Flat Field Correction"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "title": "Sub-volume Stitching and Registration Method",
+                                                                "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "subVolumeStitchingAndRegistrationMethodDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Sub-volume Stitching and Registration Method"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            {
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "allOf": [
+                                                        {
+                                                            "contains": {
+                                                                "title": "Flat Field Correction",
+                                                                "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/labxctTAPP/flatFieldCorrectionDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "flatFieldCorrectionDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Flat Field Correction"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "title": "Sub-volume Stitching and Registration Method",
+                                                                "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "@id": {
+                                                                        "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault"
+                                                                    },
+                                                                    "@type": {
+                                                                        "const": [
+                                                                            "schema:PropertyValueSpecification"
+                                                                        ]
+                                                                    },
+                                                                    "schema:valueName": {
+                                                                        "const": "subVolumeStitchingAndRegistrationMethodDefault"
+                                                                    },
+                                                                    "schema:name": {
+                                                                        "const": "Sub-volume Stitching and Registration Method"
+                                                                    },
+                                                                    "ada:dataType": {
+                                                                        "const": "string"
+                                                                    },
+                                                                    "ada:fieldScope": {
+                                                                        "const": "session"
+                                                                    },
+                                                                    "schema:readonlyValue": {
+                                                                        "const": false
+                                                                    },
+                                                                    "ada:tier": {
+                                                                        "const": "R"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "@id",
+                                                                    "@type",
+                                                                    "schema:valueName",
+                                                                    "schema:name",
+                                                                    "ada:dataType",
+                                                                    "ada:fieldScope"
+                                                                ]
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        },
+                                                        {
+                                                            "contains": {
+                                                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                                                            },
+                                                            "minContains": 0,
+                                                            "maxContains": 1
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "allOf": [
+                                {
+                                    "contains": {
+                                        "properties": {
+                                            "schema:name": {
+                                                "const": "Data reduction"
+                                            }
+                                        },
+                                        "required": [
+                                            "schema:name"
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "ada:rotationModeDefault": {
                     "description": "Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).",

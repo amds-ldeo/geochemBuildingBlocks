@@ -213,6 +213,21 @@ allOf:
                   - $ref: ../files/schema.yaml
                   - type: object
                     properties:
+                      # The CDIF-native slot for the same classification. Annotated with the
+                      # vocabulary, NOT enumerated: conformance here is advisory, exactly as
+                      # ada:componentType below has always been. Narrowing is available -- the
+                      # base admits a bare string, so a pattern or enum would compose -- and is
+                      # deliberately not used, because 122 component types across 59 techniques
+                      # change faster than this schema should.
+                      "schema:additionalType":
+                        schema:inDefinedTermSet: "ada:vocab/componentType"
+                        description: >-
+                          ADA file-type classification for this bundle member, as a
+                          schema:DefinedTerm drawn from ada:vocab/componentType or in the bare
+                          string form. The SHAPE comes from cdifManifest's archivePartItem,
+                          which geochemProduct composes for any distribution typed
+                          schema:Collection; this only names the vocabulary. Supersedes
+                          ada:componentType below, which stays for compatibility.
                       "ada:componentType":
                         type: string
                         description: >-

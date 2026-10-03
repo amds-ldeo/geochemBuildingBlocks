@@ -34,16 +34,10 @@ allOf:
                     schema:additionalProperty:
                       type: array
                       items:
-                        anyOf:
-                        - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
-                        - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
+                        $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
                       allOf:
                       - contains:
                           $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
-                        minContains: 0
-                        maxContains: 1
-                      - contains:
-                          $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
                         minContains: 0
                         maxContains: 1
             allOf:

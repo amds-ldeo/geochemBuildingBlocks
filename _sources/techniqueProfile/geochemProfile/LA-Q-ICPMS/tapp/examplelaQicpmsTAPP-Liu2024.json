@@ -15,35 +15,35 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1",
-  "schema:description": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Li-borate flux fusion glass (extraterrestrial sample preparation)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Li-borate flux fusion glass disc (10 mg sample + 350 mg Li₂B₄O₇, 35:1 dilution)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples (Li-borate flux glass) Spot analysis fs-LA-Q-ICP-MS Chinese Academy of Sciences (publication column of LA-Q-ICP-MS_TAPP_v96.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Li-borate flux fusion glass (extraterrestrial sample preparation)",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -72,7 +72,7 @@
             "schema:defaultValue": "Surface cleaning with ethanol before analysis"
           }
         ],
-        "schema:description": "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA",
+        "schema:description": "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -99,17 +99,6 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "filteringApproachDefault",
-            "schema:name": "Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted"
-          },
-          {
             "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -118,21 +107,10 @@
             "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: dual detector mode (30 ms / 10 ms dwell alternation)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "Partially — each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated"
+            "schema:defaultValue": "N — Table 1 gives 'Detector mode: Dual'; a cross-calibration is not described"
           }
         ],
-        "ada:detectionLimitMethod": "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)",
+        "ada:detectionLimitMethod": "all: Pettke (2012) — §3.2",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -161,6 +139,17 @@
       "schema:defaultValue": "N — the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)"
     },
     {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — spot mode"
+    },
+    {
       "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency",
       "@type": [
         "schema:PropertyValue"
@@ -171,13 +160,14 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (45 s ablation at 1 Hz)"
+      "schema:value": "N/A — a single acquisition pass"
     }
   ],
   "schema:instrument": [
     {
       "schema:additionalType": [
         "ICPMS",
+        "N — ICP-MS type not stated; Agilent 8900 model named but \"quadrupole\" or \"ICP-MS/MS\" not used in paper",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
@@ -190,17 +180,6 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Unit resolution (quadrupole; ICP-MS/MS mode not specified)"
-        },
-        {
           "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -209,7 +188,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Dual mode detector (30 ms / 10 ms dwell alternation)"
+          "schema:value": "Dual — Table 1 'Detector mode: Dual'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -220,7 +199,7 @@
           "schema:name": "ICP Tuning",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Gas flows optimized via spot ablation of NIST SRM 612 to obtain maximum signal intensities while maintaining ThO/Th <0.3% and U/Th at 0.95–1.05"
+          "schema:defaultValue": "Gas flows optimised by spot ablation of NIST SRM 612 'to obtain maximum signal intensities while maintaining ThO/Th at <0.3% and U/Th at 0.95–1.05' (§2.2); sampling depth 8 mm (Table 1)"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -231,7 +210,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "25 s washout between analyses (25 s gas blank → 45 s ablation → 25 s washout)"
+          "schema:defaultValue": "25 s washout between analyses — §2.2"
         }
       ],
       "schema:hasPart": [
@@ -253,7 +232,19 @@
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
-              "schema:description": "Plasma gas flow: 15 l min⁻¹; Auxiliary gas: 0.85 l min⁻¹"
+              "schema:description": "15 L/min — Table 1 'Plasma gas flow'"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.85,
+              "schema:description": "0.85 L/min — Table 1 'Auxiliary gas flow'"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -348,7 +339,7 @@
           "schema:name": "Laser Pulse Duration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
+          "schema:value": "N — 'femtosecond'; the laser's details are in Table S1, not in the archived PDF"
         }
       ],
       "schema:model": {
@@ -358,9 +349,9 @@
         ]
       },
       "ada:laserType": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
-      "ada:laserSpotGeometryDefault": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
+      "ada:laserSpotGeometryDefault": "all: 100 µm — '100 µm-diameter ablating spots' (§2.2); Table 1 gives 'Ablation spot size 100 × 100 µm'",
       "ada:laserFluenceDefault": "6.79 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "1 Hz",
+      "ada:laserRepetitionRateDefault": "all: 1 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -369,43 +360,42 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:carrierGasFlowRateDefault": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
-  "ada:analysisSequenceDefault": "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
+  "ada:carrierGasFlowRateDefault": "He: chamber gas 0.7 L/min; cup gas 0.1 L/min — Table 1",
+  "ada:analysisSequenceDefault": "Per spot: 25 s gas blank, 45 s ablation, 25 s washout between analyses (§2.2); the order of standards and unknowns is not described",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "²¹Sc",
-      "⁵¹V",
-      "⁵²Cr",
-      "⁵⁹Co",
-      "⁶⁰Ni",
-      "⁶³Cu",
-      "⁶⁶Zn",
-      "⁶⁹Ga",
-      "⁸⁵Rb",
-      "⁸⁸Sr",
-      "⁸⁹Y",
-      "⁹⁰Zr",
-      "⁹³Nb",
-      "¹³³Cs",
-      "¹³⁷Ba",
-      "¹³⁹La",
-      "¹⁴⁰Ce",
-      "¹⁴¹Pr",
-      "¹⁴⁶Nd",
-      "¹⁴⁷Sm",
-      "¹⁵³Eu",
-      "¹⁵⁷Gd",
-      "¹⁵⁹Tb",
-      "¹⁶³Dy",
-      "¹⁶⁵Ho",
-      "¹⁶⁶Er",
-      "¹⁶⁹Tm",
-      "¹⁷²Yb",
-      "¹⁷⁵Lu",
-      "¹⁷⁸Hf",
-      "¹⁸¹Ta",
-      "²³²Th",
-      "²³⁸U"
+      "Sc",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ga",
+      "Rb",
+      "Sr",
+      "Y",
+      "Zr",
+      "Nb",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "Th",
+      "U"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -555,7 +545,7 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "NSFC; Chinese Academy of Sciences"
+      "schema:name": "N — the CAS Strategy Priority Research Program and NSFC grant support the study as a whole and are recorded under Funding Source for Analysis"
     }
   ],
   "schema:relatedLink": [
@@ -578,25 +568,23 @@
     }
   ],
   "ada:reportedProperties": [
-    "Trace element concentrations per element, reported as \"Mean\" with a \"95% CI\" for each sample (Table 2, p.8: Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, the REE La-Lu, Hf, Ta, Th, U), against SN-ICP-MS for the same materials; relative standard deviations are reported as the precision measure (p.9)"
+    "Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Th, U — concentrations reported as 'Mean' with a '95% CI' per sample (Table 2), which gives no unit; the LODs are in µg g⁻¹ (§3.2). Relative standard deviations are the precision measure (§3.5)"
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary; single spot at 1 Hz)"
+    "all: Single spot — Table 1 'Ablation mode'"
   ],
   "ada:ablationSpotDurationDefault": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
-  "ada:internalStandardApproach": "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
+  "ada:rasterLineSpacingDefault": "N/A — spot mode",
+  "ada:internalStandardApproach": "all: two internal standard elements, chosen per target element — Si for Co, Ni, Cu and Zn, and Al for the others, after comparing Si, Ca and Al on GSR-3 (§3.3); the disks were 'initially measured for major elements by WD-XRF' (§2.3)",
   "ada:elementalFractionationCorrection": [
-    "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)"
+    "N — the paper states that fs lasers 'are considered stoichiometric erosion processes without any element or isotope fractionation effects' (§3.4); no correction is described"
   ],
-  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
   "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
-  "ada:internalStandardElement": "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements",
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
+  "ada:blankBackgroundCorrectionMethod": "25 s gas blank before each ablation; flux procedure-blank contributions deducted for V, Co, Zn, Ba, La, Ce, Ta and U — 'after measuring a gas blank for 25 s' (§2.2); 'All results of the eight pollution elements above have deducted the flux blank contributions' (§3.2)",
+  "ada:internalStandardElement": "all: Si (for Co, Ni, Cu, Zn), Al (for the other trace elements) — §3.3",
   "ada:secondaryReferenceMaterialDefault": [
-    "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS"
+    "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -604,12 +592,13 @@
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:signalCollectionMode": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

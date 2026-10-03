@@ -86,21 +86,6 @@
                                 }
                               }
                             ]
-                          },
-                          "ada:samplingUnits": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "schema:name": {
-                                  "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "schema:name"
-                              ]
-                            }
                           }
                         },
                         "required": [
@@ -495,6 +480,26 @@
               }
             ]
           }
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "allOf": [
+            {
+              "contains": {
+                "properties": {
+                  "schema:name": {
+                    "const": "Sampling Unit Name"
+                  }
+                },
+                "required": [
+                  "schema:name"
+                ]
+              }
+            }
+          ]
         }
       }
     },
@@ -2791,310 +2796,6 @@
                   }
                 ]
               },
-              "schema:actionProcess": {
-                "type": "object",
-                "properties": {
-                  "schema:step": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "allOf": [
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "Sample preparation"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:description": {
-                                "description": "Any preparation steps applied to the sample before scanning, including cleaning, trimming, consolidation, or drying. Note any exceptions.",
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    }
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "if": {
-                            "properties": {
-                              "schema:name": {
-                                "const": "Data reduction"
-                              }
-                            },
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:additionalProperty": {
-                                "type": "array",
-                                "items": {
-                                  "anyOf": [
-                                    {
-                                      "title": "Flat Field Correction",
-                                      "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/labxctTAPP/flatFieldCorrection"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/labxctTAPP/flatFieldCorrection"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Flat Field Correction"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    {
-                                      "title": "Sub-volume Stitching and Registration Method",
-                                      "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Sub-volume Stitching and Registration Method"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    {
-                                      "title": "Constants Reference Values",
-                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Constants Reference Values"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                "allOf": [
-                                  {
-                                    "contains": {
-                                      "title": "Flat Field Correction",
-                                      "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/labxctTAPP/flatFieldCorrection"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/labxctTAPP/flatFieldCorrection"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Flat Field Correction"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Sub-volume Stitching and Registration Method",
-                                      "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Sub-volume Stitching and Registration Method"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  },
-                                  {
-                                    "contains": {
-                                      "title": "Constants Reference Values",
-                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                                      "type": "object",
-                                      "properties": {
-                                        "@id": {
-                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
-                                        },
-                                        "@type": {
-                                          "const": [
-                                            "schema:PropertyValue"
-                                          ]
-                                        },
-                                        "schema:propertyID": {
-                                          "const": [
-                                            {
-                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
-                                            }
-                                          ]
-                                        },
-                                        "schema:name": {
-                                          "const": "Constants Reference Values"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id",
-                                        "@type",
-                                        "schema:propertyID",
-                                        "schema:name",
-                                        "schema:value"
-                                      ]
-                                    },
-                                    "minContains": 0,
-                                    "maxContains": 1
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    "allOf": [
-                      {
-                        "contains": {
-                          "properties": {
-                            "schema:name": {
-                              "const": "Data reduction"
-                            }
-                          },
-                          "required": [
-                            "schema:name"
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                }
-              },
               "prov:used": {
                 "type": "array",
                 "items": {
@@ -3268,23 +2969,7 @@
                                           "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
                                           "type": "array",
                                           "items": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "required": [
-                                                  "@id"
-                                                ],
-                                                "properties": {
-                                                  "@id": {
-                                                    "type": "string"
-                                                  }
-                                                }
-                                              }
-                                            ]
+                                            "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                                           },
                                           "minItems": 1
                                         },
@@ -4329,23 +4014,7 @@
                                                     "description": "Component type classification.",
                                                     "type": "array",
                                                     "items": {
-                                                      "anyOf": [
-                                                        {
-                                                          "type": "string"
-                                                        },
-                                                        {
-                                                          "type": "object",
-                                                          "additionalProperties": false,
-                                                          "required": [
-                                                            "@id"
-                                                          ],
-                                                          "properties": {
-                                                            "@id": {
-                                                              "type": "string"
-                                                            }
-                                                          }
-                                                        }
-                                                      ]
+                                                      "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                                                     }
                                                   },
                                                   "schema:additionalProperty": {
@@ -5322,6 +4991,280 @@
                       }
                     }
                   ]
+                }
+              },
+              "schema:actionProcess": {
+                "type": "object",
+                "properties": {
+                  "schema:step": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "if": {
+                            "properties": {
+                              "schema:name": {
+                                "const": "Data reduction"
+                              }
+                            },
+                            "required": [
+                              "schema:name"
+                            ]
+                          },
+                          "then": {
+                            "properties": {
+                              "schema:additionalProperty": {
+                                "type": "array",
+                                "items": {
+                                  "anyOf": [
+                                    {
+                                      "title": "Flat Field Correction",
+                                      "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/labxctTAPP/flatFieldCorrection"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/labxctTAPP/flatFieldCorrection"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Flat Field Correction"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    {
+                                      "title": "Sub-volume Stitching and Registration Method",
+                                      "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Sub-volume Stitching and Registration Method"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    {
+                                      "title": "Constants Reference Values",
+                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Constants Reference Values"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                "allOf": [
+                                  {
+                                    "contains": {
+                                      "title": "Flat Field Correction",
+                                      "description": "Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/labxctTAPP/flatFieldCorrection"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/labxctTAPP/flatFieldCorrection"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Flat Field Correction"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Sub-volume Stitching and Registration Method",
+                                      "description": "Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Sub-volume Stitching and Registration Method"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  },
+                                  {
+                                    "contains": {
+                                      "title": "Constants Reference Values",
+                                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "const": "ada:parameter/module/Core/constantsReferenceValues"
+                                        },
+                                        "@type": {
+                                          "const": [
+                                            "schema:PropertyValue"
+                                          ]
+                                        },
+                                        "schema:propertyID": {
+                                          "const": [
+                                            {
+                                              "@id": "ada:parameter/module/Core/constantsReferenceValues"
+                                            }
+                                          ]
+                                        },
+                                        "schema:name": {
+                                          "const": "Constants Reference Values"
+                                        },
+                                        "schema:value": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id",
+                                        "@type",
+                                        "schema:propertyID",
+                                        "schema:name",
+                                        "schema:value"
+                                      ]
+                                    },
+                                    "minContains": 0,
+                                    "maxContains": 1
+                                  }
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "allOf": [
+                      {
+                        "contains": {
+                          "properties": {
+                            "schema:name": {
+                              "const": "Data reduction"
+                            }
+                          },
+                          "required": [
+                            "schema:name"
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               }
             },
@@ -11767,6 +11710,179 @@
         "cdi:statistic"
       ]
     },
+    "Instrument_cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/Concept"
+            }
+          ]
+        }
+      ]
+    },
     "Instrument_Identifier": {
       "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
       "type": "object",
@@ -12976,23 +13092,7 @@
                       "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
                       "type": "array",
                       "items": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "required": [
-                              "@id"
-                            ],
-                            "properties": {
-                              "@id": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        ]
+                        "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                       },
                       "minItems": 1
                     },
@@ -14037,23 +14137,7 @@
                                 "description": "Component type classification.",
                                 "type": "array",
                                 "items": {
-                                  "anyOf": [
-                                    {
-                                      "type": "string"
-                                    },
-                                    {
-                                      "type": "object",
-                                      "additionalProperties": false,
-                                      "required": [
-                                        "@id"
-                                      ],
-                                      "properties": {
-                                        "@id": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    }
-                                  ]
+                                  "$ref": "#/$defs/Instrument_cdifConceptOrTermOrString"
                                 }
                               },
                               "schema:additionalProperty": {

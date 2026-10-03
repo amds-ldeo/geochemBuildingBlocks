@@ -13,13 +13,16 @@
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
   "ada:beamDiameterDefault",
+  "ada:mappingBeamMode",
+  "ada:mappingBeamCurrentDefault",
+  "ada:mappingBeamDiameterDefault",
   "ada:workingDistanceDefault",
   "ada:dwellTimePerPixelDefault",
   "ada:edsAcquisitionMode",
   "ada:targetSpeciesDefault",
   "ada:monitoredElements",
   "ada:reportedVariablesAndUnits",
-  "ada:techniquePerTargetSpecies",
+  "ada:xRayDetectionMethodPerMonitoredElement",
   "ada:xRayLine",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
@@ -49,6 +52,7 @@
   "ada:segmentationMethodDefault",
   "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:secondaryReferenceMaterialsDefault",
@@ -89,6 +93,8 @@
   "sem_beamDiameter",
   "sem_beamRasterDimensions",
   "sem_beamDamageMinimization",
+  "sem_mappingBeamCurrent",
+  "sem_mappingBeamDiameter",
   "sem_driftCorrection",
   "sem_workingDistance",
   "sem_chamberPressure",
@@ -119,10 +125,12 @@
   "sem_imageRegistration3D",
   "sem_segmentationMethod",
   "sem_calibrationFactorAndDeterminationMethod",
+  "sem_combinationMethod",
   "sem_constantsAndReferenceValuesUsed",
   "sem_primaryCalibrationStandardName",
   "sem_secondaryReferenceMaterials",
-  "sem_clWavelengthCalibrationReference"
+  "sem_clWavelengthCalibrationReference",
+  "sem_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -133,12 +141,14 @@
   "fundingSourceForAnalysis",
   "sampleName",
   "samplingUnitName",
+  "targetMaterialOfSamplingUnit",
   "imagePixelSize",
   "edsMapDimensions",
   "mapArea",
   "voxelSizeAndImageStackDimensions",
   "proceduralBlankLevel",
   "analysisInclusionAndRejectionCriteria",
+  "combinedResults",
   "detectionLimit",
   "analyticalPrecision",
   "analyticalAccuracy",
@@ -166,13 +176,18 @@
   "ada:bseDetectorType",
   "ada:dataProcessingSoftwareDefault",
   "ada:analyticalMode",
+  "ada:beamMode",
   "ada:acceleratingVoltageDefault",
   "ada:beamCurrentDefault",
+  "ada:beamDiameterDefault",
+  "ada:mappingBeamCurrentDefault",
+  "ada:mappingBeamDiameterDefault",
   "ada:workingDistanceDefault",
   "ada:edsAcquisitionMode",
   "ada:targetSpeciesDefault",
   "ada:monitoredElements",
   "ada:reportedVariablesAndUnits",
+  "ada:xRayDetectionMethodPerMonitoredElement",
   "ada:edsLiveTimePerPointOrPixelDefault",
   "ada:stepSizePixelSizeDefault",
   "ada:clAcquisitionMode",
@@ -190,7 +205,9 @@
   "ada:crystalStructureDatabaseDefault",
   "ada:imageRegistration3DDefault",
   "ada:segmentationMethodDefault",
+  "ada:calibrationFactorAndDeterminationMethodDefault",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:combinationMethodDefault",
   "ada:primaryCalibrationStandardNameDefault"
  ],
  "basic_props": [
@@ -205,14 +222,14 @@
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
    "jtype": "string",
-   "cov": 35,
+   "cov": 32,
    "required": true
   },
   {
    "key": "ada:samplingUnitSelectionCriteriaDefault",
    "item": "Sampling Unit Selection Criteria",
    "jtype": "string",
-   "cov": 35,
+   "cov": 32,
    "required": true
   },
   {
@@ -254,15 +271,15 @@
    "key": "ada:analyticalMode",
    "item": "Analytical Mode",
    "jtype": "string",
-   "cov": 35,
+   "cov": 32,
    "required": true
   },
   {
    "key": "ada:beamMode",
    "item": "Beam Mode",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:acceleratingVoltageDefault",
@@ -275,15 +292,36 @@
    "key": "ada:beamCurrentDefault",
    "item": "Beam Current",
    "jtype": "number",
-   "cov": 6,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:beamDiameterDefault",
    "item": "Beam Diameter",
    "jtype": "number",
+   "cov": 2,
+   "required": true
+  },
+  {
+   "key": "ada:mappingBeamMode",
+   "item": "Mapping Beam Mode",
+   "jtype": "string",
    "cov": 0,
    "required": false
+  },
+  {
+   "key": "ada:mappingBeamCurrentDefault",
+   "item": "Mapping Beam Current",
+   "jtype": "number",
+   "cov": 3,
+   "required": true
+  },
+  {
+   "key": "ada:mappingBeamDiameterDefault",
+   "item": "Mapping Beam Diameter",
+   "jtype": "number",
+   "cov": 1,
+   "required": true
   },
   {
    "key": "ada:workingDistanceDefault",
@@ -317,22 +355,22 @@
    "key": "ada:monitoredElements",
    "item": "Monitored Elements",
    "jtype": "string",
-   "cov": 35,
+   "cov": 32,
    "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
    "item": "Reported Variables and Units",
    "jtype": "string",
-   "cov": 35,
+   "cov": 32,
    "required": true
   },
   {
-   "key": "ada:techniquePerTargetSpecies",
-   "item": "Technique per Target Species",
+   "key": "ada:xRayDetectionMethodPerMonitoredElement",
+   "item": "X-ray Detection Method per Monitored Element",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 9,
+   "required": true
   },
   {
    "key": "ada:xRayLine",
@@ -527,14 +565,21 @@
    "key": "ada:calibrationFactorAndDeterminationMethodDefault",
    "item": "Calibration Factor and Determination Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 3,
+   "required": true
   },
   {
    "key": "ada:analysisInclusionAndRejectionCriteria",
    "item": "Analysis Inclusion and Rejection Criteria",
    "jtype": "string",
-   "cov": 35,
+   "cov": 32,
+   "required": true
+  },
+  {
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
+   "jtype": "string",
+   "cov": 5,
    "required": true
   },
   {

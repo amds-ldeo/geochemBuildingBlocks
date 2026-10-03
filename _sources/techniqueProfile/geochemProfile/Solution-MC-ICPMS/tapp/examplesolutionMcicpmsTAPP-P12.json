@@ -15,49 +15,60 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol — P12",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Bennu returned sample aggregate"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "returned asteroid sample — Bennu aggregate OREX-803015",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
+        "schema:name": "Sample preparation",
+        "schema:description": "One digest split two ways: about half at WUSTL for K, Cu and Zn, half to LLNL and on to ETH Zurich — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample preparation",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -108,7 +119,7 @@
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "\"in a closed beaker\""
+            "schema:value": "Closed beaker"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -119,8 +130,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 170,
-            "schema:description": "170 °C"
+            "schema:defaultValue": 3,
+            "schema:description": "HF–HNO3 attack: 170 °C; other: N"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -131,13 +142,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "48 h"
+            "schema:defaultValue": "HF–HNO3 attack: 48 h; other: N"
           }
         ],
-        "schema:description": "1: concentrated HF and HNO3 in a 3:1 ratio, closed beaker, 170 deg C, 48 h | 2: fluxing in concentrated HNO3 and HCl, with 1 ml H2O2 added slowly during the HNO3 flux to remove organics. The 5 ml 0.5 M HNO3 is the uptake, not a step.",
+        "schema:description": "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
         "bios:reagent": [
           {
-            "schema:name": "\"concentrated HF and HNO3 in a 3:1 ratio\", followed by fluxing in concentrated HNO3 and HCl with 1 ml H2O2 added to remove organics; brought up in 5 ml 0.5 M HNO3",
+            "schema:name": "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -157,6 +168,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 20.66,
+          "schema:description": "~20.66 mg split, about half used at WUSTL"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -182,7 +216,7 @@
           "schema:name": "Mass Resolution Setting",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "High-mass-resolution slit for K; low-mass-resolution slit for Cu and Zn"
+          "schema:value": "High-mass-resolution slit for K, low-mass-resolution slit for Cu and Zn"
         }
       ],
       "schema:hasPart": [
@@ -203,7 +237,7 @@
               "schema:name": "Spray Chamber Type and Cooling Temperature",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Quartz glass dual cyclonic spray chamber for Cu and Zn; cooling not stated"
+              "schema:value": "Quartz glass dual cyclonic spray chamber, for Cu and Zn"
             }
           ],
           "@type": [
@@ -230,7 +264,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Dry plasma for K — \"all K isotope analyses were undertaken using a 'dry plasma' technique with the Elemental Scientific APEX Ω high-sensitivity desolvation system\"; wet plasma for Cu and Zn via a quartz glass dual cyclonic spray chamber"
+              "schema:value": "K: dry plasma; Cu: wet plasma; Zn: wet plasma — 'To lower the ArH+ peak and significantly increase the K signal intensity'"
             }
           ],
           "@type": [
@@ -322,7 +356,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Elemental Scientific APEX Ω for K (\"dry plasma technique\"); none for Cu and Zn"
+      "schema:value": "K: Elemental Scientific APEX Ω; Cu: none; Zn: none"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -441,27 +475,27 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "³⁹K",
+        "monitoredProperty": "39K",
         "targetSpecies": "K"
       },
       {
-        "monitoredProperty": "⁴¹K",
+        "monitoredProperty": "41K",
         "targetSpecies": "K"
       },
       {
-        "monitoredProperty": "⁶³Cu",
+        "monitoredProperty": "63Cu",
         "targetSpecies": "Cu"
       },
       {
-        "monitoredProperty": "⁶⁵Cu",
+        "monitoredProperty": "65Cu",
         "targetSpecies": "Cu"
       },
       {
-        "monitoredProperty": "⁶⁴Zn",
+        "monitoredProperty": "64Zn",
         "targetSpecies": "Zn"
       },
       {
-        "monitoredProperty": "⁶⁶Zn",
+        "monitoredProperty": "66Zn",
         "targetSpecies": "Zn"
       }
     ],
@@ -520,6 +554,7 @@
       }
     ]
   },
+  "ada:numberOfAcquisitionPasses": "3",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -551,17 +586,16 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "δ41K, δ65Cu and δ66Zn in permil, each defined explicitly against its bracketing standard"
+    "δ41K, δ65Cu, δ66Zn — ‰ relative to the bracketing standards"
   ],
-  "ada:chromatographicSeparationApplied": "Yes — AG1-X8 200–400 mesh anion resin, 5 ml 1.5 M HBr to elute the matrix and 3 ml 0.5 M HNO3 to elute Zn",
+  "ada:chromatographicSeparationApplied": "Yes, K: triple-pass AG50W-X8 cation exchange; Cu and Zn: AG1-X8 anion exchange (Cu in 22 ml 6 M HCl, Zn in 10 ml 3 M HNO3), with a second pass for Cu and an HBr–HNO3 AG1-X8 step for Zn",
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "200 ppb for K and Zn; 100 ppb for Cu",
-  "ada:uncertaintyLevel": "2 s.d.",
+  "ada:finalSolutionMatrix": "K: 200 ppb; Cu: 100 ppb; Zn: 200 ppb — samples and standards; the acid is not stated",
+  "ada:uncertaintyLevel": "2 s.d. — Bennu values carry 2 s.e. in the main text",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
     "BHVO-2"
   ],
-  "ada:primaryStandardNameDefault": "NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -574,7 +608,6 @@
   "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

@@ -407,6 +407,23 @@ LIST_LABEL = re.compile(r"^(?:masses|mass|isotopes|isotope|ions|ion|m/z)\s+(?=[\
 GROUP_LABEL = re.compile(r"^[^,;:]{0,40}:\s+")
 
 
+# `85Rb, 87Rb -> Rb` -- the 2026-10-01 notation for "these members serve that target species".
+# The older corpus writes the same thing as `85Rb, 87Rb (Rb)`, so the arrow is rewritten into the
+# parenthetical and both notations share one parser. Both ASCII `->` and U+2192 occur.
+ARROW_GROUP = re.compile(r"^\s*(?P<members>.+?)\s*(?:\u2192|->)\s*(?P<parent>[^;]+?)\s*$")
+
+
+def _dearrow(group):
+    """`A, B -> C` becomes `A, B (C)`; anything without an arrow is returned unchanged."""
+    m = ARROW_GROUP.match(group)
+    if not m:
+        return group
+    parent = m.group("parent").strip().rstrip(".")
+    if not parent:
+        return m.group("members").strip()
+    return f"{m.group('members').strip()} ({parent})"
+
+
 def _parse_grouped_members(v, known=()):
     """Members of a `defines: <x> per <y>` cell, which is TWO levels, not one.
 
@@ -443,6 +460,7 @@ def _parse_grouped_members(v, known=()):
         # ...", "Run 1 (major): 25Mg, ...". The label is a header for the list, not a member
         # of it, but it sits before the first comma and so became the first member -- and
         # being several words wide it then failed the guard and took the whole list with it.
+        group = _dearrow(group)
         group = GROUP_LABEL.sub("", group.strip())
         group = LIST_LABEL.sub("", group.strip())
         body, group_qualifier = _qualifier_of(group)
@@ -603,6 +621,7 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
     # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
     SKIP_MD = ("ada:targetSpeciesTemplate", "ada:reportedPropertyTemplate", "ada:monitoredPropertyTemplate",
+               "ada:targetMaterialTemplate",
                "bios:computationalTool",
                "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
     # Publication mode populates the rich objects from real cells. What still stays out are the
@@ -610,13 +629,30 @@ def build_example(tapp, values=None, emit_reported_property=False):
     # are structural, emitted schema-side, never carrying per-publication values — while the default
     # ROWS (defaultAnalytes / defaultChannels) and the collector-configuration data ARE populated.
     COLUMN_DEFS = ("ada:targetSpeciesColumns", "ada:monitoredPropertyColumns", "ada:reportedPropertyColumns",
-                   "ada:collectorConfiguration",
+                   "ada:targetMaterialColumns", "ada:collectorConfiguration",
                    # reported properties are a conditional template: emitted only when the procedure
                    # enumerates "Reported Variables and Units" (build_tapp_examples gates them),
                    # never by the generic interpreter — otherwise every reported field would appear
                    # both here and on its workflow step.
                    "schema:variableMeasured")
-    DEFAULT_ROWS = ("ada:defaultTargetSpecies", "ada:defaultMonitoredProperties")
+    DEFAULT_ROWS = ("ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
+                    "ada:defaultTargetMaterials")
+    # A module-owned field has no path in the technique sidecar (Source = module), and
+    # load_spec drops a path-less row, so the item never reaches the loop below -- whatever the
+    # publication reported for it went unemitted, and 20 LA examples lost
+    # ada:elementalFractionationCorrection that way while the composed schema still carried it.
+    # The module owns the placement in the EXAMPLE as well as the schema, so use the module's.
+    # Composable placements only; module_paths filters to those, parameters going via param_refs.
+    if pub:
+        for _item in list(values):
+            if _item in spec:
+                continue
+            for _mod, _mpath in mc.module_paths(b.XLSX, _item):
+                _parsed = spp.parse(e.normalize_path(_mpath))
+                e.insert(roots[_parsed.root], _parsed,
+                         strip_annotation(values[_item], meta.get(_item, {})))
+                break
+
     for item, rec in spec.items():
         m = meta.get(item, {})
         if pub and item not in values:
@@ -704,8 +740,16 @@ def build_example(tapp, values=None, emit_reported_property=False):
                         # normalize_path has already dropped the trailing '[]', so match the
                         # bare segment at the END of the path -- replacing 'ada:defaultTargetSpecies[]'
                         # matched nothing and skipped the declaration without complaining.
-                        decl = re.sub(r"ada:defaultTargetSpecies$",
-                                      "ada:targetSpeciesDeclaration", path)
+                        # Keyed by axis rather than hardcoded to the species one: the target-
+                        # material axis has the same exposure and the same remedy, and
+                        # ada:targetMaterialDeclaration sits on its template for this.
+                        _DECL = {"ada:defaultTargetSpecies": "ada:targetSpeciesDeclaration",
+                                 "ada:defaultTargetMaterials": "ada:targetMaterialDeclaration"}
+                        decl = path
+                        for _axis, _field in _DECL.items():
+                            if path.endswith(_axis):
+                                decl = re.sub(_axis + r"$", _field, path)
+                                break
                         if decl != path:
                             e.insert(roots[parsed.root], spp.parse(decl), v.strip())
                     if not kept:

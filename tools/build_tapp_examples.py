@@ -283,7 +283,8 @@ _HASPART_SEL = re.compile(r"schema:instrument\[\s*schema:additionalType\s*=\s*'(
 
 _TEMPLATE_COLS = {"ada:targetSpeciesTemplate": "ada:targetSpeciesColumns",
                   "ada:monitoredPropertyTemplate": "ada:monitoredPropertyColumns",
-                  "ada:reportedPropertyTemplate": "ada:reportedPropertyColumns"}
+                  "ada:reportedPropertyTemplate": "ada:reportedPropertyColumns",
+                  "ada:targetMaterialTemplate": "ada:targetMaterialColumns"}
 
 
 def populate_template_columns(inst, tapp_res):
@@ -593,7 +594,15 @@ def _required_scalar_props(tapp_dir):
                     if isinstance(r, str):
                         req.add(r)
                 for k, v in (n.get("properties") or {}).items():
-                    props.setdefault(k, v if isinstance(v, dict) else {})
+                    v = v if isinstance(v, dict) else {}
+                    # First occurrence wins, EXCEPT that an enum beats no enum. The base branch
+                    # for a property the overlay narrows comes first and carries only its type, so
+                    # setdefault alone discarded the overlay's enum and left conform_enums with
+                    # nothing to snap against.
+                    if k not in props:
+                        props[k] = v
+                    elif _enum_of(v) and not _enum_of(props[k]):
+                        props[k] = v
                 for k in COMPOSITION:
                     walk(n.get(k))
             elif isinstance(n, list):
@@ -649,7 +658,7 @@ NEVER_SENTINEL = {"@type", "@id", "@context"}
 # which is exactly what that field was added for. An empty array still satisfies `required`; where
 # a schema genuinely demands members it says minItems, which sentinel_for still honours.
 EMPTY_ARRAY_SENTINEL = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
-                        "ada:defaultReportedProperties"}
+                        "ada:defaultReportedProperties", "ada:defaultTargetMaterials"}
 
 
 SENTINEL_URI = "nil:missing"
@@ -985,10 +994,26 @@ def conform_enums(inst, tapp_dir, technique_enum):
                 out.append(v)
                 continue
             snapped, dropped = _snap_enum(v, enum)
-            out.append(snapped if snapped is not None else v)
+            if snapped is None:
+                # The cell names no member of the list -- typically the workbook's "N - <why>",
+                # which says the source does not report this. Keeping the prose asserts an enum
+                # member that does not exist and fails validation, so record the text and drop
+                # the value. This is what _snap_enum's "leaving the value for the required-field
+                # sentinel" always meant; the value used to survive instead.
+                notes.append(f"{key} = {v}")
+                continue
+            out.append(snapped)
             if dropped:
                 notes.append(f"{key} = {dropped}")
-        inst[key] = out if isinstance(val, list) else out[0]
+        if out:
+            inst[key] = out if isinstance(val, list) else out[0]
+        elif key in _required_scalar_props(tapp_dir)[0]:
+            # required: an empty array still satisfies `required`; a required scalar has no honest
+            # stand-in here, so leave it untouched for the sentinel passes rather than inventing one
+            if isinstance(val, list):
+                inst[key] = []
+        else:
+            inst.pop(key, None)
     if notes:
         inst["schema:description"] = (inst.get("schema:description", "").rstrip()
                                       + " Reported detail: " + "; ".join(notes) + ".").strip()

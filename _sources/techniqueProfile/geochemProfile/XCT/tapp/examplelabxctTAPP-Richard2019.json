@@ -15,7 +15,23 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol — Richard2019",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v42.csv).",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Olivine phenocryst with silicate melt inclusion",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
+  "ada:targetFeature": "Silicate melt inclusion morphology and phase volumes",
   "schema:object": [
     {
       "@type": [
@@ -24,12 +40,6 @@
         "schema:Thing"
       ],
       "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Olivine phenocryst with silicate melt inclusion"
-          ]
-        },
         {
           "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
           "@type": [
@@ -44,37 +54,6 @@
       ]
     }
   ],
-  "ada:targetFeature": "Silicate melt inclusion morphology and phase volumes",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "None stated for XCT; embedded in epoxy after XCT for microprobe",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:detectorType": "CCD ANDOR camera (1080 × 1080 px, 32-bit)",
   "schema:additionalProperty": [
     {
@@ -211,6 +190,36 @@
   "ada:reportedProperties": [
     "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

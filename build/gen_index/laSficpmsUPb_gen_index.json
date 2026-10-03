@@ -1,6 +1,5 @@
 {
  "tapp_props": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
@@ -58,7 +57,7 @@
   "ada:ageCalculationMethod",
   "ada:reportedDateTypeDefault",
   "ada:inheritedOrInitialSignalCorrectionDefault",
-  "ada:ageModelDefault",
+  "ada:combinationMethodDefault",
   "ada:constantsAndReferenceValuesUsedDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
@@ -98,7 +97,6 @@
  "pv_keys": [
   "laSficpmsUPb_coupledProcedureDoi",
   "laSficpmsUPb_coupledDatasetOrPublicationReference",
-  "laSficpmsUPb_sampleFormAnalyticalSubstrate",
   "laSficpmsUPb_samplePersistentIdentifier",
   "laSficpmsUPb_fusionFluxAndDilutionRatio",
   "laSficpmsUPb_samplePreparationMethod",
@@ -141,10 +139,11 @@
   "laSficpmsUPb_calibrationFactorAndDeterminationMethod",
   "laSficpmsUPb_reportedDateType",
   "laSficpmsUPb_inheritedOrInitialSignalCorrection",
-  "laSficpmsUPb_ageModel",
+  "laSficpmsUPb_combinationMethod",
   "laSficpmsUPb_constantsAndReferenceValuesUsed",
   "laSficpmsUPb_primaryCalibrationStandardName",
-  "laSficpmsUPb_secondaryReferenceMaterials"
+  "laSficpmsUPb_secondaryReferenceMaterials",
+  "laSficpmsUPb_otherStatistics"
  ],
  "analyte_cols": [],
  "detail_req": [
@@ -167,6 +166,7 @@
   "radiogenicFractionOfMeasuredSignal",
   "ageDatumReferenceEpoch",
   "errorCorrelationBetweenReportedQuantities",
+  "combinedResults",
   "detectionLimit",
   "limitOfQuantificationMethod",
   "countingStatisticsError",
@@ -181,10 +181,10 @@
   "ada:LAICPMSGeochronTabular"
  ],
  "basic_required": [
-  "ada:sampleFormAnalyticalSubstrateDefault",
   "ada:samplingUnitType",
   "ada:samplePreparationMethodDefault",
   "ada:samplingUnitSelectionCriteriaDefault",
+  "ada:chemicalAbrasionConditions",
   "ada:laserManufacturerModel",
   "ada:icpMsType",
   "ada:interfaceConeConfiguration",
@@ -203,14 +203,18 @@
   "ada:rasterLineSpacingDefault",
   "ada:carrierGasAndFlowRateDefault",
   "ada:coolantGasFlowRateDefault",
+  "ada:auxiliaryGasFlowRateDefault",
   "ada:rfPowerDefault",
   "ada:plasmaThermalMode",
   "ada:oxideProductionMethodAndThreshold",
   "ada:analysisSequenceDefault",
   "ada:targetSpeciesDefault",
+  "ada:monitoredMasses",
   "ada:reportedVariablesAndUnits",
+  "ada:massResolutionAssignment",
   "ada:dwellTimePerMassDefault",
   "ada:backgroundCountTimeDefault",
+  "ada:acquisitionPass",
   "ada:internalStandardApproach",
   "ada:internalStandardElement",
   "ada:elementalFractionationCorrection",
@@ -220,6 +224,10 @@
   "ada:interferingSpecies",
   "ada:interferenceCorrectionMethod",
   "ada:analysisInclusionAndRejectionCriteria",
+  "ada:ageCalculationMethod",
+  "ada:reportedDateTypeDefault",
+  "ada:inheritedOrInitialSignalCorrectionDefault",
+  "ada:combinationMethodDefault",
   "ada:primaryCalibrationStandardNameDefault",
   "ada:calibrationStandardMeasurementFrequency",
   "ada:secondaryReferenceMaterialsDefault",
@@ -228,13 +236,6 @@
   "ada:analyticalAccuracyAndAssessmentMethod"
  ],
  "basic_props": [
-  {
-   "key": "ada:sampleFormAnalyticalSubstrateDefault",
-   "item": "Sample Form / Analytical Substrate",
-   "jtype": "string",
-   "cov": 7,
-   "required": true
-  },
   {
    "key": "ada:samplingUnitType",
    "item": "Sampling Unit Type",
@@ -260,8 +261,8 @@
    "key": "ada:chemicalAbrasionConditions",
    "item": "Chemical Abrasion Conditions",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:laserManufacturerModel",
@@ -281,7 +282,7 @@
    "key": "ada:interfaceConeConfiguration",
    "item": "Interface Cone Configuration",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -302,7 +303,7 @@
    "key": "ada:detectorConfiguration",
    "item": "Detector Configuration",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
@@ -316,14 +317,14 @@
    "key": "ada:dataProcessingSoftwareDefault",
    "item": "Data Processing Software(s)",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:ablationCellType",
    "item": "Ablation Cell Type",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -358,28 +359,28 @@
    "key": "ada:laserFluenceDefault",
    "item": "Laser Fluence (Energy Density)",
    "jtype": "number",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:laserRepetitionRateDefault",
    "item": "Laser Repetition Rate",
    "jtype": "number",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
    "key": "ada:laserPulseDuration",
    "item": "Laser Pulse Duration",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:ablationDurationPerSpotDefault",
    "item": "Ablation Duration per Spot",
    "jtype": "number",
-   "cov": 4,
+   "cov": 7,
    "required": true
   },
   {
@@ -393,14 +394,14 @@
    "key": "ada:rasterLineSpacingDefault",
    "item": "Raster Line Spacing (Mapping Only)",
    "jtype": "string",
-   "cov": 1,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:carrierGasAndFlowRateDefault",
    "item": "Carrier Gas and Flow Rate",
    "jtype": "string",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -414,14 +415,14 @@
    "key": "ada:auxiliaryGasFlowRateDefault",
    "item": "Auxiliary Gas Flow Rate",
    "jtype": "number",
-   "cov": 0,
-   "required": false
+   "cov": 5,
+   "required": true
   },
   {
    "key": "ada:rfPowerDefault",
    "item": "RF Power",
    "jtype": "number",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -442,7 +443,7 @@
    "key": "ada:analysisSequenceDefault",
    "item": "Analysis Sequence",
    "jtype": "string",
-   "cov": 7,
+   "cov": 6,
    "required": true
   },
   {
@@ -456,8 +457,8 @@
    "key": "ada:monitoredMasses",
    "item": "Monitored Masses",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:reportedVariablesAndUnits",
@@ -470,8 +471,8 @@
    "key": "ada:massResolutionAssignment",
    "item": "Mass Resolution Assignment",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 5,
+   "required": true
   },
   {
    "key": "ada:ionCounterDeadTimeDefault",
@@ -484,7 +485,7 @@
    "key": "ada:dwellTimePerMassDefault",
    "item": "Dwell Time per Mass",
    "jtype": "number",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
@@ -498,15 +499,15 @@
    "key": "ada:backgroundCountTimeDefault",
    "item": "Background Count Time",
    "jtype": "number",
-   "cov": 5,
+   "cov": 6,
    "required": true
   },
   {
    "key": "ada:acquisitionPass",
    "item": "Acquisition Pass",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 4,
+   "required": true
   },
   {
    "key": "ada:numberOfAcquisitionPasses",
@@ -526,7 +527,7 @@
    "key": "ada:internalStandardElement",
    "item": "Internal Standard Element",
    "jtype": "string",
-   "cov": 6,
+   "cov": 7,
    "required": true
   },
   {
@@ -540,7 +541,7 @@
    "key": "ada:elementalFractionationCorrection",
    "item": "Elemental Fractionation Correction",
    "jtype": "string",
-   "cov": 7,
+   "cov": 1,
    "required": true
   },
   {
@@ -561,14 +562,14 @@
    "key": "ada:signalIntegrationIntervalMethod",
    "item": "Signal Integration Interval Method",
    "jtype": "string",
-   "cov": 6,
+   "cov": 1,
    "required": true
   },
   {
    "key": "ada:blankBackgroundCorrectionMethod",
    "item": "Blank / Background Correction Method",
    "jtype": "string",
-   "cov": 7,
+   "cov": 5,
    "required": true
   },
   {
@@ -582,14 +583,14 @@
    "key": "ada:interferingSpecies",
    "item": "Interfering Species",
    "jtype": "string",
-   "cov": 6,
+   "cov": 5,
    "required": true
   },
   {
    "key": "ada:interferenceCorrectionMethod",
    "item": "Interference Correction Method",
    "jtype": "string",
-   "cov": 7,
+   "cov": 5,
    "required": true
   },
   {
@@ -617,29 +618,29 @@
    "key": "ada:ageCalculationMethod",
    "item": "Age Calculation Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:reportedDateTypeDefault",
    "item": "Reported Date Type",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:inheritedOrInitialSignalCorrectionDefault",
    "item": "Inherited or Initial Signal Correction",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
-   "key": "ada:ageModelDefault",
-   "item": "Age Model",
+   "key": "ada:combinationMethodDefault",
+   "item": "Combination Method",
    "jtype": "string",
-   "cov": 0,
-   "required": false
+   "cov": 7,
+   "required": true
   },
   {
    "key": "ada:constantsAndReferenceValuesUsedDefault",
@@ -666,7 +667,7 @@
    "key": "ada:secondaryReferenceMaterialsDefault",
    "item": "Secondary Reference Materials",
    "jtype": "string",
-   "cov": 6,
+   "cov": 2,
    "required": true
   },
   {
@@ -680,14 +681,14 @@
    "key": "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod",
    "item": "Within-Session Analytical Precision and Assessment Method",
    "jtype": "string",
-   "cov": 3,
+   "cov": 2,
    "required": true
   },
   {
    "key": "ada:analyticalAccuracyAndAssessmentMethod",
    "item": "Analytical Accuracy and Assessment Method",
    "jtype": "string",
-   "cov": 5,
+   "cov": 3,
    "required": true
   }
  ]

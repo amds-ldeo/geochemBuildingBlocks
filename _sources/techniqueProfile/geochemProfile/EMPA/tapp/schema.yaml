@@ -1,7 +1,7 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)
 description: Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/EPMA_TAPP_v77.csv via the path-driven pipeline (bootstrap_schemapaths.py
+  generated from tapp/Current TAPPs/EPMA_TAPP_v87.csv via the path-driven pipeline (bootstrap_schemapaths.py
   + build_pathdriven.py).
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
@@ -453,36 +453,6 @@ allOf:
               - schema:name
               - ada:dataType
             - &id008
-              title: EPMA Technique per Target Species
-              description: Whether the measurement was made by WDS or EDS. Applies where a procedure uses
-                both WDS and EDS.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: epmaTechniquePerTargetSpecies
-                schema:name:
-                  const: EPMA Technique per Target Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
-            - &id009
               title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference correction.
               type: object
@@ -510,7 +480,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id010
+            - &id009
               title: X-ray Line Overlap Corrections Applied
               description: Whether a spectral interference correction was applied. Common interferences
                 include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
@@ -540,7 +510,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id010
               title: Interfering Elements
               description: Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.
               type: object
@@ -568,7 +538,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id012
+            - &id011
               title: Time-Dependent Intensity Correction
               description: Type of time-dependent intensity (TDI) correction applied to compensate for
                 beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses,
@@ -632,9 +602,6 @@ allOf:
           - contains: *id011
             minContains: 0
             maxContains: 1
-          - contains: *id012
-            minContains: 0
-            maxContains: 1
       required:
       - ada:defaultTargetSpecies
     ada:monitoredPropertyTemplate:
@@ -668,12 +635,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id013
+                  - &id012
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id013
+                    items: *id012
               required:
               - '@id'
               - '@type'
@@ -704,10 +671,10 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id014
+                  - &id013
                     type: string
                   - type: array
-                    items: *id014
+                    items: *id013
               required:
               - '@id'
               - '@type'
@@ -736,10 +703,10 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id015
+                  - &id014
                     type: string
                   - type: array
-                    items: *id015
+                    items: *id014
               required:
               - '@id'
               - '@type'
@@ -771,12 +738,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id016
+                  - &id015
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id016
+                    items: *id015
               required:
               - '@id'
               - '@type'
@@ -807,12 +774,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id017
+                  - &id016
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id017
+                    items: *id016
               required:
               - '@id'
               - '@type'
@@ -842,10 +809,10 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id018
+                  - &id017
                     type: string
                   - type: array
-                    items: *id018
+                    items: *id017
               required:
               - '@id'
               - '@type'
@@ -878,12 +845,12 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id019
+                  - &id018
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id019
+                    items: *id018
               required:
               - '@id'
               - '@type'
@@ -914,10 +881,10 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id020
+                  - &id019
                     type: string
                   - type: array
-                    items: *id020
+                    items: *id019
               required:
               - '@id'
               - '@type'
@@ -938,6 +905,42 @@ allOf:
                   const: xRayLine
                 schema:name:
                   const: X-ray Line
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - &id020
+                    type: string
+                  - type: array
+                    items: *id020
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            - &id031
+              title: X-ray Detection Method per Monitored Element
+              description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
+                (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional
+                counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts
+                every photon by energy at once. Applies where a procedure uses both.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayDetectionMethodPerMonitoredElement
+                schema:name:
+                  const: X-ray Detection Method per Monitored Element
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -985,6 +988,9 @@ allOf:
           - contains: *id030
             minContains: 0
             maxContains: 1
+          - contains: *id031
+            minContains: 0
+            maxContains: 1
         ada:defaultMonitoredProperties:
           type: array
           items:
@@ -996,7 +1002,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id031
+        - &id032
           title: Beam Damage Minimization
           description: Measures taken to minimize beam damage, particularly volatilization or migration
             of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document
@@ -1027,7 +1033,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id032
+        - &id033
           title: Beam Raster Dimensions
           description: Dimensions of the small area over which the beam is rastered at a single analysis
             point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the
@@ -1060,7 +1066,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id033
+        - &id034
           title: Drift Correction
           description: Method used to monitor and correct for instrument drift (beam current drift, spectrometer
             drift) during the analytical session.
@@ -1116,7 +1122,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id034
+        - &id035
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
             Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
@@ -1173,13 +1179,13 @@ allOf:
           - schema:value
           readOnly: true
       allOf:
-      - contains: *id031
-        minContains: 0
-        maxContains: 1
       - contains: *id032
         minContains: 0
         maxContains: 1
       - contains: *id033
+        minContains: 0
+        maxContains: 1
+      - contains: *id034
         minContains: 0
         maxContains: 1
       - contains:
@@ -1211,7 +1217,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id034
+      - contains: *id035
         minContains: 0
         maxContains: 1
       - contains:
@@ -1279,55 +1285,12 @@ allOf:
               schema:additionalProperty:
                 type: array
                 items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Target Material
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:value:
-                          type: array
-                          items:
-                            description: General description of the material type(s) this procedure is
-                              designed to analyse.
-                            anyOf:
-                            - type: string
-                              enum:
-                              - Silicate mineral
-                              - Silicate glass
-                              - Oxide
-                              - Sulfide
-                              - Carbonate
-                              - Phosphate
-                              - Metal or alloy
-                              - N/A
-                              - None
-                              - missing
-                            - type: string
-                            readOnly: true
+                  $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                 allOf:
                 - contains:
                     $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Target Material
-                    required:
-                    - schema:name
-      allOf:
-      - contains:
-          properties:
-            '@type':
-              contains:
-                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-          required:
-          - '@type'
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point in seconds. Previously referred
         to as "EDS Acquisition Time" in this TAPP and commonly used under that name in EPMA and SEM-EDS
@@ -1356,11 +1319,47 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - &id036
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual results contribute to a combined
+                          result, together with the outcome of applying them: how many results were obtained,
+                          how many were included, and on what grounds any were excluded. An individual
+                          result is the value of the reported quantity obtained from one acquisition:
+                          a replicate measurement of the same solution or location, a spot or grain within
+                          a sample, or an independently prepared aliquot or digestion, whichever the procedure
+                          combines. Distinct from filtering the acquired signal during data reduction
+                          (removing spikes, cycles or scans, or discarding an acquisition whose signal
+                          is compromised): this field records which finished results enter the combined
+                          result, and on what grounds.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains:
-                        $ref: ../../../../BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                    - contains: *id036
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1413,6 +1412,63 @@ allOf:
         - missing
       - type: string
       readOnly: true
+    ada:targetMaterialTemplate:
+      type: object
+      properties:
+        ada:targetMaterialColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
+            - &id037
+              title: Primary Calibration Standard Name
+              description: Name and reference material identifier of the primary reference material(s)
+                against which the instrument is calibrated — converting raw signal intensities to concentrations,
+                or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give
+                the material name, its source or supplier, and a citation for the accepted values used.
+                Where calibration instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification
+                — record that here, naming the library or model used. 'None' means no calibration was
+                performed at all, which is a different answer.
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains: *id037
+            minContains: 0
+            maxContains: 1
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetMaterials
     ada:stepSizePixelSizeDefault:
       description: Distance between adjacent measurement points in the X-ray map in micrometers, defining
         the spatial resolution. Report both X and Y step if they differ.
@@ -1447,9 +1503,10 @@ allOf:
         description: Specific elements monitored in this procedure, grouped by the target species they
           serve where they serve one. Includes elements monitored only to correct an interference, which
           serve no target species and so have no parent. The target species list is given by the Target
-          Species field and is never inferred from the elements appearing here. The X-ray line, diffracting
-          crystal, spectrometer assignment and counting times used for each monitored element are recorded
-          in their own fields, keyed to this one.
+          Species field and is never inferred from the elements appearing here. A target species determined
+          by stoichiometry or by difference, rather than measured, has no monitored element. The X-ray
+          line, diffracting crystal, spectrometer assignment and counting times used for each monitored
+          element are recorded in their own fields, keyed to this one.
         type: string
         readOnly: true
     ada:analyticalMode:

@@ -15,35 +15,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Olivine 2D Mapping v1",
-  "schema:description": "Pallasite olivine 2D mapping in cool plasma mode (800 W) is a core methodological innovation; total of 8 PMG meteorites mapped; P-rich veinlets excluded from olivine averages; Fa# values verified against EMPA (Fig. 5A)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Pallasite olivine ([Mg,Fe]₂SiO₄)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ — polished epoxy thick section (HELEX II two-volume cell)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Pallasite olivine"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laSficpmsUPbTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Position relative to the metal-olivine rim, sited on a prior μXRF survey — \"The locations for LA-ICP-MS mapping were selected to be close to the metal-olivine rims of large olivine crystals with the laser beam rastering from the olivine rim in the direction of the olivine core\", at locations \"indicated on the larger μXRF maps as black rectangles\" (p.4)",
   "schema:additionalProperty": [
     {
@@ -66,7 +67,7 @@
       "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "9 µm s⁻¹ (continuous raster)"
+      "schema:defaultValue": "all: 9 µm/s — translation speed (§2.2.2)"
     },
     {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -78,7 +79,42 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.81,
-      "schema:description": "Ar make-up: 0.81–0.99 l min⁻¹ (mapping); N₂ explicitly not added"
+      "schema:description": "Ar, 0.81–0.99 L/min — Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'"
+    },
+    {
+      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "discordanceDefinitionAndValues",
+      "schema:name": "Discordance Definition and Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N — the procedure reports no date"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
+      "schema:name": "Error Correlation Between Reported Quantities",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N — the procedure reports no date"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/interPassDataDependency",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laSficpmsUPbTAPP/interPassDataDependency"
+        }
+      ],
+      "schema:name": "Inter-Pass Data Dependency",
+      "schema:value": "N/A — a single pass"
     }
   ],
   "schema:instrument": [
@@ -142,7 +178,19 @@
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
-              "schema:description": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)"
+              "schema:description": "Ar, 15 L/min — Table B1"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.81,
+              "schema:description": "Ar, 0.81 L/min — Table B1"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -154,7 +202,7 @@
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 800,
-              "schema:description": "800 W (cool plasma for mapping)"
+              "schema:description": "800 W — cool plasma (§2.2.2, Table B1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/plasmaThermalMode",
@@ -165,7 +213,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Cool plasma (800 W RF) to reduce Ar-based argide interferences on ⁶⁰Ni and ⁷¹Ga"
+              "schema:value": "all: cool plasma (800 W RF) — 'Cool plasma conditions (800 W RF power) were used to reduce Ar-based interferences and to increase the sensitivity of the analysis' (§2.2.2)"
             }
           ],
           "@type": [
@@ -200,7 +248,7 @@
           "schema:name": "Mass Resolution Setting",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Low resolution (M/ΔM = 300; cool plasma mapping)"
+          "schema:defaultValue": "Low (M/ΔM = 300) — §2.2.2"
         },
         {
           "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
@@ -211,7 +259,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Triple mode detection (all analytical modes)"
+          "schema:value": "Triple — Table B1 'Detection mode'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -222,7 +270,7 @@
           "schema:name": "ICP Tuning",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Daily tuning; cool plasma conditions optimized; N₂ explicitly not added to avoid N-based interferences"
+          "schema:defaultValue": "N — oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -233,7 +281,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Gas blank measured before each ablation line; adequate washout ensured by duty cycle timing"
+          "schema:defaultValue": "Washout typically less than 1 s — §2.2.2"
         }
       ],
       "@type": [
@@ -258,6 +306,17 @@
       ],
       "schema:additionalProperty": [
         {
+          "@id": "ada:parameter/module/LaserAblation/laserBeamEnergyProfile",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserBeamEnergyProfile",
+          "schema:name": "Laser Beam Energy Profile",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "Flat-topped — 'The laser beam is characterized by a flat-topped energy profile' (§2.2.2)"
+        },
+        {
           "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -266,7 +325,7 @@
           "schema:name": "Laser Pulse Duration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "~5 ns (ArF excimer)"
+          "schema:value": "4 ns — Table B1; §2.2.2 says '<5 ns'"
         }
       ],
       "schema:model": {
@@ -275,11 +334,11 @@
           "schema:ProductModel"
         ]
       },
-      "ada:laserType": "193 nm ArF excimer; pulse duration ~5 ns",
+      "ada:laserType": "193 nm ArF* excimer — §2.2.2",
       "schema:name": "HELEX II two-volume ablation cell",
-      "ada:laserSpotGeometryDefault": "20×20 µm square",
+      "ada:laserSpotGeometryDefault": "all: 20 µm × 20 µm square-masked — §2.2.2",
       "ada:laserFluenceDefault": "5–7 J cm⁻²",
-      "ada:laserRepetitionRateDefault": "20 Hz",
+      "ada:laserRepetitionRateDefault": "all: 20 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -288,114 +347,23 @@
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200–0.260 l min⁻¹; MFC-2 (cup) 0.220–0.385 l min⁻¹",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "ada:chemicalAbrasionConditions": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing",
-        "schema:additionalProperty": []
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "None (no signal smoothing device; N₂ not added)"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "filteringApproachDefault",
-            "schema:name": "Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Manual identification and exclusion of P-rich veinlet pixels from olivine averages; anomalous spikes from inclusions excluded per line"
-          },
-          {
-            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated. For the maps, \"The P-rich veinlets were excluded from the maps prior to the calculation of the correlation coefficients\" (appendix C), which masks pixels within a result rather than admitting or excluding results"
-          }
-        ],
-        "ada:detectionLimitMethod": "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
-  "ada:analysisSequenceDefault": "(i) Gas blanks → (ii) all glass GRMs for external calibration → (iii) 1–3 cosmic spherule unknowns → (iv) blanks → (v) all glass GRMs again",
+  "ada:analysisSequenceDefault": "N — the glasses were 'measured in the same analytical session' (§2.1); the sequence is not described",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "²⁵Mg",
-      "²⁷Al",
-      "²⁹Si",
-      "³¹P",
-      "⁴⁵Sc",
-      "⁵¹V",
-      "⁵³Cr",
-      "⁵⁵Mn",
-      "⁵⁷Fe",
-      "⁶⁰Ni",
-      "⁷¹Ga",
-      "¹³⁹La",
-      "¹⁵³Eu",
-      "¹⁹⁵Pt"
+      "Mg",
+      "Al",
+      "Si",
+      "P",
+      "Sc",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Ni",
+      "Ga",
+      "La",
+      "Eu",
+      "Pt"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -529,7 +497,89 @@
       }
     ]
   },
-  "ada:backgroundCountTimeDefault": "Scans for gas blank: 10 per line (before each mapping line); 80 scans during ablation",
+  "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)",
+  "ada:massResolutionAssignment": "all: low resolution (M/ΔM = 300) — Table B1",
+  "ada:backgroundCountTimeDefault": "10 gas-blank scans before each line, 80 during ablation — Table B1",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Flat polished thick sections (§2.1)",
+        "ada:chemicalAbrasionConditions": "N — the procedure reports no date",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data acquisition",
+        "schema:description": "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "filteringApproachDefault",
+            "schema:name": "Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "P-rich veinlet pixels masked: P2O5 above the best-fitting Gaussian of each map's P2O5 histogram plus 3 standard deviations — §3.1; 'A MATLAB script was applied to mask pixels representing veinlets'"
+          },
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N — 'Triple' detection (Table B1); a cross-calibration is not described"
+          },
+          {
+            "@id": "ada:parameter/module/UPb/intermediateDaughterDisequilibriumCorrection",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "intermediateDaughterDisequilibriumCorrection",
+            "schema:name": "Intermediate Daughter Disequilibrium Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N — the procedure reports no date"
+          }
+        ],
+        "ada:detectionLimitMethod": "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -555,7 +605,7 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "Planet Topers (BELSPO Interuniversity Attraction Poles); FWO postdoctoral fellowship for SCh; FWO \"Excellence of Science\" (ET-HoME ID 30442502); FWO/BOF-UGent; Alexander von Humboldt Foundation; FWO/BELSPO/VUB for SG and PC"
+      "schema:name": "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis"
     }
   ],
   "schema:relatedLink": [
@@ -578,25 +628,24 @@
     }
   ],
   "ada:reportedProperties": [
-    "Two-dimensional concentration maps per element (µg/g) for the mapped olivine crystals, held as \"2D concentration matrices of all target elements\" (p.5); the paper also reports the fayalite content \"(fayalite, Fa # = FeO/(FeO + MgO) ∙ 100, atomic %)\" from the μXRF data alongside (Table 1, p.5), and principal-component scores derived from seven normalised maps (p.6)"
+    "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1"
   ],
   "ada:ablationSamplingMode": [
-    "Raster area (2D elemental mapping)"
+    "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'"
   ],
-  "ada:rasterLineSpacingDefault": "20 µm (contiguous; 20×20 µm square spot = line spacing equals spot width)",
-  "ada:internalStandardApproach": "Sum-of-major-oxide normalization: MgO+FeO+SiO₂+P₂O₅ = 100 wt% per pixel (Liu et al. 2008 approach; no EPMA required for IS)",
-  "ada:elementalFractionationCorrection": [
-    "Internal normalization to MgO+FeO+SiO₂+P₂O₅ oxide sum corrects for point-to-point ablation yield variation; additional pixel-by-pixel normalization fixes oxide sum to 100 wt%"
+  "ada:ablationSpotDurationDefault": "N/A — mapping mode",
+  "ada:rasterLineSpacingDefault": "Adjacent lines — 'a grid of parallel, adjacent lines using a 20 µm × 20 µm square-masked laser spot' (§2.2.2)",
+  "ada:internalStandardApproach": "all: sum normalization of MgO, FeO, SiO2 and P2O5 to 100 wt% in each pixel (Liu et al., 2008) — the oxide sum is a 'virtual, evenly distributed IS' (App. C1, equations 1–2)",
+  "ada:ageCalculationMethod": [
+    "N — the procedure reports no date"
   ],
-  "ada:calibrationMeasurementFrequency": "Each GRM analyzed 3–5× before and 3–5× after sample analyses (all GRMs at start and end of session)",
-  "ada:oxideProductionMethodAndThreshold": "ThO⁺/Th⁺ (mass 248/232); threshold not explicitly stated but minimized by cool plasma",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each ablation line (10 scans of gas blank per mapping line); average background subtracted from each corresponding ablation line",
-  "ada:internalStandardElement": "No single IS element; oxide sum normalization (MgO+FeO+SiO₂+P₂O₅) used as virtual IS per pixel",
-  "ada:signalIntegrationIntervalMethod": "Manual visual inspection of time-resolved signal per line; anomalous spikes (inclusions, cracks, veinlets) excluded; P-rich veinlet regions identified and excluded from olivine averages",
-  "ada:secondaryReferenceMaterialDefault": [
-    "MPI-DING glasses: GOR132-G, StHs6/80-G, T1-G; USGS: BCR-2G, BHVO-2G — measured as unknowns alongside samples and compared to GeoReM preferred values (Table 1 and Section 3.3)"
+  "ada:reportedDateType": [
+    "N — the procedure reports no date"
   ],
-  "ada:primaryStandardNameDefault": "Multiple glass GRMs used together for linear regression external calibration: NIST SRM 612, NIST SRM 614, USGS GSD-1G (synthetic), USGS GSE-1G (synthetic), USGS BHVO-2G, USGS BIR-1G (natural basalt glasses)",
+  "ada:inheritedOrInitialSignalCorrectionDefault": "N — the procedure reports no date",
+  "ada:calibrationMeasurementFrequency": "N — the glasses were 'measured in the same analytical session' (§2.1)",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank before each string of pixels; the average background preceding each analysis subtracted — App. C5",
+  "ada:internalStandardElement": "all: none — a virtual internal standard from the oxide sum (App. C1)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -613,21 +662,14 @@
     {
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:defaultValue": "missing"
-    },
-    {
-      "schema:name": "Age Model",
-      "schema:defaultValue": "missing"
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
-  "ada:ablationSpotDurationDefault": -9999,
-  "ada:ageModelDefault": "missing",
-  "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
-  "ada:massResolutionAssignment": "missing",
-  "ada:massesMeasuredDefault": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
+  "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:sampleIntroduction": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

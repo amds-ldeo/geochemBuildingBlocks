@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
-  "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis WDS only. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per element. Analytical software not stated.",
+  "schema:name": "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
+  "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -25,8 +25,8 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused",
+      "ada:beamDiameterDefault": "N — only 15 kV and 10 nA are given",
+      "ada:beamMode": "N — only 15 kV and 10 nA are given",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -198,16 +198,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -246,6 +236,7 @@
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -264,61 +255,44 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and EDS mapping on three instruments before the probe — \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "Bence-Albee",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis — 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)",
+    "ada:defaultTargetMaterials": [
+      "maskelynite",
+      "silica glasses",
+      "coesite aggregates",
+      "mesostasis"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:matrixCorrectionMethod": "Bence-Albee",
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
     "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr — all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction — \"X-ray interference of the Kα line of Mn by the Kβ line of Cr was corrected\" — but is itself determined, so it is not an orphan"
@@ -361,13 +335,43 @@
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "Bence-Albee method"
+      "schema:name": "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named"
     }
   ],
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2); detection limits are given per oxide (0.01–0.06 wt%, p.2)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)"
   ],
-  "ada:primaryStandardNameDefault": "Natural kaersutite (Si, Mg, Fe); jadeite (Na, Al); bustamite (Ca, Mn); K-feldspar (K); synthetic rutile (Ti); Cr2O3 (Cr)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -383,7 +387,6 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,

@@ -16,23 +16,35 @@
   ],
   "schema:name": "semComposition protocol — Gucsik2013",
   "schema:description": "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "constituent minerals"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from defects, after a prior survey — \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses because they did not contain any irregular fracturing or crystallographic imperfections\" (p.2); the same grains carry the microprobe analyses",
   "schema:instrument": [
     {
@@ -101,6 +113,7 @@
           "@id": "ex:instrument/SEM/part/WDS-Spectrometer"
         }
       ],
+      "ada:beamMode": "all: Focused — 'The accelerating voltage was 15 kV and the beam current was 2.0 nA, with a focused beam' (p.2)",
       "ada:acceleratingVoltageDefault": "15 kV",
       "@type": [
         "schema:Product",
@@ -109,54 +122,9 @@
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:beamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:monitoredElements": [
     "Mg, Al, Ca, Si, Ti, Cr, Mn, Fe — \"Among the detected elements were Mg, Al, Ca, Si, Ti, Cr, Mn, and Fe\" (p.2). NOTE the sentence attaches these to the WDS X-ray distribution maps; the EDS itself is described only as \"semiquantitative analyses for major elements\" and \"qualitative measurements by EDS\", so the EDS element set is not separately stated"
   ],
@@ -177,7 +145,7 @@
     "EDS Point Analysis"
   ],
   "ada:reportedProperties": [
-    "Mineral compositions of the seven analysed grains, reported for the olivine as forsterite content (\"Fo: 99.2–99.7\", p.1), with WDS X-ray distribution maps alongside; detection limits are stated per element (\"ranged between 0.03 (light element…\", p.2)"
+    "mineral composition; forsterite content (Fo) — Mineral compositions of the seven analysed grains, reported for the olivine as forsterite content (\"Fo: 99.2–99.7\", p.1), with WDS X-ray distribution maps alongside; detection limits are stated per element (\"ranged between 0.03 (light element…\", p.2)"
   ],
   "schema:measurementTechnique": [
     {
@@ -188,6 +156,37 @@
       "schema:termCode": "semComposition"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -198,7 +197,6 @@
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"

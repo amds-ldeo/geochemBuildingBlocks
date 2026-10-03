@@ -15,35 +15,128 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Mittlefehldt (2024) Pallasite Olivine Spot v1",
-  "schema:description": "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Pallasite olivine ([Mg,Fe]₂SiO₄)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ — polished grain mount (olivine grain fragments)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "The files documenting the analysis parameters (gas flows, laser power, etc.) were lost during an extended shutdown of the JSC ICP-MS laboratory; the grains are the EMPA grain mounts, 'low in inclusions, [but] not devoid of them' (§3.3)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Pallasite olivine"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "preAblationSurfaceTreatmentDefault",
+            "schema:name": "Pre Ablation Surface Treatment",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N — grains imaged by SEM to locate inclusion-free regions"
+          }
+        ],
+        "schema:description": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:description": "missing",
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N — parameters lost"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "filteringApproachDefault",
+            "schema:name": "Filtering Approach",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "Time steps with enhanced count rates from inclusions or heterogeneity excluded from the data reduction — §3.3"
+          },
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N — parameters lost"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from inclusions, checked by SEM beforehand — the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
   "schema:additionalProperty": [
     {
@@ -58,6 +151,28 @@
       "schema:defaultValue": "SEM imaging of the grain mounts, used to place the spots — \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5); the grains are the same mounts already used for EMPA (p.5)"
     },
     {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A — spot mode"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N — parameters lost"
+    },
+    {
       "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
       "@type": [
         "schema:PropertyValue"
@@ -68,14 +183,14 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (75 µm circular)"
+      "schema:value": "N/A — a single pass"
     }
   ],
   "schema:instrument": [
     {
       "schema:additionalType": [
         "ICPMS",
-        "Single-collector sector-field (SF-ICP-MS)",
+        "Magnetic-sector — 'magnetic-sector Thermo Fisher Element-XR ICP-MS' (§3.3)",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
@@ -86,52 +201,60 @@
           "schema:ProductModel"
         ]
       },
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Medium resolution (m/Δm ≈ 4000)"
-        }
-      ],
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "ICP Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "Interface Cone",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/Interface-Cone"
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/configuration",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "configuration",
+              "schema:name": "Configuration",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "N — parameters lost"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/Interface-Cone",
+          "schema:name": "missing"
+        },
+        {
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "rfPowerDefault",
+              "schema:name": "RF Power",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": "N — parameters lost"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
+          "schema:name": "missing"
         },
         {
           "@type": [
@@ -148,6 +271,57 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSettingDefault",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Medium (m/Δm of 4000) — §3.3"
+        },
+        {
+          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "detectorConfiguration",
+          "schema:name": "Detector Configuration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "N — parameters lost"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N — parameters lost"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "memoryEffectMitigationDefault",
+          "schema:name": "Memory Effect Mitigation",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N — parameters lost"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName",
       "schema:manufacturer": {
         "schema:name": "missing",
@@ -163,46 +337,53 @@
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/LaserAblation/laserPulseDuration",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "laserPulseDuration",
+          "schema:name": "Laser Pulse Duration",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "N — parameters lost"
+        }
+      ],
       "schema:model": {
-        "schema:name": "New Wave UP-193 (solid state, 193 nm)",
+        "schema:name": "New Wave UP-193 solid state laser — §3.3",
         "@type": [
           "schema:ProductModel"
         ]
       },
       "ada:laserType": "193 nm solid-state (New Wave UP-193)",
-      "ada:laserSpotGeometryDefault": "75 µm circular",
+      "schema:name": "N — standard cell; parameters lost",
+      "ada:laserSpotGeometryDefault": "all: 75 µm spot size — §3.3",
+      "ada:laserFluenceDefault": "N — parameters lost",
+      "ada:laserRepetitionRateDefault": "N — parameters lost",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "schema:name": "example instrumentName",
-      "ada:laserFluenceDefault": -9999,
-      "ada:laserRepetitionRateDefault": -9999
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:analysisSequenceDefault": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+  "ada:carrierGasFlowRateDefault": "N — parameters lost",
+  "ada:analysisSequenceDefault": "N — the Marjalahti control belongs to the EMPA work (§3.1)",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "²⁵Mg",
-      "²⁷Al",
-      "³¹P",
-      "⁴³Ca",
-      "⁴⁴Ca",
-      "⁴⁵Sc",
-      "⁴⁷Ti",
-      "⁴⁹Ti",
-      "⁵¹V",
-      "⁵²Cr",
-      "⁵³Cr",
-      "⁵⁹Co",
-      "⁶⁰Ni",
-      "⁶¹Ni",
-      "⁶²Ni",
-      "⁶⁴Zn",
-      "⁶⁶Zn",
-      "⁶⁹Ga",
-      "⁷¹Ga"
+      "Mg",
+      "Al",
+      "P",
+      "Ca",
+      "Sc",
+      "Ti",
+      "V",
+      "Cr",
+      "Co",
+      "Ni",
+      "Zn",
+      "Ga"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -336,74 +517,8 @@
       }
     ]
   },
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing",
-        "schema:additionalProperty": []
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "filteringApproachDefault",
-            "schema:name": "Filtering Approach",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Time steps with enhanced P, Ca, Co, Ni, Zn excluded (inclusions and heterogeneities); Grubb's test applied to EPMA data for outlier detection"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "Partially — the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters — analysis sums 100 ± 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean — are stated for the EMPA data (p.3) and are not borrowed here"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:massResolutionAssignment": "all: medium resolution (m/Δm of 4000) — §3.3",
+  "ada:backgroundCountTimeDefault": "N — the analysis parameters were lost (§3.3)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -444,22 +559,18 @@
     }
   ],
   "ada:reportedProperties": [
-    "Trace element concentrations in pallasite olivine (µg/g), reported as average analyses per sample with dispersion, the measured nuclides being \"25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V\" and others (p.5); P2O5 content is estimated where P was not in the protocol (\"the P2O5 content was probably ~1.5 wt%\", p.3)"
+    "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)"
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "all: spot mode — 'The laser was run in spot mode' (§3.3)"
   ],
-  "ada:internalStandardApproach": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described"
-  ],
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
-  "ada:internalStandardElement": "²⁵Mg (indexing element; Mg concentration from EMPA)",
-  "ada:signalIntegrationIntervalMethod": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)"
-  ],
-  "ada:primaryStandardNameDefault": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
+  "ada:ablationSpotDurationDefault": "N — parameters lost",
+  "ada:rasterLineSpacingDefault": "N/A — spot mode",
+  "ada:internalStandardApproach": "all: single element, its concentration from EMPA — '25Mg was used as the indexing element for quantification with the EMPA data used as the standardizing values' (§3.3)",
+  "ada:calibrationMeasurementFrequency": "N — parameters lost",
+  "ada:oxideProductionMethodAndThreshold": "N — parameters lost",
+  "ada:internalStandardElement": "all: Mg (²⁵Mg) — §3.3",
+  "ada:signalIntegrationIntervalMethod": "Time steps with enhanced count rates from inclusions or heterogeneity excluded — 'Analysis time steps that had enhanced count rates due to inclusions or heterogeneity were excluded from the data reduction'; inclusions show as 'time steps with enhanced P, Ca, Co, Ni and/or Zn count rates' (§3.3)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -467,16 +578,10 @@
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
-  "ada:ablationSpotDurationDefault": -9999,
-  "ada:backgroundCountTimeDefault": -9999,
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:carrierGasFlowRateDefault": "missing",
+  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
-  "ada:massResolutionAssignment": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",

@@ -112,7 +112,11 @@ WRAPPER_ITEM_REF = {
 # since items are TargetSpeciesColumn objects — and with every row writing the same append, last-one-wins.
 # It is now handled by ANALYTE_COLUMN_ARRAY below, which turns each row into a generated column def
 # rather than consuming the row's leaf.
-BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
+# ada:combinedResults holds ROW OBJECTS (the base requires schema:name on each), so a row
+# ending at its bare `[]` must not override that with its own scalar Data Type: three
+# Module_Aggregation rows do exactly that against the definer's
+# ada:combinedResults[].schema:name, which is one allOf asserting both object and string.
+BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:combinedResults"}
 
 # ada:defaultTargetSpecies and ada:defaultMonitoredProperties hold the template's DEFAULT ROWS: a
 # list of identifiers, each a bare string, a schema:DefinedTerm, OR a row object keyed by the
@@ -124,7 +128,8 @@ BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool"}
 # string|DefinedTerm makes the base's row object unsatisfiable, and every mapped row fails with
 # "{'monitoredProperty': '11B'} is not valid under any of the given schemas" while the base reads
 # as though it allows exactly that.
-DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties"}
+DEFAULT_ROW_ARRAYS = {"ada:defaultTargetSpecies", "ada:defaultMonitoredProperties",
+                      "ada:defaultTargetMaterials"}
 DEFAULT_ROW_ITEMS = {"anyOf": [{"type": "string"},
                                {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm"},
                                {"type": "object"}]}
@@ -156,6 +161,14 @@ KEYED_TABLES = {
         "identifier_ref": {
             "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
                     "#/$defs/MonitoredPropertyIdentifierColumn"
+        },
+    },
+    "ada:targetMaterialColumns": {
+        "template": "ada:targetMaterialTemplate",
+        "registry": "targetMaterialColumns",
+        "identifier_ref": {
+            "$ref": "../../../../BaseSchema/tappDefinition/schema.yaml"
+                    "#/$defs/TargetMaterialIdentifierColumn"
         },
     },
     "ada:reportedPropertyColumns": {
@@ -190,7 +203,8 @@ def normalize_path(p):
     schema side keys off the property NAME, so both grammars still emit the same array constraint."""
     return (p.replace(".ada:collectorConfiguration.ada:defaultMonitoredProperties", ".ada:defaultMonitoredProperties")
              .replace(".ada:defaultTargetSpecies[]", ".ada:defaultTargetSpecies")
-             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties"))
+             .replace(".ada:defaultMonitoredProperties[]", ".ada:defaultMonitoredProperties")
+             .replace(".ada:defaultTargetMaterials[]", ".ada:defaultTargetMaterials"))
 
 
 class AddlType:
