@@ -53,7 +53,7 @@ STAGES = [
 ]
 
 
-def run(cmd, dry, attempts=3):
+def run(cmd, dry, attempts=3, stream=False):
     """Run one stage. Retries ONLY an Errno 22 write fault, never a real build failure.
 
     Windows intermittently refuses `open(path, "w")` with `OSError: [Errno 22] Invalid argument`
@@ -66,11 +66,24 @@ def run(cmd, dry, attempts=3):
     The condition is deliberately narrow: the output must actually name Errno 22. A genuine failure
     still fails on the first attempt, because retrying a real error three times only delays it and
     buries the traceback under duplicates.
+
+    stream=True hands the child our stdout and stderr instead of capturing them, for a stage long
+    enough that silence is indistinguishable from a stall. Capture is what makes the Errno 22
+    retry possible -- it has to read the output to recognise one -- so a streamed stage cannot be
+    retried, and that is asserted rather than assumed.
     """
     printable = " ".join(x if " " not in x else f'"{x}"' for x in cmd[1:])
     if dry:
         print(f"      would run: python {printable}")
         return 0
+    if stream:
+        assert attempts == 1, "a streamed stage cannot be retried: capture is what finds Errno 22"
+        r = subprocess.run([sys.executable] + cmd[1:], cwd=ROOT)
+        if r.returncode:
+            # its output is already on the terminal, so there is no tail worth repeating
+            print(f"      FAILED: python {printable}", flush=True)
+        return r.returncode
+
     for attempt in range(1, attempts + 1):
         r = subprocess.run([sys.executable] + cmd[1:], cwd=ROOT, capture_output=True,
                            text=True, encoding="utf-8", errors="replace")
@@ -142,7 +155,10 @@ def main():
             # It is also the stage that needs the retry least: resolve_schema writes only files
             # whose bytes changed and refuses to write one whose refs did not resolve, so the next
             # ordinary run repairs whatever a lock cost. Re-run the stage, do not retry inside it.
-            fail += [(stage, "")] if run(cmd, a.dry_run, attempts=1) else []
+            # stream=True: an hour-long stage must show progress, or a stalled run
+            # cannot be told from a slow one. See run() for why this needs attempts=1.
+            fail += [(stage, "")] if run(cmd, a.dry_run, attempts=1,
+                                         stream=True) else []
         elif stage == "mirrors":
             fail += [(stage, "")] if run(["", os.path.join(TOOLS, "regenerate_schema_json.py")],
                                          a.dry_run) else []

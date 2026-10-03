@@ -173,14 +173,19 @@ def module_paths(source_path, item):
             for p in paths:
                 if p and _is_composable(p):
                     out.append((name, p))
-    # A publication cell is one scalar, so a path that ends at a scalar leaf comes first and a
-    # path ending at a bare `[]` last: the array form is a ROW AXIS whose member shape the module
-    # defines, not a slot for a transcribed value. Goodness-of-Fit is the case that showed it --
-    # Aggregation offers both ada:combinedResults[] (keyed `combined result x reported property`)
+    # A path ending at a bare `[]` is DROPPED, not merely deprioritised. That array is a ROW AXIS
+    # whose member shape the module defines; a transcribed publication cell is one scalar and does
+    # not belong at an item. Sorting such a path last was not enough -- where it was the only
+    # placement it was still used, and 134 examples ended up carrying ada:combinedResults as a
+    # bare string against a base that declares an array of objects requiring schema:name. It
+    # passed every gate because those are tapp/ examples, where the property is unconstrained.
+    #
+    # Goodness-of-Fit is why the ordering existed: Aggregation offers both ada:combinedResults[]
     # and the unkeyed dqv:hasQualityMeasurement default, and CLAUDE.md's placement rule makes the
-    # dqv one the default, which is exactly the one that does not end in an array.
-    out.sort(key=lambda mp: mp[1].rstrip().endswith("[]"))
-    return out
+    # dqv one the default. Dropping array-terminal paths selects it for the same reason, and
+    # leaves a field whose ONLY placement is a row axis with none -- which is correct: its value
+    # belongs on a row, and nothing here knows which row.
+    return [mp for mp in out if not mp[1].rstrip().endswith("[]")]
 
 
 def plan(source_path):
