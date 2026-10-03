@@ -32,7 +32,9 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   "schema:name": "solutionSficpms protocol — P0",
   "schema:description": "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors 202Hg, 203Tl, 205Tl (stated section 2.3)",
+    "ada:defaultTargetSpecies": [
+      "Pb"
+    ],
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -153,26 +155,37 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       }
-    ],
-    "ada:defaultTargetSpecies": []
+    ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Soil samples (sequential acid leach fractions; stated abstract)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Soil samples"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -198,7 +211,18 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)"
+          "schema:value": "N — the Attom's 'deflector peak jump' mode is stated (§2.4)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSettingDefault",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N — Nu Attom uses deflector peak jump; no LR/MR/HR designation stated; stated section 2.3"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -331,9 +355,34 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:numberOfScansPerReplicate": "2000 sweeps per set x 30 sets (stated section 2.3)",
-  "ada:numberOfReplicatesPerSample": "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange"
+        }
+      ],
+      "schema:name": "E-scan Range",
+      "schema:value": "N/A — Nu Attom uses deflector peak jump, not E-scan",
+      "schema:unitText": "example value"
+    },
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/tripleScanningMode",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/tripleScanningMode"
+        }
+      ],
+      "schema:name": "Triple Scanning Mode",
+      "schema:value": "N/A — Nu Attom instrument; not applicable"
+    },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
       "@type": [
@@ -347,12 +396,13 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       "schema:description": "1 ppb Tl in sample matrix (stated section 2.3)"
     }
   ],
-  "ada:driftCorrectionMethod": "N/A",
+  "ada:numberOfScansPerReplicate": "all: 30 sets of 2000 sweeps — total analysis time 4.5 min (§2.4)",
+  "ada:numberOfReplicatesPerSample": "1 — one acquisition of 30 sets of 2000 sweeps (§2.4)",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)",
+        "schema:description": "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -389,17 +439,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             "schema:value": "None"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated"
-          },
-          {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -423,10 +462,10 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       },
       {
         "schema:name": "Sample digestion",
-        "schema:description": "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken.",
+        "schema:description": "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2",
         "bios:reagent": [
           {
-            "schema:name": "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3).",
+            "schema:name": "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -478,19 +517,18 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler"
   ],
   "ada:reportedProperties": [
-    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios"
+    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb — dimensionless Pb isotope ratios (§2.4)"
   ],
-  "ada:chromatographicSeparationApplied": "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)",
+  "ada:chromatographicSeparationApplied": "None — the SC-SF-ICP-MS splits were analysed unseparated; the anion-exchange separation (§2.3) was for MC-ICP-MS",
   "ada:isotopeDilutionSpike": "None (Tl added for mass fractionation correction only, not ID)",
-  "ada:finalSolutionMatrix": "2% HNO3 + 1 ppb Tl (stated section 2.3)",
-  "ada:washTimeBetweenSamples": "10 s in two 2% HNO3 reservoirs (stated section 2.3)",
-  "ada:uncertaintyLevel": "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")",
-  "ada:blankBackgroundCorrectionMethod": "On-peak zero (10 s wash blank before each measurement; stated section 2.3)",
-  "ada:internalStandardElement": "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)",
+  "ada:finalSolutionMatrix": "all: 2% HNO3 doped with 1 ppb Tl — §2.4",
+  "ada:washTimeBetweenSamples": "10 s in each of two 2% HNO3 reservoirs, then a third reservoir for the blank — the blank solution 'was replaced every 20 samples' (§2.4)",
+  "ada:uncertaintyLevel": "2 standard errors for within-run precision; 2sd for the averages of standards — 'Typical within-run precision (2 standards errors)' (§2.4); '(2sd, n = 22)'",
+  "ada:blankBackgroundCorrectionMethod": "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction — §2.4",
+  "ada:internalStandardElement": "all: Tl (203Tl, 205Tl), for mass-bias correction — §2.4",
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM981 Common Lead Standard (stated section 2.3)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -499,6 +537,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:driftCorrectionMethod": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -538,7 +577,9 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   "schema:name": "solutionSficpms protocol \u2014 P0",
   "schema:description": "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors 202Hg, 203Tl, 205Tl (stated section 2.3)",
+    "ada:defaultTargetSpecies": [
+      "Pb"
+    ],
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -659,26 +700,37 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       }
-    ],
-    "ada:defaultTargetSpecies": []
+    ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Soil samples (sequential acid leach fractions; stated abstract)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Soil samples"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -704,7 +756,18 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)"
+          "schema:value": "N \u2014 the Attom's 'deflector peak jump' mode is stated (\u00a72.4)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSettingDefault",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 Nu Attom uses deflector peak jump; no LR/MR/HR designation stated; stated section 2.3"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -837,9 +900,34 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:numberOfScansPerReplicate": "2000 sweeps per set x 30 sets (stated section 2.3)",
-  "ada:numberOfReplicatesPerSample": "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/eScanRange"
+        }
+      ],
+      "schema:name": "E-scan Range",
+      "schema:value": "N/A \u2014 Nu Attom uses deflector peak jump, not E-scan",
+      "schema:unitText": "example value"
+    },
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/tripleScanningMode",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/tripleScanningMode"
+        }
+      ],
+      "schema:name": "Triple Scanning Mode",
+      "schema:value": "N/A \u2014 Nu Attom instrument; not applicable"
+    },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
       "@type": [
@@ -853,12 +941,13 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       "schema:description": "1 ppb Tl in sample matrix (stated section 2.3)"
     }
   ],
-  "ada:driftCorrectionMethod": "N/A",
+  "ada:numberOfScansPerReplicate": "all: 30 sets of 2000 sweeps \u2014 total analysis time 4.5 min (\u00a72.4)",
+  "ada:numberOfReplicatesPerSample": "1 \u2014 one acquisition of 30 sets of 2000 sweeps (\u00a72.4)",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)",
+        "schema:description": "Soils oven-dried (50 \u00b0C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' \u2014 \u00a72.1, \u00a72.2, \u00a72.4; the rock chips were analysed by MC-ICP-MS only",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -895,17 +984,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             "schema:value": "None"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated"
-          },
-          {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -929,10 +1007,10 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
       },
       {
         "schema:name": "Sample digestion",
-        "schema:description": "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken.",
+        "schema:description": "TD HNO3 leach (3 ml conc. HNO3, 80 \u00b0C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 \u00b0C, 48 h, evaporated); TD HNO3 (2 \u00d7 1 ml conc. HNO3, 100 \u00b0C); TD HCl (5 ml 6 M HCl, 80 \u00b0C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 \u00b0C, 15 h, then centrifuged) \u2014 \u00a72.2",
         "bios:reagent": [
           {
-            "schema:name": "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3).",
+            "schema:name": "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) \u2014 \u00a72.2",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -984,19 +1062,18 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler"
   ],
   "ada:reportedProperties": [
-    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios"
+    "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb \u2014 dimensionless Pb isotope ratios (\u00a72.4)"
   ],
-  "ada:chromatographicSeparationApplied": "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)",
+  "ada:chromatographicSeparationApplied": "None \u2014 the SC-SF-ICP-MS splits were analysed unseparated; the anion-exchange separation (\u00a72.3) was for MC-ICP-MS",
   "ada:isotopeDilutionSpike": "None (Tl added for mass fractionation correction only, not ID)",
-  "ada:finalSolutionMatrix": "2% HNO3 + 1 ppb Tl (stated section 2.3)",
-  "ada:washTimeBetweenSamples": "10 s in two 2% HNO3 reservoirs (stated section 2.3)",
-  "ada:uncertaintyLevel": "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")",
-  "ada:blankBackgroundCorrectionMethod": "On-peak zero (10 s wash blank before each measurement; stated section 2.3)",
-  "ada:internalStandardElement": "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)",
+  "ada:finalSolutionMatrix": "all: 2% HNO3 doped with 1 ppb Tl \u2014 \u00a72.4",
+  "ada:washTimeBetweenSamples": "10 s in each of two 2% HNO3 reservoirs, then a third reservoir for the blank \u2014 the blank solution 'was replaced every 20 samples' (\u00a72.4)",
+  "ada:uncertaintyLevel": "2 standard errors for within-run precision; 2sd for the averages of standards \u2014 'Typical within-run precision (2 standards errors)' (\u00a72.4); '(2sd, n = 22)'",
+  "ada:blankBackgroundCorrectionMethod": "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction \u2014 \u00a72.4",
+  "ada:internalStandardElement": "all: Tl (203Tl, 205Tl), for mass-bias correction \u2014 \u00a72.4",
   "ada:secondaryReferenceMaterialDefault": [
     "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM981 Common Lead Standard (stated section 2.3)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -1005,6 +1082,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
+  "ada:driftCorrectionMethod": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
@@ -1036,27 +1114,28 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3)." ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)" ;
+                    schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
     schema1:datePublished "missing" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
     schema1:instrument <ex:instrument/ICPMS> ;
@@ -1065,11 +1144,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — P0" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Soil samples (sequential acid leach fractions; stated abstract)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)" ;
@@ -1079,23 +1153,33 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler" ;
-    ada:blankBackgroundCorrectionMethod "On-peak zero (10 s wash blank before each measurement; stated section 2.3)" ;
+    ada:blankBackgroundCorrectionMethod "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction — §2.4" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)" ;
-    ada:driftCorrectionMethod "N/A" ;
-    ada:finalSolutionMatrix "2% HNO3 + 1 ppb Tl (stated section 2.3)" ;
-    ada:internalStandardElement "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)" ;
+    ada:chromatographicSeparationApplied "None — the SC-SF-ICP-MS splits were analysed unseparated; the anion-exchange separation (§2.3) was for MC-ICP-MS" ;
+    ada:driftCorrectionMethod "missing" ;
+    ada:finalSolutionMatrix "all: 2% HNO3 doped with 1 ppb Tl — §2.4" ;
+    ada:internalStandardElement "all: Tl (203Tl, 205Tl), for mass-bias correction — §2.4" ;
     ada:isotopeDilutionSpike "None (Tl added for mass fractionation correction only, not ID)" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:numberOfReplicatesPerSample "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)" ;
-    ada:numberOfScansPerReplicate "2000 sweeps per set x 30 sets (stated section 2.3)" ;
+    ada:numberOfReplicatesPerSample "1 — one acquisition of 30 sets of 2000 sweeps (§2.4)" ;
+    ada:numberOfScansPerReplicate "all: 30 sets of 2000 sweeps — total analysis time 4.5 min (§2.4)" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:primaryStandardNameDefault "NIST SRM981 Common Lead Standard (stated section 2.3)" ;
-    ada:reportedProperties "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios" ;
+    ada:reportedProperties "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb — dimensionless Pb isotope ratios (§2.4)" ;
     ada:samplingUnitType "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"" ;
     ada:secondaryReferenceMaterialDefault "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
-    ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Soil samples" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Pb" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
@@ -1113,14 +1197,14 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:targetSpeciesDeclaration "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors 202Hg, 203Tl, 205Tl (stated section 2.3)" ] ;
-    ada:uncertaintyLevel "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")" ;
-    ada:washTimeBetweenSamples "10 s in two 2% HNO3 reservoirs (stated section 2.3)" .
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+    ada:uncertaintyLevel "2 standard errors for within-run precision; 2sd for the averages of standards — 'Typical within-run precision (2 standards errors)' (§2.4); '(2sd, n = 22)'" ;
+    ada:washTimeBetweenSamples "10 s in each of two 2% HNO3 reservoirs, then a third reservoir for the blank — the blank solution 'was replaced every 20 samples' (§2.4)" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -1163,13 +1247,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "205Tl/203Tl = 2.3871 (Woodhead 2002), used to correct instrumental mass fractionation by internal normalisation with the exponential law" ;
     schema1:name "Constants Reference Values" ;
@@ -1191,6 +1268,13 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N — Nu Attom uses deflector peak jump; no LR/MR/HR designation stated; stated section 2.3" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "10 s wash in two 2% HNO3 reservoirs between samples (stated section 2.3)" ;
     schema1:name "Memory Effect Mitigation" ;
@@ -1200,7 +1284,7 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Detector Configuration" ;
-    schema1:value "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)" ;
+    schema1:value "N — the Attom's 'deflector peak jump' mode is stated (§2.4)" ;
     schema1:valueName "detectorConfiguration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -1234,6 +1318,12 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -1298,6 +1388,17 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange> a schema1:PropertyValue ;
+    schema1:name "E-scan Range" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange> ;
+    schema1:unitText "example value" ;
+    schema1:value "N/A — Nu Attom uses deflector peak jump, not E-scan" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> a schema1:PropertyValue ;
+    schema1:name "Triple Scanning Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
+    schema1:value "N/A — Nu Attom instrument; not applicable" .
+
 
 ```
 
@@ -1323,20 +1424,37 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P1",
-  "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = IS normalization (103Rh; stated Table 1).",
+  "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2).",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "REEs",
+      "Li",
+      "Be",
+      "Sc",
       "Cr",
       "Co",
       "Ni",
       "Cu",
       "Zn",
-      "Li",
+      "Ge",
       "Rb",
       "Sr",
+      "Y",
       "Cs",
-      "Ba"
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -1511,7 +1629,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 1)"
+              "schema:value": "N — RF power 1300 W (Table 1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -1642,7 +1760,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, pulse counting only (stated Table 1: counting mode)"
+          "schema:value": "Counting — Table 1 'Detection mode'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -1681,35 +1799,36 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Magnetite and pyrite (mineral separates from skarn deposits; stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg mineral powder (stated section 2.3)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "magnetite",
+      "pyrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -1750,19 +1869,9 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -1770,8 +1879,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -1796,7 +1904,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "48 h (stated section 2.3)"
+            "schema:defaultValue": "HCl-HNO3 attack: 48 h; re-dissolution: N — §2.3.1"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -1807,14 +1915,14 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 deg C (stated section 2.3)"
+            "schema:defaultValue": 3,
+            "schema:description": "HCl-HNO3 attack: 130 °C; re-dissolution: 130 °C (evaporation) — §2.3.1"
           }
         ],
-        "schema:description": "1: 6 M HCl (1.5 ml) + 8 M HNO3 (0.5 ml), 130 deg C / 48 h | 2: evaporation then re-dissolution in 10 M HCl (1.5 ml). Step 2 changes the acid, so it is a distinct attack rather than an evaporation belonging to step 1 (section 2.3.1).",
+        "schema:description": "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h",
         "bios:reagent": [
           {
-            "schema:name": "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1",
+            "schema:name": "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -1848,7 +1956,30 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
       "schema:description": "5 ng/ml Rh (stated section 2.3)"
     }
   ],
-  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "~100 mg mineral powder (stated section 2.3)"
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1868,17 +1999,17 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\""
   ],
   "ada:reportedProperties": [
-    "Mass fractions of Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Rb, Sr, Ge, Cs, Ba, Y and the REE; detection limits in ng mL-1 [Table 2]. Concentration unit is not stated in the Table 4 header"
+    "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header"
   ],
   "ada:chromatographicSeparationApplied": "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)",
   "ada:isotopeDilutionSpike": "None (external calibration used; stated section 2.3)",
-  "ada:finalSolutionMatrix": "2% HNO3 + 5 ng/ml Rh (stated section 2.3)",
-  "ada:washTimeBetweenSamples": "60 s (Table 1)",
+  "ada:finalSolutionMatrix": "all: 2% HNO3 containing 5 ng/mL Rh — §2.3.2",
+  "ada:washTimeBetweenSamples": "60 s — Table 1; '1 min with 3% v/v HNO3' (§2.1)",
   "ada:uncertaintyLevel": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"",
-  "ada:blankBackgroundCorrectionMethod": "Solution blank (stated section 2.3)",
-  "ada:internalStandardElement": "Rh (103Rh; Table 1)",
+  "ada:blankBackgroundCorrectionMethod": "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described",
+  "ada:internalStandardElement": "all: Rh (103Rh) — Table 1",
   "ada:secondaryReferenceMaterialDefault": [
-    "FER-2 and geological RMs in Table 5 (BHVO-2, BCR-2, etc.; stated section 2.3.2)"
+    "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)"
   ],
   "schema:variableMeasured": [
     {
@@ -1892,7 +2023,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -1928,20 +2058,37 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P1",
-  "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = IS normalization (103Rh; stated Table 1).",
+  "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard \u2014 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL\u22121 in the sample, calibration, and blank solutions' (\u00a72.2).",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "REEs",
+      "Li",
+      "Be",
+      "Sc",
       "Cr",
       "Co",
       "Ni",
       "Cu",
       "Zn",
-      "Li",
+      "Ge",
       "Rb",
       "Sr",
+      "Y",
       "Cs",
-      "Ba"
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -2116,7 +2263,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 1)"
+              "schema:value": "N \u2014 RF power 1300 W (Table 1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -2247,7 +2394,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, pulse counting only (stated Table 1: counting mode)"
+          "schema:value": "Counting \u2014 Table 1 'Detection mode'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -2286,35 +2433,36 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Magnetite and pyrite (mineral separates from skarn deposits; stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg mineral powder (stated section 2.3)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "magnetite",
+      "pyrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -2355,19 +2503,9 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 \u00d7 SD of six procedural blanks (MDL) \u2014 Table 2 note; the IDL is 3 \u00d7 SD of six replicate measurements of 2% HNO3",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -2375,8 +2513,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -2401,7 +2538,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "48 h (stated section 2.3)"
+            "schema:defaultValue": "HCl-HNO3 attack: 48 h; re-dissolution: N \u2014 \u00a72.3.1"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -2412,14 +2549,14 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 deg C (stated section 2.3)"
+            "schema:defaultValue": 3,
+            "schema:description": "HCl-HNO3 attack: 130 \u00b0C; re-dissolution: 130 \u00b0C (evaporation) \u2014 \u00a72.3.1"
           }
         ],
-        "schema:description": "1: 6 M HCl (1.5 ml) + 8 M HNO3 (0.5 ml), 130 deg C / 48 h | 2: evaporation then re-dissolution in 10 M HCl (1.5 ml). Step 2 changes the acid, so it is a distinct attack rather than an evaporation belonging to step 1 (section 2.3.1).",
+        "schema:description": "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 \u00b0C, 48 h); re-dissolution (evaporated at 130 \u00b0C close to dryness, then 1.5 ml 10 M HCl) \u2014 \u00a72.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 \u00b0C for at least 48 h, then 1.5 ml 10 M HCl for 24 h",
         "bios:reagent": [
           {
-            "schema:name": "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1",
+            "schema:name": "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl \u2014 \u00a72.3.1",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -2453,7 +2590,30 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
       "schema:description": "5 ng/ml Rh (stated section 2.3)"
     }
   ],
-  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "~100 mg mineral powder (stated section 2.3)"
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2473,17 +2633,17 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\""
   ],
   "ada:reportedProperties": [
-    "Mass fractions of Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Rb, Sr, Ge, Cs, Ba, Y and the REE; detection limits in ng mL-1 [Table 2]. Concentration unit is not stated in the Table 4 header"
+    "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (\u00b5g/g) \u2014 Table 3 (FER-2) in \u00b5g g\u207b\u00b9; the unit of Table 4 (samples) is not stated in its header"
   ],
   "ada:chromatographicSeparationApplied": "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)",
   "ada:isotopeDilutionSpike": "None (external calibration used; stated section 2.3)",
-  "ada:finalSolutionMatrix": "2% HNO3 + 5 ng/ml Rh (stated section 2.3)",
-  "ada:washTimeBetweenSamples": "60 s (Table 1)",
+  "ada:finalSolutionMatrix": "all: 2% HNO3 containing 5 ng/mL Rh \u2014 \u00a72.3.2",
+  "ada:washTimeBetweenSamples": "60 s \u2014 Table 1; '1 min with 3% v/v HNO3' (\u00a72.1)",
   "ada:uncertaintyLevel": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"",
-  "ada:blankBackgroundCorrectionMethod": "Solution blank (stated section 2.3)",
-  "ada:internalStandardElement": "Rh (103Rh; Table 1)",
+  "ada:blankBackgroundCorrectionMethod": "N \u2014 a blank solution in 2% HNO3 is part of the calibration set (\u00a72.2); the blank correction is not described",
+  "ada:internalStandardElement": "all: Rh (103Rh) \u2014 Table 1",
   "ada:secondaryReferenceMaterialDefault": [
-    "FER-2 and geological RMs in Table 5 (BHVO-2, BCR-2, etc.; stated section 2.3.2)"
+    "FER-2 \u2014 iron-formation reference material (CCRMP), 'used to validate of the proposed method' (\u00a72.2)"
   ],
   "schema:variableMeasured": [
     {
@@ -2497,7 +2657,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -2520,12 +2679,10 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -2534,24 +2691,25 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 6 M HCl (1.5 ml) + 8 M HNO3 (0.5 ml), 130 deg C / 48 h | 2: evaporation then re-dissolution in 10 M HCl (1.5 ml). Step 2 changes the acid, so it is a distinct attack rather than an evaporation belonging to step 1 (section 2.3.1)." ;
+                    schema1:description "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Step 1: 6M HCl (1.5 ml) + 8M HNO3 (0.5 ml); Step 2: 10M HCl (1.5 ml) for re-dissolution; stated section 2.3.1" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                            schema1:name "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = IS normalization (103Rh; stated Table 1)." ;
+    schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing (affiliation)" ] ;
@@ -2561,39 +2719,64 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Magnetite and pyrite (mineral separates from skarn deposits; stated abstract)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\"" ;
-    ada:blankBackgroundCorrectionMethod "Solution blank (stated section 2.3)" ;
+    ada:blankBackgroundCorrectionMethod "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described" ;
     ada:calibrationMeasurementFrequency "missing" ;
     ada:chromatographicSeparationApplied "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)" ;
-    ada:driftCorrectionMethod "IS normalization" ;
-    ada:finalSolutionMatrix "2% HNO3 + 5 ng/ml Rh (stated section 2.3)" ;
-    ada:internalStandardElement "Rh (103Rh; Table 1)" ;
+    ada:driftCorrectionMethod "N/A" ;
+    ada:finalSolutionMatrix "all: 2% HNO3 containing 5 ng/mL Rh — §2.3.2" ;
+    ada:internalStandardElement "all: Rh (103Rh) — Table 1" ;
     ada:isotopeDilutionSpike "None (external calibration used; stated section 2.3)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Mass fractions of Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Rb, Sr, Ge, Cs, Ba, Y and the REE; detection limits in ng mL-1 [Table 2]. Concentration unit is not stated in the Table 4 header" ;
+    ada:reportedProperties "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header" ;
     ada:samplingUnitType "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"" ;
-    ada:secondaryReferenceMaterialDefault "FER-2 and geological RMs in Table 5 (BHVO-2, BCR-2, etc.; stated section 2.3.2)" ;
+    ada:secondaryReferenceMaterialDefault "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "magnetite",
+                "pyrite" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ba",
+                "Be",
+                "Ce",
                 "Co",
                 "Cr",
                 "Cs",
                 "Cu",
+                "Dy",
+                "Er",
+                "Eu",
+                "Gd",
+                "Ge",
+                "Ho",
+                "La",
                 "Li",
+                "Lu",
+                "Nd",
                 "Ni",
-                "REEs",
+                "Pr",
                 "Rb",
+                "Sc",
+                "Sm",
                 "Sr",
+                "Tb",
+                "Tm",
+                "Y",
+                "Yb",
                 "Zn" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -2615,7 +2798,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"" ;
-    ada:washTimeBetweenSamples "60 s (Table 1)" .
+    ada:washTimeBetweenSamples "60 s — Table 1; '1 min with 3% v/v HNO3' (§2.1)" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -2667,13 +2850,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 9.6e-01 ;
     schema1:description "0.96 L/min (Table 1)" ;
@@ -2720,7 +2896,7 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Normal plasma (1300 W; Table 1)" ;
+    schema1:value "N — RF power 1300 W (Table 1)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -2742,21 +2918,21 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Detector Configuration" ;
-    schema1:value "Single SEM, pulse counting only (stated Table 1: counting mode)" ;
+    schema1:value "Counting — Table 1 'Detection mode'" ;
     schema1:valueName "detectorConfiguration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "48 h (stated section 2.3)" ;
+    schema1:defaultValue "HCl-HNO3 attack: 48 h; re-dissolution: N — §2.3.1" ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 130 ;
-    schema1:description "130 deg C (stated section 2.3)" ;
+    schema1:defaultValue 3 ;
+    schema1:description "HCl-HNO3 attack: 130 °C; re-dissolution: 130 °C (evaporation) — §2.3.1" ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -2800,6 +2976,12 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
     schema1:valueName "sampleUptakeRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -2889,9 +3071,11 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P2",
-  "schema:description": "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2).",
+  "schema:description": "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples — 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (§2.7).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS; stated section 2.1.2",
+    "ada:defaultTargetSpecies": [
+      "Ti"
+    ],
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -3012,8 +3196,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       }
-    ],
-    "ada:defaultTargetSpecies": []
+    ]
   },
   "schema:instrument": [
     {
@@ -3066,7 +3249,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1.1 kW; stated section 2.1.2)"
+              "schema:value": "N — plasma power 1.1 kW (Table 1b)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -3219,7 +3402,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, pulse counting (stated section 2.1.2)"
+          "schema:value": "Pulse counting mode — §2.1.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
@@ -3241,7 +3424,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)"
+          "schema:defaultValue": "0.5 mol/l HF carrier and wash solution; ~3 min wash per sample — §2.1.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -3269,23 +3452,38 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials and carbonaceous chondrites (basalt, andesite, peridotite, chondrites; stated section 2.5)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "peridotite",
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -3325,31 +3523,10 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations with Nb as ID internal standard for Ti (stated section 2.1.2)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated"
-          },
-          {
-            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "constantsReferenceValuesDefault",
-            "schema:name": "Constants Reference Values",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated"
+            "schema:value": "N — Ti is determined by internal standardisation, not isotope dilution"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3σ — Table 2b",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3357,8 +3534,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -3373,12 +3549,24 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "TFM bomb (TFM-981; stated section 2.1.1)"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 70,
+            "schema:description": "ultrasonic HF decomposition: <70 °C; bomb HF decomposition: 245 °C; re-dissolution: N — abstract"
           }
         ],
-        "schema:description": "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging.",
+        "schema:description": "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 30 mol/l HF, 245 °C, mannitol added); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5",
         "bios:reagent": [
           {
-            "schema:name": "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)",
+            "schema:name": "ultrasonic HF decomposition: HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -3398,22 +3586,9 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:HowTo"
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
-  "ada:numberOfScansPerReplicate": "30 scans in 50 s (stated section 2.1.2)",
-  "ada:analysisSequenceDefault": "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:numberOfScansPerReplicate": "all: 30 scans in 50 s — Table 1b 'Middle resolution 50 s with 30 scans (continuous nebulization)'",
+  "ada:analysisSequenceDefault": "Standard solution every two samples; each sample measurement ~6 min, including ~3 min washing — §2.1.2",
+  "ada:driftCorrectionMethod": "N/A",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3433,7 +3608,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
         "schema:name": "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)",
-        "schema:description": "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1"
+        "schema:description": "The SF-ICP-MS measures Ti as the (47Ti + 49Ti)/93Nb ratio; the Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta on the same solutions and gives the Nb concentration used for Ti — abstract; §2.7"
       },
       "@type": [
         "schema:CreativeWork"
@@ -3446,17 +3621,19 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\""
   ],
   "ada:reportedProperties": [
-    "Ti and Nb mass fractions by ICP-SFMS (ug g-1); TiO2 also reported; detection limits in solution (ng g-1) and in rock (ug g-1) [Table 2b]"
+    "Ti (µg/g); TiO2 — Ti by ICP-SFMS; Nb is from the ICP-QMS. Detection limits in solution (ng/g) and in rock (µg/g) in Table 2b"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.2)",
-  "ada:washTimeBetweenSamples": "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)",
+  "ada:isotopeDilutionSpike": "N — Ti is not spiked; the Zr–Hf and Mo–Sn–Sb spikes serve the ICP-QMS elements",
+  "ada:finalSolutionMatrix": "all: 0.5 mol/l HF with mannitol, diluted — 'The mannitol and HF concentrations in all samples and standard solutions were diluted to be similar to each other' (§2.5)",
+  "ada:washTimeBetweenSamples": "~3 min with 0.5 mol/l HF — §2.1.2; Table 1b: background measured before each sample 'after 200 s wash'",
   "ada:uncertaintyLevel": "RSD% with observed ranges in parentheses",
   "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.2)",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.2)",
-  "ada:blankBackgroundCorrectionMethod": "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)",
-  "ada:internalStandardElement": "Nb (93Nb as ID internal standard for Ti; stated section 2.1.2)",
+  "ada:blankBackgroundCorrectionMethod": "Background measured before each sample after a 200 s wash — Table 1b",
+  "ada:internalStandardElement": "all: Nb (93Nb) — §2.1.2",
   "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological RMs and carbonaceous chondrites (stated section 2.5)"
+    "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — GSJ and USGS silicate reference materials (§2.3); the chondrites are samples"
   ],
   "schema:variableMeasured": [
     {
@@ -3464,11 +3641,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:finalSolutionMatrix": "missing",
-  "ada:isotopeDilutionSpike": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -3504,9 +3678,11 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P2",
-  "schema:description": "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2).",
+  "schema:description": "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples \u2014 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (\u00a72.7).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS; stated section 2.1.2",
+    "ada:defaultTargetSpecies": [
+      "Ti"
+    ],
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -3627,8 +3803,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
         "ada:dataType": "string"
       }
-    ],
-    "ada:defaultTargetSpecies": []
+    ]
   },
   "schema:instrument": [
     {
@@ -3681,7 +3856,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1.1 kW; stated section 2.1.2)"
+              "schema:value": "N \u2014 plasma power 1.1 kW (Table 1b)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -3834,7 +4009,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, pulse counting (stated section 2.1.2)"
+          "schema:value": "Pulse counting mode \u2014 \u00a72.1.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
@@ -3856,7 +4031,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)"
+          "schema:defaultValue": "0.5 mol/l HF carrier and wash solution; ~3 min wash per sample \u2014 \u00a72.1.2"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -3884,23 +4059,38 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials and carbonaceous chondrites (basalt, andesite, peridotite, chondrites; stated section 2.5)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "peridotite",
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -3940,31 +4130,10 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations with Nb as ID internal standard for Ti (stated section 2.1.2)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated"
-          },
-          {
-            "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "constantsReferenceValuesDefault",
-            "schema:name": "Constants Reference Values",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated"
+            "schema:value": "N \u2014 Ti is determined by internal standardisation, not isotope dilution"
           }
         ],
+        "ada:detectionLimitMethod": "all: 3\u03c3 \u2014 Table 2b",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -3972,8 +4141,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -3988,12 +4156,24 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "TFM bomb (TFM-981; stated section 2.1.1)"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 70,
+            "schema:description": "ultrasonic HF decomposition: <70 \u00b0C; bomb HF decomposition: 245 \u00b0C; re-dissolution: N \u2014 abstract"
           }
         ],
-        "schema:description": "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging.",
+        "schema:description": "ultrasonic HF decomposition (basalts and andesites, <70 \u00b0C); bomb HF decomposition (peridotites and meteorites, 30 mol/l HF, 245 \u00b0C, mannitol added); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) \u2014 abstract; \u00a72.5",
         "bios:reagent": [
           {
-            "schema:name": "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)",
+            "schema:name": "ultrasonic HF decomposition: HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF \u2014 \u00a72.5",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -4013,22 +4193,9 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:HowTo"
     ]
   },
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
-  "ada:numberOfScansPerReplicate": "30 scans in 50 s (stated section 2.1.2)",
-  "ada:analysisSequenceDefault": "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:numberOfScansPerReplicate": "all: 30 scans in 50 s \u2014 Table 1b 'Middle resolution 50 s with 30 scans (continuous nebulization)'",
+  "ada:analysisSequenceDefault": "Standard solution every two samples; each sample measurement ~6 min, including ~3 min washing \u2014 \u00a72.1.2",
+  "ada:driftCorrectionMethod": "N/A",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -4048,7 +4215,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
         "schema:name": "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)",
-        "schema:description": "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1"
+        "schema:description": "The SF-ICP-MS measures Ti as the (47Ti + 49Ti)/93Nb ratio; the Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta on the same solutions and gives the Nb concentration used for Ti \u2014 abstract; \u00a72.7"
       },
       "@type": [
         "schema:CreativeWork"
@@ -4061,17 +4228,19 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\""
   ],
   "ada:reportedProperties": [
-    "Ti and Nb mass fractions by ICP-SFMS (ug g-1); TiO2 also reported; detection limits in solution (ng g-1) and in rock (ug g-1) [Table 2b]"
+    "Ti (\u00b5g/g); TiO2 \u2014 Ti by ICP-SFMS; Nb is from the ICP-QMS. Detection limits in solution (ng/g) and in rock (\u00b5g/g) in Table 2b"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.2)",
-  "ada:washTimeBetweenSamples": "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)",
+  "ada:isotopeDilutionSpike": "N \u2014 Ti is not spiked; the Zr\u2013Hf and Mo\u2013Sn\u2013Sb spikes serve the ICP-QMS elements",
+  "ada:finalSolutionMatrix": "all: 0.5 mol/l HF with mannitol, diluted \u2014 'The mannitol and HF concentrations in all samples and standard solutions were diluted to be similar to each other' (\u00a72.5)",
+  "ada:washTimeBetweenSamples": "~3 min with 0.5 mol/l HF \u2014 \u00a72.1.2; Table 1b: background measured before each sample 'after 200 s wash'",
   "ada:uncertaintyLevel": "RSD% with observed ranges in parentheses",
   "ada:calibrationMeasurementFrequency": "Every two samples (stated section 2.1.2)",
   "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 1% (stated section 2.1.2)",
-  "ada:blankBackgroundCorrectionMethod": "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)",
-  "ada:internalStandardElement": "Nb (93Nb as ID internal standard for Ti; stated section 2.1.2)",
+  "ada:blankBackgroundCorrectionMethod": "Background measured before each sample after a 200 s wash \u2014 Table 1b",
+  "ada:internalStandardElement": "all: Nb (93Nb) \u2014 \u00a72.1.2",
   "ada:secondaryReferenceMaterialDefault": [
-    "USGS and GSJ geological RMs and carbonaceous chondrites (stated section 2.5)"
+    "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 \u2014 GSJ and USGS silicate reference materials (\u00a72.3); the chondrites are samples"
   ],
   "schema:variableMeasured": [
     {
@@ -4079,11 +4248,8 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:finalSolutionMatrix": "missing",
-  "ada:isotopeDilutionSpike": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -4107,73 +4273,79 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 30 mol/l HF, 245 °C, mannitol added); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "ultrasonic HF decomposition: HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
+                    ada:detectionLimitMethod "all: 3σ — Table 2b" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2 Reported detail: ada:driftCorrectionMethod = Standard bracketing (standard every two samples; stated section 2.1.2)." ;
+    schema1:description "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples — 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (§2.7)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — P2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Geological reference materials and carbonaceous chondrites (basalt, andesite, peridotite, chondrites; stated section 2.5)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:description "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1" ;
+            schema1:target [ schema1:description "The SF-ICP-MS measures Ti as the (47Ti + 49Ti)/93Nb ratio; the Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta on the same solutions and gives the Nb concentration used for Ti — abstract; §2.7" ;
                     schema1:name "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)" ;
+    ada:analysisSequenceDefault "Standard solution every two samples; each sample measurement ~6 min, including ~3 min washing — §2.1.2" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\"" ;
-    ada:blankBackgroundCorrectionMethod "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)" ;
+    ada:blankBackgroundCorrectionMethod "Background measured before each sample after a 200 s wash — Table 1b" ;
     ada:calibrationMeasurementFrequency "Every two samples (stated section 2.1.2)" ;
     ada:chromatographicSeparationApplied "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.2)" ;
-    ada:driftCorrectionMethod "Standard bracketing" ;
-    ada:finalSolutionMatrix "missing" ;
-    ada:internalStandardElement "Nb (93Nb as ID internal standard for Ti; stated section 2.1.2)" ;
-    ada:isotopeDilutionSpike "missing" ;
+    ada:driftCorrectionMethod "N/A" ;
+    ada:finalSolutionMatrix "all: 0.5 mol/l HF with mannitol, diluted — 'The mannitol and HF concentrations in all samples and standard solutions were diluted to be similar to each other' (§2.5)" ;
+    ada:internalStandardElement "all: Nb (93Nb) — §2.1.2" ;
+    ada:isotopeDilutionSpike "N — Ti is not spiked; the Zr–Hf and Mo–Sn–Sb spikes serve the ICP-QMS elements" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:numberOfScansPerReplicate "30 scans in 50 s (stated section 2.1.2)" ;
+    ada:numberOfScansPerReplicate "all: 30 scans in 50 s — Table 1b 'Middle resolution 50 s with 30 scans (continuous nebulization)'" ;
     ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 1% (stated section 2.1.2)" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Ti and Nb mass fractions by ICP-SFMS (ug g-1); TiO2 also reported; detection limits in solution (ng g-1) and in rock (ug g-1) [Table 2b]" ;
+    ada:reportedProperties "Ti (µg/g); TiO2 — Ti by ICP-SFMS; Nb is from the ICP-QMS. Detection limits in solution (ng/g) and in rock (µg/g) in Table 2b" ;
     ada:samplingUnitType "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites" ;
-    ada:secondaryReferenceMaterialDefault "USGS and GSJ geological RMs and carbonaceous chondrites (stated section 2.5)" ;
+    ada:secondaryReferenceMaterialDefault "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — GSJ and USGS silicate reference materials (§2.3); the chondrites are samples" ;
     ada:signalIntegrationIntervalMethod "missing" ;
-    ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
+                "basalt",
+                "carbonaceous chondrite",
+                "peridotite" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
@@ -4191,10 +4363,9 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:targetSpeciesDeclaration "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS; stated section 2.1.2" ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "RSD% with observed ranges in parentheses" ;
-    ada:washTimeBetweenSamples "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)" .
+    ada:washTimeBetweenSamples "~3 min with 0.5 mol/l HF — §2.1.2; Table 1b: background measured before each sample 'after 200 s wash'" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
@@ -4249,20 +4420,6 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "Torch" ;
     schema1:name "Quartz glass torch with sapphire injector (stated Table in section 2.1.2)" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated" ;
-    schema1:name "Constants Reference Values" ;
-    schema1:valueName "constantsReferenceValuesDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1.2e+00 ;
     schema1:description "1.2 L/min (stated Table in section 2.1.2)" ;
@@ -4295,7 +4452,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:value "IUPAC isotope dilution equations with Nb as ID internal standard for Ti (stated section 2.1.2)" ;
+    schema1:value "N — Ti is determined by internal standardisation, not isotope dilution" ;
     schema1:valueName "isotopeDilutionDataReductionMethod" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -4308,7 +4465,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)" ;
+    schema1:defaultValue "0.5 mol/l HF carrier and wash solution; ~3 min wash per sample — §2.1.2" ;
     schema1:name "Memory Effect Mitigation" ;
     schema1:valueName "memoryEffectMitigationDefault" ;
     ada:dataType "string" ;
@@ -4316,7 +4473,7 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Normal plasma (1.1 kW; stated section 2.1.2)" ;
+    schema1:value "N — plasma power 1.1 kW (Table 1b)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -4338,16 +4495,17 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Detector Configuration" ;
-    schema1:value "Single SEM, pulse counting (stated section 2.1.2)" ;
+    schema1:value "Pulse counting mode — §2.1.2" ;
     schema1:valueName "detectorConfiguration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
-    schema1:name "Desolvation System" ;
-    schema1:value "None" ;
-    schema1:valueName "desolvationSystem" ;
-    ada:dataType "string" ;
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 70 ;
+    schema1:description "ultrasonic HF decomposition: <70 °C; bomb HF decomposition: 245 °C; re-dissolution: N — abstract" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:valueName "digestionTemperatureDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
@@ -4386,6 +4544,12 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -4475,9 +4639,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P3",
-  "schema:description": "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2",
+  "schema:description": "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10–12 samples — 'to assess instrument drift and mass bias' (§2.4).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Mn (55Mn), Fe (57Fe), Co (59Co), Ni (62Ni), Cu (65Cu), Zn (68Zn), Cd (111Cd), Pb (207Pb) in seawater (stated Table 1)",
     "ada:defaultTargetSpecies": [
       "Mn",
       "Fe",
@@ -4485,7 +4648,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       "Ni",
       "Cu",
       "Zn",
-      "Cd"
+      "Cd",
+      "Pb"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -4660,7 +4824,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 2)"
+              "schema:value": "N — incident RF power 1300 W (Table 2)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -4805,17 +4969,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "detectorConfiguration",
-          "schema:name": "Detector Configuration",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Single SEM, dual mode (stated section 2.4)"
-        },
-        {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -4852,48 +5005,35 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Open-ocean seawater (stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 12,
-          "schema:description": "12 mL seawater (stated section 2.2)"
-        }
-      ]
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Open-ocean seawater"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -4918,7 +5058,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing"
+        "schema:description": "missing",
+        "schema:additionalProperty": []
       },
       {
         "schema:name": "Data reduction",
@@ -4932,18 +5073,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations (stated section 2.1)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated"
+            "schema:value": "Standard isotope dilution equation (de Jong et al.), with a per-element mass-bias factor applied to the sample isotope ratios — §2.5"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -4957,7 +5087,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:defaultValue": "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated"
           }
         ],
-        "ada:detectionLimitMethod": "3 sigma blank (stated section 2.4)",
+        "ada:detectionLimitMethod": "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -4968,11 +5098,32 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "schema:position": 3
       },
       {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — no digestion vessel; seawater pre-concentration"
+          }
+        ],
+        "bios:reagent": [
+          {
+            "schema:name": "N/A — seawater; pre-concentration by chelation; no acid digestion",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample digestion",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -4984,6 +5135,30 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       "schema:HowTo"
     ]
   },
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 12,
+          "schema:description": "12 mL seawater (stated section 2.2)"
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5003,19 +5178,18 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\""
   ],
   "ada:reportedProperties": [
-    "Dissolved Mn, Fe, Co, Ni, Cu, Zn, Cd and Pb concentrations in nM"
+    "Mn, Fe, Co, Ni, Cu, Zn, Cd, Pb (nM, dissolved) — dissolved concentrations in seawater"
   ],
   "ada:chromatographicSeparationApplied": "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)",
   "ada:isotopeDilutionSpike": "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)",
-  "ada:finalSolutionMatrix": "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)",
+  "ada:finalSolutionMatrix": "all: 1.0 M HNO3 — 'extracted trace elements were eluted with 1 mL of 1.0 M Q-HNO3' (§2.2)",
   "ada:uncertaintyLevel": "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\"",
   "ada:oxideProductionMethodAndThreshold": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)",
-  "ada:blankBackgroundCorrectionMethod": "Procedural blank (stated section 2.1)",
-  "ada:internalStandardElement": "None (ID method used; no external IS; stated section 2.1)",
+  "ada:blankBackgroundCorrectionMethod": "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background — §2.5",
+  "ada:internalStandardElement": "all: none — isotope dilution for Fe, Ni, Cu, Zn, Cd and Pb, standard additions for Co and Mn (§2.5)",
   "ada:secondaryReferenceMaterialDefault": [
-    "NASS-5 (certified seawater); SAFe inter-comparison samples S1 and D2 (stated section 2.4)"
+    "NASS-5; SAFe S1; SAFe D2 — NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (§2.6)"
   ],
-  "ada:primaryStandardNameDefault": "Commercial standard of natural isotopic abundance (not formally named; stated section 2.4)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -5024,7 +5198,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:driftCorrectionMethod": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
@@ -5064,9 +5237,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P3",
-  "schema:description": "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2",
+  "schema:description": "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (\u00a72.2\u20132.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10\u201312 samples \u2014 'to assess instrument drift and mass bias' (\u00a72.4).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Mn (55Mn), Fe (57Fe), Co (59Co), Ni (62Ni), Cu (65Cu), Zn (68Zn), Cd (111Cd), Pb (207Pb) in seawater (stated Table 1)",
     "ada:defaultTargetSpecies": [
       "Mn",
       "Fe",
@@ -5074,7 +5246,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       "Ni",
       "Cu",
       "Zn",
-      "Cd"
+      "Cd",
+      "Pb"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -5249,7 +5422,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 2)"
+              "schema:value": "N \u2014 incident RF power 1300 W (Table 2)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -5394,17 +5567,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "detectorConfiguration",
-          "schema:name": "Detector Configuration",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Single SEM, dual mode (stated section 2.4)"
-        },
-        {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -5441,48 +5603,35 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Open-ocean seawater (stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 12,
-          "schema:description": "12 mL seawater (stated section 2.2)"
-        }
-      ]
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Open-ocean seawater"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -5507,7 +5656,8 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing"
+        "schema:description": "missing",
+        "schema:additionalProperty": []
       },
       {
         "schema:name": "Data reduction",
@@ -5521,18 +5671,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations (stated section 2.1)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated"
+            "schema:value": "Standard isotope dilution equation (de Jong et al.), with a per-element mass-bias factor applied to the sample isotope ratios \u2014 \u00a72.5"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -5546,7 +5685,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
             "schema:defaultValue": "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated"
           }
         ],
-        "ada:detectionLimitMethod": "3 sigma blank (stated section 2.4)",
+        "ada:detectionLimitMethod": "all: 3 SD of the reagent blank \u2014 Table 5, for a 12 mL sample",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -5557,11 +5696,32 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "schema:position": 3
       },
       {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A \u2014 no digestion vessel; seawater pre-concentration"
+          }
+        ],
+        "bios:reagent": [
+          {
+            "schema:name": "N/A \u2014 seawater; pre-concentration by chelation; no acid digestion",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample digestion",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -5573,6 +5733,30 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
       "schema:HowTo"
     ]
   },
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 12,
+          "schema:description": "12 mL seawater (stated section 2.2)"
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5592,19 +5776,18 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\""
   ],
   "ada:reportedProperties": [
-    "Dissolved Mn, Fe, Co, Ni, Cu, Zn, Cd and Pb concentrations in nM"
+    "Mn, Fe, Co, Ni, Cu, Zn, Cd, Pb (nM, dissolved) \u2014 dissolved concentrations in seawater"
   ],
   "ada:chromatographicSeparationApplied": "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)",
   "ada:isotopeDilutionSpike": "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)",
-  "ada:finalSolutionMatrix": "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)",
+  "ada:finalSolutionMatrix": "all: 1.0 M HNO3 \u2014 'extracted trace elements were eluted with 1 mL of 1.0 M Q-HNO3' (\u00a72.2)",
   "ada:uncertaintyLevel": "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\"",
   "ada:oxideProductionMethodAndThreshold": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)",
-  "ada:blankBackgroundCorrectionMethod": "Procedural blank (stated section 2.1)",
-  "ada:internalStandardElement": "None (ID method used; no external IS; stated section 2.1)",
+  "ada:blankBackgroundCorrectionMethod": "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background \u2014 \u00a72.5",
+  "ada:internalStandardElement": "all: none \u2014 isotope dilution for Fe, Ni, Cu, Zn, Cd and Pb, standard additions for Co and Mn (\u00a72.5)",
   "ada:secondaryReferenceMaterialDefault": [
-    "NASS-5 (certified seawater); SAFe inter-comparison samples S1 and D2 (stated section 2.4)"
+    "NASS-5; SAFe S1; SAFe D2 \u2014 NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (\u00a72.6)"
   ],
-  "ada:primaryStandardNameDefault": "Commercial standard of natural isotopic abundance (not formally named; stated section 2.4)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -5613,7 +5796,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:driftCorrectionMethod": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,
@@ -5646,28 +5828,29 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "3 sigma blank (stated section 2.4)" ],
+                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
     schema1:datePublished "missing" ;
-    schema1:description "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2" ;
+    schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10–12 samples — 'to assess instrument drift and mass bias' (§2.4)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "National High Magnetic Field Laboratory (NHMFL), Florida State University (stated section 2.4)" ] ;
@@ -5677,35 +5860,43 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Open-ocean seawater (stated abstract)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\"" ;
-    ada:blankBackgroundCorrectionMethod "Procedural blank (stated section 2.1)" ;
+    ada:blankBackgroundCorrectionMethod "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background — §2.5" ;
     ada:calibrationMeasurementFrequency "missing" ;
     ada:chromatographicSeparationApplied "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)" ;
-    ada:driftCorrectionMethod "missing" ;
-    ada:finalSolutionMatrix "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)" ;
-    ada:internalStandardElement "None (ID method used; no external IS; stated section 2.1)" ;
+    ada:driftCorrectionMethod "N/A" ;
+    ada:finalSolutionMatrix "all: 1.0 M HNO3 — 'extracted trace elements were eluted with 1 mL of 1.0 M Q-HNO3' (§2.2)" ;
+    ada:internalStandardElement "all: none — isotope dilution for Fe, Ni, Cu, Zn, Cd and Pb, standard additions for Co and Mn (§2.5)" ;
     ada:isotopeDilutionSpike "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:numberOfScansPerReplicate -9999 ;
     ada:oxideProductionMethodAndThreshold "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)" ;
-    ada:primaryStandardNameDefault "Commercial standard of natural isotopic abundance (not formally named; stated section 2.4)" ;
-    ada:reportedProperties "Dissolved Mn, Fe, Co, Ni, Cu, Zn, Cd and Pb concentrations in nM" ;
+    ada:reportedProperties "Mn, Fe, Co, Ni, Cu, Zn, Cd, Pb (nM, dissolved) — dissolved concentrations in seawater" ;
     ada:samplingUnitType "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"" ;
-    ada:secondaryReferenceMaterialDefault "NASS-5 (certified seawater); SAFe inter-comparison samples S1 and D2 (stated section 2.4)" ;
+    ada:secondaryReferenceMaterialDefault "NASS-5; SAFe S1; SAFe D2 — NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (§2.6)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Open-ocean seawater" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Cd",
                 "Co",
                 "Cu",
                 "Fe",
                 "Mn",
                 "Ni",
+                "Pb",
                 "Zn" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -5725,16 +5916,14 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:targetSpeciesDeclaration "Mn (55Mn), Fe (57Fe), Co (59Co), Ni (62Ni), Cu (65Cu), Zn (68Zn), Cd (111Cd), Pb (207Pb) in seawater (stated Table 1)" ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\"" ;
     ada:washTimeBetweenSamples -9999 .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)" ;
@@ -5782,13 +5971,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated" ;
     schema1:name "Constants Reference Values" ;
@@ -5828,7 +6010,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:value "IUPAC isotope dilution equations (stated section 2.1)" ;
+    schema1:value "Standard isotope dilution equation (de Jong et al.), with a per-element mass-bias factor applied to the sample isotope ratios — §2.5" ;
     schema1:valueName "isotopeDilutionDataReductionMethod" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -5842,7 +6024,7 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Normal plasma (1300 W; Table 2)" ;
+    schema1:value "N — incident RF power 1300 W (Table 2)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -5862,17 +6044,10 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
-    schema1:name "Detector Configuration" ;
-    schema1:value "Single SEM, dual mode (stated section 2.4)" ;
-    schema1:valueName "detectorConfiguration" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
-    schema1:name "Desolvation System" ;
-    schema1:value "None" ;
-    schema1:valueName "desolvationSystem" ;
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
+    schema1:name "Digestion Vessel Type" ;
+    schema1:value "N/A — no digestion vessel; seawater pre-concentration" ;
+    schema1:valueName "digestionVesselType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5913,6 +6088,12 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -6002,9 +6183,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — P4",
-  "schema:description": "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1).",
+  "schema:description": "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3) Reported detail: ada:driftCorrectionMethod = N — the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (§2.3.1).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Li, B, Na, Mg, Al, Mn, Fe, Zn, Sr, Cd, Ba, U as Me/Ca ratios in foraminifera (stated section 2.3)",
     "ada:defaultTargetSpecies": [
       "Li",
       "B",
@@ -6016,7 +6196,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       "Zn",
       "Sr",
       "Cd",
-      "Ba"
+      "Ba",
+      "U"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -6140,35 +6321,136 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       }
     ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Foraminifera calcite (benthic and planktonic species; stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 1,
-          "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Foraminifera calcite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data acquisition",
+        "schema:description": "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "all: detector cross-calibration between pulse and analog modes performed daily — §2.3.1"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "None"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A — simple dissolution; stated section 2.4"
+          }
+        ],
+        "schema:description": "dissolution (minimum volume of 1 M HNO3, 40–60 µL, then centrifuged 2 min at 10,000 rpm) — §2.4",
+        "bios:reagent": [
+          {
+            "schema:name": "dissolution: 1 M HNO3 — §2.4",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6290,7 +6572,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1250 W; Table 1)"
+              "schema:value": "N — RF power 1250 W (Table 1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -6337,7 +6619,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)"
+          "schema:value": "Dual mode, fixed for each isotope: counting for 7Li, 11B, 111Cd, 137Ba, 238U, 55Mn, 56Fe, 66Zn and analog for 25Mg, 27Al, 43Ca, 87Sr, 23Na — Tables 1 and 3; 'measured at a fixed detection mode to avoid detection mode switch (pulse to analog) during analysis' (§2.3.1)"
         },
         {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
@@ -6387,18 +6669,34 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
+  "ada:numberOfScansPerReplicate": "LR: 15 passes × 3 runs; MR: 5 passes × 3 runs — Table 3; Table 1 prints 3 passes for MR",
+  "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
+  "ada:analysisSequenceDefault": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) — §2.3.1",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
     {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
       ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 1,
+          "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
+        }
+      ]
+    }
+  ],
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
       "@type": [
@@ -6411,108 +6709,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       "schema:value": "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated"
     }
   ],
-  "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
-  "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
-  "ada:analysisSequenceDefault": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:description": "1: 1 M HNO3, minimum volume for dissolution, ambient (section 2.4).",
-        "bios:reagent": [
-          {
-            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:numberOfAcquisitionPasses": "2 — low and medium resolution (Tables 1 and 3)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6532,20 +6729,19 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer"
   ],
   "ada:reportedProperties": [
-    "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
+    "B/Ca (µmol/mol); Li/Ca, Mg/Ca, Al/Ca, Sr/Ca, Cd/Ca, Ba/Ca, U/Ca, Na/Ca, Mn/Ca, Fe/Ca, Zn/Ca (µmol/mol or mmol/mol) — Me/Ca ratios; Li, Mg, Al, Sr, Cd, Ba and U in low resolution, Na, Mn, Fe and Zn in medium (Table 3)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct dissolution analysis; stated section 2.4)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:finalSolutionMatrix": "0.1 M HNO3 + 0.3 M HF (Table 1)",
+  "ada:finalSolutionMatrix": "all: 0.1 M HNO3 + 0.3 M HF — 'The acid matrix containing HF was used only in the final dilution step'",
   "ada:washTimeBetweenSamples": "120 s (Table 1)",
   "ada:uncertaintyLevel": "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)",
-  "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
+  "ada:calibrationMeasurementFrequency": "Standard 3 brackets each block of seven samples — §2.3.1",
   "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2.3.1)",
+  "ada:internalStandardElement": "all: none — Me/Ca ratios, with Ca measured in both resolutions",
   "ada:secondaryReferenceMaterialDefault": [
-    "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
+    "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)"
   ],
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -6553,7 +6749,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -6589,9 +6784,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P4",
-  "schema:description": "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1).",
+  "schema:description": "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (\u00a72.3) Reported detail: ada:driftCorrectionMethod = N \u2014 the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (\u00a72.3.1).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Li, B, Na, Mg, Al, Mn, Fe, Zn, Sr, Cd, Ba, U as Me/Ca ratios in foraminifera (stated section 2.3)",
     "ada:defaultTargetSpecies": [
       "Li",
       "B",
@@ -6603,7 +6797,8 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       "Zn",
       "Sr",
       "Cd",
-      "Ba"
+      "Ba",
+      "U"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -6727,35 +6922,136 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       }
     ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Foraminifera calcite (benthic and planktonic species; stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 1,
-          "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Foraminifera calcite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Handpicked 1\u20132 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 \u00b5L of supernatant diluted with 200 \u00b5L 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF \u2014 \u00a72.4; the HF-bearing matrix 'was used only in the final dilution step'",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data acquisition",
+        "schema:description": "LR; MR \u2014 low resolution (\u0394m/m = 300) and medium resolution (\u0394m/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "all: detector cross-calibration between pulse and analog modes performed daily \u2014 \u00a72.3.1"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "None"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A \u2014 simple dissolution; stated section 2.4"
+          }
+        ],
+        "schema:description": "dissolution (minimum volume of 1 M HNO3, 40\u201360 \u00b5L, then centrifuged 2 min at 10,000 rpm) \u2014 \u00a72.4",
+        "bios:reagent": [
+          {
+            "schema:name": "dissolution: 1 M HNO3 \u2014 \u00a72.4",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6877,7 +7173,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1250 W; Table 1)"
+              "schema:value": "N \u2014 RF power 1250 W (Table 1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -6924,7 +7220,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)"
+          "schema:value": "Dual mode, fixed for each isotope: counting for 7Li, 11B, 111Cd, 137Ba, 238U, 55Mn, 56Fe, 66Zn and analog for 25Mg, 27Al, 43Ca, 87Sr, 23Na \u2014 Tables 1 and 3; 'measured at a fixed detection mode to avoid detection mode switch (pulse to analog) during analysis' (\u00a72.3.1)"
         },
         {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
@@ -6974,18 +7270,34 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
+  "ada:numberOfScansPerReplicate": "LR: 15 passes \u00d7 3 runs; MR: 5 passes \u00d7 3 runs \u2014 Table 3; Table 1 prints 3 passes for MR",
+  "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
+  "ada:analysisSequenceDefault": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) \u2014 \u00a72.3.1",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
     {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
       ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 1,
+          "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
+        }
+      ]
+    }
+  ],
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
       "@type": [
@@ -6998,108 +7310,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
       "schema:value": "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated"
     }
   ],
-  "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
-  "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
-  "ada:analysisSequenceDefault": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:description": "1: 1 M HNO3, minimum volume for dissolution, ambient (section 2.4).",
-        "bios:reagent": [
-          {
-            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:numberOfAcquisitionPasses": "2 \u2014 low and medium resolution (Tables 1 and 3)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7119,20 +7330,19 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer"
   ],
   "ada:reportedProperties": [
-    "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
+    "B/Ca (\u00b5mol/mol); Li/Ca, Mg/Ca, Al/Ca, Sr/Ca, Cd/Ca, Ba/Ca, U/Ca, Na/Ca, Mn/Ca, Fe/Ca, Zn/Ca (\u00b5mol/mol or mmol/mol) \u2014 Me/Ca ratios; Li, Mg, Al, Sr, Cd, Ba and U in low resolution, Na, Mn, Fe and Zn in medium (Table 3)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct dissolution analysis; stated section 2.4)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:finalSolutionMatrix": "0.1 M HNO3 + 0.3 M HF (Table 1)",
+  "ada:finalSolutionMatrix": "all: 0.1 M HNO3 + 0.3 M HF \u2014 'The acid matrix containing HF was used only in the final dilution step'",
   "ada:washTimeBetweenSamples": "120 s (Table 1)",
   "ada:uncertaintyLevel": "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)",
-  "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
+  "ada:calibrationMeasurementFrequency": "Standard 3 brackets each block of seven samples \u2014 \u00a72.3.1",
   "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2.3.1)",
+  "ada:internalStandardElement": "all: none \u2014 Me/Ca ratios, with Ca measured in both resolutions",
   "ada:secondaryReferenceMaterialDefault": [
-    "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
+    "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix \u2014 the four Cambridge consistency standards (\u00a72.2)"
   ],
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -7140,7 +7350,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }
@@ -7163,37 +7372,36 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 1 M HNO3, minimum volume for dissolution, ambient (section 2.4)." ;
+                    schema1:description "dissolution (minimum volume of 1 M HNO3, 40–60 µL, then centrifuged 2 min at 10,000 rpm) — §2.4" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "1 M HNO3 (minimum volume for dissolution; stated section 2.4)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ],
+                            schema1:name "dissolution: 1 M HNO3 — §2.4" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
+                    schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
     schema1:datePublished "missing" ;
-    schema1:description "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1)." ;
+    schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3) Reported detail: ada:driftCorrectionMethod = N — the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (§2.3.1)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)" ] ;
@@ -7203,29 +7411,36 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Foraminifera calcite (benthic and planktonic species; stated abstract)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)" ;
+    ada:analysisSequenceDefault "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) — §2.3.1" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "Bracketing blocks of 7 samples (stated section 2.3.1)" ;
+    ada:calibrationMeasurementFrequency "Standard 3 brackets each block of seven samples — §2.3.1" ;
     ada:chromatographicSeparationApplied "None (direct dissolution analysis; stated section 2.4)" ;
-    ada:driftCorrectionMethod "Standard bracketing" ;
-    ada:finalSolutionMatrix "0.1 M HNO3 + 0.3 M HF (Table 1)" ;
-    ada:internalStandardElement "None (matrix-matched external calibration; stated section 2.3.1)" ;
+    ada:driftCorrectionMethod "N/A" ;
+    ada:finalSolutionMatrix "all: 0.1 M HNO3 + 0.3 M HF — 'The acid matrix containing HF was used only in the final dilution step'" ;
+    ada:internalStandardElement "all: none — Me/Ca ratios, with Ca measured in both resolutions" ;
     ada:isotopeDilutionSpike "None" ;
-    ada:numberOfAcquisitionPasses -9999 ;
+    ada:numberOfAcquisitionPasses "2 — low and medium resolution (Tables 1 and 3)" ;
     ada:numberOfReplicatesPerSample "3 runs (LR and MR; Table 3)" ;
-    ada:numberOfScansPerReplicate "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)" ;
+    ada:numberOfScansPerReplicate "LR: 15 passes × 3 runs; MR: 5 passes × 3 runs — Table 3; Table 1 prints 3 passes for MR" ;
     ada:oxideProductionMethodAndThreshold "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)" ;
-    ada:primaryStandardNameDefault "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)" ;
-    ada:reportedProperties "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol" ;
+    ada:reportedProperties "B/Ca (µmol/mol); Li/Ca, Mg/Ca, Al/Ca, Sr/Ca, Cd/Ca, Ba/Ca, U/Ca, Na/Ca, Mn/Ca, Fe/Ca, Zn/Ca (µmol/mol or mmol/mol) — Me/Ca ratios; Li, Mg, Al, Sr, Cd, Ba and U in low resolution, Na, Mn, Fe and Zn in medium (Table 3)" ;
     ada:samplingUnitType "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"" ;
-    ada:secondaryReferenceMaterialDefault "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)" ;
+    ada:secondaryReferenceMaterialDefault "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Foraminifera calcite" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "B",
                 "Ba",
@@ -7236,6 +7451,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
                 "Mn",
                 "Na",
                 "Sr",
+                "U",
                 "Zn" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -7255,8 +7471,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:targetSpeciesDeclaration "Li, B, Na, Mg, Al, Mn, Fe, Zn, Sr, Cd, Ba, U as Me/Ca ratios in foraminifera (stated section 2.3)" ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)" ;
     ada:washTimeBetweenSamples "120 s (Table 1)" .
 
@@ -7310,13 +7525,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> a schema1:PropertyValueSpecification ;
     schema1:name "Configuration" ;
     schema1:value "Pt-normal sampler + Pt-H skimmer (Table 1)" ;
@@ -7361,7 +7569,7 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Normal plasma (1250 W; Table 1)" ;
+    schema1:value "N — RF power 1250 W (Table 1)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -7383,22 +7591,22 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Detector Configuration" ;
-    schema1:value "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)" ;
+    schema1:value "Dual mode, fixed for each isotope: counting for 7Li, 11B, 111Cd, 137Ba, 238U, 55Mn, 56Fe, 66Zn and analog for 25Mg, 27Al, 43Ca, 87Sr, 23Na — Tables 1 and 3; 'measured at a fixed detection mode to avoid detection mode switch (pulse to analog) during analysis' (§2.3.1)" ;
     schema1:valueName "detectorConfiguration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)" ;
+    schema1:defaultValue "all: detector cross-calibration between pulse and analog modes performed daily — §2.3.1" ;
     schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
-    schema1:name "Desolvation System" ;
-    schema1:value "None" ;
-    schema1:valueName "desolvationSystem" ;
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
+    schema1:name "Digestion Vessel Type" ;
+    schema1:value "N/A — simple dissolution; stated section 2.4" ;
+    schema1:valueName "digestionVesselType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -7431,6 +7639,12 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -7520,7 +7734,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol — Willbold2005",
-  "schema:description": "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation",
+  "schema:description": "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'.",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Rb",
@@ -7723,7 +7937,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1235 W; Table 3)"
+              "schema:value": "N — RF power 1235 W (Table 3)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -7893,40 +8107,46 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials (basalt, andesite, granite, shale, peridotite, NIST glass; stated Table 2)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg (stated sample prep section)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "granite",
+      "rhyolite",
+      "shale",
+      "peridotite",
+      "synthetic glass"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Whole-rock powder (~100 mg; stated section on sample preparation)",
+        "schema:description": "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -7937,16 +8157,16 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -7961,18 +8181,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations for 12 elements; RSF ratio calibration for 14 elements (stated section on instrumentation)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated"
+            "schema:value": "Eq. 1 for the ID elements and Eq. 2 for the RSF elements, from mass-fractionation- and background-corrected mean ratios, with R_ik in Eq. 2 corrected for the spike contribution to isotope k"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -7986,6 +8195,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:defaultValue": "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". For Pb the paper compares two reference choices -- \"average Pb isotope abundances (Rosman and Taylor 1998)\" versus the BHVO-1 TIMS composition of \"Woodhead and Hergt 2000\" -- and quantifies the consequence: \"The difference between both approaches is 0.4% (concentration of Pb: 2.13 ug g-1 versus 2.14 ug g-1)\""
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -7993,8 +8203,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -8008,7 +8217,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "15 ml Savillex PFA beakers (non-refractory, hotplate); Parr bombs (refractory minerals; stated sample prep section)"
+            "schema:value": "Closed 15 ml Savillex PFA vials, placed in Parr bombs for samples with refractory minerals"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -8019,7 +8228,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "12 h (non-refractory, hotplate); 7 days (refractory, Parr bomb; stated sample prep section)"
+            "schema:defaultValue": "hotplate HF-HNO3: 12 h; bomb HF-HNO3: 7 days; other: N"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -8030,14 +8239,14 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 deg C (hotplate, non-refractory); 180 deg C (Parr bomb, refractory; stated sample prep section)"
+            "schema:defaultValue": 3,
+            "schema:description": "hotplate HF-HNO3: 130 °C; bomb HF-HNO3: 180 °C; fluoride removal: ca. 80 °C (evaporation); chloride conversion: 80 °C, then 50 °C (evaporation); final uptake: N"
           }
         ],
-        "schema:description": "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step.",
+        "schema:description": "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 °C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 °C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 °C, then evaporated at 50 °C); final uptake (5 ml 7 mol/l HNO3) — Samples and sample preparation",
         "bios:reagent": [
           {
-            "schema:name": "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l).",
+            "schema:name": "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -8057,20 +8266,47 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
       "schema:HowTo"
     ]
   },
+  "ada:numberOfScansPerReplicate": "all: 70 to 120 scans of the whole mass spectrum — for one analysis, a total acquisition time of 10 minutes per sample",
+  "ada:numberOfReplicatesPerSample": "3 — 'Triplicate determinations were performed for each digestion'",
+  "ada:analysisSequenceDefault": "N — a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "About 100 mg of whole-rock powder"
+        }
+      ]
+    }
+  ],
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
+      "schema:valueName": "filteringApproachDefault",
+      "schema:name": "Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "None"
+      "schema:defaultValue": "Dixon outlier test on each block of ten ratios — 'Generally, less than one ratio had to be excluded from the whole data set'"
     }
   ],
-  "ada:numberOfScansPerReplicate": "70-120 scans per analysis (stated section on instrumentation)",
+  "ada:numberOfAcquisitionPasses": "2 — the LR and HR solutions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8090,13 +8326,15 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\""
   ],
   "ada:reportedProperties": [
-    "Trace element mass fractions in ug g-1 -- Eqs (1) and (2) both return \"ug g-1\"; limits of detection as rock equivalents in ng g-1"
+    "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g) — Equations 1 and 2"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis; stated section on instrumentation)",
-  "ada:isotopeDilutionSpike": "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)",
-  "ada:finalSolutionMatrix": "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)",
+  "ada:chromatographicSeparationApplied": "None — 'dissolved rock samples are analysed directly by ID without previous separation'",
+  "ada:isotopeDilutionSpike": "Three multi-element spikes: MES 1 (86Sr, 135Ba, 145Nd, 149Sm, 235U), MES 2 (155Gd, 161Dy, 167Er, 171Yb, 207Pb), MES 3 (91Zr, 179Hf) — Table 1; calibrated by reverse ID against Alfa Aesar specpure solutions, spike-concentration uncertainty 0.5–1% RSD",
+  "ada:finalSolutionMatrix": "LR: 0.4 mol/l HNO3, about 120 µl of the uptake solution diluted to 50 ml (dilution factor ~21000); HR: 0.4 mol/l HNO3, 2.5 ml of the uptake solution diluted with H2O to 50 ml (dilution factor ~1000) — ca. 6 µl of a Ru-Re solution (60 µg/g Ru, 20 µg/g Re) added to each dilution",
   "ada:uncertaintyLevel": "RSD for repeatability of triplicate determinations; \"confidence intervals (1s)\"; the method result is quoted as a \"combined standard uncertainty\"",
-  "ada:internalStandardElement": "Ru and Re (in-run mass fractionation correction; ~6 uL Ru-Re solution per dilution; stated section on instrumentation)",
+  "ada:calibrationMeasurementFrequency": "Standard solution once per analytical run (e.g. once per day) — RSF values constant within 1s over at least ten hours",
+  "ada:blankBackgroundCorrectionMethod": "N — 'After correction for background and mass fractionation'; the method is not described",
+  "ada:internalStandardElement": "all: the ID-determined elements, for the RSF elements (Table 1 ratios, e.g. 93Nb/90Zr, 175Lu/172Yb) — Ru and Re are added for the mass-fractionation correction, not as internal standards",
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)"
   ],
@@ -8106,14 +8344,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:driftCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
-  "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
@@ -8150,7 +8381,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 Willbold2005",
-  "schema:description": "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation",
+  "schema:description": "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N \u2014 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'.",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Rb",
@@ -8353,7 +8584,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1235 W; Table 3)"
+              "schema:value": "N \u2014 RF power 1235 W (Table 3)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -8523,40 +8754,46 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials (basalt, andesite, granite, shale, peridotite, NIST glass; stated Table 2)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg (stated sample prep section)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "granite",
+      "rhyolite",
+      "shale",
+      "peridotite",
+      "synthetic glass"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Whole-rock powder (~100 mg; stated section on sample preparation)",
+        "schema:description": "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1\u20133), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution \u2014 cleanroom, twice sub-boiled acids (Samples and sample preparation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -8567,16 +8804,16 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "LR; HR \u2014 two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -8591,18 +8828,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations for 12 elements; RSF ratio calibration for 14 elements (stated section on instrumentation)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated"
+            "schema:value": "Eq. 1 for the ID elements and Eq. 2 for the RSF elements, from mass-fractionation- and background-corrected mean ratios, with R_ik in Eq. 2 corrected for the spike contribution to isotope k"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -8616,6 +8842,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:defaultValue": "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". For Pb the paper compares two reference choices -- \"average Pb isotope abundances (Rosman and Taylor 1998)\" versus the BHVO-1 TIMS composition of \"Woodhead and Hergt 2000\" -- and quantifies the consequence: \"The difference between both approaches is 0.4% (concentration of Pb: 2.13 ug g-1 versus 2.14 ug g-1)\""
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR \u2014 Limits of detection",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -8623,8 +8850,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -8638,7 +8864,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "15 ml Savillex PFA beakers (non-refractory, hotplate); Parr bombs (refractory minerals; stated sample prep section)"
+            "schema:value": "Closed 15 ml Savillex PFA vials, placed in Parr bombs for samples with refractory minerals"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -8649,7 +8875,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "12 h (non-refractory, hotplate); 7 days (refractory, Parr bomb; stated sample prep section)"
+            "schema:defaultValue": "hotplate HF-HNO3: 12 h; bomb HF-HNO3: 7 days; other: N"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -8660,14 +8886,14 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 deg C (hotplate, non-refractory); 180 deg C (Parr bomb, refractory; stated sample prep section)"
+            "schema:defaultValue": 3,
+            "schema:description": "hotplate HF-HNO3: 130 \u00b0C; bomb HF-HNO3: 180 \u00b0C; fluoride removal: ca. 80 \u00b0C (evaporation); chloride conversion: 80 \u00b0C, then 50 \u00b0C (evaporation); final uptake: N"
           }
         ],
-        "schema:description": "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step.",
+        "schema:description": "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 \u00b0C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 \u00b0C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 \u00b0C, then evaporated at 50 \u00b0C); final uptake (5 ml 7 mol/l HNO3) \u2014 Samples and sample preparation",
         "bios:reagent": [
           {
-            "schema:name": "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l).",
+            "schema:name": "hotplate HF-HNO3: 1\u20132 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1\u20132 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -8687,20 +8913,47 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
       "schema:HowTo"
     ]
   },
+  "ada:numberOfScansPerReplicate": "all: 70 to 120 scans of the whole mass spectrum \u2014 for one analysis, a total acquisition time of 10 minutes per sample",
+  "ada:numberOfReplicatesPerSample": "3 \u2014 'Triplicate determinations were performed for each digestion'",
+  "ada:analysisSequenceDefault": "N \u2014 a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "About 100 mg of whole-rock powder"
+        }
+      ]
+    }
+  ],
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
+      "schema:valueName": "filteringApproachDefault",
+      "schema:name": "Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "None"
+      "schema:defaultValue": "Dixon outlier test on each block of ten ratios \u2014 'Generally, less than one ratio had to be excluded from the whole data set'"
     }
   ],
-  "ada:numberOfScansPerReplicate": "70-120 scans per analysis (stated section on instrumentation)",
+  "ada:numberOfAcquisitionPasses": "2 \u2014 the LR and HR solutions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8720,13 +8973,15 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\""
   ],
   "ada:reportedProperties": [
-    "Trace element mass fractions in ug g-1 -- Eqs (1) and (2) both return \"ug g-1\"; limits of detection as rock equivalents in ng g-1"
+    "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g) \u2014 Equations 1 and 2"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis; stated section on instrumentation)",
-  "ada:isotopeDilutionSpike": "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)",
-  "ada:finalSolutionMatrix": "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)",
+  "ada:chromatographicSeparationApplied": "None \u2014 'dissolved rock samples are analysed directly by ID without previous separation'",
+  "ada:isotopeDilutionSpike": "Three multi-element spikes: MES 1 (86Sr, 135Ba, 145Nd, 149Sm, 235U), MES 2 (155Gd, 161Dy, 167Er, 171Yb, 207Pb), MES 3 (91Zr, 179Hf) \u2014 Table 1; calibrated by reverse ID against Alfa Aesar specpure solutions, spike-concentration uncertainty 0.5\u20131% RSD",
+  "ada:finalSolutionMatrix": "LR: 0.4 mol/l HNO3, about 120 \u00b5l of the uptake solution diluted to 50 ml (dilution factor ~21000); HR: 0.4 mol/l HNO3, 2.5 ml of the uptake solution diluted with H2O to 50 ml (dilution factor ~1000) \u2014 ca. 6 \u00b5l of a Ru-Re solution (60 \u00b5g/g Ru, 20 \u00b5g/g Re) added to each dilution",
   "ada:uncertaintyLevel": "RSD for repeatability of triplicate determinations; \"confidence intervals (1s)\"; the method result is quoted as a \"combined standard uncertainty\"",
-  "ada:internalStandardElement": "Ru and Re (in-run mass fractionation correction; ~6 uL Ru-Re solution per dilution; stated section on instrumentation)",
+  "ada:calibrationMeasurementFrequency": "Standard solution once per analytical run (e.g. once per day) \u2014 RSF values constant within 1s over at least ten hours",
+  "ada:blankBackgroundCorrectionMethod": "N \u2014 'After correction for background and mass fractionation'; the method is not described",
+  "ada:internalStandardElement": "all: the ID-determined elements, for the RSF elements (Table 1 ratios, e.g. 93Nb/90Zr, 175Lu/172Yb) \u2014 Ru and Re are added for the mass-fractionation correction, not as internal standards",
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)"
   ],
@@ -8736,14 +8991,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:driftCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
-  "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
@@ -8767,39 +9015,38 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l)." ] ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
+                    schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (~100 mg; stated section on sample preparation)" ;
+                    schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
+                    schema1:description "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 °C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 °C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 °C, then evaporated at 50 °C); final uptake (5 ml 7 mol/l HNO3) — Samples and sample preparation" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ] ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation" ;
+    schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Max-Planck-Institut fuer Chemie (MPIC), Mainz, Germany (affiliation)" ] ;
@@ -8809,29 +9056,42 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Geological reference materials (basalt, andesite, granite, shale, peridotite, NIST glass; stated Table 2)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analysisSequenceDefault "missing" ;
+    ada:analysisSequenceDefault "N — a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\"" ;
-    ada:blankBackgroundCorrectionMethod "missing" ;
-    ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "None (direct analysis; stated section on instrumentation)" ;
-    ada:driftCorrectionMethod "missing" ;
-    ada:finalSolutionMatrix "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)" ;
-    ada:internalStandardElement "Ru and Re (in-run mass fractionation correction; ~6 uL Ru-Re solution per dilution; stated section on instrumentation)" ;
-    ada:isotopeDilutionSpike "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)" ;
-    ada:numberOfAcquisitionPasses -9999 ;
-    ada:numberOfReplicatesPerSample -9999 ;
-    ada:numberOfScansPerReplicate "70-120 scans per analysis (stated section on instrumentation)" ;
+    ada:blankBackgroundCorrectionMethod "N — 'After correction for background and mass fractionation'; the method is not described" ;
+    ada:calibrationMeasurementFrequency "Standard solution once per analytical run (e.g. once per day) — RSF values constant within 1s over at least ten hours" ;
+    ada:chromatographicSeparationApplied "None — 'dissolved rock samples are analysed directly by ID without previous separation'" ;
+    ada:driftCorrectionMethod "N/A" ;
+    ada:finalSolutionMatrix "LR: 0.4 mol/l HNO3, about 120 µl of the uptake solution diluted to 50 ml (dilution factor ~21000); HR: 0.4 mol/l HNO3, 2.5 ml of the uptake solution diluted with H2O to 50 ml (dilution factor ~1000) — ca. 6 µl of a Ru-Re solution (60 µg/g Ru, 20 µg/g Re) added to each dilution" ;
+    ada:internalStandardElement "all: the ID-determined elements, for the RSF elements (Table 1 ratios, e.g. 93Nb/90Zr, 175Lu/172Yb) — Ru and Re are added for the mass-fractionation correction, not as internal standards" ;
+    ada:isotopeDilutionSpike "Three multi-element spikes: MES 1 (86Sr, 135Ba, 145Nd, 149Sm, 235U), MES 2 (155Gd, 161Dy, 167Er, 171Yb, 207Pb), MES 3 (91Zr, 179Hf) — Table 1; calibrated by reverse ID against Alfa Aesar specpure solutions, spike-concentration uncertainty 0.5–1% RSD" ;
+    ada:numberOfAcquisitionPasses "2 — the LR and HR solutions" ;
+    ada:numberOfReplicatesPerSample "3 — 'Triplicate determinations were performed for each digestion'" ;
+    ada:numberOfScansPerReplicate "all: 70 to 120 scans of the whole mass spectrum — for one analysis, a total acquisition time of 10 minutes per sample" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Trace element mass fractions in ug g-1 -- Eqs (1) and (2) both return \"ug g-1\"; limits of detection as rock equivalents in ng g-1" ;
+    ada:reportedProperties "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g) — Equations 1 and 2" ;
     ada:samplingUnitType "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"" ;
     ada:secondaryReferenceMaterialDefault "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
+                "basalt",
+                "granite",
+                "peridotite",
+                "rhyolite",
+                "shale",
+                "synthetic glass" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ba",
                 "Ce",
                 "Cs",
@@ -8930,13 +9190,6 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". For Pb the paper compares two reference choices -- \"average Pb isotope abundances (Rosman and Taylor 1998)\" versus the BHVO-1 TIMS composition of \"Woodhead and Hergt 2000\" -- and quantifies the consequence: \"The difference between both approaches is 0.4% (concentration of Pb: 2.13 ug g-1 versus 2.14 ug g-1)\"" ;
     schema1:name "Constants Reference Values" ;
@@ -8967,9 +9220,16 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Dixon outlier test on each block of ten ratios — 'Generally, less than one ratio had to be excluded from the whole data set'" ;
+    schema1:name "Filtering Approach" ;
+    schema1:valueName "filteringApproachDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:value "IUPAC isotope dilution equations for 12 elements; RSF ratio calibration for 14 elements (stated section on instrumentation)" ;
+    schema1:value "Eq. 1 for the ID elements and Eq. 2 for the RSF elements, from mass-fractionation- and background-corrected mean ratios, with R_ik in Eq. 2 corrected for the spike contribution to isotope k" ;
     schema1:valueName "isotopeDilutionDataReductionMethod" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -8983,7 +9243,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Normal plasma (1235 W; Table 3)" ;
+    schema1:value "N — RF power 1235 W (Table 3)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -9003,23 +9263,16 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
-    schema1:name "Desolvation System" ;
-    schema1:value "None" ;
-    schema1:valueName "desolvationSystem" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "12 h (non-refractory, hotplate); 7 days (refractory, Parr bomb; stated sample prep section)" ;
+    schema1:defaultValue "hotplate HF-HNO3: 12 h; bomb HF-HNO3: 7 days; other: N" ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 130 ;
-    schema1:description "130 deg C (hotplate, non-refractory); 180 deg C (Parr bomb, refractory; stated sample prep section)" ;
+    schema1:defaultValue 3 ;
+    schema1:description "hotplate HF-HNO3: 130 °C; bomb HF-HNO3: 180 °C; fluoride removal: ca. 80 °C (evaporation); chloride conversion: 80 °C, then 50 °C (evaporation); final uptake: N" ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -9027,7 +9280,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
     schema1:name "Digestion Vessel Type" ;
-    schema1:value "15 ml Savillex PFA beakers (non-refractory, hotplate); Parr bombs (refractory minerals; stated sample prep section)" ;
+    schema1:value "Closed 15 ml Savillex PFA vials, placed in Parr bombs for samples with refractory minerals" ;
     schema1:valueName "digestionVesselType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -9049,7 +9302,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 100 ;
-    schema1:description "~100 mg (stated sample prep section)" ;
+    schema1:description "About 100 mg of whole-rock powder" ;
     schema1:name "Sample Aliquot Mass or Volume" ;
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
@@ -9069,6 +9322,12 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -9142,7 +9401,7 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
 description: Solution sector-field (high-resolution) ICP-MS extension of the base
-  TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v82.csv
+  TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v89.csv
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -10322,69 +10581,101 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    schema:object:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              '@type':
-                contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-            required:
-            - '@type'
-          then:
-            properties:
-              schema:additionalProperty:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Target Material
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:value:
-                          type: array
-                          items:
-                            description: General description of the material type(s)
-                              this procedure is designed to analyse.
-                            anyOf:
-                            - type: string
-                              enum:
-                              - Basalt
-                              - Chondrite
-                              - Peridotite
-                              - Synthetic solution
-                              - N/A
-                              - None
-                              - missing
-                            - type: string
-                            readOnly: true
-                allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Target Material
-                    required:
-                    - schema:name
-                - contains:
-                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleAliquotMassOrVolume
-                  minContains: 0
-                  maxContains: 1
-      allOf:
-      - contains:
-          properties:
-            '@type':
-              contains:
-                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-          required:
-          - '@type'
+    ada:targetMaterialTemplate:
+      type: object
+      properties:
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+        ada:targetMaterialColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
+            - title: Primary Calibration Standard Name
+              description: "Name and reference material identifier of the primary
+                reference material(s) against which the instrument is calibrated \u2014
+                converting raw signal intensities to concentrations, or anchoring
+                an isotope ratio as the bracketing standard or zero-delta reference.
+                Give the material name, its source or supplier, and a citation for
+                the accepted values used. Where calibration instead uses the vendor's
+                stored library or theoretical response factors rather than measured
+                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+                \u2014 record that here, naming the library or model used. 'None'
+                means no calibration was performed at all, which is a different answer."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains:
+              title: Primary Calibration Standard Name
+              description: "Name and reference material identifier of the primary
+                reference material(s) against which the instrument is calibrated \u2014
+                converting raw signal intensities to concentrations, or anchoring
+                an isotope ratio as the bracketing standard or zero-delta reference.
+                Give the material name, its source or supplier, and a citation for
+                the accepted values used. Where calibration instead uses the vendor's
+                stored library or theoretical response factors rather than measured
+                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+                \u2014 record that here, naming the library or model used. 'None'
+                means no calibration was performed at all, which is a different answer."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+      required:
+      - ada:defaultTargetMaterials
     schema:actionProcess:
       type: object
       properties:
@@ -10491,7 +10782,46 @@ allOf:
                       anyOf:
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_pulseAnalogDetectorNonlinearityCorrection
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual results
+                          contribute to a combined result, together with the outcome
+                          of applying them: how many results were obtained, how many
+                          were included, and on what grounds any were excluded. An
+                          individual result is the value of the reported quantity
+                          obtained from one acquisition: a replicate measurement of
+                          the same solution or location, a spot or grain within a
+                          sample, or an independently prepared aliquot or digestion,
+                          whichever the procedure combines. Distinct from filtering
+                          the acquired signal during data reduction (removing spikes,
+                          cycles or scans, or discarding an acquisition whose signal
+                          is compromised): this field records which finished results
+                          enter the combined result, and on what grounds.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
@@ -10503,7 +10833,46 @@ allOf:
                       minContains: 0
                       maxContains: 1
                     - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual results
+                          contribute to a combined result, together with the outcome
+                          of applying them: how many results were obtained, how many
+                          were included, and on what grounds any were excluded. An
+                          individual result is the value of the reported quantity
+                          obtained from one acquisition: a replicate measurement of
+                          the same solution or location, a spot or grain within a
+                          sample, or an independently prepared aliquot or digestion,
+                          whichever the procedure combines. Distinct from filtering
+                          the acquired signal during data reduction (removing spikes,
+                          cycles or scans, or discarding an acquisition whose signal
+                          is compromised): this field records which finished results
+                          enter the combined result, and on what grounds.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/solutionSficpmsTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -10782,6 +11151,29 @@ allOf:
       - N/A
       - missing
       readOnly: true
+    schema:object:
+      type: array
+      items:
+        type: object
+        allOf:
+        - if:
+            properties:
+              '@type':
+                contains:
+                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+            required:
+            - '@type'
+          then:
+            properties:
+              schema:additionalProperty:
+                type: array
+                items:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleAliquotMassOrVolume
+                allOf:
+                - contains:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema.yaml#/$defs/Param_Procedure_sampleAliquotMassOrVolume
+                  minContains: 0
+                  maxContains: 1
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the
         passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures

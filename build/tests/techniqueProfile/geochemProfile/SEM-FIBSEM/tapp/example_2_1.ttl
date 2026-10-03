@@ -20,19 +20,19 @@
                     schema1:position 3 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "missing" ] ] ;
+                    ada:coarseMillingConditionsDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v39.csv)." ;
+    schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
     schema1:instrument <ex:instrument/FIBSEM>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -41,11 +41,6 @@
             schema1:name "semFibsem" ;
             schema1:termCode "semFibsem" ] ;
     schema1:name "semFibsem protocol — Liu2017" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ;
@@ -53,10 +48,19 @@
     ada:analyticalMode "3D Tomography" ;
     ada:dwellTimePerPixelDefault -9999 ;
     ada:imageRegistration3DDefault "missing" ;
-    ada:reportedProperties "Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)" ;
+    ada:reportedProperties "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper states the scope of the model rather than a rule for siting the volume: it \"only focuses on the coal sample #1\" (p.8)" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — the volume supports \"a three dimensional (3D) pore network model, which was further used to characterize the pore connectivity\" (p.1), with pores classified as coalification-related and mineral-related (p.1); the model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:segmentationMethod3DDefault "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "anthracite",
+                "lean coal" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ] .
 

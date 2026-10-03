@@ -15,41 +15,44 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P1",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Sulfate minerals (anhydrite, barite, gypsum) and sulfide minerals (pyrite, chalcopyrite)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 50,
-          "schema:description": "<50 mg weighed; 500 \u00b5g S taken for column purification"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Laser half: NewWave UP213 (213 nm), He carrier, 60 \u00b5m spot, 180 \u00d7 80 \u00b5m raster, 5 \u00b5m/s, 10 Hz, ~9\u201310 J/cm\u00b2, ablated aerosol mixed with 2% HNO3 in the spray chamber \u2014 Table 1",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "sulfide",
+      "sulfate",
+      "elemental sulfur",
+      "seawater"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral",
+        "schema:description": "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide \u2014 \u00a72.1\u20132.2",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -143,8 +146,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 70,
-            "schema:description": "\"less than 70 \u00b0C\" for the first evaporation; 70 \u00b0C for the total digestion"
+            "schema:defaultValue": 3,
+            "schema:description": "HNO3 attack: below 70 \u00b0C; HNO3\u2013HCl digestion: 70 \u00b0C; re-dissolution: N \u2014 \u00a72.2"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -155,13 +158,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Not stated for the individual steps beyond \"taken to dryness\""
+            "schema:defaultValue": "N \u2014 'taken to dryness'"
           }
         ],
-        "schema:description": "1: 5 ml HNO3 (50%), hot plate below 70 deg C, taken to dryness | 2: 3 ml concentrated HNO3 + 2 ml HCl (50%), sealed PTFE vessel, 70 deg C, taken to dryness. The subsequent 4 ml 2% HNO3 is the final uptake, not a step.",
+        "schema:description": "HNO3 attack (5 ml 50% HNO3, hot plate below 70 \u00b0C, to dryness); HNO3\u2013HCl digestion (3 ml concentrated HNO3 + 2 ml 50% HCl, sealed PTFE vessel, 70 \u00b0C, to dryness); re-dissolution (4 ml 2% HNO3, AgCl from Ag2S removed by centrifugation) \u2014 \u00a72.2",
         "bios:reagent": [
           {
-            "schema:name": "5 ml HNO3 (50%), then 3 ml concentrated HNO3 + 2 mL HCl (50%); residue dissolved in 4 mL 2% HNO3",
+            "schema:name": "HNO3 attack: 50% HNO3; HNO3\u2013HCl digestion: concentrated HNO3 + 50% HCl; re-dissolution: 2% HNO3 \u2014 \u00a72.2",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -181,6 +184,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 50,
+          "schema:description": "<50 mg weighed; 500 \u00b5g S taken for column purification"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -350,7 +376,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Wet plasma \u2014 solutions \"introduced as a 'wet' aerosol (in 2% HNO3) into the ICP torch via a cyclonic spray dual chamber\"; dry plasma deliberately rejected as \"not viable for bulk analysis\""
+              "schema:value": "all: wet plasma \u2014 solutions 'introduced as a wet aerosol (in 2% HNO3)' (Fig. 1)"
             }
           ],
           "@type": [
@@ -439,6 +465,17 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Wash-out 2 min for solution"
+        },
+        {
+          "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "doublyChargedSpeciesMonitorDefault",
+          "schema:name": "Doubly-Charged Species Monitor",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 \u2076\u2074Zn\u00b2\u207a, \u2076\u2076Zn\u00b2\u207a and \u2076\u2078Zn\u00b2\u207a are listed as interferences on the S masses, Table 2, p.4, and resolved by mass resolution, p.5; no M\u00b2\u207a tuning monitor or production ratio is stated"
         }
       ],
       "schema:manufacturer": {
@@ -465,7 +502,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "None \u2014 and deliberately: \"passing solutions through a desolvating nebulizer to obtain dry plasma conditions is not viable for bulk analysis\""
+      "schema:value": "all: none \u2014 'passing solutions through a desolvating nebulizer to obtain dry plasma conditions is not viable for bulk analysis' (\u00a72.3)"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -479,6 +516,17 @@
       "schema:value": "N/A \u2014 no added internal standard element"
     },
     {
+      "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "filteringApproachDefault",
+      "schema:name": "Filtering Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "None, no automatic 2\u03c3 rejection of outlying cycles \u2014 'Automatic rejection of outlying cycles (2\u03c3 outlier criterion) offered within the NEPTUNE software is not performed' (\u00a72.4)"
+    },
+    {
       "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -488,7 +536,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 20,
-      "schema:description": "20 cycles"
+      "schema:description": "all: 20 cycles \u2014 Table 1, \u00a72.4"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -500,7 +548,18 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 8.5,
-      "schema:description": "8.5 s"
+      "schema:description": "all: 8.5 s \u2014 Table 1, \u00a72.4"
+    },
+    {
+      "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "baselineMeasurementApproach",
+      "schema:name": "Baseline Measurement Approach",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "5 s at the beginning of each analysis with the ion beams deflected \u2014 \u00a72.4"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
@@ -601,17 +660,21 @@
       }
     ]
   },
-  "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against matrix-matched purified S solutions",
+  "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session \u2014 \u00a72.4, \u00a73.2",
+  "ada:massBiasCorrectionStrategy": "Standard-sample bracketing with matrix-matched purified S solutions, linear interpolation between the biases of two neighbouring standards, sample and standard matched within ~20% in intensity at ~10 V \u2014 \u00a72.4, \u00a73.1",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "\u00b3\u00b2S"
+        "monitoredProperty": "32S",
+        "targetSpecies": "S"
       },
       {
-        "monitoredProperty": "\u00b3\u00b3S"
+        "monitoredProperty": "33S",
+        "targetSpecies": "S"
       },
       {
-        "monitoredProperty": "\u00b3\u2074S"
+        "monitoredProperty": "34S",
+        "targetSpecies": "S"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -701,18 +764,18 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "\u03b434S and \u03b433S in permil vs V-CDT"
+    "\u03b434S, \u03b433S \u2014 \u2030 on the V-CDT scale (\u00a72.4)"
   ],
-  "ada:chromatographicSeparationApplied": "Yes \u2014 cation exchange AG50-X8 (H+ form), 2.5 ml resin, conditioned with 1.4 N HNO3; S passes through while matrix elements are retained. Yield 98\u00b14%",
+  "ada:chromatographicSeparationApplied": "Yes, AG50-X8 (H+) cation exchange, 2.5 ml resin conditioned with 1.4 N HNO3; S and oxyanions pass, matrix retained; yield 98 \u00b1 4% (\u00a72.2)",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "2% (w/w) HNO3, 50 ppm S stock",
-  "ada:washTimeBetweenSamples": "2 min for solution work (4 min for laser)",
-  "ada:uncertaintyLevel": "\"external reproducibility is reported at the 2\u03c3 error level\"; long-term reproducibility \"typically 0.20\u2030 and 0.45\u2030 (2\u03c3) for solution and laser\"",
+  "ada:finalSolutionMatrix": "all: 2% HNO3 \u2014 a 50 ppm S stock (\u00a72.2); standards at 20 ppm S",
+  "ada:washTimeBetweenSamples": "2 min \u2014 Table 1; 4 min after laser analyses",
+  "ada:uncertaintyLevel": "1\u03c3 internal precision for individual analyses, 2\u03c3 external reproducibility for replicates \u2014 \u00a72.4",
+  "ada:blankBackgroundCorrectionMethod": "Average on-peak-zero background from periodic 2% HNO3 blanks, measured on the low-mass shoulder, subtracted per isotope off-line \u2014 ~30\u201350 mV on \u00b3\u00b2S (\u00a72.4, \u00a73.1)",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
-    "Sch-M-2 anhydrite mineral standard; geological reference samples with known isotope compositions"
+    "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po \u2014 Table 3"
   ],
-  "ada:primaryStandardNameDefault": "In-house S_Alfa and S_Spex 20 ppm S solutions, calibrated against IAEA-S-1, S-2, S-4 and NBS-123",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -722,8 +785,6 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:internalNormalizationElementAndIsotopeRatio": "missing",
   "ada:numberOfAcquisitionPasses": -9999,

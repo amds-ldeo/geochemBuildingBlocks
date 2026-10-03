@@ -25,24 +25,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Zega2025",
-  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v73.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v82.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage says regions of interest were characterized (\"Characterization of regions of interest was performed at an accelerating voltage of 15 kV\", p.9) but gives no rule for choosing them",
   "schema:instrument": [
     {
@@ -125,50 +137,6 @@
   ],
   "ada:edsAcquisitionMode": "Point",
   "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:monitoredElements": [
     "N \u2014 \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
   ],
@@ -205,8 +173,39 @@
     "EDS Point Analysis"
   ],
   "ada:reportedProperties": [
-    "Phase compositions from point spectra, reported with the EMPA data as atomic proportions (At%: Fe + Co, S, Ni for the sulfides, Fig. 1, p.2); phase identification is the nominal output"
+    "phase composition (At%); phase identification (nominal) \u2014 Phase compositions from point spectra, reported with the EMPA data as atomic proportions (At%: Fe + Co, S, Ni for the sulfides, Fig. 1, p.2); phase identification is the nominal output"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -224,7 +223,6 @@
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"

@@ -15,36 +15,38 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Tissot2020",
-  "schema:description": "solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II | MIT (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Single zircon and baddeleyite crystals, and bulk rock"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 50,
-          "schema:description": "Single crystals; ~50 \u00b5l (5% of sample) taken for concentration measurement"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Mo doping test: Offset \u03b494/90ZrNIST = \u221263.4 \u00b7 x, x the Mo/Zr atomic ratio \u2014 used to show the residual Mo is negligible",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "zircon",
+      "baddeleyite",
+      "bulk rock"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -87,17 +89,6 @@
             "schema:value": "Double-spike inversion, Rmeas = [p\u00b7RSpike + (1\u2212p)\u00b7RStd\u00b7(Mx/Mn)^\u03b1]\u00b7(Mx/Mi)^\u03b2, solved by weighted minimisation over four ratios"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 Table 1 records \"Number of times the same purified Zr solution was measured independently in the MC-ICP-MS\" and \"Reported values are weighted means of all replicate\" analyses. No rejection rule stated"
-          },
-          {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -106,7 +97,7 @@
             "schema:name": "Constants Reference Values",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "238U/235U = 137.818 (45), 18O/16O = 0.00205 (44), and \u03b1 = 0.18 \u00b1 0.02%/amu from repeat NBS-981 analyses; U decay constants of (47); Th/U[magma] = 2.8 \u00b1 1.0 for the initial 230Th disequilibrium correction"
+            "schema:defaultValue": "N \u2014 the constants stated (\u00b2\u00b3\u2078U/\u00b2\u00b3\u2075U = 137.818, \u00b9\u2078O/\u00b9\u2076O = 0.00205, \u03b1 = 0.18%/amu) belong to the coupled ID-TIMS U-Pb work"
           },
           {
             "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
@@ -153,8 +144,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 215,
-            "schema:description": "215 \u00b0C"
+            "schema:defaultValue": 900,
+            "schema:description": "chemical abrasion: 900 \u00b0C (annealing), then 215 \u00b0C; U-Pb dissolution: 215 \u00b0C; Zr-only dissolution: 60 \u00b0C, then 215 \u00b0C; spike equilibration: 140 \u00b0C"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -165,13 +156,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "48 h at 215 deg C in a Parr vessel. The 60 h previously recorded here is the chemical-abrasion ANNEALING at 900 deg C, not a digestion; the abrasion leach itself is 12 h."
+            "schema:defaultValue": "chemical abrasion: 60 h, then 12 h; U-Pb dissolution: 48 h; Zr-only dissolution: 2 h, then 60 h; spike equilibration: overnight"
           }
         ],
-        "schema:description": "Untreated crystals, 1: 29 M HF in a PFA microcapsule inside a Parr vessel, 215 deg C, 48 h. Chemically abraded crystals (19 zircons), 1: 12-h partial dissolution in 29 M HF at 215 deg C under pressure, after annealing at 900 deg C for 60 h | 2: the same complete digestion. The annealing is a pre-treatment, not a digestion step.",
+        "schema:description": "chemical abrasion (19 zircons for U-Pb, annealed at 900 \u00b0C for 60 h, then leached in 29 M HF in a Parr vessel at 215 \u00b0C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 \u00b0C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 \u00b0C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 \u00b0C, 60 h); spike equilibration (with the \u2079\u00b9Zr\u2013\u2079\u2076Zr spike, fluxed at 140 \u00b0C overnight, dried down twice and redigested) \u2014 Materials and Methods",
         "bios:reagent": [
           {
-            "schema:name": "29 M HF; after conversion to a chloride matrix for U-Pb. Zr aliquots taken up in 3 M HNO3 + 0.5 M HF",
+            "schema:name": "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -191,6 +182,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 50,
+          "schema:description": "Single crystals; ~50 \u00b5l (5% of sample) taken for concentration measurement"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -224,7 +238,7 @@
               "schema:name": "Nebulizer Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Cetac Aridus II desolvator nebulizer"
+              "schema:value": "N \u2014 introduction through a Cetac Aridus II desolvator nebulizer"
             }
           ],
           "@type": [
@@ -251,7 +265,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Dry plasma \u2014 \"Analyses were conducted in dry plasma mode using a Cetac Aridus II desolvator nebulizer\""
+              "schema:value": "all: dry plasma"
             }
           ],
           "@type": [
@@ -356,7 +370,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "Cetac Aridus II \u2014 \"Analyses were conducted in dry plasma mode\""
+      "schema:value": "all: Cetac Aridus II \u2014 'Analyses were conducted in dry plasma mode'"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -379,7 +393,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 50,
-      "schema:description": "50 cycles"
+      "schema:description": "all: 50 cycles"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -391,7 +405,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
-      "schema:description": "5 s"
+      "schema:description": "all: 5 s"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
@@ -519,28 +533,33 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "90"
+        "monitoredProperty": "90Zr",
+        "targetSpecies": "Zr"
       },
       {
-        "monitoredProperty": "91"
+        "monitoredProperty": "91Zr",
+        "targetSpecies": "Zr"
       },
       {
-        "monitoredProperty": "92"
+        "monitoredProperty": "92Zr",
+        "targetSpecies": "Zr"
+      },
+      {
+        "monitoredProperty": "94Zr",
+        "targetSpecies": "Zr"
+      },
+      {
+        "monitoredProperty": "96Zr",
+        "targetSpecies": "Zr"
       },
       {
         "monitoredProperty": "93"
       },
       {
-        "monitoredProperty": "94"
+        "monitoredProperty": "95Mo"
       },
       {
-        "monitoredProperty": "95"
-      },
-      {
-        "monitoredProperty": "96"
-      },
-      {
-        "monitoredProperty": "98"
+        "monitoredProperty": "98Mo"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -636,16 +655,15 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "\u03b49x/90ZrNIST in permil \u2014 \u03b491/90Zr, \u03b492/90Zr, \u03b494/90Zr and \u03b496/90Zr"
+    "\u03b491/90Zr, \u03b492/90Zr, \u03b494/90Zr, \u03b496/90Zr \u2014 \u2030 relative to ZrNIST; \u03b4\u2079\u2074/\u2079\u2070Zr is the one discussed"
   ],
-  "ada:chromatographicSeparationApplied": "Yes \u2014 AG-1X for U-Pb; Ln-Spec (~300 \u00b5l, 25\u201350 \u00b5m) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
+  "ada:chromatographicSeparationApplied": "Yes, AG-1X for U-Pb; Ln-Spec (~300 \u00b5l, 25\u201350 \u00b5m) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
   "ada:isotopeDilutionSpike": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio",
-  "ada:finalSolutionMatrix": "0.59 M HNO3 + 0.28 M HF, samples and bracketing standards matched in matrix and at 60 ng/g total Zr",
+  "ada:finalSolutionMatrix": "all: 0.59 M HNO3 + 0.28 M HF at 60 ng/g total Zr \u2014 samples and bracketing standards matched in concentration and acid matrix",
   "ada:uncertaintyLevel": "\"the external reproducibility (at 2\u03c3) of the spiked ZrNIST measurements from each run, which in all cases was similar in magnitude or slightly larger than the internal uncertainty determined from counting statistics\"",
   "ada:calibrationMeasurementFrequency": "Every sample \u2014 \"Each sample measurement was individually bracketed\"",
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero correction using mean acid blank intensities",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:primaryStandardNameDefault": "ZrNIST",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

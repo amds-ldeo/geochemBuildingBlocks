@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Oxides+Mapping, Tissint (U. Tennessee, Cameca SX100)",
-  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 \u00b5m). Olivine megacryst mapping (15 kV, 200 nA, step 2 \u00b5m, dwell ~0.5 s) described as \"using the EMP\" \u2014 instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated.",
+  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 \u00b5m). Olivine megacryst mapping (15 kV, 200 nA, step 2 \u00b5m, dwell ~0.5 s) described as \"using the EMP\" \u2014 instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses and elemental X-ray maps; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -35,8 +35,8 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1-2 \u00b5m (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 \u00b5m defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 \u00b5m (maskelynite, phosphate, sulfide, glass)",
+      "ada:beamDiameterDefault": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3",
+      "ada:beamMode": "maskelynite, phosphate, sulfide, glass: Defocused; other: N \u2014 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5\u201310 \u00b5m size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1\u20132 \u00b5m beam diameter' is given, not a mode",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -210,16 +210,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -268,9 +258,10 @@
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 \u00b5m for maskelynite, phosphate, sulfide, and glass"
+      "schema:defaultValue": "N \u2014 a defocused 5\u201310 \u00b5m beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -289,64 +280,49 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" before the microprobe work (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide (chromite, ulvospinel, ilmenite) | Sulfide | Phosphate (merrillite) | Glass (melt pocket)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:stepSizePixelSizeDefault": "8-12 \u00b5m (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 \u00b5m (olivine megacryst Ka maps; instrument ambiguous)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides",
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:stepSizePixelSizeDefault": "8-12 \u00b5m (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 \u00b5m (olivine megacryst Ka maps; instrument ambiguous)",
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the map areas are shown rather than specified: a \"Red box outlines the area of X-ray maps\" on an olivine megacryst (Fig. 3 caption, p.7), with no stated rule for placing them",
   "ada:monitoredElements": [
-    "Ca, Al, Fe, Mg \u2014 \"elemental X-ray maps (Ca K\u03b1, Al K\u03b1, Fe K\u03b1, and Mg K\u03b1) of four sections were obtained using a Cameca SX100 electron microprobe (EMP) at the University of Tennessee\" (p.3). A separate Caltech map set of two olivine megacrysts adds Fe, P, Al, Ca and Cr (p.4) but was collected on the other instrument, which this TAPP records as its own procedure column"
+    "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P \u2014 point analyses on both instruments (the detection-limit sentence names their oxides); maps: 'Ca Ka, Al Ka, Fe Ka, and Mg Ka' (four sections) and 'Fe Ka, P Ka, Al Ka, Ca Ka, and Cr Ka' (two olivine megacrysts, collected on 'the EMP' \u2014 the instrument is not named)"
   ],
   "schema:location": {
     "@type": [
@@ -378,8 +354,39 @@
   ],
   "ada:samplingUnitType": "Whole sample (thin section) > Phase \u2014 \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)",
   "ada:reportedProperties": [
-    "Modal-area fraction per mineral (vol%), computed as \"The number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3) and reported as modal abundances, e.g. pyroxenes 51\u201360 vol%, olivine 22\u201326 vol%, maskelynite 14\u201317 vol% (Table 1, p.4)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo \u2014 oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1\u03c3 (Table 3); modal abundances from the X-ray maps (Table 1)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -395,11 +402,9 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }

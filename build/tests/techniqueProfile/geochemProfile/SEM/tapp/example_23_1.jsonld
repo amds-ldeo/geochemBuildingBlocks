@@ -118,86 +118,35 @@
       "schema:description": "missing"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "ada:coarseMillingConditionsDefault": "missing",
-        "ada:finePolishingConditionsDefault": "missing",
-        "ada:liftOutMethod": "missing",
-        "ada:protectiveCoatingDepositionDefault": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing",
-        "ada:ebsdIndexingMethod": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Ion milling",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "schema:description": "missing"
-      }
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
     ],
-    "@type": [
-      "schema:HowTo"
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
     ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); hummocky and angular particles"
-          ]
-        }
-      ],
-      "ada:foilThicknessDefault": -9999,
-      "ada:sliceThicknessDefault": -9999
-    }
-  ],
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage says regions of interest were characterized (\"Characterization of regions of interest was performed at an accelerating voltage of 15 kV\", p.9) but gives no rule for choosing them",
   "ada:monitoredElements": [
     "N/A \u2014 this procedure is BSE Imaging. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
@@ -231,8 +180,56 @@
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Particle textures and phase occurrences (nominal), with grain sizes in \u00b5m \u2014 angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)"
+    "particle texture (nominal); phase occurrence (nominal); grain size (\u00b5m) \u2014 Particle textures and phase occurrences (nominal), with grain sizes in \u00b5m \u2014 angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "ada:coarseMillingConditionsDefault": "missing",
+        "ada:finePolishingConditionsDefault": "missing",
+        "ada:liftOutMethod": "missing",
+        "ada:protectiveCoatingDepositionDefault": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing",
+        "ada:ebsdIndexingMethod": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Ion milling",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "schema:description": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -259,7 +256,6 @@
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",

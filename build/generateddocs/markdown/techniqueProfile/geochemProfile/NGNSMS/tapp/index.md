@@ -30,7 +30,7 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     "bios:LabProtocol"
   ],
   "schema:name": "ngnsms protocol — P0",
-  "schema:description": "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv).",
+  "schema:description": "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Nu.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(CNRS-CRPG)Nu Instruments Noblesse HR",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     "bios:LabProtocol"
   ],
   "schema:name": "ngnsms protocol \u2014 P0",
-  "schema:description": "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv).",
+  "schema:description": "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Nu.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(CNRS-CRPG)Nu Instruments Noblesse HR",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
     schema1:creator [ a schema1:Person ;
             schema1:name "Fueri, Evelyn" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv)." ;
+    schema1:description "ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | (CNRS-CRPG)Nu Instruments Noblesse HR (publication column of NGNSMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Nu." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This work was cofunded by the European Union (ERC, IRONIS, 10187562). Support from the French Space Agency (CNES) is also acknowledged." ] ;
     schema1:location [ a schema1:Place ;

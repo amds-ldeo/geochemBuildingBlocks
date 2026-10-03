@@ -247,6 +247,94 @@ x-defs:
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodParameter
           - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/MethodParameterValue
         x-jsonld-id: http://schema.org/additionalProperty
+      ada:targetMaterialTemplate:
+        description: 'Template for per-target-material parameters, a target material
+          being a material type this procedure is designed to analyse (Silicate mineral,
+          Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares
+          the target-material domain and the columns that repeat over it.
+
+          The domain is declared by the TAPP''s Target Material field, marked `defines:
+          target material`; the fields keyed BY it are the electron-beam conditions
+          (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage
+          Minimization), and Primary Calibration Standard Name is keyed `target material
+          x target species`.
+
+          Target materials are assumed present in any sample the procedure would analyse.
+          The binding between a particular sampling unit and the material it hit is
+          instance data, not procedure metadata, so it is recorded as a data-table
+          column and NOT here -- this template carries only the kinds of material
+          expected and the values that repeat over them.'
+        type: object
+        properties:
+          ada:targetMaterialColumns:
+            type: array
+            description: Columns of the per-target-material parameter table. Must
+              include exactly one column with schema:valueName "targetMaterial" that
+              identifies the material named in each row.
+            minItems: 1
+            items:
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialColumn
+            contains:
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialIdentifierColumn
+            maxContains: 1
+            x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialColumns
+          ada:targetMaterialDeclaration:
+            type: string
+            description: 'The material types analysed, AS THE SOURCE STATES IT. Free
+              text on purpose, and the counterpart of ada:targetSpeciesDeclaration:
+              a submitter may name the materials as a list, or as prose that names
+              none individually. ada:defaultTargetMaterials carries the members that
+              could be recognised; this carries the statement they were recognised
+              FROM, so a cell that parses only in part loses nothing.'
+            x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialDeclaration
+          ada:defaultTargetMaterials:
+            type: array
+            description: 'The material types this procedure targets by default - the
+              ROWS of the per-material table, and the domain `defines: target material`
+              enumerates. An entry is a bare string or a schema:DefinedTerm naming
+              the material, or a row object binding that material to per-material
+              values.
+
+              A row object is keyed throughout by the schema:valueName of the columns
+              declared in ada:targetMaterialColumns, and MUST carry the ''targetMaterial''
+              key - the column that sibling description requires to identify the material
+              named in each row.
+
+              Column-level constraints stay on the column: schema:readonlyValue when
+              a value is constant across every material, and schema:defaultValue when
+              one default serves the whole column. Use a row only for values that
+              differ between materials.'
+            items:
+              anyOf:
+              - type: string
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm
+              - type: object
+                title: Per-target-material row
+                description: One row of the per-material table, keyed by column schema:valueName.
+                  null records a value that is deliberately absent for this material
+                  rather than merely unstated.
+                required:
+                - targetMaterial
+                properties:
+                  targetMaterial:
+                    type: string
+                    description: The material type this row is for (e.g. "Silicate
+                      mineral"), from the controlled list the TAPP's Target Material
+                      field offers, optionally qualified in the same cell. The key
+                      is the schema:valueName of the identifier column, which ada:targetMaterialColumns
+                      requires exactly one of, so a row is keyed by column valueName
+                      throughout.
+                additionalProperties:
+                  nullable: true
+                  anyOf:
+                  - type: string
+                  - type: number
+                  - type: integer
+                  - type: boolean
+            x-jsonld-id: https://ada.astromat.org/metadata/defaultTargetMaterials
+        required:
+        - ada:targetMaterialColumns
+        x-jsonld-id: https://ada.astromat.org/metadata/targetMaterialTemplate
       ada:targetSpeciesTemplate:
         description: Template for per-target-species (element-specific) parameters.
           Defines the columns that appear in the species table, each with scope, datatype,
@@ -1071,6 +1159,12 @@ x-defs:
           shared targetSpeciesColumns registry $ref it.
         allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn
+      TargetMaterialColumn:
+        description: One column of the per-target-material parameter table. Structurally
+          a KeyedTableColumn; kept as its own name because generated schemas and the
+          shared targetMaterialColumns registry $ref it.
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn
       ReportedPropertyColumn:
         description: One column of the reported-property table. The reported properties
           are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil
@@ -1145,6 +1239,48 @@ x-defs:
               x-jsonld-id: http://schema.org/valueName
               enum:
               - reportedProperty
+            ada:dataType:
+              x-jsonld-id: https://ada.astromat.org/metadata/dataType
+              enum:
+              - string
+            schema:readonlyValue:
+              x-jsonld-id: http://schema.org/readonlyValue
+              enum:
+              - true
+            schema:valueRequired:
+              x-jsonld-id: http://schema.org/valueRequired
+              enum:
+              - true
+            ada:tier:
+              x-jsonld-id: https://ada.astromat.org/metadata/tier
+              enum:
+              - M
+            ada:cdifPropertyPath:
+              x-jsonld-id: https://ada.astromat.org/metadata/cdifPropertyPath
+              enum:
+              - '#/schema:variableMeasured/schema:name'
+          required:
+          - schema:valueName
+          - ada:dataType
+          - schema:readonlyValue
+          - schema:valueRequired
+          - ada:tier
+          - ada:cdifPropertyPath
+      TargetMaterialIdentifierColumn:
+        description: The mandatory target-material-identifier column, naming the material
+          type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn;
+          like both it maps into schema:variableMeasured/schema:name, because the
+          material a sampling unit hit is recorded as a column of the data table --
+          the variable list is shared across a procedure's table parts rather than
+          owned by any one of them.
+        allOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialColumn
+        - type: object
+          properties:
+            schema:valueName:
+              x-jsonld-id: http://schema.org/valueName
+              enum:
+              - targetMaterial
             ada:dataType:
               x-jsonld-id: https://ada.astromat.org/metadata/dataType
               enum:
@@ -1971,14 +2107,35 @@ x-defs:
     type: object
     properties:
       '@type':
+        description: 'Either construct, or both. A labeled link is a schema:CreativeWork
+          at a URL; a dcat:Relationship is DCAT''s association class for a typed relation
+          to another resource. A node may declare both -- CDIF''s own relation examples
+          do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.
+
+          That is the whole point of the anyOf. Until 2026-09-08 this block''s Relation
+          half required contains: dcat:Relationship while the labeled-link half required
+          contains: schema:CreativeWork, and under allOf both applied to every instance,
+          so an ordinary labeled link was unsatisfiable. Of profile-core''s licenses
+          the 29 plain strings and 1 @id-reference passed while the 10 that followed
+          schema.org''s own recommendation -- "use schema:CreativeWork to provide
+          a label (name) for the license" -- failed. 412782113 fixed that by deleting
+          the dcat:Relationship mandate outright, which left the JSON Schema with
+          no notion of dcat:Relationship at all while rules.shacl went on targeting
+          it as a class. A pure DCAT relation then met a SHACL requirement with no
+          schema counterpart. This anyOf restores the type to the schema WITHOUT restoring
+          the conjunction.'
         default: schema:CreativeWork
         type: array
         items:
           type: string
-        contains:
-          enum:
-          - schema:CreativeWork
         minItems: 1
+        anyOf:
+        - contains:
+            enum:
+            - schema:CreativeWork
+        - contains:
+            enum:
+            - dcat:Relationship
       schema:name:
         type: string
         x-jsonld-id: http://schema.org/name
@@ -1990,25 +2147,104 @@ x-defs:
         format: uri
         x-jsonld-id: http://schema.org/url
       dcat:hadRole:
-        description: Role of the related resource as a SKOS Concept (DCAT canonical
-          role slot). Present only on a link that expresses a relationship; a plain
-          labeled link such as a license omits it.
-        x-jsonld-id: http://www.w3.org/ns/dcat#hadRole
-        allOf:
+        description: 'Role of the related resource. Present only on a link that expresses
+          a relationship; a plain labeled link such as a license omits it.
+
+          DCAT''s declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and
+          dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node
+          typed dcat:Role. That form was NOT accepted here before 2026-10-01: this
+          property was cdifConceptOrTermOrString alone, which matches a bare string,
+          a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of
+          which a dcat:Role-typed node satisfies, because JSON Schema does no subclass
+          reasoning.
+
+          dcat:Role is added as a branch rather than replacing the others, so the
+          DCAT-native form becomes valid without invalidating anything already written.
+          Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT''s range is dcat:Role
+          alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id
+          reference and a string. That is the same both-forms stance taken on dcterms:relation,
+          and it is a choice rather than an oversight -- do not read the extra branches
+          as something not yet tightened.'
+        anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/DcatRole
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/cdifConceptOrTermOrString
+        x-jsonld-id: http://www.w3.org/ns/dcat#hadRole
       dcterms:relation:
-        type: string
-        format: uri
-        description: URI of the related resource -- the DCAT canonical pointer to
-          what is being related to, which is distinct from schema:url, the presentation
-          URL of the link itself.
+        description: 'The related resource -- the DCAT canonical pointer to what is
+          being related to, which is distinct from schema:url, the presentation URL
+          of the link itself.
+
+          An @id reference is the RECOMMENDED form and a string is permitted, which
+          is DCMI''s own position: "Recommended practice is to identify the related
+          resource by means of a URI. If this is not possible or feasible, a string
+          conforming to a formal identification system may be provided." DCMI declares
+          no rdfs:range for this property, and of the 13 DCMI properties carrying
+          an "intended to be used with non-literal values" restriction, this is deliberately
+          not one. dcat.ttl does not re-declare or constrain it at all -- the only
+          triple mentioning it in the whole DCAT vocabulary is `dcat:distribution
+          rdfs:subPropertyOf dcterms:relation`.
+
+          So objectReference-only would be stricter than both DCAT and DCMI and would
+          reject a form the specification sanctions. The anyOf matches how schema:additionalType
+          is handled here: both forms valid, the object form used in examples and
+          required only where a `contains` pins a specific value.
+
+          It was string-only until 2026-10-01, which rejected the @id form outright.
+          Reported from outside by a PSDI validator taking a things-not-strings approach
+          (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples
+          and wrote {"@id": ...}, which failed both layers -- while CDIF''s own documented
+          URI serialization policy (agents.md) says URI values SHOULD be {"@id": ...}.
+          The register required the one form its own policy argues against.'
+        anyOf:
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        - type: string
+          format: uri
         x-jsonld-id: http://purl.org/dc/terms/relation
     required:
     - '@type'
-    - schema:url
+    allOf:
+    - if:
+        required:
+        - '@type'
+        properties:
+          '@type':
+            contains:
+              enum:
+              - schema:CreativeWork
+      then:
+        required:
+        - schema:url
     $defs:
       cdifConceptOrTermOrString:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+      DcatRole:
+        description: 'A dcat:Role -- DCAT''s declared range for dcat:hadRole. Defined
+          inline rather than as its own building block because nothing else in the
+          register needs it yet; dcat:hadRole''s domain is owl:unionOf [prov:Attribution,
+          dcat:Relationship], so promote it to a block if a qualified attribution
+          ever needs the same shape.
+
+          dcat:Role rdfs:subClassOf skos:Concept, so the skos:prefLabel / skos:inScheme
+          furniture of a concept is permitted alongside; it is not required here because
+          DCAT states no cardinality constraints on the class -- dcat.ttl declares
+          no rdfs:subClassOf and no owl:Restriction on dcat:Relationship, and the
+          "mandatory" wording in the DCAT-3 document is prose in the spec tables rather
+          than an axiom in the vocabulary.'
+        type: object
+        properties:
+          '@id':
+            type: string
+            description: IRI of the role concept, ideally from a controlled vocabulary.
+          '@type':
+            type: array
+            items:
+              type: string
+            contains:
+              enum:
+              - dcat:Role
+            minItems: 1
+        required:
+        - '@type'
     x-jsonld-prefixes:
       schema: http://schema.org/
       skos: http://www.w3.org/2004/02/skos/core#
@@ -2163,15 +2399,7 @@ x-defs:
           instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).
         type: array
         items:
-          anyOf:
-          - type: string
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/cdifConceptOrTermOrString
         minItems: 1
         x-jsonld-id: http://schema.org/additionalType
       schema:name:
@@ -2354,6 +2582,8 @@ x-defs:
     - '@type'
     - schema:name
     $defs:
+      cdifConceptOrTermOrString:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
       Identifier:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
       Organization:
@@ -2429,15 +2659,7 @@ x-defs:
             description: Component type classification.
             type: array
             items:
-              anyOf:
-              - type: string
-              - type: object
-                additionalProperties: false
-                required:
-                - '@id'
-                properties:
-                  '@id':
-                    type: string
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/cdifConceptOrTermOrString
             x-jsonld-id: http://schema.org/additionalType
           schema:additionalProperty:
             type: array
@@ -2508,17 +2730,7 @@ x-defs:
           type,laboratory classification, feature type).
         type: array
         items:
-          anyOf:
-          - type: string
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm
-          - type: object
-            additionalProperties: false
-            required:
-            - '@id'
-            properties:
-              '@id':
-                type: string
-                description: reference to a term defined elsewhere
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/cdifConceptOrTermOrString
         x-jsonld-id: http://schema.org/additionalType
       schema:name:
         description: A place name for the location, either as a string or a DefinedTerm
@@ -2680,6 +2892,8 @@ x-defs:
     - required:
       - geosparql:hasGeometry
     $defs:
+      cdifConceptOrTermOrString:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
       DefinedTerm:
         $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
       Identifier:
@@ -2698,6 +2912,19 @@ x-defs:
     - type: string
     - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/targetSpecies/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
     x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+    x-schema-version: https://json-schema.org/draft/2020-12/schema
+  cdif.bbr.metadata.cdifDataType.objectReference:
+    title: Object Reference
+    description: A reference to a node defined elsewhere, by its @id.
+    type: object
+    properties:
+      '@id':
+        type: string
+        description: resolvable @id of the referenced node
+    required:
+    - '@id'
+    additionalProperties: false
+    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   cdif.bbr.metadata.schemaorgProperties.agentInRole:
     description: For more granularity on how a person contributed to a Dataset, use

@@ -26,23 +26,22 @@
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-2",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -143,7 +142,7 @@
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Particle surface morphology and texture (nominal) \u2014 pitted sulfide surfaces and particle shapes (p.2)"
+    "surface morphology (nominal); texture (nominal) \u2014 Particle surface morphology and texture (nominal) \u2014 pitted sulfide surfaces and particle shapes (p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [

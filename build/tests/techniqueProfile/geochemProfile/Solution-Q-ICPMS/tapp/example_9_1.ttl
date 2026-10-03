@@ -13,38 +13,36 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 ug readability) and transferred to PFA vials without powdering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: 0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water | 2: 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2 | 3: 0.2 mL HNO3 + 0.2 mL H2O2. The paper describes four heating stages; on the recorded acid mixtures these span three distinct attacks, the remaining stages being evaporation and uptake within a step." ;
+                    schema1:description "HF-HNO3 attack (0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water, 3 h in an ultrasonic bath, then capped 12 h at 120 °C and 5 days at 220 °C, dried at 100 °C); HNO3-HCl step (0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O, sealed, 150 °C for 1 day, dried at 100 °C); HNO3 step (0.2 mL HNO3 + 0.2 mL H2O, 80 °C for 1 day, dried at 90 °C); final uptake (5 mL 0.5 M HNO3) — Acid digestion" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water; then 0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O2; final 0.2 mL HNO3 + 0.2 mL H2O2" ] ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
+                            schema1:name "HF-HNO3 attack: HF + HNO3; HNO3-HCl step: HNO3 + HCl; HNO3 step: HNO3; final uptake: 0.5 M HNO3" ] ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo (publication column of Solution_Q-ICP-MS_TAPP_v87.csv)." ;
+    schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Science Tokyo" ] ;
@@ -54,9 +52,7 @@
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Carbonaceous asteroid particles (Ryugu, Hayabusa2 TD1) and the Allende chondrite" ],
-                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
@@ -65,19 +61,29 @@
     ada:calibrationMeasurementFrequency "missing" ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
-    ada:finalSolutionMatrix "5 mL 0.5 M HNO3, dilution factors 1200 (A0066) to 3400 (A0259); Group-1 aliquots diluted to DF 20,000; Group-3 in 0.5 M HNO3 + ~0.05 M HF" ;
-    ada:internalStandardElement "103Rh for the calibration-curve elements; 113In-203Tl for the ID-IS method; 91Zr and 179Hf for Nb and Ta" ;
-    ada:isotopeDilutionSpike "97Mo (94.19%, Mo = 28 ng/g) and 182W (94.07%, W = 12 ng/g), dissolved in ~1 M HF" ;
+    ada:finalSolutionMatrix "Group-1: 0.5 M HNO3, DF 20,000; Group-2: 0.5 M HNO3, DF 200,000; Group-3: 0.5 M HNO3 with ~0.05 M HF, DF 20,000 — digests in 5 mL 0.5 M HNO3 at DF 1200–3400" ;
+    ada:internalStandardElement "Group-1: 103Rh, with the 113In–203Tl ID-IS; Group-2: 103Rh; Group-3: 91Zr and 179Hf, for Nb and Ta — Methods" ;
+    ada:isotopeDilutionSpike "113In–203Tl (Group-1, ID-IS); 49Ti; 91Zr–179Hf; 97Mo–182W (Group-3) — with enrichments and concentrations stated (Methods)" ;
     ada:massCyclesPerReplicate -9999 ;
-    ada:numberOfAcquisitionPasses -9999 ;
+    ada:numberOfAcquisitionPasses "3" ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:primaryStandardNameDefault "XSTC-13 and a custom solution for the calibration-curve elements; MISA05-1 (AccuStandard Inc.) for Group-3" ;
-    ada:reportedProperties "Elemental abundances, CI-normalised ratios. Ta and W were measured but are not reported: \"Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%) during the ICP-MS analysis\"" ;
+    ada:reportedProperties "Li, Be, Sc, Ga, As, Se, Rb, Sr, Y, Ag, Cd, In, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U, Na, Mg, Al, P, K, Ca, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Mo (µg/g) — Table 1; 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%)'" ;
     ada:samplingUnitType "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende" ;
-    ada:secondaryReferenceMaterialDefault "Smithsonian Allende powder (20 mg), dissolved and measured n = 5 under the same procedure" ;
+    ada:secondaryReferenceMaterialDefault "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> ;
+            ada:targetMaterialDeclaration "carbonaceous asteroid particle; carbonaceous chondrite — eight Ryugu TD1 particles, and the Smithsonian Allende powder for reproducibility" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ag",
                 "Al",
                 "As",
@@ -86,37 +92,50 @@
                 "Bi",
                 "Ca",
                 "Cd",
+                "Ce",
                 "Co",
                 "Cr",
                 "Cs",
                 "Cu",
+                "Dy",
+                "Er",
+                "Eu",
                 "Fe",
                 "Ga",
+                "Gd",
                 "Hf",
+                "Ho",
                 "In",
                 "K",
-                "La-Lu",
+                "La",
                 "Li",
+                "Lu",
                 "Mg",
                 "Mn",
                 "Mo",
                 "Na",
                 "Nb",
+                "Nd",
                 "Ni",
                 "P",
                 "Pb",
+                "Pr",
                 "Rb",
                 "Sc",
                 "Se",
+                "Sm",
                 "Sr",
                 "Ta",
+                "Tb",
                 "Th",
                 "Ti",
                 "Tl",
+                "Tm",
                 "U",
                 "V",
                 "W",
                 "Y",
+                "Yb",
                 "Zn",
                 "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -133,7 +152,7 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/countingStatisticsError>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
-    ada:uncertaintyLevel "N — replicate averages (n = 5) and associated uncertainties stated to be in the supplementary material" ;
+    ada:uncertaintyLevel "2σ — Table 1" ;
     ada:washTimeBetweenSamples -9999 .
 
 <ex:instrument/ICPMS> a schema1:Product,
@@ -158,7 +177,7 @@
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "KED (He) mode" .
+    schema1:name "Li, Be, Sc, Rb, Sr, Y, Ag, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U: non-gas SQ mode; Ga, As, Se, Cd, In, Na, P, K, Ca: O2 mode; Mg, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W: He KED mode — Methods" .
 
 <ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -184,44 +203,37 @@
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
     schema1:name "Collision Gas Type" ;
-    schema1:value "He" ;
+    schema1:value "Mg, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W: He; Ga, As, Se, Cd, In, Na, P, K, Ca: O2; other: N — Group-1 otherwise in non-gas SQ mode" ;
     schema1:valueName "collisionGasType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
     schema1:name "Reaction Gas Type" ;
-    schema1:value "N/A — KED only" ;
+    schema1:value "N — the O2 mode is named, not its gas role" ;
     schema1:valueName "reactionGasType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> a schema1:PropertyValueSpecification ;
     schema1:name "Isotope Dilution Data Reduction Method" ;
-    schema1:value "ID-IS method of Kagami and Yokoyama (2021); isotope dilution for Ti, Zr, Mo, Hf and W" ;
+    schema1:value "ID-IS of Yokoyama et al. (2017) for Group-1 and of Kagami and Yokoyama (2021) for Group-3, isotope dilution for Ti, Zr, Mo, Hf and W" ;
     schema1:valueName "isotopeDilutionDataReductionMethod" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "3 h ultrasonic agitation, 12 h at 120 C, 5 days at 220 C, 1 day at 150 C, 1 day at 80 C" ;
+    schema1:defaultValue "HF-HNO3 attack: 3 h ultrasonic, 12 h, then 5 days; HNO3-HCl step: 1 day; HNO3 step: 1 day; final uptake: N" ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue 120 ;
-    schema1:description "120 C, then 220 C, then 100 C; second stage 150 C; final 80 C" ;
+    schema1:defaultValue 3 ;
+    schema1:description "HF-HNO3 attack: 120 °C, then 220 °C; HNO3-HCl step: 150 °C; HNO3 step: 80 °C; final uptake: N" ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -229,18 +241,24 @@
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
     schema1:name "Digestion Vessel Type" ;
-    schema1:value "PFA hexagonal cap vials (6 mL, Savillex), tightly capped with polypropylene wrenches to maintain high-pressure conditions" ;
+    schema1:value "PFA hexagonal cap vials (6 mL, Savillex), tightly capped with polypropylene wrenches — 'to maintain high-pressure–temperature conditions'" ;
     schema1:valueName "digestionVesselType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1.478e+00 ;
-    schema1:description "1.478-4.325 mg per particle; 4-10% aliquot taken for Group-1" ;
+    schema1:description "1.478–4.325 mg per particle; 20 mg of Allende — 4%–10% aliquots for Group-1 and Group-3, 0.4 mL of the Group-1 solution for Group-2" ;
     schema1:name "Sample Aliquot Mass or Volume" ;
     schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -274,9 +292,4 @@
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
-    schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
-    schema1:value "N/A — on-mass measurement in KED mode" .
 

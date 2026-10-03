@@ -13,7 +13,6 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -26,7 +25,7 @@
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
-    schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
+    schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis; WDS Mapping — 'wavelength-dispersive quantitative compositional mapping and analysis'." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -37,9 +36,7 @@
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
@@ -50,18 +47,35 @@
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:analyticalMode "WDS Point Analysis" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "CITZAF (Armstrong 1995)" ;
-    ada:monitoredElements "N — the paper describes quantitative EPMA stage mapping and its calibration against Smithsonian Microbeam secondary standards (p.3) but names no element" ;
-    ada:primaryStandardNameDefault "Natural and synthetic minerals routinely used in analytical facility (specific names N); synthetic F-phlogopite (for F, LDE1 crystal)" ;
+    ada:monitoredElements "F — 'Fluorine measurement was made using the LDE1 diffracting crystal'; no other element is named" ;
     ada:reportedProperties "Element concentrations in the carbonates (wt%: Fe, Mn — \"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Region of interest > Phase — \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)" ;
     ada:secondaryReferenceMaterialDefault "Smithsonian Microbeam standards (specific materials and values N)" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "F" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
+                "oxide",
+                "phosphate",
+                "phyllosilicate",
+                "sulfide" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "CO2",
+                "F",
+                "H2O",
+                "O" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -75,14 +89,12 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ;
-            ada:targetSpeciesDeclaration "F (explicitly stated); full analyte list N in methods" ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
             ada:toolRole "acquisition" ],
@@ -130,19 +142,18 @@
             schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Optical microscopy of the same thin section — \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -168,12 +179,6 @@
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;

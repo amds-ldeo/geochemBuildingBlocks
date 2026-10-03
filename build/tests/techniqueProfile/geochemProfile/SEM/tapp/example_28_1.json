@@ -127,24 +127,11 @@
         "ada:finePolishingConditionsDefault": "missing"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 a sample-preparation procedure produces sections rather than results to aggregate (p.9)"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -169,25 +156,35 @@
       "schema:HowTo"
     ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); fine-grained matrix areas"
-          ]
-        }
-      ],
-      "ada:foilThicknessDefault": -9999,
-      "ada:sliceThicknessDefault": -9999
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "fine-grained matrix"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Position within the particle \u2014 \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "ada:monitoredElements": [
     "N/A \u2014 this procedure is TEM Sample Preparation. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
@@ -215,7 +212,7 @@
     "TEM Sample Preparation"
   ],
   "ada:reportedProperties": [
-    "Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) \u2014 the reported product is the section itself and its location within the particle (nominal)"
+    "electron-transparent section (nominal); section thickness (nm) \u2014 Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) \u2014 the reported product is the section itself and its location within the particle (nominal)"
   ],
   "schema:measurementTechnique": [
     {
@@ -243,7 +240,6 @@
   "ada:imageRegistration3DDefault": "missing",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
   "ada:segmentationMethod3DDefault": "missing",

@@ -25,24 +25,24 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semFibsem protocol \u2014 Zhou2017",
-  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "subbituminous coal; high-volatile bituminous coal \u2014 Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China",
+    "ada:defaultTargetMaterials": [
+      "subbituminous coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Stated, but by procedure rather than by criterion \u2014 \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (\u00a72.3, p.4); no rule is given for where the area was placed",
   "schema:instrument": [
     {
@@ -169,7 +169,7 @@
     "3D Tomography"
   ],
   "ada:reportedProperties": [
-    "Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10\u201350 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 \u00d7 14.8 nm pixel size (pp.3\u20134)"
+    "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (\u00b5m) \u2014 Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10\u201350 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 \u00d7 14.8 nm pixel size (pp.3\u20134)"
   ],
   "schema:actionProcess": {
     "schema:step": [

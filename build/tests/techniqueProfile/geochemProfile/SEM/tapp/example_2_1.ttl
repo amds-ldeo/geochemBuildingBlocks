@@ -13,7 +13,12 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -28,15 +33,9 @@
                     ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v74.csv)." ;
+    schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v84.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
@@ -44,13 +43,6 @@
             schema1:name "sem" ;
             schema1:termCode "sem" ] ;
     schema1:name "sem protocol — Garvie2008-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)" ] ;
-            ada:foilThicknessDefault -9999 ;
-            ada:sliceThicknessDefault -9999 ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ;
@@ -70,14 +62,23 @@
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is TEM Sample Preparation. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ;
+    ada:reportedProperties "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper claims the capability without stating a rule: \"The rapid site-specific cross-sectioning capabilities of the FIB allow the preservation of the internal morphology of the nanoglobules\" (p.1), but which globules were sectioned is not said" ;
     ada:samplingUnitType "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) — \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)" ;
     ada:seDetectorType "missing" ;
     ada:segmentationMethod3DDefault "missing" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous nanoglobules" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault "5.4 mm (eucentric height for electron and ion columns)" .
 
@@ -125,10 +126,9 @@
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — a sample-preparation procedure produces sections rather than results to aggregate, and no selection rule for them is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 

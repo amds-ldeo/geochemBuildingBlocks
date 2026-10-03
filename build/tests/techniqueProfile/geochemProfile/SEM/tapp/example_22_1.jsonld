@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Zhou2017",
-  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
+  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE).",
   "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
   "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
   "schema:instrument": [
@@ -120,6 +120,60 @@
       "ada:ionBeamSource": "missing"
     }
   ],
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "subbituminous coal; high-volatile bituminous coal \u2014 Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China",
+    "ada:defaultTargetMaterials": [
+      "subbituminous coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:samplingUnitSelectionCriteriaDefault": "Stated, but by procedure rather than by criterion \u2014 \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (\u00a72.3, p.4); no rule is given for where the area was placed",
+  "ada:workingDistanceDefault": "4 mm",
+  "ada:monitoredElements": [
+    "N/A \u2014 this procedure is 3D Tomography. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "China University of Geosciences, Beijing, China"
+  },
+  "ada:samplingUnitType": "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) \u2014 \"an area within the coal sample was selected for FIB-SEM tomography\" on \"cuboidal-shaped 0.5 \u00d7 1 \u00d7 1 cm3 coal samples\", and \"~800 SEM images of FIB slices were obtained\" at a \"pixel-size of 14.8 \u00d7 14.8 nm\" (pp.3\u20134)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "3D Tomography"
+  ],
+  "ada:reportedProperties": [
+    "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (\u00b5m) \u2014 Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10\u201350 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 \u00d7 14.8 nm pixel size (pp.3\u20134)"
+  ],
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -139,24 +193,11 @@
         "ada:protectiveCoatingDepositionDefault": "missing"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 no results are admitted or excluded; the volume's adequacy is assessed instead, under \"evaluation of representative volumes\" (\u00a72.3, p.4), and the reported statistics integrate all ~800 slices"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -181,49 +222,6 @@
       "schema:HowTo"
     ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China"
-          ]
-        }
-      ],
-      "ada:foilThicknessDefault": -9999,
-      "ada:sliceThicknessDefault": -9999
-    }
-  ],
-  "ada:samplingUnitSelectionCriteriaDefault": "Stated, but by procedure rather than by criterion \u2014 \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (\u00a72.3, p.4); no rule is given for where the area was placed",
-  "ada:workingDistanceDefault": "4 mm",
-  "ada:monitoredElements": [
-    "N/A \u2014 this procedure is 3D Tomography. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "China University of Geosciences, Beijing, China"
-  },
-  "ada:samplingUnitType": "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) \u2014 \"an area within the coal sample was selected for FIB-SEM tomography\" on \"cuboidal-shaped 0.5 \u00d7 1 \u00d7 1 cm3 coal samples\", and \"~800 SEM images of FIB slices were obtained\" at a \"pixel-size of 14.8 \u00d7 14.8 nm\" (pp.3\u20134)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)"
-    }
-  ],
-  "ada:analyticalMode": [
-    "3D Tomography"
-  ],
-  "ada:reportedProperties": [
-    "Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10\u201350 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 \u00d7 14.8 nm pixel size (pp.3\u20134)"
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -249,7 +247,6 @@
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
   "ada:stepSizePixelSizeDefault": -9999,

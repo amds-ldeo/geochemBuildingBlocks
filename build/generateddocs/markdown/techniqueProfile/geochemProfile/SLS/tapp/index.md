@@ -30,7 +30,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     "bios:LabProtocol"
   ],
   "schema:name": "sls protocol — P0",
-  "schema:description": "slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UAZ) Polyga Compact C506 structured light scanner (publication column of SLS_TAPP_draft_v2.csv).",
+  "schema:description": "slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UAZ) Polyga Compact C506 structured light scanner (publication column of SLS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Polyga.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(UAZ) Polyga Compact C506 structured light scanner",
   "schema:measurementTechnique": [
@@ -118,7 +118,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     "bios:LabProtocol"
   ],
   "schema:name": "sls protocol \u2014 P0",
-  "schema:description": "slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UAZ) Polyga Compact C506 structured light scanner (publication column of SLS_TAPP_draft_v2.csv).",
+  "schema:description": "slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UAZ) Polyga Compact C506 structured light scanner (publication column of SLS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Polyga.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(UAZ) Polyga Compact C506 structured light scanner",
   "schema:measurementTechnique": [
@@ -200,7 +200,7 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
     schema1:creator [ a schema1:Person ;
             schema1:name "Ryan, Andy" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UAZ) Polyga Compact C506 structured light scanner (publication column of SLS_TAPP_draft_v2.csv)." ;
+    schema1:description "slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (UAZ) Polyga Compact C506 structured light scanner (publication column of SLS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Polyga." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

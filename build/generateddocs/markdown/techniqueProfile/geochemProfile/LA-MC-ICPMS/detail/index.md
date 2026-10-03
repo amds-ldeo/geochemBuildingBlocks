@@ -46,14 +46,15 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:signalIntegrationTime": 60,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large ⁸⁷Rb/⁸⁶Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial ⁸⁷Sr/⁸⁶Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (⁸⁷Rb/⁸⁶Sr > 1; ⁸⁸Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach",
+  "ada:combinedResults": "NWA 10597 Normal-group isochron (36 runs); NWA 10597 SUIA isochron (6 runs, 244 cycles); NWA 6950 Normal-group isochron (94 runs); NWA 6950 SUIA isochron (21 runs) — Table 3; Fig. 6",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion",
-  "ada:goodnessOfFitOrDispersionStatistic": "MSWD from IsoplotR (Table 3): NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion",
+  "ada:goodnessOfFitOrDispersionStatistic": "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize",
@@ -66,7 +67,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
         }
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
-      "schema:value": "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)"
+      "schema:value": "all: 2–6 µm s⁻¹ — varied based on Sr concentration in target minerals"
     },
     {
       "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement",
@@ -92,7 +93,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
         }
       ],
       "schema:name": "Number of Cycles per Block",
-      "schema:value": 120
+      "schema:value": "all: 120 — Table 1, 'Cycles of each block 120' (p.3)"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -142,14 +143,15 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
   "ada:signalIntegrationTime": 60,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "Run level, on the results rather than the signal: runs with stable signals go to the Normal group, runs with large \u2078\u2077Rb/\u2078\u2076Sr variation to the SUIA group (NWA 10597: 36 Normal, 6 SUIA; NWA 6950: 94 Normal, 21 SUIA). For NWA 6950 only data with initial \u2078\u2077Sr/\u2078\u2076Sr of 0.7025-0.7035 were kept, those at 0.7072-0.7076 being from glasses and pyroxenes in or around black veins and interpreted as later-altered (p.8). The cycle-level discards and the two technical criteria (\u2078\u2077Rb/\u2078\u2076Sr > 1; \u2078\u2078Sr < 0.2 V) act inside an acquisition and are recorded under Spike / Outlier Filtering Approach",
+  "ada:combinedResults": "NWA 10597 Normal-group isochron (36 runs); NWA 10597 SUIA isochron (6 runs, 244 cycles); NWA 6950 Normal-group isochron (94 runs); NWA 6950 SUIA isochron (21 runs) \u2014 Table 3; Fig. 6",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: \u00b13% for most reference glasses; 87Sr/86Sr relative errors: <0.2\u2030 for materials with 87Rb/86Sr <1",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [\u2078\u2077Sr/\u2078\u2076Sr, \u2078\u2077Rb/\u2078\u2076Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] \u2014 regression in Fig. 3; relative errors for \u2078\u2077Rb/\u2078\u2076Sr \u00b13% for most reference glasses, and for \u2078\u2077Sr/\u2078\u2076Sr <0.2\u2030 where \u2078\u2077Rb/\u2078\u2076Sr <1",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "87Sr/86Sr relative errors <0.2\u2030 for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within \u00b13% for 11 glasses; exceptions: NIST 610 (\u22122.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) \u2014 all within stated \u00b13% criterion",
-  "ada:goodnessOfFitOrDispersionStatistic": "MSWD from IsoplotR (Table 3): NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with \u2078\u2077Rb/\u2078\u2076Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "all [\u2078\u2077Sr/\u2078\u2076Sr: relative error <0.2\u2030 where \u2078\u2077Rb/\u2078\u2076Sr <1 (12 of 14 reference materials); \u2078\u2077Rb/\u2078\u2076Sr: within \u00b13% for 11 glasses] \u2014 exceptions NIST 610 (\u22122.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated \u00b13% criterion",
+  "ada:goodnessOfFitOrDispersionStatistic": "Rb\u2013Sr isochron age, initial \u2078\u2077Sr/\u2078\u2076Sr: MSWD from IsoplotR; other: N \u2014 Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with \u2078\u2077Rb/\u2078\u2076Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize",
@@ -162,7 +164,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
         }
       ],
       "schema:name": "Transect Rate, Mapping Rate or Step Size",
-      "schema:value": "2\u20136 \u00b5m s\u207b\u00b9 (varied based on Sr concentration in target minerals)"
+      "schema:value": "all: 2\u20136 \u00b5m s\u207b\u00b9 \u2014 varied based on Sr concentration in target minerals"
     },
     {
       "@id": "ada:parameter/laMcicpmsTAPP/numberOfBlocksPerMeasurement",
@@ -188,7 +190,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
         }
       ],
       "schema:name": "Number of Cycles per Block",
-      "schema:value": 120
+      "schema:value": "all: 120 \u2014 Table 1, 'Cycles of each block 120' (p.3)"
     }
   ],
   "ada:spotDiameterMeasured": -9999
@@ -211,13 +213,14 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "87Sr/86Sr relative errors <0.2‰ for reference materials with 87Rb/86Sr <1 (12 of 14 reference materials); 87Rb/86Sr relative accuracy within ±3% for 11 glasses; exceptions: NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%) — all within stated ±3% criterion" ;
+    ada:analyticalAccuracyAndAssessmentMethod "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "NWA 10597 Normal-group isochron (36 runs); NWA 10597 SUIA isochron (6 runs, 244 cycles); NWA 6950 Normal-group isochron (94 runs); NWA 6950 SUIA isochron (21 runs) — Table 3; Fig. 6" ;
     ada:componentType "ada:LAICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08" ;
-    ada:goodnessOfFitOrDispersionStatistic "MSWD from IsoplotR (Table 3): NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ;
+    ada:goodnessOfFitOrDispersionStatistic "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
@@ -232,7 +235,7 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength "Variable; analyses of plagioclase, pyroxene, glass in two lunar meteorites (NWA 10597 and NWA 6950); line length varies by mineral grain size" ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Standard error (USE = SE at 95% confidence) for 87Sr/86Sr and 87Rb/86Sr per individual run; dependent on signal intensity (regression shown in Fig. 3); relative errors for 87Rb/86Sr: ±3% for most reference glasses; 87Sr/86Sr relative errors: <0.2‰ for materials with 87Rb/86Sr <1" .
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" .
 
 <ex:laMcicpmsTAPP-Zhang2022> schema1:identifier "missing" .
 
@@ -244,12 +247,12 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
     schema1:name "Number of Cycles per Block" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:value 120 .
+    schema1:value "all: 120 — Table 1, 'Cycles of each block 120' (p.3)" .
 
 <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
     schema1:name "Transect Rate, Mapping Rate or Step Size" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laMcicpmsTAPP/transectRateMappingRateOrStepSize> ;
-    schema1:value "2–6 µm s⁻¹ (varied based on Sr concentration in target minerals)" .
+    schema1:value "all: 2–6 µm s⁻¹ — varied based on Sr concentration in target minerals" .
 
 
 ```
@@ -293,16 +296,10 @@ allOf:
                     schema:additionalProperty:
                       type: array
                       items:
-                        anyOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
                       allOf:
                       - contains:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
-                        minContains: 0
-                        maxContains: 1
-                      - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
                         minContains: 0
                         maxContains: 1
             allOf:
@@ -977,8 +974,8 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
     "dqv": "http://www.w3.org/ns/dqv#",
     "@version": 1.1
   }

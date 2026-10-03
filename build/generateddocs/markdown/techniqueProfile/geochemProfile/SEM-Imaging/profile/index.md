@@ -283,6 +283,42 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Target Material of Sampling Unit",
+      "schema:description": "Target Material of Sampling Unit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -733,6 +769,42 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Target Material of Sampling Unit",
+      "schema:description": "Target Material of Sampling Unit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -986,15 +1058,16 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
     schema1:name "ADA SEM Imaging Example Product" ;
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
-    schema1:variableMeasured ex:adaProduct-var-001,
+    schema1:variableMeasured <https://ada.astromat.org/metadata/parameter/semImagingTAPP/targetMaterialOfSamplingUnit>,
+        ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "example ebsdPatternQualityThreshold" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "example ebsdPatternQualityThreshold" ] ;
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1067,8 +1140,10 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
-    schema1:name "measurement_value" ;
+    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
+        "Sampling Unit Name reported for this dataset. Example value." ;
+    schema1:name "Sampling Unit Name",
+        "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
@@ -1096,6 +1171,17 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
 ex:semImagingTAPP-P0 a prov:Entity,
         prov:Plan,
         ada:TAPPDefinition .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/targetMaterialOfSamplingUnit> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Target Material of Sampling Unit reported for this dataset. Example value." ;
+    schema1:name "Target Material of Sampling Unit" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/targetMaterialOfSamplingUnit> ;
+    schema1:unitText "counts" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 
 ```

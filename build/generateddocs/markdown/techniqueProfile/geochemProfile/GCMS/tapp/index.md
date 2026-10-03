@@ -30,7 +30,7 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
     "bios:LabProtocol"
   ],
   "schema:name": "gcms protocol — Agilent5977",
-  "schema:description": "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv).",
+  "schema:description": "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Agilent 5977B GCMSD",
   "schema:measurementTechnique": [
@@ -118,7 +118,7 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
     "bios:LabProtocol"
   ],
   "schema:name": "gcms protocol \u2014 Agilent5977",
-  "schema:description": "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv).",
+  "schema:description": "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Agilent 5977B GCMSD",
   "schema:measurementTechnique": [
@@ -200,7 +200,7 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
     schema1:creator [ a schema1:Person ;
             schema1:name "Sako, Sunami" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv)." ;
+    schema1:description "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa." ] ;
     schema1:location [ a schema1:Place ;

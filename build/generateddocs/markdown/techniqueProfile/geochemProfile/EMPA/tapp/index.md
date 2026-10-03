@@ -30,7 +30,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Oxides, Tissint Mars Meteorite (Caltech GPS, JEOL 8200)",
-  "schema:description": "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility.",
+  "schema:description": "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -40,8 +40,8 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused (stated: \"beam in focused mode\")",
+      "ada:beamDiameterDefault": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+      "ada:beamMode": "all: Focused — 'WDS: 15 kV; 5 nA; beam in focused mode' (p.3)",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -213,16 +213,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -261,6 +251,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -279,61 +270,43 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses — \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (tissintite clinopyroxene, plagioclase, maskelynite) | Oxide | Glass (melt pocket)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "tissintite",
+      "maskelynite",
+      "pigeonite",
+      "fayalite"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section; carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:samplingUnitSelectionCriteriaDefault": "Textural position relative to the shock-melt pockets — the analyses are grouped as \"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite associated with wormy tissintite\" and \"Maskelynite away from melt pockets\" (Table 1, p.5), the phase itself occurring \"only in maskelynite less than ~25 μm of a shock melt pocket\" (p.1)",
   "ada:monitoredElements": [
     "Si, Al, Ca, Na, Fe, Mg, Mn, Ti, Cr, K — all determined; no monitor-only element. \"Standards for analysis were anorthite (SiKα, AlKα, CaKα); albite (NaKα); fayalite (FeKα); forsterite (MgKα); Mn2SiO4 (MnKα); TiO2 (TiKα); Cr2O3 (CrKα); and microcline (KKα)\" (p.3)"
@@ -358,6 +331,14 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     ],
     "schema:name": "Caltech GPS Division Analytical Facility"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 — 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -388,20 +369,52 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "CITZAF correction procedure (Armstrong 1995)"
+      "schema:name": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA"
     }
   ],
-  "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit on 6 oxygens, with \"Sum cations\" (Table 1, p.5); Ca-Eskola component (mol%: \"42–60 mol% of the Ca-Eskola\" component, p.1); anorthite content of the precursor plagioclase (An58–69, p.1)"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Anorthite (SiKα, AlKα, CaKα); albite (NaKα); fayalite (FeKα); forsterite (MgKα); Mn2SiO4 (MnKα); TiO2 (TiKα); Cr2O3 (CrKα); microcline (KKα)",
+  "ada:reportedProperties": [
+    "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO; cations per formula unit; Ca/(Ca+Na+K); Ca-Eskola component; An content of the precursor plagioclase — oxide wt% with totals and 1 s.d. of the mean, cations on 6 or 8 oxygens (Table 1); Ca-Eskola (mol%) and An58–69 (p.1)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -440,7 +453,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Oxides, Tissint Mars Meteorite (Caltech GPS, JEOL 8200)",
-  "schema:description": "Ma et al. 2015, Earth Planet. Sci. Lett. \u2014 tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility.",
+  "schema:description": "Ma et al. 2015, Earth Planet. Sci. Lett. \u2014 tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis \u2014 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -450,8 +463,8 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused (stated: \"beam in focused mode\")",
+      "ada:beamDiameterDefault": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+      "ada:beamMode": "all: Focused \u2014 'WDS: 15 kV; 5 nA; beam in focused mode' (p.3)",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -623,16 +636,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -671,6 +674,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -689,61 +693,43 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses \u2014 \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (tissintite clinopyroxene, plagioclase, maskelynite) | Oxide | Glass (melt pocket)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "tissintite",
+      "maskelynite",
+      "pigeonite",
+      "fayalite"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section; carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:samplingUnitSelectionCriteriaDefault": "Textural position relative to the shock-melt pockets \u2014 the analyses are grouped as \"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite associated with wormy tissintite\" and \"Maskelynite away from melt pockets\" (Table 1, p.5), the phase itself occurring \"only in maskelynite less than ~25 \u03bcm of a shock melt pocket\" (p.1)",
   "ada:monitoredElements": [
     "Si, Al, Ca, Na, Fe, Mg, Mn, Ti, Cr, K \u2014 all determined; no monitor-only element. \"Standards for analysis were anorthite (SiK\u03b1, AlK\u03b1, CaK\u03b1); albite (NaK\u03b1); fayalite (FeK\u03b1); forsterite (MgK\u03b1); Mn2SiO4 (MnK\u03b1); TiO2 (TiK\u03b1); Cr2O3 (CrK\u03b1); and microcline (KK\u03b1)\" (p.3)"
@@ -768,6 +754,14 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     ],
     "schema:name": "Caltech GPS Division Analytical Facility"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 \u2014 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -798,20 +792,52 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "CITZAF correction procedure (Armstrong 1995)"
+      "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA"
     }
   ],
-  "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit on 6 oxygens, with \"Sum cations\" (Table 1, p.5); Ca-Eskola component (mol%: \"42\u201360 mol% of the Ca-Eskola\" component, p.1); anorthite content of the precursor plagioclase (An58\u201369, p.1)"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Anorthite (SiK\u03b1, AlK\u03b1, CaK\u03b1); albite (NaK\u03b1); fayalite (FeK\u03b1); forsterite (MgK\u03b1); Mn2SiO4 (MnK\u03b1); TiO2 (TiK\u03b1); Cr2O3 (CrK\u03b1); microcline (KK\u03b1)",
+  "ada:reportedProperties": [
+    "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO; cations per formula unit; Ca/(Ca+Na+K); Ca-Eskola component; An content of the precursor plagioclase \u2014 oxide wt% with totals and 1 s.d. of the mean, cations on 6 or 8 oxygens (Table 1); Ca-Eskola (mol%) and An58\u201369 (p.1)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -843,7 +869,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -851,7 +876,9 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility." ;
+    schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NSF EAR-0318518; NSF DMR-0080065 — 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'" ] ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -862,9 +889,7 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (tissintite clinopyroxene, plagioclase, maskelynite) | Oxide | Glass (melt pocket)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
@@ -875,16 +900,29 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:analyticalMode "WDS Point Analysis" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "CITZAF (Armstrong 1995)" ;
     ada:monitoredElements "Si, Al, Ca, Na, Fe, Mg, Mn, Ti, Cr, K — all determined; no monitor-only element. \"Standards for analysis were anorthite (SiKα, AlKα, CaKα); albite (NaKα); fayalite (FeKα); forsterite (MgKα); Mn2SiO4 (MnKα); TiO2 (TiKα); Cr2O3 (CrKα); and microcline (KKα)\" (p.3)" ;
-    ada:primaryStandardNameDefault "Anorthite (SiKα, AlKα, CaKα); albite (NaKα); fayalite (FeKα); forsterite (MgKα); Mn2SiO4 (MnKα); TiO2 (TiKα); Cr2O3 (CrKα); microcline (KKα)" ;
-    ada:reportedProperties "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit on 6 oxygens, with \"Sum cations\" (Table 1, p.5); Ca-Eskola component (mol%: \"42–60 mol% of the Ca-Eskola\" component, p.1); anorthite content of the precursor plagioclase (An58–69, p.1)" ;
+    ada:reportedProperties "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO; cations per formula unit; Ca/(Ca+Na+K); Ca-Eskola component; An content of the precursor plagioclase — oxide wt% with totals and 1 s.d. of the mean, cations on 6 or 8 oxygens (Table 1); Ca-Eskola (mol%) and An58–69 (p.1)" ;
     ada:samplingUnitSelectionCriteriaDefault "Textural position relative to the shock-melt pockets — the analyses are grouped as \"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite associated with wormy tissintite\" and \"Maskelynite away from melt pockets\" (Table 1, p.5), the phase itself occurring \"only in maskelynite less than ~25 μm of a shock melt pocket\" (p.1)" ;
     ada:samplingUnitType "Phase > Analysis point — Table 1 reports one column per phase and textural setting (\"Wormy type tissintite\", \"Maskelynite away from melt pockets\" …), each the mean of n = 5–17 focused-beam point analyses (p.5)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "fayalite",
+                "maskelynite",
+                "pigeonite",
+                "tissintite" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -908,7 +946,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -916,10 +953,10 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -932,8 +969,8 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "Focused (exact diameter N)" ;
-    ada:beamMode "Focused (stated: \"beam in focused mode\")" .
+    ada:beamDiameterDefault "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given" ;
+    ada:beamMode "all: Focused — 'WDS: 15 kV; 5 nA; beam in focused mode' (p.3)" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -962,19 +999,18 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
             schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially — the contributing counts are stated per aggregate, each Table 1 column being the mean of n point analyses of one phase and textural setting (n = 6, 6, 6, 9, 17, 7 and 5; p.5), with one standard deviation of the mean. No acceptance or rejection rule, and no acquired-versus-included count, is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses — \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -1000,12 +1036,6 @@ empaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -1064,8 +1094,8 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
-  "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis WDS only. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per element. Analytical software not stated.",
+  "schema:name": "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
+  "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1075,8 +1105,8 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused",
+      "ada:beamDiameterDefault": "N — only 15 kV and 10 nA are given",
+      "ada:beamMode": "N — only 15 kV and 10 nA are given",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -1248,16 +1278,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1296,6 +1316,7 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -1314,61 +1335,44 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and EDS mapping on three instruments before the probe — \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "Bence-Albee",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis — 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)",
+    "ada:defaultTargetMaterials": [
+      "maskelynite",
+      "silica glasses",
+      "coesite aggregates",
+      "mesostasis"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:matrixCorrectionMethod": "Bence-Albee",
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
     "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr — all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction — \"X-ray interference of the Kα line of Mn by the Kβ line of Cr was corrected\" — but is itself determined, so it is not an orphan"
@@ -1411,13 +1415,43 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "Bence-Albee method"
+      "schema:name": "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named"
     }
   ],
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2); detection limits are given per oxide (0.01–0.06 wt%, p.2)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)"
   ],
-  "ada:primaryStandardNameDefault": "Natural kaersutite (Si, Mg, Fe); jadeite (Na, Al); bustamite (Ca, Mn); K-feldspar (K); synthetic rutile (Ti); Cr2O3 (Cr)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1433,7 +1467,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -1471,8 +1504,8 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
-  "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta \u2014 coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis WDS only. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn K\u03b1 / Cr K\u03b2 interference correction applied. Detection limits 0.01-0.06 wt% stated per element. Analytical software not stated.",
+  "schema:name": "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
+  "schema:description": "Hu et al. 2020, Geochim. Cosmochim. Acta \u2014 coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn K\u03b1 / Cr K\u03b2 interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -1482,8 +1515,8 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused",
+      "ada:beamDiameterDefault": "N \u2014 only 15 kV and 10 nA are given",
+      "ada:beamMode": "N \u2014 only 15 kV and 10 nA are given",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -1655,16 +1688,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -1703,6 +1726,7 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -1721,61 +1745,44 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and EDS mapping on three instruments before the probe \u2014 \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "Bence-Albee",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis \u2014 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)",
+    "ada:defaultTargetMaterials": [
+      "maskelynite",
+      "silica glasses",
+      "coesite aggregates",
+      "mesostasis"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 analyses are reported by phase with no contributing count and no acceptance or rejection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:matrixCorrectionMethod": "Bence-Albee",
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
     "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr \u2014 all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction \u2014 \"X-ray interference of the K\u03b1 line of Mn by the K\u03b2 line of Cr was corrected\" \u2014 but is itself determined, so it is not an orphan"
@@ -1818,13 +1825,43 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
   "bios:computationalTool": [
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "Bence-Albee method"
+      "schema:name": "N \u2014 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named"
     }
   ],
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2); detection limits are given per oxide (0.01\u20130.06 wt%, p.2)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O \u2014 oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)"
   ],
-  "ada:primaryStandardNameDefault": "Natural kaersutite (Si, Mg, Fe); jadeite (Na, Al); bustamite (Ca, Mn); K-feldspar (K); synthetic rutile (Ti); Cr2O3 (Cr)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thick section (NWA 8657); carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -1840,7 +1877,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -1866,21 +1902,20 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Sen Hu" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis WDS only. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per element. Analytical software not stated." ;
+    schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -1888,33 +1923,44 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
             schema1:termCode "empa" ] ;
-    schema1:name "EPMA-WDS Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)" ;
+    schema1:name "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (coesite, pyroxene, feldspar) | Oxide | Sulfide" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "Bence-Albee" ;
     ada:monitoredElements "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr — all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction — \"X-ray interference of the Kα line of Mn by the Kβ line of Cr was corrected\" — but is itself determined, so it is not an orphan" ;
-    ada:primaryStandardNameDefault "Natural kaersutite (Si, Mg, Fe); jadeite (Na, Al); bustamite (Ca, Mn); K-feldspar (K); synthetic rutile (Ti); Cr2O3 (Cr)" ;
-    ada:reportedProperties "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O) for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2); detection limits are given per oxide (0.01–0.06 wt%, p.2)" ;
+    ada:reportedProperties "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by electron probe microanalysis\" (p.2); points are grouped by phase, not reported individually in the archived PDF" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "coesite aggregates",
+                "maskelynite",
+                "mesostasis",
+                "silica glasses" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ;
+            ada:targetMaterialDeclaration "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis — 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -1938,7 +1984,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -1946,7 +1991,7 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Bence-Albee method" ;
+    bios:computationalTool [ schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
             ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -1960,8 +2005,8 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "Focused (exact diameter N)" ;
-    ada:beamMode "Focused" .
+    ada:beamDiameterDefault "N — only 15 kV and 10 nA are given" ;
+    ada:beamMode "N — only 15 kV and 10 nA are given" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -1990,19 +2035,18 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
             schema1:name "JXA-8100 (stated as \"JEOL JXA-8100\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM imaging and EDS mapping on three instruments before the probe — \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -2028,12 +2072,6 @@ empaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -2093,7 +2131,7 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Oxides+Mapping, Tissint (U. Tennessee, Cameca SX100)",
-  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated.",
+  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses and elemental X-ray maps; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2103,8 +2141,8 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 µm (maskelynite, phosphate, sulfide, glass)",
+      "ada:beamDiameterDefault": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3",
+      "ada:beamMode": "maskelynite, phosphate, sulfide, glass: Defocused; other: N — 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5–10 µm size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1–2 µm beam diameter' is given, not a mode",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -2278,16 +2316,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2336,9 +2364,10 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
+      "schema:defaultValue": "N — a defocused 5–10 µm beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -2357,64 +2386,49 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" before the microprobe work (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide (chromite, ulvospinel, ilmenite) | Sulfide | Phosphate (merrillite) | Glass (melt pocket)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:stepSizePixelSizeDefault": "8-12 µm (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 µm (olivine megacryst Ka maps; instrument ambiguous)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides",
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:stepSizePixelSizeDefault": "8-12 µm (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 µm (olivine megacryst Ka maps; instrument ambiguous)",
   "ada:samplingUnitSelectionCriteriaDefault": "N — the map areas are shown rather than specified: a \"Red box outlines the area of X-ray maps\" on an olivine megacryst (Fig. 3 caption, p.7), with no stated rule for placing them",
   "ada:monitoredElements": [
-    "Ca, Al, Fe, Mg — \"elemental X-ray maps (Ca Kα, Al Kα, Fe Kα, and Mg Kα) of four sections were obtained using a Cameca SX100 electron microprobe (EMP) at the University of Tennessee\" (p.3). A separate Caltech map set of two olivine megacrysts adds Fe, P, Al, Ca and Cr (p.4) but was collected on the other instrument, which this TAPP records as its own procedure column"
+    "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P — point analyses on both instruments (the detection-limit sentence names their oxides); maps: 'Ca Ka, Al Ka, Fe Ka, and Mg Ka' (four sections) and 'Fe Ka, P Ka, Al Ka, Ca Ka, and Cr Ka' (two olivine megacrysts, collected on 'the EMP' — the instrument is not named)"
   ],
   "schema:location": {
     "@type": [
@@ -2446,8 +2460,39 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
   ],
   "ada:samplingUnitType": "Whole sample (thin section) > Phase — \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)",
   "ada:reportedProperties": [
-    "Modal-area fraction per mineral (vol%), computed as \"The number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3) and reported as modal abundances, e.g. pyroxenes 51–60 vol%, olivine 22–26 vol%, maskelynite 14–17 vol% (Table 1, p.4)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo — oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1σ (Table 3); modal abundances from the X-ray maps (Table 1)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2463,11 +2508,9 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2503,7 +2546,7 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Oxides+Mapping, Tissint (U. Tennessee, Cameca SX100)",
-  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 \u00b5m). Olivine megacryst mapping (15 kV, 200 nA, step 2 \u00b5m, dwell ~0.5 s) described as \"using the EMP\" \u2014 instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated.",
+  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 \u00b5m). Olivine megacryst mapping (15 kV, 200 nA, step 2 \u00b5m, dwell ~0.5 s) described as \"using the EMP\" \u2014 instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses and elemental X-ray maps; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -2513,8 +2556,8 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1-2 \u00b5m (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 \u00b5m defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 \u00b5m (maskelynite, phosphate, sulfide, glass)",
+      "ada:beamDiameterDefault": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3",
+      "ada:beamMode": "maskelynite, phosphate, sulfide, glass: Defocused; other: N \u2014 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5\u201310 \u00b5m size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1\u20132 \u00b5m beam diameter' is given, not a mode",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -2688,16 +2731,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -2746,9 +2779,10 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 \u00b5m for maskelynite, phosphate, sulfide, and glass"
+      "schema:defaultValue": "N \u2014 a defocused 5\u201310 \u00b5m beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -2767,64 +2801,49 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" before the microprobe work (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide (chromite, ulvospinel, ilmenite) | Sulfide | Phosphate (merrillite) | Glass (melt pocket)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:stepSizePixelSizeDefault": "8-12 \u00b5m (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 \u00b5m (olivine megacryst Ka maps; instrument ambiguous)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides",
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:stepSizePixelSizeDefault": "8-12 \u00b5m (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 \u00b5m (olivine megacryst Ka maps; instrument ambiguous)",
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the map areas are shown rather than specified: a \"Red box outlines the area of X-ray maps\" on an olivine megacryst (Fig. 3 caption, p.7), with no stated rule for placing them",
   "ada:monitoredElements": [
-    "Ca, Al, Fe, Mg \u2014 \"elemental X-ray maps (Ca K\u03b1, Al K\u03b1, Fe K\u03b1, and Mg K\u03b1) of four sections were obtained using a Cameca SX100 electron microprobe (EMP) at the University of Tennessee\" (p.3). A separate Caltech map set of two olivine megacrysts adds Fe, P, Al, Ca and Cr (p.4) but was collected on the other instrument, which this TAPP records as its own procedure column"
+    "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P \u2014 point analyses on both instruments (the detection-limit sentence names their oxides); maps: 'Ca Ka, Al Ka, Fe Ka, and Mg Ka' (four sections) and 'Fe Ka, P Ka, Al Ka, Ca Ka, and Cr Ka' (two olivine megacrysts, collected on 'the EMP' \u2014 the instrument is not named)"
   ],
   "schema:location": {
     "@type": [
@@ -2856,8 +2875,39 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
   ],
   "ada:samplingUnitType": "Whole sample (thin section) > Phase \u2014 \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)",
   "ada:reportedProperties": [
-    "Modal-area fraction per mineral (vol%), computed as \"The number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3) and reported as modal abundances, e.g. pyroxenes 51\u201360 vol%, olivine 22\u201326 vol%, maskelynite 14\u201317 vol% (Table 1, p.4)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo \u2014 oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1\u03c3 (Table 3); modal abundances from the X-ray maps (Table 1)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -2873,11 +2923,9 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
 }
@@ -2900,20 +2948,19 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished thin sections (coating type N)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated." ;
+    schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses and elemental X-ray maps; WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -2925,29 +2972,42 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide (chromite, ulvospinel, ilmenite) | Sulfide | Phosphate (merrillite) | Glass (melt pocket)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
-    ada:monitoredElements "Ca, Al, Fe, Mg — \"elemental X-ray maps (Ca Kα, Al Kα, Fe Kα, and Mg Kα) of four sections were obtained using a Cameca SX100 electron microprobe (EMP) at the University of Tennessee\" (p.3). A separate Caltech map set of two olivine megacrysts adds Fe, P, Al, Ca and Cr (p.4) but was collected on the other instrument, which this TAPP records as its own procedure column" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Modal-area fraction per mineral (vol%), computed as \"The number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3) and reported as modal abundances, e.g. pyroxenes 51–60 vol%, olivine 22–26 vol%, maskelynite 14–17 vol% (Table 1, p.4)" ;
+    ada:monitoredElements "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P — point analyses on both instruments (the detection-limit sentence names their oxides); maps: 'Ca Ka, Al Ka, Fe Ka, and Mg Ka' (four sections) and 'Fe Ka, P Ka, Al Ka, Ca Ka, and Cr Ka' (two olivine megacrysts, collected on 'the EMP' — the instrument is not named)" ;
+    ada:reportedProperties "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo — oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1σ (Table 3); modal abundances from the X-ray maps (Table 1)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the map areas are shown rather than specified: a \"Red box outlines the area of X-ray maps\" on an olivine megacryst (Fig. 3 caption, p.7), with no stated rule for placing them" ;
     ada:samplingUnitType "Whole sample (thin section) > Phase — \"elemental X-ray maps (Ca Ka, Al Ka, Fe Ka, and Mg Ka) of four sections\" (p.3); the reported quantity is a modal fraction, \"the number of pixels attributed to each mineral ... divided by the total number of pixels in the whole section\" (p.3)" ;
     ada:stepSizePixelSizeDefault "8-12 µm (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 µm (olivine megacryst Ka maps; instrument ambiguous)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Fe-Ti-Cr oxides",
+                "glass",
+                "maskelynite",
+                "olivine",
+                "phosphate",
+                "pyroxene",
+                "sulfide" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -2973,7 +3033,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -2993,8 +3052,8 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
             schema1:name "Cameca" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)" ;
-    ada:beamMode "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 µm (maskelynite, phosphate, sulfide, glass)" .
+    ada:beamDiameterDefault "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3" ;
+    ada:beamMode "maskelynite, phosphate, sulfide, glass: Defocused; other: N — 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5–10 µm size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1–2 µm beam diameter' is given, not a mode" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -3024,16 +3083,9 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
+    schema1:defaultValue "N — a defocused 5–10 µm beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — the modal fractions use every pixel of the mapped section (\"the number of pixels attributed to each mineral was divided by the total number of pixels in the whole section\", p.3); nothing is admitted or excluded" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3043,6 +3095,12 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -3068,12 +3126,6 @@ empaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -3132,8 +3184,8 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
-  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA.",
+  "schema:name": "EPMA Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
+  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3143,8 +3195,8 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 µm (maskelynite, phosphate, sulfide, glass)",
+      "ada:beamDiameterDefault": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3",
+      "ada:beamMode": "maskelynite, phosphate, sulfide, glass: Defocused; other: N — 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5–10 µm size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1–2 µm beam diameter' is given, not a mode",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -3318,16 +3370,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3376,9 +3418,10 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass"
+      "schema:defaultValue": "N — a defocused 5–10 µm beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -3397,58 +3440,43 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides",
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
@@ -3485,8 +3513,39 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)",
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, plus V2O3, La2O3 and Ce2O3 for the oxides and merrillite) \"of selected minerals\" (Table 2, p.6); derived ratio and end-member quantities used in the text (Mg#, En-Fs-Wo); glass compositions reported as means with 1σ (Table 3, p.9)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo — oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1σ (Table 3); modal abundances from the X-ray maps (Table 1)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3502,11 +3561,9 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
@@ -3542,8 +3599,8 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
-  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA.",
+  "schema:name": "EPMA Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
+  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -3553,8 +3610,8 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1-2 \u00b5m (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 \u00b5m defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 \u00b5m (maskelynite, phosphate, sulfide, glass)",
+      "ada:beamDiameterDefault": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3",
+      "ada:beamMode": "maskelynite, phosphate, sulfide, glass: Defocused; other: N \u2014 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5\u201310 \u00b5m size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1\u20132 \u00b5m beam diameter' is given, not a mode",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -3728,16 +3785,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -3786,9 +3833,10 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 \u00b5m for maskelynite, phosphate, sulfide, and glass"
+      "schema:defaultValue": "N \u2014 a defocused 5\u201310 \u00b5m beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -3807,58 +3855,43 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides",
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
@@ -3895,8 +3928,39 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)",
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, plus V2O3, La2O3 and Ce2O3 for the oxides and merrillite) \"of selected minerals\" (Table 2, p.6); derived ratio and end-member quantities used in the text (Mg#, En-Fs-Wo); glass compositions reported as means with 1\u03c3 (Table 3, p.9)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo \u2014 oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1\u03c3 (Table 3); modal abundances from the X-ray maps (Table 1)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -3912,11 +3976,9 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
@@ -3941,19 +4003,18 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Polished thin sections (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thin sections (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA." ;
+    schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -3961,13 +4022,11 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
             schema1:termCode "empa" ] ;
-    schema1:name "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)" ;
+    schema1:name "EPMA Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
@@ -3978,16 +4037,31 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P — all determined. \"Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5\" (p.4)" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, plus V2O3, La2O3 and Ce2O3 for the oxides and merrillite) \"of selected minerals\" (Table 2, p.6); derived ratio and end-member quantities used in the text (Mg#, En-Fs-Wo); glass compositions reported as means with 1σ (Table 3, p.9)" ;
+    ada:reportedProperties "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo — oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1σ (Table 3); modal abundances from the X-ray maps (Table 1)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Fe-Ti-Cr oxides",
+                "glass",
+                "maskelynite",
+                "olivine",
+                "phosphate",
+                "pyroxene",
+                "sulfide" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -4013,7 +4087,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -4033,8 +4106,8 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "1-2 µm (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 µm defocused (maskelynite, phosphate, sulfide, glass)" ;
-    ada:beamMode "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 µm (maskelynite, phosphate, sulfide, glass)" .
+    ada:beamDiameterDefault "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3" ;
+    ada:beamMode "maskelynite, phosphate, sulfide, glass: Defocused; other: N — 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5–10 µm size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1–2 µm beam diameter' is given, not a mode" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -4064,16 +4137,9 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Defocused beam 5-10 µm for maskelynite, phosphate, sulfide, and glass" ;
+    schema1:defaultValue "N — a defocused 5–10 µm beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially — contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -4083,6 +4149,12 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -4108,12 +4180,6 @@ empaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -4173,7 +4239,7 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Glasses, Zagami (Caltech GPS Analytical Facility, JEOL 8200)",
-  "schema:description": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility.",
+  "schema:description": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV, 5 nA'; the paper also mentions 'K-mapping by EPMA', with no detector or conditions.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4183,8 +4249,8 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused (stated: \"beam in focused mode\")",
+      "ada:beamDiameterDefault": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+      "ada:beamMode": "all: Focused — 'WDS: 15 kV, 5 nA, beam in focused mode' (p.2)",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -4356,16 +4422,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4414,9 +4470,10 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite"
+      "schema:defaultValue": "all: low beam current (5 nA) — 'Although a low beam current of 5 nA was used for the analysis, the low cation sum (0.92) for the K-site is likely due to diffusion of Na away from the electron beam' (p.3)"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -4435,64 +4492,45 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM — \"Backscattered electron (BSE) imaging was performed using a Carl Zeiss, LLC 1550VP field emission SEM\" (p.2), locating the three occurrences of the new mineral in the Zagami thin section (Fig. 1, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (liebermannite, lingunite, maskelynite, augite, pigeonite)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section USNM 7619 (coating type N)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:secondaryReferenceMaterialDefault": [
-    "Feldspar standards run as unknowns (material names N beyond what is listed above)"
+    "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually"
   ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "liebermannite",
+      "lingunite",
+      "maskelynite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Occurrence of the target phase — the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)",
   "ada:monitoredElements": [
     "Si, Al, K, Ca, Na, Fe, Mg, Ti, Cr, Mn — all determined. \"Standards for analysis were Asbestos microcline (SiKa, AlKa, KKa), synthetic anorthite (CaKa), Amelia albite (NaKa), synthetic fayalite (FeKa), synthetic forsterite (MgKa), synthetic TiO2 (TiKa), synthetic Cr2O3 (CrKa), and synthetic Mn-olivine (MnKa)\", with detection limits quoted for the same ten (p.2)"
@@ -4517,6 +4555,14 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     ],
     "schema:name": "Division of Geological and Planetary Sciences Analytical Facility, Caltech"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 — 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -4547,20 +4593,52 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "CITZAF correction procedure (Armstrong 1995)"
+      "schema:name": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA"
     }
   ],
-  "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit; empirical formulae for liebermannite, lingunite and maskelynite (Table 1, p.3); calculated density (g cm-3) from the composition and cell volume (p.4)"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Asbestos microcline (SiKa, AlKa, KKa); synthetic anorthite (CaKa); Amelia albite (NaKa); synthetic fayalite (FeKa); synthetic forsterite (MgKa); synthetic TiO2 (TiKa); synthetic Cr2O3 (CrKa); synthetic Mn-olivine (MnKa)",
+  "ada:reportedProperties": [
+    "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density — oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section USNM 7619 (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -4599,7 +4677,7 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Glasses, Zagami (Caltech GPS Analytical Facility, JEOL 8200)",
-  "schema:description": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) \u2014 liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) \u2014 NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility.",
+  "schema:description": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) \u2014 liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) \u2014 NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis \u2014 'WDS: 15 kV, 5 nA'; the paper also mentions 'K-mapping by EPMA', with no detector or conditions.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -4609,8 +4687,8 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused (stated: \"beam in focused mode\")",
+      "ada:beamDiameterDefault": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+      "ada:beamMode": "all: Focused \u2014 'WDS: 15 kV, 5 nA, beam in focused mode' (p.2)",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -4782,16 +4860,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -4840,9 +4908,10 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite"
+      "schema:defaultValue": "all: low beam current (5 nA) \u2014 'Although a low beam current of 5 nA was used for the analysis, the low cation sum (0.92) for the K-site is likely due to diffusion of Na away from the electron beam' (p.3)"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -4861,64 +4930,45 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM \u2014 \"Backscattered electron (BSE) imaging was performed using a Carl Zeiss, LLC 1550VP field emission SEM\" (p.2), locating the three occurrences of the new mineral in the Zagami thin section (Fig. 1, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (liebermannite, lingunite, maskelynite, augite, pigeonite)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section USNM 7619 (coating type N)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:secondaryReferenceMaterialDefault": [
-    "Feldspar standards run as unknowns (material names N beyond what is listed above)"
+    "feldspar standards \u2014 'based on analysis of feldspar standards as unknowns'; not named individually"
   ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "liebermannite",
+      "lingunite",
+      "maskelynite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Occurrence of the target phase \u2014 the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)",
   "ada:monitoredElements": [
     "Si, Al, K, Ca, Na, Fe, Mg, Ti, Cr, Mn \u2014 all determined. \"Standards for analysis were Asbestos microcline (SiKa, AlKa, KKa), synthetic anorthite (CaKa), Amelia albite (NaKa), synthetic fayalite (FeKa), synthetic forsterite (MgKa), synthetic TiO2 (TiKa), synthetic Cr2O3 (CrKa), and synthetic Mn-olivine (MnKa)\", with detection limits quoted for the same ten (p.2)"
@@ -4943,6 +4993,14 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     ],
     "schema:name": "Division of Geological and Planetary Sciences Analytical Facility, Caltech"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 \u2014 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -4973,20 +5031,52 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "CITZAF correction procedure (Armstrong 1995)"
+      "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA"
     }
   ],
-  "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit; empirical formulae for liebermannite, lingunite and maskelynite (Table 1, p.3); calculated density (g cm-3) from the composition and cell volume (p.4)"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Asbestos microcline (SiKa, AlKa, KKa); synthetic anorthite (CaKa); Amelia albite (NaKa); synthetic fayalite (FeKa); synthetic forsterite (MgKa); synthetic TiO2 (TiKa); synthetic Cr2O3 (CrKa); synthetic Mn-olivine (MnKa)",
+  "ada:reportedProperties": [
+    "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density \u2014 oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section USNM 7619 (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -5012,7 +5102,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -5027,7 +5116,9 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility." ;
+    schema1:description "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'WDS: 15 kV, 5 nA'; the paper also mentions 'K-mapping by EPMA', with no detector or conditions." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 — 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'" ] ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -5038,9 +5129,7 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (liebermannite, lingunite, maskelynite, augite, pigeonite)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
@@ -5051,17 +5140,29 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:analyticalMode "WDS Point Analysis" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "CITZAF (Armstrong 1995)" ;
     ada:monitoredElements "Si, Al, K, Ca, Na, Fe, Mg, Ti, Cr, Mn — all determined. \"Standards for analysis were Asbestos microcline (SiKa, AlKa, KKa), synthetic anorthite (CaKa), Amelia albite (NaKa), synthetic fayalite (FeKa), synthetic forsterite (MgKa), synthetic TiO2 (TiKa), synthetic Cr2O3 (CrKa), and synthetic Mn-olivine (MnKa)\", with detection limits quoted for the same ten (p.2)" ;
-    ada:primaryStandardNameDefault "Asbestos microcline (SiKa, AlKa, KKa); synthetic anorthite (CaKa); Amelia albite (NaKa); synthetic fayalite (FeKa); synthetic forsterite (MgKa); synthetic TiO2 (TiKa); synthetic Cr2O3 (CrKa); synthetic Mn-olivine (MnKa)" ;
-    ada:reportedProperties "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit; empirical formulae for liebermannite, lingunite and maskelynite (Table 1, p.3); calculated density (g cm-3) from the composition and cell volume (p.4)" ;
+    ada:reportedProperties "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density — oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)" ;
     ada:samplingUnitSelectionCriteriaDefault "Occurrence of the target phase — the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)" ;
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)" ;
-    ada:secondaryReferenceMaterialDefault "Feldspar standards run as unknowns (material names N beyond what is listed above)" ;
+    ada:secondaryReferenceMaterialDefault "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "liebermannite",
+                "lingunite",
+                "maskelynite" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -5085,7 +5186,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -5093,10 +5193,10 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "CITZAF correction procedure (Armstrong 1995)" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ] .
+    bios:computationalTool [ schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
+        [ schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ] .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -5109,8 +5209,8 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "Focused (exact diameter N)" ;
-    ada:beamMode "Focused (stated: \"beam in focused mode\")" .
+    ada:beamDiameterDefault "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given" ;
+    ada:beamMode "all: Focused — 'WDS: 15 kV, 5 nA, beam in focused mode' (p.2)" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -5140,16 +5240,9 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite" ;
+    schema1:defaultValue "all: low beam current (5 nA) — 'Although a low beam current of 5 nA was used for the analysis, the low cation sum (0.92) for the K-site is likely due to diffusion of Na away from the electron beam' (p.3)" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5159,6 +5252,12 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -5184,12 +5283,6 @@ empaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -5249,7 +5342,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major/Minor Element Silicates+Oxides+Sulfides, CI Chondrite (ARES JSC, Cameca SX100)",
-  "schema:description": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group.",
+  "schema:description": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses and X-ray mapping ('electron microprobe, and X-ray mapping'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5259,8 +5352,8 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 µm (focused)",
-      "ada:beamMode": "Focused (point analysis); mapping beam mode N",
+      "ada:beamDiameterDefault": "all: 1 µm — p.3",
+      "ada:beamMode": "all: Focused — 'Analyses were performed at 20 kV and 20 nA using a focused beam of 1 μm' (p.3)",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -5436,16 +5529,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5484,6 +5567,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -5502,63 +5586,44 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM — \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral | Oxide | Sulfide | Phosphate (CI chondrite phases)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:secondaryReferenceMaterialDefault": [
+    "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard"
+  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "melilite",
+      "spinel",
+      "grossmanite"
+    ],
+    "ada:targetMaterialColumns": [
       {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:secondaryReferenceMaterialDefault": [
-    "USNM San Carlos olivine (Fo90); Kakanui kaersutite"
-  ],
   "ada:samplingUnitSelectionCriteriaDefault": "Opportunistic — the object analysed \"was found by David Frank in Ivuna section MZ2 during a study of the minor-element compositions of matrix olivine and pyroxene in types 1, 2, and 3 chondrites\" (p.3); no rule was applied to choose it, and it is the section's only CAI",
   "ada:monitoredElements": [
     "Si, Al, Ti, K, Na, Fe, Mg, Ca, S, Mn, Cr, Ni, P, V — all determined. \"Standards were Kakanui kaersutite for silicon, aluminum, titanium, potassium, sodium, iron, magnesium, and calcium, Canyon Diablo troilite for sulfur, rhodonite for manganese, chromium metal for chromium, nickel metal for nickel, apatite for phosphorus, and vanadium metal for vanadium\" (pp.3–4)"
@@ -5593,9 +5658,8 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI",
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O, P2O5, NiO) with totals (Table 1, p.6); åkermanite content of the melilite (Åk14–31, with minor Åk32–36, p.5)"
+    "SO2, P2O5, Na2O, K2O, MgO, Al2O3, SiO2, CaO, TiO2, V2O3, FeO, Cr2O3, MnO, NiO; åkermanite content — oxide wt% with totals (Table 1); Åk14–31 (p.5)"
   ],
-  "ada:primaryStandardNameDefault": "Kakanui kaersutite (Si, Al, Ti, K, Na, Fe, Mg, Ca); Canyon Diablo troilite (S); rhodonite (Mn); chromium metal (Cr); nickel metal (Ni); apatite (P); vanadium metal (V)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -5605,13 +5669,43 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "schema:termCode": "empa"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -5651,7 +5745,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major/Minor Element Silicates+Oxides+Sulfides, CI Chondrite (ARES JSC, Cameca SX100)",
-  "schema:description": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 \u2014 CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" \u2014 NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 \u00b5m focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group.",
+  "schema:description": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 \u2014 CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" \u2014 NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 \u00b5m focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 point analyses and X-ray mapping ('electron microprobe, and X-ray mapping'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -5661,8 +5755,8 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 \u00b5m (focused)",
-      "ada:beamMode": "Focused (point analysis); mapping beam mode N",
+      "ada:beamDiameterDefault": "all: 1 \u00b5m \u2014 p.3",
+      "ada:beamMode": "all: Focused \u2014 'Analyses were performed at 20 kV and 20 nA using a focused beam of 1 \u03bcm' (p.3)",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -5838,16 +5932,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -5886,6 +5970,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -5904,63 +5989,44 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM \u2014 \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral | Oxide | Sulfide | Phosphate (CI chondrite phases)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:secondaryReferenceMaterialDefault": [
+    "N \u2014 no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard"
+  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "melilite",
+      "spinel",
+      "grossmanite"
+    ],
+    "ada:targetMaterialColumns": [
       {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:secondaryReferenceMaterialDefault": [
-    "USNM San Carlos olivine (Fo90); Kakanui kaersutite"
-  ],
   "ada:samplingUnitSelectionCriteriaDefault": "Opportunistic \u2014 the object analysed \"was found by David Frank in Ivuna section MZ2 during a study of the minor-element compositions of matrix olivine and pyroxene in types 1, 2, and 3 chondrites\" (p.3); no rule was applied to choose it, and it is the section's only CAI",
   "ada:monitoredElements": [
     "Si, Al, Ti, K, Na, Fe, Mg, Ca, S, Mn, Cr, Ni, P, V \u2014 all determined. \"Standards were Kakanui kaersutite for silicon, aluminum, titanium, potassium, sodium, iron, magnesium, and calcium, Canyon Diablo troilite for sulfur, rhodonite for manganese, chromium metal for chromium, nickel metal for nickel, apatite for phosphorus, and vanadium metal for vanadium\" (pp.3\u20134)"
@@ -5995,9 +6061,8 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI",
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O, P2O5, NiO) with totals (Table 1, p.6); \u00e5kermanite content of the melilite (\u00c5k14\u201331, with minor \u00c5k32\u201336, p.5)"
+    "SO2, P2O5, Na2O, K2O, MgO, Al2O3, SiO2, CaO, TiO2, V2O3, FeO, Cr2O3, MnO, NiO; \u00e5kermanite content \u2014 oxide wt% with totals (Table 1); \u00c5k14\u201331 (p.5)"
   ],
-  "ada:primaryStandardNameDefault": "Kakanui kaersutite (Si, Al, Ti, K, Na, Fe, Mg, Ca); Canyon Diablo troilite (S); rhodonite (Mn); chromium metal (Cr); nickel metal (Ni); apatite (P); vanadium metal (V)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -6007,13 +6072,43 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       "schema:termCode": "empa"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -6040,7 +6135,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -6052,7 +6146,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group." ;
+    schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses and X-ray mapping ('electron microprobe, and X-ray mapping'); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -6064,9 +6158,7 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral | Oxide | Sulfide | Phosphate (CI chondrite phases)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511; doi:10.1111/maps.14083" ] ;
@@ -6077,17 +6169,28 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "Si, Al, Ti, K, Na, Fe, Mg, Ca, S, Mn, Cr, Ni, P, V — all determined. \"Standards were Kakanui kaersutite for silicon, aluminum, titanium, potassium, sodium, iron, magnesium, and calcium, Canyon Diablo troilite for sulfur, rhodonite for manganese, chromium metal for chromium, nickel metal for nickel, apatite for phosphorus, and vanadium metal for vanadium\" (pp.3–4)" ;
-    ada:primaryStandardNameDefault "Kakanui kaersutite (Si, Al, Ti, K, Na, Fe, Mg, Ca); Canyon Diablo troilite (S); rhodonite (Mn); chromium metal (Cr); nickel metal (Ni); apatite (P); vanadium metal (V)" ;
-    ada:reportedProperties "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O, P2O5, NiO) with totals (Table 1, p.6); åkermanite content of the melilite (Åk14–31, with minor Åk32–36, p.5)" ;
+    ada:reportedProperties "SO2, P2O5, Na2O, K2O, MgO, Al2O3, SiO2, CaO, TiO2, V2O3, FeO, Cr2O3, MnO, NiO; åkermanite content — oxide wt% with totals (Table 1); Åk14–31 (p.5)" ;
     ada:samplingUnitSelectionCriteriaDefault "Opportunistic — the object analysed \"was found by David Frank in Ivuna section MZ2 during a study of the minor-element compositions of matrix olivine and pyroxene in types 1, 2, and 3 chondrites\" (p.3); no rule was applied to choose it, and it is the section's only CAI" ;
     ada:samplingUnitType "Phase > Analysis point — \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI" ;
-    ada:secondaryReferenceMaterialDefault "USNM San Carlos olivine (Fo90); Kakanui kaersutite" ;
+    ada:secondaryReferenceMaterialDefault "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "grossmanite",
+                "melilite",
+                "spinel" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -6115,7 +6218,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -6135,8 +6237,8 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             schema1:name "Cameca" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "20 kV" ;
-    ada:beamDiameterDefault "1 µm (focused)" ;
-    ada:beamMode "Focused (point analysis); mapping beam mode N" .
+    ada:beamDiameterDefault "all: 1 µm — p.3" ;
+    ada:beamMode "all: Focused — 'Analyses were performed at 20 kV and 20 nA using a focused beam of 1 μm' (p.3)" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -6165,19 +6267,18 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
             schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Petrographic microscopy and SEM — \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -6203,12 +6304,6 @@ empaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -6268,7 +6363,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Quantitative Mapping+Analysis, CI Chondrite Minerals (WashU, JEOL JXA-8200)",
-  "schema:description": "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated.",
+  "schema:description": "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis; WDS Mapping — 'wavelength-dispersive quantitative compositional mapping and analysis'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6360,9 +6455,11 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     }
   ],
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "F (explicitly stated); full analyte list N in methods",
     "ada:defaultTargetSpecies": [
-      "F"
+      "F",
+      "O",
+      "CO2",
+      "H2O"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -6443,16 +6540,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6491,6 +6578,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -6509,60 +6597,10 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Optical microscopy of the same thin section — \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:secondaryReferenceMaterialDefault": [
     "Smithsonian Microbeam standards (specific materials and values N)"
@@ -6582,9 +6620,42 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:value": "Stage scan"
     }
   ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "phyllosilicate",
+      "oxide",
+      "sulfide",
+      "carbonate",
+      "phosphate"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
-    "N — the paper describes quantitative EPMA stage mapping and its calibration against Smithsonian Microbeam secondary standards (p.3) but names no element"
+    "F — 'Fluorine measurement was made using the LDE1 diffracting crystal'; no other element is named"
   ],
   "schema:measurementTechnique": [
     {
@@ -6633,17 +6704,49 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)"
     }
   ],
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
+  ],
   "ada:reportedProperties": [
     "Element concentrations in the carbonates (wt%: Fe, Mn — \"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)"
   ],
-  "ada:primaryStandardNameDefault": "Natural and synthetic minerals routinely used in analytical facility (specific names N); synthetic F-phlogopite (for F, LDE1 crystal)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -6682,7 +6785,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Quantitative Mapping+Analysis, CI Chondrite Minerals (WashU, JEOL JXA-8200)",
-  "schema:description": "Broussard et al. 2026, Meteorit. Planet. Sci. \u2014 OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" \u2014 NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) \u2014 NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated.",
+  "schema:description": "Broussard et al. 2026, Meteorit. Planet. Sci. \u2014 OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" \u2014 NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) \u2014 NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis; WDS Mapping \u2014 'wavelength-dispersive quantitative compositional mapping and analysis'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -6774,9 +6877,11 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     }
   ],
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "F (explicitly stated); full analyte list N in methods",
     "ada:defaultTargetSpecies": [
-      "F"
+      "F",
+      "O",
+      "CO2",
+      "H2O"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -6857,16 +6962,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -6905,6 +7000,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -6923,60 +7019,10 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Optical microscopy of the same thin section \u2014 \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 \u00b1 0.4 wt% Fe and 3.0 \u00b1 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 \u00b1 2.7 wt% Fe and 4.6 \u00b1 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:secondaryReferenceMaterialDefault": [
     "Smithsonian Microbeam standards (specific materials and values N)"
@@ -6996,9 +7042,42 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:value": "Stage scan"
     }
   ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "phyllosilicate",
+      "oxide",
+      "sulfide",
+      "carbonate",
+      "phosphate"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
-    "N \u2014 the paper describes quantitative EPMA stage mapping and its calibration against Smithsonian Microbeam secondary standards (p.3) but names no element"
+    "F \u2014 'Fluorine measurement was made using the LDE1 diffracting crystal'; no other element is named"
   ],
   "schema:measurementTechnique": [
     {
@@ -7047,17 +7126,49 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
       "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)"
     }
   ],
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
+  ],
   "ada:reportedProperties": [
     "Element concentrations in the carbonates (wt%: Fe, Mn \u2014 \"Dolomite contains 2.0 \u00b1 0.4 wt% Fe and 3.0 \u00b1 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)"
   ],
-  "ada:primaryStandardNameDefault": "Natural and synthetic minerals routinely used in analytical facility (specific names N); synthetic F-phlogopite (for F, LDE1 crystal)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -7083,7 +7194,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -7096,7 +7206,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
-    schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. EDS spectrometer present but not used for quantitative analyses. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
+    schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis; WDS Mapping — 'wavelength-dispersive quantitative compositional mapping and analysis'." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -7107,9 +7217,7 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Phyllosilicate (matrix) | Oxide (magnetite, ilmenite) | Sulfide (pyrrhotite, pentlandite) | Carbonate (dolomite, magnesite) | Phosphate (Ca phosphate, Na-Mg hydrous phosphate)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
@@ -7120,18 +7228,35 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:analyticalMode "WDS Point Analysis" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "CITZAF (Armstrong 1995)" ;
-    ada:monitoredElements "N — the paper describes quantitative EPMA stage mapping and its calibration against Smithsonian Microbeam secondary standards (p.3) but names no element" ;
-    ada:primaryStandardNameDefault "Natural and synthetic minerals routinely used in analytical facility (specific names N); synthetic F-phlogopite (for F, LDE1 crystal)" ;
+    ada:monitoredElements "F — 'Fluorine measurement was made using the LDE1 diffracting crystal'; no other element is named" ;
     ada:reportedProperties "Element concentrations in the carbonates (wt%: Fe, Mn — \"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Region of interest > Phase — \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)" ;
     ada:secondaryReferenceMaterialDefault "Smithsonian Microbeam standards (specific materials and values N)" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "F" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
+                "oxide",
+                "phosphate",
+                "phyllosilicate",
+                "sulfide" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "CO2",
+                "F",
+                "H2O",
+                "O" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -7145,14 +7270,12 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ;
-            ada:targetSpeciesDeclaration "F (explicitly stated); full analyte list N in methods" ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "Probe for EPMA microanalysis software" ;
             ada:toolRole "acquisition" ],
@@ -7200,19 +7323,18 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
             schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Optical microscopy of the same thin section — \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -7238,12 +7360,6 @@ empaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -7308,7 +7424,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Apatite incl. Halogens, Bennu (ARES JSC, JEOL 8530 EMPA)",
-  "schema:description": "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Halogen correction on O: Yes. Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed.",
+  "schema:description": "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — 14 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7318,8 +7434,8 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "2 µm (stated as \"2 µm probe size\")",
-      "ada:beamMode": "Focused (2 µm probe size stated)",
+      "ada:beamDiameterDefault": "all: 2 µm — as above",
+      "ada:beamMode": "N — 'a 2μm probe size' is recorded under Beam Diameter; no mode is named",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -7410,7 +7526,8 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "Na",
       "Mg",
       "Si",
-      "S"
+      "S",
+      "OH"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -7491,16 +7608,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7549,7 +7656,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "2 µm probe used for all analyses; Durango apatite tested at 10 µm and 3 µm spot sizes to assess halogen volatilization; no significant loss found under adopted conditions"
+      "schema:defaultValue": "all: Durango apatite compared at 10 μm and 3 μm spot sizes, with no significant volatile loss — 'in order to assess volatilization of halogens using our beam conditions'"
     },
     {
       "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault",
@@ -7560,9 +7667,10 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:name": "Halogen Correction on Oxygen",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)"
+      "schema:defaultValue": "N — OH is 'calculated by difference based on 1–F–Cl=OH' (under Target Species Estimation Method); no oxygen-equivalent correction for F and Cl is stated"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -7581,58 +7689,37 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping, then CL imaging, on the JEOL 7900F at JSC — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\", collected \"at 5 kV with beam currents ranging from 1 to 1.5 nA\" (p.2); the numbered grains (Ap. #1 …) tie the probe analyses back to those images"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (apatite)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Phosphate"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Identification by EDS, then by CL — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)",
@@ -7675,9 +7762,39 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
   ],
   "ada:samplingUnitType": "Grain > Analysis point — Table 1 reports one column per apatite grain (\"Ap. #1\" … \"Ap. #5\") within each of the three particles (p.7)",
   "ada:reportedProperties": [
-    "Oxide concentrations in apatite (wt%: F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO) with totals, per named grain (Table 1, p.7); the STEM EDS counterpart table reports the same suite as Fe2O3 (Table 2, p.11)"
+    "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO — wt% with totals, per named grain (Table 1)"
   ],
-  "ada:primaryStandardNameDefault": "SrF2 (F); albite (Na); olivine (Mg, Fe, Si); quartz (Si); apatite (Ca, P); barite (S); tugtupite (Cl); rhodonite (Mn); ilmenite (Fe, Ti)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -7693,7 +7810,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -7733,7 +7849,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Apatite incl. Halogens, Bennu (ARES JSC, JEOL 8530 EMPA)",
-  "schema:description": "Seifert et al. 2026, Meteorit. Planet. Sci. \u2014 apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 \u00b5m probe size. Previous v2 values of 10/40-100 nA and 10 \u00b5m beam were WRONG \u2014 those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Halogen correction on O: Yes. Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed.",
+  "schema:description": "Seifert et al. 2026, Meteorit. Planet. Sci. \u2014 apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 \u00b5m probe size. Previous v2 values of 10/40-100 nA and 10 \u00b5m beam were WRONG \u2014 those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 14 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -7743,8 +7859,8 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "2 \u00b5m (stated as \"2 \u00b5m probe size\")",
-      "ada:beamMode": "Focused (2 \u00b5m probe size stated)",
+      "ada:beamDiameterDefault": "all: 2 \u00b5m \u2014 as above",
+      "ada:beamMode": "N \u2014 'a 2\u03bcm probe size' is recorded under Beam Diameter; no mode is named",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -7835,7 +7951,8 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "Na",
       "Mg",
       "Si",
-      "S"
+      "S",
+      "OH"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -7916,16 +8033,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -7974,7 +8081,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "2 \u00b5m probe used for all analyses; Durango apatite tested at 10 \u00b5m and 3 \u00b5m spot sizes to assess halogen volatilization; no significant loss found under adopted conditions"
+      "schema:defaultValue": "all: Durango apatite compared at 10 \u03bcm and 3 \u03bcm spot sizes, with no significant volatile loss \u2014 'in order to assess volatilization of halogens using our beam conditions'"
     },
     {
       "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault",
@@ -7985,9 +8092,10 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:name": "Halogen Correction on Oxygen",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)"
+      "schema:defaultValue": "N \u2014 OH is 'calculated by difference based on 1\u2013F\u2013Cl=OH' (under Target Species Estimation Method); no oxygen-equivalent correction for F and Cl is stated"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -8006,58 +8114,37 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping, then CL imaging, on the JEOL 7900F at JSC \u2014 \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\", collected \"at 5 kV with beam currents ranging from 1 to 1.5 nA\" (p.2); the numbered grains (Ap. #1 \u2026) tie the probe analyses back to those images"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (apatite)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Phosphate"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Identification by EDS, then by CL \u2014 \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)",
@@ -8100,9 +8187,39 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 Table 1 reports one column per apatite grain (\"Ap. #1\" \u2026 \"Ap. #5\") within each of the three particles (p.7)",
   "ada:reportedProperties": [
-    "Oxide concentrations in apatite (wt%: F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO) with totals, per named grain (Table 1, p.7); the STEM EDS counterpart table reports the same suite as Fe2O3 (Table 2, p.11)"
+    "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO \u2014 wt% with totals, per named grain (Table 1)"
   ],
-  "ada:primaryStandardNameDefault": "SrF2 (F); albite (Na); olivine (Mg, Fe, Si); quartz (Si); apatite (Ca, P); barite (S); tugtupite (Cl); rhodonite (Mn); ilmenite (Fe, Ti)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -8118,7 +8235,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -8145,7 +8261,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -8161,7 +8276,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:creator [ a schema1:Person ;
             schema1:name "Logan B. Seifert" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Halogen correction on O: Yes. Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed." ;
+    schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — 14 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -8173,29 +8288,36 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Phosphate (apatite)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S — all determined. \"A total of 14 analyses were performed at 15 kV, 20 nA, using a 2 μm probe size, and included the elements P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, and S\" (p.3)" ;
-    ada:primaryStandardNameDefault "SrF2 (F); albite (Na); olivine (Mg, Fe, Si); quartz (Si); apatite (Ca, P); barite (S); tugtupite (Cl); rhodonite (Mn); ilmenite (Fe, Ti)" ;
-    ada:reportedProperties "Oxide concentrations in apatite (wt%: F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO) with totals, per named grain (Table 1, p.7); the STEM EDS counterpart table reports the same suite as Fe2O3 (Table 2, p.11)" ;
+    ada:reportedProperties "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO — wt% with totals, per named grain (Table 1)" ;
     ada:samplingUnitSelectionCriteriaDefault "Identification by EDS, then by CL — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)" ;
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per apatite grain (\"Ap. #1\" … \"Ap. #5\") within each of the three particles (p.7)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Phosphate" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
                 "Cl",
                 "F",
@@ -8203,6 +8325,7 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
                 "Mg",
                 "Mn",
                 "Na",
+                "OH",
                 "P",
                 "S",
                 "Si" ;
@@ -8219,7 +8342,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -8239,8 +8361,8 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "2 µm (stated as \"2 µm probe size\")" ;
-    ada:beamMode "Focused (2 µm probe size stated)" .
+    ada:beamDiameterDefault "all: 2 µm — as above" ;
+    ada:beamMode "N — 'a 2μm probe size' is recorded under Beam Diameter; no mode is named" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -8270,23 +8392,16 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "2 µm probe used for all analyses; Durango apatite tested at 10 µm and 3 µm spot sizes to assess halogen volatilization; no significant loss found under adopted conditions" ;
+    schema1:defaultValue "all: Durango apatite compared at 10 μm and 3 μm spot sizes, with no significant volatile loss — 'in order to assess volatilization of halogens using our beam conditions'" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/halogenCorrectionOnOxygenDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)" ;
+    schema1:defaultValue "N — OH is 'calculated by difference based on 1–F–Cl=OH' (under Target Species Estimation Method); no oxygen-equivalent correction for F and Cl is stated" ;
     schema1:name "Halogen Correction on Oxygen" ;
     schema1:valueName "halogenCorrectionOnOxygenDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -8296,6 +8411,12 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -8321,12 +8442,6 @@ empaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -8386,7 +8501,7 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Oxides, NWA 8003 Eucrite (Nanjing U., JEOL JXA-8100)",
-  "schema:description": "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated.",
+  "schema:description": "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -8396,8 +8511,8 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N); 2-5 µm defocused (plagioclase and polymorphs)",
-      "ada:beamMode": "Focused (most phases); Defocused 2-5 µm (plagioclase and polymorphs)",
+      "ada:beamDiameterDefault": "plagioclase and its polymorphs: 2–5 µm; other: N — 'a defocused beam (2–5 μm in diameter)'",
+      "ada:beamMode": "plagioclase and its polymorphs: Defocused; other: Focused — Methods",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -8478,19 +8593,7 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     }
   ],
   "ada:targetSpeciesTemplate": {
-    "ada:defaultTargetSpecies": [
-      "Si",
-      "Ti",
-      "Al",
-      "Cr",
-      "Fe",
-      "Mn",
-      "Mg",
-      "Ca",
-      "Na",
-      "K",
-      "P"
-    ],
+    "ada:targetSpeciesDeclaration": "N — no element is named in the paper; the analysed elements are in Supplementary Table 4, which is not in the archived PDF",
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -8570,16 +8673,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -8616,8 +8709,10 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:name": "Time-Dependent Intensity Correction",
         "ada:dataType": "string"
       }
-    ]
+    ],
+    "ada:defaultTargetSpecies": []
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -8636,61 +8731,39 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM petrography — \"The petrographic texture of NWA 8003 was observed using a JEOL 7000F field emission gun scanning electron microscope (FEG-SEM) at Hokkaido University\" (p.7); phase identifications also rest on Raman spectra and EBSD patterns (p.4)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral | Oxide (eucrite phases)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "ZAF",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "plagioclase and its polymorphs — 'Measurements of most minerals were performed with a focused beam ... whereas measurements of plagioclase and its polymorphs were performed with a defocused beam'; the other minerals are not listed (EPMA data in Supplementary Table 4)",
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section; carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
     ],
-    "@type": [
-      "schema:HowTo"
-    ]
+    "ada:defaultTargetMaterials": []
   },
-  "ada:matrixCorrectionMethod": "ZAF",
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial position within the shock assemblage — garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule",
   "ada:monitoredElements": [
     "N — \"Natural and synthetic standards were used\" (p.7) without naming them; the analysed elements are given in Supplementary Table 4, which is not in the archived PDF"
@@ -8732,17 +8805,49 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 ± 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF",
-  "ada:reportedProperties": [
-    "Pyroxene end-member compositions (mol%: En, Fs, Wo — \"orthopyroxene (En33.2±0.5Fs64.5±0.6Wo2.3±0.5; based on 12 analyses)\", p.2); Ca-Eskola component (mol%: \"41 ± 8 mol% on average; based on 13 analyses\", p.4); empirical formulae for the high-pressure phases (p.4). The oxide analyses are in Supplementary Tables 1–4, not in the archived PDF"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Natural and synthetic mineral standards (specific names N)",
+  "ada:reportedProperties": [
+    "En, Fs, Wo; Ca-Eskola component; empirical formulae — mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1–4, not in the archived PDF"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -8781,7 +8886,7 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Oxides, NWA 8003 Eucrite (Nanjing U., JEOL JXA-8100)",
-  "schema:description": "Pang et al. 2016, Sci. Rep. 6:26063 \u2014 NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 \u00b5m for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated.",
+  "schema:description": "Pang et al. 2016, Sci. Rep. 6:26063 \u2014 NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 \u00b5m for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis \u2014 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -8791,8 +8896,8 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N); 2-5 \u00b5m defocused (plagioclase and polymorphs)",
-      "ada:beamMode": "Focused (most phases); Defocused 2-5 \u00b5m (plagioclase and polymorphs)",
+      "ada:beamDiameterDefault": "plagioclase and its polymorphs: 2\u20135 \u00b5m; other: N \u2014 'a defocused beam (2\u20135 \u03bcm in diameter)'",
+      "ada:beamMode": "plagioclase and its polymorphs: Defocused; other: Focused \u2014 Methods",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -8873,19 +8978,7 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     }
   ],
   "ada:targetSpeciesTemplate": {
-    "ada:defaultTargetSpecies": [
-      "Si",
-      "Ti",
-      "Al",
-      "Cr",
-      "Fe",
-      "Mn",
-      "Mg",
-      "Ca",
-      "Na",
-      "K",
-      "P"
-    ],
+    "ada:targetSpeciesDeclaration": "N \u2014 no element is named in the paper; the analysed elements are in Supplementary Table 4, which is not in the archived PDF",
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -8965,16 +9058,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9011,8 +9094,10 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:name": "Time-Dependent Intensity Correction",
         "ada:dataType": "string"
       }
-    ]
+    ],
+    "ada:defaultTargetSpecies": []
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -9031,61 +9116,39 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM petrography \u2014 \"The petrographic texture of NWA 8003 was observed using a JEOL 7000F field emission gun scanning electron microscope (FEG-SEM) at Hokkaido University\" (p.7); phase identifications also rest on Raman spectra and EBSD patterns (p.4)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral | Oxide (eucrite phases)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:matrixCorrectionMethod": "ZAF",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "plagioclase and its polymorphs \u2014 'Measurements of most minerals were performed with a focused beam ... whereas measurements of plagioclase and its polymorphs were performed with a defocused beam'; the other minerals are not listed (EPMA data in Supplementary Table 4)",
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section; carbon coating N",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 \u00b1 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
     ],
-    "@type": [
-      "schema:HowTo"
-    ]
+    "ada:defaultTargetMaterials": []
   },
-  "ada:matrixCorrectionMethod": "ZAF",
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial position within the shock assemblage \u2014 garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule",
   "ada:monitoredElements": [
     "N \u2014 \"Natural and synthetic standards were used\" (p.7) without naming them; the analysed elements are given in Supplementary Table 4, which is not in the archived PDF"
@@ -9127,17 +9190,49 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 \u00b1 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF",
-  "ada:reportedProperties": [
-    "Pyroxene end-member compositions (mol%: En, Fs, Wo \u2014 \"orthopyroxene (En33.2\u00b10.5Fs64.5\u00b10.6Wo2.3\u00b10.5; based on 12 analyses)\", p.2); Ca-Eskola component (mol%: \"41 \u00b1 8 mol% on average; based on 13 analyses\", p.4); empirical formulae for the high-pressure phases (p.4). The oxide analyses are in Supplementary Tables 1\u20134, not in the archived PDF"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Natural and synthetic mineral standards (specific names N)",
+  "ada:reportedProperties": [
+    "En, Fs, Wo; Ca-Eskola component; empirical formulae \u2014 mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1\u20134, not in the archived PDF"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
@@ -9169,13 +9264,12 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated." ;
+    schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -9186,41 +9280,38 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral | Oxide (eucrite phases)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:analyticalMode "WDS Point Analysis" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "ZAF" ;
     ada:monitoredElements "N — \"Natural and synthetic standards were used\" (p.7) without naming them; the analysed elements are given in Supplementary Table 4, which is not in the archived PDF" ;
-    ada:primaryStandardNameDefault "Natural and synthetic mineral standards (specific names N)" ;
-    ada:reportedProperties "Pyroxene end-member compositions (mol%: En, Fs, Wo — \"orthopyroxene (En33.2±0.5Fs64.5±0.6Wo2.3±0.5; based on 12 analyses)\", p.2); Ca-Eskola component (mol%: \"41 ± 8 mol% on average; based on 13 analyses\", p.4); empirical formulae for the high-pressure phases (p.4). The oxide analyses are in Supplementary Tables 1–4, not in the archived PDF" ;
+    ada:reportedProperties "En, Fs, Wo; Ca-Eskola component; empirical formulae — mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1–4, not in the archived PDF" ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial position within the shock assemblage — garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule" ;
     ada:samplingUnitType "Phase > Analysis point — compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 ± 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
-                "Ca",
-                "Cr",
-                "Fe",
-                "K",
-                "Mg",
-                "Mn",
-                "Na",
-                "P",
-                "Si",
-                "Ti" ;
-            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+    ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ;
+            ada:targetMaterialDeclaration "plagioclase and its polymorphs — 'Measurements of most minerals were performed with a focused beam ... whereas measurements of plagioclase and its polymorphs were performed with a defocused beam'; the other minerals are not listed (EPMA data in Supplementary Table 4)" ] ;
+    ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
@@ -9233,13 +9324,13 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied> ;
+            ada:targetSpeciesDeclaration "N — no element is named in the paper; the analysed elements are in Supplementary Table 4, which is not in the archived PDF" ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -9253,8 +9344,8 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "Focused (exact diameter N); 2-5 µm defocused (plagioclase and polymorphs)" ;
-    ada:beamMode "Focused (most phases); Defocused 2-5 µm (plagioclase and polymorphs)" .
+    ada:beamDiameterDefault "plagioclase and its polymorphs: 2–5 µm; other: N — 'a defocused beam (2–5 μm in diameter)'" ;
+    ada:beamMode "plagioclase and its polymorphs: Defocused; other: Focused — Methods" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -9283,19 +9374,18 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
             schema1:name "JXA-8100 (stated as \"JEOL 8100\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM petrography — \"The petrographic texture of NWA 8003 was observed using a JEOL 7000F field emission gun scanning electron microscope (FEG-SEM) at Hokkaido University\" (p.7); phase identifications also rest on Raman spectra and EBSD patterns (p.4)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -9321,12 +9411,6 @@ empaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -9385,8 +9469,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Carbonate+Silicate/Oxide Composition, Bennu (Smithsonian, JEOL 8530 F+ Hyperprobe)",
-  "schema:description": "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Silicate/oxide analyses: 15 kV, 10 nA, 1 µm spot; broader standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use).",
+  "schema:name": "EPMA Carbonate, Magnetite and Olivine Composition, Bennu (Smithsonian, JEOL 8530F+ Hyperprobe)",
+  "schema:description": "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 µm spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses with named crystals (LIFL, TAPL, PETL); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -9396,8 +9480,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "5 µm (carbonates); 1 µm (silicates/oxides)",
-      "ada:beamMode": "Focused (1 µm, silicates/oxides); Focused (5 µm, carbonates)",
+      "ada:beamDiameterDefault": "carbonate: 5 µm; magnetite, olivine: 1 µm — 'with an analytical spot size of 5 µm' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1µm' (the magnetite and olivine sentence)",
+      "ada:beamMode": "N — only spot sizes are given",
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -9421,7 +9505,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N",
+          "schema:name": "N — the crystals (LIFL, TAPL, PETL) are recorded under Diffracting Crystal; the spectrometer configuration and the X-ray lines are not stated",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9482,18 +9566,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "Fe",
       "Mn",
       "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Mg",
-      "Ca",
-      "Ni",
-      "Cr",
-      "Al",
-      "Si",
-      "Ti",
-      "K",
-      "Na"
+      "Ca"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -9574,16 +9647,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -9622,6 +9685,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -9639,64 +9703,45 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
           "schema:name": "Pre-Analysis Imaging and Screening",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Optical microscopy, then FE-SEM/EDS characterisation — particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)"
-          ]
+          "schema:defaultValue": "SEM mapping at the Smithsonian — particles 'analysed at 15 kV and around 0.5 nA in high vacuum using a Thermo Fisher Quattro FE-SEM'; 'Maps of loose grains were investigated, then used to inform sectioning' (p.7)"
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:secondaryReferenceMaterialDefault": [
+    "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)"
+  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonate",
+      "magnetite",
+      "olivine"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Ir-coated specimens mounted on Ir-coated Parafilm",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — compositions are reported by phase with no contributing count and no selection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:secondaryReferenceMaterialDefault": [
-    "Carbonates: calcite, dolomite, rhodochrosite; Silicates/oxides: magnetite, San Carlos olivine USNM 111312, Springwater olivine USNM 2566"
-  ],
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
     "Fe, Mn, Mg, Ca — all determined. \"Carbonate analyses were run at 15 kV and 10 nA, with an analytical spot size of 5 µm. Fe and Mn were analysed using a LIFL crystal, Mg using a TAPL crystal and Ca using a PETL crystal\" (p.7)"
@@ -9739,7 +9784,37 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
   "ada:reportedProperties": [
     "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 — calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)"
   ],
-  "ada:primaryStandardNameDefault": "Carbonates: magnetite USNM 114887 (Fe,Mn), calcite USNM 13621 (Ca), dolomite USNM 10057 (Mg), siderite R-2460, rhodonite; Silicates/oxides: chromite USNM 117075, ilmenite USNM 96189, magnetite USNM 114887, manganite USNM 157872, bytownite R-2912, forsterite P140, San Carlos olivine USNM 111312 (Fo90), Springwater olivine USNM 2566 (Fo83)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9755,7 +9830,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -9794,8 +9868,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Carbonate+Silicate/Oxide Composition, Bennu (Smithsonian, JEOL 8530 F+ Hyperprobe)",
-  "schema:description": "McCoy et al. 2025, Nature 637:320-325 \u2014 Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 \u00b5m spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Silicate/oxide analyses: 15 kV, 10 nA, 1 \u00b5m spot; broader standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use).",
+  "schema:name": "EPMA Carbonate, Magnetite and Olivine Composition, Bennu (Smithsonian, JEOL 8530F+ Hyperprobe)",
+  "schema:description": "McCoy et al. 2025, Nature 637:320-325 \u2014 Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 \u00b5m spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 \u00b5m spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use). Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 point analyses with named crystals (LIFL, TAPL, PETL); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -9805,8 +9879,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "5 \u00b5m (carbonates); 1 \u00b5m (silicates/oxides)",
-      "ada:beamMode": "Focused (1 \u00b5m, silicates/oxides); Focused (5 \u00b5m, carbonates)",
+      "ada:beamDiameterDefault": "carbonate: 5 \u00b5m; magnetite, olivine: 1 \u00b5m \u2014 'with an analytical spot size of 5 \u00b5m' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1\u00b5m' (the magnetite and olivine sentence)",
+      "ada:beamMode": "N \u2014 only spot sizes are given",
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -9830,7 +9904,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) \u2014 partial; full config N",
+          "schema:name": "N \u2014 the crystals (LIFL, TAPL, PETL) are recorded under Diffracting Crystal; the spectrometer configuration and the X-ray lines are not stated",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -9891,18 +9965,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "Fe",
       "Mn",
       "Mg",
-      "Ca",
-      "Fe",
-      "Mn",
-      "Mg",
-      "Ca",
-      "Ni",
-      "Cr",
-      "Al",
-      "Si",
-      "Ti",
-      "K",
-      "Na"
+      "Ca"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -9983,16 +10046,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10031,6 +10084,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -10048,64 +10102,45 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
           "schema:name": "Pre-Analysis Imaging and Screening",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Optical microscopy, then FE-SEM/EDS characterisation \u2014 particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)"
-          ]
+          "schema:defaultValue": "SEM mapping at the Smithsonian \u2014 particles 'analysed at 15 kV and around 0.5 nA in high vacuum using a Thermo Fisher Quattro FE-SEM'; 'Maps of loose grains were investigated, then used to inform sectioning' (p.7)"
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:secondaryReferenceMaterialDefault": [
+    "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine \u2014 carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)"
+  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonate",
+      "magnetite",
+      "olivine"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Ir-coated specimens mounted on Ir-coated Parafilm",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 compositions are reported by phase with no contributing count and no selection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
-  "ada:secondaryReferenceMaterialDefault": [
-    "Carbonates: calcite, dolomite, rhodochrosite; Silicates/oxides: magnetite, San Carlos olivine USNM 111312, Springwater olivine USNM 2566"
-  ],
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
     "Fe, Mn, Mg, Ca \u2014 all determined. \"Carbonate analyses were run at 15 kV and 10 nA, with an analytical spot size of 5 \u00b5m. Fe and Mn were analysed using a LIFL crystal, Mg using a TAPL crystal and Ca using a PETL crystal\" (p.7)"
@@ -10148,7 +10183,37 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
   "ada:reportedProperties": [
     "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 \u2014 calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)"
   ],
-  "ada:primaryStandardNameDefault": "Carbonates: magnetite USNM 114887 (Fe,Mn), calcite USNM 13621 (Ca), dolomite USNM 10057 (Mg), siderite R-2460, rhodonite; Silicates/oxides: chromite USNM 117075, ilmenite USNM 96189, magnetite USNM 114887, manganite USNM 157872, bytownite R-2912, forsterite P140, San Carlos olivine USNM 111312 (Fo90), Springwater olivine USNM 2566 (Fo83)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Ir-coated specimens \u2014 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -10164,7 +10229,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -10192,20 +10256,19 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Ir-coated specimens mounted on Ir-coated Parafilm" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Silicate/oxide analyses: 15 kV, 10 nA, 1 µm spot; broader standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use)." ;
+    schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 µm spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses with named crystals (LIFL, TAPL, PETL); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -10213,45 +10276,47 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:name "empa" ;
             schema1:termCode "empa" ] ;
-    schema1:name "EPMA-WDS Carbonate+Silicate/Oxide Composition, Bennu (Smithsonian, JEOL 8530 F+ Hyperprobe)" ;
+    schema1:name "EPMA Carbonate, Magnetite and Olivine Composition, Bennu (Smithsonian, JEOL 8530F+ Hyperprobe)" ;
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Carbonate | Oxide | Silicate mineral (Bennu evaporite and host phases)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "Fe, Mn, Mg, Ca — all determined. \"Carbonate analyses were run at 15 kV and 10 nA, with an analytical spot size of 5 µm. Fe and Mn were analysed using a LIFL crystal, Mg using a TAPL crystal and Ca using a PETL crystal\" (p.7)" ;
-    ada:primaryStandardNameDefault "Carbonates: magnetite USNM 114887 (Fe,Mn), calcite USNM 13621 (Ca), dolomite USNM 10057 (Mg), siderite R-2460, rhodonite; Silicates/oxides: chromite USNM 117075, ilmenite USNM 96189, magnetite USNM 114887, manganite USNM 157872, bytownite R-2912, forsterite P140, San Carlos olivine USNM 111312 (Fo90), Springwater olivine USNM 2566 (Fo83)" ;
     ada:reportedProperties "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 — calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)" ;
-    ada:secondaryReferenceMaterialDefault "Carbonates: calcite, dolomite, rhodochrosite; Silicates/oxides: magnetite, San Carlos olivine USNM 111312, Springwater olivine USNM 2566" ;
+    ada:secondaryReferenceMaterialDefault "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)" ;
     ada:stepSizePixelSizeDefault -9999 ;
-    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
-                "Ca",
-                "Cr",
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
+                "magnetite",
+                "olivine" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
                 "Fe",
-                "K",
                 "Mg",
-                "Mn",
-                "Na",
-                "Ni",
-                "Si",
-                "Ti" ;
+                "Mn" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -10265,7 +10330,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -10285,8 +10349,8 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "5 µm (carbonates); 1 µm (silicates/oxides)" ;
-    ada:beamMode "Focused (1 µm, silicates/oxides); Focused (5 µm, carbonates)" .
+    ada:beamDiameterDefault "carbonate: 5 µm; magnetite, olivine: 1 µm — 'with an analytical spot size of 5 µm' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1µm' (the magnetite and olivine sentence)" ;
+    ada:beamMode "N — only spot sizes are given" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -10305,7 +10369,7 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
-    schema1:name "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N" .
+    schema1:name "N — the crystals (LIFL, TAPL, PETL) are recorded under Diffracting Crystal; the spectrometer configuration and the X-ray lines are not stated" .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -10315,19 +10379,18 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
             schema1:name "JXA-8530F Plus (stated as \"JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — compositions are reported by phase with no contributing count and no selection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Optical microscopy, then FE-SEM/EDS characterisation — particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory" ;
+    schema1:defaultValue "SEM mapping at the Smithsonian — particles 'analysed at 15 kV and around 0.5 nA in high vacuum using a Thermo Fisher Quattro FE-SEM'; 'Maps of loose grains were investigated, then used to inform sectioning' (p.7)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -10353,12 +10416,6 @@ empaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -10418,7 +10475,7 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Phosphate+Carbonate Composition, Bennu (K-ALFAA U.Arizona, Cameca SX-100)",
-  "schema:description": "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N.",
+  "schema:description": "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Wavelength-dispersive X-ray spectroscopy analyses of Mg,Na phosphate'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -10428,8 +10485,8 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1 µm",
-      "ada:beamMode": "Focused (1 µm)",
+      "ada:beamDiameterDefault": "\"Mg,Na phosphate\": 1 µm; other: N — 'using a 1-µm beam size'",
+      "ada:beamMode": "N — only a '1-µm beam size' is given, for the phosphate analyses",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -10511,14 +10568,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
   ],
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "Na",
-      "Si",
-      "Mg",
-      "Ca",
-      "Mn",
-      "P",
-      "S",
-      "Fe",
       "F",
       "P",
       "Ca",
@@ -10528,7 +10577,9 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "Al",
       "S",
       "K",
-      "Cl"
+      "Cl",
+      "Na",
+      "Mn"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -10609,16 +10660,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -10657,6 +10698,7 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -10674,64 +10716,45 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
           "schema:name": "Pre-Analysis Imaging and Screening",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Optical microscopy, then FE-SEM/EDS characterisation — particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)"
-          ]
+          "schema:defaultValue": "N — the paper describes SEM characterisation at JSC, the NHM, the Smithsonian and Curtin, not for the K-ALFAA microprobe work"
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "\"Mg",
+      "Na phosphate\"",
+      "carbonate"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished section; 20 nm carbon coat",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — compositions are reported by phase with no contributing count and no selection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
-    "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl (Mg,Na phosphate) and Na, Si, Mg, Ca, Mn (carbonates) — all determined. \"The standards used for Mg,Na phosphate were fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mg), fayalite (Fe), anorthite (Al), baryte (S), potassium feldspar (K) and scapolite (Cl). For carbonates, the standards used were albite (Na), Fo92 olivine (Si), dolomite (Mg), calcite (Ca), Mn...\" (p.7)"
+    "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl, Na, Mn — as for Target Species"
   ],
   "schema:measurementTechnique": [
     {
@@ -10776,17 +10799,49 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point — \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point",
-  "ada:reportedProperties": [
-    "Phosphate and carbonate compositions, reported by phase rather than per point (p.2); phase identifications (nominal). The quantitative analyses are in the paper's supplementary tables, not in the archived PDF"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Phosphates: fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mn), fayalite (Fe), anorthite (Al), baryte (S), K-feldspar (K), scapolite (Cl); Carbonates: albite (Na), Fo olivine (Si), dolomite (Mg), calcite (Ca), Mn carbonate (Mn), apatite (P), baryte (S), fayalite (Fe)",
+  "ada:reportedProperties": [
+    "N — phosphate and carbonate compositions are reported by phase (p.2); the quantitative analyses are in the supplementary tables, not in the archived PDF"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished section; 20 nm carbon coat",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -10826,7 +10881,7 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Phosphate+Carbonate Composition, Bennu (K-ALFAA U.Arizona, Cameca SX-100)",
-  "schema:description": "McCoy et al. 2025, Nature 637:320-325 \u2014 Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 \u00b5m. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N.",
+  "schema:description": "McCoy et al. 2025, Nature 637:320-325 \u2014 Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 \u00b5m. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis \u2014 'Wavelength-dispersive X-ray spectroscopy analyses of Mg,Na phosphate'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -10836,8 +10891,8 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1 \u00b5m",
-      "ada:beamMode": "Focused (1 \u00b5m)",
+      "ada:beamDiameterDefault": "\"Mg,Na phosphate\": 1 \u00b5m; other: N \u2014 'using a 1-\u00b5m beam size'",
+      "ada:beamMode": "N \u2014 only a '1-\u00b5m beam size' is given, for the phosphate analyses",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -10919,14 +10974,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
   ],
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "Na",
-      "Si",
-      "Mg",
-      "Ca",
-      "Mn",
-      "P",
-      "S",
-      "Fe",
       "F",
       "P",
       "Ca",
@@ -10936,7 +10983,9 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       "Al",
       "S",
       "K",
-      "Cl"
+      "Cl",
+      "Na",
+      "Mn"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -11017,16 +11066,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -11065,6 +11104,7 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
       }
     ]
   },
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -11082,64 +11122,45 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
           "schema:name": "Pre-Analysis Imaging and Screening",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Optical microscopy, then FE-SEM/EDS characterisation \u2014 particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)"
-          ]
+          "schema:defaultValue": "N \u2014 the paper describes SEM characterisation at JSC, the NHM, the Smithsonian and Curtin, not for the K-ALFAA microprobe work"
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "\"Mg",
+      "Na phosphate\"",
+      "carbonate"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished section; 20 nm carbon coat",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 compositions are reported by phase with no contributing count and no selection rule stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
   "ada:monitoredElements": [
-    "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl (Mg,Na phosphate) and Na, Si, Mg, Ca, Mn (carbonates) \u2014 all determined. \"The standards used for Mg,Na phosphate were fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mg), fayalite (Fe), anorthite (Al), baryte (S), potassium feldspar (K) and scapolite (Cl). For carbonates, the standards used were albite (Na), Fo92 olivine (Si), dolomite (Mg), calcite (Ca), Mn...\" (p.7)"
+    "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl, Na, Mn \u2014 as for Target Species"
   ],
   "schema:measurementTechnique": [
     {
@@ -11184,17 +11205,49 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     }
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point",
-  "ada:reportedProperties": [
-    "Phosphate and carbonate compositions, reported by phase rather than per point (p.2); phase identifications (nominal). The quantitative analyses are in the paper's supplementary tables, not in the archived PDF"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Phosphates: fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mn), fayalite (Fe), anorthite (Al), baryte (S), K-feldspar (K), scapolite (Cl); Carbonates: albite (Na), Fo olivine (Si), dolomite (Mg), calcite (Ca), Mn carbonate (Mn), apatite (P), baryte (S), fayalite (Fe)",
+  "ada:reportedProperties": [
+    "N \u2014 phosphate and carbonate compositions are reported by phase (p.2); the quantitative analyses are in the supplementary tables, not in the archived PDF"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished section; 20 nm carbon coat",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -11221,21 +11274,20 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Polished section; 20 nm carbon coat" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. Zega" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N." ;
+    schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Wavelength-dispersive X-ray spectroscopy analyses of Mg,Na phosphate'." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -11246,29 +11298,39 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Phosphate (Mg,Na phosphate) | Carbonate (Bennu evaporite phases)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:analyticalMode "WDS Point Analysis" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
-    ada:monitoredElements "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl (Mg,Na phosphate) and Na, Si, Mg, Ca, Mn (carbonates) — all determined. \"The standards used for Mg,Na phosphate were fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mg), fayalite (Fe), anorthite (Al), baryte (S), potassium feldspar (K) and scapolite (Cl). For carbonates, the standards used were albite (Na), Fo92 olivine (Si), dolomite (Mg), calcite (Ca), Mn...\" (p.7)" ;
-    ada:primaryStandardNameDefault "Phosphates: fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mn), fayalite (Fe), anorthite (Al), baryte (S), K-feldspar (K), scapolite (Cl); Carbonates: albite (Na), Fo olivine (Si), dolomite (Mg), calcite (Ca), Mn carbonate (Mn), apatite (P), baryte (S), fayalite (Fe)" ;
-    ada:reportedProperties "Phosphate and carbonate compositions, reported by phase rather than per point (p.2); phase identifications (nominal). The quantitative analyses are in the paper's supplementary tables, not in the archived PDF" ;
+    ada:monitoredElements "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl, Na, Mn — as for Target Species" ;
+    ada:reportedProperties "N — phosphate and carbonate compositions are reported by phase (p.2); the quantitative analyses are in the supplementary tables, not in the archived PDF" ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "\"Mg",
+                "Na phosphate\"",
+                "carbonate" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cl",
@@ -11294,7 +11356,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -11314,8 +11375,8 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             schema1:name "Cameca" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "1 µm" ;
-    ada:beamMode "Focused (1 µm)" .
+    ada:beamDiameterDefault "\"Mg,Na phosphate\": 1 µm; other: N — 'using a 1-µm beam size'" ;
+    ada:beamMode "N — only a '1-µm beam size' is given, for the phosphate analyses" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -11344,19 +11405,18 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
             schema1:name "SX-100 (stated as \"Cameca SX-100 electron microprobe located at K-ALFAA\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — compositions are reported by phase with no contributing count and no selection rule stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Optical microscopy, then FE-SEM/EDS characterisation — particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory" ;
+    schema1:defaultValue "N — the paper describes SEM characterisation at JSC, the NHM, the Smithsonian and Curtin, not for the K-ALFAA microprobe work" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -11382,12 +11442,6 @@ empaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -11447,7 +11501,7 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Sulfides/Oxides/Phosphates/Carbonates, Bennu (K-ALFAA, Cameca SX-100 Ultra)",
-  "schema:description": "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s/bg each side. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak, 10 s/bg each side. Carbonates: 15 kV, 4 nA, 2 µm, 10 s peak, 5 s/bg each side. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper.",
+  "schema:description": "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 µm defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses and X-ray maps ('BSE images, element maps and quantitative compositional analyses'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -11457,8 +11511,8 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (silicates, sulfides, oxides); 2 µm defocused (phosphates, carbonates)",
-      "ada:beamMode": "Focused (silicates, sulfides, oxides); Defocused 2 µm (phosphates, carbonates)",
+      "ada:beamDiameterDefault": "phosphates, carbonates: 2 µm; other: N — p.9",
+      "ada:beamMode": "silicates, sulfides, oxides: Focused; phosphates, carbonates: Defocused — 'Quantitative analyses of silicates, sulfides and oxides were run using a focused beam ... A 2-μm defocused beam size ... for phosphate and carbonate analyses'",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -11548,9 +11602,10 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused 2 µm beam for phosphates (8 nA) and carbonates (4 nA)"
+      "schema:defaultValue": "phosphates, carbonates: 2 µm defocused beam, lower beam currents and shorter count times; other: N — 'to minimize possible beam damage effects'"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -11569,58 +11624,41 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and EDS mapping before the probe — particles were characterized by SE and BSE imaging and by EDS mapping of \"The compositional heterogeneity of the particles\" (p.9), and the paper's Fig. 1 pairs those BSE images with the EMPA data (p.2); the Methods list SEM before electron microprobe analysis without stating an explicit order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral | Sulfide | Oxide | Phosphate | Carbonate (Bennu samples)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "silicates",
+      "sulfides",
+      "oxides",
+      "phosphates",
+      "carbonates"
+    ],
+    "ada:targetMaterialColumns": [
       {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N — beam conditions are given per phase (\"Quantitative analyses of silicates, sulfides and oxides were run using a focused beam\"; \"A 2-μm defocused beam size, lower beam currents and shorter count times were used for phosphate and carbonate analyses\", p.9), but that is a setting per phase, not a rule for choosing which grains were analysed",
@@ -11633,6 +11671,14 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     ],
     "schema:name": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA Planetary Science Enabling Facilities 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G and NNX15AJ22G; NASA Early Career Award 80NSSC20K1087; NSF Major Research Instrumentation 1531243 and 0619599; Gordon and Betty Moore Foundation; State of Arizona Technology and Research Initiative Fund — acknowledged 'for supporting K-ALFAA operations' and 'for supporting the instrumentation in K-ALFAA'; which award bought the microprobe is not stated"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -11663,9 +11709,8 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     }
   ],
   "ada:reportedProperties": [
-    "Sulfide composition as atomic proportions (At%: Fe + Co, S, Ni, plotted against stoichiometric sulfides — pyrrhotite compositions \"close to Fe7S8 (the 4C polytype)\", Fig. 1, p.2); modal abundance of carbonates, sulfides and magnetite (%, \"0.4–3.4%, ~3–8% and ~3–5%\", p.2) from the EMPA phase maps; phase identifications (nominal)"
+    "Fe + Co, S, Ni; modal abundance of carbonates, sulfides and magnetite — sulfide compositions in at% (Fig. 1); modal abundances '0.4–3.4%, ~3–8% and ~3–5%' from the EMPA phase maps (p.2)"
   ],
-  "ada:primaryStandardNameDefault": "Well-characterized natural and synthetic materials (specific names N)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11675,13 +11720,43 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "schema:termCode": "empa"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -11721,7 +11796,7 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Sulfides/Oxides/Phosphates/Carbonates, Bennu (K-ALFAA, Cameca SX-100 Ultra)",
-  "schema:description": "Zega et al. 2025, Nat. Geosci. \u2014 mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" \u2014 this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s/bg each side. Phosphates: 15 kV, 8 nA, 2 \u00b5m defocused, 20 s peak, 10 s/bg each side. Carbonates: 15 kV, 4 nA, 2 \u00b5m, 10 s peak, 5 s/bg each side. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper.",
+  "schema:description": "Zega et al. 2025, Nat. Geosci. \u2014 mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" \u2014 this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 \u00b5m defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 \u00b5m defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses and X-ray maps ('BSE images, element maps and quantitative compositional analyses'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -11731,8 +11806,8 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (silicates, sulfides, oxides); 2 \u00b5m defocused (phosphates, carbonates)",
-      "ada:beamMode": "Focused (silicates, sulfides, oxides); Defocused 2 \u00b5m (phosphates, carbonates)",
+      "ada:beamDiameterDefault": "phosphates, carbonates: 2 \u00b5m; other: N \u2014 p.9",
+      "ada:beamMode": "silicates, sulfides, oxides: Focused; phosphates, carbonates: Defocused \u2014 'Quantitative analyses of silicates, sulfides and oxides were run using a focused beam ... A 2-\u03bcm defocused beam size ... for phosphate and carbonate analyses'",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -11822,9 +11897,10 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused 2 \u00b5m beam for phosphates (8 nA) and carbonates (4 nA)"
+      "schema:defaultValue": "phosphates, carbonates: 2 \u00b5m defocused beam, lower beam currents and shorter count times; other: N \u2014 'to minimize possible beam damage effects'"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -11843,58 +11919,41 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and EDS mapping before the probe \u2014 particles were characterized by SE and BSE imaging and by EDS mapping of \"The compositional heterogeneity of the particles\" (p.9), and the paper's Fig. 1 pairs those BSE images with the EMPA data (p.2); the Methods list SEM before electron microprobe analysis without stating an explicit order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral | Sulfide | Oxide | Phosphate | Carbonate (Bennu samples)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "silicates",
+      "sulfides",
+      "oxides",
+      "phosphates",
+      "carbonates"
+    ],
+    "ada:targetMaterialColumns": [
       {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 beam conditions are given per phase (\"Quantitative analyses of silicates, sulfides and oxides were run using a focused beam\"; \"A 2-\u03bcm defocused beam size, lower beam currents and shorter count times were used for phosphate and carbonate analyses\", p.9), but that is a setting per phase, not a rule for choosing which grains were analysed",
@@ -11907,6 +11966,14 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     ],
     "schema:name": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NASA Planetary Science Enabling Facilities 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G and NNX15AJ22G; NASA Early Career Award 80NSSC20K1087; NSF Major Research Instrumentation 1531243 and 0619599; Gordon and Betty Moore Foundation; State of Arizona Technology and Research Initiative Fund \u2014 acknowledged 'for supporting K-ALFAA operations' and 'for supporting the instrumentation in K-ALFAA'; which award bought the microprobe is not stated"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -11937,9 +12004,8 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     }
   ],
   "ada:reportedProperties": [
-    "Sulfide composition as atomic proportions (At%: Fe + Co, S, Ni, plotted against stoichiometric sulfides \u2014 pyrrhotite compositions \"close to Fe7S8 (the 4C polytype)\", Fig. 1, p.2); modal abundance of carbonates, sulfides and magnetite (%, \"0.4\u20133.4%, ~3\u20138% and ~3\u20135%\", p.2) from the EMPA phase maps; phase identifications (nominal)"
+    "Fe + Co, S, Ni; modal abundance of carbonates, sulfides and magnetite \u2014 sulfide compositions in at% (Fig. 1); modal abundances '0.4\u20133.4%, ~3\u20138% and ~3\u20135%' from the EMPA phase maps (p.2)"
   ],
-  "ada:primaryStandardNameDefault": "Well-characterized natural and synthetic materials (specific names N)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -11949,13 +12015,43 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
       "schema:termCode": "empa"
     }
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -11982,20 +12078,21 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s/bg each side. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak, 10 s/bg each side. Carbonates: 15 kV, 4 nA, 2 µm, 10 s peak, 5 s/bg each side. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper." ;
+    schema1:description "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 µm defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses and X-ray maps ('BSE images, element maps and quantitative compositional analyses'); WDS or EDS is not stated, and the list has no value without one." ;
+    schema1:funding [ a schema1:MonetaryGrant ;
+            schema1:name "NASA Planetary Science Enabling Facilities 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G and NNX15AJ22G; NASA Early Career Award 80NSSC20K1087; NSF Major Research Instrumentation 1531243 and 0619599; Gordon and Betty Moore Foundation; State of Arizona Technology and Research Initiative Fund — acknowledged 'for supporting K-ALFAA operations' and 'for supporting the instrumentation in K-ALFAA'; which award bought the microprobe is not stated" ] ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -12007,29 +12104,40 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral | Sulfide | Oxide | Phosphate | Carbonate (Bennu samples)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0" ] ;
-            schema1:url "https://ada.astromat.org/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — \"Well-characterized natural and synthetic materials were used as standards\" (p.9); the paper gives beam conditions and count times for silicates, sulfides, oxides, phosphates and carbonates but names no element" ;
-    ada:primaryStandardNameDefault "Well-characterized natural and synthetic materials (specific names N)" ;
-    ada:reportedProperties "Sulfide composition as atomic proportions (At%: Fe + Co, S, Ni, plotted against stoichiometric sulfides — pyrrhotite compositions \"close to Fe7S8 (the 4C polytype)\", Fig. 1, p.2); modal abundance of carbonates, sulfides and magnetite (%, \"0.4–3.4%, ~3–8% and ~3–5%\", p.2) from the EMPA phase maps; phase identifications (nominal)" ;
+    ada:reportedProperties "Fe + Co, S, Ni; modal abundance of carbonates, sulfides and magnetite — sulfide compositions in at% (Fig. 1); modal abundances '0.4–3.4%, ~3–8% and ~3–5%' from the EMPA phase maps (p.2)" ;
     ada:samplingUnitSelectionCriteriaDefault "N — beam conditions are given per phase (\"Quantitative analyses of silicates, sulfides and oxides were run using a focused beam\"; \"A 2-μm defocused beam size, lower beam currents and shorter count times were used for phosphate and carbonate analyses\", p.9), but that is a setting per phase, not a rule for choosing which grains were analysed" ;
     ada:samplingUnitType "Grain > Phase — sulfide compositions are reported per grain within named particles (\"Pyrrhotite compositions measured by EMPA\", p.2), and \"phase mapping via electron microprobe analysis (EMPA)\" gives modal abundances of carbonates, sulfides and magnetite per particle (p.2)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonates",
+                "oxides",
+                "phosphates",
+                "silicates",
+                "sulfides" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     bios:computationalTool [ schema1:name "XMapTools (for phase maps)" ;
             ada:toolRole "dataReduction" ] .
@@ -12045,8 +12153,8 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
             schema1:name "Cameca" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV" ;
-    ada:beamDiameterDefault "Focused (silicates, sulfides, oxides); 2 µm defocused (phosphates, carbonates)" ;
-    ada:beamMode "Focused (silicates, sulfides, oxides); Defocused 2 µm (phosphates, carbonates)" .
+    ada:beamDiameterDefault "phosphates, carbonates: 2 µm; other: N — p.9" ;
+    ada:beamMode "silicates, sulfides, oxides: Focused; phosphates, carbonates: Defocused — 'Quantitative analyses of silicates, sulfides and oxides were run using a focused beam ... A 2-μm defocused beam size ... for phosphate and carbonate analyses'" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -12076,16 +12184,9 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamDamageMinimizationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Defocused 2 µm beam for phosphates (8 nA) and carbonates (4 nA)" ;
+    schema1:defaultValue "phosphates, carbonates: 2 µm defocused beam, lower beam currents and shorter count times; other: N — 'to minimize possible beam damage effects'" ;
     schema1:name "Beam Damage Minimization" ;
     schema1:valueName "beamDamageMinimizationDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -12095,6 +12196,12 @@ empaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 
 ```
@@ -12121,7 +12228,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Oxides/Carbonates, Bennu Anhydrous Minerals (CRPG Nancy, JEOL JXA-8230)",
-  "schema:description": "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument).",
+  "schema:description": "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses on an instrument 'equipped with five wavelength-dispersive spectrometers and one silicon drift detector energy dispersive spectrometer'; which detector measured which element is not stated.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -12131,8 +12238,8 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 µm (point analysis); 5×5 µm² raster area for carbonates",
-      "ada:beamMode": "Focused (1 µm, point analysis); Rastered 5×5 µm² for carbonates",
+      "ada:beamDiameterDefault": "all: 1 µm — as above",
+      "ada:beamMode": "carbonates: Rastered; other: N — 'For carbonates, we rastered the beam over 5×5 µm2'",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -12224,16 +12331,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "Fe",
       "Si",
       "Na",
-      "K",
-      "Al",
-      "Ti",
-      "Ca",
-      "Cr",
-      "Mn",
-      "Ni",
-      "Mg",
-      "Fe",
-      "Si"
+      "K"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -12314,16 +12412,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12373,9 +12461,10 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
-      "schema:description": "5×5 µm² for carbonates"
+      "schema:description": "carbonates: 5 × 5 µm²; other: N/A — as above"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -12394,63 +12483,42 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and multi-element EDS mapping — \"SEM observations were performed on the samples using a JEOL JSM-6510 with 3-nA primary beam at 15 kV. We also performed multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\", after which \"Quantitative chemical analyses were performed using a JEOL JXA-8230 electron microprobe\" (p.11)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene) | Oxide | Carbonate (anhydrous minerals in Bennu aggregate particles)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonates"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size — \"Aggregate particles (<1 mm) were mounted in epoxy, polished and were subsequently carbon coated\" (p.11); the grains analysed within them are not otherwise chosen by a stated rule",
   "ada:monitoredElements": [
-    "Session 1: Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. Session 2: Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. All determined. \"We used two different settings to determine the chemical compositions of minerals: (1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11)"
+    "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — as for Target Species"
   ],
   "schema:location": {
     "@type": [
@@ -12482,9 +12550,39 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
   ],
   "ada:samplingUnitType": "Grain > Analysis point — \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 µm\", the beam rastered \"over 5 × 5 µm2\" for carbonates (p.11)",
   "ada:reportedProperties": [
-    "Mineral compositions from quantitative WDS/EDS analyses, with the element suites set per session — \"(1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11); the values are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF"
+    "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — mineral compositions for the two element suites; values 'compiled in Supplementary Table 14', not in the archived PDF"
   ],
-  "ada:primaryStandardNameDefault": "Springwater olivine (Mg, Si); fayalite (Fe); wollastonite (Ca); albite (Na, Al); orthoclase (K); rutile (Ti); Ni metal (Ni); chromite (Cr); rhodochrosite (Mn)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12500,7 +12598,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -12540,7 +12637,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Oxides/Carbonates, Bennu Anhydrous Minerals (CRPG Nancy, JEOL JXA-8230)",
-  "schema:description": "Barnes et al. 2025, Nat. Astron. \u2014 variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) \u2014 unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Universit\u00e9 C\u00f4te d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument).",
+  "schema:description": "Barnes et al. 2025, Nat. Astron. \u2014 variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Universit\u00e9 C\u00f4te d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument). Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses on an instrument 'equipped with five wavelength-dispersive spectrometers and one silicon drift detector energy dispersive spectrometer'; which detector measured which element is not stated.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -12550,8 +12647,8 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 \u00b5m (point analysis); 5\u00d75 \u00b5m\u00b2 raster area for carbonates",
-      "ada:beamMode": "Focused (1 \u00b5m, point analysis); Rastered 5\u00d75 \u00b5m\u00b2 for carbonates",
+      "ada:beamDiameterDefault": "all: 1 \u00b5m \u2014 as above",
+      "ada:beamMode": "carbonates: Rastered; other: N \u2014 'For carbonates, we rastered the beam over 5\u00d75 \u00b5m2'",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -12643,16 +12740,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "Fe",
       "Si",
       "Na",
-      "K",
-      "Al",
-      "Ti",
-      "Ca",
-      "Cr",
-      "Mn",
-      "Ni",
-      "Mg",
-      "Fe",
-      "Si"
+      "K"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -12733,16 +12821,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -12792,9 +12870,10 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
-      "schema:description": "5\u00d75 \u00b5m\u00b2 for carbonates"
+      "schema:description": "carbonates: 5 \u00d7 5 \u00b5m\u00b2; other: N/A \u2014 as above"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -12813,63 +12892,42 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and multi-element EDS mapping \u2014 \"SEM observations were performed on the samples using a JEOL JSM-6510 with 3-nA primary beam at 15 kV. We also performed multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\", after which \"Quantitative chemical analyses were performed using a JEOL JXA-8230 electron microprobe\" (p.11)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene) | Oxide | Carbonate (anhydrous minerals in Bennu aggregate particles)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonates"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Universit\u00e9 C\u00f4te d'Azur; polished; carbon coated (thickness N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size \u2014 \"Aggregate particles (<1 mm) were mounted in epoxy, polished and were subsequently carbon coated\" (p.11); the grains analysed within them are not otherwise chosen by a stated rule",
   "ada:monitoredElements": [
-    "Session 1: Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. Session 2: Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. All determined. \"We used two different settings to determine the chemical compositions of minerals: (1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11)"
+    "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K \u2014 as for Target Species"
   ],
   "schema:location": {
     "@type": [
@@ -12901,9 +12959,39 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 \u00b5m\", the beam rastered \"over 5 \u00d7 5 \u00b5m2\" for carbonates (p.11)",
   "ada:reportedProperties": [
-    "Mineral compositions from quantitative WDS/EDS analyses, with the element suites set per session \u2014 \"(1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11); the values are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF"
+    "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K \u2014 mineral compositions for the two element suites; values 'compiled in Supplementary Table 14', not in the archived PDF"
   ],
-  "ada:primaryStandardNameDefault": "Springwater olivine (Mg, Si); fayalite (Fe); wollastonite (Ca); albite (Na, Al); orthoclase (K); rutile (Ti); Ni metal (Ni); chromite (Cr); rhodochrosite (Mn)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Universit\u00e9 C\u00f4te d'Azur; polished; carbon coated (thickness N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -12919,7 +13007,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
@@ -12946,7 +13033,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
@@ -12959,7 +13045,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> ;
     schema1:datePublished "missing" ;
-    schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
+    schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses on an instrument 'equipped with five wavelength-dispersive spectrometers and one silicon drift detector energy dispersive spectrometer'; which detector measured which element is not stated." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -12971,9 +13057,7 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (olivine, pyroxene) | Oxide | Carbonate (anhydrous minerals in Bennu aggregate particles)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
@@ -12984,16 +13068,25 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
-    ada:monitoredElements "Session 1: Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. Session 2: Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. All determined. \"We used two different settings to determine the chemical compositions of minerals: (1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11)" ;
-    ada:primaryStandardNameDefault "Springwater olivine (Mg, Si); fayalite (Fe); wollastonite (Ca); albite (Na, Al); orthoclase (K); rutile (Ti); Ni metal (Ni); chromite (Cr); rhodochrosite (Mn)" ;
-    ada:reportedProperties "Mineral compositions from quantitative WDS/EDS analyses, with the element suites set per session — \"(1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11); the values are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF" ;
+    ada:monitoredElements "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — as for Target Species" ;
+    ada:reportedProperties "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — mineral compositions for the two element suites; values 'compiled in Supplementary Table 14', not in the archived PDF" ;
     ada:samplingUnitSelectionCriteriaDefault "Size — \"Aggregate particles (<1 mm) were mounted in epoxy, polished and were subsequently carbon coated\" (p.11); the grains analysed within them are not otherwise chosen by a stated rule" ;
     ada:samplingUnitType "Grain > Analysis point — \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 µm\", the beam rastered \"over 5 × 5 µm2\" for carbonates (p.11)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonates" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -13018,7 +13111,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -13038,8 +13130,8 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "20 kV" ;
-    ada:beamDiameterDefault "1 µm (point analysis); 5×5 µm² raster area for carbonates" ;
-    ada:beamMode "Focused (1 µm, point analysis); Rastered 5×5 µm² for carbonates" .
+    ada:beamDiameterDefault "all: 1 µm — as above" ;
+    ada:beamMode "carbonates: Rastered; other: N — 'For carbonates, we rastered the beam over 5×5 µm2'" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -13070,17 +13162,10 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 5 ;
-    schema1:description "5×5 µm² for carbonates" ;
+    schema1:description "carbonates: 5 × 5 µm²; other: N/A — as above" ;
     schema1:name "Beam Raster Dimensions" ;
     schema1:valueName "beamRasterDimensionsDefault" ;
     ada:dataType "number" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
@@ -13089,6 +13174,12 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -13114,12 +13205,6 @@ empaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -13179,7 +13264,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major/Minor Element Anhydrous Silicates, Bennu (NHM London, Cameca SX100)",
-  "schema:description": "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA.",
+  "schema:description": "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses ('Analyses were performed at 20 kV, using a focused 1-μm beam'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -13189,8 +13274,8 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 µm (focused)",
-      "ada:beamMode": "Focused (1 µm)",
+      "ada:beamDiameterDefault": "all: 1 µm — as above",
+      "ada:beamMode": "all: Focused — 'Analyses were performed at 20 kV, using a focused 1-μm beam'",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -13270,6 +13355,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -13288,58 +13374,38 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM characterisation at the NHM — \"Olivine and pyroxene grains were identified and characterized at the NHM\" and \"Following characterization by SEM/EPMA, an additional carbon coat was added for a total thickness of ~30 nm\" (p.13); additional quantitative data came from a Zeiss EVO 15LS analytical SEM with an Oxford X-Max80 EDS (p.13)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene) in Bennu aggregate particles"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity — \"Olivine and pyroxene grains were identified and characterized at the NHM\" (p.13), the paper's target being the anhydrous silicates in particles P1 and P2",
@@ -13376,8 +13442,39 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
   ],
   "ada:samplingUnitType": "Grain > Analysis point — \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-μm beam\" (p.13)",
   "ada:reportedProperties": [
-    "\"Major and minor element abundances\" of olivine and pyroxene (p.13), with \"Typical detection limits for transition metals were around 250 ppm\" (p.13); the derived quantity used in the paper is the olivine Mg# (\"the Mg# of olivine grains is >83\", p.13)"
+    "major and minor element abundances; Mg# — 'Major and minor element abundances' of olivine and pyroxene; 'the Mg# of olivine grains is >83' (p.13)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13393,11 +13490,9 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
@@ -13434,7 +13529,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major/Minor Element Anhydrous Silicates, Bennu (NHM London, Cameca SX100)",
-  "schema:description": "Barnes et al. 2025, Nat. Astron. \u2014 variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 \u00b5m focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA.",
+  "schema:description": "Barnes et al. 2025, Nat. Astron. \u2014 variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 \u00b5m focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 point analyses ('Analyses were performed at 20 kV, using a focused 1-\u03bcm beam'); WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -13444,8 +13539,8 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 \u00b5m (focused)",
-      "ada:beamMode": "Focused (1 \u00b5m)",
+      "ada:beamDiameterDefault": "all: 1 \u00b5m \u2014 as above",
+      "ada:beamMode": "all: Focused \u2014 'Analyses were performed at 20 kV, using a focused 1-\u03bcm beam'",
       "schema:manufacturer": {
         "schema:name": "Cameca",
         "@type": [
@@ -13525,6 +13620,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:name": "example instrumentName"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -13543,58 +13639,38 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM characterisation at the NHM \u2014 \"Olivine and pyroxene grains were identified and characterized at the NHM\" and \"Following characterization by SEM/EPMA, an additional carbon coat was added for a total thickness of ~30 nm\" (p.13); additional quantitative data came from a Zeiss EVO 15LS analytical SEM with an Oxford X-Max80 EDS (p.13)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene) in Bennu aggregate particles"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity \u2014 \"Olivine and pyroxene grains were identified and characterized at the NHM\" (p.13), the paper's target being the anhydrous silicates in particles P1 and P2",
@@ -13631,8 +13707,39 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-\u03bcm beam\" (p.13)",
   "ada:reportedProperties": [
-    "\"Major and minor element abundances\" of olivine and pyroxene (p.13), with \"Typical detection limits for transition metals were around 250 ppm\" (p.13); the derived quantity used in the paper is the olivine Mg# (\"the Mg# of olivine grains is >83\", p.13)"
+    "major and minor element abundances; Mg# \u2014 'Major and minor element abundances' of olivine and pyroxene; 'the Mg# of olivine grains is >83' (p.13)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -13648,11 +13755,9 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"
@@ -13677,18 +13782,17 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ] ] ;
+                    ada:detectionLimitMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not explicitly given; implied Si, Mg, Fe, Ca, Mn, Cr, Ni, Al, Ti from context. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
+    schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses ('Analyses were performed at 20 kV, using a focused 1-μm beam'); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -13700,9 +13804,7 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Silicate mineral (olivine, pyroxene) in Bennu aggregate particles" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
@@ -13713,16 +13815,26 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             schema1:url "https://ada.astromat.org/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:edsAcquisitionMode "missing" ;
+    ada:edsAcquisitionMode "N/A" ;
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the paper gives beam conditions and a detection limit for transition metals of about 250 ppm for the NHM London instrument (p.13) but names no element" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "\"Major and minor element abundances\" of olivine and pyroxene (p.13), with \"Typical detection limits for transition metals were around 250 ppm\" (p.13); the derived quantity used in the paper is the olivine Mg# (\"the Mg# of olivine grains is >83\", p.13)" ;
+    ada:reportedProperties "major and minor element abundances; Mg# — 'Major and minor element abundances' of olivine and pyroxene; 'the Mg# of olivine grains is >83' (p.13)" ;
     ada:samplingUnitSelectionCriteriaDefault "Phase identity — \"Olivine and pyroxene grains were identified and characterized at the NHM\" (p.13), the paper's target being the anhydrous silicates in particles P1 and P2" ;
     ada:samplingUnitType "Grain > Analysis point — \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-μm beam\" (p.13)" ;
     ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "olivine",
+                "pyroxene" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <ex:instrument/EPMA> a schema1:Product,
@@ -13736,8 +13848,8 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             schema1:name "Cameca" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "20 kV" ;
-    ada:beamDiameterDefault "1 µm (focused)" ;
-    ada:beamMode "Focused (1 µm)" .
+    ada:beamDiameterDefault "all: 1 µm — as above" ;
+    ada:beamMode "all: Focused — 'Analyses were performed at 20 kV, using a focused 1-μm beam'" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
@@ -13766,19 +13878,18 @@ empaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
             schema1:name "SX100 (stated as \"CAMECA SX100 electron microprobe\")" ] ;
     schema1:name "example instrumentName" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "SEM characterisation at the NHM — \"Olivine and pyroxene grains were identified and characterized at the NHM\" and \"Following characterization by SEM/EPMA, an additional carbon coat was added for a total thickness of ~30 nm\" (p.13); additional quantitative data came from a Zeiss EVO 15LS analytical SEM with an Oxford X-Max80 EDS (p.13)" ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 
 ```
@@ -13805,7 +13916,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS quantitative compositional mapping, Apollo 17 core 73001 continuous thin sections (Washington University in St. Louis)",
-  "schema:description": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard.",
+  "schema:description": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard; ada:analyticalMode = WDS Mapping — 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -13815,8 +13926,8 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV (stage maps and BSE mosaic)",
-      "ada:beamDiameterDefault": "10 um (fixed)",
-      "ada:beamMode": "Fixed 10 um beam (stated 'a fixed 10 um electron beam')",
+      "ada:beamDiameterDefault": "N/A — mapping-only procedure; map beam under Mapping Beam Diameter",
+      "ada:beamMode": "N/A — mapping-only procedure; map conditions under Mapping Beam Mode",
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -13825,7 +13936,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "N/A - WDS mapping; no EDS used for the EPMA work",
+          "schema:description": "N/A — WDS mapping procedure",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -13989,16 +14100,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -14047,7 +14148,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "schema:name": "Beam Raster Dimensions",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "N/A - stage scan, not beam scan"
+      "schema:defaultValue": "N/A — stage scan, not beam scan"
     },
     {
       "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan",
@@ -14081,21 +14182,44 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections"
-          ]
         }
       ]
     }
   ],
   "ada:matrixCorrectionMethod": "ZAF",
   "ada:stepSizePixelSizeDefault": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "lunar regolith"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
   "ada:monitoredElements": [
-    "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)"
+    "Mg, Al, Fe, Ca, Ti, Na, Si, Mn, K, Cr — 'Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2' (p.6)"
   ],
   "schema:measurementTechnique": [
     {
@@ -14149,7 +14273,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     "WDS Mapping"
   ],
   "ada:reportedProperties": [
-    "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)"
+    "element wt% maps; oxide wt% maps; cation stoichiometry; mineral endmember maps — 32-bit floating point .tiff"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -14167,7 +14291,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       },
       {
         "schema:name": "Data reduction",
-        "ada:detectionLimitMethod": "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'",
+        "ada:detectionLimitMethod": "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -14182,7 +14306,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "schema:HowTo"
     ]
   },
-  "ada:primaryStandardNameDefault": "N - 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -14227,7 +14350,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS quantitative compositional mapping, Apollo 17 core 73001 continuous thin sections (Washington University in St. Louis)",
-  "schema:description": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard.",
+  "schema:description": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard; ada:analyticalMode = WDS Mapping \u2014 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -14237,8 +14360,8 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV (stage maps and BSE mosaic)",
-      "ada:beamDiameterDefault": "10 um (fixed)",
-      "ada:beamMode": "Fixed 10 um beam (stated 'a fixed 10 um electron beam')",
+      "ada:beamDiameterDefault": "N/A \u2014 mapping-only procedure; map beam under Mapping Beam Diameter",
+      "ada:beamMode": "N/A \u2014 mapping-only procedure; map conditions under Mapping Beam Mode",
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -14247,7 +14370,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:description": "N/A - WDS mapping; no EDS used for the EPMA work",
+          "schema:description": "N/A \u2014 WDS mapping procedure",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -14411,16 +14534,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -14469,7 +14582,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "schema:name": "Beam Raster Dimensions",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "N/A - stage scan, not beam scan"
+      "schema:defaultValue": "N/A \u2014 stage scan, not beam scan"
     },
     {
       "@id": "ada:parameter/empaTAPP/stageScanVsBeamScan",
@@ -14503,21 +14616,44 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections"
-          ]
         }
       ]
     }
   ],
   "ada:matrixCorrectionMethod": "ZAF",
   "ada:stepSizePixelSizeDefault": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "lunar regolith"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
   "ada:monitoredElements": [
-    "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)"
+    "Mg, Al, Fe, Ca, Ti, Na, Si, Mn, K, Cr \u2014 'Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2' (p.6)"
   ],
   "schema:measurementTechnique": [
     {
@@ -14571,7 +14707,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     "WDS Mapping"
   ],
   "ada:reportedProperties": [
-    "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)"
+    "element wt% maps; oxide wt% maps; cation stoichiometry; mineral endmember maps \u2014 32-bit floating point .tiff"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -14589,7 +14725,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       },
       {
         "schema:name": "Data reduction",
-        "ada:detectionLimitMethod": "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'",
+        "ada:detectionLimitMethod": "N \u2014 attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -14604,7 +14740,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
       "schema:HowTo"
     ]
   },
-  "ada:primaryStandardNameDefault": "N - 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -14645,11 +14780,11 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:detectionLimitMethod "N - attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ] ] ;
+                    ada:detectionLimitMethod "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault>,
         <https://ada.astromat.org/metadata/parameter/empaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "missing" ;
-    schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard." ;
+    schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard; ada:analyticalMode = WDS Mapping — 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'." ;
     schema1:instrument <ex:instrument/EPMA>,
         <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -14660,9 +14795,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections" ],
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)" ] ;
@@ -14679,12 +14812,21 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "ZAF" ;
-    ada:monitoredElements "Pass 1: Mg, Al, Fe, Ca, Ti. Pass 2: Na, Si, Mn, K, Cr. All determined. \"Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2\" (p.6)" ;
-    ada:primaryStandardNameDefault "N - 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named" ;
-    ada:reportedProperties "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)" ;
+    ada:monitoredElements "Mg, Al, Fe, Ca, Ti, Na, Si, Mn, K, Cr — 'Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2' (p.6)" ;
+    ada:reportedProperties "element wt% maps; oxide wt% maps; cation stoichiometry; mineral endmember maps — 32-bit floating point .tiff" ;
     ada:samplingUnitSelectionCriteriaDefault "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated" ;
     ada:samplingUnitType "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)" ;
     ada:stepSizePixelSizeDefault "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "lunar regolith" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -14708,7 +14850,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/beamCurrent>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/blankCorrection>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferingElements>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod>,
@@ -14732,14 +14873,14 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
             schema1:name "JEOL" ] ;
     schema1:name "example instrumentName" ;
     ada:acceleratingVoltageDefault "15 kV (stage maps and BSE mosaic)" ;
-    ada:beamDiameterDefault "10 um (fixed)" ;
-    ada:beamMode "Fixed 10 um beam (stated 'a fixed 10 um electron beam')" .
+    ada:beamDiameterDefault "N/A — mapping-only procedure; map beam under Mapping Beam Diameter" ;
+    ada:beamMode "N/A — mapping-only procedure; map conditions under Mapping Beam Mode" .
 
 <ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "EDS Detector" ;
-    schema1:description "N/A - WDS mapping; no EDS used for the EPMA work" ;
+    schema1:description "N/A — WDS mapping procedure" ;
     schema1:name "missing" .
 
 <ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
@@ -14764,7 +14905,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     schema1:name "example instrumentName" .
 
 <https://ada.astromat.org/metadata/parameter/empaTAPP/beamRasterDimensionsDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "N/A - stage scan, not beam scan" ;
+    schema1:defaultValue "N/A — stage scan, not beam scan" ;
     schema1:name "Beam Raster Dimensions" ;
     schema1:valueName "beamRasterDimensionsDefault" ;
     ada:dataType "number" ;
@@ -14776,6 +14917,12 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
     schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/empaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
     schema1:name "Analytical Accuracy" ;
@@ -14801,12 +14948,6 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
     schema1:name "Counting Statistics Error" ;
     schema1:valueName "countingStatisticsError" ;
-    ada:dataType "string" .
-
-<https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "example value" ;
-    schema1:name "EPMA Technique per Target Species" ;
-    schema1:valueName "epmaTechniquePerTargetSpecies" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
@@ -14855,7 +14996,7 @@ empaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
 $schema: https://json-schema.org/draft/2020-12/schema
 title: EPMA/EMPA Technique-Aligned Protocol Profile (empaTAPP)
 description: Electron-probe microanalysis (EPMA/EMPA, WDS/EDS) extension of the base
-  TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v77.csv via the path-driven
+  TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v87.csv via the path-driven
   pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -15310,35 +15451,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - title: EPMA Technique per Target Species
-              description: Whether the measurement was made by WDS or EDS. Applies
-                where a procedure uses both WDS and EDS.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: epmaTechniquePerTargetSpecies
-                schema:name:
-                  const: EPMA Technique per Target Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             - title: Interference Correction Standard
               description: Reference material used to quantify and calibrate the interference
                 correction.
@@ -15688,38 +15800,6 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            minContains: 0
-            maxContains: 1
-          - contains:
-              title: EPMA Technique per Target Species
-              description: Whether the measurement was made by WDS or EDS. Applies
-                where a procedure uses both WDS and EDS.
-              type: object
-              properties:
-                '@id':
-                  const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies
-                '@type':
-                  const:
-                  - schema:PropertyValueSpecification
-                schema:valueName:
-                  const: epmaTechniquePerTargetSpecies
-                schema:name:
-                  const: EPMA Technique per Target Species
-                ada:dataType:
-                  const: string
-                schema:readonlyValue:
-                  const: true
-                ada:tier:
-                  const: M
-                schema:defaultValue:
-                  type: string
-              required:
-              - '@id'
-              - '@type'
-              - schema:valueName
-              - schema:name
-              - ada:dataType
-              - schema:defaultValue
             minContains: 0
             maxContains: 1
           - contains:
@@ -16175,6 +16255,43 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
+            - title: X-ray Detection Method per Monitored Element
+              description: 'The X-ray detection method used to measure the monitored
+                element: wavelength-dispersive (WDS), in which a crystal spectrometer
+                separates the X-rays by wavelength and a proportional counter counts
+                them, or energy-dispersive (EDS), in which a solid-state detector
+                sorts every photon by energy at once. Applies where a procedure uses
+                both.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayDetectionMethodPerMonitoredElement
+                schema:name:
+                  const: X-ray Detection Method per Monitored Element
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
           allOf:
           - contains:
               title: Background Counting Time
@@ -16498,6 +16615,46 @@ allOf:
                   const: xRayLine
                 schema:name:
                   const: X-ray Line
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: true
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  anyOf:
+                  - type: string
+                  - type: array
+                    items:
+                      type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+          - contains:
+              title: X-ray Detection Method per Monitored Element
+              description: 'The X-ray detection method used to measure the monitored
+                element: wavelength-dispersive (WDS), in which a crystal spectrometer
+                separates the X-rays by wavelength and a proportional counter counts
+                them, or energy-dispersive (EDS), in which a solid-state detector
+                sorts every photon by energy at once. Applies where a procedure uses
+                both.'
+              type: object
+              properties:
+                '@id':
+                  const: ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: xRayDetectionMethodPerMonitoredElement
+                schema:name:
+                  const: X-ray Detection Method per Monitored Element
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -16938,55 +17095,12 @@ allOf:
               schema:additionalProperty:
                 type: array
                 items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Target Material
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:value:
-                          type: array
-                          items:
-                            description: General description of the material type(s)
-                              this procedure is designed to analyse.
-                            anyOf:
-                            - type: string
-                              enum:
-                              - Silicate mineral
-                              - Silicate glass
-                              - Oxide
-                              - Sulfide
-                              - Carbonate
-                              - Phosphate
-                              - Metal or alloy
-                              - N/A
-                              - None
-                              - missing
-                            - type: string
-                            readOnly: true
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                 allOf:
                 - contains:
                     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Target Material
-                    required:
-                    - schema:name
-      allOf:
-      - contains:
-          properties:
-            '@type':
-              contains:
-                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-          required:
-          - '@type'
     ada:edsLiveTimePerPointOrPixelDefault:
       description: EDS spectral acquisition live time per analysis point in seconds.
         Previously referred to as "EDS Acquisition Time" in this TAPP and commonly
@@ -17016,11 +17130,89 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                      - title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual results
+                          contribute to a combined result, together with the outcome
+                          of applying them: how many results were obtained, how many
+                          were included, and on what grounds any were excluded. An
+                          individual result is the value of the reported quantity
+                          obtained from one acquisition: a replicate measurement of
+                          the same solution or location, a spot or grain within a
+                          sample, or an independently prepared aliquot or digestion,
+                          whichever the procedure combines. Distinct from filtering
+                          the acquired signal during data reduction (removing spikes,
+                          cycles or scans, or discarding an acquisition whose signal
+                          is compromised): this field records which finished results
+                          enter the combined result, and on what grounds.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
                     - contains:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml#/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria
+                        title: Analysis Inclusion and Rejection Criteria
+                        description: 'The rules determining which individual results
+                          contribute to a combined result, together with the outcome
+                          of applying them: how many results were obtained, how many
+                          were included, and on what grounds any were excluded. An
+                          individual result is the value of the reported quantity
+                          obtained from one acquisition: a replicate measurement of
+                          the same solution or location, a spot or grain within a
+                          sample, or an independently prepared aliquot or digestion,
+                          whichever the procedure combines. Distinct from filtering
+                          the acquired signal during data reduction (removing spikes,
+                          cycles or scans, or discarding an acquisition whose signal
+                          is compromised): this field records which finished results
+                          enter the combined result, and on what grounds.'
+                        type: object
+                        properties:
+                          '@id':
+                            const: ada:parameter/empaTAPP/analysisInclusionAndRejectionCriteriaDefault
+                          '@type':
+                            const:
+                            - schema:PropertyValueSpecification
+                          schema:valueName:
+                            const: analysisInclusionAndRejectionCriteriaDefault
+                          schema:name:
+                            const: Analysis Inclusion and Rejection Criteria
+                          ada:dataType:
+                            const: string
+                          ada:fieldScope:
+                            const: session
+                          schema:readonlyValue:
+                            const: false
+                          ada:tier:
+                            const: R
+                        required:
+                        - '@id'
+                        - '@type'
+                        - schema:valueName
+                        - schema:name
+                        - ada:dataType
+                        - ada:fieldScope
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -17075,6 +17267,101 @@ allOf:
         - missing
       - type: string
       readOnly: true
+    ada:targetMaterialTemplate:
+      type: object
+      properties:
+        ada:targetMaterialColumns:
+          type: array
+          items:
+            anyOf:
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
+            - title: Primary Calibration Standard Name
+              description: "Name and reference material identifier of the primary
+                reference material(s) against which the instrument is calibrated \u2014
+                converting raw signal intensities to concentrations, or anchoring
+                an isotope ratio as the bracketing standard or zero-delta reference.
+                Give the material name, its source or supplier, and a citation for
+                the accepted values used. Where calibration instead uses the vendor's
+                stored library or theoretical response factors rather than measured
+                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+                \u2014 record that here, naming the library or model used. 'None'
+                means no calibration was performed at all, which is a different answer."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+          allOf:
+          - contains:
+              title: Primary Calibration Standard Name
+              description: "Name and reference material identifier of the primary
+                reference material(s) against which the instrument is calibrated \u2014
+                converting raw signal intensities to concentrations, or anchoring
+                an isotope ratio as the bracketing standard or zero-delta reference.
+                Give the material name, its source or supplier, and a citation for
+                the accepted values used. Where calibration instead uses the vendor's
+                stored library or theoretical response factors rather than measured
+                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
+                \u2014 record that here, naming the library or model used. 'None'
+                means no calibration was performed at all, which is a different answer."
+              type: object
+              properties:
+                '@id':
+                  const: ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName
+                '@type':
+                  const:
+                  - schema:PropertyValueSpecification
+                schema:valueName:
+                  const: primaryCalibrationStandardName
+                schema:name:
+                  const: Primary Calibration Standard Name
+                ada:dataType:
+                  const: string
+                schema:readonlyValue:
+                  const: false
+                ada:tier:
+                  const: M
+                schema:defaultValue:
+                  type: string
+              required:
+              - '@id'
+              - '@type'
+              - schema:valueName
+              - schema:name
+              - ada:dataType
+              - schema:defaultValue
+            minContains: 0
+            maxContains: 1
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetMaterials
     ada:stepSizePixelSizeDefault:
       description: Distance between adjacent measurement points in the X-ray map in
         micrometers, defining the spatial resolution. Report both X and Y step if
@@ -17113,9 +17400,11 @@ allOf:
           target species they serve where they serve one. Includes elements monitored
           only to correct an interference, which serve no target species and so have
           no parent. The target species list is given by the Target Species field
-          and is never inferred from the elements appearing here. The X-ray line,
-          diffracting crystal, spectrometer assignment and counting times used for
-          each monitored element are recorded in their own fields, keyed to this one.
+          and is never inferred from the elements appearing here. A target species
+          determined by stoichiometry or by difference, rather than measured, has
+          no monitored element. The X-ray line, diffracting crystal, spectrometer
+          assignment and counting times used for each monitored element are recorded
+          in their own fields, keyed to this one.
         type: string
         readOnly: true
     ada:analyticalMode:

@@ -30,7 +30,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
     "bios:LabProtocol"
   ],
   "schema:name": "tofsims protocol — P0",
-  "schema:description": "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv).",
+  "schema:description": "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = IONTOF.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "IONTOF M6",
   "schema:measurementTechnique": [
@@ -118,7 +118,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
     "bios:LabProtocol"
   ],
   "schema:name": "tofsims protocol \u2014 P0",
-  "schema:description": "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv).",
+  "schema:description": "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = IONTOF.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "IONTOF M6",
   "schema:measurementTechnique": [
@@ -200,7 +200,7 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
     schema1:creator [ a schema1:Person ;
             schema1:name "Rickard, William" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv)." ;
+    schema1:description "tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University | IONTOF M6 (publication column of ToFSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = IONTOF." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Australian Research Council LIEF190100053; Space Science and Technology Centre and the John de Laeter Centre at Curtin University." ] ;
     schema1:location [ a schema1:Place ;

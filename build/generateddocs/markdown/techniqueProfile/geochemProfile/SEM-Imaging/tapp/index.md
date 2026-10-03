@@ -31,23 +31,22 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   ],
   "schema:name": "semImaging protocol — Garvie2008",
   "schema:description": "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous nanoglobules"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — no rule is given for which globules were imaged; the stated criterion is at sample level, \"Several millimeter-sized pieces of the pristine Tagish Lake meteorite free of fusion crust were digested in HCl and HF in order to concentrate the carbonaceous materials\" (p.1)",
   "schema:instrument": [
     {
@@ -148,7 +147,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
+    "globule morphology (nominal); globule size (µm); surface structure (nominal) — Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -233,23 +232,22 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
   ],
   "schema:name": "semImaging protocol \u2014 Garvie2008",
   "schema:description": "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous nanoglobules"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 no rule is given for which globules were imaged; the stated criterion is at sample level, \"Several millimeter-sized pieces of the pristine Tagish Lake meteorite free of fusion crust were digested in HCl and HF in order to concentrate the carbonaceous materials\" (p.1)",
   "schema:instrument": [
     {
@@ -350,7 +348,7 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Globule morphology, size and surface structure (nominal, with sizes in \u00b5m) \u2014 the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
+    "globule morphology (nominal); globule size (\u00b5m); surface structure (nominal) \u2014 Globule morphology, size and surface structure (nominal, with sizes in \u00b5m) \u2014 the imaging is used \"to characterize the globule forms and external structures\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -422,15 +420,15 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -440,11 +438,6 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Garvie2008" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Carbonaceous nanoglobules, Tagish Lake (C2) meteorite (HCl/HF acid residue concentrate)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB milling and TEM cross-section preparation (same instrument)" ] ;
@@ -457,10 +450,18 @@ semImagingTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanog
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)" ;
+    ada:reportedProperties "globule morphology (nominal); globule size (µm); surface structure (nominal) — Globule morphology, size and surface structure (nominal, with sizes in µm) — the imaging is used \"to characterize the globule forms and external structures\" (p.1)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — no rule is given for which globules were imaged; the stated criterion is at sample level, \"Several millimeter-sized pieces of the pristine Tagish Lake meteorite free of fusion crust were digested in HCl and HF in order to concentrate the carbonaceous materials\" (p.1)" ;
-    ada:samplingUnitType "Grain (individual carbonaceous nanoglobule) — \"low voltage scanning electron microscopy (SEM) was used to characterize the globule forms and external structures\" (p.1) of globules on an Al-SEM stub (p.2)" .
+    ada:samplingUnitType "Grain (individual carbonaceous nanoglobule) — \"low voltage scanning electron microscopy (SEM) was used to characterize the globule forms and external structures\" (p.1) of globules on an Al-SEM stub (p.2)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous nanoglobules" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -522,24 +523,23 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Genge2025",
-  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "micrometeorite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the target phases are named (see `Sampling Unit Type`) but no rule is given for choosing the imaged areas",
   "schema:instrument": [
     {
@@ -640,7 +640,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Texture and phase distribution (nominal), with grain sizes in µm and a modal estimate by area — e.g. \"subhedral crystals of Fe-bearing olivine (Fa11–25, 37 vol %), up to 10.8 µm in size\" (p.2)"
+    "texture (nominal); phase distribution (nominal); grain size (µm); modal abundance (vol%) — Texture and phase distribution (nominal), with grain sizes in µm and a modal estimate by area — e.g. \"subhedral crystals of Fe-bearing olivine (Fa11–25, 37 vol %), up to 10.8 µm in size\" (p.2)"
   ],
   "schema:measurementTechnique": [
     {
@@ -724,24 +724,23 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Genge2025",
-  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "micrometeorite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the target phases are named (see `Sampling Unit Type`) but no rule is given for choosing the imaged areas",
   "schema:instrument": [
     {
@@ -842,7 +841,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Texture and phase distribution (nominal), with grain sizes in \u00b5m and a modal estimate by area \u2014 e.g. \"subhedral crystals of Fe-bearing olivine (Fa11\u201325, 37 vol %), up to 10.8 \u00b5m in size\" (p.2)"
+    "texture (nominal); phase distribution (nominal); grain size (\u00b5m); modal abundance (vol%) \u2014 Texture and phase distribution (nominal), with grain sizes in \u00b5m and a modal estimate by area \u2014 e.g. \"subhedral crystals of Fe-bearing olivine (Fa11\u201325, 37 vol %), up to 10.8 \u00b5m in size\" (p.2)"
   ],
   "schema:measurementTechnique": [
     {
@@ -914,17 +913,17 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v38.csv)." ;
+    schema1:description "semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
@@ -932,11 +931,6 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Genge2025" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ;
@@ -949,10 +943,18 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Texture and phase distribution (nominal), with grain sizes in µm and a modal estimate by area — e.g. \"subhedral crystals of Fe-bearing olivine (Fa11–25, 37 vol %), up to 10.8 µm in size\" (p.2)" ;
+    ada:reportedProperties "texture (nominal); phase distribution (nominal); grain size (µm); modal abundance (vol%) — Texture and phase distribution (nominal), with grain sizes in µm and a modal estimate by area — e.g. \"subhedral crystals of Fe-bearing olivine (Fa11–25, 37 vol %), up to 10.8 µm in size\" (p.2)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the target phases are named (see `Sampling Unit Type`) but no rule is given for choosing the imaged areas" ;
-    ada:samplingUnitType "Whole sample (the NG-1 section) > Phase — BSE imaging was used \"to determine the composition and structure of the Al-Cu alloy phases and associated minerals\" in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)" .
+    ada:samplingUnitType "Whole sample (the NG-1 section) > Phase — BSE imaging was used \"to determine the composition and structure of the Al-Cu alloy phases and associated minerals\" in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "micrometeorite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -1015,23 +1017,21 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   ],
   "schema:name": "semImaging protocol — Genge2025-2",
   "schema:description": "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Al-Cu alloy phases — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — no rule is given for choosing which grains were indexed",
   "schema:instrument": [
     {
@@ -1191,7 +1191,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "EBSD"
   ],
   "ada:reportedProperties": [
-    "Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)"
+    "crystal structure (nominal); crystal orientation (nominal); cell constants (Å) — Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)"
   ],
   "schema:measurementTechnique": [
     {
@@ -1244,23 +1244,21 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
   ],
   "schema:name": "semImaging protocol \u2014 Genge2025-2",
   "schema:description": "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Al-Cu alloy phases \u2014 Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 no rule is given for choosing which grains were indexed",
   "schema:instrument": [
     {
@@ -1420,7 +1418,7 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     "EBSD"
   ],
   "ada:reportedProperties": [
-    "Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)"
+    "crystal structure (nominal); crystal orientation (nominal); cell constants (\u00c5) \u2014 Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)"
   ],
   "schema:measurementTechnique": [
     {
@@ -1459,17 +1457,17 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -1480,11 +1478,6 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Genge2025-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ;
@@ -1497,10 +1490,18 @@ semImagingTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)" ;
+    ada:reportedProperties "crystal structure (nominal); crystal orientation (nominal); cell constants (Å) — Crystal structure and orientation of the alloy phases (nominal), acquired for \"Structural information\" at 20 kV and 6 nA with ~30 nm spatial resolution for the diffracted electrons (p.2)" ;
     ada:sampleTiltAngle "70 degrees" ;
     ada:samplingUnitSelectionCriteriaDefault "N — no rule is given for choosing which grains were indexed" ;
-    ada:samplingUnitType "Phase > Grain — \"Electron back-scatter diffraction (EBSD) analyses were operated at 20 kV and 6 nA in focused beam mode\", the beam \"several nanometers in diameter\" with \"~30 nm\" resolution for diffracted electrons, run for \"Structural information\" on the alloy phases (p.2)" .
+    ada:samplingUnitType "Phase > Grain — \"Electron back-scatter diffraction (EBSD) analyses were operated at 20 kV and 6 nA in focused beam mode\", the beam \"several nanometers in diameter\" with \"~30 nm\" resolution for diffracted electrons, run for \"Structural information\" on the alloy phases (p.2)" ;
+    ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ;
+            ada:targetMaterialDeclaration "Al-Cu alloy phases — Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -1578,23 +1579,22 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
   ],
   "schema:name": "semImaging protocol — Gucsik2013",
   "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "forsterite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from defects, after a prior survey — \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses because they did not contain any irregular fracturing or crystallographic imperfections\" (p.2)",
   "schema:instrument": [
     {
@@ -1718,7 +1718,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Cathodoluminescence emission bands, reported by wavelength (nm) and colour — \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red–IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties"
+    "CL emission bands (nm); CL colour (nominal); CL zoning (nominal) — Cathodoluminescence emission bands, reported by wavelength (nm) and colour — \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red–IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties"
   ],
   "schema:measurementTechnique": [
     {
@@ -1802,23 +1802,22 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
   ],
   "schema:name": "semImaging protocol \u2014 Gucsik2013",
   "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "forsterite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from defects, after a prior survey \u2014 \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses because they did not contain any irregular fracturing or crystallographic imperfections\" (p.2)",
   "schema:instrument": [
     {
@@ -1942,7 +1941,7 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Cathodoluminescence emission bands, reported by wavelength (nm) and colour \u2014 \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red\u2013IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties"
+    "CL emission bands (nm); CL colour (nominal); CL zoning (nominal) \u2014 Cathodoluminescence emission bands, reported by wavelength (nm) and colour \u2014 \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red\u2013IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties"
   ],
   "schema:measurementTechnique": [
     {
@@ -2029,11 +2028,6 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Gucsik2013" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS and BSE Imaging (same instrument); EPMA with WDS (JEOL JXA-8900R, out of scope)" ] ;
@@ -2046,10 +2040,18 @@ semImagingTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteo
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Cathodoluminescence emission bands, reported by wavelength (nm) and colour — \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red–IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties" ;
+    ada:reportedProperties "CL emission bands (nm); CL colour (nominal); CL zoning (nominal) — Cathodoluminescence emission bands, reported by wavelength (nm) and colour — \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red–IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Freedom from defects, after a prior survey — \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses because they did not contain any irregular fracturing or crystallographic imperfections\" (p.2)" ;
-    ada:samplingUnitType "Grain > Region of interest (core and rim) — CL was measured on \"seven representative grains (designated as B-1 through B-7)\" (p.2); \"CL spectra of red luminescent forsterite grains\" are reported against their cores, which \"show CL blue luminescence\" (p.1)" .
+    ada:samplingUnitType "Grain > Region of interest (core and rim) — CL was measured on \"seven representative grains (designated as B-1 through B-7)\" (p.2); \"CL spectra of red luminescent forsterite grains\" are reported against their cores, which \"show CL blue luminescence\" (p.1)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "forsterite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2124,23 +2126,22 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   ],
   "schema:name": "semImaging protocol — Izawa2010",
   "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
   "schema:instrument": [
     {
@@ -2282,7 +2283,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)"
+    "CL colour (nominal); CL zoning (nominal) — Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -2364,23 +2365,22 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010",
   "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior \u03bcXRD reconnaissance \u2014 the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
   "schema:instrument": [
     {
@@ -2522,7 +2522,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels \u2014 \"red (600\u2013850 nm, including near-infrared from 700\u2013850 nm), green (500\u2026\", detected \"in the range 300\u2013850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)"
+    "CL colour (nominal); CL zoning (nominal) \u2014 Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels \u2014 \"red (600\u2013850 nm, including near-infrared from 700\u2013850 nm), green (500\u2026\", detected \"in the range 300\u2013850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -2610,11 +2610,6 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)" ] ;
@@ -2627,14 +2622,22 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)" ;
+    ada:reportedProperties "CL colour (nominal); CL zoning (nominal) — Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished thin section) > Region of interest — \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)" ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -2709,24 +2712,23 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Izawa2010-2",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
   "schema:instrument": [
     {
@@ -2827,7 +2829,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)"
+    "textural relationships (nominal) — 'Backscattered electron (BSE) imaging and elemental X-ray mapping provide graphical representations of elemental distribution' (p.3); the Leo 440's X-ray maps are recorded under the EDS Mapping column"
   ],
   "schema:measurementTechnique": [
     {
@@ -2911,24 +2913,23 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010-2",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior \u03bcXRD reconnaissance \u2014 the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
   "schema:instrument": [
     {
@@ -3029,7 +3030,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)"
+    "textural relationships (nominal) \u2014 'Backscattered electron (BSE) imaging and elemental X-ray mapping provide graphical representations of elemental distribution' (p.3); the Leo 440's X-ray maps are recorded under the EDS Mapping column"
   ],
   "schema:measurementTechnique": [
     {
@@ -3101,17 +3102,17 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v38.csv)." ;
+    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Surface Science Western" ] ;
@@ -3119,11 +3120,6 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (same instrument); CL (Hitachi S-2500C); BSE Imaging (Leo 1540); micro-XRD; EPMA (out of scope)" ] ;
@@ -3136,10 +3132,18 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)" ;
+    ada:reportedProperties "textural relationships (nominal) — 'Backscattered electron (BSE) imaging and elemental X-ray mapping provide graphical representations of elemental distribution' (p.3); the Leo 440's X-ray maps are recorded under the EDS Mapping column" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
-    ada:samplingUnitType "Whole sample (polished thin section) > Phase — \"Backscattered electron images and EDX element maps of the Tagish Lake sections were acquired with the Leo 440 SEM\", providing \"graphical representations of elemental distribution\" (p.3)" .
+    ada:samplingUnitType "Whole sample (polished thin section) > Phase — \"Backscattered electron images and EDX element maps of the Tagish Lake sections were acquired with the Leo 440 SEM\", providing \"graphical representations of elemental distribution\" (p.3)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3201,24 +3205,23 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol — Izawa2010-3",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Follow-up on features already located — this is the third stage of the paper's strategy, \"finally higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), on features identified by the earlier μXRD and SEM-EDX/CL stages",
   "schema:instrument": [
     {
@@ -3319,7 +3322,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude"
+    "textural relationships (nominal) — Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude"
   ],
   "schema:measurementTechnique": [
     {
@@ -3403,24 +3406,23 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010-3",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Follow-up on features already located \u2014 this is the third stage of the paper's strategy, \"finally higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), on features identified by the earlier \u03bcXRD and SEM-EDX/CL stages",
   "schema:instrument": [
     {
@@ -3521,7 +3523,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Textural relationships at higher resolution (nominal) \u2014 the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude"
+    "textural relationships (nominal) \u2014 Textural relationships at higher resolution (nominal) \u2014 the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude"
   ],
   "schema:measurementTechnique": [
     {
@@ -3603,7 +3605,7 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v38.csv)." ;
+    schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <ex:instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
@@ -3611,11 +3613,6 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010-3" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (same instrument); BSE Imaging (Leo 440); CL (Hitachi S-2500C); micro-XRD; EPMA (out of scope)" ] ;
@@ -3628,10 +3625,18 @@ semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteor
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude" ;
+    ada:reportedProperties "textural relationships (nominal) — Textural relationships at higher resolution (nominal) — the stage is \"higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), reporting mineralogy and texture rather than a magnitude" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Follow-up on features already located — this is the third stage of the paper's strategy, \"finally higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), on features identified by the earlier μXRD and SEM-EDX/CL stages" ;
-    ada:samplingUnitType "Region of interest — \"High-resolution BSE imaging ... carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3), used for \"higher resolution SEM-BSE mapping to document smaller scale relationships\" within \"polished thin sections\" of Tagish Lake (p.2)" .
+    ada:samplingUnitType "Region of interest — \"High-resolution BSE imaging ... carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3), used for \"higher resolution SEM-BSE mapping to document smaller scale relationships\" within \"polished thin sections\" of Tagish Lake (p.2)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -3694,23 +3699,23 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   ],
   "schema:name": "semImaging protocol — Liu2017",
   "schema:description": "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas",
   "schema:instrument": [
     {
@@ -3824,7 +3829,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm"
+    "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -3909,23 +3914,23 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   ],
   "schema:name": "semImaging protocol \u2014 Liu2017",
   "schema:description": "Pore and mineral sizes >0.1 \u00b5m measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10\u00b3 to 10\u2074",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas",
   "schema:instrument": [
     {
@@ -4039,7 +4044,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm"
+    "pore type (nominal); pore morphology (nominal); pore size (nm) \u2014 Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -4130,11 +4135,6 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Liu2017" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ;
@@ -4147,10 +4147,19 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm" ;
+    ada:reportedProperties "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas" ;
-    ada:samplingUnitType "Whole sample (polished coal block) > Phase (pore types) — \"Electron microscopy observations further revealed there are coalification-related pores and mineral-related pores in the high-rank coal\" (p.1), imaged on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)" .
+    ada:samplingUnitType "Whole sample (polished coal block) > Phase (pore types) — \"Electron microscopy observations further revealed there are coalification-related pores and mineral-related pores in the high-rank coal\" (p.1), imaged on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "anthracite",
+                "lean coal" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -4220,23 +4229,23 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   ],
   "schema:name": "semImaging protocol — Liu2017-2",
   "schema:description": "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas",
   "schema:instrument": [
     {
@@ -4350,7 +4359,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
+    "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -4435,23 +4444,23 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
   ],
   "schema:name": "semImaging protocol \u2014 Liu2017-2",
   "schema:description": "Pore and mineral sizes >20 nm to <5 \u00b5m measured; EDS also used for mineral analysis; magnification range 10\u00b3 to 10\u2075",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas",
   "schema:instrument": [
     {
@@ -4565,7 +4574,7 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Pore type and morphology at higher resolution (nominal), with pore sizes in nm \u2014 \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
+    "pore type (nominal); pore morphology (nominal); pore size (nm) \u2014 Pore type and morphology at higher resolution (nominal), with pore sizes in nm \u2014 \"the shrinkage-induced pores are mainly mesopores\" (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -4637,15 +4646,15 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
@@ -4656,11 +4665,6 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Liu2017-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ;
@@ -4673,10 +4677,19 @@ semImagingTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui b
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)" ;
+    ada:reportedProperties "pore type (nominal); pore morphology (nominal); pore size (nm) — Pore type and morphology at higher resolution (nominal), with pore sizes in nm — \"the shrinkage-induced pores are mainly mesopores\" (p.1)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas" ;
-    ada:samplingUnitType "Whole sample (polished coal block) > Phase (pore types) — higher-resolution imaging of the same pore types (p.1) on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)" .
+    ada:samplingUnitType "Whole sample (polished coal block) > Phase (pore types) — higher-resolution imaging of the same pore types (p.1) on the polished coal blocks \"#1\" and \"#2\" (Table 1, p.2)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "anthracite",
+                "lean coal" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -4746,23 +4759,26 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   ],
   "schema:name": "semImaging protocol — Ma2017",
   "schema:description": "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "hollisterite",
+      "kryachkoite",
+      "stolperite",
+      "khatyrkite",
+      "icosahedrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the imaged occurrences are shown rather than chosen by a stated rule; the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2) within \"section 126A of USNM 7908\" (p.1)",
   "schema:instrument": [
     {
@@ -4863,7 +4879,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Textural relationships and phase assemblage (nominal) — the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in µm (Fig. 2, p.3)"
+    "textural relationships (nominal); phase assemblage (nominal); grain size (µm) — Textural relationships and phase assemblage (nominal) — the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in µm (Fig. 2, p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -4948,23 +4964,26 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   ],
   "schema:name": "semImaging protocol \u2014 Ma2017",
   "schema:description": "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "hollisterite",
+      "kryachkoite",
+      "stolperite",
+      "khatyrkite",
+      "icosahedrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the imaged occurrences are shown rather than chosen by a stated rule; the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2) within \"section 126A of USNM 7908\" (p.1)",
   "schema:instrument": [
     {
@@ -5065,7 +5084,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Textural relationships and phase assemblage (nominal) \u2014 the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in \u00b5m (Fig. 2, p.3)"
+    "textural relationships (nominal); phase assemblage (nominal); grain size (\u00b5m) \u2014 Textural relationships and phase assemblage (nominal) \u2014 the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in \u00b5m (Fig. 2, p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -5155,11 +5174,6 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Ma2017" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
@@ -5172,10 +5186,22 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Textural relationships and phase assemblage (nominal) — the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in µm (Fig. 2, p.3)" ;
+    ada:reportedProperties "textural relationships (nominal); phase assemblage (nominal); grain size (µm) — Textural relationships and phase assemblage (nominal) — the imaging documents the metal assemblage in which the new minerals occur, with grain sizes in µm (Fig. 2, p.3)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the imaged occurrences are shown rather than chosen by a stated rule; the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2) within \"section 126A of USNM 7908\" (p.1)" ;
-    ada:samplingUnitType "Whole sample (section 126A) > Phase — the SEM was used \"to characterize chemical compositions and structures of minerals in section 126A\" (p.1); the metal assemblages are shown as whole-section context (Fig. 2, p.3)" .
+    ada:samplingUnitType "Whole sample (section 126A) > Phase — the SEM was used \"to characterize chemical compositions and structures of minerals in section 126A\" (p.1); the metal assemblages are shown as whole-section context (Fig. 2, p.3)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "hollisterite",
+                "icosahedrite",
+                "khatyrkite",
+                "kryachkoite",
+                "stolperite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5238,23 +5264,26 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   ],
   "schema:name": "semImaging protocol — Ma2017-2",
   "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "hollisterite",
+      "kryachkoite",
+      "stolperite",
+      "khatyrkite",
+      "icosahedrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — no rule is given for choosing which crystals were indexed; the patterns are reported for the type and associated crystals as they occur (Fig. 3, p.3)",
   "schema:instrument": [
     {
@@ -5400,7 +5429,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     "EBSD"
   ],
   "ada:reportedProperties": [
-    "Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)"
+    "crystal structure identification (nominal); unit-cell parameters (Å, Å3); mean angular deviation (degrees) — Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)"
   ],
   "schema:measurementTechnique": [
     {
@@ -5453,23 +5482,26 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
   ],
   "schema:name": "semImaging protocol \u2014 Ma2017-2",
   "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "hollisterite",
+      "kryachkoite",
+      "stolperite",
+      "khatyrkite",
+      "icosahedrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 no rule is given for choosing which crystals were indexed; the patterns are reported for the type and associated crystals as they occur (Fig. 3, p.3)",
   "schema:instrument": [
     {
@@ -5615,7 +5647,7 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     "EBSD"
   ],
   "ada:reportedProperties": [
-    "Crystal structure identification with unit-cell parameters (\u00c5 and \u00c53) and the fit quality as mean angular deviation (degrees) \u2014 e.g. \"with a mean angular deviation of 0.30\u00b0~0.45\u00b0, revealing the cell parameters: a = 15.60 \u00c5, b = 7.94 \u00c5, c = 12.51 \u00c5\" and cell volume (p.3)"
+    "crystal structure identification (nominal); unit-cell parameters (\u00c5, \u00c53); mean angular deviation (degrees) \u2014 Crystal structure identification with unit-cell parameters (\u00c5 and \u00c53) and the fit quality as mean angular deviation (degrees) \u2014 e.g. \"with a mean angular deviation of 0.30\u00b0~0.45\u00b0, revealing the cell parameters: a = 15.60 \u00c5, b = 7.94 \u00c5, c = 12.51 \u00c5\" and cell volume (p.3)"
   ],
   "schema:measurementTechnique": [
     {
@@ -5674,11 +5706,6 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Ma2017-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ;
@@ -5691,10 +5718,22 @@ semImagingTAPP instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (me
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "Hollisterite (C2/m FeAl3); kryachkoite (Cmc21 (Al,Cu)Fe6); stolperite (Pm3m AlCu)" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)" ;
+    ada:reportedProperties "crystal structure identification (nominal); unit-cell parameters (Å, Å3); mean angular deviation (degrees) — Crystal structure identification with unit-cell parameters (Å and Å3) and the fit quality as mean angular deviation (degrees) — e.g. \"with a mean angular deviation of 0.30°~0.45°, revealing the cell parameters: a = 15.60 Å, b = 7.94 Å, c = 12.51 Å\" and cell volume (p.3)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — no rule is given for choosing which crystals were indexed; the patterns are reported for the type and associated crystals as they occur (Fig. 3, p.3)" ;
-    ada:samplingUnitType "Grain (single crystal) — one pattern per crystal, \"EBSD patterns of (a) the type hollisterite crystal, indexed with the C2/m Fe3Al structure\" (Fig. 3, p.3), each returning that crystal's cell parameters (p.3)" .
+    ada:samplingUnitType "Grain (single crystal) — one pattern per crystal, \"EBSD patterns of (a) the type hollisterite crystal, indexed with the C2/m Fe3Al structure\" (Fig. 3, p.3), each returning that crystal's cell parameters (p.3)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "hollisterite",
+                "icosahedrite",
+                "khatyrkite",
+                "kryachkoite",
+                "stolperite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -5764,23 +5803,22 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   ],
   "schema:name": "semImaging protocol — Pascucci2026",
   "schema:description": "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab",
   "schema:instrument": [
     {
@@ -5900,7 +5938,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)"
+    "texture (nominal); phase distribution (nominal) — Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -5985,23 +6023,22 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   ],
   "schema:name": "semImaging protocol \u2014 Pascucci2026",
   "schema:description": "10 BSE images acquired at \u00d7138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial co-registration with the spectral imagery \u2014 the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab",
   "schema:instrument": [
     {
@@ -6121,7 +6158,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)"
+    "texture (nominal); phase distribution (nominal) \u2014 Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -6193,15 +6230,15 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -6212,11 +6249,6 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Pascucci2026" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
@@ -6229,10 +6261,18 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)" ;
+    ada:reportedProperties "texture (nominal); phase distribution (nominal) — Textures and phase distribution across the slab (nominal), imaged at 20.00 kV and mosaicked into 10 BSE images covering the SPIM area (p.3)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Whole sample (polished slab) > Phase — BSE images \"were used at high vacuum mode at 20.00 kV accelerating voltage\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ] .
 
@@ -6304,23 +6344,22 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   ],
   "schema:name": "semImaging protocol — Pascucci2026-2",
   "schema:description": "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab",
   "schema:instrument": [
     {
@@ -6421,7 +6460,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Surface topography and texture (nominal), imaged \"enlarged up to ×200,000 and resolved up to 5 nm\" (p.3)"
+    "surface topography (nominal); texture (nominal) — Surface topography and texture (nominal), imaged \"enlarged up to ×200,000 and resolved up to 5 nm\" (p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -6506,23 +6545,22 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
   ],
   "schema:name": "semImaging protocol \u2014 Pascucci2026-2",
   "schema:description": "SE imaging used for topographic examination; instrument capability: up to \u00d7200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10\u00d76 mm fragment, 10.01g)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Spatial co-registration with the spectral imagery \u2014 the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab",
   "schema:instrument": [
     {
@@ -6623,7 +6661,7 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Surface topography and texture (nominal), imaged \"enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3)"
+    "surface topography (nominal); texture (nominal) \u2014 Surface topography and texture (nominal), imaged \"enlarged up to \u00d7200,000 and resolved up to 5 nm\" (p.3)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -6713,11 +6751,6 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Pascucci2026-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "NWA 7317 CR6 carbonaceous chondrite; polished slab (~10×6 mm fragment, 10.01g)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ;
@@ -6730,10 +6763,18 @@ semImagingTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondri
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Surface topography and texture (nominal), imaged \"enlarged up to ×200,000 and resolved up to 5 nm\" (p.3)" ;
+    ada:reportedProperties "surface topography (nominal); texture (nominal) — Surface topography and texture (nominal), imaged \"enlarged up to ×200,000 and resolved up to 5 nm\" (p.3)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
-    ada:samplingUnitType "Whole sample (polished slab) > Region of interest — \"Secondary electrons were used to construct images enlarged up to ×200,000 and resolved up to 5 nm\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" .
+    ada:samplingUnitType "Whole sample (polished slab) > Region of interest — \"Secondary electrons were used to construct images enlarged up to ×200,000 and resolved up to 5 nm\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -6796,23 +6837,22 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol — Zega2025",
   "schema:description": "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); hummocky and angular particles"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the passage says regions of interest were characterized (\"Characterization of regions of interest was performed at an accelerating voltage of 15 kV\", p.9) but gives no rule for choosing them",
   "schema:instrument": [
     {
@@ -6919,7 +6959,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Particle textures and phase occurrences (nominal), with grain sizes in µm — angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)"
+    "particle texture (nominal); phase occurrence (nominal); grain size (µm) — Particle textures and phase occurrences (nominal), with grain sizes in µm — angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -7004,23 +7044,22 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025",
   "schema:description": "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm\u00b2",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); hummocky and angular particles"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage says regions of interest were characterized (\"Characterization of regions of interest was performed at an accelerating voltage of 15 kV\", p.9) but gives no rule for choosing them",
   "schema:instrument": [
     {
@@ -7127,7 +7166,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Particle textures and phase occurrences (nominal), with grain sizes in \u00b5m \u2014 angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)"
+    "particle texture (nominal); phase occurrence (nominal); grain size (\u00b5m) \u2014 Particle textures and phase occurrences (nominal), with grain sizes in \u00b5m \u2014 angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -7199,15 +7238,15 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -7217,11 +7256,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); hummocky and angular particles" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ;
@@ -7234,10 +7268,18 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Particle textures and phase occurrences (nominal), with grain sizes in µm — angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)" ;
+    ada:reportedProperties "particle texture (nominal); phase occurrence (nominal); grain size (µm) — Particle textures and phase occurrences (nominal), with grain sizes in µm — angular, hummocky and other particle types imaged for the regions of interest (Fig. 1, p.2)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage says regions of interest were characterized (\"Characterization of regions of interest was performed at an accelerating voltage of 15 kV\", p.9) but gives no rule for choosing them" ;
     ada:samplingUnitType "Region of interest — \"Characterization of regions of interest was performed at an accelerating voltage of 15 kV using both secondary electron (SE) and low-angle backscattered electron imaging modes\", on a particle \"attached to an Al cylinder SEM mount\" (p.9)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
     bios:computationalTool [ schema1:name "Oxford AZtec (Point & ID programme)" ;
             ada:toolRole "acquisition" ] .
 
@@ -7302,23 +7344,22 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol — Zega2025-2",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -7419,7 +7460,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Particle surface morphology and texture (nominal) — pitted sulfide surfaces and particle shapes (p.2)"
+    "surface morphology (nominal); texture (nominal) — Particle surface morphology and texture (nominal) — pitted sulfide surfaces and particle shapes (p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -7504,23 +7545,22 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-2",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -7621,7 +7661,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Particle surface morphology and texture (nominal) \u2014 pitted sulfide surfaces and particle shapes (p.2)"
+    "surface morphology (nominal); texture (nominal) \u2014 Particle surface morphology and texture (nominal) \u2014 pitted sulfide surfaces and particle shapes (p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -7711,11 +7751,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
@@ -7728,10 +7763,18 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Particle surface morphology and texture (nominal) — pitted sulfide surfaces and particle shapes (p.2)" ;
+    ada:reportedProperties "surface morphology (nominal); texture (nominal) — Particle surface morphology and texture (nominal) — pitted sulfide surfaces and particle shapes (p.2)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)" ;
-    ada:samplingUnitType "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled" .
+    ada:samplingUnitType "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -7794,23 +7837,22 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol — Zega2025-3",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -7911,7 +7953,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)"
+    "phase distribution (nominal); texture (nominal); grain size (µm) — Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -7996,23 +8038,22 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-3",
   "schema:description": "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -8113,7 +8154,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Phase distribution and texture within the polished sections (nominal), with grain sizes in \u00b5m (Fig. 1, p.2)"
+    "phase distribution (nominal); texture (nominal); grain size (\u00b5m) \u2014 Phase distribution and texture within the polished sections (nominal), with grain sizes in \u00b5m (Fig. 1, p.2)"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -8203,11 +8244,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-3" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); polished sections" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ;
@@ -8220,10 +8256,18 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)" ;
+    ada:reportedProperties "phase distribution (nominal); texture (nominal); grain size (µm) — Phase distribution and texture within the polished sections (nominal), with grain sizes in µm (Fig. 1, p.2)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)" ;
-    ada:samplingUnitType "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled" .
+    ada:samplingUnitType "Whole sample (polished section) > Region of interest — \"SE and BSE images were acquired using a Hitachi S-4800 SEM\" on \"Polished sections\" (p.9); the imaged fields are not labelled" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -8286,23 +8330,23 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol — Zega2025-4",
   "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "carbonate"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -8419,7 +8463,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal"
+    "panchromatic CL images; monochromatic CL images; hyperspectral CL; luminescence zoning (nominal) — Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -8503,23 +8547,23 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-4",
   "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "carbonate"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -8636,7 +8680,7 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1\u20134 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe\u2013Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) \u2014 nominal"
+    "panchromatic CL images; monochromatic CL images; hyperspectral CL; luminescence zoning (nominal) \u2014 Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1\u20134 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe\u2013Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) \u2014 nominal"
   ],
   "schema:actionProcess": {
     "schema:step": [
@@ -8725,11 +8769,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Zega2025-4" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ;
@@ -8742,10 +8781,19 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal" ;
+    ada:reportedProperties "panchromatic CL images; monochromatic CL images; hyperspectral CL; luminescence zoning (nominal) — Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1–4 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe–Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) — nominal" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)" ;
-    ada:samplingUnitType "Whole sample (particle thin section) > Region of interest — panchromatic and monochromatic CL imaging of \"Bennu particle thin sections\", the emitting volume reaching \"up to 230 nm below the bombarded sample surface and around to 200 nm sideways\" (p.9)" .
+    ada:samplingUnitType "Whole sample (particle thin section) > Region of interest — panchromatic and monochromatic CL imaging of \"Bennu particle thin sections\", the emitting volume reaching \"up to 230 nm below the bombarded sample surface and around to 200 nm sideways\" (p.9)" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
+                "olivine" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -8791,417 +8839,6 @@ semImagingTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles
 
 ```
 
-
-### semImagingTAPP example Barnes2025
-semImagingTAPP instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | BSE Imaging (FEI Quanta 3D DualBeam + Helios DualBeam, NASA JSC).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/",
-    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "bios": "https://bioschemas.org/",
-    "prov": "http://www.w3.org/ns/prov#"
-  },
-  "@id": "ex:semImagingTAPP-Barnes2025",
-  "@type": [
-    "prov:Plan",
-    "cdi:Activity",
-    "schema:Action",
-    "ada:TAPPDefinition",
-    "bios:LabProtocol"
-  ],
-  "schema:name": "semImaging protocol — Barnes2025",
-  "schema:description": "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated.",
-  "ada:samplingUnitSelectionCriteriaDefault": "N — this procedure is not described in the paper (see Additional Notes)",
-  "ada:samplingUnitType": "N — this procedure is not described in the paper (see Additional Notes)",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "ada:reportedProperties": [
-    "N — this procedure is not described in the paper (see Additional Notes)"
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "semImaging",
-      "schema:termCode": "semImaging"
-    }
-  ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:ebsdIndexingMethod": "missing"
-      }
-    ]
-  },
-  "schema:instrument": [
-    {
-      "@id": "ex:instrument/SEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing",
-      "schema:hasPart": [
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "BSE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:description": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "SE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
-        }
-      ],
-      "ada:acceleratingVoltageDefault": -9999,
-      "ada:workingDistanceDefault": -9999,
-      "schema:description": "missing",
-      "schema:manufacturer": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      }
-    }
-  ],
-  "ada:clAcquisitionMode": "missing",
-  "ada:clIntegrationTimeDefault": -9999,
-  "ada:clWavelengthRange": -9999,
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
-  "ada:ebsdStepSizeDefault": -9999,
-  "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/",
-      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "bios": "https://bioschemas.org/",
-      "prov": "http://www.w3.org/ns/prov#"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/tapp/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/",
-      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "bios": "https://bioschemas.org/",
-      "prov": "http://www.w3.org/ns/prov#"
-    }
-  ],
-  "@id": "ex:semImagingTAPP-Barnes2025",
-  "@type": [
-    "prov:Plan",
-    "cdi:Activity",
-    "schema:Action",
-    "ada:TAPPDefinition",
-    "bios:LabProtocol"
-  ],
-  "schema:name": "semImaging protocol \u2014 Barnes2025",
-  "schema:description": "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated.",
-  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
-  "ada:samplingUnitType": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
-  "ada:analyticalMode": [
-    "BSE Imaging"
-  ],
-  "ada:reportedProperties": [
-    "N \u2014 this procedure is not described in the paper (see Additional Notes)"
-  ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:name": "semImaging",
-      "schema:termCode": "semImaging"
-    }
-  ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:ebsdIndexingMethod": "missing"
-      }
-    ]
-  },
-  "schema:instrument": [
-    {
-      "@id": "ex:instrument/SEM",
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "schema:additionalType": [
-        "SEM",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "schema:name": "missing",
-      "schema:hasPart": [
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "BSE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/BSE-Detector"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "Electron Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/Electron-Source",
-          "schema:description": "missing"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "SE Detector",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/SEM/part/SE-Detector"
-        }
-      ],
-      "ada:acceleratingVoltageDefault": -9999,
-      "ada:workingDistanceDefault": -9999,
-      "schema:description": "missing",
-      "schema:manufacturer": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "missing",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      }
-    }
-  ],
-  "ada:clAcquisitionMode": "missing",
-  "ada:clIntegrationTimeDefault": -9999,
-  "ada:clWavelengthRange": -9999,
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:ebsdDetectorConfiguration": "missing",
-  "ada:ebsdPhaseListDefault": "missing",
-  "ada:ebsdStepSizeDefault": -9999,
-  "ada:sampleTiltAngle": -9999,
-  "schema:datePublished": "missing"
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<ex:semImagingTAPP-Barnes2025> a cdi:Activity,
-        schema1:Action,
-        prov:Plan,
-        ada:TAPPDefinition,
-        bios:LabProtocol ;
-    schema1:actionProcess [ a schema1:HowTo ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:datePublished "missing" ;
-    schema1:description "No BSE imaging with FEI Quanta 3D DualBeam or Helios DualBeam at NASA JSC described in this paper (Barnes et al. 2025). BSE mosaic imaging was performed using a Hitachi TM4000plus at the University of Arizona (K-ALFAA) at 15-keV electron beam to identify suitable matrix areas for NanoSIMS analysis (Methods, p.11). No JSC BSE imaging conditions or instrument stated." ;
-    schema1:instrument <ex:instrument/SEM> ;
-    schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:name "semImaging" ;
-            schema1:termCode "semImaging" ] ;
-    schema1:name "semImaging protocol — Barnes2025" ;
-    ada:analyticalMode "BSE Imaging" ;
-    ada:clAcquisitionMode "missing" ;
-    ada:clIntegrationTimeDefault -9999 ;
-    ada:clWavelengthRange -9999 ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:ebsdDetectorConfiguration "missing" ;
-    ada:ebsdPhaseListDefault "missing" ;
-    ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "N — this procedure is not described in the paper (see Additional Notes)" ;
-    ada:sampleTiltAngle -9999 ;
-    ada:samplingUnitSelectionCriteriaDefault "N — this procedure is not described in the paper (see Additional Notes)" ;
-    ada:samplingUnitType "N — this procedure is not described in the paper (see Additional Notes)" .
-
-<ex:instrument/SEM> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SEM" ;
-    schema1:description "missing" ;
-    schema1:hasPart <ex:instrument/SEM/part/BSE-Detector>,
-        <ex:instrument/SEM/part/Electron-Source>,
-        <ex:instrument/SEM/part/SE-Detector> ;
-    schema1:manufacturer [ a schema1:Organization ;
-            schema1:name "missing" ] ;
-    schema1:model [ a schema1:ProductModel ;
-            schema1:name "missing" ] ;
-    schema1:name "missing" ;
-    ada:acceleratingVoltageDefault -9999 ;
-    ada:workingDistanceDefault -9999 .
-
-<ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "BSE Detector" ;
-    schema1:name "missing" .
-
-<ex:instrument/SEM/part/Electron-Source> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "Electron Source" ;
-    schema1:description "missing" ;
-    schema1:name "missing" .
-
-<ex:instrument/SEM/part/SE-Detector> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
-        "SE Detector" ;
-    schema1:name "missing" .
-
-
-```
-
 ## Schema
 
 ```yaml
@@ -9210,7 +8847,7 @@ title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
 description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the
   base TAPP definition. Basic protocol-tier fields are required top-level ada: properties;
   Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate
-  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v38.csv
+  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v44.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -9218,72 +8855,18 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:object:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              '@type':
-                contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-            required:
-            - '@type'
-          then:
-            properties:
-              schema:additionalProperty:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Target Material
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:value:
-                          type: array
-                          items:
-                            description: General description of the material type(s)
-                              this procedure is designed to analyse.
-                            anyOf:
-                            - type: string
-                              enum:
-                              - Silicate mineral
-                              - Silicate glass
-                              - Oxide
-                              - Sulfide
-                              - Carbonate
-                              - Phosphate
-                              - Metal or alloy
-                              - Organic matter
-                              - Regolith
-                              - Porous material
-                              - Whole rock
-                              - N/A
-                              - None
-                              - missing
-                            - type: string
-                            readOnly: true
-                allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Target Material
-                    required:
-                    - schema:name
-      allOf:
-      - contains:
-          properties:
-            '@type':
-              contains:
-                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-          required:
-          - '@type'
+    ada:targetMaterialTemplate:
+      type: object
+      properties:
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetMaterials
     schema:instrument:
       type: array
       items:
@@ -9686,8 +9269,10 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
-              description: Electron beam probe current. For sub-nA values use decimal
-                notation (e.g., 0.4 nA).
+              description: Electron beam probe current for point analysis. For sub-nA
+                values use decimal notation (e.g., 0.4 nA). The current used while
+                the beam scans an area, for a map or an image, is recorded under Mapping
+                Beam Current.
               type: object
               properties:
                 '@id':
@@ -9719,8 +9304,10 @@ allOf:
           allOf:
           - contains:
               title: Beam Current
-              description: Electron beam probe current. For sub-nA values use decimal
-                notation (e.g., 0.4 nA).
+              description: Electron beam probe current for point analysis. For sub-nA
+                values use decimal notation (e.g., 0.4 nA). The current used while
+                the beam scans an area, for a map or an image, is recorded under Mapping
+                Beam Current.
               type: object
               properties:
                 '@id':

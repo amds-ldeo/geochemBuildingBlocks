@@ -14,8 +14,8 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
-  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA.",
+  "schema:name": "EPMA Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
+  "schema:description": "Liu et al. 2016, Meteorit. Planet. Sci. \u2014 Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -25,8 +25,8 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "1-2 \u00b5m (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 \u00b5m defocused (maskelynite, phosphate, sulfide, glass)",
-      "ada:beamMode": "Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 \u00b5m (maskelynite, phosphate, sulfide, glass)",
+      "ada:beamDiameterDefault": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3",
+      "ada:beamMode": "maskelynite, phosphate, sulfide, glass: Defocused; other: N \u2014 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5\u201310 \u00b5m size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1\u20132 \u00b5m beam diameter' is given, not a mode",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -200,16 +200,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -258,9 +248,10 @@
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Defocused beam 5-10 \u00b5m for maskelynite, phosphate, sulfide, and glass"
+      "schema:defaultValue": "N \u2014 a defocused 5\u201310 \u00b5m beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -279,58 +270,43 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene, maskelynite) | Oxide | Sulfide | Phosphate | Glass"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides",
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin sections (coating type N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
@@ -367,8 +343,39 @@
   ],
   "ada:samplingUnitType": "Phase > Analysis point \u2014 \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)",
   "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, plus V2O3, La2O3 and Ce2O3 for the oxides and merrillite) \"of selected minerals\" (Table 2, p.6); derived ratio and end-member quantities used in the text (Mg#, En-Fs-Wo); glass compositions reported as means with 1\u03c3 (Table 3, p.9)"
+    "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo \u2014 oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1\u03c3 (Table 3); modal abundances from the X-ray maps (Table 1)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin sections (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -384,11 +391,9 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"

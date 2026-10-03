@@ -30,7 +30,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     "bios:LabProtocol"
   ],
   "schema:name": "sims protocol — P0",
-  "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv).",
+  "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "CAMECA IMS-1270E7",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     "bios:LabProtocol"
   ],
   "schema:name": "sims protocol \u2014 P0",
-  "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv).",
+  "schema:description": "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "CAMECA IMS-1270E7",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
     schema1:creator [ a schema1:Person ;
             schema1:name "Marrocchi, Yves" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv)." ;
+    schema1:description "simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches Petrographiques et Geochimiques (Nancy, France) | CAMECA IMS-1270E7 (publication column of SIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = CAMECA." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by the French Centre national d'%C3%A9tudes spatiales (CNES)." ] ;
     schema1:location [ a schema1:Place ;

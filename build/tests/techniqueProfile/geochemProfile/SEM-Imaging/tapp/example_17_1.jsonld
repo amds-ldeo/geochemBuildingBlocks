@@ -26,23 +26,23 @@
   ],
   "schema:name": "semImaging protocol \u2014 Zega2025-4",
   "schema:description": "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <\u00d7500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); olivine and carbonate grains"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "olivine",
+      "carbonate"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)",
   "schema:instrument": [
     {
@@ -159,7 +159,7 @@
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1\u20134 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe\u2013Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) \u2014 nominal"
+    "panchromatic CL images; monochromatic CL images; hyperspectral CL; luminescence zoning (nominal) \u2014 Panchromatic and monochromatic CL images, and hyperspectral CL, collected at 5 keV with 1\u20134 nA (p.9); the reported result is luminescence zoning within carbonate grains, e.g. \"a core-shell texture, with Fe\u2013Mn-rich magnesite (M) non-luminescent crystals forming the core\" (Fig. 6, p.6) \u2014 nominal"
   ],
   "schema:actionProcess": {
     "schema:step": [

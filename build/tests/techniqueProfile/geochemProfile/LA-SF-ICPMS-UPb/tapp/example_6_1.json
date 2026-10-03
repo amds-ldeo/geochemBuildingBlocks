@@ -15,35 +15,35 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Navarro et al. (2024) Iron Meteorite Spot v1",
-  "schema:description": "Key innovations: (1) use of two measurement standards (NIST SRM 612 + North Chile) with yield correction in iolite 3D DRS; (2) Fe+Ni+Co=100% normalization eliminates need for EPMA IS; Cr results not quantitative due to argide interferences",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Iron meteorite metal (kamacite + taenite)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ \u2014 polished epoxy mount (~1 cm fragments in epoxy, etched with Nital)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Two measurement standards complement each other: North Chile for matrix similarity and NIST SRM 612 for its well-known composition; Fe + Ni + Co = 100% normalisation removes the need for an internal standard",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "Iron meteorite metal (kamacite + taenite)",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laSficpmsUPbTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting, as the stated alternative to rastering \u2014 \"depending on the specific objectives, spot sampling at specific phases may also fulfill the analytical requirements\", against the problem that irons have an \"inherent natural inhomogeneity, a result of their lamellar exsolution patterns\" (p.2)",
   "schema:additionalProperty": [
     {
@@ -58,6 +58,17 @@
       "schema:defaultValue": "N \u2014 the preparation is stated without an imaging step: \"Before analyses, fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3). The meteorites' structural classes were known beforehand (Table 1, p.2) but no screening of this material is described"
     },
     {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A \u2014 spot mode"
+    },
+    {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -66,7 +77,30 @@
       "schema:name": "Make-up Gas and Flow Rate",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Ar make-up gas (combined via T-piece in sample transport line near torch; flow rate not stated separately)"
+      "schema:defaultValue": 2,
+      "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min \u2014 Table 2"
+    },
+    {
+      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "discordanceDefinitionAndValues",
+      "schema:name": "Discordance Definition and Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N \u2014 the procedure reports no date"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
+      "schema:name": "Error Correlation Between Reported Quantities",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
     {
       "@id": "ada:parameter/laSficpmsUPbTAPP/interPassDataDependency",
@@ -79,7 +113,7 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single acquisition run (20 spot analyses per sample under repeatability conditions)"
+      "schema:value": "N/A \u2014 a single pass"
     }
   ],
   "schema:instrument": [
@@ -143,7 +177,19 @@
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 16,
-              "schema:description": "Plasma gas: 16 l min\u207b\u00b9; Auxiliary: 0.9 l min\u207b\u00b9; Nebulizer gas (from table): 1.1 l min\u207b\u00b9"
+              "schema:description": "16 L/min \u2014 Table 2 'plasma gas flow rate'"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.9,
+              "schema:description": "0.9 L/min \u2014 Table 2"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -201,7 +247,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Triple mode detector (pulse counting, analog, Faraday)"
+          "schema:value": "Triple mode \u2014 Table 2 'detector range'; 'performed in low-resolution and triple mode detection'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
@@ -212,7 +258,7 @@
           "schema:name": "ICP Tuning",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "ICP and laser settings optimized daily for optimum signal intensity and low oxide formation (factory specifications; mass calibration and detector cross-calibration checked and redone if required)"
+          "schema:defaultValue": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' \u2014 Experimental section"
         }
       ],
       "@type": [
@@ -245,20 +291,20 @@
           "schema:name": "Laser Pulse Duration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "4 ns (ArF excimer Excite 193)"
+          "schema:value": "4 ns \u2014 Table 2"
         }
       ],
       "schema:model": {
-        "schema:name": "Teledyne Excite 193 (193 nm ArF excimer)",
+        "schema:name": "Excite 193 (Teledyne) \u2014 Table 2",
         "@type": [
           "schema:ProductModel"
         ]
       },
       "ada:laserType": "193 nm ArF excimer; pulse duration 4 ns",
       "schema:name": "HelEx II two-volume sample cell",
-      "ada:laserSpotGeometryDefault": "150 \u00b5m circular",
+      "ada:laserSpotGeometryDefault": "all: 150 \u00b5m \u2014 Table 2 'spot diameter'",
       "ada:laserFluenceDefault": "7 J cm\u207b\u00b2",
-      "ada:laserRepetitionRateDefault": "10 Hz",
+      "ada:laserRepetitionRateDefault": "all: 10 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -271,6 +317,7 @@
       {
         "schema:name": "Sample preparation",
         "schema:description": "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water",
+        "ada:chemicalAbrasionConditions": "N \u2014 the procedure reports no date",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -278,8 +325,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "ada:chemicalAbrasionConditions": "missing"
+        "schema:position": 1
       },
       {
         "schema:name": "Data acquisition",
@@ -310,17 +356,6 @@
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
           {
-            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "None"
-          },
-          {
             "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
             "@type": [
               "schema:PropertyValueSpecification"
@@ -329,21 +364,21 @@
             "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: triple mode detector (pulse counting, analog, Faraday); low relative abundance isotopes chosen for Ni and Fe to allow analog mode measurement of major matrix elements"
+            "schema:defaultValue": "N \u2014 'detector cross-calibration were systematically checked and redone if required'; Fe and Ni measured on low-abundance isotopes in analog mode"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@id": "ada:parameter/module/UPb/intermediateDaughterDisequilibriumCorrection",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "schema:valueName": "intermediateDaughterDisequilibriumCorrection",
+            "schema:name": "Intermediate Daughter Disequilibrium Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "N \u2014 no acceptance or rejection rule and no contributing count are stated; the reported bulk composition is the integration of the acquired signal rather than a selection among results"
+            "schema:value": "N \u2014 the procedure reports no date"
           }
         ],
-        "ada:detectionLimitMethod": "Longerich et al. (1996) \u2014 implemented in iolite 4; sample-individual LOD calculated per analysis",
+        "ada:detectionLimitMethod": "all: Longerich et al., calculated for each acquisition in iolite 4 \u2014 'the LOD must be calculated for each acquisition'; Table 3 gives the medians",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -359,27 +394,26 @@
     ]
   },
   "ada:carrierGasFlowRateDefault": "He: 0.6 l min\u207b\u00b9 (MFC 1) + 0.7 l min\u207b\u00b9 (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch",
-  "ada:analysisSequenceDefault": "NIST SRM 612(\u00d73) \u2192 North Chile(\u00d73) \u2192 unknowns(\u00d710) \u2192 NIST SRM 612(\u00d72) \u2192 North Chile(\u00d72) \u2192 unknowns(\u00d710) \u2192 \u2026 (bracketing every 15)",
+  "ada:analysisSequenceDefault": "3 \u00d7 NIST SRM 612 and 3 \u00d7 North Chile, then blocks of ten unknowns, each followed by 2 \u00d7 NIST SRM 612 and 2 \u00d7 North Chile \u2014 Experimental section",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "\u2075\u00b2Cr, \u2075\u2077Fe, \u2075\u2079Co, \u2076\u00b9Ni, \u2076\u2075Cu, \u2076\u2079Ga, \u2077\u00b2Ge, \u2077\u2075As, \u2079\u2079Ru, \u00b9\u2070\u00b3Rh, \u00b9\u2070\u2075Pd, \u00b9\u2078\u00b2W, \u00b9\u2078\u2075Re, \u00b9\u2078\u2079Os, \u00b9\u2079\u00b3Ir, \u00b9\u2079\u2075Pt, \u00b9\u2079\u2077Au (17 isotopes); low relative abundance isotopes chosen for Ni and Fe (analog mode)",
     "ada:defaultTargetSpecies": [
-      "\u2075\u00b2Cr",
-      "\u2075\u2077Fe",
-      "\u2075\u2079Co",
-      "\u2076\u00b9Ni",
-      "\u2076\u2075Cu",
-      "\u2076\u2079Ga",
-      "\u2077\u00b2Ge",
-      "\u2077\u2075As",
-      "\u2079\u2079Ru",
-      "\u00b9\u2070\u00b3Rh",
-      "\u00b9\u2070\u2075Pd",
-      "\u00b9\u2078\u00b2W",
-      "\u00b9\u2078\u2075Re",
-      "\u00b9\u2078\u2079Os",
-      "\u00b9\u2079\u00b3Ir",
-      "\u00b9\u2079\u2075Pt",
-      "\u00b9\u2079\u2077Au"
+      "Cr",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Ga",
+      "Ge",
+      "As",
+      "Ru",
+      "Rh",
+      "Pd",
+      "W",
+      "Re",
+      "Os",
+      "Ir",
+      "Pt",
+      "Au"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -513,7 +547,9 @@
       }
     ]
   },
-  "ada:backgroundCountTimeDefault": "20 s background measurement (laser shutter closed) before each 40 s ablation",
+  "ada:massesMeasuredDefault": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
+  "ada:massResolutionAssignment": "all: low resolution (300) \u2014 Table 2",
+  "ada:backgroundCountTimeDefault": "20 s \u2014 laser firing with the shutter closed, before each ablation",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -539,7 +575,7 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "FAPESP (S\u00e3o Paulo Research Foundation); CNPq"
+      "schema:name": "N \u2014 the acknowledgements name CNPq grant 316191/2021-3 (J.E.) and support for a conference presentation; neither is for procedure development"
     }
   ],
   "schema:relatedLink": [
@@ -562,24 +598,27 @@
     }
   ],
   "ada:reportedProperties": [
-    "Elemental mass fractions in metal, with units mixed by magnitude \u2014 As, Au, Co, Cu, Ga, Ge, Ir, Pd, Ru and others in \u00b5g g-1, Fe and Ni in g/100 g (Table 5, p.12) \u2014 reported with 2 sdm; the derived output is the meteorite's chemical classification (nominal, Table 1, p.2)"
+    "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5"
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "all: spot \u2014 Experimental section"
   ],
-  "ada:ablationSpotDurationDefault": "40 s on-sample ablation (after 20 s background measurement)",
-  "ada:internalStandardApproach": "Fe+Ni+Co sum normalization to 100% using iolite 3D Trace Elements DRS (eliminates need for independent EPMA IS)",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using North Chile iron meteorite + NIST SRM 612 glass (yield correction applied in iolite 3D DRS for NIST relative to North Chile); ordinary least-squares fitting per 15 min calibration block; Fe+Ni+Co normalization eliminates need for independent EPMA IS"
+  "ada:ablationSpotDurationDefault": "40 s \u2014 '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'",
+  "ada:rasterLineSpacingDefault": "N/A \u2014 spot mode",
+  "ada:internalStandardApproach": "all: sum normalization, Fe + Ni + Co = 100% \u2014 'In the final step, sum normalization was applied to the major constituents of iron meteorites, specifically Fe + Ni + Co = 100%. This ... eliminated the conventional practice of needing an internal standard'",
+  "ada:ageCalculationMethod": [
+    "N \u2014 the procedure reports no date"
   ],
-  "ada:calibrationMeasurementFrequency": "NIST SRM 612 and North Chile measured bracketing every 15 unknowns: 3\u00d7STD \u2192 3\u00d7STD \u2192 10\u00d7unknowns \u2192 repeat",
-  "ada:blankBackgroundCorrectionMethod": "Background signal measured for 20 s (laser shutter closed) before each 40 s ablation; background mean subtracted per isotope in iolite",
-  "ada:internalStandardElement": "No single IS; Fe+Ni+Co mass fractions normalized to 100% via iolite 3D DRS (yield correction factors applied for NIST SRM 612 relative to North Chile)",
-  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signals inspected per analysis; background interval (20 s) and ablation interval (40 s) selected; no automated spike exclusion described",
+  "ada:reportedDateType": [
+    "N \u2014 the procedure reports no date"
+  ],
+  "ada:inheritedOrInitialSignalCorrectionDefault": "N \u2014 the procedure reports no date",
+  "ada:calibrationMeasurementFrequency": "Every ten unknowns (about every 15 min) \u2014 calibration blocks bracket blocks of ten unknowns; 'every 15 min calibration block'",
+  "ada:blankBackgroundCorrectionMethod": "20 s blank before each spot, laser firing with the shutter closed; LODs calculated per acquisition in iolite 4 \u2014 Experimental section",
+  "ada:internalStandardElement": "all: none \u2014 Fe + Ni + Co sum normalisation",
   "ada:secondaryReferenceMaterialDefault": [
-    "North Chile Filomena measured as unknown on different days over 4 months to assess intermediate precision (Table 3 and Fig. 2)"
+    "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM 612 glass (Jochum et al. 2011) + North Chile Filomena iron meteorite (Wasson et al. 1989) \u2014 used together with yield correction in iolite 3D DRS",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -596,22 +635,14 @@
     {
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:defaultValue": "missing"
-    },
-    {
-      "schema:name": "Age Model",
-      "schema:defaultValue": "missing"
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
-  "ada:ageModelDefault": "missing",
-  "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
-  "ada:massResolutionAssignment": "missing",
-  "ada:massesMeasuredDefault": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

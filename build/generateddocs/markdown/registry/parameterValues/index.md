@@ -2271,6 +2271,34 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  empa_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/empaTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   empa_constantsAndReferenceValuesUsed:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to
@@ -2593,6 +2621,63 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  empa_mappingBeamCurrent:
+    title: Mapping Beam Current
+    description: Probe current in nanoamperes (nA) used during X-ray mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/mappingBeamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/empaTAPP/mappingBeamCurrent
+      schema:name:
+        const: Mapping Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  empa_mappingBeamDiameter:
+    title: Mapping Beam Diameter
+    description: Diameter of the electron beam in micrometres during X-ray mapping.
+      0 indicates a fully focused beam.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/mappingBeamDiameter
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/empaTAPP/mappingBeamDiameter
+      schema:name:
+        const: Mapping Beam Diameter
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   empa_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -2611,6 +2696,30 @@ $defs:
         - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  empa_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/empaTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/empaTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -5414,33 +5523,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laMcicpmsUPb_ageModel:
-    title: Age Model
-    description: "The statistical model used to combine individual analyses into a
-      single reported age, including any criteria governing which model is applied.
-      Record the model only \u2014 the software implementing it belongs in Data Reduction
-      Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/ageModel
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/ageModel
-      schema:name:
-        const: Age Model
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laMcicpmsUPb_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -5664,6 +5746,34 @@ $defs:
         - '@id': ada:parameter/laMcicpmsUPbTAPP/collisionReactionGasMixtureRatio
       schema:name:
         const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -6522,6 +6632,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_preAblationSurfaceTreatment:
     title: Pre-Ablation Surface Treatment
     description: Procedure applied immediately before each analysis to remove surface
@@ -6771,31 +6905,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  laMcicpmsUPb_sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Variations
-      that do not alter the analytical procedure (e.g., thin section vs. mount) are
-      legitimate.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laMcicpmsUPb_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -7393,6 +7502,34 @@ $defs:
         - '@id': ada:parameter/laMcicpmsTAPP/collisionReactionGasMixtureRatio
       schema:name:
         const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -8173,6 +8310,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpms_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_preAblationSurfaceTreatment:
     title: Pre-Ablation Surface Treatment
     description: Procedure applied immediately before each analysis to remove surface
@@ -8398,31 +8559,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  laMcicpms_sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Variations
-      that do not alter the analytical procedure (e.g., thin section vs. mount) are
-      legitimate.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laMcicpms_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -8797,33 +8933,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laQicpmsUPb_ageModel:
-    title: Age Model
-    description: "The statistical model used to combine individual analyses into a
-      single reported age, including any criteria governing which model is applied.
-      Record the model only \u2014 the software implementing it belongs in Data Reduction
-      Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/ageModel
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/ageModel
-      schema:name:
-        const: Age Model
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laQicpmsUPb_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -9047,6 +9156,34 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/collisionReactionGasMixtureRatio
       schema:name:
         const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -9821,6 +9958,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpmsUPb_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_preAblationSurfaceTreatment:
     title: Pre-Ablation Surface Treatment
     description: Procedure applied immediately before each analysis to remove surface
@@ -10100,31 +10261,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  laQicpmsUPb_sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Variations
-      that do not alter the analytical procedure (e.g., thin section vs. mount) are
-      legitimate.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laQicpmsUPb_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -10753,6 +10889,34 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatio
       schema:name:
         const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -11449,6 +11613,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpms_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_preAblationSurfaceTreatment:
     title: Pre-Ablation Surface Treatment
     description: Procedure applied immediately before each analysis to remove surface
@@ -11704,31 +11892,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  laQicpms_sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Variations
-      that do not alter the analytical procedure (e.g., thin section vs. mount) are
-      legitimate.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laQicpms_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -12134,33 +12297,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laSficpmsUPb_ageModel:
-    title: Age Model
-    description: "The statistical model used to combine individual analyses into a
-      single reported age, including any criteria governing which model is applied.
-      Record the model only \u2014 the software implementing it belongs in Data Reduction
-      Software (Group 3), whose scope already extends to age calculation; where reduction
-      and age regression use different packages, list both there."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/ageModel
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/ageModel
-      schema:name:
-        const: Age Model
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laSficpmsUPb_analysisSequence:
     title: Analysis Sequence
     description: The repeating order in which calibration or bracketing standards,
@@ -12296,6 +12432,34 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/carrierGasAndFlowRate
       schema:name:
         const: Carrier Gas and Flow Rate
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -13099,6 +13263,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpmsUPb_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_preAblationSurfaceTreatment:
     title: Pre-Ablation Surface Treatment
     description: Procedure applied immediately before each analysis to remove surface
@@ -13291,31 +13479,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  laSficpmsUPb_sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Variations
-      that do not alter the analytical procedure (e.g., thin section vs. mount) are
-      legitimate.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laSficpmsUPb_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -13880,6 +14043,34 @@ $defs:
         - '@id': ada:parameter/laSficpmsTAPP/carrierGasAndFlowRate
       schema:name:
         const: Carrier Gas and Flow Rate
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -14605,6 +14796,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_preAblationSurfaceTreatment:
     title: Pre-Ablation Surface Treatment
     description: Procedure applied immediately before each analysis to remove surface
@@ -14773,31 +14988,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  laSficpms_sampleFormAnalyticalSubstrate:
-    title: Sample Form / Analytical Substrate
-    description: Physical form of the material as it enters the ablation cell. Variations
-      that do not alter the analytical procedure (e.g., thin section vs. mount) are
-      legitimate.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsTAPP/sampleFormAnalyticalSubstrate
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsTAPP/sampleFormAnalyticalSubstrate
-      schema:name:
-        const: Sample Form / Analytical Substrate
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   laSficpms_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
@@ -16202,30 +16392,6 @@ $defs:
         - '@id': ada:parameter/labxctTAPP/samplePreparationMethod
       schema:name:
         const: Sample Preparation Method
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  labxct_samplePreparationNotes:
-    title: Sample Preparation Notes
-    description: Any preparation steps applied to the sample before scanning, including
-      cleaning, trimming, consolidation, or drying. Note any exceptions.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/labxctTAPP/samplePreparationNotes
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/labxctTAPP/samplePreparationNotes
-      schema:name:
-        const: Sample Preparation Notes
       schema:value:
         type: string
     required:
@@ -20282,8 +20448,9 @@ $defs:
     - schema:value
   semComposition_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
+    description: Electron beam probe current for point analysis. For sub-nA values
+      use decimal notation (e.g., 0.4 nA). The current used while the beam scans an
+      area, for a map or an image, is recorded under Mapping Beam Current.
     type: object
     properties:
       '@id':
@@ -20337,10 +20504,10 @@ $defs:
     - schema:value
   semComposition_beamDiameter:
     title: Beam Diameter
-    description: Nominal electron beam diameter (spot size) at the sample surface,
-      in nanometres or micrometres, as set by the condenser aperture and working distance.
-      For mapping modes, the effective spatial sampling interval is further defined
-      by Step Size / Pixel Size.
+    description: Nominal electron beam diameter (spot size) at the sample surface
+      for point analysis, in nanometres or micrometres, as set by the condenser aperture
+      and working distance. The beam used for mapping is recorded under Mapping Beam
+      Diameter.
     type: object
     properties:
       '@id':
@@ -20481,6 +20648,34 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  semComposition_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_constantsAndReferenceValuesUsed:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to
@@ -20803,6 +20998,63 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  semComposition_mappingBeamCurrent:
+    title: Mapping Beam Current
+    description: Probe current in nanoamperes (nA) used during X-ray mapping.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/mappingBeamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/mappingBeamCurrent
+      schema:name:
+        const: Mapping Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semComposition_mappingBeamDiameter:
+    title: Mapping Beam Diameter
+    description: Diameter of the electron beam in micrometres during X-ray mapping.
+      0 indicates a fully focused beam.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/mappingBeamDiameter
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/mappingBeamDiameter
+      schema:name:
+        const: Mapping Beam Diameter
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   semComposition_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -20821,6 +21073,30 @@ $defs:
         - '@id': ada:parameter/semCompositionTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -21372,35 +21648,6 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  semFibsem_beamCurrent:
-    title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semFibsemTAPP/beamCurrent
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semFibsemTAPP/beamCurrent
-      schema:name:
-        const: Beam Current
-      schema:value:
-        anyOf:
-        - type: number
-        - type: string
-      schema:unitText:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-    - schema:unitText
   semFibsem_coarseMillingConditions:
     title: Coarse Milling Conditions
     description: 'Ion beam voltage and current used for bulk material removal during
@@ -21668,6 +21915,37 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  semFibsem_mappingBeamCurrent:
+    title: Mapping Beam Current
+    description: 'Electron beam probe current used while the beam scans an area: an
+      X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken
+      during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA).
+      Ion-beam currents used for milling belong in the milling condition fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semFibsemTAPP/mappingBeamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semFibsemTAPP/mappingBeamCurrent
+      schema:name:
+        const: Mapping Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   semFibsem_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
@@ -21916,8 +22194,9 @@ $defs:
     - schema:unitText
   semImaging_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
+    description: Electron beam probe current for point analysis. For sub-nA values
+      use decimal notation (e.g., 0.4 nA). The current used while the beam scans an
+      area, for a map or an image, is recorded under Mapping Beam Current.
     type: object
     properties:
       '@id':
@@ -22348,6 +22627,37 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  semImaging_mappingBeamCurrent:
+    title: Mapping Beam Current
+    description: 'Electron beam probe current used while the beam scans an area: an
+      X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken
+      during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA).
+      Ion-beam currents used for milling belong in the milling condition fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semImagingTAPP/mappingBeamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
+      schema:name:
+        const: Mapping Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   semImaging_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
@@ -22571,8 +22881,9 @@ $defs:
     - schema:value
   sem_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
+    description: Electron beam probe current for point analysis. For sub-nA values
+      use decimal notation (e.g., 0.4 nA). The current used while the beam scans an
+      area, for a map or an image, is recorded under Mapping Beam Current.
     type: object
     properties:
       '@id':
@@ -22626,10 +22937,10 @@ $defs:
     - schema:value
   sem_beamDiameter:
     title: Beam Diameter
-    description: Nominal electron beam diameter (spot size) at the sample surface,
-      in nanometres or micrometres, as set by the condenser aperture and working distance.
-      For mapping modes, the effective spatial sampling interval is further defined
-      by Step Size / Pixel Size.
+    description: Nominal electron beam diameter (spot size) at the sample surface
+      for point analysis, in nanometres or micrometres, as set by the condenser aperture
+      and working distance. The beam used for mapping is recorded under Mapping Beam
+      Diameter.
     type: object
     properties:
       '@id':
@@ -22893,6 +23204,34 @@ $defs:
         - '@id': ada:parameter/semTAPP/coarseMillingConditions
       schema:name:
         const: Coarse Milling Conditions
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -23456,6 +23795,66 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  sem_mappingBeamCurrent:
+    title: Mapping Beam Current
+    description: 'Electron beam probe current used while the beam scans an area: an
+      X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken
+      during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA).
+      Ion-beam currents used for milling belong in the milling condition fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/mappingBeamCurrent
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/mappingBeamCurrent
+      schema:name:
+        const: Mapping Beam Current
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  sem_mappingBeamDiameter:
+    title: Mapping Beam Diameter
+    description: Diameter of the electron beam in micrometres during X-ray mapping.
+      0 indicates a fully focused beam.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/mappingBeamDiameter
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/mappingBeamDiameter
+      schema:name:
+        const: Mapping Beam Diameter
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   sem_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -23474,6 +23873,30 @@ $defs:
         - '@id': ada:parameter/semTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -24749,6 +25172,34 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_constantsAndReferenceValuesUsed:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to
@@ -25439,6 +25890,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: "Name and reference material identifier of the primary reference
@@ -26043,6 +26518,34 @@ $defs:
         - '@id': ada:parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio
       schema:name:
         const: Collision/Reaction Gas Mixture Ratio
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -26657,6 +27160,30 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionQicpms_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: "Name and reference material identifier of the primary reference
@@ -27203,6 +27730,34 @@ $defs:
         - '@id': ada:parameter/solutionSficpmsTAPP/calibrationFactorAndDeterminationMethod
       schema:name:
         const: Calibration Factor and Determination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
       schema:value:
         type: string
     required:
@@ -27838,6 +28393,30 @@ $defs:
         - '@id': ada:parameter/solutionSficpmsTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
       schema:value:
         type: string
     required:
@@ -29114,6 +29693,34 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  tem_combinationMethod:
+    title: Combination Method
+    description: 'Whether the reported variable is an individual result or combines
+      several, and if combined, how: the statistical model used, including any criteria
+      governing which model is applied, and what the individual results are combined
+      over (for example per grain, per phase within a sample, or per sample). Record
+      ''Not combined'' where each individual result is reported on its own. Record
+      the model only; the software implementing it belongs in Data Processing Software.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/combinationMethod
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/combinationMethod
+      schema:name:
+        const: Combination Method
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   tem_constantsAndReferenceValuesUsed:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to
@@ -29881,6 +30488,30 @@ $defs:
         - '@id': ada:parameter/temTAPP/monochromator
       schema:name:
         const: Monochromator
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  tem_otherStatistics:
+    title: Other Statistics
+    description: Any statistic reported for a combined result beyond the dispersion
+      statistic, with the statistic named and its value.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/temTAPP/otherStatistics
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/temTAPP/otherStatistics
+      schema:name:
+        const: Other Statistics
       schema:value:
         type: string
     required:

@@ -25,9 +25,8 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P3",
-  "schema:description": "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2",
+  "schema:description": "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (\u00a72.2\u20132.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10\u201312 samples \u2014 'to assess instrument drift and mass bias' (\u00a72.4).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Mn (55Mn), Fe (57Fe), Co (59Co), Ni (62Ni), Cu (65Cu), Zn (68Zn), Cd (111Cd), Pb (207Pb) in seawater (stated Table 1)",
     "ada:defaultTargetSpecies": [
       "Mn",
       "Fe",
@@ -35,7 +34,8 @@
       "Ni",
       "Cu",
       "Zn",
-      "Cd"
+      "Cd",
+      "Pb"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -210,7 +210,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1300 W; Table 2)"
+              "schema:value": "N \u2014 incident RF power 1300 W (Table 2)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -355,17 +355,6 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "detectorConfiguration",
-          "schema:name": "Detector Configuration",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Single SEM, dual mode (stated section 2.4)"
-        },
-        {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -402,48 +391,35 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Open-ocean seawater (stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 12,
-          "schema:description": "12 mL seawater (stated section 2.2)"
-        }
-      ]
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Open-ocean seawater"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -468,7 +444,8 @@
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing"
+        "schema:description": "missing",
+        "schema:additionalProperty": []
       },
       {
         "schema:name": "Data reduction",
@@ -482,18 +459,7 @@
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations (stated section 2.1)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated"
+            "schema:value": "Standard isotope dilution equation (de Jong et al.), with a per-element mass-bias factor applied to the sample isotope ratios \u2014 \u00a72.5"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -507,7 +473,7 @@
             "schema:defaultValue": "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated"
           }
         ],
-        "ada:detectionLimitMethod": "3 sigma blank (stated section 2.4)",
+        "ada:detectionLimitMethod": "all: 3 SD of the reagent blank \u2014 Table 5, for a 12 mL sample",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -518,11 +484,32 @@
         "schema:position": 3
       },
       {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A \u2014 no digestion vessel; seawater pre-concentration"
+          }
+        ],
+        "bios:reagent": [
+          {
+            "schema:name": "N/A \u2014 seawater; pre-concentration by chelation; no acid digestion",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample digestion",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -534,6 +521,30 @@
       "schema:HowTo"
     ]
   },
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 12,
+          "schema:description": "12 mL seawater (stated section 2.2)"
+        }
+      ]
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -553,19 +564,18 @@
     "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\""
   ],
   "ada:reportedProperties": [
-    "Dissolved Mn, Fe, Co, Ni, Cu, Zn, Cd and Pb concentrations in nM"
+    "Mn, Fe, Co, Ni, Cu, Zn, Cd, Pb (nM, dissolved) \u2014 dissolved concentrations in seawater"
   ],
   "ada:chromatographicSeparationApplied": "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)",
   "ada:isotopeDilutionSpike": "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)",
-  "ada:finalSolutionMatrix": "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)",
+  "ada:finalSolutionMatrix": "all: 1.0 M HNO3 \u2014 'extracted trace elements were eluted with 1 mL of 1.0 M Q-HNO3' (\u00a72.2)",
   "ada:uncertaintyLevel": "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\"",
   "ada:oxideProductionMethodAndThreshold": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)",
-  "ada:blankBackgroundCorrectionMethod": "Procedural blank (stated section 2.1)",
-  "ada:internalStandardElement": "None (ID method used; no external IS; stated section 2.1)",
+  "ada:blankBackgroundCorrectionMethod": "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background \u2014 \u00a72.5",
+  "ada:internalStandardElement": "all: none \u2014 isotope dilution for Fe, Ni, Cu, Zn, Cd and Pb, standard additions for Co and Mn (\u00a72.5)",
   "ada:secondaryReferenceMaterialDefault": [
-    "NASS-5 (certified seawater); SAFe inter-comparison samples S1 and D2 (stated section 2.4)"
+    "NASS-5; SAFe S1; SAFe D2 \u2014 NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (\u00a72.6)"
   ],
-  "ada:primaryStandardNameDefault": "Commercial standard of natural isotopic abundance (not formally named; stated section 2.4)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -574,7 +584,6 @@
   ],
   "ada:analysisSequenceDefault": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:driftCorrectionMethod": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:numberOfScansPerReplicate": -9999,

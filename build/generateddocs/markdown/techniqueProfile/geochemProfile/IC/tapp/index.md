@@ -30,7 +30,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     "bios:LabProtocol"
   ],
   "schema:name": "ic protocol — P0",
-  "schema:description": "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv).",
+  "schema:description": "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = DIONEX.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "DIONEX Integrion IC",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     "bios:LabProtocol"
   ],
   "schema:name": "ic protocol \u2014 P0",
-  "schema:description": "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv).",
+  "schema:description": "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = DIONEX.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "DIONEX Integrion IC",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
     schema1:creator [ a schema1:Person ;
             schema1:name "Peretyazhko, Tanya" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv)." ;
+    schema1:description "icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space Center | DIONEX Integrion IC (publication column of IC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = DIONEX." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

@@ -30,7 +30,7 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
     "bios:LabProtocol"
   ],
   "schema:name": "l2ms protocol — P0",
-  "schema:description": "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv).",
+  "schema:description": "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = uL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "uL2MS instrument",
   "schema:measurementTechnique": [
@@ -118,7 +118,7 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
     "bios:LabProtocol"
   ],
   "schema:name": "l2ms protocol \u2014 P0",
-  "schema:description": "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv).",
+  "schema:description": "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = uL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "uL2MS instrument",
   "schema:measurementTechnique": [
@@ -200,7 +200,7 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
     schema1:creator [ a schema1:Person ;
             schema1:name "Clemett, Simon" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv)." ;
+    schema1:description "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = uL." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

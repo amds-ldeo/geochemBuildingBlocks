@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Silicates/Oxides/Carbonates, Bennu Anhydrous Minerals (CRPG Nancy, JEOL JXA-8230)",
-  "schema:description": "Barnes et al. 2025, Nat. Astron. \u2014 variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) \u2014 unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Universit\u00e9 C\u00f4te d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument).",
+  "schema:description": "Barnes et al. 2025, Nat. Astron. \u2014 variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Universit\u00e9 C\u00f4te d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument). Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 quantitative point analyses on an instrument 'equipped with five wavelength-dispersive spectrometers and one silicon drift detector energy dispersive spectrometer'; which detector measured which element is not stated.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -35,8 +35,8 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
-      "ada:beamDiameterDefault": "1 \u00b5m (point analysis); 5\u00d75 \u00b5m\u00b2 raster area for carbonates",
-      "ada:beamMode": "Focused (1 \u00b5m, point analysis); Rastered 5\u00d75 \u00b5m\u00b2 for carbonates",
+      "ada:beamDiameterDefault": "all: 1 \u00b5m \u2014 as above",
+      "ada:beamMode": "carbonates: Rastered; other: N \u2014 'For carbonates, we rastered the beam over 5\u00d75 \u00b5m2'",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -128,16 +128,7 @@
       "Fe",
       "Si",
       "Na",
-      "K",
-      "Al",
-      "Ti",
-      "Ca",
-      "Cr",
-      "Mn",
-      "Ni",
-      "Mg",
-      "Fe",
-      "Si"
+      "K"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -218,16 +209,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -277,9 +258,10 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 5,
-      "schema:description": "5\u00d75 \u00b5m\u00b2 for carbonates"
+      "schema:description": "carbonates: 5 \u00d7 5 \u00b5m\u00b2; other: N/A \u2014 as above"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -298,63 +280,42 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM imaging and multi-element EDS mapping \u2014 \"SEM observations were performed on the samples using a JEOL JSM-6510 with 3-nA primary beam at 15 kV. We also performed multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\", after which \"Quantitative chemical analyses were performed using a JEOL JXA-8230 electron microprobe\" (p.11)"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (olivine, pyroxene) | Oxide | Carbonate (anhydrous minerals in Bennu aggregate particles)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonates"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Universit\u00e9 C\u00f4te d'Azur; polished; carbon coated (thickness N)",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size \u2014 \"Aggregate particles (<1 mm) were mounted in epoxy, polished and were subsequently carbon coated\" (p.11); the grains analysed within them are not otherwise chosen by a stated rule",
   "ada:monitoredElements": [
-    "Session 1: Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. Session 2: Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si. All determined. \"We used two different settings to determine the chemical compositions of minerals: (1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11)"
+    "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K \u2014 as for Target Species"
   ],
   "schema:location": {
     "@type": [
@@ -386,9 +347,39 @@
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 \u00b5m\", the beam rastered \"over 5 \u00d7 5 \u00b5m2\" for carbonates (p.11)",
   "ada:reportedProperties": [
-    "Mineral compositions from quantitative WDS/EDS analyses, with the element suites set per session \u2014 \"(1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)\" (p.11); the values are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF"
+    "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K \u2014 mineral compositions for the two element suites; values 'compiled in Supplementary Table 14', not in the archived PDF"
   ],
-  "ada:primaryStandardNameDefault": "Springwater olivine (Mg, Si); fayalite (Fe); wollastonite (Ca); albite (Na, Al); orthoclase (K); rutile (Ti); Ni metal (Ni); chromite (Cr); rhodochrosite (Mn)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Universit\u00e9 C\u00f4te d'Azur; polished; carbon coated (thickness N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -404,7 +395,6 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",

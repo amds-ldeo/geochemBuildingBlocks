@@ -907,32 +907,6 @@ allOf:
                   items:
                     type: object
                   x-jsonld-id: http://schema.org/additionalProperty
-                ada:samplingUnits:
-                  description: The sampling units of this sample that were analysed
-                    -- the grains, spots, phases, sub-volumes or regions of interest
-                    that one row of reported values corresponds to. A sampling unit
-                    belongs to exactly one sample, which is why it is nested here
-                    rather than sitting on the activity. The unit TYPE is stated once
-                    by the procedure (ada:samplingUnitType); these are the instances,
-                    and they cannot be known until the session runs.
-                  type: array
-                  items:
-                    type: object
-                    required:
-                    - schema:name
-                    properties:
-                      '@id':
-                        description: Optional identifier for this sampling unit.
-                        type: string
-                      schema:name:
-                        description: The laboratory's label for this sampling unit
-                          -- a spot number, grain label, map or region-of-interest
-                          name, or aliquot identifier. Required, because a unit nothing
-                          can name gives a field keyed by sampling unit no row to
-                          attach its value to.
-                        type: string
-                        x-jsonld-id: http://schema.org/name
-                  x-jsonld-id: https://ada.astromat.org/metadata/samplingUnits
             x-jsonld-id: http://schema.org/object
           schema:identifier:
             description: The analytical session's own identifier -- the laboratory's
@@ -954,6 +928,55 @@ allOf:
             items:
               type: object
             x-jsonld-id: http://schema.org/additionalProperty
+          ada:combinedResults:
+            description: 'The reported values this session obtained by averaging or
+              otherwise combining several individual results -- the ROWS of the combined-result
+              table, and the domain that `defines: combined result` enumerates (Rule
+              7; see the Legends sheet of any delivered TAPP). One entry per combined
+              value, each naming what it combines: "Olivine, sample A, 8 points",
+              "Zircon weighted-mean date, sample B, 236 of 246 spots", "Isochron,
+              sample C, 36 runs".
+
+              On the ACTIVITY rather than on a sample, because a combined result names
+              its own sample and need not belong to exactly one -- an isochron over
+              36 runs is the case in hand.
+
+              It is METADATA, unlike a sampling unit, and the difference is worth
+              being clear about because an earlier design got it wrong. A combined
+              result is a statement the record makes about its own contents, so it
+              belongs here. An individual sampling unit is not: the procedure and
+              the analysis can state only the KIND of unit (ada:samplingUnitType),
+              while a particular unit''s identifier is a schema:variableMeasured naming
+              a COLUMN in one of the distributions, and the binding from that unit
+              to its target material exists only in the instance data table beside
+              the results. There is therefore no array of sampling-unit objects here;
+              one was added on 2026-09-25 and removed on 2026-10-01 once that was
+              settled.
+
+              Analysis-side only: the procedure can say HOW results will be combined
+              (Combination Method, keyed by reported property) but not WHICH were,
+              so there is no ada:combinedResults counterpart in tappDefinition.
+
+              Fields keyed `combined result x reported property` -- Goodness-of-Fit
+              or Dispersion Statistic, and Other Statistics -- ride on these rows
+              as per-reported- property values, keyed by the valueName of the column
+              that declared them.'
+            type: array
+            items:
+              type: object
+              required:
+              - schema:name
+              properties:
+                '@id':
+                  description: Optional identifier for this combined result.
+                  type: string
+                schema:name:
+                  description: What this combined value is and what it combines. Required,
+                    because a combined result nothing can name gives a field keyed
+                    by combined result no row to attach its value to.
+                  type: string
+                  x-jsonld-id: http://schema.org/name
+            x-jsonld-id: https://ada.astromat.org/metadata/combinedResults
         required:
         - prov:used
       x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy

@@ -14,7 +14,13 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Whole-rock powder (50 mg; stated section 3.3)" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
@@ -23,29 +29,22 @@
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "1: concentrated HNO3 (1 ml) + concentrated HF (1 ml), bomb 190 deg C / 48 h | 2: HNO3 (1.5 ml) + ultra-pure water (2.5 ml), bomb 150 deg C overnight. The paper numbers five operations (section 3.3); the two intervening HNO3 fumings to dryness carry no attack of their own and are part of step 1 under the 2026-09-08 grain rule. This cell previously read \"2\" beside \"five steps explicitly numbered\" -- the contradiction an Integer definer could not resolve." ;
+                    schema1:description "bomb attack (1 ml HNO3 + 1 ml HF, 190 °C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 °C overnight) — §3.3 numbers five operations; the evaporations carry no attack of their own" ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ;
                     bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3" ] ],
+                            schema1:name "bomb attack: HNO3 + HF; re-dissolution: HNO3 — §3.3" ] ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
-        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> ;
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "missing" ;
-    schema1:description "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1)." ;
+    schema1:description "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3 Reported detail: ada:signalCollectionMode = Peak hopping, one point per peak — §3.1; ada:driftCorrectionMethod = Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run — drift minimised by flushing a rock solution for 30 min before tuning (§3.1)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
@@ -55,63 +54,111 @@
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Geological reference materials (basalt, andesite, granite, shale); upper continental crust samples (stated abstract)" ],
-                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\"" ;
     ada:blankBackgroundCorrectionMethod "missing" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "None (direct analysis of digested solution)" ;
-    ada:driftCorrectionMethod "Standard bracketing" ;
-    ada:finalSolutionMatrix "Dilute HNO3 (~3%; 1.5 ml conc. HNO3 in ~50 ml; stated section 3.3)" ;
-    ada:internalStandardElement "Rh (stated section 3.1)" ;
+    ada:chromatographicSeparationApplied "None — the digest is analysed directly (§3.3)" ;
+    ada:driftCorrectionMethod "N/A" ;
+    ada:finalSolutionMatrix "all: 1.5 ml HNO3 and 2.5 ml water made up to 50 ml with ultra-pure water and 0.50 ml of 1.0 µg/ml Rh — §3.3" ;
+    ada:internalStandardElement "all: Rh — §3.1, §3.3" ;
     ada:isotopeDilutionSpike "None" ;
-    ada:massCyclesPerReplicate "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)" ;
+    ada:massCyclesPerReplicate "all: three sweeps per reading and three readings per replicate — §3.1" ;
+    ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
+                [ ] ;
+            ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "monitoredProperty" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies>,
+                <https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
-    ada:oxideProductionMethodAndThreshold "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)" ;
-    ada:primaryStandardNameDefault "Multi-element calibration solution (not formally named; stated section 3.1)" ;
-    ada:reportedProperties "Forty-eight trace element concentrations (ppm); blanks (ppb)" ;
+    ada:oxideProductionMethodAndThreshold "CeO+/Ce+ and Ce2+/Ce+ below 2.5%, with the nebulizer gas flow optimised for maximum Mg, Co, Rh, Ce, Pb and U signals — §3.1" ;
+    ada:reportedProperties "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) — Table 2; blanks in ppb" ;
     ada:samplingUnitType "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml" ;
-    ada:secondaryReferenceMaterialDefault "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)" ;
-    ada:signalCollectionMode "missing" ;
+    ada:secondaryReferenceMaterialDefault "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 — five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (§3.4)" ;
+    ada:signalCollectionMode "Peak hopping" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
+                "basalt",
+                "diabase",
+                "dolerite",
+                "dunite",
+                "granite",
+                "granodiorite",
+                "graywacke",
+                "limestone",
+                "loess",
+                "peridotite",
+                "rhyolite",
+                "sandstone",
+                "shale" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "As",
                 "B",
                 "Ba",
                 "Be",
                 "Bi",
                 "Cd",
+                "Ce",
                 "Co",
                 "Cr",
                 "Cs",
                 "Cu",
+                "Dy",
+                "Er",
+                "Eu",
                 "Ga",
+                "Gd",
                 "Ge",
                 "Hf",
+                "Ho",
                 "In",
-                "La-Lu",
+                "La",
                 "Li",
+                "Lu",
                 "Mo",
                 "Nb",
+                "Nd",
                 "Ni",
                 "Pb",
+                "Pr",
                 "Rb",
                 "Sb",
                 "Sc",
+                "Sm",
                 "Sn",
                 "Sr",
                 "Ta",
+                "Tb",
                 "Te",
                 "Th",
                 "Tl",
+                "Tm",
                 "U",
                 "V",
                 "W",
                 "Y",
+                "Yb",
                 "Zn",
                 "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -129,12 +176,11 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
     ada:uncertaintyLevel "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material" ;
-    ada:washTimeBetweenSamples -9999 .
+    ada:washTimeBetweenSamples "N — 'manual analyses in which care was taken to completely wash-out B and Ta signals between samples' (§3.1)" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault>,
         <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> ;
@@ -156,7 +202,7 @@
         schema1:Thing ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "STD (standard mode, no gas; stated section 3.1)" .
+    schema1:name "N — an ELAN 6100 DRC; no cell gas or cell mode is described (§3.1)" .
 
 <ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -176,7 +222,8 @@
 
 <ex:instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -189,12 +236,29 @@
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Dwell Time per Mass" ;
+    schema1:valueName "dwellTimePerMass" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interference Correction Method" ;
+    schema1:valueName "interferenceCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Interfering Species" ;
+    schema1:valueName "interferingSpecies" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Spectral Interference Corrections Applied" ;
+    schema1:valueName "spectralInterferenceCorrectionsApplied" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1.2e+00 ;
@@ -233,13 +297,6 @@
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
-    schema1:name "Mass Resolution Setting" ;
-    schema1:value "Unit resolution (quadrupole, fixed; m/Delta-m ~300)" ;
-    schema1:valueName "massResolutionSettingDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)" ;
     schema1:name "Memory Effect Mitigation" ;
@@ -249,7 +306,7 @@
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Normal plasma (1350 W; stated section 3.1)" ;
+    schema1:value "N — RF power 1350 W (§3.1)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -262,15 +319,8 @@
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem> a schema1:PropertyValueSpecification ;
-    schema1:name "Desolvation System" ;
-    schema1:value "None" ;
-    schema1:valueName "desolvationSystem" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "48 h (stated section 3.3)" ;
+    schema1:defaultValue "bomb attack: 48 h; re-dissolution: overnight — §3.3" ;
     schema1:name "Digestion Duration" ;
     schema1:valueName "digestionDurationDefault" ;
     ada:dataType "string" ;
@@ -278,7 +328,7 @@
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 190 ;
-    schema1:description "190 deg C (stated section 3.3)" ;
+    schema1:description "bomb attack: 190 °C; re-dissolution: 150 °C — §3.3" ;
     schema1:name "Digestion Temperature" ;
     schema1:valueName "digestionTemperatureDefault" ;
     ada:dataType "number" ;
@@ -289,6 +339,22 @@
     schema1:value "PTFE-lined stainless steel bomb (home-made; stated section 3.3)" ;
     schema1:valueName "digestionVesselType" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> a schema1:PropertyValueSpecification ;
+    schema1:description "0.50 ml of 1.0 µg/ml Rh in the 50 ml final solution — §3.3" ;
+    schema1:name "Internal Standard Concentration" ;
+    schema1:value 5e-01 ;
+    schema1:valueName "internalStandardConcentration" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3.1e+00 ;
+    schema1:description "N — 'optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U' (§3.1)" ;
+    schema1:name "Nebulizer Gas Flow Rate" ;
+    schema1:valueName "nebulizerGasFlowRateDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerType> a schema1:PropertyValueSpecification ;
@@ -322,18 +388,24 @@
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Ce2+/Ce+ (m/z 70/140; stated section 3.1)" ;
+    schema1:defaultValue "Ce2+/Ce+ — §3.1" ;
     schema1:name "Doubly-Charged Species Monitor" ;
     schema1:valueName "doublyChargedSpeciesMonitorDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Ce2+/Ce+ < 2.5% threshold (stated section 3.1)" ;
+    schema1:defaultValue "Ce2+/Ce+ below 2.5% — §3.1" ;
     schema1:name "Doubly-Charged Species Production" ;
     schema1:valueName "doublyChargedSpeciesProductionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

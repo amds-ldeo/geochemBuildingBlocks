@@ -15,9 +15,8 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P4",
-  "schema:description": "Thermo Element XR with Jet pump; extraction voltage 2000 V (Table 1); ESI Pt injector 1.8 mm ID; Pt cones; dual mode detector fixed per analyte; daily detector cross-calibration required (stated section 2.3.1) Reported detail: ada:driftCorrectionMethod = Standard bracketing (blocks of 7 samples bracketed by calibration standards; stated section 2.3.1).",
+  "schema:description": "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (\u00a72.3) Reported detail: ada:driftCorrectionMethod = N \u2014 the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (\u00a72.3.1).",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Li, B, Na, Mg, Al, Mn, Fe, Zn, Sr, Cd, Ba, U as Me/Ca ratios in foraminifera (stated section 2.3)",
     "ada:defaultTargetSpecies": [
       "Li",
       "B",
@@ -29,7 +28,8 @@
       "Zn",
       "Sr",
       "Cd",
-      "Ba"
+      "Ba",
+      "U"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -153,35 +153,136 @@
       }
     ]
   },
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Foraminifera calcite (benthic and planktonic species; stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 1,
-          "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Foraminifera calcite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Handpicked 1\u20132 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 \u00b5L of supernatant diluted with 200 \u00b5L 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF \u2014 \u00a72.4; the HF-bearing matrix 'was used only in the final dilution step'",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "schema:name": "Data acquisition",
+        "schema:description": "LR; MR \u2014 low resolution (\u0394m/m = 300) and medium resolution (\u0394m/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
+            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "all: detector cross-calibration between pulse and analog modes performed daily \u2014 \u00a72.3.1"
+          },
+          {
+            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "isotopeDilutionDataReductionMethod",
+            "schema:name": "Isotope Dilution Data Reduction Method",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "None"
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      },
+      {
+        "schema:name": "Sample digestion",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionVesselType",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionVesselType",
+            "schema:name": "Digestion Vessel Type",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:value": "N/A \u2014 simple dissolution; stated section 2.4"
+          }
+        ],
+        "schema:description": "dissolution (minimum volume of 1 M HNO3, 40\u201360 \u00b5L, then centrifuged 2 min at 10,000 rpm) \u2014 \u00a72.4",
+        "bios:reagent": [
+          {
+            "schema:name": "dissolution: 1 M HNO3 \u2014 \u00a72.4",
+            "@type": [
+              "schema:DefinedTerm"
+            ]
+          }
+        ],
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 4
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -303,7 +404,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1250 W; Table 1)"
+              "schema:value": "N \u2014 RF power 1250 W (Table 1)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -350,7 +451,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Single SEM, dual mode (pulse counting + analog; fixed per analyte; Table 1)"
+          "schema:value": "Dual mode, fixed for each isotope: counting for 7Li, 11B, 111Cd, 137Ba, 238U, 55Mn, 56Fe, 66Zn and analog for 25Mg, 27Al, 43Ca, 87Sr, 23Na \u2014 Tables 1 and 3; 'measured at a fixed detection mode to avoid detection mode switch (pulse to analog) during analysis' (\u00a72.3.1)"
         },
         {
           "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
@@ -400,18 +501,34 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
+  "ada:numberOfScansPerReplicate": "LR: 15 passes \u00d7 3 runs; MR: 5 passes \u00d7 3 runs \u2014 Table 3; Table 1 prints 3 passes for MR",
+  "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
+  "ada:analysisSequenceDefault": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) \u2014 \u00a72.3.1",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
     {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
       "@type": [
-        "schema:PropertyValueSpecification"
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
       ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    },
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 1,
+          "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
+        }
+      ]
+    }
+  ],
+  "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
       "@type": [
@@ -424,108 +541,7 @@
       "schema:value": "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated"
     }
   ],
-  "ada:numberOfScansPerReplicate": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)",
-  "ada:numberOfReplicatesPerSample": "3 runs (LR and MR; Table 3)",
-  "ada:analysisSequenceDefault": "Blocks of 7 samples bracketed by pair of acid blanks and consistency standards (stated section 2.3.1)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Foraminifera shells cleaned and dissolved in minimum 1 M HNO3 then diluted (stated section 2.4)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing"
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "pulseAnalogDetectorNonlinearityCorrectionDefault",
-            "schema:name": "Pulse Analog Detector Nonlinearity Correction",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: SEM-to-analog cross-calibration performed daily (stated section 2.3.1)"
-          },
-          {
-            "@id": "ada:parameter/module/ICPMS/isotopeDilutionDataReductionMethod",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "isotopeDilutionDataReductionMethod",
-            "schema:name": "Isotope Dilution Data Reduction Method",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      },
-      {
-        "schema:name": "Sample digestion",
-        "schema:description": "1: 1 M HNO3, minimum volume for dissolution, ambient (section 2.4).",
-        "bios:reagent": [
-          {
-            "schema:name": "1 M HNO3 (minimum volume for dissolution; stated section 2.4)",
-            "@type": [
-              "schema:DefinedTerm"
-            ]
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 4
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
+  "ada:numberOfAcquisitionPasses": "2 \u2014 low and medium resolution (Tables 1 and 3)",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -545,20 +561,19 @@
     "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer"
   ],
   "ada:reportedProperties": [
-    "B/Ca and Me/Ca (Li, Mg, Al, Sr, Cd, Ba, U in low resolution; Na, Mn, Fe, Zn in medium resolution) in umol/mol and mmol/mol"
+    "B/Ca (\u00b5mol/mol); Li/Ca, Mg/Ca, Al/Ca, Sr/Ca, Cd/Ca, Ba/Ca, U/Ca, Na/Ca, Mn/Ca, Fe/Ca, Zn/Ca (\u00b5mol/mol or mmol/mol) \u2014 Me/Ca ratios; Li, Mg, Al, Sr, Cd, Ba and U in low resolution, Na, Mn, Fe and Zn in medium (Table 3)"
   ],
   "ada:chromatographicSeparationApplied": "None (direct dissolution analysis; stated section 2.4)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:finalSolutionMatrix": "0.1 M HNO3 + 0.3 M HF (Table 1)",
+  "ada:finalSolutionMatrix": "all: 0.1 M HNO3 + 0.3 M HF \u2014 'The acid matrix containing HF was used only in the final dilution step'",
   "ada:washTimeBetweenSamples": "120 s (Table 1)",
   "ada:uncertaintyLevel": "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)",
-  "ada:calibrationMeasurementFrequency": "Bracketing blocks of 7 samples (stated section 2.3.1)",
+  "ada:calibrationMeasurementFrequency": "Standard 3 brackets each block of seven samples \u2014 \u00a72.3.1",
   "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
-  "ada:internalStandardElement": "None (matrix-matched external calibration; stated section 2.3.1)",
+  "ada:internalStandardElement": "all: none \u2014 Me/Ca ratios, with Ca measured in both resolutions",
   "ada:secondaryReferenceMaterialDefault": [
-    "Four in-house foraminifera consistency standards (C. wuellerstorfi, Uvigerina spp., synthetic mix; stated section 2.2)"
+    "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix \u2014 the four Cambridge consistency standards (\u00a72.2)"
   ],
-  "ada:primaryStandardNameDefault": "Series of matrix-matched standards at 10 ppm Ca (not formally named; stated section 2.3.1)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -566,7 +581,6 @@
     }
   ],
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:signalIntegrationIntervalMethod": "missing",
   "schema:datePublished": "missing"
 }

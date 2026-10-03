@@ -15,24 +15,38 @@
     "bios:LabProtocol"
   ],
   "schema:name": "laQicpms protocol \u2014 P6",
-  "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v88.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Xenotime, apatite and garnet \u2014 accessory and metamorphic minerals for in situ Lu-Hf geochronology"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v96.csv). Reported detail: ada:signalCollectionMode = Peak jump.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "xenotime",
+      "apatite",
+      "garnet"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -168,10 +182,10 @@
               "schema:name": "Reaction Gas Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "NH3, high purity (>99.999%), supplied in T4; He (>99.999%, T1) pre-mixed with NH3 before the cell in a test of mixture composition. High-purity NH3 found more effective than the commonly used 1:9 NH3-He mixture"
+              "schema:value": "all: NH3, high purity (>99.999%) \u2014 supplied in T4; He (>99.999%, T1) was pre-mixed with NH3 before the cell in a test of mixture composition"
             }
           ],
-          "schema:name": "ICP-MS/MS (triple-quadrupole mode) with NH3 reaction gas for analysis; tuning first performed in single-quadrupole (SQ) no-gas mode",
+          "schema:name": "all: TQ mode with NH3 reaction gas, the first quadrupole at 1 amu \u2014 tuning first in SQ no-gas mode; 'To avoid interference from 175Lu reaction products ... the required prefiltered mass resolution is 1 amu' (\u00a73.1)",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -269,17 +283,17 @@
       },
       "ada:laserType": "193 nm",
       "schema:name": "HelEx ablation cell",
+      "ada:laserSpotGeometryDefault": "all: 50, 90, 150 \u00b5m \u2014 Table 1 'Spot size'; chosen according to Lu and Hf contents",
       "ada:laserFluenceDefault": "4 J cm-2",
-      "ada:laserRepetitionRateDefault": "10 Hz",
+      "ada:laserRepetitionRateDefault": "all: 10 Hz \u2014 Table 1",
       "@type": [
         "schema:Product",
         "schema:Thing"
       ],
-      "@id": "ex:instrument/Laser-Ablation-System",
-      "ada:laserSpotGeometryDefault": "missing"
+      "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:carrierGasFlowRateDefault": "He, 900 mL min-1 ablation gas flow",
+  "ada:carrierGasFlowRateDefault": "He ablation gas 900 mL/min; Ar carrier gas 0.65 L/min \u2014 Table 1 'Ablation gas flow (He)' and 'Carrier gas flow (Ar)'",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -302,7 +316,7 @@
       "schema:name": "Collision/Reaction Gas Mixture Ratio",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Both forms stated: '1:9 NH3-He mixture' identified as common practice and found less effective than high-purity NH3; high-purity He (>99.999%) pre-mixed with NH3 before the reaction cell to test the effect of mixture composition on reaction efficiency"
+      "schema:defaultValue": "all: high-purity NH3 \u2014 found more effective than the commonly used 1:9 NH3-He mixture; He pre-mixed with NH3 was tested for the effect of mixture composition"
     },
     {
       "@id": "ada:parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition",
@@ -315,17 +329,13 @@
         }
       ],
       "schema:name": "Reaction Product Ion / Mass-Shift Transition",
-      "schema:value": "Ammonia cluster adducts, mass shift +82: (176+82)Hf = 176Hf(14N1H)(14N1H2)3(14N1H3)3; likewise (177+82)Hf, (178+82)Hf, (175+82)Lu, (172+82)Yb. Lu, Yb and Hf reaction products identified over 175-300 amu"
+      "schema:value": "(172+82)Yb, (175+82)Lu, (176+82)Hf, (177+82)Hf, (178+82)Hf: ammonia cluster adduct, mass shift +82; other: N \u2014 (176+82)Hf = 176Hf(14N1H)(14N1H2)3(14N1H3)3; Lu, Yb and Hf reaction products identified over 175\u2013300 amu"
     }
   ],
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Lu and Hf (with Yb monitored for interference); Al, Ca, Y and Zr monitored for inclusions",
     "ada:defaultTargetSpecies": [
       "Lu",
-      "Hf",
-      "Al",
-      "Ca",
-      "Y"
+      "Hf"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -452,63 +462,6 @@
   "ada:signalCollectionMode": "N/A",
   "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
   "ada:backgroundCountTimeDefault": "N \u2014 gas-blank correction applied in Iolite, duration not stated",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Megacrysts and single crystals; XN02 megacrysts from the Datas alluvial deposits, SE Brazil",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing",
-        "schema:additionalProperty": []
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
   "schema:measurementTechnique": [
     {
@@ -532,19 +485,61 @@
     }
   ],
   "ada:reportedProperties": [
-    "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)"
+    "176Lu/177Hf; 176Hf/177Hf; common-Hf-corrected single-spot age (Ma); Lu-Hf isochron age (Ma); Lu-Hf weighted-mean age (Ma); Lu concentration; Hf concentration \u2014 single-spot ages from eqn (11); isochron and weighted-mean ages in IsoplotR; Lu and Hf concentrations from Iolite's 'Trace_Element' DRS"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "N \u2014 not described; \u00a72.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:ablationSamplingMode": [
-    "Single hole drilling, two cleaning pulses"
+    "all: Single hole drilling, two cleaning pulses \u2014 Table 1 'Sampling mode/pattern'"
   ],
   "ada:ablationSpotDurationDefault": "25 s",
   "ada:uncertaintyLevel": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s",
   "ada:oxideProductionMethodAndThreshold": "ThO/Th < 0.5%, checked during SQ no-gas tuning",
   "ada:blankBackgroundCorrectionMethod": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities",
   "ada:secondaryReferenceMaterialDefault": [
-    "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples"
+    "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 \u2014 ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U\u2013Pb reference materials test the Lu\u2013Hf ages against their ID-TIMS U\u2013Pb ages"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM 610",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

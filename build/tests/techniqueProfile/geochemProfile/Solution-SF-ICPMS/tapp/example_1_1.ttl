@@ -20,27 +20,28 @@
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken." ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3)." ] ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)" ;
+                    schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2" ] ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
+        <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
     schema1:datePublished "missing" ;
     schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
     schema1:instrument <ex:instrument/ICPMS> ;
@@ -49,11 +50,6 @@
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — P0" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Soil samples (sequential acid leach fractions; stated abstract)" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)" ;
@@ -63,23 +59,33 @@
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
     ada:analyticalMode "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler" ;
-    ada:blankBackgroundCorrectionMethod "On-peak zero (10 s wash blank before each measurement; stated section 2.3)" ;
+    ada:blankBackgroundCorrectionMethod "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction — §2.4" ;
     ada:calibrationMeasurementFrequency "missing" ;
-    ada:chromatographicSeparationApplied "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)" ;
-    ada:driftCorrectionMethod "N/A" ;
-    ada:finalSolutionMatrix "2% HNO3 + 1 ppb Tl (stated section 2.3)" ;
-    ada:internalStandardElement "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)" ;
+    ada:chromatographicSeparationApplied "None — the SC-SF-ICP-MS splits were analysed unseparated; the anion-exchange separation (§2.3) was for MC-ICP-MS" ;
+    ada:driftCorrectionMethod "missing" ;
+    ada:finalSolutionMatrix "all: 2% HNO3 doped with 1 ppb Tl — §2.4" ;
+    ada:internalStandardElement "all: Tl (203Tl, 205Tl), for mass-bias correction — §2.4" ;
     ada:isotopeDilutionSpike "None (Tl added for mass fractionation correction only, not ID)" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:numberOfReplicatesPerSample "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)" ;
-    ada:numberOfScansPerReplicate "2000 sweeps per set x 30 sets (stated section 2.3)" ;
+    ada:numberOfReplicatesPerSample "1 — one acquisition of 30 sets of 2000 sweeps (§2.4)" ;
+    ada:numberOfScansPerReplicate "all: 30 sets of 2000 sweeps — total analysis time 4.5 min (§2.4)" ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:primaryStandardNameDefault "NIST SRM981 Common Lead Standard (stated section 2.3)" ;
-    ada:reportedProperties "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios" ;
+    ada:reportedProperties "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb — dimensionless Pb isotope ratios (§2.4)" ;
     ada:samplingUnitType "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"" ;
     ada:secondaryReferenceMaterialDefault "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
     ada:signalIntegrationIntervalMethod "missing" ;
-    ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Soil samples" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Pb" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
                     schema1:valueName "targetSpecies" ;
@@ -97,14 +103,14 @@
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/spectralInterferenceCorrectionsApplied>,
-                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ;
-            ada:targetSpeciesDeclaration "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors 202Hg, 203Tl, 205Tl (stated section 2.3)" ] ;
-    ada:uncertaintyLevel "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")" ;
-    ada:washTimeBetweenSamples "10 s in two 2% HNO3 reservoirs (stated section 2.3)" .
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod> ] ;
+    ada:uncertaintyLevel "2 standard errors for within-run precision; 2sd for the averages of standards — 'Typical within-run precision (2 standards errors)' (§2.4); '(2sd, n = 22)'" ;
+    ada:washTimeBetweenSamples "10 s in each of two 2% HNO3 reservoirs, then a third reservoir for the blank — the blank solution 'was replaced every 20 samples' (§2.4)" .
 
 <ex:instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -147,13 +153,6 @@
         "Torch" ;
     schema1:name "missing" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "205Tl/203Tl = 2.3871 (Woodhead 2002), used to correct instrumental mass fractionation by internal normalisation with the exponential law" ;
     schema1:name "Constants Reference Values" ;
@@ -175,6 +174,13 @@
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N — Nu Attom uses deflector peak jump; no LR/MR/HR designation stated; stated section 2.3" ;
+    schema1:name "Mass Resolution Setting" ;
+    schema1:valueName "massResolutionSettingDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "10 s wash in two 2% HNO3 reservoirs between samples (stated section 2.3)" ;
     schema1:name "Memory Effect Mitigation" ;
@@ -184,7 +190,7 @@
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Detector Configuration" ;
-    schema1:value "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)" ;
+    schema1:value "N — the Attom's 'deflector peak jump' mode is stated (§2.4)" ;
     schema1:valueName "detectorConfiguration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
@@ -218,6 +224,12 @@
     schema1:valueName "sprayChamberTypeAndCoolingTemperature" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -281,4 +293,15 @@
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange> a schema1:PropertyValue ;
+    schema1:name "E-scan Range" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange> ;
+    schema1:unitText "example value" ;
+    schema1:value "N/A — Nu Attom uses deflector peak jump, not E-scan" .
+
+<https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> a schema1:PropertyValue ;
+    schema1:name "Triple Scanning Mode" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
+    schema1:value "N/A — Nu Attom instrument; not applicable" .
 

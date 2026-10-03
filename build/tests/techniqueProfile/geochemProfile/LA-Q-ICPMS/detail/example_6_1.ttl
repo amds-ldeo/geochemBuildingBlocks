@@ -3,33 +3,35 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2016-2> a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2016-2> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach" ;
+    ada:analysisInclusionAndRejectionCriteria "N — the counts 'n = 7' and 'n = 13' (Table 3) are the two glass averages, not merrillite; no contributing count or rule is stated for the merrillite analyses" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:LAICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "Referenced in Table 3 and Table S1; specific values not directly stated in main text; merrillite REE at 14–414 ppm range above detection" ;
-    ada:fundingSourceForAnalysis "Same as silicate protocol" ;
+    ada:detectionLimit "N — Table 3's LODs are for the glasses" ;
+    ada:fundingSourceForAnalysis "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270 and EAR-1019770 — acknowledgements; Y.L. was also supported by the Jet Propulsion Laboratory" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
-    ada:mappingArea "missing" ;
-    ada:numberOfReplicates -9999 ;
-    ada:oxideProduction "missing" ;
+    ada:mappingArea "N/A — spot analysis" ;
+    ada:numberOfReplicates "N — not stated" ;
+    ada:oxideProduction "N — not stated" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "Tissint Martian meteorite" ;
     ada:samplingUnitName "Labelled sections: \"UT1 to UT3 (formerly referred to as MT-1, MT-2, MT-3)\" (p.3). LA-ICP-MS results are averages (\"n = 7\", \"n = 13\", table p.9); individual analyses are in \"Table S1 in supporting information\" (p.7), not in the archived PDF" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime -9999 ;
+    ada:signalIntegrationTime "N — not stated" ;
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
-    ada:transectLength -9999 ;
+    ada:transectLength "N/A — spot analysis" ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
 
 <ex:laQicpmsTAPP-Liu2016-2> schema1:identifier "missing" .
@@ -38,4 +40,9 @@
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:value "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
+    schema1:value "N/A — spot analysis" .
 

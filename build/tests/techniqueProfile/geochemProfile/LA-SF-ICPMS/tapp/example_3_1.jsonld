@@ -25,35 +25,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Olivine Multi-run Spot/Transect v1",
-  "schema:description": "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 \u00b5m, MR) provides Cr IS for Run 2 (trace elements, 130 \u00b5m, LR); pre-ablation pass removes surface contamination before Run 1",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Pallasite olivine ([Mg,Fe]\u2082SiO\u2084)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ \u2014 polished epoxy thick section; pre-ablated before trace element run"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Two line-scan runs on the same line after pre-ablation: run 1 (30 \u00b5m, medium resolution) gives the major elements and Cr, which normalises run 2 (130 \u00b5m, low resolution) for the trace elements (\u00a72.2.3, App. C2)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Pallasite olivine"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -68,10 +69,10 @@
             "schema:name": "Pre Ablation Surface Treatment",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Pre-ablation pass: 150 \u00b5m square, 2 J cm\u207b\u00b2, 20 Hz, 300 \u00b5m s\u207b\u00b9 scan before trace element spot run; removes surface contamination and re-deposited material"
+            "schema:defaultValue": "Pre-ablation before each analysis: 2 J/cm\u00b2, 20 Hz, 150 \u00b5m square-masked spot, 300 \u00b5m/s \u2014 'to avoid bias in the trace element concentrations due to re-deposition of ablated sample material after previous analyses' (\u00a72.2.3)"
           }
         ],
-        "schema:description": "PMG thick sections polished; pre-ablation pass (2 J cm\u207b\u00b2, 20 Hz, 150 \u00b5m square, 300 \u00b5m s\u207b\u00b9) before trace element run",
+        "schema:description": "Flat polished thick sections (\u00a72.1)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -82,32 +83,21 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "run 1 (major elements); run 2 (trace elements) \u2014 two line-scans on the same 400 \u00b5m line, each after pre-ablation; 'Every analysis was carried out 3 times' (\u00a72.2.3)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
         "schema:name": "Data reduction",
         "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "signalSmoothingDefault",
-            "schema:name": "Signal Smoothing",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "None"
-          },
           {
             "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
             "@type": [
@@ -117,7 +107,7 @@
             "schema:name": "Filtering Approach",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged"
+            "schema:defaultValue": "Surface-impurity spikes removed with a 3 sigma filter; results with significant spikes not included in Table 1; Pb and U not presented because of multiple spikes \u2014 \u00a73.3"
           },
           {
             "@id": "ada:parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault",
@@ -128,21 +118,10 @@
             "schema:name": "Pulse Analog Detector Nonlinearity Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "N \u2014 whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated"
+            "schema:defaultValue": "N \u2014 'Triple' detection (Table B1); at the 130 \u00b5m spot, major elements saturate the detector 'even when using the triple detection mode' (App. C2)"
           }
         ],
-        "ada:detectionLimitMethod": "Longerich et al. (1996); LOQ = 10SD criterion (same equation)",
+        "ada:detectionLimitMethod": "all: Longerich et al. (1996), LOD = 3SD/S \u00d7 \u221a(1/Nb + 1/Na) \u2014 Na = 24 and Nb = 5 (App. C5)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -179,7 +158,7 @@
       "schema:name": "Transect Rate Mapping Rate or Step Size",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "10 \u00b5m s\u207b\u00b9 (line scan run 1); spot mode (run 2)"
+      "schema:defaultValue": "run 1: 10 \u00b5m/s; run 2: 10 \u00b5m/s"
     },
     {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -191,7 +170,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.947,
-      "schema:description": "Ar make-up: 0.947 l min\u207b\u00b9 (run 1 and run 2); N\u2082 not added"
+      "schema:description": "Ar, 0.947 L/min (both runs) \u2014 Table B1; no N2 added"
     },
     {
       "@id": "ada:parameter/laSficpmsTAPP/interPassDataDependency",
@@ -204,7 +183,7 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Three-stage sequential design on same olivine location: (1) Pre-ablation pass (2 J cm\u207b\u00b2, 150 \u00b5m square, 300 \u00b5m s\u207b\u00b9) to remove surface contamination; (2) Run 1 \u2014 major elements (30 \u00b5m circular, MR M/\u0394M=4000, 20 Hz, 7 nuclides); (3) Run 2 \u2014 trace elements (130 \u00b5m circular, LR M/\u0394M=300, 40 Hz, 36 nuclides; Cr from run 1 as IS)"
+      "schema:value": "run 1: N/A; run 2: normalised to the Cr concentration from run 1 \u2014 'The Cr concentrations calculated from this run were then used for internal standardization to normalize the data of the second, trace element run' (\u00a72.2.3)"
     }
   ],
   "schema:instrument": [
@@ -268,7 +247,19 @@
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 15,
-              "schema:description": "Cool: 15 l min\u207b\u00b9 Ar; Auxiliary: 0.90 l min\u207b\u00b9 (run 1 and run 2)"
+              "schema:description": "Ar, 15 L/min \u2014 Table B1"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "auxiliaryGasFlowRateDefault",
+              "schema:name": "Auxiliary Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 0.9,
+              "schema:description": "Ar, 0.90 L/min \u2014 Table B1"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -291,7 +282,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1000 W RF)"
+              "schema:value": "N \u2014 RF power 1000 W for both runs (Table B1); only the mapping is described as cool plasma"
             }
           ],
           "@type": [
@@ -326,7 +317,7 @@
           "schema:name": "Mass Resolution Setting",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Run 1: Medium resolution (M/\u0394M = 4000) for major elements; Run 2: Low resolution (M/\u0394M = 300) for trace elements"
+          "schema:defaultValue": "run 1: medium (M/\u0394M = 4000); run 2: low (M/\u0394M = 300) \u2014 \u00a72.2.3"
         },
         {
           "@id": "ada:parameter/module/SingleCollector/detectorConfiguration",
@@ -337,18 +328,7 @@
           "schema:name": "Detector Configuration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Triple mode detection; Faraday used for major elements in run 1"
-        },
-        {
-          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "icpTuningDefault",
-          "schema:name": "ICP Tuning",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Same instrument as mapping; tuning optimized per run (different RF power and resolution settings per run)"
+          "schema:value": "Triple \u2014 Table B1 'Detection mode'"
         },
         {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
@@ -359,7 +339,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": "Washout time: 11 s between runs (runs include 400 \u00b5m line + blank + washout)"
+          "schema:defaultValue": "11 s of washout per run \u2014 Table B1"
         }
       ],
       "@type": [
@@ -392,7 +372,7 @@
           "schema:name": "Laser Pulse Duration",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "~5 ns (ArF excimer)"
+          "schema:value": "4 ns \u2014 Table B1; \u00a72.2.2 says '<5 ns'"
         }
       ],
       "schema:model": {
@@ -401,11 +381,11 @@
           "schema:ProductModel"
         ]
       },
-      "ada:laserType": "193 nm ArF excimer; pulse duration ~5 ns",
+      "ada:laserType": "193 nm ArF* excimer \u2014 \u00a72.2.2",
       "schema:name": "HELEX II two-volume ablation cell",
-      "ada:laserSpotGeometryDefault": "Run 1 (major): 30 \u00b5m circular; Run 2 (trace): 130 \u00b5m circular",
-      "ada:laserFluenceDefault": "Run 1 (major): 4.72 J cm\u207b\u00b2; Run 2 (trace): 4.72 J cm\u207b\u00b2",
-      "ada:laserRepetitionRateDefault": "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz",
+      "ada:laserSpotGeometryDefault": "run 1: 30 \u00b5m diameter circular-masked; run 2: 130 \u00b5m diameter \u2014 \u00a72.2.3",
+      "ada:laserFluenceDefault": "4.72 J/cm\u00b2 (both runs) \u2014 \u00a72.2.3",
+      "ada:laserRepetitionRateDefault": "run 1: 20 Hz; run 2: 40 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -414,39 +394,51 @@
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.19 l min\u207b\u00b9; MFC-2 0.22 l min\u207b\u00b9",
-  "ada:analysisSequenceDefault": "GRM block (3\u20135\u00d7) \u2192 unknowns \u2192 GRM block (3\u20135\u00d7); same structure for run 1 and run 2",
+  "ada:analysisSequenceDefault": "MPI-DING and USGS reference materials at the start and end of each analytical session; every analysis carried out 3 times \u2014 \u00a72.2.3",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
-      "\u00b2\u2075Mg",
-      "\u00b2\u2079Si",
-      "\u00b3\u00b9P",
-      "\u2074\u2074Ca",
-      "\u2075\u00b3Cr",
-      "\u2075\u2075Mn",
-      "\u2075\u2077Fe",
-      "\u2077Li",
-      "\u2074\u2075Sc",
-      "\u2075\u00b9V",
-      "\u2075\u00b3Cr",
-      "\u2075\u2079Co",
-      "\u2076\u2070Ni",
-      "\u2076\u00b3Cu",
-      "\u2076\u2076Zn",
-      "\u2078\u2079Y",
-      "\u2079\u2070Zr",
-      "\u2079\u00b3Nb",
-      "\u00b9\u00b3\u00b3Cs",
-      "\u00b9\u00b3\u2077Ba",
-      "\u00b9\u00b3\u2079La\u2013\u00b9\u2077\u2075Lu",
-      "\u00b9\u2078\u2070Hf",
-      "\u00b9\u2078\u00b9Ta",
-      "\u00b9\u2078\u00b2W",
-      "\u00b9\u2078\u2075Re",
-      "\u00b9\u2079\u00b3Ir",
-      "\u00b9\u2079\u2075Pt",
-      "\u00b9\u2079\u2077Au",
-      "\u00b2\u00b3\u00b2Th",
-      "\u00b2\u00b3\u2078U"
+      "Mg",
+      "Si",
+      "P",
+      "Ca",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Li",
+      "Sc",
+      "V",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Y",
+      "Zr",
+      "Nb",
+      "Cs",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Hf",
+      "Ta",
+      "W",
+      "Re",
+      "Ir",
+      "Pt",
+      "Au",
+      "Th",
+      "U"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -580,7 +572,8 @@
       }
     ]
   },
-  "ada:backgroundCountTimeDefault": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans",
+  "ada:massResolutionAssignment": "run 1: medium resolution (M/\u0394M = 4000); run 2: low resolution (M/\u0394M = 300) \u2014 \u00a72.2.3",
+  "ada:backgroundCountTimeDefault": "5 gas-blank scans and 24 ablation scans per analysis, both runs; 10 s of blank per run \u2014 Table B1",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -606,7 +599,7 @@
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent"
+      "schema:name": "N \u2014 the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis"
     }
   ],
   "schema:relatedLink": [
@@ -629,24 +622,17 @@
     }
   ],
   "ada:reportedProperties": [
-    "Major and trace element concentrations along the scan (\u00b5g/g), reported as profiles from olivine rim to core and as tabulated compositions (Table 1, p.5); Fa# \"(fayalite, Fa # = FeO/(FeO + MgO) \u2219 100, atomic %)\" is reported with them (p.5)"
+    "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (\u00b5g/g); Fa# \u2014 Table 1, 'the average from 3 replicate measurements'"
   ],
   "ada:ablationSamplingMode": [
-    "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)"
+    "run 1: line scan, 400 \u00b5m; run 2: line scan on top of run 1, 400 \u00b5m \u2014 'a second line-scan was completed on top of the first one' (\u00a72.2.3)"
   ],
-  "ada:ablationSpotDurationDefault": "N/A (line scan run 1) / N/A (spot run 2 \u2014 duration set by 34 runs covering 400 \u00b5m + washout, not a fixed spot duration)",
-  "ada:internalStandardApproach": "Run 1 (major elements): sum-of-oxide normalization (MgO+FeO+SiO\u2082+P\u2082O\u2085=100 wt%; Liu et al. 2008); Run 2 (trace elements): single element IS from Run 1 (\u2075\u00b3Cr concentration from major element run used as IS for trace element run)",
-  "ada:elementalFractionationCorrection": [
-    "Run 1: Oxide sum normalization corrects for ablation yield variation; external calibration using glass GRMs (NIST + USGS + MPI-DING); Run 2: Cr from run 1 as IS corrects for ablation yield; external calibration with expanded glass GRM set"
-  ],
-  "ada:calibrationMeasurementFrequency": "Same as mapping protocol; GRMs at start and end",
-  "ada:blankBackgroundCorrectionMethod": "Gas blank measured before each analysis (5 scans); average background value preceding each analysis subtracted from corresponding data",
-  "ada:internalStandardElement": "Run 1: No single IS; oxide sum normalization; Run 2: \u2075\u00b3Cr (concentration from Run 1 major-element analysis on 30 \u00b5m spot used as IS for 130 \u00b5m spot trace element run)",
-  "ada:signalIntegrationIntervalMethod": "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Same GRM set measured as unknowns for accuracy assessment"
-  ],
-  "ada:primaryStandardNameDefault": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
+  "ada:ablationSpotDurationDefault": "50 s of sample ablation per 400 \u00b5m line, both runs \u2014 Table B1",
+  "ada:rasterLineSpacingDefault": "N/A \u2014 line scan + spot; not 2D mapping",
+  "ada:internalStandardApproach": "run 1: sum normalization of the oxides to 100 wt% (Liu et al., 2008); run 2: single element from run 1 \u2014 \u00a72.2.3, App. C2",
+  "ada:calibrationMeasurementFrequency": "Start and end of each analytical session \u2014 'MPI-DING and USGS reference materials were measured at the start and end of each analytical session' (\u00a72.2.3)",
+  "ada:blankBackgroundCorrectionMethod": "Gas blank before each line analysis; the average background preceding each analysis subtracted \u2014 App. C5",
+  "ada:internalStandardElement": "run 1: none (oxide sum); run 2: Cr (concentration from run 1) \u2014 \u00a72.2.3",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -656,11 +642,10 @@
   "ada:ablationPitDepthRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
-  "ada:massResolutionAssignment": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

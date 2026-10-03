@@ -25,7 +25,24 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Tomkinson2015",
-  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v42.csv).",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Martian meteorite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:targetFeature": "Modal mineralogy (vol%); secondary minerals",
   "schema:object": [
     {
       "@type": [
@@ -34,12 +51,6 @@
         "schema:Thing"
       ],
       "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Martian meteorite (nakhlite, NWA 5790)"
-          ]
-        },
         {
           "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
           "@type": [
@@ -54,37 +65,6 @@
       ]
     }
   ],
-  "ada:targetFeature": "Modal mineralogy (vol%); secondary minerals",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "None; chip used as received",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/xRayTubeAnodeMaterial",
@@ -210,6 +190,36 @@
   "ada:reportedProperties": [
     "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite; slice area (mm2)"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk specimen or fragment \u2014 \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

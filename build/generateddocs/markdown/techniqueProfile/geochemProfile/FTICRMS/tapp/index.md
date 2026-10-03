@@ -30,7 +30,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     "bios:LabProtocol"
   ],
   "schema:name": "fticrms protocol — P0",
-  "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv).",
+  "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     "bios:LabProtocol"
   ],
   "schema:name": "fticrms protocol \u2014 P0",
-  "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv).",
+  "schema:description": "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FTICR-MS 12 Tesla Solarix Infinity system",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
     schema1:creator [ a schema1:Person ;
             schema1:name "Liss, Michael" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv)." ;
+    schema1:description "fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz University (Helmholtz Zentrum Munchen) | FTICR-MS 12 Tesla Solarix Infinity system (publication column of FTICRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FTICR-MS." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)" ] ;
     schema1:location [ a schema1:Place ;

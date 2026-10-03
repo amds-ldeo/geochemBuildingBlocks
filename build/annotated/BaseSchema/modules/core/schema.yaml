@@ -344,25 +344,6 @@ $defs:
                           items:
                             type: string
                         x-jsonld-id: http://schema.org/identifier
-                      ada:samplingUnits:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            schema:name:
-                              description: "The name or label of each sampling unit
-                                analysed in this session, as the laboratory records
-                                it, together with the sample it belongs to \u2014
-                                e.g. a spot number, a grain label, a map or region-of-interest
-                                name, or an aliquot identifier. Where units are too
-                                numerous to name individually, such as map pixels
-                                or reconstructed voxels, name the acquisition area
-                                they belong to instead."
-                              type: string
-                              x-jsonld-id: http://schema.org/name
-                          required:
-                          - schema:name
-                        x-jsonld-id: https://ada.astromat.org/metadata/samplingUnits
                     required:
                     - schema:name
               allOf:
@@ -630,42 +611,18 @@ $defs:
                       type: string
                   x-jsonld-id: http://schema.org/target
         x-jsonld-id: http://schema.org/relatedLink
-  Param_Procedure_targetMaterial:
-    title: Target Material
-    description: General description of the material type(s) this procedure is designed
-      to analyse.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/module/Core/targetMaterial
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: targetMaterial
-        x-jsonld-id: http://schema.org/valueName
-      schema:name:
-        const: Target Material
-        x-jsonld-id: http://schema.org/name
-      ada:dataType:
-        const: string
-        x-jsonld-id: https://ada.astromat.org/metadata/dataType
-      ada:fieldScope:
-        const: session
-        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
-      schema:readonlyValue:
-        const: true
-        x-jsonld-id: http://schema.org/readonlyValue
-      ada:tier:
-        const: R
-        x-jsonld-id: https://ada.astromat.org/metadata/tier
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
+      schema:variableMeasured:
+        type: array
+        items:
+          type: object
+        allOf:
+        - contains:
+            properties:
+              schema:name:
+                const: Sampling Unit Name
+            required:
+            - schema:name
+        x-jsonld-id: http://schema.org/variableMeasured
   Param_Analysis_constantsReferenceValues:
     title: Constants Reference Values
     description: Physical constants and reference values used in data reduction to

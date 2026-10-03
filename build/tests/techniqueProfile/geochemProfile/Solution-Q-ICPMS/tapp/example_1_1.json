@@ -15,41 +15,54 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Gao2008",
-  "schema:description": "Autolens used (not guard electrode; stated section 3.1); 3 sweeps/reading x 3 readings = 9 sweeps/replicate; 48 trace elements analyzed Reported detail: ada:driftCorrectionMethod = IS normalization + standard bracketing (Rh IS + repeated calibration solution; stated section 3.1).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials (basalt, andesite, granite, shale); upper continental crust samples (stated abstract)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 50,
-          "schema:description": "50 mg (stated section 3.3)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As \u2014 \u00a73.1, \u00a73.2, \u00a73.3 Reported detail: ada:signalCollectionMode = Peak hopping, one point per peak \u2014 \u00a73.1; ada:driftCorrectionMethod = Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run \u2014 drift minimised by flushing a rock solution for 30 min before tuning (\u00a73.1).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "andesite",
+      "basalt",
+      "granite",
+      "granodiorite",
+      "rhyolite",
+      "peridotite",
+      "dunite",
+      "dolerite",
+      "diabase",
+      "shale",
+      "sandstone",
+      "limestone",
+      "loess",
+      "graywacke"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Whole-rock powder (50 mg; stated section 3.3)",
+        "schema:description": "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard \u2014 clean-room conditions (\u00a73.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -85,17 +98,6 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "None"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated"
           }
         ],
         "@type": [
@@ -132,7 +134,7 @@
             "ada:dataType": "number",
             "ada:fieldScope": "session",
             "schema:defaultValue": 190,
-            "schema:description": "190 deg C (stated section 3.3)"
+            "schema:description": "bomb attack: 190 \u00b0C; re-dissolution: 150 \u00b0C \u2014 \u00a73.3"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -143,13 +145,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "48 h (stated section 3.3)"
+            "schema:defaultValue": "bomb attack: 48 h; re-dissolution: overnight \u2014 \u00a73.3"
           }
         ],
-        "schema:description": "1: concentrated HNO3 (1 ml) + concentrated HF (1 ml), bomb 190 deg C / 48 h | 2: HNO3 (1.5 ml) + ultra-pure water (2.5 ml), bomb 150 deg C overnight. The paper numbers five operations (section 3.3); the two intervening HNO3 fumings to dryness carry no attack of their own and are part of step 1 under the 2026-09-08 grain rule. This cell previously read \"2\" beside \"five steps explicitly numbered\" -- the contradiction an Integer definer could not resolve.",
+        "schema:description": "bomb attack (1 ml HNO3 + 1 ml HF, 190 \u00b0C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 \u00b0C overnight) \u2014 \u00a73.3 numbers five operations; the evaporations carry no attack of their own",
         "bios:reagent": [
           {
-            "schema:name": "Step 1: conc. HNO3 (1 ml) + conc. HF (1 ml); Steps 2-3: conc. HNO3 fuming to dryness (twice); Step 4: HNO3 (1.5 ml) + ultra-pure water (2.5 ml); stated section 3.3",
+            "schema:name": "bomb attack: HNO3 + HF; re-dissolution: HNO3 \u2014 \u00a73.3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -169,6 +171,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 50,
+          "schema:description": "50 mg (stated section 3.3)"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -184,63 +209,6 @@
           "schema:ProductModel"
         ]
       },
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
-        },
-        {
-          "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "doublyChargedSpeciesMonitorDefault",
-          "schema:name": "Doubly-Charged Species Monitor",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Ce2+/Ce+ (m/z 70/140; stated section 3.1)"
-        },
-        {
-          "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "doublyChargedSpeciesProductionDefault",
-          "schema:name": "Doubly-Charged Species Production",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Ce2+/Ce+ < 2.5% threshold (stated section 3.1)"
-        },
-        {
-          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "memoryEffectMitigationDefault",
-          "schema:name": "Memory Effect Mitigation",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)"
-        },
-        {
-          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "icpTuningDefault",
-          "schema:name": "ICP Tuning",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\""
-        }
-      ],
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -283,6 +251,18 @@
               "ada:fieldScope": "session",
               "schema:defaultValue": 0.2,
               "schema:description": "0.20 ml/min (stated section 3.1)"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "nebulizerGasFlowRateDefault",
+              "schema:name": "Nebulizer Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": 3.1,
+              "schema:description": "N \u2014 'optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U' (\u00a73.1)"
             }
           ],
           "@type": [
@@ -345,7 +325,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1350 W; stated section 3.1)"
+              "schema:value": "N \u2014 RF power 1350 W (\u00a73.1)"
             }
           ],
           "@type": [
@@ -362,7 +342,7 @@
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "STD (standard mode, no gas; stated section 3.1)",
+          "schema:name": "N \u2014 an ELAN 6100 DRC; no cell gas or cell mode is described (\u00a73.1)",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -398,6 +378,52 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitorDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "doublyChargedSpeciesMonitorDefault",
+          "schema:name": "Doubly-Charged Species Monitor",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Ce2+/Ce+ \u2014 \u00a73.1"
+        },
+        {
+          "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProductionDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "doublyChargedSpeciesProductionDefault",
+          "schema:name": "Doubly-Charged Species Production",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Ce2+/Ce+ below 2.5% \u2014 \u00a73.1"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "memoryEffectMitigationDefault",
+          "schema:name": "Memory Effect Mitigation",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\""
+        }
+      ],
       "schema:manufacturer": {
         "schema:name": "PerkinElmer",
         "@type": [
@@ -410,30 +436,6 @@
       ],
       "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName"
-    }
-  ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    },
-    {
-      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
-      "schema:name": "Instrument Warm up Session Duration Limit",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "Partially -- instrument conditioning before tuning is stated: \"Drift was minimized by flushing through a rock solution for 30 min before tuning the instrument for a run\". No warm-up time after plasma ignition and no session duration limit stated"
     }
   ],
   "ada:targetSpeciesTemplate": {
@@ -464,7 +466,20 @@
       "Te",
       "Cs",
       "Ba",
-      "La-Lu",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
       "Hf",
       "Ta",
       "W",
@@ -546,8 +561,104 @@
       }
     ]
   },
-  "ada:massCyclesPerReplicate": "3 sweeps/reading x 3 readings/replicate (= 9 sweeps/replicate; stated section 3.1)",
-  "ada:driftCorrectionMethod": "Standard bracketing",
+  "ada:monitoredPropertyTemplate": {
+    "ada:defaultMonitoredProperties": [
+      {
+        "monitoredProperty": "114Cd",
+        "targetSpecies": "Cd"
+      },
+      {
+        "monitoredProperty": "115In",
+        "targetSpecies": "In"
+      },
+      {
+        "monitoredProperty": "118Sn",
+        "targetSpecies": "Sn"
+      }
+    ],
+    "ada:monitoredPropertyColumns": [
+      {
+        "schema:valueName": "monitoredProperty",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:monitoredPropertyColumn/solutionQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:massCyclesPerReplicate": "all: three sweeps per reading and three readings per replicate \u2014 \u00a73.1",
+  "ada:signalCollectionMode": "Peak hopping",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "internalStandardConcentration",
+      "schema:name": "Internal Standard Concentration",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:value": 0.5,
+      "schema:description": "0.50 ml of 1.0 \u00b5g/ml Rh in the 50 ml final solution \u2014 \u00a73.3"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "Partially -- instrument conditioning before tuning is stated: \"Drift was minimized by flushing through a rock solution for 30 min before tuning the instrument for a run\". No warm-up time after plasma ignition and no session duration limit stated"
+    }
+  ],
+  "ada:driftCorrectionMethod": "N/A",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -567,18 +678,18 @@
     "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
   ],
   "ada:reportedProperties": [
-    "Forty-eight trace element concentrations (ppm); blanks (ppb)"
+    "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) \u2014 Table 2; blanks in ppb"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis of digested solution)",
+  "ada:chromatographicSeparationApplied": "None \u2014 the digest is analysed directly (\u00a73.3)",
   "ada:isotopeDilutionSpike": "None",
-  "ada:finalSolutionMatrix": "Dilute HNO3 (~3%; 1.5 ml conc. HNO3 in ~50 ml; stated section 3.3)",
+  "ada:finalSolutionMatrix": "all: 1.5 ml HNO3 and 2.5 ml water made up to 50 ml with ultra-pure water and 0.50 ml of 1.0 \u00b5g/ml Rh \u2014 \u00a73.3",
+  "ada:washTimeBetweenSamples": "N \u2014 'manual analyses in which care was taken to completely wash-out B and Ta signals between samples' (\u00a73.1)",
   "ada:uncertaintyLevel": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 2.5% and Ce2+/Ce+ < 2.5% (stated section 3.1)",
-  "ada:internalStandardElement": "Rh (stated section 3.1)",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ and Ce2+/Ce+ below 2.5%, with the nebulizer gas flow optimised for maximum Mg, Co, Rh, Ce, Pb and U signals \u2014 \u00a73.1",
+  "ada:internalStandardElement": "all: Rh \u2014 \u00a73.1, \u00a73.3",
   "ada:secondaryReferenceMaterialDefault": [
-    "AGV-1, BHVO-1, G-2, SCO-1, GSR-5 (stated Table 2)"
+    "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 \u2014 five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (\u00a73.4)"
   ],
-  "ada:primaryStandardNameDefault": "Multi-element calibration solution (not formally named; stated section 3.1)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -590,8 +701,6 @@
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
-  "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
-  "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"
 }

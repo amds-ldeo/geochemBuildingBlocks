@@ -16,34 +16,25 @@
   ],
   "schema:name": "tem protocol \u2014 Singerling2025",
   "schema:description": "Na,Ca carbonate grains extremely beam-sensitive: amorphized under electron beam; samples re-analyzed in 4 sessions (Dec 2023 \u2013 Dec 2024) to track terrestrial alteration; NO FIB used (authors note FIB may destroy beam-sensitive Na,Ca carbonates); underlying TEM data deposited at AstroMat (Table A4 supplementary); note: same Goethe lab and instrument (Talos F200X G2) as in Zega2025 Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map); ada:edsAcquisitionModeDefault = Spectrum image (map); point analysis; ada:edsQuantificationMethod = Cliff-Lorimer (k-factor) method; no absorption corrections.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Bennu particle OREX-800045-102 (OSIRIS-REx sample): Na,Ca carbonates (gaylussite/pirssonite), phyllosilicates, sulfides"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-          "schema:name": "Pre-Analysis Imaging and Screening",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "N \u2014 the particle was crushed onto a grid and the fine particles taken as they came: \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "\"Na",
+      "Ca carbonates\"",
+      "phyllosilicates",
+      "sulfides"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -72,24 +63,11 @@
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 compositions are reported per named grain, with no aggregate over results and no rejection rule. The counts \"(n = 7)\" and \"(n = 86)\" (p.2) are EPMA populations from other Bennu samples, cited for comparison, and are not this procedure's outcome"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -101,6 +79,28 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "None, stated explicitly \u2014 \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 the particle was crushed onto a grid and the fine particles taken as they came: \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -325,7 +325,7 @@
     }
   ],
   "ada:reportedProperties": [
-    "Na,Ca carbonate compositions from TEM EDS, reported as atomic percentages and as changes in them over time (at%: \"+9.4 at.% C, +5.6 at.% F, +4.1 at.% Ca, +3.5 at.% Cl, \u201319 at.% O, and \u20134.8 at.% Na\" for grain 11, p.3); grain dimensions (nm: shortest axes 140\u2013860 nm, longest 640\u20132360 nm, p.2); grain area and the areal fraction the carbonates represent (\u00b5m2, p.2); phase identifications from SAED (nominal)"
+    "carbonate composition (at%); change in composition over time (at%); grain dimensions (nm); grain area (\u00b5m2); areal fraction of carbonates; phase identification (nominal) \u2014 Na,Ca carbonate compositions from TEM EDS, reported as atomic percentages and as changes in them over time (at%: \"+9.4 at.% C, +5.6 at.% F, +4.1 at.% Ca, +3.5 at.% Cl, \u201319 at.% O, and \u20134.8 at.% Na\" for grain 11, p.3); grain dimensions (nm: shortest axes 140\u2013860 nm, longest 640\u20132360 nm, p.2); grain area and the areal fraction the carbonates represent (\u00b5m2, p.2); phase identifications from SAED (nominal)"
   ],
   "schema:variableMeasured": [
     {

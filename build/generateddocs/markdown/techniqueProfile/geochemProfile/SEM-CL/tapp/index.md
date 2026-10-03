@@ -30,7 +30,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     "bios:LabProtocol"
   ],
   "schema:name": "semCl protocol — JSM7000",
-  "schema:description": "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv).",
+  "schema:description": "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "JEOL JSM7000F FEG-SEM",
   "schema:measurementTechnique": [
@@ -105,7 +105,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     "bios:LabProtocol"
   ],
   "schema:name": "semCl protocol \u2014 JSM7000",
-  "schema:description": "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv).",
+  "schema:description": "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "JEOL JSM7000F FEG-SEM",
   "schema:measurementTechnique": [
@@ -172,7 +172,7 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv)." ;
+    schema1:description "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02feahw73" ;
             schema1:name "CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications" ] ;

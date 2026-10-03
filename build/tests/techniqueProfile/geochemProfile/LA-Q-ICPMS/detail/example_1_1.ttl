@@ -3,7 +3,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Nakanishi2022> a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Nakanishi2022> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "Partially — the contributing counts are stated per grain, the reported ratios being \"the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (p.8). No acceptance or rejection rule is stated for the LA data; the 233/235 > 0.2 rejection (p.4) is a rule for the N-TIMS Os measurements, not for these spot analyses, and is not borrowed" ;
@@ -12,15 +13,16 @@
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "per-grain mean Re/Os ratio for each metal grain in Table 3 (1–3 spots each)" ;
     ada:componentType "ada:LAICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit -9999 ;
+    ada:detectionLimit "N — LODs not formally stated" ;
     ada:fundingSourceForAnalysis "JSPS Grant-in-Aid for Scientific Research (grants 26106002, 26220713, 16H04081, 19H00715, 19H01081, 20H04609)" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "all: 2SE of individual measurements — 'Analytical uncertainties accompanied with the data are 2SE of individual measurements' (p.4)" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
-    ada:numberOfReplicates -9999 ;
+    ada:numberOfReplicates 1 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
     ada:sampleName "missing" ;
@@ -30,7 +32,7 @@
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "Analytical uncertainties: 2SE of individual spot measurements reported alongside data" .
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "N — the 2SE is stated for individual measurements (p.4), not for a standard" .
 
 <ex:laQicpmsTAPP-Nakanishi2022> schema1:identifier "missing" .
 
@@ -38,4 +40,9 @@
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:value "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
+    schema1:value "N/A — spot mode" .
 

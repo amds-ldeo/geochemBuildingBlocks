@@ -15,36 +15,38 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Dauphas2019",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate rocks \u2014 geostandards including basalts, granites and peridotites, and the Allende chondrite"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg or less; ~40 ng Rb typical"
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "lunar rock",
+      "terrestrial rock",
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -132,12 +134,35 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "30 ml fluoropolymer vessel"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionTemperatureDefault",
+            "schema:name": "Digestion Temperature",
+            "ada:dataType": "number",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": 3,
+            "schema:description": "HF\u2013HNO3\u2013HClO4 attack: 130 \u00b0C; HCl\u2013HNO3 attack: 130 \u00b0C; HNO3 attack: N; Parr bomb: 175\u2013180 \u00b0C"
+          },
+          {
+            "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "digestionDurationDefault",
+            "schema:name": "Digestion Duration",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "HF\u2013HNO3\u2013HClO4 attack: 24 h; HCl\u2013HNO3 attack: 24 h, twice; HNO3 attack: 24 h; Parr bomb: at least 3 days"
           }
         ],
-        "schema:description": "1: 4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4 | 2: not stated | 3: not stated. The paper numbers three steps of concentrated HF-HNO3-HCl-HClO4 but gives the composition only of step (i).",
+        "schema:description": "HF\u2013HNO3\u2013HClO4 attack (4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4, closed 30 ml fluoropolymer beaker, 130 \u00b0C, 24 h); HCl\u2013HNO3 attack (dried at 130 \u00b0C, 4.5 ml 11 M HCl + 1.5 ml 15 M HNO3, closed, 130 \u00b0C, 24 h, repeated twice); HNO3 attack (dried, 4 ml 15 M HNO3, closed, hotplate, 24 h); Parr bomb (undigested residue, 175\u2013180 \u00b0C, at least 3 days) \u2014 A.1; the bomb step only when a sample was not fully digested",
         "bios:reagent": [
           {
-            "schema:name": "Three steps of concentrated HF\u2013HNO3\u2013HCl\u2013HClO4; step (i) \"4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4\"",
+            "schema:name": "HF\u2013HNO3\u2013HClO4 attack: 28 M HF + 15 M HNO3 + 10 M HClO4; HCl\u2013HNO3 attack: 11 M HCl + 15 M HNO3; HNO3 attack: 15 M HNO3; Parr bomb: N",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -157,6 +182,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "~100 mg or less; ~40 ng Rb typical"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -278,7 +326,7 @@
               "schema:name": "Faraday Cup Amplifier Resistor Values",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "\"All three collectors were equipped with the 10^11 \u03a9 amplifiers\""
+              "schema:value": "85Rb, 87Rb, 88Sr: 10^11 \u03a9 \u2014 'All three collectors were equipped with the 10^11 \u03a9 amplifiers'"
             }
           ],
           "@type": [
@@ -380,7 +428,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "None \u2014 spray chamber introduction"
+      "schema:value": "all: none \u2014 a dual cyclonic-Scott-type quartz spray chamber"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -414,7 +462,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 25,
-      "schema:description": "25 cycles"
+      "schema:description": "all: 25 cycles \u2014 a single block"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -426,7 +474,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 4.194,
-      "schema:description": "4.194 s"
+      "schema:description": "all: 4.194 s"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
@@ -527,20 +575,20 @@
       }
     ]
   },
-  "ada:analysisSequenceDefault": "Standard-sample bracketing",
+  "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions \u2014 A.3",
   "ada:massBiasCorrectionStrategy": "Standard-sample bracketing against NIST SRM984",
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "\u2078\u2075Rb",
+        "monitoredProperty": "85Rb",
         "targetSpecies": "Rb"
       },
       {
-        "monitoredProperty": "\u2078\u2077Rb",
+        "monitoredProperty": "87Rb",
         "targetSpecies": "Rb"
       },
       {
-        "monitoredProperty": "\u2078\u2078Sr"
+        "monitoredProperty": "88Sr"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -617,18 +665,19 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "\u03b487Rb in permil relative to NIST SRM984"
+    "\u03b487Rb \u2014 \u2030 relative to NIST SRM984"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes, so internal normalization is not possible; bracketing used instead",
-  "ada:chromatographicSeparationApplied": "Yes \u2014 five steps: AG50W-X8 cation, a second cation column, AG1-X8 anion in 2 M HF for Ti, a 40 cm Eichrom Sr resin column for Rb-K, and an AG50W-X8 clean-up. Yields >95%",
+  "ada:chromatographicSeparationApplied": "Yes, five steps: AG50W-X8 cation, a second cation column, AG1-X8 anion in 2 M HF for Ti, a 40 cm Eichrom Sr resin column for Rb-K, and an AG50W-X8 clean-up. Yields >95%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "0.3 M HNO3, ~15\u201325 ppb Rb",
-  "ada:washTimeBetweenSamples": "60 s wash in 0.45 M HNO3, with a 90 s take-up time",
+  "ada:finalSolutionMatrix": "all: 0.3 M HNO3, ~15\u201325 ppb Rb \u2014 samples and standards matched in Rb concentration within 1%",
+  "ada:washTimeBetweenSamples": "60 s with 0.45 M HNO3 \u2014 take-up time 90 s",
+  "ada:uncertaintyLevel": "2\u03c3/\u221an \u2014 \u03c3 from the standards treated as samples, n the replicates of the sample",
+  "ada:blankBackgroundCorrectionMethod": "Average intensity of the two bracketing 0.3 M HNO3 blank measurements subtracted from each sample and standard \u2014 background 0.001\u20130.003 V on \u2078\u2075Rb",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3; DTS-2b and PCC-1 synthetic mixes; Allende"
+    "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende \u2014 A.4"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM984",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -638,11 +687,9 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:blankBackgroundCorrectionMethod": "missing",
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
-  "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }

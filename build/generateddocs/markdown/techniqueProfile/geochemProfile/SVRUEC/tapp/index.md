@@ -30,7 +30,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     "bios:LabProtocol"
   ],
   "schema:name": "svruec protocol — Model5077",
-  "schema:description": "svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth (publication column of SVRUEC_TAPP_draft_v2.csv).",
+  "schema:description": "svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth (publication column of SVRUEC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Olympus.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     "bios:LabProtocol"
   ],
   "schema:name": "svruec protocol \u2014 Model5077",
-  "schema:description": "svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth (publication column of SVRUEC_TAPP_draft_v2.csv).",
+  "schema:description": "svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth (publication column of SVRUEC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Olympus.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
     schema1:creator [ a schema1:Person ;
             schema1:name "Hanton, Lincoln" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth (publication column of SVRUEC_TAPP_draft_v2.csv)." ;
+    schema1:description "svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calgary | Olympus Model 5077 PR with 35 MHz ultrasonic bandwidth (publication column of SVRUEC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Olympus." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Grant 22EXPOSICA from Planetary Exploration, Space Exploration, Canadian Space Agency. This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

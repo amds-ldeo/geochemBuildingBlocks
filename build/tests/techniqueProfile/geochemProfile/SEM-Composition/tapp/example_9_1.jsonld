@@ -26,70 +26,37 @@
   ],
   "schema:name": "semComposition protocol \u2014 Barnes2025",
   "schema:description": "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu aggregate QL particles; O-rich presolar silicate and oxide grains; sample OREX-501018-100"
-          ]
-        }
-      ]
-    }
-  ],
-  "ada:samplingUnitSelectionCriteriaDefault": "Isotopic anomaly, found by prior NanoSIMS imaging \u2014 grains \"were considered presolar if their isotopic composition differed from the reference ratios by >5\u03c3 and if the isotopic anomaly was present in multiple consecutive frames\", and of those \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase\" (p.11)",
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "O-rich presolar grains \u2014 Asteroid (101955) Bennu aggregate QL particles; O-rich presolar silicate and oxide grains; sample OREX-501018-100",
+    "ada:targetMaterialColumns": [
       {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5\u03c3 anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
     ],
-    "@type": [
-      "schema:HowTo"
-    ]
+    "ada:defaultTargetMaterials": []
   },
+  "ada:samplingUnitSelectionCriteriaDefault": "Isotopic anomaly, found by prior NanoSIMS imaging \u2014 grains \"were considered presolar if their isotopic composition differed from the reference ratios by >5\u03c3 and if the isotopic anomaly was present in multiple consecutive frames\", and of those \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase\" (p.11)",
   "ada:monitoredElements": [
-    "Mg, Si, Fe, Ni, S, Na, Ca, Al \u2014 \"multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\" (p.11)"
+    "N \u2014 no element set is named for the JSC SEM-EDS of the two presolar grains (p.2, p.11, Extended Data Fig. 8). The 'multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains' (p.11) is the CRPG JEOL JSM-6510 work on other samples"
   ],
   "schema:measurementTechnique": [
     {
@@ -122,8 +89,39 @@
     "EDS Mapping"
   ],
   "ada:reportedProperties": [
-    "Elemental composition of the two presolar grains, used \"to further constrain the phase and to confirm the phase identifications made based on the NanoSIMS data\" (p.11); the reported output is the phase assignment (nominal: silicate vs oxide)"
+    "elemental composition of the presolar grains; phase assignment (nominal: silicate vs oxide) \u2014 Elemental composition of the two presolar grains, used \"to further constrain the phase and to confirm the phase identifications made based on the NanoSIMS data\" (p.11); the reported output is the phase assignment (nominal: silicate vs oxide)"
   ],
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ]
+  },
   "schema:instrument": [
     {
       "@id": "ex:instrument/SEM",
@@ -212,7 +210,6 @@
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "missing"

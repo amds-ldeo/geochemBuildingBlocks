@@ -25,25 +25,37 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Shearer2024",
-  "schema:description": "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v42.csv).",
-  "schema:object": [
+  "schema:description": "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 225 kV multi-metal reflection target source.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Lunar regolith"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:targetFeature": "Internal structure of core vacuum seal container",
+  "schema:additionalProperty": [
     {
+      "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
       "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+        "schema:PropertyValueSpecification"
       ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Lunar regolith (Apollo 17 drive-tube CSVC)"
-          ]
-        }
-      ]
+      "schema:valueName": "sampleMountingMethodDefault",
+      "schema:name": "Sample Mounting Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Sealed container (the unopened 73001 CSVC); stage holder N \u2014 \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)"
     }
   ],
-  "ada:targetFeature": "Internal structure of core vacuum seal container",
   "ada:xRaySourceConfiguration": "225 kV multi-metal reflection target source",
   "schema:instrument": [
     {
@@ -99,21 +111,18 @@
     "Space between the bottom tip of the CSVC and the Teflon cap; Teflon cap location and integrity (nominal)"
   ],
   "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
     "schema:step": [
       {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk specimen or fragment \u2014 core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Sample preparation",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "schema:description": "missing"
+        "schema:position": 1
       },
       {
         "@type": [
@@ -126,6 +135,9 @@
         ],
         "schema:position": 2
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
   "schema:variableMeasured": [

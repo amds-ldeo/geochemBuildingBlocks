@@ -15,35 +15,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1",
-  "schema:description": "Analysis of quenched experimental glasses from high-pressure (1 GPa) piston-cylinder experiments; Au and Cu solubility measurements; smooth time-resolved signals indicate fully dissolved Au (no micronuggets)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Experimental dacitic silicate glass (quench product)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ \u2014 polished epoxy mount (experimental capsule half-section)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (\u00a72.2.2)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "quench product"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laQicpmsUPbTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper states the beam diameter used for glasses (\"40 \u03bcm beam diameter for glasses\", p.4) but no rule for choosing where in a run product to ablate",
   "schema:additionalProperty": [
     {
@@ -58,6 +59,17 @@
       "schema:defaultValue": "Optical microscopy, then EMP \u2014 \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)"
     },
     {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A \u2014 spot mode"
+    },
+    {
       "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -66,7 +78,30 @@
       "schema:name": "Make-up Gas and Flow Rate",
       "ada:dataType": "number",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "N\u2082 or Ar mixed into He carrier for sensitivity optimization (amounts not stated)"
+      "schema:defaultValue": 2,
+      "schema:description": "N2 or Ar mixed into the He carrier; amounts not stated \u2014 \u00a72.2.2"
+    },
+    {
+      "@id": "ada:parameter/module/UPb/discordanceDefinitionAndValues",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "discordanceDefinitionAndValues",
+      "schema:name": "Discordance Definition and Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N \u2014 the procedure reports no date"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "errorCorrelationBetweenReportedQuantitiesDefault",
+      "schema:name": "Error Correlation Between Reported Quantities",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N \u2014 the procedure reports no date"
     },
     {
       "@id": "ada:parameter/laQicpmsUPbTAPP/interPassDataDependency",
@@ -79,13 +114,14 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot per location (~40 s ablation at 7 Hz)"
+      "schema:value": "N/A \u2014 a single acquisition pass"
     }
   ],
   "schema:instrument": [
     {
       "schema:additionalType": [
         "ICPMS",
+        "N \u2014 ICP-MS type not stated; Agilent 7900 model named but \"quadrupole\" not explicitly stated",
         {
           "@id": "https://www.wikidata.org/wiki/Q3099911"
         }
@@ -96,19 +132,6 @@
           "schema:ProductModel"
         ]
       },
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "Unit resolution (quadrupole fixed)"
-        }
-      ],
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -188,16 +211,16 @@
         }
       ],
       "schema:model": {
-        "schema:name": "Resonetics 193 nm ArF excimer laser (coupled to Cetac Analyte HE system)",
+        "schema:name": "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system \u2014 \u00a72.2.2",
         "@type": [
           "schema:ProductModel"
         ]
       },
-      "ada:laserType": "193 nm (CetacAnalyte HE; ns pulse)",
-      "schema:name": "Cetac Analyte HE system (stated as the laser ablation system coupled to Agilent 7900)",
-      "ada:laserSpotGeometryDefault": "40 \u00b5m circular (silicate glass)",
+      "ada:laserType": "193 nm ArF excimer \u2014 \u00a72.2.2",
+      "schema:name": "N \u2014 the paper names the 'CetacAnalyte HE system', not its cell",
+      "ada:laserSpotGeometryDefault": "all: 40 \u00b5m beam diameter \u2014 'a 40 \u03bcm beam diameter for glasses' (\u00a72.2.2)",
       "ada:laserFluenceDefault": "~2.5 J cm\u207b\u00b2 (stated as \"energy of ~2.5 J/cm\u00b2\")",
-      "ada:laserRepetitionRateDefault": "7 Hz",
+      "ada:laserRepetitionRateDefault": "all: 7 Hz \u2014 'operated at 7 Hz ablation frequency' (\u00a72.2.2)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -205,13 +228,12 @@
       "@id": "ex:instrument/Laser-Ablation-System"
     }
   ],
-  "ada:carrierGasFlowRateDefault": "He (flow rate not stated; carrier gas with N\u2082 or Ar mixed for sensitivity optimization)",
-  "ada:analysisSequenceDefault": "NIST 610 as primary standard measured in session; NIST 612 and BCR-2G as monitoring standards; unknowns bracketed by standards",
+  "ada:carrierGasFlowRateDefault": "He; flow not stated \u2014 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (\u00a72.2.2)",
+  "ada:analysisSequenceDefault": "N \u2014 NIST 610 is the external standard and NIST 612 and BCR-2G the monitoring standards (\u00a72.2.2); the sequence is not described",
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "\u00b9\u2079\u2077Au, \u2076\u00b3Cu (primary targets); all detected via Agilent 7900 (exact isotope list not fully stated)",
     "ada:defaultTargetSpecies": [
-      "\u00b9\u2079\u2077Au",
-      "\u2076\u00b3Cu"
+      "Au",
+      "Cu"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -335,11 +357,13 @@
       }
     ]
   },
+  "ada:massesMeasuredDefault": "N \u2014 the isotopes measured are not stated",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Experimental capsule longitudinally sectioned with wire saw; half mounted in epoxy for analysis",
+        "schema:description": "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (\u00a72.1)",
+        "ada:chemicalAbrasionConditions": "N \u2014 the procedure reports no date",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -347,8 +371,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 1,
-        "ada:chemicalAbrasionConditions": "missing"
+        "schema:position": 1
       },
       {
         "@type": [
@@ -375,20 +398,21 @@
             "schema:name": "Filtering Approach",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Micronuggets identified from Au signal spikes in time-resolved spectra; excluded from integration (smooth signals = fully dissolved Au; Fig. 1 shows this criterion)"
+            "schema:defaultValue": "Au micronugget spikes identified in the time-resolved signal and removed, or the analysis not considered \u2014 'only analyses free from micronuggets or where the spikes from the micronuggets could be easily removed were considered (Fig. 1)' (\u00a72.2.2)"
           },
           {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
+            "@id": "ada:parameter/module/UPb/intermediateDaughterDisequilibriumCorrection",
             "@type": [
               "schema:PropertyValueSpecification"
             ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
+            "schema:valueName": "intermediateDaughterDisequilibriumCorrection",
+            "schema:name": "Intermediate Daughter Disequilibrium Correction",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "N \u2014 no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)"
+            "schema:value": "N \u2014 the procedure reports no date"
           }
         ],
+        "ada:detectionLimitMethod": "N \u2014 stated as \"detection limits\" without specific formula",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -396,8 +420,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       }
     ],
     "@type": [
@@ -422,14 +445,14 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "State Key Laboratory of Isotope Geochemistry, Guangzhou Institute of Geochemistry, CAS, China"
+    "schema:name": "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology \u2014 LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (\u00a72.2.2)"
   },
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "Strategic Priority Research Program (B) CAS; NSFC 92062222, 42073057, 42250710679, 42250202, 42273023"
+      "schema:name": "N \u2014 the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis"
     }
   ],
   "schema:relatedLink": [
@@ -446,20 +469,24 @@
   ],
   "ada:samplingUnitType": "Phase (quenched silicate glass of one experimental run) > Spot \u2014 \"A Resonetic 193 nm ArF excimer laser with a 40 \u03bcm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
   "ada:reportedProperties": [
-    "Au and Cu contents of the quenched silicate melt (ppm), with S content and H2O content of the starting material tabulated per run (Table 1, p.3); the derived quantity the paper reports from them is the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
+    "Au (ppm); Cu (ppm) \u2014 Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)"
   ],
-  "ada:ablationSpotDurationDefault": "~40 s (inferred from typical CetacAnalyte HE protocol for glass)",
-  "ada:internalStandardApproach": "Single element from EMP: Si (SiO\u2082 from EMP for silicate glass); NIST 610 as external standard",
-  "ada:elementalFractionationCorrection": [
-    "Femtosecond laser reduces LIEF; NIST 610 external standard; Si IS from EMP corrects for ablation yield"
+  "ada:ablationSamplingMode": [
+    "N \u2014 ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written"
   ],
-  "ada:calibrationMeasurementFrequency": "NIST 610 as primary; NIST 612 and BCR-2G as monitoring standards",
-  "ada:internalStandardElement": "Si from EMP (SiO\u2082 wt% for silicate glass)",
-  "ada:signalIntegrationIntervalMethod": "Time-resolved LA-ICP-MS signal inspected; micronuggets identified from spikes in Au signal and excluded from integration to obtain smooth signals (verified by Fig. 1 in paper)",
+  "ada:rasterLineSpacingDefault": "N/A \u2014 spot mode",
+  "ada:internalStandardApproach": "all: an element measured by EMP \u2014 'with Si and Fe obtained from EMP analyses as the internal standards' (\u00a72.2.2); which element serves the glass and which the sulfide is not stated",
+  "ada:ageCalculationMethod": [
+    "N \u2014 the procedure reports no date"
+  ],
+  "ada:reportedDateType": [
+    "N \u2014 the procedure reports no date"
+  ],
+  "ada:inheritedOrInitialSignalCorrectionDefault": "N \u2014 the procedure reports no date",
+  "ada:internalStandardElement": "all: Si, Fe \u2014 'Si and Fe obtained from EMP analyses as the internal standards' (\u00a72.2.2); the assignment to glass or sulfide is not stated",
   "ada:secondaryReferenceMaterialDefault": [
-    "NIST SRM 612 and BCR-2G (monitoring standards measured in same sessions)"
+    "NIST 612; BCR-2G \u2014 'NIST 612 and BCR-2G as monitoring standards' (\u00a72.2.2)"
   ],
-  "ada:primaryStandardNameDefault": "NIST 610 (primary external standard; Jochum et al. 2011); Si from EMP as IS",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -476,24 +503,19 @@
     {
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:defaultValue": "missing"
-    },
-    {
-      "schema:name": "Age Model",
-      "schema:defaultValue": "missing"
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
-  "ada:ageModelDefault": "missing",
+  "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:inheritedOrInitialSignalCorrectionDefault": "missing",
+  "ada:calibrationMeasurementFrequency": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
-  "ada:massesMeasuredDefault": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:signalCollectionMode": "missing",
+  "ada:signalIntegrationIntervalMethod": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"

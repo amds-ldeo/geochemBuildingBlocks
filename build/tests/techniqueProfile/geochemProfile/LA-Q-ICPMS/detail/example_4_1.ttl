@@ -3,18 +3,20 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Liu2025-2> a ada:LAICPMSTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique <ex:laQicpmsTAPP-Liu2025-2> ;
     ada:analysisEndDate "missing" ;
     ada:analysisInclusionAndRejectionCriteria "N — no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Sulfide Au and Cu concentrations consistent with strong positive correlation with log fS₂ (Fig. 5A) confirming thermodynamic equilibrium; partitioning coefficients Dsulfide/melt consistent with literature (Li et al. 2019, 2021)" ;
+    ada:analyticalAccuracyAndAssessmentMethod "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:LAICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit -9999 ;
+    ada:detectionLimit "N — detection limits are stated for silicate melts only (§2.2.2)" ;
     ada:fundingSourceForAnalysis "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
@@ -26,7 +28,7 @@
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — experimental run products by run number, e.g. \"D-2\", \"D-4\", \"D-34\", \"D-46\" (Table 1, p.3) and \"DAC-41\" (p.4); spots within a run are not labelled" ;
     ada:sessionIdentifier "missing" ;
-    ada:signalIntegrationTime "~40 s (same)" ;
+    ada:signalIntegrationTime -9999 ;
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
@@ -38,4 +40,9 @@
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/preAnalysisImagingAndScreening> ;
     schema1:value "Optical microscopy, then EMP — \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize> ;
+    schema1:value "N/A — spot mode" .
 

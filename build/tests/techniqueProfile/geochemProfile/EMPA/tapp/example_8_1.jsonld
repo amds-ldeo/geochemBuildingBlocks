@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA Major Element Apatite incl. Halogens, Bennu (ARES JSC, JEOL 8530 EMPA)",
-  "schema:description": "Seifert et al. 2026, Meteorit. Planet. Sci. \u2014 apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 \u00b5m probe size. Previous v2 values of 10/40-100 nA and 10 \u00b5m beam were WRONG \u2014 those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Halogen correction on O: Yes. Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed.",
+  "schema:description": "Seifert et al. 2026, Meteorit. Planet. Sci. \u2014 apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 \u00b5m probe size. Previous v2 values of 10/40-100 nA and 10 \u00b5m beam were WRONG \u2014 those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed. Reported detail: ada:edsAcquisitionMode = N \u2014 WDS or EDS is not stated; ada:analyticalMode = N \u2014 14 quantitative point analyses; WDS or EDS is not stated, and the list has no value without one.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -35,8 +35,8 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "2 \u00b5m (stated as \"2 \u00b5m probe size\")",
-      "ada:beamMode": "Focused (2 \u00b5m probe size stated)",
+      "ada:beamDiameterDefault": "all: 2 \u00b5m \u2014 as above",
+      "ada:beamMode": "N \u2014 'a 2\u03bcm probe size' is recorded under Beam Diameter; no mode is named",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -127,7 +127,8 @@
       "Na",
       "Mg",
       "Si",
-      "S"
+      "S",
+      "OH"
     ],
     "ada:targetSpeciesColumns": [
       {
@@ -208,16 +209,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -266,7 +257,7 @@
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "2 \u00b5m probe used for all analyses; Durango apatite tested at 10 \u00b5m and 3 \u00b5m spot sizes to assess halogen volatilization; no significant loss found under adopted conditions"
+      "schema:defaultValue": "all: Durango apatite compared at 10 \u03bcm and 3 \u03bcm spot sizes, with no significant volatile loss \u2014 'in order to assess volatilization of halogens using our beam conditions'"
     },
     {
       "@id": "ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault",
@@ -277,9 +268,10 @@
       "schema:name": "Halogen Correction on Oxygen",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)"
+      "schema:defaultValue": "N \u2014 OH is 'calculated by difference based on 1\u2013F\u2013Cl=OH' (under Target Species Estimation Method); no oxygen-equivalent correction for F and Cl is stated"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -298,58 +290,37 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping, then CL imaging, on the JEOL 7900F at JSC \u2014 \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\", collected \"at 5 kV with beam currents ranging from 1 to 1.5 nA\" (p.2); the numbered grains (Ap. #1 \u2026) tie the probe analyses back to those images"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Phosphate (apatite)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Phosphate"
+    ],
+    "ada:targetMaterialColumns": [
       {
-        "schema:name": "Sample preparation",
-        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
+        "schema:name": "example instrumentName"
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated"
-          }
-        ],
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
         "@type": [
-          "cdi:Activity",
-          "schema:Action"
+          "schema:PropertyValueSpecification"
         ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
       }
-    ],
-    "@type": [
-      "schema:HowTo"
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Identification by EDS, then by CL \u2014 \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)",
@@ -392,9 +363,39 @@
   ],
   "ada:samplingUnitType": "Grain > Analysis point \u2014 Table 1 reports one column per apatite grain (\"Ap. #1\" \u2026 \"Ap. #5\") within each of the three particles (p.7)",
   "ada:reportedProperties": [
-    "Oxide concentrations in apatite (wt%: F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO) with totals, per named grain (Table 1, p.7); the STEM EDS counterpart table reports the same suite as Fe2O3 (Table 2, p.11)"
+    "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO \u2014 wt% with totals, per named grain (Table 1)"
   ],
-  "ada:primaryStandardNameDefault": "SrF2 (F); albite (Na); olivine (Mg, Fe, Si); quartz (Si); apatite (Ca, P); barite (S); tugtupite (Cl); rhodonite (Mn); ilmenite (Fe, Ti)",
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -410,7 +411,6 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",

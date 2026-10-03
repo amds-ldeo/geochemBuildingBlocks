@@ -30,43 +30,6 @@ allOf:
       items:
         type: object
         properties:
-          schema:object:
-            type: array
-            items:
-              type: object
-              allOf:
-              - if:
-                  properties:
-                    '@type':
-                      contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                  required:
-                  - '@type'
-                then:
-                  properties:
-                    schema:additionalProperty:
-                      type: array
-                      items:
-                        anyOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
-                      allOf:
-                      - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_sampleFormAnalyticalSubstrate
-                        minContains: 0
-                        maxContains: 1
-                      - contains:
-                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
-                        minContains: 0
-                        maxContains: 1
-            allOf:
-            - contains:
-                properties:
-                  '@type':
-                    contains:
-                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                required:
-                - '@type'
           schema:actionProcess:
             type: object
             properties:
@@ -799,6 +762,37 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
+          schema:object:
+            type: array
+            items:
+              type: object
+              allOf:
+              - if:
+                  properties:
+                    '@type':
+                      contains:
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  required:
+                  - '@type'
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_mappedAreaDescription
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  '@type':
+                    contains:
+                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                required:
+                - '@type'
           ada:proceduralBlankLevel:
             description: "The measured level of the analytical blank in the session,
               and \u2014 where the reported quantity is a ratio \u2014 its composition,
@@ -832,8 +826,8 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
     "dqv": "http://www.w3.org/ns/dqv#",
     "@version": 1.1
   }

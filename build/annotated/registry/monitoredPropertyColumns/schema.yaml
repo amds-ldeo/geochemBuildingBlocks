@@ -297,6 +297,43 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  empa_xRayDetectionMethodPerMonitoredElement:
+    title: X-ray Detection Method per Monitored Element
+    description: 'The X-ray detection method used to measure the monitored element:
+      wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays
+      by wavelength and a proportional counter counts them, or energy-dispersive (EDS),
+      in which a solid-state detector sorts every photon by energy at once. Applies
+      where a procedure uses both.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayDetectionMethodPerMonitoredElement
+      schema:name:
+        const: X-ray Detection Method per Monitored Element
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   empa_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
@@ -1215,6 +1252,43 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  semComposition_xRayDetectionMethodPerMonitoredElement:
+    title: X-ray Detection Method per Monitored Element
+    description: 'The X-ray detection method used to measure the monitored element:
+      wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays
+      by wavelength and a proportional counter counts them, or energy-dispersive (EDS),
+      in which a solid-state detector sorts every photon by energy at once. Applies
+      where a procedure uses both.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/semCompositionTAPP/xRayDetectionMethodPerMonitoredElement
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayDetectionMethodPerMonitoredElement
+      schema:name:
+        const: X-ray Detection Method per Monitored Element
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   semComposition_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
@@ -1537,6 +1611,43 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
+  sem_xRayDetectionMethodPerMonitoredElement:
+    title: X-ray Detection Method per Monitored Element
+    description: 'The X-ray detection method used to measure the monitored element:
+      wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays
+      by wavelength and a proportional counter counts them, or energy-dispersive (EDS),
+      in which a solid-state detector sorts every photon by energy at once. Applies
+      where a procedure uses both.'
+    type: object
+    properties:
+      '@id':
+        const: ada:monitoredPropertyColumn/semTAPP/xRayDetectionMethodPerMonitoredElement
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: xRayDetectionMethodPerMonitoredElement
+      schema:name:
+        const: X-ray Detection Method per Monitored Element
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: true
+      ada:tier:
+        const: M
+      schema:defaultValue:
+        anyOf:
+        - type: string
+        - type: array
+          items:
+            type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - schema:defaultValue
   sem_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
@@ -2276,9 +2387,9 @@ $defs:
     - ada:dataType
   tem_eelsDetectionLimit:
     title: EELS Detection Limit
-    description: Estimated detection limit or minimum detectable concentration for
-      target edges under this procedure. Record 'N/A' where EELS is not listed in
-      Spectroscopic Detector(s).
+    description: Estimated detection limit or minimum detectable concentration, under
+      this procedure, of each quantity determined by EELS. Record 'N/A' where EELS
+      is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':

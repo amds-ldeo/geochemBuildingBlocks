@@ -30,7 +30,7 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
     "bios:LabProtocol"
   ],
   "schema:name": "psfd protocol — P0",
-  "schema:description": "psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of PSFD_TAPP_draft_v2.csv).",
+  "schema:description": "psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of PSFD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Fujifilm.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Fujifilm GFX 100s",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
     "bios:LabProtocol"
   ],
   "schema:name": "psfd protocol \u2014 P0",
-  "schema:description": "psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of PSFD_TAPP_draft_v2.csv).",
+  "schema:description": "psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of PSFD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Fujifilm.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Fujifilm GFX 100s",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
     schema1:creator [ a schema1:Person ;
             schema1:name "Pajola, Maurizio" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of PSFD_TAPP_draft_v2.csv)." ;
+    schema1:description "psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space Center | Fujifilm GFX 100s (publication column of PSFD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Fujifilm." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

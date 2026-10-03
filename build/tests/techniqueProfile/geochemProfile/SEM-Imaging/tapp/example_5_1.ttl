@@ -33,11 +33,6 @@
             schema1:name "semImaging" ;
             schema1:termCode "semImaging" ] ;
     schema1:name "semImaging protocol — Izawa2010" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections" ] ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)" ] ;
@@ -50,14 +45,22 @@
     ada:ebsdDetectorConfiguration "missing" ;
     ada:ebsdPhaseListDefault "missing" ;
     ada:ebsdStepSizeDefault -9999 ;
-    ada:reportedProperties "Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)" ;
+    ada:reportedProperties "CL colour (nominal); CL zoning (nominal) — Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels — \"red (600–850 nm, including near-infrared from 700–850 nm), green (500…\", detected \"in the range 300–850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)" ;
     ada:sampleTiltAngle -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished thin section) > Region of interest — \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)" ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
+            ada:targetMaterialColumns [ schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ] ] ;
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;

@@ -40,16 +40,17 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)",
+  "ada:proceduralBlankLevel": "Li: 0.036 ± 0.028; Be: 0.00091 ± 0.00049; B: 0.39 ± 0.26; Sc: 0.033 ± 0.011; V: 0.50 ± 0.38; Cr: 0.53 ± 0.16; Co: 0.0046 ± 0.0032; Ni: 0.065 ± 0.037; Cu: 0.072 ± 0.022; Zn: 0.80 ± 0.56; Ga: 0.0037 ± 0.0020; Ge: 0.0081 ± 0.0040; As: 0.021 ± 0.009; Rb: 0.11 ± 0.05; Sr: 0.018 ± 0.018; Y: 0.0018 ± 0.0017; Zr: 0.0030 ± 0.0015; Nb: 0.0012 ± 0.0012; Mo: 0.035 ± 0.030; Cd: 0.0026 ± 0.0015; In: 0.00016 ± 0.00004; Sn: 0.0083 ± 0.0016; Sb: 0.010 ± 0.006; Te: 0.00097 ± 0.00014; Cs: 0.00060 ± 0.00034; Ba: 0.075 ± 0.063; La: 0.0025 ± 0.0020; Ce: 0.0028 ± 0.0016; Pr: 0.00056 ± 0.00042; Nd: 0.0019 ± 0.0017; Sm: 0.00079 ± 0.00036; Eu: 0.00023 ± 0.00014; Gd: 0.00063 ± 0.00054; Tb: 0.00013 ± 0.00005; Dy: 0.00058 ± 0.00038; Ho: 0.00013 ± 0.00008; Er: 0.00027 ± 0.00020; Tm: 0.00011 ± 0.00003; Yb: 0.00043 ± 0.00025; Lu: 0.00015 ± 0.00007; Hf: 0.0010 ± 0.0012; Ta: 0.00017 ± 0.00009; W: 0.023 ± 0.010; Tl: 0.0026 ± 0.0009; Pb: 0.043 ± 0.020; Bi: 0.00049 ± 0.00028; Th: 0.00062 ± 0.00050; U: 0.00027 ± 0.00025 — ppb, mean ± STD of n = 5 blanks (Table 2)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated",
+  "ada:combinedResults": "AGV-1 (n = 6); BHVO-1 (n = 5); G-2 (n = 7); GSR-5 (n = 4); SCO-1 (n = 4); blank (n = 5) — Table 2",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard measurements (stated section 3.1)",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4–7 analyses, usually <8%] — Table 2 and §3.4; whether the replicates share a session is not stated",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSCA certified/consensus values (stated section 3.2, Tables 2-3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:analyticalAccuracyAndAssessmentMethod": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] — Tables 2 and 3, §3.4",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD, relative standard deviation in percent — Table 2: 'The RSD is the relative standard deviation in percent'"
 }
 
 ```
@@ -90,16 +91,17 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)",
+  "ada:proceduralBlankLevel": "Li: 0.036 \u00b1 0.028; Be: 0.00091 \u00b1 0.00049; B: 0.39 \u00b1 0.26; Sc: 0.033 \u00b1 0.011; V: 0.50 \u00b1 0.38; Cr: 0.53 \u00b1 0.16; Co: 0.0046 \u00b1 0.0032; Ni: 0.065 \u00b1 0.037; Cu: 0.072 \u00b1 0.022; Zn: 0.80 \u00b1 0.56; Ga: 0.0037 \u00b1 0.0020; Ge: 0.0081 \u00b1 0.0040; As: 0.021 \u00b1 0.009; Rb: 0.11 \u00b1 0.05; Sr: 0.018 \u00b1 0.018; Y: 0.0018 \u00b1 0.0017; Zr: 0.0030 \u00b1 0.0015; Nb: 0.0012 \u00b1 0.0012; Mo: 0.035 \u00b1 0.030; Cd: 0.0026 \u00b1 0.0015; In: 0.00016 \u00b1 0.00004; Sn: 0.0083 \u00b1 0.0016; Sb: 0.010 \u00b1 0.006; Te: 0.00097 \u00b1 0.00014; Cs: 0.00060 \u00b1 0.00034; Ba: 0.075 \u00b1 0.063; La: 0.0025 \u00b1 0.0020; Ce: 0.0028 \u00b1 0.0016; Pr: 0.00056 \u00b1 0.00042; Nd: 0.0019 \u00b1 0.0017; Sm: 0.00079 \u00b1 0.00036; Eu: 0.00023 \u00b1 0.00014; Gd: 0.00063 \u00b1 0.00054; Tb: 0.00013 \u00b1 0.00005; Dy: 0.00058 \u00b1 0.00038; Ho: 0.00013 \u00b1 0.00008; Er: 0.00027 \u00b1 0.00020; Tm: 0.00011 \u00b1 0.00003; Yb: 0.00043 \u00b1 0.00025; Lu: 0.00015 \u00b1 0.00007; Hf: 0.0010 \u00b1 0.0012; Ta: 0.00017 \u00b1 0.00009; W: 0.023 \u00b1 0.010; Tl: 0.0026 \u00b1 0.0009; Pb: 0.043 \u00b1 0.020; Bi: 0.00049 \u00b1 0.00028; Th: 0.00062 \u00b1 0.00050; U: 0.00027 \u00b1 0.00025 \u2014 ppb, mean \u00b1 STD of n = 5 blanks (Table 2)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated",
+  "ada:combinedResults": "AGV-1 (n = 6); BHVO-1 (n = 5); G-2 (n = 7); GSR-5 (n = 4); SCO-1 (n = 4); blank (n = 5) \u2014 Table 2",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard measurements (stated section 3.1)",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4\u20137 analyses, usually <8%] \u2014 Table 2 and \u00a73.4; whether the replicates share a session is not stated",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSCA certified/consensus values (stated section 3.2, Tables 2-3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:analyticalAccuracyAndAssessmentMethod": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] \u2014 Tables 2 and 3, \u00a73.4",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD, relative standard deviation in percent \u2014 Table 2: 'The RSD is the relative standard deviation in percent'"
 }
 ```
 
@@ -115,24 +117,25 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
     ada:analysisInclusionAndRejectionCriteria "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to USGS/GSCA certified/consensus values (stated section 3.2, Tables 2-3)" ;
+    ada:analyticalAccuracyAndAssessmentMethod "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] — Tables 2 and 3, §3.4" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "AGV-1 (n = 6); BHVO-1 (n = 5); G-2 (n = 7); GSR-5 (n = 4); SCO-1 (n = 4); blank (n = 5) — Table 2" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: RSD, relative standard deviation in percent — Table 2: 'The RSD is the relative standard deviation in percent'" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "Per-element blanks in ppb with standard deviation, n = 5 (e.g. B 0.39 +/- 0.26; Zn 0.80 +/- 0.56; Pb 0.043 +/- 0.020; V 0.50 +/- 0.38)" ;
+    ada:proceduralBlankLevel "Li: 0.036 ± 0.028; Be: 0.00091 ± 0.00049; B: 0.39 ± 0.26; Sc: 0.033 ± 0.011; V: 0.50 ± 0.38; Cr: 0.53 ± 0.16; Co: 0.0046 ± 0.0032; Ni: 0.065 ± 0.037; Cu: 0.072 ± 0.022; Zn: 0.80 ± 0.56; Ga: 0.0037 ± 0.0020; Ge: 0.0081 ± 0.0040; As: 0.021 ± 0.009; Rb: 0.11 ± 0.05; Sr: 0.018 ± 0.018; Y: 0.0018 ± 0.0017; Zr: 0.0030 ± 0.0015; Nb: 0.0012 ± 0.0012; Mo: 0.035 ± 0.030; Cd: 0.0026 ± 0.0015; In: 0.00016 ± 0.00004; Sn: 0.0083 ± 0.0016; Sb: 0.010 ± 0.006; Te: 0.00097 ± 0.00014; Cs: 0.00060 ± 0.00034; Ba: 0.075 ± 0.063; La: 0.0025 ± 0.0020; Ce: 0.0028 ± 0.0016; Pr: 0.00056 ± 0.00042; Nd: 0.0019 ± 0.0017; Sm: 0.00079 ± 0.00036; Eu: 0.00023 ± 0.00014; Gd: 0.00063 ± 0.00054; Tb: 0.00013 ± 0.00005; Dy: 0.00058 ± 0.00038; Ho: 0.00013 ± 0.00008; Er: 0.00027 ± 0.00020; Tm: 0.00011 ± 0.00003; Yb: 0.00043 ± 0.00025; Lu: 0.00015 ± 0.00007; Hf: 0.0010 ± 0.0012; Ta: 0.00017 ± 0.00009; W: 0.023 ± 0.010; Tl: 0.0026 ± 0.0009; Pb: 0.043 ± 0.020; Bi: 0.00049 ± 0.00028; Th: 0.00062 ± 0.00050; U: 0.00027 ± 0.00025 — ppb, mean ± STD of n = 5 blanks (Table 2)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "AGV-1 (andesite), BHVO-1 (basalt), G-2 (granite), SCO-1 (shale), GSR-5 (shale); GSR-6 and \"another eighteen international\" RMs; worldwide loess and Chinese upper-crustal composites" ;
     ada:samplingUnitName "Sample name only — Table 2 reports \"AGV-1\", \"BHVO-1\", \"G-2\", \"SCO-1\", \"GSR-5\" with replicate counts (n = 6, 5, 7, 4, 4) and no replicate labels (p.4)" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard measurements (stated section 3.1)" .
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4–7 analyses, usually <8%] — Table 2 and §3.4; whether the replicates share a session is not stated" .
 
 <ex:solutionQicpmsTAPP-Gao2008> schema1:identifier "missing" .
 
@@ -171,16 +174,17 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
   "ada:numberOfReplicates": 6,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"",
+  "ada:proceduralBlankLevel": "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N — relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (§3.2)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated",
-  "ada:detectionLimit": -9999,
+  "ada:combinedResults": "each element/Ca ratio of the consistency standards, over its replicates (n = 120, 88, 32, 70, 50) — Tables 2 and 3",
+  "ada:detectionLimit": "Li/Ca: 0.5; B/Ca: 15; Mg/Ca: 0.03; Al/Ca: 0.05; Mn/Ca: 0.3; Zn/Ca: 0.05; Sr/Ca: 0.02; Cd/Ca: 0.005; U/Ca: 0.5 — in the units of the ratio (Table 2)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Comparison with published inter-lab values for Me/Ca ratios (stated section 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty"
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2–7.8), 5.05% (0.5–1.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07–0.24), 4.80% (0.01–0.07); U/Ca: 2.54%] — RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, §3.6)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2–7.8), 1.69% (0.5–1.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07–0.24), 0.80% (0.01–0.07); U/Ca: 1.09%] — Acc.% = (average measured − true)/true × 100 on external standards (Table 2)",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD% = SD of measurements / average ratio × 100 — table notes"
 }
 
 ```
@@ -221,16 +225,17 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
   "ada:numberOfReplicates": 6,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"",
+  "ada:proceduralBlankLevel": "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N \u2014 relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (\u00a73.2)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated",
-  "ada:detectionLimit": -9999,
+  "ada:combinedResults": "each element/Ca ratio of the consistency standards, over its replicates (n = 120, 88, 32, 70, 50) \u2014 Tables 2 and 3",
+  "ada:detectionLimit": "Li/Ca: 0.5; B/Ca: 15; Mg/Ca: 0.03; Al/Ca: 0.05; Mn/Ca: 0.3; Zn/Ca: 0.05; Sr/Ca: 0.02; Cd/Ca: 0.005; U/Ca: 0.5 \u2014 in the units of the ratio (Table 2)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Comparison with published inter-lab values for Me/Ca ratios (stated section 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty"
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2\u20137.8), 5.05% (0.5\u20131.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07\u20130.24), 4.80% (0.01\u20130.07); U/Ca: 2.54%] \u2014 RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, \u00a73.6)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2\u20137.8), 1.69% (0.5\u20131.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07\u20130.24), 0.80% (0.01\u20130.07); U/Ca: 1.09%] \u2014 Acc.% = (average measured \u2212 true)/true \u00d7 100 on external standards (Table 2)",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD% = SD of measurements / average ratio \u00d7 100 \u2014 table notes"
 }
 ```
 
@@ -246,18 +251,19 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
     ada:analysisInclusionAndRejectionCriteria "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Comparison with published inter-lab values for Me/Ca ratios (stated section 3)" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2–7.8), 1.69% (0.5–1.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07–0.24), 0.80% (0.01–0.07); U/Ca: 1.09%] — Acc.% = (average measured − true)/true × 100 on external standards (Table 2)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2–7.8), 5.05% (0.5–1.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07–0.24), 4.80% (0.01–0.07); U/Ca: 2.54%] — RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, §3.6)" ;
+    ada:combinedResults "each element/Ca ratio of the consistency standards, over its replicates (n = 120, 88, 32, 70, 50) — Tables 2 and 3" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit -9999 ;
+    ada:detectionLimit "Li/Ca: 0.5; B/Ca: 15; Mg/Ca: 0.03; Al/Ca: 0.05; Mn/Ca: 0.3; Zn/Ca: 0.05; Sr/Ca: 0.02; Cd/Ca: 0.005; U/Ca: 0.5 — in the units of the ratio (Table 2)" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "N for the quantity this field defines. A calibration-curve fit statistic is reported -- \"The calibration curves determined from multiple standards are linear and R2 are usually greater than 0.999\" -- which measures the fit of the calibration, not whether scatter among contributing analyses exceeds analytical uncertainty" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: RSD% = SD of measurements / average ratio × 100 — table notes" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates 6 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "Reported as blank contribution relative to typical foraminiferal test ratios: \"<1% for Ca, Mg, Sr and Li; higher blanks were observed for Cd (<2%), and U (<5%) ... and for Zn (<4%)\"; \"The B blank was substantially decreased to ~5% by the employment of a quartz spray chamber, compared with ~30% when using a glass spray chamber\"" ;
+    ada:proceduralBlankLevel "Li, Mg, Sr: <1%; Cd: <2%; Zn: <4%; U: <5%; B: 5%; other: N — relative to typical foraminiferal ratios; Ca also <1%; B was 30% with a glass spray chamber (§3.2)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Partially -- sample type named (\"core top Cibicidoides wuellerstorfi from the north Atlantic Ocean\"); no individual sample identifiers stated in the methods" ;
     ada:samplingUnitName "N — only the sample type is named (core-top Cibicidoides wuellerstorfi); no sample or aliquot identifiers are stated" ;
@@ -302,16 +308,17 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg",
+  "ada:proceduralBlankLevel": "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg — total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses",
-  "ada:detectionLimit": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
+  "ada:combinedResults": "evaporation-test ratios (n = 5); detection limits (average of eight sessions) — Tables 1 and 2",
+  "ada:detectionLimit": "Cd: 0.8; In: 0.2; Tl: 0.9; Bi: 0.2 — 3s, in pg/ml in solution and in ng/g in silicates at DF 1000 (Table 1)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard and RM analyses (stated section 2)",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [Cd: 2.0%; In, Tl, Bi: 1.6%] — RPD of X/¹⁴⁹Sm between neighbouring calibrator runs (Table 1)",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3–10%]; JP-1, PCC-1, DTS-1 [Cd: 7–16%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2–3%; In: 0.7–3%; Tl: 6–12%; Bi: 1–4%] — intermediate precision, RSD of n = 4–8 separate decompositions (Tables 3 and 4)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "JB-2, JB-3, JA-1, JA-2, JA-3 [Cd: broadly similar to the reference values of Govindaraju (1994) and Imai et al. (1995)]; BHVO-1, AGV-1 [Cd: differ from those reference values] — Table 3; In, Tl and Bi compared with previous studies",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD — 'The normalised ratios after evaporation together with the RSD (n = 5)'"
 }
 
 ```
@@ -352,16 +359,17 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg",
+  "ada:proceduralBlankLevel": "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg \u2014 total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses",
-  "ada:detectionLimit": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
+  "ada:combinedResults": "evaporation-test ratios (n = 5); detection limits (average of eight sessions) \u2014 Tables 1 and 2",
+  "ada:detectionLimit": "Cd: 0.8; In: 0.2; Tl: 0.9; Bi: 0.2 \u2014 3s, in pg/ml in solution and in ng/g in silicates at DF 1000 (Table 1)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated standard and RM analyses (stated section 2)",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "all [Cd: 2.0%; In, Tl, Bi: 1.6%] \u2014 RPD of X/\u00b9\u2074\u2079Sm between neighbouring calibrator runs (Table 1)",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3\u201310%]; JP-1, PCC-1, DTS-1 [Cd: 7\u201316%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2\u20133%; In: 0.7\u20133%; Tl: 6\u201312%; Bi: 1\u20134%] \u2014 intermediate precision, RSD of n = 4\u20138 separate decompositions (Tables 3 and 4)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "JB-2, JB-3, JA-1, JA-2, JA-3 [Cd: broadly similar to the reference values of Govindaraju (1994) and Imai et al. (1995)]; BHVO-1, AGV-1 [Cd: differ from those reference values] \u2014 Table 3; In, Tl and Bi compared with previous studies",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD \u2014 'The normalised ratios after evaporation together with the RSD (n = 5)'"
 }
 ```
 
@@ -377,24 +385,25 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
     ada:analysisInclusionAndRejectionCriteria "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "JB-2, JB-3, JA-1, JA-2, JA-3 [Cd: broadly similar to the reference values of Govindaraju (1994) and Imai et al. (1995)]; BHVO-1, AGV-1 [Cd: differ from those reference values] — Table 3; In, Tl and Bi compared with previous studies" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3–10%]; JP-1, PCC-1, DTS-1 [Cd: 7–16%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2–3%; In: 0.7–3%; Tl: 6–12%; Bi: 1–4%] — intermediate precision, RSD of n = 4–8 separate decompositions (Tables 3 and 4)" ;
+    ada:combinedResults "evaporation-test ratios (n = 5); detection limits (average of eight sessions) — Tables 1 and 2" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)" ;
+    ada:detectionLimit "Cd: 0.8; In: 0.2; Tl: 0.9; Bi: 0.2 — 3s, in pg/ml in solution and in ng/g in silicates at DF 1000 (Table 1)" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: RSD — 'The normalised ratios after evaporation together with the RSD (n = 5)'" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "\"Total dissolution blanks for the ultrasonic bath and bomb digestions were similar at <16 pg for each element (n = 4)\"; per-element blanks Cd 16 pg, In <0.2 pg, Tl 4 pg, Bi 3 pg" ;
+    ada:proceduralBlankLevel "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg — total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1; NIST SRM 610, 612, 614, 616 glasses" ;
     ada:samplingUnitName "Labelled for the meteorites: \"Orgueil #1\", \"Orgueil #2\", \"Murchison #1\", \"Murchison #2\", \"Allende #1\", \"Allende #2\" (table, p.9) — \"Two powder aliquots were used for each meteorite\" (p.9); geostandards by name only" ;
     ada:sessionIdentifier "N -- \"an average of eight sessions\" referenced; no session identifier stated" ;
     ada:signalIntegrationTime -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "%RSD of repeated standard and RM analyses (stated section 2)" .
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "all [Cd: 2.0%; In, Tl, Bi: 1.6%] — RPD of X/¹⁴⁹Sm between neighbouring calibrator runs (Table 1)" .
 
 <ex:solutionQicpmsTAPP-Agilent7500> schema1:identifier "missing" .
 
@@ -435,6 +444,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -485,6 +495,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
@@ -510,6 +521,7 @@ detail instance derived from Long+etal2025 | Agilent 7900 | IPGP France.
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -564,16 +576,17 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]",
+  "ada:proceduralBlankLevel": "B: 13–185 pg (ultrasonic); Zr: 0.9–29, 55; Nb: 2–5, 3; Mo: 0.2–10, ~134; Sn: ~323, ~276; Sb: 0.7–9, ~60; Hf: <12, <8; Ta: 0.6–7, 0.6–2 — total procedural blank in pg, ultrasonic then bomb method (Table 4)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated",
-  "ada:detectionLimit": -9999,
+  "ada:combinedResults": "Orgueil average (4 runs); Allende average (2 runs); bomb-method yields (average of two tests) — Tables 3 and 5",
+  "ada:detectionLimit": "B: 45 (10B), 11 (11B); Zr: 13 (90Zr), 43 (91Zr); Nb: 1; Mo: 2 (95Mo), 14 (97Mo); Sn: 3 (118Sn), 5 (119Sn); Sb: 2 (121Sb), 0.7 (123Sb); Hf: 0.7 (178Hf), 1 (179Hf); Ta: 0.3 — ng/g in rock, 3σ (Table 2a); in solution, in pg/g",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "B: 2.4% (11B/10B); Zr: 3.2% (91Zr/90Zr); Nb: 3.1% (93Nb/91Zr), 0.8% (93Nb/97Mo); Mo: 1.0% (97Mo/95Mo); Sn: 0.7% (119Sn/118Sn); Sb: 0.6% (121Sb/123Sb); Hf: 0.5% (179Hf/178Hf); Ta: 2.4% (181Ta/97Mo), 0.5% (181Ta/179Hf) — RSD% of each ratio measurement, ranges in Table 2a",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSJ certified values (stated section 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous",
+  "ada:analyticalAccuracyAndAssessmentMethod": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD% — Tables 5 and 6; 'Averages of the reproducibility (RSD %)'"
 }
 
 ```
@@ -614,16 +627,17 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]",
+  "ada:proceduralBlankLevel": "B: 13\u2013185 pg (ultrasonic); Zr: 0.9\u201329, 55; Nb: 2\u20135, 3; Mo: 0.2\u201310, ~134; Sn: ~323, ~276; Sb: 0.7\u20139, ~60; Hf: <12, <8; Ta: 0.6\u20137, 0.6\u20132 \u2014 total procedural blank in pg, ultrasonic then bomb method (Table 4)",
   "ada:analysisInclusionAndRejectionCriteria": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated",
-  "ada:detectionLimit": -9999,
+  "ada:combinedResults": "Orgueil average (4 runs); Allende average (2 runs); bomb-method yields (average of two tests) \u2014 Tables 3 and 5",
+  "ada:detectionLimit": "B: 45 (10B), 11 (11B); Zr: 13 (90Zr), 43 (91Zr); Nb: 1; Mo: 2 (95Mo), 14 (97Mo); Sn: 3 (118Sn), 5 (119Sn); Sb: 2 (121Sb), 0.7 (123Sb); Hf: 0.7 (178Hf), 1 (179Hf); Ta: 0.3 \u2014 ng/g in rock, 3\u03c3 (Table 2a); in solution, in pg/g",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
-  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:internalAnalyticalPrecisionAndAssessmentMethod": "B: 2.4% (11B/10B); Zr: 3.2% (91Zr/90Zr); Nb: 3.1% (93Nb/91Zr), 0.8% (93Nb/97Mo); Mo: 1.0% (97Mo/95Mo); Sn: 0.7% (119Sn/118Sn); Sb: 0.6% (121Sb/123Sb); Hf: 0.5% (179Hf/178Hf); Ta: 2.4% (181Ta/97Mo), 0.5% (181Ta/179Hf) \u2014 RSD% of each ratio measurement, ranges in Table 2a",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to USGS/GSJ certified values (stated section 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0\u20134.6% RSD] \u2014 \u00a73.7, Tables 5\u20136; Mo in JB-1 (15%) excluded as heterogeneous",
+  "ada:analyticalAccuracyAndAssessmentMethod": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] \u2014 Tables 5\u20136; 'a significant difference exists for B in JA-2'",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD% \u2014 Tables 5 and 6; 'Averages of the reproducibility (RSD %)'"
 }
 ```
 
@@ -639,18 +653,19 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
     ada:analysisInclusionAndRejectionCriteria "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "% recovery relative to USGS/GSJ certified values (stated section 3)" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:analyticalAccuracyAndAssessmentMethod "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous" ;
+    ada:combinedResults "Orgueil average (4 runs); Allende average (2 runs); bomb-method yields (average of two tests) — Tables 3 and 5" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit -9999 ;
+    ada:detectionLimit "B: 45 (10B), 11 (11B); Zr: 13 (90Zr), 43 (91Zr); Nb: 1; Mo: 2 (95Mo), 14 (97Mo); Sn: 3 (118Sn), 5 (119Sn); Sb: 2 (121Sb), 0.7 (123Sb); Hf: 0.7 (178Hf), 1 (179Hf); Ta: 0.3 — ng/g in rock, 3σ (Table 2a); in solution, in pg/g" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: RSD% — Tables 5 and 6; 'Averages of the reproducibility (RSD %)'" ;
+    ada:internalAnalyticalPrecisionAndAssessmentMethod "B: 2.4% (11B/10B); Zr: 3.2% (91Zr/90Zr); Nb: 3.1% (93Nb/91Zr), 0.8% (93Nb/97Mo); Mo: 1.0% (97Mo/95Mo); Sn: 0.7% (119Sn/118Sn); Sb: 0.6% (121Sb/123Sb); Hf: 0.5% (179Hf/178Hf); Ta: 2.4% (181Ta/97Mo), 0.5% (181Ta/179Hf) — RSD% of each ratio measurement, ranges in Table 2a" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "Blanks in spike solutions (pg g-1) and total procedural blank (pg) tabulated per element; \"Blank effects for Ti, Zr, Mo, Hf and Ta from the Ca-Al-Mg solutions and the total procedure were <0.2% and negligible. The blank effects for Sn and Sb ... were 0.4-9% and 0.2-6%\" [sec 2.4]; \"Blank corrections using the values shown in Table 4 were applied to all analyses. The blank corrections were usually <1% in basalt and andesite analyses and <4% in peridotite reference materials\" [sec 3.6]" ;
+    ada:proceduralBlankLevel "B: 13–185 pg (ultrasonic); Zr: 0.9–29, 55; Nb: 2–5, 3; Mo: 0.2–10, ~134; Sn: ~323, ~276; Sb: 0.7–9, ~60; Hf: <12, <8; Ta: 0.6–7, 0.6–2 — total procedural blank in pg, ultrasonic then bomb method (Table 4)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)" ;
     ada:samplingUnitName "Sample name only, except the Allende powder: \"the Smithsonian reference Allende powder (USNM 3529, Split 1, Pos. 23)\" (p.5). Solutions \"#1\"–\"#8\" (p.7) are synthetic yield-test solutions, not samples" ;
@@ -697,14 +712,15 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:combinedResults": "NCS 73307 recovery (N = 3)",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Recovery on NCS 73307 total digestions 94 +/- 17% (N = 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:analyticalAccuracyAndAssessmentMethod": "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: SD — 'mean ± SD recovery values of 94 ± 17% (N = 3)'"
 }
 
 ```
@@ -747,14 +763,15 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
+  "ada:combinedResults": "NCS 73307 recovery (N = 3)",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Recovery on NCS 73307 total digestions 94 +/- 17% (N = 3)",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:analyticalAccuracyAndAssessmentMethod": "NCS 73307 [Te: 94 \u00b1 17% recovery (N = 3); Se: 70\u2013134% recovery (N = 3)] \u2014 \u00a72.3, \u00a72.4",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: SD \u2014 'mean \u00b1 SD recovery values of 94 \u00b1 17% (N = 3)'"
 }
 ```
 
@@ -770,13 +787,14 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Recovery on NCS 73307 total digestions 94 +/- 17% (N = 3)" ;
+    ada:analyticalAccuracyAndAssessmentMethod "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "NCS 73307 recovery (N = 3)" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: SD — 'mean ± SD recovery values of 94 ± 17% (N = 3)'" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates -9999 ;
@@ -826,15 +844,16 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted",
+  "ada:proceduralBlankLevel": "Te: ~35 µg/L in the F3 extraction blanks; other: N — three blanks of each extraction; the F3 contamination is attributed to the H2O2 or ammonium acetate (§2.2)",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD",
+  "ada:combinedResults": "missing",
+  "ada:detectionLimit": "Te: 0.1 ng/L; other: N — N = 10; natural Te in the extractions 5-fold (F2) to 200-fold (F4) above the LOD",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode",
+  "ada:analyticalAccuracyAndAssessmentMethod": "NIST 1643f [Te: 95 ± 5% (KED), 89 ± 10% (O2), N = 5; Se: 95 ± 3%]; NCS 73307 [Te: 99 ± 14% (KED), 70 ± 19% (O2), N = 4]; NIST 1640a [Se: 85 ± 2%] — recoveries (§2.3, §2.4)",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 
@@ -876,15 +895,16 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
   "ada:numberOfReplicates": -9999,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted",
+  "ada:proceduralBlankLevel": "Te: ~35 \u00b5g/L in the F3 extraction blanks; other: N \u2014 three blanks of each extraction; the F3 contamination is attributed to the H2O2 or ammonium acetate (\u00a72.2)",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD",
+  "ada:combinedResults": "missing",
+  "ada:detectionLimit": "Te: 0.1 ng/L; other: N \u2014 N = 10; natural Te in the extractions 5-fold (F2) to 200-fold (F4) above the LOD",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode",
+  "ada:analyticalAccuracyAndAssessmentMethod": "NIST 1643f [Te: 95 \u00b1 5% (KED), 89 \u00b1 10% (O2), N = 5; Se: 95 \u00b1 3%]; NCS 73307 [Te: 99 \u00b1 14% (KED), 70 \u00b1 19% (O2), N = 4]; NIST 1640a [Se: 85 \u00b1 2%] \u2014 recoveries (\u00a72.3, \u00a72.4)",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
 ```
@@ -901,18 +921,19 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode" ;
+    ada:analyticalAccuracyAndAssessmentMethod "NIST 1643f [Te: 95 ± 5% (KED), 89 ± 10% (O2), N = 5; Se: 95 ± 3%]; NCS 73307 [Te: 99 ± 14% (KED), 70 ± 19% (O2), N = 4]; NIST 1640a [Se: 85 ± 2%] — recoveries (§2.3, §2.4)" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD" ;
+    ada:detectionLimit "Te: 0.1 ng/L; other: N — N = 10; natural Te in the extractions 5-fold (F2) to 200-fold (F4) above the LOD" ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates -9999 ;
     ada:oxideProduction "missing" ;
-    ada:proceduralBlankLevel "Three blanks run for each extraction; 126Xe contribution from 2% HNO3 analytical blanks noted" ;
+    ada:proceduralBlankLevel "Te: ~35 µg/L in the F3 extraction blanks; other: N — three blanks of each extraction; the F3 contamination is attributed to the H2O2 or ammonium acetate (§2.2)" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307" ;
     ada:samplingUnitName "Labelled by extraction: fractions \"F1\", \"F2\", \"F3\", \"F4\" and \"F4N\" of the equilibrated sediment, \"two replicates per extraction mode\" (p.2); replicates not labelled" ;
@@ -959,14 +980,15 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "LOD 0.01 ug L-1 (N = 10)",
+  "ada:combinedResults": "Se sorption at each sampling time and condition (N = 3); sorption isotherm points (N = 2) — Fig. 2",
+  "ada:detectionLimit": "Te: 0.01 µg/L; Se: 0.06 µg/L — N = 10 (§2.3, §2.4)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries 98-... % on CRM-TMDW and NIST 1643f",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:analyticalAccuracyAndAssessmentMethod": "CRM-TMDW [Se: 98–106% recovery (N = 16)]; NIST 1643f [Se: 100–102% (N = 16); Te: 85–91% (N = 4)] — §2.3, §2.4",
+  "ada:goodnessOfFitOrDispersionStatistic": "Te, Se: SD — Figs 1–2"
 }
 
 ```
@@ -1009,14 +1031,15 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "missing",
-  "ada:detectionLimit": "LOD 0.01 ug L-1 (N = 10)",
+  "ada:combinedResults": "Se sorption at each sampling time and condition (N = 3); sorption isotherm points (N = 2) \u2014 Fig. 2",
+  "ada:detectionLimit": "Te: 0.01 \u00b5g/L; Se: 0.06 \u00b5g/L \u2014 N = 10 (\u00a72.3, \u00a72.4)",
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Recoveries 98-... % on CRM-TMDW and NIST 1643f",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing"
+  "ada:analyticalAccuracyAndAssessmentMethod": "CRM-TMDW [Se: 98\u2013106% recovery (N = 16)]; NIST 1643f [Se: 100\u2013102% (N = 16); Te: 85\u201391% (N = 4)] \u2014 \u00a72.3, \u00a72.4",
+  "ada:goodnessOfFitOrDispersionStatistic": "Te, Se: SD \u2014 Figs 1\u20132"
 }
 ```
 
@@ -1032,13 +1055,14 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
     ada:analysisInclusionAndRejectionCriteria "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Recoveries 98-... % on CRM-TMDW and NIST 1643f" ;
+    ada:analyticalAccuracyAndAssessmentMethod "CRM-TMDW [Se: 98–106% recovery (N = 16)]; NIST 1643f [Se: 100–102% (N = 16); Te: 85–91% (N = 4)] — §2.3, §2.4" ;
     ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:combinedResults "Se sorption at each sampling time and condition (N = 3); sorption isotherm points (N = 2) — Fig. 2" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "LOD 0.01 ug L-1 (N = 10)" ;
+    ada:detectionLimit "Te: 0.01 µg/L; Se: 0.06 µg/L — N = 10 (§2.3, §2.4)" ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "Te, Se: SD — Figs 1–2" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:numberOfReplicates -9999 ;
@@ -1090,12 +1114,13 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "N — blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%",
   "ada:analysisInclusionAndRejectionCriteria": "N — no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units",
+  "ada:combinedResults": "Allende replicate average (n = 5); average of the eight Ryugu particles — supplementary data; Fig. 2",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "N — the Allende replicate averages and uncertainties are in the supplementary materials",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
@@ -1140,12 +1165,13 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
   "ada:signalIntegrationTime": -9999,
   "ada:proceduralBlankLevel": "N \u2014 blank data stated to be in the supplementary material; Ta and W blank contributions exceeded 30%",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units",
+  "ada:combinedResults": "Allende replicate average (n = 5); average of the eight Ryugu particles \u2014 supplementary data; Fig. 2",
   "ada:detectionLimit": -9999,
   "ada:limitOfQuantificationMethod": "missing",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
   "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "N \u2014 the Allende replicate averages and uncertainties are in the supplementary materials",
   "ada:analyticalAccuracyAndAssessmentMethod": "missing",
   "ada:goodnessOfFitOrDispersionStatistic": "missing"
 }
@@ -1164,7 +1190,8 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
     ada:analyticalAccuracyAndAssessmentMethod "missing" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "missing" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "N — the Allende replicate averages and uncertainties are in the supplementary materials" ;
+    ada:combinedResults "Allende replicate average (n = 5); average of the eight Ryugu particles — supplementary data; Fig. 2" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -1719,8 +1746,8 @@ Links to the schema:
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
     "@version": 1.1
   }
 }

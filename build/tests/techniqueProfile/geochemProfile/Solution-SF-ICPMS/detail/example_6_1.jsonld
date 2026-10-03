@@ -29,17 +29,33 @@
   "ada:sampleName": "AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-1, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 -- tabulated with issuing organisation and split/position numbers (e.g. BHVO-1 Split 15 Pos 26; G-2 Split 58 Pos 23)",
   "ada:samplingUnitName": "Labelled for BHVO-1: digestions \"BHVO-1 (1)\" to \"BHVO-1 (5)\", each with determinations \"1 2 3\" (Table 4, pp.8\u20139); the other reference materials by name with their issuing split and position (e.g. AGV-1 Split 35 Pos 13; Table 2, p.6)",
   "ada:sampleDescription": "missing",
-  "ada:numberOfReplicates": -9999,
+  "ada:numberOfReplicates": 3,
   "ada:oxideProduction": "missing",
   "ada:signalIntegrationTime": -9999,
-  "ada:proceduralBlankLevel": "Partially -- \"Limits of detection (LOD) were calculated according to the 3s criterion on a data set of fifty measurements in LR mode and twenty measurements in HR mode of total procedural blanks (including spiking)\"; LODs \"ranged between about 0.1 and 10 ng g-1 sample equivalents for most elements\". The blank levels themselves are not tabulated",
+  "ada:proceduralBlankLevel": "N \u2014 the total procedural blanks enter only through the LOD",
   "ada:analysisInclusionAndRejectionCriteria": "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated",
-  "ada:detectionLimit": -9999,
-  "ada:limitOfQuantificationMethod": "missing",
+  "ada:combinedResults": "BHVO-1 (five digestions, triplicate each); sixteen other RMs (three to four analyses each); BCR-2G, BHVO-2G, BIR-1G and NIST SRM 612 (one digestion, triplicate) \u2014 Tables 4 and 5",
+  "ada:detectionLimit": "all: about 0.1 to 10 ng/g sample equivalent for most elements \u2014 Figure 2",
+  "ada:limitOfQuantificationMethod": "all: RSD better than 10% on the low-concentration RM PCC-1, ca. 10 to 900 ng/g \u2014 'about 10 to 20 times the LOD for most elements'",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "%RSD of repeated RM analyses within session (stated Table 5)",
-  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "% recovery relative to published consensus values for geological RMs (stated Table 5)",
-  "ada:goodnessOfFitOrDispersionStatistic": "N -- a power law is fitted to the calculated mass fractionation factors, but no fit statistic is reported"
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "BHVO-1 [all: RSD of triplicate determinations on one digestion, generally better than 1%] \u2014 Table 4",
+  "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "BHVO-1 [all: RSD of five independent digestions over 4 months, 1\u20133%] \u2014 abstract and Table 4; the sixteen other RMs by RSD of three to four independent analyses (Table 5)",
+  "ada:analyticalAccuracyAndAssessmentMethod": "BHVO-1 [all: within 1\u20132% of published ID data and 2\u20133% of all published data]; AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 [all: most within 3\u20134% of published data] \u2014 abstract; Table 5",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: RSD \u2014 Tables 4 and 5",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/solutionSficpmsTAPP/spikeOutlierFilteringApproach"
+        }
+      ],
+      "schema:name": "Spike / Outlier Filtering Approach",
+      "schema:value": "Dixon outlier test on each block of ten ratios \u2014 'Generally, less than one ratio had to be excluded from the whole data set'"
+    }
+  ]
 }

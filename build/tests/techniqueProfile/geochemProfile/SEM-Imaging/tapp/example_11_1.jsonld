@@ -26,23 +26,26 @@
   ],
   "schema:name": "semImaging protocol \u2014 Ma2017-2",
   "schema:description": "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Khatyrka CV3 carbonaceous chondrite; Al-Cu-Fe alloy metal phases (hollisterite, kryachkoite, stolperite, khatyrkite, icosahedrite) in section 126A"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "hollisterite",
+      "kryachkoite",
+      "stolperite",
+      "khatyrkite",
+      "icosahedrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 no rule is given for choosing which crystals were indexed; the patterns are reported for the type and associated crystals as they occur (Fig. 3, p.3)",
   "schema:instrument": [
     {
@@ -188,7 +191,7 @@
     "EBSD"
   ],
   "ada:reportedProperties": [
-    "Crystal structure identification with unit-cell parameters (\u00c5 and \u00c53) and the fit quality as mean angular deviation (degrees) \u2014 e.g. \"with a mean angular deviation of 0.30\u00b0~0.45\u00b0, revealing the cell parameters: a = 15.60 \u00c5, b = 7.94 \u00c5, c = 12.51 \u00c5\" and cell volume (p.3)"
+    "crystal structure identification (nominal); unit-cell parameters (\u00c5, \u00c53); mean angular deviation (degrees) \u2014 Crystal structure identification with unit-cell parameters (\u00c5 and \u00c53) and the fit quality as mean angular deviation (degrees) \u2014 e.g. \"with a mean angular deviation of 0.30\u00b0~0.45\u00b0, revealing the cell parameters: a = 15.60 \u00c5, b = 7.94 \u00c5, c = 12.51 \u00c5\" and cell volume (p.3)"
   ],
   "schema:measurementTechnique": [
     {

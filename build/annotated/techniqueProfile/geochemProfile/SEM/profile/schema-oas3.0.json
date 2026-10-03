@@ -323,28 +323,6 @@
                             "type": "object"
                           },
                           "x-jsonld-id": "http://schema.org/additionalProperty"
-                        },
-                        "ada:samplingUnits": {
-                          "description": "The sampling units of this sample that were analysed -- the grains, spots, phases, sub-volumes or regions of interest that one row of reported values corresponds to. A sampling unit belongs to exactly one sample, which is why it is nested here rather than sitting on the activity. The unit TYPE is stated once by the procedure (ada:samplingUnitType); these are the instances, and they cannot be known until the session runs.",
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "required": [
-                              "schema:name"
-                            ],
-                            "properties": {
-                              "@id": {
-                                "description": "Optional identifier for this sampling unit.",
-                                "type": "string"
-                              },
-                              "schema:name": {
-                                "description": "The laboratory's label for this sampling unit -- a spot number, grain label, map or region-of-interest name, or aliquot identifier. Required, because a unit nothing can name gives a field keyed by sampling unit no row to attach its value to.",
-                                "type": "string",
-                                "x-jsonld-id": "http://schema.org/name"
-                              }
-                            }
-                          },
-                          "x-jsonld-id": "https://ada.astromat.org/metadata/samplingUnits"
                         }
                       }
                     },
@@ -370,6 +348,28 @@
                       "type": "object"
                     },
                     "x-jsonld-id": "http://schema.org/additionalProperty"
+                  },
+                  "ada:combinedResults": {
+                    "description": "The reported values this session obtained by averaging or otherwise combining several individual results -- the ROWS of the combined-result table, and the domain that `defines: combined result` enumerates (Rule 7; see the Legends sheet of any delivered TAPP). One entry per combined value, each naming what it combines: \"Olivine, sample A, 8 points\", \"Zircon weighted-mean date, sample B, 236 of 246 spots\", \"Isochron, sample C, 36 runs\".\nOn the ACTIVITY rather than on a sample, because a combined result names its own sample and need not belong to exactly one -- an isochron over 36 runs is the case in hand.\nIt is METADATA, unlike a sampling unit, and the difference is worth being clear about because an earlier design got it wrong. A combined result is a statement the record makes about its own contents, so it belongs here. An individual sampling unit is not: the procedure and the analysis can state only the KIND of unit (ada:samplingUnitType), while a particular unit's identifier is a schema:variableMeasured naming a COLUMN in one of the distributions, and the binding from that unit to its target material exists only in the instance data table beside the results. There is therefore no array of sampling-unit objects here; one was added on 2026-09-25 and removed on 2026-10-01 once that was settled.\nAnalysis-side only: the procedure can say HOW results will be combined (Combination Method, keyed by reported property) but not WHICH were, so there is no ada:combinedResults counterpart in tappDefinition.\nFields keyed `combined result x reported property` -- Goodness-of-Fit or Dispersion Statistic, and Other Statistics -- ride on these rows as per-reported- property values, keyed by the valueName of the column that declared them.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "schema:name"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "description": "Optional identifier for this combined result.",
+                          "type": "string"
+                        },
+                        "schema:name": {
+                          "description": "What this combined value is and what it combines. Required, because a combined result nothing can name gives a field keyed by combined result no row to attach its value to.",
+                          "type": "string",
+                          "x-jsonld-id": "http://schema.org/name"
+                        }
+                      }
+                    },
+                    "x-jsonld-id": "https://ada.astromat.org/metadata/combinedResults"
                   }
                 },
                 "required": [
@@ -2643,7 +2643,7 @@
                                                     },
                                                     {
                                                       "title": "Beam Diameter",
-                                                      "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                                                      "description": "Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -2759,7 +2759,7 @@
                                                   {
                                                     "contains": {
                                                       "title": "Beam Diameter",
-                                                      "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                                                      "description": "Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.",
                                                       "type": "object",
                                                       "properties": {
                                                         "@id": {
@@ -3946,6 +3946,126 @@
             "ada:imageStackDimenstions": {
               "description": "X, Y, Z dimensions of the reconstructed 3D voxel in nanometres (X-Y pixel size from SEM image calibration; Z from slice thickness), and the total number of slices in the stack.",
               "type": "string"
+            },
+            "schema:variableMeasured": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "title": "Dataset variable",
+                    "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                    "type": "object",
+                    "required": [
+                      "@type"
+                    ],
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "contains": {
+                          "enum": [
+                            "cdi:InstanceVariable",
+                            "schema:PropertyValue"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "title": "Target Material of Sampling Unit",
+                    "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/semTAPP/targetMaterialOfSamplingUnit"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValue",
+                            "cdi:InstanceVariable"
+                          ]
+                        ]
+                      },
+                      "schema:propertyID": {
+                        "enum": [
+                          [
+                            {
+                              "@id": "ada:parameter/semTAPP/targetMaterialOfSamplingUnit"
+                            }
+                          ]
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Target Material of Sampling Unit"
+                        ]
+                      },
+                      "schema:value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:propertyID",
+                      "schema:name",
+                      "schema:value"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Target Material of Sampling Unit",
+                    "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "enum": [
+                          "ada:parameter/semTAPP/targetMaterialOfSamplingUnit"
+                        ]
+                      },
+                      "@type": {
+                        "enum": [
+                          [
+                            "schema:PropertyValue",
+                            "cdi:InstanceVariable"
+                          ]
+                        ]
+                      },
+                      "schema:propertyID": {
+                        "enum": [
+                          [
+                            {
+                              "@id": "ada:parameter/semTAPP/targetMaterialOfSamplingUnit"
+                            }
+                          ]
+                        ]
+                      },
+                      "schema:name": {
+                        "enum": [
+                          "Target Material of Sampling Unit"
+                        ]
+                      },
+                      "schema:value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:propertyID",
+                      "schema:name",
+                      "schema:value"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
             }
           },
           "required": [
@@ -4171,7 +4291,7 @@
     },
     "ogch.techniqueProfile.geochemProfile.SEM.tapp": {
       "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
-      "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v74.csv via the path-driven pipeline.",
+      "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v84.csv via the path-driven pipeline.",
       "allOf": [
         {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition"
@@ -4255,7 +4375,7 @@
                           ]
                         },
                         "ada:beamDiameterDefault": {
-                          "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                          "description": "Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.",
                           "anyOf": [
                             {
                               "type": "number"
@@ -4892,7 +5012,57 @@
                               "items": {
                                 "anyOf": [
                                   {
-                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
+                                    "title": "Analysis Inclusion and Rejection Criteria",
+                                    "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                    "type": "object",
+                                    "properties": {
+                                      "@id": {
+                                        "enum": [
+                                          "ada:parameter/semTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                        ]
+                                      },
+                                      "@type": {
+                                        "enum": [
+                                          [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        ]
+                                      },
+                                      "schema:valueName": {
+                                        "enum": [
+                                          "analysisInclusionAndRejectionCriteriaDefault"
+                                        ]
+                                      },
+                                      "schema:name": {
+                                        "enum": [
+                                          "Analysis Inclusion and Rejection Criteria"
+                                        ]
+                                      },
+                                      "ada:dataType": {
+                                        "enum": [
+                                          "string"
+                                        ]
+                                      },
+                                      "ada:fieldScope": {
+                                        "enum": [
+                                          "session"
+                                        ]
+                                      },
+                                      "schema:readonlyValue": {},
+                                      "ada:tier": {
+                                        "enum": [
+                                          "R"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "@id",
+                                      "@type",
+                                      "schema:valueName",
+                                      "schema:name",
+                                      "ada:dataType",
+                                      "ada:fieldScope"
+                                    ]
                                   },
                                   {
                                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
@@ -4955,7 +5125,57 @@
                               "allOf": [
                                 {
                                   "contains": {
-                                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.aggregation/$defs/Param_Procedure_analysisInclusionAndRejectionCriteria"
+                                    "title": "Analysis Inclusion and Rejection Criteria",
+                                    "description": "The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.",
+                                    "type": "object",
+                                    "properties": {
+                                      "@id": {
+                                        "enum": [
+                                          "ada:parameter/semTAPP/analysisInclusionAndRejectionCriteriaDefault"
+                                        ]
+                                      },
+                                      "@type": {
+                                        "enum": [
+                                          [
+                                            "schema:PropertyValueSpecification"
+                                          ]
+                                        ]
+                                      },
+                                      "schema:valueName": {
+                                        "enum": [
+                                          "analysisInclusionAndRejectionCriteriaDefault"
+                                        ]
+                                      },
+                                      "schema:name": {
+                                        "enum": [
+                                          "Analysis Inclusion and Rejection Criteria"
+                                        ]
+                                      },
+                                      "ada:dataType": {
+                                        "enum": [
+                                          "string"
+                                        ]
+                                      },
+                                      "ada:fieldScope": {
+                                        "enum": [
+                                          "session"
+                                        ]
+                                      },
+                                      "schema:readonlyValue": {},
+                                      "ada:tier": {
+                                        "enum": [
+                                          "R"
+                                        ]
+                                      }
+                                    },
+                                    "required": [
+                                      "@id",
+                                      "@type",
+                                      "schema:valueName",
+                                      "schema:name",
+                                      "ada:dataType",
+                                      "ada:fieldScope"
+                                    ]
                                   },
                                   "minContains": 0,
                                   "maxContains": 1
@@ -5479,7 +5699,7 @@
                       },
                       {
                         "title": "Beam Current",
-                        "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
+                        "description": "Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -5796,61 +6016,6 @@
                           "schema:valueName",
                           "schema:name",
                           "ada:dataType"
-                        ]
-                      },
-                      {
-                        "title": "Technique per Target Species",
-                        "description": "Records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously. List in the same order as the Target Species field.",
-                        "type": "object",
-                        "properties": {
-                          "@id": {
-                            "enum": [
-                              "ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies"
-                            ]
-                          },
-                          "@type": {
-                            "enum": [
-                              [
-                                "schema:PropertyValueSpecification"
-                              ]
-                            ]
-                          },
-                          "schema:valueName": {
-                            "enum": [
-                              "techniquePerTargetSpecies"
-                            ]
-                          },
-                          "schema:name": {
-                            "enum": [
-                              "Technique per Target Species"
-                            ]
-                          },
-                          "ada:dataType": {
-                            "enum": [
-                              "string"
-                            ]
-                          },
-                          "schema:readonlyValue": {
-                            "enum": [
-                              true
-                            ]
-                          },
-                          "ada:tier": {
-                            "enum": [
-                              "M"
-                            ]
-                          },
-                          "schema:defaultValue": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "@id",
-                          "@type",
-                          "schema:valueName",
-                          "schema:name",
-                          "ada:dataType",
-                          "schema:defaultValue"
                         ]
                       },
                       {
@@ -6184,7 +6349,7 @@
                     {
                       "contains": {
                         "title": "Beam Current",
-                        "description": "Electron beam probe current. For sub-nA values use decimal notation (e.g., 0.4 nA).",
+                        "description": "Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -6521,65 +6686,6 @@
                           "schema:valueName",
                           "schema:name",
                           "ada:dataType"
-                        ]
-                      },
-                      "minContains": 0,
-                      "maxContains": 1
-                    },
-                    {
-                      "contains": {
-                        "title": "Technique per Target Species",
-                        "description": "Records which X-ray detection technique (EDS or WDS) was used to collect the measurement. Required when a procedure employs both EDS and WDS simultaneously. List in the same order as the Target Species field.",
-                        "type": "object",
-                        "properties": {
-                          "@id": {
-                            "enum": [
-                              "ada:targetSpeciesColumn/semTAPP/techniquePerTargetSpecies"
-                            ]
-                          },
-                          "@type": {
-                            "enum": [
-                              [
-                                "schema:PropertyValueSpecification"
-                              ]
-                            ]
-                          },
-                          "schema:valueName": {
-                            "enum": [
-                              "techniquePerTargetSpecies"
-                            ]
-                          },
-                          "schema:name": {
-                            "enum": [
-                              "Technique per Target Species"
-                            ]
-                          },
-                          "ada:dataType": {
-                            "enum": [
-                              "string"
-                            ]
-                          },
-                          "schema:readonlyValue": {
-                            "enum": [
-                              true
-                            ]
-                          },
-                          "ada:tier": {
-                            "enum": [
-                              "M"
-                            ]
-                          },
-                          "schema:defaultValue": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "@id",
-                          "@type",
-                          "schema:valueName",
-                          "schema:name",
-                          "ada:dataType",
-                          "schema:defaultValue"
                         ]
                       },
                       "minContains": 0,
@@ -7334,6 +7440,71 @@
                           "ada:dataType",
                           "schema:defaultValue"
                         ]
+                      },
+                      {
+                        "title": "X-ray Detection Method per Monitored Element",
+                        "description": "The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:monitoredPropertyColumn/semTAPP/xRayDetectionMethodPerMonitoredElement"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "xRayDetectionMethodPerMonitoredElement"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "X-ray Detection Method per Monitored Element"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {
+                            "enum": [
+                              true
+                            ]
+                          },
+                          "ada:tier": {
+                            "enum": [
+                              "M"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "schema:defaultValue"
+                        ]
                       }
                     ]
                   },
@@ -7952,6 +8123,75 @@
                           "schema:name": {
                             "enum": [
                               "X-ray Line"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {
+                            "enum": [
+                              true
+                            ]
+                          },
+                          "ada:tier": {
+                            "enum": [
+                              "M"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "schema:defaultValue"
+                        ]
+                      },
+                      "minContains": 0,
+                      "maxContains": 1
+                    },
+                    {
+                      "contains": {
+                        "title": "X-ray Detection Method per Monitored Element",
+                        "description": "The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:monitoredPropertyColumn/semTAPP/xRayDetectionMethodPerMonitoredElement"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "xRayDetectionMethodPerMonitoredElement"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "X-ray Detection Method per Monitored Element"
                             ]
                           },
                           "ada:dataType": {
@@ -9271,79 +9511,6 @@
                               "type": "string"
                             }
                           ]
-                        },
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "allOf": [
-                              {
-                                "if": {
-                                  "properties": {
-                                    "schema:name": {
-                                      "enum": [
-                                        "Target Material"
-                                      ]
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "then": {
-                                  "properties": {
-                                    "schema:value": {
-                                      "type": "array",
-                                      "items": {
-                                        "description": "General description of the material type(s) this procedure is designed to analyse.",
-                                        "anyOf": [
-                                          {
-                                            "type": "string",
-                                            "enum": [
-                                              "Silicate mineral",
-                                              "Silicate glass",
-                                              "Oxide",
-                                              "Sulfide",
-                                              "Carbonate",
-                                              "Phosphate",
-                                              "Metal or alloy",
-                                              "Organic matter",
-                                              "Regolith",
-                                              "Porous material",
-                                              "Whole rock",
-                                              "N/A",
-                                              "None",
-                                              "missing"
-                                            ]
-                                          },
-                                          {
-                                            "type": "string"
-                                          }
-                                        ],
-                                        "readOnly": true
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          },
-                          "allOf": [
-                            {
-                              "contains": {
-                                "properties": {
-                                  "schema:name": {
-                                    "enum": [
-                                      "Target Material"
-                                    ]
-                                  }
-                                },
-                                "required": [
-                                  "schema:name"
-                                ]
-                              }
-                            }
-                          ]
                         }
                       },
                       "required": [
@@ -9412,6 +9579,148 @@
                 }
               ],
               "readOnly": true
+            },
+            "ada:targetMaterialTemplate": {
+              "type": "object",
+              "properties": {
+                "ada:targetMaterialColumns": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialIdentifierColumn"
+                      },
+                      {
+                        "title": "Primary Calibration Standard Name",
+                        "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated \u2014 converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "primaryCalibrationStandardName"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Primary Calibration Standard Name"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "M"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "schema:defaultValue"
+                        ]
+                      }
+                    ]
+                  },
+                  "allOf": [
+                    {
+                      "contains": {
+                        "title": "Primary Calibration Standard Name",
+                        "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated \u2014 converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "enum": [
+                              "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
+                            ]
+                          },
+                          "@type": {
+                            "enum": [
+                              [
+                                "schema:PropertyValueSpecification"
+                              ]
+                            ]
+                          },
+                          "schema:valueName": {
+                            "enum": [
+                              "primaryCalibrationStandardName"
+                            ]
+                          },
+                          "schema:name": {
+                            "enum": [
+                              "Primary Calibration Standard Name"
+                            ]
+                          },
+                          "ada:dataType": {
+                            "enum": [
+                              "string"
+                            ]
+                          },
+                          "schema:readonlyValue": {},
+                          "ada:tier": {
+                            "enum": [
+                              "M"
+                            ]
+                          },
+                          "schema:defaultValue": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "@id",
+                          "@type",
+                          "schema:valueName",
+                          "schema:name",
+                          "ada:dataType",
+                          "schema:defaultValue"
+                        ]
+                      },
+                      "minContains": 0,
+                      "maxContains": 1
+                    }
+                  ]
+                },
+                "ada:defaultTargetMaterials": {
+                  "type": "array",
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
+                      },
+                      {
+                        "type": "object"
+                      }
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "ada:defaultTargetMaterials"
+              ]
             },
             "ada:sampleTiltAngle": {
               "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.",
@@ -9487,7 +9796,7 @@
             "ada:monitoredElements": {
               "type": "array",
               "items": {
-                "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
+                "description": "Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. A target species determined by stoichiometry or by difference, rather than measured, has no monitored element. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.",
                 "type": "string",
                 "readOnly": true
               }
@@ -10562,6 +10871,9 @@
         }
       },
       "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        },
         "resourcePartArray": {
           "type": "array",
           "description": "Array of the resources that make up a package. Each part is independently retrievable, so unlike an archive part it may carry its own schema:distribution and may be typed schema:DataDownload.",
@@ -10672,6 +10984,13 @@
                   "description": "MIME type(s) for this file.",
                   "items": {
                     "type": "string"
+                  }
+                },
+                "schema:additionalType": {
+                  "type": "array",
+                  "description": "Domain-specific type classification for this member file: what KIND of thing it is, beyond its MIME type. The @type above says only that it is a schema:MediaObject, and using @type to carry a domain classification conflates \"what this node is\" with \"what it is about\". A plain string is accepted; a schema:DefinedTerm carrying schema:inDefinedTermSet is preferred where the value comes from a controlled vocabulary.",
+                  "items": {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifManifest/$defs/cdifConceptOrTermOrString"
                   }
                 },
                 "schema:size": {
@@ -11384,6 +11703,80 @@
             ]
           },
           "x-jsonld-id": "http://schema.org/additionalProperty"
+        },
+        "ada:targetMaterialTemplate": {
+          "description": "Template for per-target-material parameters, a target material being a material type this procedure is designed to analyse (Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, Metal or alloy). Declares the target-material domain and the columns that repeat over it.\nThe domain is declared by the TAPP's Target Material field, marked `defines: target material`; the fields keyed BY it are the electron-beam conditions (Beam Current, Beam Mode, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization), and Primary Calibration Standard Name is keyed `target material x target species`.\nTarget materials are assumed present in any sample the procedure would analyse. The binding between a particular sampling unit and the material it hit is instance data, not procedure metadata, so it is recorded as a data-table column and NOT here -- this template carries only the kinds of material expected and the values that repeat over them.",
+          "type": "object",
+          "properties": {
+            "ada:targetMaterialColumns": {
+              "type": "array",
+              "description": "Columns of the per-target-material parameter table. Must include exactly one column with schema:valueName \"targetMaterial\" that identifies the material named in each row.",
+              "minItems": 1,
+              "items": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialColumn"
+              },
+              "contains": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialIdentifierColumn"
+              },
+              "maxContains": 1,
+              "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialColumns"
+            },
+            "ada:targetMaterialDeclaration": {
+              "type": "string",
+              "description": "The material types analysed, AS THE SOURCE STATES IT. Free text on purpose, and the counterpart of ada:targetSpeciesDeclaration: a submitter may name the materials as a list, or as prose that names none individually. ada:defaultTargetMaterials carries the members that could be recognised; this carries the statement they were recognised FROM, so a cell that parses only in part loses nothing.",
+              "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialDeclaration"
+            },
+            "ada:defaultTargetMaterials": {
+              "type": "array",
+              "description": "The material types this procedure targets by default - the ROWS of the per-material table, and the domain `defines: target material` enumerates. An entry is a bare string or a schema:DefinedTerm naming the material, or a row object binding that material to per-material values.\nA row object is keyed throughout by the schema:valueName of the columns declared in ada:targetMaterialColumns, and MUST carry the 'targetMaterial' key - the column that sibling description requires to identify the material named in each row.\nColumn-level constraints stay on the column: schema:readonlyValue when a value is constant across every material, and schema:defaultValue when one default serves the whole column. Use a row only for values that differ between materials.",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-target-material row",
+                    "description": "One row of the per-material table, keyed by column schema:valueName. null records a value that is deliberately absent for this material rather than merely unstated.",
+                    "required": [
+                      "targetMaterial"
+                    ],
+                    "properties": {
+                      "targetMaterial": {
+                        "type": "string",
+                        "description": "The material type this row is for (e.g. \"Silicate mineral\"), from the controlled list the TAPP's Target Material field offers, optionally qualified in the same cell. The key is the schema:valueName of the identifier column, which ada:targetMaterialColumns requires exactly one of, so a row is keyed by column valueName throughout."
+                      }
+                    },
+                    "additionalProperties": {
+                      "nullable": true,
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "x-jsonld-id": "https://ada.astromat.org/metadata/defaultTargetMaterials"
+            }
+          },
+          "required": [
+            "ada:targetMaterialColumns"
+          ],
+          "x-jsonld-id": "https://ada.astromat.org/metadata/targetMaterialTemplate"
         },
         "ada:targetSpeciesTemplate": {
           "description": "Template for per-target-species (element-specific) parameters. Defines the columns that appear in the species table, each with scope, datatype, and constraints. Target-species rows become schema:variableMeasured entries in metadata records. Typically associated with the acquisition workflow step.",
@@ -12370,6 +12763,14 @@
             }
           ]
         },
+        "TargetMaterialColumn": {
+          "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KeyedTableColumn"
+            }
+          ]
+        },
         "ReportedPropertyColumn": {
           "description": "One column of the reported-property table. The reported properties are what the procedure REPORTS -- '206Pb/238U date (Ma)', 'd56Fe (permil vs IRMM-014)' -- as distinct from the target species and monitored properties it ACQUIRES. Structurally a KeyedTableColumn.",
           "allOf": [
@@ -12456,6 +12857,63 @@
                   "x-jsonld-id": "http://schema.org/valueName",
                   "enum": [
                     "reportedProperty"
+                  ]
+                },
+                "ada:dataType": {
+                  "x-jsonld-id": "https://ada.astromat.org/metadata/dataType",
+                  "enum": [
+                    "string"
+                  ]
+                },
+                "schema:readonlyValue": {
+                  "x-jsonld-id": "http://schema.org/readonlyValue",
+                  "enum": [
+                    true
+                  ]
+                },
+                "schema:valueRequired": {
+                  "x-jsonld-id": "http://schema.org/valueRequired",
+                  "enum": [
+                    true
+                  ]
+                },
+                "ada:tier": {
+                  "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
+                  "enum": [
+                    "M"
+                  ]
+                },
+                "ada:cdifPropertyPath": {
+                  "x-jsonld-id": "https://ada.astromat.org/metadata/cdifPropertyPath",
+                  "enum": [
+                    "#/schema:variableMeasured/schema:name"
+                  ]
+                }
+              },
+              "required": [
+                "schema:valueName",
+                "ada:dataType",
+                "schema:readonlyValue",
+                "schema:valueRequired",
+                "ada:tier",
+                "ada:cdifPropertyPath"
+              ]
+            }
+          ]
+        },
+        "TargetMaterialIdentifierColumn": {
+          "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+          "allOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/TargetMaterialColumn"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schema:valueName": {
+                  "x-jsonld-id": "http://schema.org/valueName",
+                  "enum": [
+                    "targetMaterial"
                   ]
                 },
                 "ada:dataType": {
@@ -13258,6 +13716,9 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/DimensionComponent"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                   }
                 ]
               },
@@ -13331,6 +13792,9 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/AttributeComponent"
+                  },
+                  {
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
                   }
                 ]
               },
@@ -13467,9 +13931,9 @@
               "type": "string",
               "description": "Identifier for this DimensionGroup node"
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -13477,20 +13941,28 @@
               ]
             },
             "cdif:name": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                }
+              ],
               "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.",
               "x-jsonld-id": "https://w3id.org/cdif/name"
             },
-            "cdif:has_DataStructureComponent": {
+            "cdi:has_DimensionComponent": {
+              "description": "The dimension components this group groups. Named and typed to match the canonical association DimensionGroup_has_DimensionComponent, whose target is cdi:DimensionComponent and not the cdi:DataStructureComponent supertype.\nWas 'cdif:has_DataStructureComponent' accepting any component, which was wrong twice over: it widened the range to the supertype, and it reused a local name that the four DataStructure classes in this same file spell 'cdi:has_DataStructureComponent' for a different canonical association (DataStructure_has_DataStructureComponent). One local name under two prefixes for two associations. No record used the cdif: spelling -- 0 examples, against 12 for the cdi: one -- so nothing had to be migrated.\ncdi:, not cdif:, because with the item narrowed the value range agrees with the canonical model. Note ddiProperties does not transcribe DimensionGroup, so audit_cdif_vs_ddi.py reports this as CDIF-ONLY: the canonical XMI carries the association, the ddi building block is what is missing.",
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/DimensionComponent"
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
@@ -13498,7 +13970,7 @@
                 ]
               },
               "minItems": 1,
-              "x-jsonld-id": "https://w3id.org/cdif/has_DataStructureComponent"
+              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DimensionComponent"
             }
           },
           "required": [
@@ -13574,9 +14046,9 @@
               },
               "x-jsonld-id": "https://w3id.org/cdif/isComposedOf"
             },
-            "cdif:references": {
+            "cdif:references_PrimaryKey": {
               "description": "references a primary key in a different dataset",
-              "x-jsonld-id": "https://w3id.org/cdif/references",
+              "x-jsonld-id": "https://w3id.org/cdif/references_PrimaryKey",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
@@ -13587,7 +14059,7 @@
           "required": [
             "@type",
             "cdif:isComposedOf",
-            "cdif:references"
+            "cdif:references_PrimaryKey"
           ]
         },
         "PrimaryKey": {
@@ -13823,27 +14295,7 @@
           "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/DefinedTerm"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "reference to a term defined elsewhere"
-                  }
-                }
-              }
-            ]
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.spatialExtent/$defs/cdifConceptOrTermOrString"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -14059,6 +14511,9 @@
         }
       ],
       "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        },
         "DefinedTerm": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm"
         },
@@ -14782,23 +15237,6 @@
                                   }
                                 ],
                                 "x-jsonld-id": "http://schema.org/identifier"
-                              },
-                              "ada:samplingUnits": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "schema:name": {
-                                      "description": "The name or label of each sampling unit analysed in this session, as the laboratory records it, together with the sample it belongs to \u2014 e.g. a spot number, a grain label, a map or region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually, such as map pixels or reconstructed voxels, name the acquisition area they belong to instead.",
-                                      "type": "string",
-                                      "x-jsonld-id": "http://schema.org/name"
-                                    }
-                                  },
-                                  "required": [
-                                    "schema:name"
-                                  ]
-                                },
-                                "x-jsonld-id": "https://ada.astromat.org/metadata/samplingUnits"
                               }
                             },
                             "required": [
@@ -15193,71 +15631,31 @@
                 ]
               },
               "x-jsonld-id": "http://schema.org/relatedLink"
+            },
+            "schema:variableMeasured": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "properties": {
+                      "schema:name": {
+                        "enum": [
+                          "Sampling Unit Name"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "schema:name"
+                    ]
+                  }
+                }
+              ],
+              "x-jsonld-id": "http://schema.org/variableMeasured"
             }
           }
-        },
-        "Param_Procedure_targetMaterial": {
-          "title": "Target Material",
-          "description": "General description of the material type(s) this procedure is designed to analyse.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/Core/targetMaterial"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValueSpecification"
-                ]
-              ]
-            },
-            "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
-              "enum": [
-                "targetMaterial"
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Target Material"
-              ]
-            },
-            "ada:dataType": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/dataType",
-              "enum": [
-                "string"
-              ]
-            },
-            "ada:fieldScope": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/fieldScope",
-              "enum": [
-                "session"
-              ]
-            },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue",
-              "enum": [
-                true
-              ]
-            },
-            "ada:tier": {
-              "x-jsonld-id": "https://ada.astromat.org/metadata/tier",
-              "enum": [
-                "R"
-              ]
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:valueName",
-            "schema:name",
-            "ada:dataType",
-            "ada:fieldScope"
-          ]
         },
         "Param_Analysis_constantsReferenceValues": {
           "title": "Constants Reference Values",
@@ -15505,7 +15903,7 @@
     },
     "ogch.BaseSchema.modules.aggregation": {
       "title": "TAPP Composition Module: Aggregation",
-      "description": "The shared Aggregation block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Aggregation.csv), composed by 13 of the sixteen delivery tables. 2 owned fields over 2 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared Aggregation block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_Aggregation.csv), composed by 13 of the sixteen delivery tables. 5 owned fields over 6 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "AnalysisIdentification": {
           "title": "Aggregation on the analysis",
@@ -15522,7 +15920,7 @@
                       "properties": {
                         "schema:name": {
                           "enum": [
-                            "Goodness-of-Fit or Dispersion Statistic"
+                            "Combination Method"
                           ]
                         }
                       },
@@ -15533,7 +15931,7 @@
                     "then": {
                       "properties": {
                         "schema:value": {
-                          "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                          "description": "Whether the reported variable is an individual result or combines several, and if combined, how: the statistical model used, including any criteria governing which model is applied, and what the individual results are combined over (for example per grain, per phase within a sample, or per sample). Record 'Not combined' where each individual result is reported on its own. Record the model only; the software implementing it belongs in Data Processing Software.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -15547,31 +15945,29 @@
                           ],
                           "x-jsonld-id": "http://schema.org/value"
                         }
-                      },
-                      "required": [
-                        "schema:value"
-                      ]
+                      }
                     }
                   }
                 ]
               },
-              "allOf": [
-                {
-                  "contains": {
-                    "properties": {
-                      "schema:name": {
-                        "enum": [
-                          "Goodness-of-Fit or Dispersion Statistic"
-                        ]
-                      }
+              "x-jsonld-id": "http://schema.org/variableMeasured"
+            },
+            "prov:wasGeneratedBy": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ada:combinedResults": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {}
                     },
-                    "required": [
-                      "schema:name"
-                    ]
+                    "x-jsonld-id": "https://ada.astromat.org/metadata/combinedResults"
                   }
                 }
-              ],
-              "x-jsonld-id": "http://schema.org/variableMeasured"
+              },
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
             },
             "dqv:hasQualityMeasurement": {
               "type": "array",
@@ -15594,7 +15990,7 @@
                     "then": {
                       "properties": {
                         "dqv:value": {
-                          "description": "The statistic reported to show whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
+                          "description": "The statistic reported to show whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value. The procedure may still state an acceptance threshold, which belongs with the inclusion criteria.",
                           "anyOf": [
                             {
                               "type": "string"
@@ -15635,67 +16031,12 @@
               "x-jsonld-id": "http://www.w3.org/ns/dqv#hasQualityMeasurement"
             }
           }
-        },
-        "Param_Procedure_analysisInclusionAndRejectionCriteria": {
-          "title": "Analysis Inclusion and Rejection Criteria",
-          "description": "The rules determining which individual results contribute to a reported aggregate value, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure aggregates. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the reported value, and on what grounds.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "enum": [
-                "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault"
-              ]
-            },
-            "@type": {
-              "enum": [
-                [
-                  "schema:PropertyValueSpecification"
-                ]
-              ]
-            },
-            "schema:valueName": {
-              "x-jsonld-id": "http://schema.org/valueName",
-              "enum": [
-                "analysisInclusionAndRejectionCriteriaDefault"
-              ]
-            },
-            "schema:name": {
-              "x-jsonld-id": "http://schema.org/name",
-              "enum": [
-                "Analysis Inclusion and Rejection Criteria"
-              ]
-            },
-            "ada:dataType": {
-              "enum": [
-                "string"
-              ]
-            },
-            "ada:fieldScope": {
-              "enum": [
-                "session"
-              ]
-            },
-            "schema:readonlyValue": {
-              "x-jsonld-id": "http://schema.org/readonlyValue"
-            },
-            "ada:tier": {
-              "enum": [
-                "R"
-              ]
-            }
-          },
-          "required": [
-            "@id",
-            "@type",
-            "schema:valueName",
-            "schema:name",
-            "ada:dataType",
-            "ada:fieldScope"
-          ]
         }
       },
       "x-jsonld-prefixes": {
+        "ada": "https://ada.astromat.org/metadata/",
         "dqv": "http://www.w3.org/ns/dqv#",
+        "prov": "http://www.w3.org/ns/prov#",
         "schema": "http://schema.org/"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml",
@@ -15703,7 +16044,7 @@
     },
     "ogch.BaseSchema.modules.compositionQC": {
       "title": "TAPP Composition Module: CompositionQC",
-      "description": "The shared CompositionQC block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_CompositionQC.csv), composed by 12 of the sixteen delivery tables. 6 owned fields over 10 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
+      "description": "The shared CompositionQC block of the 2026-08-11 TAPP library (Claude Skills for TAPP/Module_CompositionQC.csv), composed by 12 of the sixteen delivery tables. 6 owned fields over 8 schema paths.\n\nGENERATED by tools/build_module_bb.py from the module's CSV and its schema-path sidecar \u2014 edit those, not this file. Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis is a PROFILE, not a vocabulary: it asserts which properties a conforming procedure or analysis carries. Column F (Example / Allowed Content) is consumer-owned per the module manifest, so no enum is pinned here \u2014 a consuming TAPP may narrow a value space, never widen it.",
       "$defs": {
         "ProcedureIdentification": {
           "title": "CompositionQC on the procedure",
@@ -15856,15 +16197,10 @@
                 "type": "string"
               },
               "x-jsonld-id": "https://ada.astromat.org/metadata/secondaryReferenceMaterialDefault"
-            },
-            "ada:primaryStandardNameDefault": {
-              "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated \u2014 converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
-              "type": "string",
-              "x-jsonld-id": "https://ada.astromat.org/metadata/primaryStandardNameDefault"
             }
           },
           "required": [
-            "ada:primaryStandardNameDefault"
+            "schema:actionProcess"
           ]
         },
         "AnalysisIdentification": {
@@ -16041,39 +16377,6 @@
                                             "properties": {
                                               "schema:name": {
                                                 "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
-                                                "anyOf": [
-                                                  {
-                                                    "type": "string"
-                                                  },
-                                                  {
-                                                    "type": "array",
-                                                    "items": {
-                                                      "type": "string"
-                                                    }
-                                                  }
-                                                ],
-                                                "x-jsonld-id": "http://schema.org/name"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "if": {
-                                            "properties": {
-                                              "ada:reagentRole": {
-                                                "enum": [
-                                                  "primaryStandard"
-                                                ]
-                                              }
-                                            },
-                                            "required": [
-                                              "ada:reagentRole"
-                                            ]
-                                          },
-                                          "then": {
-                                            "properties": {
-                                              "schema:name": {
-                                                "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated \u2014 converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                                                 "anyOf": [
                                                   {
                                                     "type": "string"
@@ -16573,23 +16876,7 @@
           "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
           "type": "array",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/cdifConceptOrTermOrString"
           },
           "minItems": 1,
           "x-jsonld-id": "http://schema.org/additionalType"
@@ -16849,6 +17136,9 @@
         "schema:name"
       ],
       "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        },
         "Identifier": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
         },
@@ -16950,23 +17240,7 @@
               "description": "Component type classification.",
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/cdifConceptOrTermOrString"
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
@@ -17193,17 +17467,29 @@
       "type": "object",
       "properties": {
         "@type": {
+          "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
           "default": "schema:CreativeWork",
           "type": "array",
           "items": {
             "type": "string"
           },
-          "contains": {
-            "enum": [
-              "schema:CreativeWork"
-            ]
-          },
-          "minItems": 1
+          "minItems": 1,
+          "anyOf": [
+            {
+              "contains": {
+                "enum": [
+                  "schema:CreativeWork"
+                ]
+              }
+            },
+            {
+              "contains": {
+                "enum": [
+                  "dcat:Relationship"
+                ]
+              }
+            }
+          ]
         },
         "schema:name": {
           "type": "string",
@@ -17219,28 +17505,85 @@
           "x-jsonld-id": "http://schema.org/url"
         },
         "dcat:hadRole": {
-          "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.",
-          "x-jsonld-id": "http://www.w3.org/ns/dcat#hadRole",
-          "allOf": [
+          "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+          "anyOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/DcatRole"
+            },
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/cdifConceptOrTermOrString"
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/dcat#hadRole"
         },
         "dcterms:relation": {
-          "type": "string",
-          "format": "uri",
-          "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.",
+          "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+          "anyOf": [
+            {
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference"
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ],
           "x-jsonld-id": "http://purl.org/dc/terms/relation"
         }
       },
       "required": [
-        "@type",
-        "schema:url"
+        "@type"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "enum": [
+                    "schema:CreativeWork"
+                  ]
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "schema:url"
+            ]
+          }
+        }
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        },
+        "DcatRole": {
+          "description": "A dcat:Role -- DCAT's declared range for dcat:hadRole. Defined inline rather than as its own building block because nothing else in the register needs it yet; dcat:hadRole's domain is owl:unionOf [prov:Attribution, dcat:Relationship], so promote it to a block if a qualified attribution ever needs the same shape.\ndcat:Role rdfs:subClassOf skos:Concept, so the skos:prefLabel / skos:inScheme furniture of a concept is permitted alongside; it is not required here because DCAT states no cardinality constraints on the class -- dcat.ttl declares no rdfs:subClassOf and no owl:Restriction on dcat:Relationship, and the \"mandatory\" wording in the DCAT-3 document is prose in the spec tables rather than an axiom in the vocabulary.",
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string",
+              "description": "IRI of the role concept, ideally from a controlled vocabulary."
+            },
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "enum": [
+                  "dcat:Role"
+                ]
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "@type"
+          ]
         }
       },
       "x-jsonld-prefixes": {
@@ -17396,6 +17739,14 @@
           },
           "x-jsonld-id": "http://schema.org/encodingFormat"
         },
+        "schema:additionalType": {
+          "type": "array",
+          "description": "Domain-specific type classification for this distribution: what KIND of thing the file is, beyond its MIME type. schema:encodingFormat says how to parse the bytes; this says what they are. A plain string is accepted, but a schema:DefinedTerm carrying schema:inDefinedTermSet is preferred where the value comes from a controlled vocabulary, so the vocabulary travels with the data rather than being asserted only in a profile.",
+          "items": {
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.dataDownload/$defs/cdifConceptOrTermOrString"
+          },
+          "x-jsonld-id": "http://schema.org/additionalType"
+        },
         "schema:contentSize": {
           "type": "string",
           "description": "File size of this distribution, e.g. '2.5 MB' or a byte count. Per schema.org/contentSize.",
@@ -17512,6 +17863,11 @@
           }
         }
       ],
+      "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        }
+      },
       "x-jsonld-prefixes": {
         "schema": "http://schema.org/"
       },
@@ -18171,23 +18527,7 @@
           "type": "array",
           "description": "additional type assertions for the catalog record node. dcat:CatalogRecord is required.",
           "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "@id"
-                ],
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifCatalogRecord/$defs/cdifConceptOrTermOrString"
           },
           "contains": {
             "type": "object",
@@ -18313,6 +18653,9 @@
         "@id"
       ],
       "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        },
         "Identifier": {
           "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
         },
@@ -18492,9 +18835,9 @@
               },
               "minItems": 1
             },
-            "cdi:typeOfStatistic": {
+            "cdif:typeOfStatistic": {
               "description": "Controlled-vocabulary entry naming the kind of statistic \u2014 e.g. mean, median, count, sum, stdDev.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/typeOfStatistic",
+              "x-jsonld-id": "https://w3id.org/cdif/typeOfStatistic",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/cdifConceptOrTermOrString"
@@ -18612,9 +18955,9 @@
               ],
               "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/for"
             },
-            "cdi:typeOfStatistic": {
+            "cdif:typeOfStatistic": {
               "description": "Controlled-vocabulary entry naming the kind of statistic.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/typeOfStatistic",
+              "x-jsonld-id": "https://w3id.org/cdif/typeOfStatistic",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifStatistics/$defs/cdifConceptOrTermOrString"
@@ -18777,10 +19120,18 @@
               "minItems": 1
             },
             "cdif:name": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                }
+              ],
               "description": "Human-understandable name(s). CDIF-simplified from DDI-CDI Category.name (ObjectName) to plain strings.",
               "x-jsonld-id": "https://w3id.org/cdif/name"
             },
@@ -19067,24 +19418,24 @@
             }
           ]
         },
-        "cdi:function": {
+        "cdif:function": {
           "type": "array",
           "items": {
             "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTermOrString"
           },
           "description": "Immutable characteristic of the variable such as geographic designator, weight, temporal designation, etc. (InstanceVariable.function).",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/function"
+          "x-jsonld-id": "https://w3id.org/cdif/function"
         },
-        "cdi:platformType": {
+        "cdif:platformType": {
           "description": "The application or technical system context in which the variable has been realized - typically a statistical processing package or processing environment (InstanceVariable.platformType).",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/platformType",
+          "x-jsonld-id": "https://w3id.org/cdif/platformType",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTermOrString"
             }
           ]
         },
-        "cdi:source": {
+        "cdif:source": {
           "anyOf": [
             {
               "type": "string"
@@ -19103,7 +19454,7 @@
             }
           ],
           "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source).",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/source"
+          "x-jsonld-id": "https://w3id.org/cdif/source"
         },
         "cdif:isDescribedBy_StatisticsCollection": {
           "description": "The StatisticsCollection holding summary / category statistics for this InstanceVariable (direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy \u2192 StatisticsCollection` association). cdif: namespaced and target-suffixed because the DDI-CDI isDescribedBy association is polymorphic. This is the canonical CDIF path for **per-variable** statistics; dataset-scope aggregates (row count etc.) go under `Dataset.cdif:statistics` instead.",
@@ -19126,16 +19477,16 @@
           ],
           "x-jsonld-id": "https://w3id.org/cdif/isDescribedBy_StatisticsCollection"
         },
-        "cdi:describedUnitOfMeasure": {
+        "cdif:describedUnitOfMeasure": {
           "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead.",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure",
+          "x-jsonld-id": "https://w3id.org/cdif/describedUnitOfMeasure",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifInstanceVariable/$defs/cdifConceptOrTerm"
             }
           ]
         },
-        "cdi:qualifies": {
+        "cdif:qualifies": {
           "type": "object",
           "required": [
             "@id"
@@ -19147,7 +19498,7 @@
             }
           },
           "description": "reference to an instance variable defined for this dataset",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/qualifies"
+          "x-jsonld-id": "https://w3id.org/cdif/qualifies"
         }
       },
       "allOf": [
@@ -19175,17 +19526,17 @@
                 "not": true,
                 "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/takesSentinelValuesFrom"
               },
-              "cdi:hasIntendedDataType": {
+              "cdif:hasIntendedDataType": {
                 "not": true,
-                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType"
+                "x-jsonld-id": "https://w3id.org/cdif/hasIntendedDataType"
               },
-              "cdi:describedUnitOfMeasure": {
+              "cdif:describedUnitOfMeasure": {
                 "not": true,
-                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure"
+                "x-jsonld-id": "https://w3id.org/cdif/describedUnitOfMeasure"
               },
-              "cdi:unitOfMeasureKind": {
+              "cdif:unitOfMeasureKind": {
                 "not": true,
-                "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind"
+                "x-jsonld-id": "https://w3id.org/cdif/unitOfMeasureKind"
               },
               "cdi:measures": {
                 "not": true,
@@ -19470,15 +19821,15 @@
               "description": "A formal description of the set of values in human-readable language.",
               "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/description"
             },
-            "cdi:formatPattern": {
+            "cdif:formatPattern": {
               "type": "string",
               "description": "A pattern for a number as described in Unicode Locale Data Markup Language (LDML) (http://www.unicode.org/reports/tr35/tr35.html) Part 3: Numbers (http://www.unicode.org/reports/tr35/tr35-numbers.html#Number_Format_Patterns) and Part 4. Dates (http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns) . Examples would be #,##0.### to describe the pattern for a decimal number, or yyyy.MM.dd G 'at' HH:mm:ss zzz for a datetime pattern.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/formatPattern"
+              "x-jsonld-id": "https://w3id.org/cdif/formatPattern"
             },
-            "cdi:logicalExpression": {
+            "cdif:logicalExpression": {
               "type": "string",
               "description": "A logical expression where the values of \"x\" making the expression true are the members of the set of valid values. For example, \"(all reals x such that x > 0)\" describes the real numbers greater than 0.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/logicalExpression"
+              "x-jsonld-id": "https://w3id.org/cdif/logicalExpression"
             },
             "cdi:maximumValueExclusive": {
               "type": "string",
@@ -19500,10 +19851,10 @@
               "description": "A string denoting the minimum possible value. From the W3C Recommendation \"Metadata Vocabulary for Tabular Data\" (https://www.w3.org/TR/tabular-metadata/) 5.11.2: \"minimum: An atomic property that contains a single number or string that is the minimum valid value (inclusive); equivalent to minInclusive. The value of this property becomes the minimum annotation for the described datatype. See Value Constraints in [tabular-data-model] for details.\"",
               "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/minimumValueInclusive"
             },
-            "cdi:regularExpression": {
+            "cdif:regularExpression": {
               "type": "string",
               "description": "A regular expression where strings matching the expression belong to the set of valid values.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/regularExpression"
+              "x-jsonld-id": "https://w3id.org/cdif/regularExpression"
             }
           },
           "required": [
@@ -20897,17 +21248,24 @@
               "description": "Identifier for this MeasureComponent node"
             },
             "cdif:name": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                }
+              ],
               "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.",
               "x-jsonld-id": "https://w3id.org/cdif/name"
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -20929,14 +21287,14 @@
               ],
               "x-jsonld-id": "https://w3id.org/cdif/isDefinedBy_Variable"
             },
-            "cdi:semantic": {
+            "cdif:semantic": {
               "type": "array",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/cdifConceptOrTermOrString"
               },
               "minItems": 1,
               "description": "Qualifies the purpose or use expressed as a paired external controlled vocabulary.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/semantic"
+              "x-jsonld-id": "https://w3id.org/cdif/semantic"
             }
           },
           "required": [
@@ -20963,7 +21321,7 @@
               "type": "string",
               "description": "Identifier for this AttributeComponent node"
             },
-            "cdi:qualifies": {
+            "cdif:qualifies": {
               "type": "array",
               "items": {
                 "anyOf": [
@@ -20976,11 +21334,11 @@
                 ]
               },
               "minItems": 1,
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/qualifies"
+              "x-jsonld-id": "https://w3id.org/cdif/qualifies"
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -21002,14 +21360,14 @@
               ],
               "x-jsonld-id": "https://w3id.org/cdif/isDefinedBy_Variable"
             },
-            "cdi:semantic": {
+            "cdif:semantic": {
               "type": "array",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/cdifConceptOrTermOrString"
               },
               "minItems": 1,
               "description": "Qualifies the purpose or use expressed as a paired external controlled vocabulary.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/semantic"
+              "x-jsonld-id": "https://w3id.org/cdif/semantic"
             }
           },
           "required": [
@@ -21077,9 +21435,9 @@
               "type": "string",
               "description": "Identifier for this VariableValueComponent node"
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -21101,14 +21459,14 @@
               ],
               "x-jsonld-id": "https://w3id.org/cdif/isDefinedBy_Variable"
             },
-            "cdi:semantic": {
+            "cdif:semantic": {
               "type": "array",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/cdifConceptOrTermOrString"
               },
               "minItems": 1,
               "description": "Qualifies the purpose or use expressed as a paired external controlled vocabulary.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/semantic"
+              "x-jsonld-id": "https://w3id.org/cdif/semantic"
             }
           },
           "required": [
@@ -21152,23 +21510,23 @@
                 }
               ]
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
                 }
               ]
             },
-            "cdi:semantic": {
+            "cdif:semantic": {
               "type": "array",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/cdifConceptOrTermOrString"
               },
               "minItems": 1,
               "description": "Qualifies the purpose or use expressed as a paired external controlled vocabulary.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/semantic"
+              "x-jsonld-id": "https://w3id.org/cdif/semantic"
             }
           },
           "required": [
@@ -21196,9 +21554,9 @@
               "type": "string",
               "description": "Identifier for this DataStructureComponent node"
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -21220,14 +21578,14 @@
               ],
               "x-jsonld-id": "https://w3id.org/cdif/isDefinedBy_Variable"
             },
-            "cdi:semantic": {
+            "cdif:semantic": {
               "type": "array",
               "items": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifDataStructureComponent/$defs/cdifConceptOrTermOrString"
               },
               "minItems": 1,
               "description": "Qualifies the purpose or use expressed as a paired external controlled vocabulary.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/semantic"
+              "x-jsonld-id": "https://w3id.org/cdif/semantic"
             }
           },
           "required": [
@@ -21629,28 +21987,6 @@
                             "type": "object"
                           },
                           "x-jsonld-id": "http://schema.org/additionalProperty"
-                        },
-                        "ada:samplingUnits": {
-                          "description": "The sampling units of this sample that were analysed -- the grains, spots, phases, sub-volumes or regions of interest that one row of reported values corresponds to. A sampling unit belongs to exactly one sample, which is why it is nested here rather than sitting on the activity. The unit TYPE is stated once by the procedure (ada:samplingUnitType); these are the instances, and they cannot be known until the session runs.",
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "required": [
-                              "schema:name"
-                            ],
-                            "properties": {
-                              "@id": {
-                                "description": "Optional identifier for this sampling unit.",
-                                "type": "string"
-                              },
-                              "schema:name": {
-                                "description": "The laboratory's label for this sampling unit -- a spot number, grain label, map or region-of-interest name, or aliquot identifier. Required, because a unit nothing can name gives a field keyed by sampling unit no row to attach its value to.",
-                                "type": "string",
-                                "x-jsonld-id": "http://schema.org/name"
-                              }
-                            }
-                          },
-                          "x-jsonld-id": "https://ada.astromat.org/metadata/samplingUnits"
                         }
                       }
                     },
@@ -21676,6 +22012,28 @@
                       "type": "object"
                     },
                     "x-jsonld-id": "http://schema.org/additionalProperty"
+                  },
+                  "ada:combinedResults": {
+                    "description": "The reported values this session obtained by averaging or otherwise combining several individual results -- the ROWS of the combined-result table, and the domain that `defines: combined result` enumerates (Rule 7; see the Legends sheet of any delivered TAPP). One entry per combined value, each naming what it combines: \"Olivine, sample A, 8 points\", \"Zircon weighted-mean date, sample B, 236 of 246 spots\", \"Isochron, sample C, 36 runs\".\nOn the ACTIVITY rather than on a sample, because a combined result names its own sample and need not belong to exactly one -- an isochron over 36 runs is the case in hand.\nIt is METADATA, unlike a sampling unit, and the difference is worth being clear about because an earlier design got it wrong. A combined result is a statement the record makes about its own contents, so it belongs here. An individual sampling unit is not: the procedure and the analysis can state only the KIND of unit (ada:samplingUnitType), while a particular unit's identifier is a schema:variableMeasured naming a COLUMN in one of the distributions, and the binding from that unit to its target material exists only in the instance data table beside the results. There is therefore no array of sampling-unit objects here; one was added on 2026-09-25 and removed on 2026-10-01 once that was settled.\nAnalysis-side only: the procedure can say HOW results will be combined (Combination Method, keyed by reported property) but not WHICH were, so there is no ada:combinedResults counterpart in tappDefinition.\nFields keyed `combined result x reported property` -- Goodness-of-Fit or Dispersion Statistic, and Other Statistics -- ride on these rows as per-reported- property values, keyed by the valueName of the column that declared them.",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "schema:name"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "description": "Optional identifier for this combined result.",
+                          "type": "string"
+                        },
+                        "schema:name": {
+                          "description": "What this combined value is and what it combines. Required, because a combined result nothing can name gives a field keyed by combined result no row to attach its value to.",
+                          "type": "string",
+                          "x-jsonld-id": "http://schema.org/name"
+                        }
+                      }
+                    },
+                    "x-jsonld-id": "https://ada.astromat.org/metadata/combinedResults"
                   }
                 },
                 "required": [
@@ -22901,11 +23259,28 @@
           "type": "string",
           "description": "Intent or reason for the object/the description of the object.",
           "x-jsonld-id": "https://w3id.org/cdif/purpose"
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Prose statement of the values this domain admits. Required when cdif:references is absent, so that a domain naming no codelist still says what it enumerates.",
+          "x-jsonld-id": "http://schema.org/description"
         }
       },
       "required": [
         "@type"
       ],
+      "if": {
+        "not": {
+          "required": [
+            "cdif:references"
+          ]
+        }
+      },
+      "then": {
+        "required": [
+          "schema:description"
+        ]
+      },
       "x-jsonld-prefixes": {
         "schema": "http://schema.org/",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
@@ -22936,18 +23311,18 @@
           "type": "string",
           "description": "Identifier for this RepresentedVariable node"
         },
-        "cdi:describedUnitOfMeasure": {
+        "cdif:describedUnitOfMeasure": {
           "description": "The unit in which the data values are measured (kg, pound, euro), expressed as a value from a controlled system of entries (i.e., QDT). Supports the provision of an identifier for the entry in the authoritative source (a URI, etc.), and the specific vocabulary.",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/describedUnitOfMeasure",
+          "x-jsonld-id": "https://w3id.org/cdif/describedUnitOfMeasure",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString"
             }
           ]
         },
-        "cdi:hasIntendedDataType": {
+        "cdif:hasIntendedDataType": {
           "description": "The data type intended to be used by this variable. Supports the optional use of an external controlled vocabulary.",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/hasIntendedDataType",
+          "x-jsonld-id": "https://w3id.org/cdif/hasIntendedDataType",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString"
@@ -23003,9 +23378,9 @@
           ],
           "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/measures"
         },
-        "cdi:unitOfMeasureKind": {
+        "cdif:unitOfMeasureKind": {
           "description": "Kind of unit of measure, so that it may be prone to translation to equivalent UOMs. Example values include \"acceleration,\" \"temperature,\" \"salinity\", etc. This description exists at the conceptual level, indicating a limitation on the type of representations which may be used for the variable as it is made more concrete.",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/unitOfMeasureKind",
+          "x-jsonld-id": "https://w3id.org/cdif/unitOfMeasureKind",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifRepresentedVariable/$defs/cdifConceptOrTermOrString"
@@ -23035,9 +23410,9 @@
             }
           ]
         },
-        "cdi:identifier": {
+        "cdif:identifier": {
           "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-          "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+          "x-jsonld-id": "https://w3id.org/cdif/identifier",
           "allOf": [
             {
               "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -23045,11 +23420,18 @@
           ]
         },
         "cdif:name": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          ],
           "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.",
           "x-jsonld-id": "https://w3id.org/cdif/name"
         },
@@ -23117,9 +23499,9 @@
                 }
               ]
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -23127,11 +23509,18 @@
               ]
             },
             "cdif:name": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                }
+              ],
               "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.",
               "x-jsonld-id": "https://w3id.org/cdif/name"
             },
@@ -23165,10 +23554,10 @@
               "minItems": 1,
               "x-jsonld-id": "https://w3id.org/cdif/has_Concept"
             },
-            "cdi:purpose": {
+            "cdif:purpose": {
               "type": "string",
               "description": "Intent or reason for the object/the description of the object.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/purpose"
+              "x-jsonld-id": "https://w3id.org/cdif/purpose"
             }
           },
           "required": [
@@ -23223,9 +23612,9 @@
                 }
               ]
             },
-            "cdi:identifier": {
+            "cdif:identifier": {
               "description": "Identifier for objects requiring short- or long-lasting referencing and management.",
-              "x-jsonld-id": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/identifier",
+              "x-jsonld-id": "https://w3id.org/cdif/identifier",
               "allOf": [
                 {
                   "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier"
@@ -23233,11 +23622,18 @@
               ]
             },
             "cdif:name": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "minItems": 1,
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 1
+                }
+              ],
               "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.",
               "x-jsonld-id": "https://w3id.org/cdif/name"
             },
@@ -23301,11 +23697,18 @@
           ]
         },
         "cdif:name": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 1,
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          ],
           "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage.",
           "x-jsonld-id": "https://w3id.org/cdif/name"
         }
@@ -23629,23 +24032,7 @@
             "schema:additionalType": {
               "type": "array",
               "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": [
-                      "@id"
-                    ],
-                    "properties": {
-                      "@id": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.profiles.cdifProfile.cdifCodelist/$defs/cdifConceptOrTermOrString"
               },
               "contains": {
                 "type": "object",
@@ -23741,6 +24128,9 @@
         "skos:hasTopConcept"
       ],
       "$defs": {
+        "cdifConceptOrTermOrString": {
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/profile/schema-oas3.0.json#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString"
+        },
         "CdifCodelistConcept": {
           "description": "A SKOS Concept constrained for CDIF codelist use. Must have a resolvable @id, skos:inScheme, skos:notation, and skos:prefLabel. Becasue JSON-LD is an open-world implementation, any other skos properties may be included.",
           "type": "object",

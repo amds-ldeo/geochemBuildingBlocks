@@ -16,34 +16,22 @@
   ],
   "schema:name": "tem protocol \u2014 Chaves2023",
   "schema:description": "Probe size <1 nm stated for STEM-EDS maps and profiles (Sec 2.6) Reported detail: ada:analyticalSubModeDefault = BF-TEM; HRTEM (TEM Imaging); HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Line scan; Spectrum image (map).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Oxide (synthetic magnetite Fe3O4, 99.9% purity, Sigma Aldrich; dry-sieved <45 \u00b5m; pressed into pellets at 1500 psi)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-          "schema:name": "Pre-Analysis Imaging and Screening",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "FIB-SEM imaging of the irradiated pellets \u2014 \"To analyze the surface morphology and texture of the magnetite samples after laser or ion irradiation and to prepare electron transparent samples suitable for TEM, we used a Thermo Scientific Helios G4 UX DualBeam FIB-SEM at Purdue University. We compared textural differences between the irradiated and unirradiated areas\" (p.3), and the grains large enough to section were chosen from those images"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "synthetic magnetite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -72,24 +60,11 @@
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the reported quantities are structures and per-grain compositions rather than aggregates over individual results, and no acceptance or rejection rule is stated"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -101,6 +76,28 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Size, and irradiation state \u2014 \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 \u03bcm) to extract FIB sections\" (p.3)",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "FIB-SEM imaging of the irradiated pellets \u2014 \"To analyze the surface morphology and texture of the magnetite samples after laser or ion irradiation and to prepare electron transparent samples suitable for TEM, we used a Thermo Scientific Helios G4 UX DualBeam FIB-SEM at Purdue University. We compared textural differences between the irradiated and unirradiated areas\" (p.3), and the grains large enough to section were chosen from those images"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -284,7 +281,7 @@
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Region of interest (altered rim) \u2014 \"We analyzed the FIB sections using different imaging modes\" and \"collected EDS maps and profiles using a probe size of <1 nm\" (p.3); the reported profiles run across the rim and \"The underlying unaltered magnetite\" (p.7)",
   "ada:reportedProperties": [
-    "Fe and O concentrations across the altered rim (at%, from quantitative EDS maps and line profiles quantified by the Cliff-Lorimer method, p.3); rim thickness (nm \u2014 \"a ~50 nm rim on the magnetite surface\", p.9); d-spacings from HRTEM (\u00c5: \"2.9 \u00c5, 2.5 \u00c5, and 1.6 \u00c5\", p.9); and the defect microstructure as a nominal property (\"elongated defects\" in a crystalline rim, p.9)"
+    "Fe concentration (at%); O concentration (at%); rim thickness (nm); d-spacing (\u00c5); defect microstructure (nominal) \u2014 Fe and O concentrations across the altered rim (at%, from quantitative EDS maps and line profiles quantified by the Cliff-Lorimer method, p.3); rim thickness (nm \u2014 \"a ~50 nm rim on the magnetite surface\", p.9); d-spacings from HRTEM (\u00c5: \"2.9 \u00c5, 2.5 \u00c5, and 1.6 \u00c5\", p.9); and the defect microstructure as a nominal property (\"elongated defects\" in a crystalline rim, p.9)"
   ],
   "schema:variableMeasured": [
     {

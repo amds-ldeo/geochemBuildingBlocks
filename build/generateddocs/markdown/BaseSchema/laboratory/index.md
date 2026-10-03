@@ -123,6 +123,7 @@ Links to the schema:
 {
   "@context": {
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "nxs": "https://manual.nexusformat.org/classes/",
     "@version": 1.1
   }

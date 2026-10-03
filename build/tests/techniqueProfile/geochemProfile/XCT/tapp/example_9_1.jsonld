@@ -25,7 +25,25 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Dias2019",
-  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v42.csv).",
+  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 \u00d7 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Lunar meteorite",
+      "Martian meteorite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:targetFeature": "Internal structure; porosity; density contrast",
   "schema:object": [
     {
       "@type": [
@@ -34,12 +52,6 @@
         "schema:Thing"
       ],
       "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Lunar meteorite (NWA 8277); Martian meteorite (NWA 6963)"
-          ]
-        },
         {
           "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
           "@type": [
@@ -54,7 +66,6 @@
       ]
     }
   ],
-  "ada:targetFeature": "Internal structure; porosity; density contrast",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
@@ -115,36 +126,6 @@
       "schema:defaultValue": "Three density regions: high, medium, low density; porosity separate"
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "None stated (fragments purchased from IMCA member)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data reduction",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:detectorType": "Flat panel detector (2240 \u00d7 2240 pixels)",
   "bios:computationalTool": [
     {
@@ -221,6 +202,36 @@
   "ada:reportedProperties": [
     "Density and porosity; proportions, volume, size, shape and spatial distribution of internal structure"
   ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Bulk specimen or fragment \u2014 \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

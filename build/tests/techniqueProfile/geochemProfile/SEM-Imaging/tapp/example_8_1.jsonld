@@ -26,23 +26,23 @@
   ],
   "schema:name": "semImaging protocol \u2014 Liu2017",
   "schema:description": "Pore and mineral sizes >0.1 \u00b5m measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10\u00b3 to 10\u2074",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "High-rank coal (anthracite from Bofang Mine; lean coal from Yuwu Mine), southern Qinshui basin, China"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "anthracite",
+      "lean coal"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the selection stated is of samples, not units: \"Two highrank coals formed from regional metamorphism collected from the southern Qinshui basin were selected\" (p.1); no rule is given for the imaged areas",
   "schema:instrument": [
     {
@@ -156,7 +156,7 @@
     "SE Imaging"
   ],
   "ada:reportedProperties": [
-    "Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm"
+    "pore type (nominal); pore morphology (nominal); pore size (nm) \u2014 Pore type and morphology (nominal: \"secondary gas pores in organic matter and shrinkage-induced pores around quartz and clay minerals\", \"dissolution-created pores and intercrystalline pores\", p.1), with pore sizes in nm"
   ],
   "schema:actionProcess": {
     "schema:step": [

@@ -25,24 +25,23 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010-2",
-  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v38.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_Imaging_TAPP_v44.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior \u03bcXRD reconnaissance \u2014 the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
   "schema:instrument": [
     {
@@ -143,7 +142,7 @@
     "BSE Imaging"
   ],
   "ada:reportedProperties": [
-    "Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)"
+    "textural relationships (nominal) \u2014 'Backscattered electron (BSE) imaging and elemental X-ray mapping provide graphical representations of elemental distribution' (p.3); the Leo 440's X-ray maps are recorded under the EDS Mapping column"
   ],
   "schema:measurementTechnique": [
     {

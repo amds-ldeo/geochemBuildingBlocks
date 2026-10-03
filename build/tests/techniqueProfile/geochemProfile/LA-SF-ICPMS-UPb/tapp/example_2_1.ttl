@@ -14,35 +14,37 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "PMG thick sections polished; HELEX II two-volume cell; C-coated for SEM then coating removed before LA" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "missing" ],
+                    schema1:description "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb + 1/Na)" ],
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)" ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
-        <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+        <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al." ] ;
     schema1:datePublished "missing" ;
-    schema1:description "Pallasite olivine 2D mapping in cool plasma mode (800 W) is a core methodological innovation; total of 8 PMG meteorites mapped; P-rich veinlets excluded from olivine averages; Fa# values verified against EMPA (Fig. 5A)" ;
+    schema1:description "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)" ;
     schema1:funding [ a schema1:MonetaryGrant ;
-            schema1:name "Planet Topers (BELSPO Interuniversity Attraction Poles); FWO postdoctoral fellowship for SCh; FWO \"Excellence of Science\" (ET-HoME ID 30442502); FWO/BOF-UGent; Alexander von Humboldt Foundation; FWO/BELSPO/VUB for SG and PC" ] ;
+            schema1:name "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis" ] ;
     schema1:instrument <ex:instrument/ICPMS>,
         <ex:instrument/Laser-Ablation-System> ;
     schema1:location [ a schema1:Place ;
@@ -50,66 +52,66 @@
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Chernonozhkin et al. (2021) Pallasite Olivine 2D Mapping v1" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Pallasite olivine ([Mg,Fe]₂SiO₄)" ],
-                <https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "https://ada.astromat.org/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Age Model" ],
-        [ schema1:defaultValue "missing" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "missing" ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "missing" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
-    ada:ablationSamplingMode "Raster area (2D elemental mapping)" ;
-    ada:ablationSpotDurationDefault -9999 ;
-    ada:ageModelDefault "missing" ;
-    ada:analysisSequenceDefault "(i) Gas blanks → (ii) all glass GRMs for external calibration → (iii) 1–3 cosmic spherule unknowns → (iv) blanks → (v) all glass GRMs again" ;
-    ada:backgroundCountTimeDefault "Scans for gas blank: 10 per line (before each mapping line); 80 scans during ablation" ;
-    ada:blankBackgroundCorrectionMethod "Gas blank measured before each ablation line (10 scans of gas blank per mapping line); average background subtracted from each corresponding ablation line" ;
-    ada:calibrationMeasurementFrequency "Each GRM analyzed 3–5× before and 3–5× after sample analyses (all GRMs at start and end of session)" ;
+    ada:ablationSamplingMode "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'" ;
+    ada:ablationSpotDurationDefault "N/A — mapping mode" ;
+    ada:ageCalculationMethod "N — the procedure reports no date" ;
+    ada:analysisSequenceDefault "N — the glasses were 'measured in the same analytical session' (§2.1); the sequence is not described" ;
+    ada:backgroundCountTimeDefault "10 gas-blank scans before each line, 80 during ablation — Table B1" ;
+    ada:blankBackgroundCorrectionMethod "Gas blank before each string of pixels; the average background preceding each analysis subtracted — App. C5" ;
+    ada:calibrationMeasurementFrequency "N — the glasses were 'measured in the same analytical session' (§2.1)" ;
     ada:carrierGasFlowRateDefault "He: MFC-1 (cell) 0.200–0.260 l min⁻¹; MFC-2 (cup) 0.220–0.385 l min⁻¹" ;
-    ada:elementalFractionationCorrection "Internal normalization to MgO+FeO+SiO₂+P₂O₅ oxide sum corrects for point-to-point ablation yield variation; additional pixel-by-pixel normalization fixes oxide sum to 100 wt%" ;
-    ada:inheritedOrInitialSignalCorrectionDefault "missing" ;
-    ada:internalStandardApproach "Sum-of-major-oxide normalization: MgO+FeO+SiO₂+P₂O₅ = 100 wt% per pixel (Liu et al. 2008 approach; no EPMA required for IS)" ;
-    ada:internalStandardElement "No single IS element; oxide sum normalization (MgO+FeO+SiO₂+P₂O₅) used as virtual IS per pixel" ;
+    ada:inheritedOrInitialSignalCorrectionDefault "N — the procedure reports no date" ;
+    ada:internalStandardApproach "all: sum normalization of MgO, FeO, SiO2 and P2O5 to 100 wt% in each pixel (Liu et al., 2008) — the oxide sum is a 'virtual, evenly distributed IS' (App. C1, equations 1–2)" ;
+    ada:internalStandardElement "all: none — a virtual internal standard from the oxide sum (App. C1)" ;
     ada:massBiasCorrectionStrategy "missing" ;
-    ada:massResolutionAssignment "missing" ;
-    ada:massesMeasuredDefault "missing" ;
+    ada:massResolutionAssignment "all: low resolution (M/ΔM = 300) — Table B1" ;
+    ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)" ;
     ada:numberOfAcquisitionPasses -9999 ;
-    ada:oxideProductionMethodAndThreshold "ThO⁺/Th⁺ (mass 248/232); threshold not explicitly stated but minimized by cool plasma" ;
-    ada:primaryStandardNameDefault "Multiple glass GRMs used together for linear regression external calibration: NIST SRM 612, NIST SRM 614, USGS GSD-1G (synthetic), USGS GSE-1G (synthetic), USGS BHVO-2G, USGS BIR-1G (natural basalt glasses)" ;
-    ada:rasterLineSpacingDefault "20 µm (contiguous; 20×20 µm square spot = line spacing equals spot width)" ;
-    ada:reportedProperties "Two-dimensional concentration maps per element (µg/g) for the mapped olivine crystals, held as \"2D concentration matrices of all target elements\" (p.5); the paper also reports the fayalite content \"(fayalite, Fa # = FeO/(FeO + MgO) ∙ 100, atomic %)\" from the μXRF data alongside (Table 1, p.5), and principal-component scores derived from seven normalised maps (p.6)" ;
+    ada:oxideProductionMethodAndThreshold "missing" ;
+    ada:rasterLineSpacingDefault "Adjacent lines — 'a grid of parallel, adjacent lines using a 20 µm × 20 µm square-masked laser spot' (§2.2.2)" ;
+    ada:reportedDateType "N — the procedure reports no date" ;
+    ada:reportedProperties "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1" ;
     ada:sampleIntroduction "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "Position relative to the metal-olivine rim, sited on a prior μXRF survey — \"The locations for LA-ICP-MS mapping were selected to be close to the metal-olivine rims of large olivine crystals with the laser beam rastering from the olivine rim in the direction of the olivine core\", at locations \"indicated on the larger μXRF maps as black rectangles\" (p.4)" ;
     ada:samplingUnitType "Grain (individual olivine crystal) > Region of interest (2D map) — \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)" ;
-    ada:secondaryReferenceMaterialDefault "MPI-DING glasses: GOR132-G, StHs6/80-G, T1-G; USGS: BCR-2G, BHVO-2G — measured as unknowns alongside samples and compared to GeoReM preferred values (Table 1 and Section 3.3)" ;
-    ada:signalIntegrationIntervalMethod "Manual visual inspection of time-resolved signal per line; anomalous spikes (inclusions, cracks, veinlets) excluded; P-rich veinlet regions identified and excluded from olivine averages" ;
-    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "²⁵Mg",
-                "²⁷Al",
-                "²⁹Si",
-                "³¹P",
-                "¹³⁹La",
-                "¹⁵³Eu",
-                "¹⁹⁵Pt",
-                "⁴⁵Sc",
-                "⁵³Cr",
-                "⁵¹V",
-                "⁵⁵Mn",
-                "⁵⁷Fe",
-                "⁶⁰Ni",
-                "⁷¹Ga" ;
+    ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Pallasite olivine" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsUPbTAPP/primaryCalibrationStandardName> ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Cr",
+                "Eu",
+                "Fe",
+                "Ga",
+                "La",
+                "Mg",
+                "Mn",
+                "Ni",
+                "P",
+                "Pt",
+                "Sc",
+                "Si",
+                "V" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
                     schema1:readonlyValue true ;
@@ -155,7 +157,8 @@
 
 <ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
@@ -177,22 +180,31 @@
 
 <ex:instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserBeamEnergyProfile>,
+        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Laser Ablation System" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)" ] ;
     schema1:name "HELEX II two-volume ablation cell" ;
     ada:laserFluenceDefault "5–7 J cm⁻²" ;
-    ada:laserRepetitionRateDefault "20 Hz" ;
-    ada:laserSpotGeometryDefault "20×20 µm square" ;
-    ada:laserType "193 nm ArF excimer; pulse duration ~5 ns" .
+    ada:laserRepetitionRateDefault "all: 20 Hz" ;
+    ada:laserSpotGeometryDefault "all: 20 µm × 20 µm square-masked — §2.2.2" ;
+    ada:laserType "193 nm ArF* excimer — §2.2.2" .
 
-<https://ada.astromat.org/metadata/parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault> a schema1:PropertyValueSpecification ;
-    schema1:name "Analysis Inclusion and Rejection Criteria" ;
-    schema1:value "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated. For the maps, \"The P-rich veinlets were excluded from the maps prior to the calculation of the correlation coefficients\" (appendix C), which masks pixels within a result rather than admitting or excluding results" ;
-    schema1:valueName "analysisInclusionAndRejectionCriteriaDefault" ;
-    ada:dataType "string" ;
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N — the procedure reports no date" ;
+    schema1:name "Error Correlation Between Reported Quantities" ;
+    schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 8.1e-01 ;
+    schema1:description "Ar, 0.81 L/min — Table B1" ;
+    schema1:name "Auxiliary Gas Flow Rate" ;
+    schema1:valueName "auxiliaryGasFlowRateDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/configuration> a schema1:PropertyValueSpecification ;
@@ -204,21 +216,21 @@
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 15 ;
-    schema1:description "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.81 l min⁻¹ (mapping)" ;
+    schema1:description "Ar, 15 L/min — Table B1" ;
     schema1:name "Coolant Plasma Gas Flow Rate" ;
     schema1:valueName "coolantPlasmaGasFlowRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Manual identification and exclusion of P-rich veinlet pixels from olivine averages; anomalous spikes from inclusions excluded per line" ;
+    schema1:defaultValue "P-rich veinlet pixels masked: P2O5 above the best-fitting Gaussian of each map's P2O5 histogram plus 3 standard deviations — §3.1; 'A MATLAB script was applied to mask pixels representing veinlets'" ;
     schema1:name "Filtering Approach" ;
     schema1:valueName "filteringApproachDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuningDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Daily tuning; cool plasma conditions optimized; N₂ explicitly not added to avoid N-based interferences" ;
+    schema1:defaultValue "N — oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described" ;
     schema1:name "ICP Tuning" ;
     schema1:valueName "icpTuningDefault" ;
     ada:dataType "string" ;
@@ -226,21 +238,21 @@
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 8.1e-01 ;
-    schema1:description "Ar make-up: 0.81–0.99 l min⁻¹ (mapping); N₂ explicitly not added" ;
+    schema1:description "Ar, 0.81–0.99 L/min — Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'" ;
     schema1:name "Make-up Gas and Flow Rate" ;
     schema1:valueName "makeUpGasAndFlowRateDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Low resolution (M/ΔM = 300; cool plasma mapping)" ;
+    schema1:defaultValue "Low (M/ΔM = 300) — §2.2.2" ;
     schema1:name "Mass Resolution Setting" ;
     schema1:valueName "massResolutionSettingDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigationDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Gas blank measured before each ablation line; adequate washout ensured by duty cycle timing" ;
+    schema1:defaultValue "Washout typically less than 1 s — §2.2.2" ;
     schema1:name "Memory Effect Mitigation" ;
     schema1:valueName "memoryEffectMitigationDefault" ;
     ada:dataType "string" ;
@@ -248,42 +260,35 @@
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/plasmaThermalMode> a schema1:PropertyValueSpecification ;
     schema1:name "Plasma Thermal Mode" ;
-    schema1:value "Cool plasma (800 W RF) to reduce Ar-based argide interferences on ⁶⁰Ni and ⁷¹Ga" ;
+    schema1:value "all: cool plasma (800 W RF) — 'Cool plasma conditions (800 W RF power) were used to reduce Ar-based interferences and to increase the sensitivity of the analysis' (§2.2.2)" ;
     schema1:valueName "plasmaThermalMode" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPowerDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 800 ;
-    schema1:description "800 W (cool plasma for mapping)" ;
+    schema1:description "800 W — cool plasma (§2.2.2, Table B1)" ;
     schema1:name "RF Power" ;
     schema1:valueName "rfPowerDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserBeamEnergyProfile> a schema1:PropertyValueSpecification ;
+    schema1:name "Laser Beam Energy Profile" ;
+    schema1:value "Flat-topped — 'The laser beam is characterized by a flat-topped energy profile' (§2.2.2)" ;
+    schema1:valueName "laserBeamEnergyProfile" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserPulseDuration> a schema1:PropertyValueSpecification ;
     schema1:name "Laser Pulse Duration" ;
-    schema1:value "~5 ns (ArF excimer)" ;
+    schema1:value "4 ns — Table B1; §2.2.2 says '<5 ns'" ;
     schema1:valueName "laserPulseDuration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "In situ — polished epoxy thick section (HELEX II two-volume cell)" ;
-    schema1:name "Sample Form Analytical Substrate" ;
-    schema1:valueName "sampleFormAnalyticalSubstrateDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
-<https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "None (no signal smoothing device; N₂ not added)" ;
-    schema1:name "Signal Smoothing" ;
-    schema1:valueName "signalSmoothingDefault" ;
-    ada:dataType "string" ;
-    ada:fieldScope "session" .
-
 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "9 µm s⁻¹ (continuous raster)" ;
+    schema1:defaultValue "all: 9 µm/s — translation speed (§2.2.2)" ;
     schema1:name "Transect Rate Mapping Rate or Step Size" ;
     schema1:valueName "transectRateMappingRateOrStepSizeDefault" ;
     ada:dataType "string" ;
@@ -298,17 +303,37 @@
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/detectorConfiguration> a schema1:PropertyValueSpecification ;
     schema1:name "Detector Configuration" ;
-    schema1:value "Triple mode detection (all analytical modes)" ;
+    schema1:value "Triple — Table B1 'Detection mode'" ;
     schema1:valueName "detectorConfiguration" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "Applied: triple mode detection; cross-calibration between pulse-counting and analog modes performed" ;
+    schema1:defaultValue "N — 'Triple' detection (Table B1); a cross-calibration is not described" ;
     schema1:name "Pulse Analog Detector Nonlinearity Correction" ;
     schema1:valueName "pulseAnalogDetectorNonlinearityCorrectionDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinitionAndValues> a schema1:PropertyValueSpecification ;
+    schema1:name "Discordance Definition and Values" ;
+    schema1:value "N — the procedure reports no date" ;
+    schema1:valueName "discordanceDefinitionAndValues" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Intermediate Daughter Disequilibrium Correction" ;
+    schema1:value "N — the procedure reports no date" ;
+    schema1:valueName "intermediateDaughterDisequilibriumCorrection" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsUPbTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -378,4 +403,9 @@
     schema1:name "Within-Session Analytical Precision and Assessment Method" ;
     schema1:valueName "withinSessionAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> a schema1:PropertyValue ;
+    schema1:name "Inter-Pass Data Dependency" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency> ;
+    schema1:value "N/A — a single pass" .
 

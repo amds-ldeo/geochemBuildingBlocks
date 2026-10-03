@@ -16,23 +16,22 @@
   ],
   "schema:name": "semFibsem protocol \u2014 Zega2025",
   "schema:description": "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return); fine-grained matrix areas"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "fine-grained matrix"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Position within the particle \u2014 \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:instrument": [
     {
@@ -235,7 +234,7 @@
     "TEM Sample Preparation"
   ],
   "ada:reportedProperties": [
-    "Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) \u2014 the reported product is the section itself and its location within the particle (nominal)"
+    "electron-transparent section (nominal); section thickness (nm) \u2014 Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) \u2014 the reported product is the section itself and its location within the particle (nominal)"
   ],
   "schema:measurementTechnique": [
     {

@@ -283,6 +283,23 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -719,6 +736,23 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "DimensionComponent",
       "cdi:simpleUnitOfMeasure": "um",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     }
   ],
   "schema:distribution": [
@@ -1032,8 +1066,10 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     cdi:role "MeasureComponent" ;
     cdi:simpleUnitOfMeasure "counts" ;
     schema1:alternateName "ADA primary measurement" ;
-    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
-    schema1:name "measurement_value" ;
+    schema1:description "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
+        "Sampling Unit Name reported for this dataset. Example value." ;
+    schema1:name "Sampling Unit Name",
+        "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .

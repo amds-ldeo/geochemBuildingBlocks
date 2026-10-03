@@ -25,36 +25,39 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Moynier2017",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Whole-rock terrestrial igneous rocks, chondrites, achondrites and Apollo lunar samples"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 125,
-          "schema:description": "<=125 mg powder, calculated to yield >20 ng Rb"
-        }
-      ]
-    }
-  ],
+  "schema:description": "Extraction voltage \u22122000 V; peristaltic pump 5 rpm (Table 1)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "terrestrial rock",
+      "chondrite",
+      "achondrite",
+      "lunar rock"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -70,16 +73,16 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "spray chamber; APEX \u2014 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (\u00a72.3)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -95,17 +98,6 @@
             "ada:dataType": "string",
             "ada:fieldScope": "session",
             "schema:value": "N/A \u2014 no isotope dilution applied"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 no result-level rule is stated. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\", with no criterion for admitting or rejecting a measurement; the \"any ratio outside 2\u03c3 was discarded\" rule acts within a measurement and is recorded under Spike / Outlier Filtering Approach"
           },
           {
             "@id": "ada:parameter/module/MCICPMS/doubleSpikeInversionAlgorithm",
@@ -152,8 +144,8 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 \u00b0C for both the HF/HNO3 and the 6N HCl steps"
+            "schema:defaultValue": 3,
+            "schema:description": "HF/HNO3 attack: 130 \u00b0C; HCl step: 130 \u00b0C"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -164,13 +156,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "\">48 h\""
+            "schema:defaultValue": "HF/HNO3 attack: >48 h; HCl step: N"
           }
         ],
-        "schema:description": "1: concentrated HF/HNO3, closed Teflon bombs, 130 deg C, >48 h | 2: after evaporation of the HF/HNO3, 6N HCl at 130 deg C to dissolve fluoride complexes. Samples were then evaporated to dryness and were ready for chemistry.",
+        "schema:description": "HF/HNO3 attack (concentrated HF/HNO3, closed Teflon bombs, 130 \u00b0C, >48 h); HCl step (after evaporation, 6N HCl at 130 \u00b0C to dissolve fluoride complexes, then evaporated to dryness) \u2014 \u00a72.2",
         "bios:reagent": [
           {
-            "schema:name": "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes",
+            "schema:name": "HF/HNO3 attack: concentrated HF/HNO3; HCl step: 6N HCl",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -190,6 +182,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 125,
+          "schema:description": "<=125 mg powder, calculated to yield >20 ng Rb"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -241,6 +256,28 @@
             }
           ],
           "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/nebulizerType",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "nebulizerType",
+              "schema:name": "Nebulizer Type",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "ESI PFA MicroFlow nebulizer (100 \u00b5L/min) \u2014 \u00a72.3"
+            },
+            {
+              "@id": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "sprayChamberTypeAndCoolingTemperature",
+              "schema:name": "Spray Chamber Type and Cooling Temperature",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "Quartz cyclonic spray chamber \u2014 \u00a72.3"
+            },
             {
               "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
               "@type": [
@@ -326,18 +363,31 @@
           "schema:name": "missing"
         },
         {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
           "schema:additionalType": [
             "Collector",
             {
               "@id": "https://www.wikidata.org/wiki/Q3099911"
             }
           ],
-          "schema:name": "missing",
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/MCICPMS/faradayCupAmplifierResistorValues",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "faradayCupAmplifierResistorValues",
+              "schema:name": "Faraday Cup Amplifier Resistor Values",
+              "ada:dataType": "string",
+              "ada:fieldScope": "session",
+              "schema:value": "all: 10^11 \u03a9 \u2014 \u00a72.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
           "@id": "ex:instrument/ICPMS/part/Collector",
+          "schema:name": "missing",
           "ada:collectorConfiguration": "missing"
         },
         {
@@ -369,6 +419,30 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "massResolutionSettingDefault",
+          "schema:name": "Mass Resolution Setting",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:value": "Low resolution \u2014 \u00a72.3"
+        },
+        {
+          "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitorDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "doublyChargedSpeciesMonitorDefault",
+          "schema:name": "Doubly-Charged Species Monitor",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 \"double-charged Er or Yb isotopes\" are named as interferences that the chemistry separates from Rb, p.2; no M\u00b2\u207a tuning monitor or production ratio is stated"
+        }
+      ],
       "schema:manufacturer": {
         "schema:name": "Thermo Fisher Scientific",
         "@type": [
@@ -393,7 +467,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "APEX, used alongside the spray chamber as an alternative introduction system in different sessions"
+      "schema:value": "spray chamber: none; APEX: APEX desolvating introduction system \u2014 the APEX 'routinely yielded lower precisions (by ~0.03\u2030)'"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -427,7 +501,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 20,
-      "schema:description": "Blocks of 20 cycles"
+      "schema:description": "N \u2014 'blocks of 20 cycles'"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/numberOfCyclesPerBlockDefault",
@@ -439,7 +513,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 20,
-      "schema:description": "20 cycles"
+      "schema:description": "all: 20 cycles"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -451,7 +525,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 8.389,
-      "schema:description": "8.389 s"
+      "schema:description": "all: 8.389 s"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/doubleSpikeIsotopePair",
@@ -557,19 +631,21 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "\u2078\u2074Sr"
+        "monitoredProperty": "85Rb",
+        "targetSpecies": "Rb"
       },
       {
-        "monitoredProperty": "\u2078\u2075Rb"
+        "monitoredProperty": "87Rb",
+        "targetSpecies": "Rb"
       },
       {
-        "monitoredProperty": "\u2078\u2076Sr"
+        "monitoredProperty": "84Sr"
       },
       {
-        "monitoredProperty": "\u2078\u2077Rb + \u2078\u2077Sr"
+        "monitoredProperty": "86Sr"
       },
       {
-        "monitoredProperty": "\u2078\u2078Sr"
+        "monitoredProperty": "88Sr"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -627,6 +703,7 @@
       }
     ]
   },
+  "ada:numberOfAcquisitionPasses": "2",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -646,19 +723,19 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "\u03b487Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard \u2212 1] x 1000"
+    "\u03b487Rb \u2014 \u2030 relative to the bracketing standard (Eq. 1)"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "N/A \u2014 Rb has two stable isotopes; bracketing used instead",
-  "ada:chromatographicSeparationApplied": "Yes \u2014 DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
+  "ada:chromatographicSeparationApplied": "Yes, DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "0.1N HNO3",
+  "ada:finalSolutionMatrix": "spray chamber: 0.1N HNO3, 10 ppb Rb; APEX: 0.1N HNO3, 4 ppb Rb \u2014 \u00a72.2\u20132.3",
   "ada:uncertaintyLevel": "\"the 2 standard error (2se) is reported unless stated otherwise\"; for samples analysed fewer than 3 times, \"the largest 2 se reported for a sample analyzed multiple times has been used\"",
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
+  "ada:blankBackgroundCorrectionMethod": "Instrumental background measured at the beginning of and throughout each session (typically < 1 mV on 85Rb) and subtracted \u2014 \u00a72.3",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks"
+    "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution \u2014 \u00a72.3"
   ],
-  "ada:primaryStandardNameDefault": "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -668,8 +745,6 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,

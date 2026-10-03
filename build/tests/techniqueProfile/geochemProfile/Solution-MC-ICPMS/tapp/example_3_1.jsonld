@@ -25,36 +25,37 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P2",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v84.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Iron meteorites and terrestrial basalt geostandards"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 1,
-          "schema:description": "~1-2 mg Fe per analysis; ~50 mg meteorite pieces"
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v91.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "iron meteorite",
+      "basalt"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -70,16 +71,16 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "MR; HR \u2014 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex \u03a9 desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (\u00a72.3)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -152,7 +153,7 @@
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "Hot plate, closed vessel not specified beyond \"on a hot plate\""
+            "schema:value": "N \u2014 'on a hot plate'"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -164,7 +165,7 @@
             "ada:dataType": "number",
             "ada:fieldScope": "session",
             "schema:defaultValue": 120,
-            "schema:description": "Iron meteorites 120 \u00b0C; basalts 150 \u00b0C"
+            "schema:description": "iron aqua regia: 120 \u00b0C; basalt HF\u2013HNO3: 150 \u00b0C; other: N \u2014 \u00a72.1"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -175,13 +176,13 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "Iron meteorites 24 hours; basalts 48 hours"
+            "schema:defaultValue": "iron aqua regia: 24 h; basalt HF\u2013HNO3: 48 h; other: N \u2014 \u00a72.1"
           }
         ],
-        "schema:description": "Iron meteorites, 1: aqua regia (3:1 HCl-HNO3), 120 deg C, 24 h on a hot plate. Basalts, 1: HF-HNO3 (2:1), 150 deg C, 48 h on a hot plate | 2: 'several steps of aqua regia', number not stated. Both routes then converted to chloride and taken up in 0.25 ml 10 M HCl.",
+        "schema:description": "iron aqua regia (iron meteorites, ~50 mg pieces, 3:1 HCl\u2013HNO3, hot plate); basalt HF\u2013HNO3 (basalts, 2:1, hot plate); basalt aqua regia (several steps); chloride conversion (redissolved in 0.25 ml 10 M HCl) \u2014 \u00a72.1",
         "bios:reagent": [
           {
-            "schema:name": "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl",
+            "schema:name": "iron aqua regia: 3:1 HCl\u2013HNO3; basalt HF\u2013HNO3: 2:1 HF\u2013HNO3; basalt aqua regia: aqua regia; chloride conversion: 10 M HCl \u2014 \u00a72.1",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -201,6 +202,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 1,
+          "schema:description": "~1-2 mg Fe per analysis; ~50 mg meteorite pieces"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -245,7 +269,7 @@
               "schema:name": "Sampler and Skimmer Cone Material",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "\"We used Ni or Pt sampler and H skimmer cones ... The main motivation for using Pt cones was an increase in sensitivity and a decrease in the frequency of cone cleaning\""
+              "schema:value": "Pt sampler (wet plasma, MR) or Ni sampler (dry plasma, HR), with H skimmer cones \u2014 \u00a72.3"
             }
           ],
           "@type": [
@@ -272,7 +296,7 @@
               "schema:name": "Nebulizer Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Cyclonic glass spray chamber (wet) or ESI Apex \u03a9 desolvating nebulizer (dry)"
+              "schema:value": "N \u2014 introduced through a cyclonic glass spray chamber or an ESI Apex \u03a9 system"
             },
             {
               "@id": "ada:parameter/module/SolutionIntroduction/sprayChamberTypeAndCoolingTemperature",
@@ -283,7 +307,7 @@
               "schema:name": "Spray Chamber Type and Cooling Temperature",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Cyclonic glass spray chamber for wet-plasma MR-mode work; cooling not stated"
+              "schema:value": "Cyclonic glass spray chamber, for MR wet-plasma work \u2014 \u00a72.3"
             },
             {
               "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRateDefault",
@@ -322,7 +346,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Both, by mode \u2014 \"either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex \u03a9 desolvating nebulizer system (dry plasma, HR-mode, Ni cones)\""
+              "schema:value": "MR: wet plasma; HR: dry plasma \u2014 \u00a72.3"
             }
           ],
           "@type": [
@@ -349,7 +373,7 @@
               "schema:name": "Faraday Cup Amplifier Resistor Values",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "10^10 \u03a9 for 56Fe+; 10^11 \u03a9 for 54Fe, 57Fe, 58Fe; 10^12 \u03a9 for the 53Cr and 60Ni interference monitors"
+              "schema:value": "56Fe: 10^10 \u03a9; 54Fe, 57Fe, 58Fe: 10^11 \u03a9; 53Cr, 60Ni: 10^12 \u03a9 \u2014 \u00a72.3"
             }
           ],
           "@type": [
@@ -399,7 +423,7 @@
           "schema:name": "Mass Resolution Setting",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:value": "Medium or high resolution \u2014 \"the measurements were made on the flat-topped peak shoulder in either medium-resolution (MR) or high-resolution (HR) mode\""
+          "schema:value": "MR or HR, on the flat-topped peak shoulder \u2014 \u00a72.3"
         },
         {
           "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
@@ -449,7 +473,7 @@
       "schema:name": "Desolvation System",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "ESI Apex \u03a9 for HR-mode dry plasma work, \"with no auxiliary N2 flow\"; none for MR-mode wet plasma"
+      "schema:value": "MR: none; HR: ESI Apex \u03a9, with no auxiliary N2 flow \u2014 \u00a72.3"
     },
     {
       "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
@@ -472,7 +496,7 @@
       "ada:dataType": "integer",
       "ada:fieldScope": "session",
       "schema:defaultValue": 25,
-      "schema:description": "25 (HR) or 50 (MR) cycles"
+      "schema:description": "HR: 25 cycles; MR: 50 cycles \u2014 \u00a72.3"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycleDefault",
@@ -484,7 +508,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 8.369,
-      "schema:description": "8.369 s"
+      "schema:description": "all: 8.369 s \u2014 \u00a72.3"
     },
     {
       "@id": "ada:parameter/module/MCICPMS/baselineMeasurementApproach",
@@ -612,26 +636,26 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
-        "monitoredProperty": "\u2075\u2074Fe",
+        "monitoredProperty": "54Fe",
         "targetSpecies": "Fe"
       },
       {
-        "monitoredProperty": "\u2075\u2076Fe",
+        "monitoredProperty": "56Fe",
         "targetSpecies": "Fe"
       },
       {
-        "monitoredProperty": "\u2075\u2077Fe",
+        "monitoredProperty": "57Fe",
         "targetSpecies": "Fe"
       },
       {
-        "monitoredProperty": "\u2075\u2078Fe",
+        "monitoredProperty": "58Fe",
         "targetSpecies": "Fe"
       },
       {
-        "monitoredProperty": "\u2075\u00b3Cr"
+        "monitoredProperty": "53Cr"
       },
       {
-        "monitoredProperty": "\u2076\u2070Ni"
+        "monitoredProperty": "60Ni"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -689,6 +713,7 @@
       }
     ]
   },
+  "ada:numberOfAcquisitionPasses": "2 \u2014 alternative configurations; samples marked (HR) in Table 1",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -707,7 +732,7 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "Prior Pt, Mo, Ni and/or W isotope analyses on the same digestions"
+        "schema:name": "N \u2014 the Fe was measured on digestions previously analysed for Pt, Mo, Ni and/or W isotopes (Kruijer et al. 2017 and others)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -720,19 +745,19 @@
     "Solution nebulisation (continuous)"
   ],
   "ada:reportedProperties": [
-    "\u00b5-notation Fe isotope ratios relative to IRMM-524a"
+    "\"\u03bc54Fe(7/6)\", \"\u03bc58Fe(7/6)\", \"\u03bc56Fe(7/4)\", \"\u03bc58Fe(7/4)\", \u03b456Fe \u2014 \u03bc in ppm (Eq. 1), \u03b4 in \u2030 (Eq. 2), relative to IRMM-524a"
   ],
   "ada:internalNormalizationElementAndIsotopeRatio": "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014",
-  "ada:chromatographicSeparationApplied": "Yes \u2014 AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%",
+  "ada:chromatographicSeparationApplied": "Yes, AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%",
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
-  "ada:finalSolutionMatrix": "0.3 M HNO3 (measured at 10 \u00b5g/g Fe in 0.45 M HNO3); all sample and standard solutions \"prepared with the same 0.3 M HNO3 solution\"",
+  "ada:finalSolutionMatrix": "all: 10 \u00b5g/g Fe in 0.45 M HNO3 \u2014 \u00a72.3; 'All sample and standard solutions were prepared with the same 0.3 M HNO3 solution', concentrations matched within \u22642%",
   "ada:washTimeBetweenSamples": "210 s",
+  "ada:uncertaintyLevel": "95% confidence interval from Student's t \u2014 over n = 10\u201335 repeat measurements of each sample solution (\u00a72.3)",
   "ada:blankBackgroundCorrectionMethod": "On-peak zero from a blank solution subtracted from all measurements",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2 and BCR-2"
+    "BHVO-2, BCR-2 \u2014 \u00a72.1"
   ],
-  "ada:primaryStandardNameDefault": "IRMM-524a",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -743,9 +768,7 @@
     }
   ],
   "ada:calibrationMeasurementFrequency": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
-  "ada:uncertaintyLevel": "missing",
   "schema:datePublished": "missing"
 }

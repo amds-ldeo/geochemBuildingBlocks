@@ -30,7 +30,7 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     "bios:LabProtocol"
   ],
   "schema:name": "lit protocol — P0",
-  "schema:description": "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv).",
+  "schema:description": "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Infratec.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Infratec camera model ThermoHAWK H9000",
   "schema:measurementTechnique": [
@@ -118,7 +118,7 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     "bios:LabProtocol"
   ],
   "schema:name": "lit protocol \u2014 P0",
-  "schema:description": "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv).",
+  "schema:description": "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Infratec.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Infratec camera model ThermoHAWK H9000",
   "schema:measurementTechnique": [
@@ -200,7 +200,7 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
     schema1:creator [ a schema1:Person ;
             schema1:name "Ishizaki, Takuya" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv)." ;
+    schema1:description "litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | Infratec camera model ThermoHAWK H9000 (publication column of LIT_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Infratec." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

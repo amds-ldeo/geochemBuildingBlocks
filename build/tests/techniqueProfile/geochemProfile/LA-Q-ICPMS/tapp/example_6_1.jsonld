@@ -25,35 +25,117 @@
     "bios:LabProtocol"
   ],
   "schema:name": "laQicpms protocol \u2014 Liu2016-2",
-  "schema:description": "N/A \u2014 see silicate column for general notes",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Martian meteorite (Tissint) phosphate: sodium-merrillite"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/LaserAblation/sampleFormAnalyticalSubstrateDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleFormAnalyticalSubstrateDefault",
-          "schema:name": "Sample Form Analytical Substrate",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "In situ \u2014 polished thin section (same sections as silicate protocol)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite Phosphate (merrillite) Spot analysis LA-Q-ICP-MS Virginia Tech (publication column of LA-Q-ICP-MS_TAPP_v96.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "sodium-merrillite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/laQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "fusionFluxAndDilutionRatioDefault",
+            "schema:name": "Fusion Flux and Dilution Ratio",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N/A \u2014 in situ"
+          },
+          {
+            "@id": "ada:parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "preAblationSurfaceTreatmentDefault",
+            "schema:name": "Pre Ablation Surface Treatment",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 not stated"
+          }
+        ],
+        "schema:description": "N \u2014 sections UT1 to UT3 (p.3); their preparation is not described",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data acquisition",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "schema:description": "missing",
+        "schema:additionalProperty": []
+      },
+      {
+        "schema:name": "Data reduction",
+        "schema:additionalProperty": [
+          {
+            "@id": "ada:parameter/module/LaserAblation/signalSmoothingDefault",
+            "@type": [
+              "schema:PropertyValueSpecification"
+            ],
+            "schema:valueName": "signalSmoothingDefault",
+            "schema:name": "Signal Smoothing",
+            "ada:dataType": "string",
+            "ada:fieldScope": "session",
+            "schema:defaultValue": "N \u2014 not stated"
+          }
+        ],
+        "ada:detectionLimitMethod": "all: 3\u03c3 of the background counts \u2014 Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3\u03c3 confidence interval'",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 3
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
   "schema:additionalProperty": [
     {
@@ -68,6 +150,39 @@
       "schema:defaultValue": "Petrographic microscopy, SEM and EMP \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)"
     },
     {
+      "@id": "ada:parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "transectRateMappingRateOrStepSizeDefault",
+      "schema:name": "Transect Rate Mapping Rate or Step Size",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A \u2014 spot analysis"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRateDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "makeUpGasAndFlowRateDefault",
+      "schema:name": "Make-up Gas and Flow Rate",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N \u2014 not stated"
+    },
+    {
+      "@id": "ada:parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "instrumentWarmUpSessionDurationLimit",
+      "schema:name": "Instrument Warm up Session Duration Limit",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:value": "N \u2014 not stated"
+    },
+    {
       "@id": "ada:parameter/laQicpmsTAPP/interPassDataDependency",
       "@type": [
         "schema:PropertyValue"
@@ -78,7 +193,7 @@
         }
       ],
       "schema:name": "Inter-Pass Data Dependency",
-      "schema:value": "Single spot analysis per location"
+      "schema:value": "N/A \u2014 a single acquisition pass"
     }
   ],
   "schema:instrument": [
@@ -95,12 +210,45 @@
           "schema:ProductModel"
         ]
       },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/ICPMS",
       "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "ICP Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "coolantPlasmaGasFlowRateDefault",
+              "schema:name": "Coolant Plasma Gas Flow Rate",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": "N \u2014 not stated"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
+              "@type": [
+                "schema:PropertyValueSpecification"
+              ],
+              "schema:valueName": "rfPowerDefault",
+              "schema:name": "RF Power",
+              "ada:dataType": "number",
+              "ada:fieldScope": "session",
+              "schema:defaultValue": "N \u2014 not stated"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/ICPMS/part/ICP-Source",
+          "schema:name": "missing"
+        },
         {
           "@type": [
             "schema:Product",
@@ -114,20 +262,6 @@
           ],
           "schema:name": "missing",
           "@id": "ex:instrument/ICPMS/part/Collision-Reaction-Cell"
-        },
-        {
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:additionalType": [
-            "ICP Source",
-            {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
-            }
-          ],
-          "schema:name": "missing",
-          "@id": "ex:instrument/ICPMS/part/ICP-Source"
         },
         {
           "@type": [
@@ -158,6 +292,35 @@
           "@id": "ex:instrument/ICPMS/part/Torch"
         }
       ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/ICPMS/icpTuningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "icpTuningDefault",
+          "schema:name": "ICP Tuning",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 not stated"
+        },
+        {
+          "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "memoryEffectMitigationDefault",
+          "schema:name": "Memory Effect Mitigation",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "N \u2014 not stated"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/ICPMS",
       "schema:name": "example instrumentName",
       "schema:manufacturer": {
         "schema:name": "missing",
@@ -184,19 +347,19 @@
           "ada:dataType": "number",
           "ada:fieldScope": "session",
           "schema:defaultValue": 150,
-          "schema:description": "150 mJ output energy"
+          "schema:description": "150 mJ output energy \u2014 Methods, p.4"
         }
       ],
       "schema:model": {
-        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol)",
+        "schema:name": "GeoLasPro 193 nm Excimer laser-ablation system \u2014 Methods, p.4",
         "@type": [
           "schema:ProductModel"
         ]
       },
       "ada:laserType": "193 nm Excimer (ArF excimer)",
-      "ada:laserSpotGeometryDefault": "~24 \u00b5m diameter",
-      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 (same as silicate protocol)",
-      "ada:laserRepetitionRateDefault": "5 Hz",
+      "ada:laserSpotGeometryDefault": "all: ~24 \u00b5m diameter \u2014 'The smaller spot (~24 \u00b5m) size was used for phosphate analysis' (Methods, p.4)",
+      "ada:laserFluenceDefault": "7\u201310 J/m\u00b2 \u2014 as written: 'a fluence rate of 7\u201310 J/m2 on the sample' (Methods, p.4)",
+      "ada:laserRepetitionRateDefault": "all: 5 Hz",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -205,71 +368,156 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "ada:analysisSequenceDefault": "Same as silicate protocol",
-  "ada:backgroundCountTimeDefault": "50 s (same as silicate protocol)",
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      },
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Data acquisition",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "schema:description": "missing",
-        "schema:additionalProperty": []
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:value": "Partially \u2014 the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
-      }
+  "ada:carrierGasFlowRateDefault": "N \u2014 not stated",
+  "ada:analysisSequenceDefault": "N \u2014 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4); the order within a session is not described",
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Sr",
+      "Ti"
     ],
-    "@type": [
-      "schema:HowTo"
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/monitoredMasses",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "monitoredMasses",
+        "schema:name": "Monitored Masses",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/dwellTimePerMass",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "dwellTimePerMass",
+        "schema:name": "Dwell Time per Mass",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/calibrationStrategyPerTargetSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "calibrationStrategyPerTargetSpecies",
+        "schema:name": "Calibration Strategy per Target Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "spectralInterferenceCorrectionsApplied",
+        "schema:name": "Spectral Interference Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferingSpecies",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingSpecies",
+        "schema:name": "Interfering Species",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/interferenceCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionMethod",
+        "schema:name": "Interference Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "withinSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Within-Session Analytical Precision and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "betweenSessionAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/analyticalAccuracyAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracyAndAssessmentMethod",
+        "schema:name": "Analytical Accuracy and Assessment Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "internalAnalyticalPrecisionAndAssessmentMethod",
+        "schema:name": "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "ada:dataType": "string"
+      }
     ]
   },
+  "ada:backgroundCountTimeDefault": "50 s \u2014 'The background was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4)",
   "schema:measurementTechnique": [
     {
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS (same as silicate protocol)"
+      "schema:termCode": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
     }
   ],
   "schema:location": {
@@ -282,7 +530,7 @@
     {
       "schema:linkRelationship": "techniquePublication",
       "schema:target": {
-        "schema:name": "Same as silicate protocol"
+        "schema:name": "Udry et al. (2012); Pernet-Fisher et al. (2014) \u2014 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)"
       },
       "@type": [
         "schema:CreativeWork"
@@ -293,7 +541,7 @@
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
         "schema:name": "EPMA (EMP)",
-        "schema:description": "EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO)"
+        "schema:description": "EMP CaO is the internal standard: 'we calculated the trace element abundances by normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' \u2014 Methods, p.4"
       },
       "@type": [
         "schema:CreativeWork"
@@ -309,20 +557,22 @@
     }
   ],
   "ada:reportedProperties": [
-    "Trace element abundances per phase (ppm, with REE at ppb level \u2014 \"8 ppb La, 23 ppb Yb, and 6 ppb Lu\", \"Nickel contents in olivines decrease from 910 ppm at Mg# = ~80 to 234 ppm\", p.7), reported as means with 1\u03c3 and n (table p.9); limits of detection are reported per element (Table 3, p.9). Silicate and oxide abundances are normalised to 100 wt% oxide total; phosphate to EMP CaO (p.4)"
+    "La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (ppm); Sr; Ti \u2014 merrillite REE, chondrite-normalized in Fig. 9; data in Table S1, not in the archived PDF"
   ],
   "ada:ablationSamplingMode": [
-    "Spot (stationary)"
+    "all: Spot \u2014 'The time-lapse plots of each spot were examined' (Methods, p.4)"
   ],
-  "ada:internalStandardApproach": "Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot",
-  "ada:elementalFractionationCorrection": [
-    "External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described"
+  "ada:ablationSpotDurationDefault": "N \u2014 not stated",
+  "ada:rasterLineSpacingDefault": "N/A \u2014 spot analysis",
+  "ada:internalStandardApproach": "all: single element measured by EMP \u2014 'normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' (Methods, p.4)",
+  "ada:calibrationMeasurementFrequency": "Before and after every session \u2014 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)",
+  "ada:oxideProductionMethodAndThreshold": "N \u2014 not stated",
+  "ada:blankBackgroundCorrectionMethod": "N \u2014 the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described",
+  "ada:internalStandardElement": "all: Ca (\u2074\u2070Ca) \u2014 CaO from EMP (Methods, p.4)",
+  "ada:signalIntegrationIntervalMethod": "Plateau region of each spot's time-lapse plot \u2014 'The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances' (Methods, p.4)",
+  "ada:secondaryReferenceMaterialDefault": [
+    "N \u2014 not stated"
   ],
-  "ada:calibrationMeasurementFrequency": "NIST 610 analyzed before and after every session (same as silicate protocol)",
-  "ada:blankBackgroundCorrectionMethod": "50 s background measurement before each analysis (same as silicate protocol)",
-  "ada:internalStandardElement": "40Ca; CaO wt% from EMP at the analysis spot",
-  "ada:signalIntegrationIntervalMethod": "Time-lapse plots examined; only plateau region used (same as silicate protocol)",
-  "ada:primaryStandardNameDefault": "NIST 610 glass standard",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -330,13 +580,9 @@
     }
   ],
   "ada:ablationPitDepthRateDefault": "missing",
-  "ada:ablationSpotDurationDefault": -9999,
-  "ada:carrierGasFlowRateDefault": "missing",
   "ada:constantsAndReferenceValuesUsedDefault": "missing",
   "ada:massBiasCorrectionStrategy": "missing",
   "ada:numberOfAcquisitionPasses": -9999,
-  "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:rasterLineSpacingDefault": "missing",
   "ada:sampleIntroduction": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,

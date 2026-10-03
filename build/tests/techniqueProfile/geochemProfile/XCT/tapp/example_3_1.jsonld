@@ -25,7 +25,24 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Neuman2025",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v42.csv). Reported detail: ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition).",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Lunar regolith"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
+  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core",
   "schema:object": [
     {
       "@type": [
@@ -34,12 +51,6 @@
         "schema:Thing"
       ],
       "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Lunar regolith (Apollo 17 drive-tube core)"
-          ]
-        },
         {
           "@id": "ada:parameter/labxctTAPP/sampleDimensionsDefault",
           "@type": [
@@ -54,7 +65,6 @@
       ]
     }
   ],
-  "ada:targetFeature": "Voids, lithic clasts, stratigraphic layers in core",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/labxctTAPP/sampleMountingMethodDefault",
@@ -92,11 +102,48 @@
       "schema:defaultValue": "Post-reconstruction ring corrections applied"
     }
   ],
+  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
+  "ada:detectorType": "2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix)",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "XCT",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "180 kV",
+      "ada:tubeCurrentDefault": "0.18 mA (180 \u00b5A)",
+      "ada:xRayPreFilterDefault": "0.72 mm Al",
+      "schema:manufacturer": {
+        "schema:name": "North Star Imaging",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:model": {
+        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/XCT",
+      "schema:name": "example instrumentName",
+      "ada:voxelSizeDefault": -9999
+    }
+  ],
+  "ada:rotationModeDefault": "Continuous rotation",
+  "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
+  "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Al inner sleeve triple-sealed in Teflon; stainless-steel outer sleeve removed prior to scan",
+        "schema:description": "Bulk specimen or fragment \u2014 drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -135,43 +182,6 @@
       "schema:HowTo"
     ]
   },
-  "ada:xRaySourceConfiguration": "Feinfocus FXE 225.48 microfocal source",
-  "ada:detectorType": "2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix)",
-  "schema:instrument": [
-    {
-      "schema:additionalType": [
-        "XCT",
-        {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
-        }
-      ],
-      "ada:acceleratingVoltageDefault": "180 kV",
-      "ada:tubeCurrentDefault": "0.18 mA (180 \u00b5A)",
-      "ada:xRayPreFilterDefault": "0.72 mm Al",
-      "schema:manufacturer": {
-        "schema:name": "North Star Imaging",
-        "@type": [
-          "schema:Organization"
-        ]
-      },
-      "schema:model": {
-        "schema:name": "Custom NSI instrument (North Star Imaging) at UTCT",
-        "@type": [
-          "schema:ProductModel"
-        ]
-      },
-      "@type": [
-        "schema:Product",
-        "schema:Thing"
-      ],
-      "@id": "ex:instrument/XCT",
-      "schema:name": "example instrumentName",
-      "ada:voxelSizeDefault": -9999
-    }
-  ],
-  "ada:rotationModeDefault": "Continuous rotation",
-  "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
-  "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
   "schema:measurementTechnique": [
     {
       "@type": [

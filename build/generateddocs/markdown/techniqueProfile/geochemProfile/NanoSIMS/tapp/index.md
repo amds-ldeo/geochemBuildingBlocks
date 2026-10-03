@@ -30,7 +30,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     "bios:LabProtocol"
   ],
   "schema:name": "nanosims protocol — P0",
-  "schema:description": "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv).",
+  "schema:description": "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = NanoSIMS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(OU)NanoSIMS 50L",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     "bios:LabProtocol"
   ],
   "schema:name": "nanosims protocol \u2014 P0",
-  "schema:description": "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv).",
+  "schema:description": "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = NanoSIMS.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(OU)NanoSIMS 50L",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
     schema1:creator [ a schema1:Person ;
             schema1:name "Nguyen, Ann" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv)." ;
+    schema1:description "nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU)NanoSIMS 50L (publication column of NanoSIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = NanoSIMS." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "STFC Grant ST/Y000188/1" ] ;
     schema1:location [ a schema1:Place ;

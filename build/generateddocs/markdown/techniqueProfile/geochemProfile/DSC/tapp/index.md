@@ -30,7 +30,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     "bios:LabProtocol"
   ],
   "schema:name": "dsc protocol — DSC8000",
-  "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv).",
+  "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "PerkinsElmer DSC 8000",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     "bios:LabProtocol"
   ],
   "schema:name": "dsc protocol \u2014 DSC8000",
-  "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv).",
+  "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "PerkinsElmer DSC 8000",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     schema1:creator [ a schema1:Person ;
             schema1:name "Biele, Jens" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv)." ;
+    schema1:description "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

@@ -3,29 +3,31 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <ex:detail-Navarro2024> a ada:LAICPMSGeochronTabular ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
     schema1:measurementTechnique <ex:laSficpmsUPbTAPP-Navarro2024> ;
-    ada:ageDatumReferenceEpoch "missing" ;
+    ada:ageDatumReferenceEpoch "N — the procedure reports no date" ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "N — no acceptance or rejection rule and no contributing count are stated; the reported bulk composition is the integration of the acquired signal rather than a selection among results" ;
+    ada:analysisInclusionAndRejectionCriteria "Partially — contributing counts are stated ('n: number of replicates'; 'the mean value of 20 spot measurements in the Arraias meteorite'); no acceptance or rejection rule is stated" ;
     ada:analysisLocationSpotCoordinates "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Results for 9 known iron meteorites: >75% of published values within LA-ICP-MS result ± 2s (two standard deviations); relative differences mostly within ±20% (Fig. 2); specific discrepancies: Ir in Arraias +40%, Ir in Nossa Senhora +64%, Co and Ga in Campo del Cielo (heterogeneity issues); trend lines slope 0.87–1.17 with R² = 0.97–1.0" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "Intermediate precision: RSD ≤20% for most elements assessed over multiple days on North Chile iron meteorite measured as unknown (n multiple days over 4 months)" ;
+    ada:analyticalAccuracyAndAssessmentMethod "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ;
+    ada:combinedResults "per-meteorite averages (Table 3 and the data table for Figs 2 and 3), for example Arraias (20 spots)" ;
     ada:componentType "ada:LAICPMSGeochronTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "LODs in µg g⁻¹ (median from Table 3): As 2, Au 0.1, Co 2, Cr 19, Cu 0.8, Fe 5300, Ga 0.1, Ge 0.2, Ir 0.04, Ni 60, Os 0.09, Pd 0.06, Pt 0.4, Re 0.02, Rh 0.05, Ru 0.3, W 0.09; calculated per Longerich et al. (1996) in iolite 4" ;
-    ada:errorCorrelationBetweenReportedQuantities -9999 ;
+    ada:detectionLimit "As: 2; Au: 0.1; Co: 2; Cr: 19; Cu: 0.8; Fe: 60; Ga: 0.3; Ge: 3; Ir: 0.2; Ni: 36; Os: 0.2; Pd: 0.5; Pt: 0.3; Re: 0.1; Rh: 0.1; Ru: 1; W: 1 — µg/g, median values (Table 3 'LOD')" ;
+    ada:errorCorrelationBetweenReportedQuantities "N — the procedure reports no date" ;
     ada:fundingSourceForAnalysis "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts for Geoanalysis 2022 presentation; J.E.: CNPq grant 316191/2021-3" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:mappingArea "missing" ;
     ada:numberOfReplicates 20 ;
     ada:oxideProduction "missing" ;
     ada:proceduralBlankLevel "missing" ;
-    ada:radiogenicFractionOfMeasuredSignal "missing" ;
+    ada:radiogenicFractionOfMeasuredSignal "N — the procedure reports no date" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — iron meteorites by name (Table 1, p.2), each analysed as \"fragments about 1 cm\" (p.3); spots and mapped areas are counted (\"points 176\", p.12), not labelled" ;
     ada:sessionIdentifier "missing" ;
@@ -33,7 +35,7 @@
     ada:spotDiameter -9999 ;
     ada:spotDiameterMeasured -9999 ;
     ada:transectLength -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "RSD <15% for most elements in Arraias meteorite under repeatability conditions (n=20 spot analyses); Cr: 20%, Ir: 16%, Os: 20% RSD; assessed by repeated analysis of same meteorite in one session" .
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" .
 
 <ex:laSficpmsUPbTAPP-Navarro2024> schema1:identifier "missing" .
 
@@ -41,4 +43,9 @@
     schema1:name "Pre-Analysis Imaging and Screening" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening> ;
     schema1:value "N — the preparation is stated without an imaging step: \"Before analyses, fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3). The meteorites' structural classes were known beforehand (Table 1, p.2) but no screening of this material is described" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> a schema1:PropertyValue ;
+    schema1:name "Transect Rate, Mapping Rate or Step Size" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/transectRateMappingRateOrStepSize> ;
+    schema1:value "N/A — spot mode" .
 

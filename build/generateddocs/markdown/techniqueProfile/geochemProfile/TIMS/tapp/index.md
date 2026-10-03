@@ -30,7 +30,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     "bios:LabProtocol"
   ],
   "schema:name": "tims protocol — P0",
-  "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv).",
+  "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Triton.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(ETHZ)Triton Thermo Fisher TIMS",
   "schema:measurementTechnique": [
@@ -114,7 +114,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
     "bios:LabProtocol"
   ],
   "schema:name": "tims protocol \u2014 P0",
-  "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv).",
+  "schema:description": "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Triton.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(ETHZ)Triton Thermo Fisher TIMS",
   "schema:measurementTechnique": [
@@ -190,7 +190,7 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv)." ;
+    schema1:description "timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)Triton Thermo Fisher TIMS (publication column of TIMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Triton." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/05a28rw58" ;
             schema1:name "ETH Zurich" ] ;

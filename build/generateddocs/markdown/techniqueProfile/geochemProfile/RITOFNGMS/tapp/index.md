@@ -30,7 +30,7 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     "bios:LabProtocol"
   ],
   "schema:name": "ritofngms protocol — P0",
-  "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv).",
+  "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = RELAX.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "RELAX",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     "bios:LabProtocol"
   ],
   "schema:name": "ritofngms protocol \u2014 P0",
-  "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv).",
+  "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = RELAX.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "RELAX",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     schema1:creator [ a schema1:Person ;
             schema1:name "Crowther, Sarah" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv)." ;
+    schema1:description "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = RELAX." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Science and Technology Facilities Council (UK) ST/V000675/1 and ST/Y002369/1" ] ;
     schema1:location [ a schema1:Place ;

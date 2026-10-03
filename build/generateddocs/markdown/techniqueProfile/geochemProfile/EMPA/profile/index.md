@@ -287,13 +287,32 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
+      "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Target Material of Sampling Unit",
+      "schema:description": "Target Material of Sampling Unit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
       "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -301,8 +320,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -784,13 +802,32 @@ and technique component types on the archive distribution. Mock data for validat
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
+      "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
+      "schema:name": "Target Material of Sampling Unit",
+      "schema:description": "Target Material of Sampling Unit reported for this dataset. Example value.",
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+        }
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
       "@id": "ex:adaProduct-var-001",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -798,8 +835,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1080,7 +1116,8 @@ ex:adaEMPA-example-001 a schema1:Dataset,
     schema1:name "ADA EPMA Example Product" ;
     schema1:subjectOf ex:adaProduct-metadata-001 ;
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
-    schema1:variableMeasured ex:adaProduct-var-001,
+    schema1:variableMeasured <https://ada.astromat.org/metadata/parameter/empaTAPP/targetMaterialOfSamplingUnit>,
+        ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
@@ -1161,16 +1198,15 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:defaultValue "missing" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
-        "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
-        "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
+        "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
+        "Sampling Unit Name reported for this dataset. Example value." ;
     schema1:name "Calibration Factor and Determination Method",
         "Detection Limit",
-        "Goodness-of-Fit or Dispersion Statistic",
+        "Sampling Unit Name",
         "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;
-    schema1:value -9999,
-        "missing" ;
+    schema1:value -9999 ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 ex:adaProduct-var-002 a cdi:InstanceVariable,
@@ -1196,6 +1232,17 @@ ex:empaTAPP-P0 a prov:Entity,
         "EPMA" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
+
+<https://ada.astromat.org/metadata/parameter/empaTAPP/targetMaterialOfSamplingUnit> a cdi:InstanceVariable,
+        schema1:PropertyValue ;
+    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
+    cdi:role "MeasureComponent" ;
+    cdi:simpleUnitOfMeasure "counts" ;
+    schema1:description "Target Material of Sampling Unit reported for this dataset. Example value." ;
+    schema1:name "Target Material of Sampling Unit" ;
+    schema1:propertyID <https://ada.astromat.org/metadata/parameter/empaTAPP/targetMaterialOfSamplingUnit> ;
+    schema1:unitText "counts" ;
+    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 
 ```

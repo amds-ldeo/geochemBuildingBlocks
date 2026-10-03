@@ -30,7 +30,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     "bios:LabProtocol"
   ],
   "schema:name": "finesse protocol — P0",
-  "schema:description": "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv).",
+  "schema:description": "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FINESSE.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FINESSE",
   "schema:measurementTechnique": [
@@ -114,7 +114,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
     "bios:LabProtocol"
   ],
   "schema:name": "finesse protocol \u2014 P0",
-  "schema:description": "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv).",
+  "schema:description": "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FINESSE.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "FINESSE",
   "schema:measurementTechnique": [
@@ -190,7 +190,7 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv)." ;
+    schema1:description "finesseTAPP instance derived from ADA n=8 | no named analyst | Open University | FINESSE (publication column of FINESSE_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FINESSE." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/05mzfcs16" ;
             schema1:name "Open University" ] ;

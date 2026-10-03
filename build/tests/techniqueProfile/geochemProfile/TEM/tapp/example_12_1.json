@@ -16,34 +16,22 @@
   ],
   "schema:name": "tem protocol \u2014 Dobrica2022-2",
   "schema:description": "EDS analysis areas 5\u201310 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100% Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map); ada:edsAcquisitionModeDefault = Spectrum image (hyperspectral map).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Antarctic micrometeorite 03-36-46 (hydrated fine-grained AMM, H-FgMM, 84\u00d7114 \u00b5m; carbonates, phyllosilicates, magnetite, sulfides, phosphates; Concordia snow collection 2002 campaign)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
-          "schema:name": "Pre-Analysis Imaging and Screening",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": "SEM/EDS identification in the polished section \u2014 the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonates"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -72,24 +60,11 @@
         "schema:position": 1
       },
       {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "N \u2014 the carbonate compositions are \"extracted from EDS mapping over areas of 5\u201310 nm\" and normalised to 100% (p.2); no contributing count and no acceptance or rejection rule is stated"
-          }
-        ],
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
+        "schema:name": "Data reduction",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
@@ -101,6 +76,28 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting \u2014 the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2)",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "SEM/EDS identification in the polished section \u2014 the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -274,7 +271,7 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.1,
-      "schema:description": "<0.1 wt% (stated for TEM EDS measurements)"
+      "schema:description": "all: <0.1 wt% \u2014 stated for TEM EDS measurements"
     }
   ],
   "schema:measurementTechnique": [
@@ -312,7 +309,7 @@
     }
   ],
   "ada:reportedProperties": [
-    "Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) \u2014 with the ranges also given in wt% (\"2.9\u20138.1 wt.% MnO, 2.5\u20136.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)"
+    "carbonate composition (mole%); MnO (wt%); FeO (wt%) \u2014 Carbonate compositions from EDS hyperspectral maps, normalised to 100% and reported as oxide mole percentages on the MgCO3-CaCO3-(Fe + Mn)CO3 ternary (mole%, Fig. 5, p.7) \u2014 with the ranges also given in wt% (\"2.9\u20138.1 wt.% MnO, 2.5\u20136.0 wt.% FeO\", p.5); the EDS detection limit is stated (p.2)"
   ],
   "schema:variableMeasured": [
     {

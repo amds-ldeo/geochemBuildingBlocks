@@ -34,17 +34,17 @@ Supplemental documents for calibration, methods, and analysis info. Defines prop
 
 Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
-### `ogch.BaseSchema.image` — Image Type
-
-**Type:** schema
-
-ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
-
 ### `ogch.BaseSchema.otherFile` — Other File Type
 
 **Type:** schema
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
+
+### `ogch.BaseSchema.image` — Image Type
+
+**Type:** schema
+
+ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -56,7 +56,7 @@ Pixel coordinate system registration for images and maps. Defines properties: ba
 
 **Type:** schema
 
-The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 2 owned fields over 2 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Aggregation block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 5 owned fields over 6 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.blank` — TAPP Composition Module: Blank
 
@@ -80,7 +80,7 @@ The shared CollisionCell block of the 2026-08-11 TAPP library, composed by 6 of 
 
 **Type:** schema
 
-The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 6 owned fields over 16 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared Geochronology block of the 2026-08-11 TAPP library, composed by 3 of the sixteen delivery tables. 5 owned fields over 13 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.mcIcpms` — TAPP Composition Module: MCICPMS
 
@@ -141,6 +141,12 @@ Registry of reusable schema:PropertyValue parameter-value definitions derived fr
 **Type:** schema
 
 Registry of reusable schema:PropertyValueSpecification reported-property column definitions derived from technique TAPP workbooks. Each $def constrains one column of the reported-property table -- the variables a procedure REPORTS, as distinct from the analytes and channels it acquires. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
+
+### `ogch.registry.targetMaterialColumns` — Target-Material-Column Specification Registry
+
+**Type:** schema
+
+Registry of reusable schema:PropertyValueSpecification target-material-column definitions derived from technique TAPP spreadsheets. Hosts one $def per column of a per-target-material table. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the register.
 
 ### `ogch.registry.targetSpeciesColumns` — Target-Species-Column Specification Registry
 
@@ -274,12 +280,6 @@ CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type
 
 ADA analytical instrument extending the core CDIF instrument building block. Typed as schema:Thing + schema:Product with domain-specific classifications (e.g. nxs:BaseClass/NXinstrument) in schema:additionalType. Inherits hierarchical sub-components, manufacturer, model, calibration properties from core.
 
-### `ogch.BaseSchema.structuredData` — Structured Data File Type
-
-**Type:** schema
-
-A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
-
 ### `ogch.BaseSchema.modules.icpms` — TAPP Composition Module: ICPMS
 
 **Type:** schema
@@ -290,7 +290,7 @@ The shared ICPMS block of the 2026-08-11 TAPP library, composed by 9 of the sixt
 
 **Type:** schema
 
-The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of the sixteen delivery tables. 29 owned fields over 22 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of the sixteen delivery tables. 28 owned fields over 22 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.tappDefinition` — Technique-Aligned Protocol Profile (TAPP) Definition
 
@@ -298,11 +298,11 @@ The shared LaserAblation block of the 2026-08-11 TAPP library, composed by 6 of 
 
 A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as cdi:Activity + schema:Action + ada:TAPPDefinition + bios:LabProtocol. TAPP identity (name, technique, instrument, location, target material) at top level. Standard workflow encoded in schema:actionProcess as a schema:HowTo with ordered cdi:Activity + schema:Action steps. Each workflow step carries its own parameters, reagents, instruments. Uses bios:computationalTool for software, bios:reagent for reference materials, dqv:hasQualityMeasurement for quality metrics, ada:fieldScope (method/session/element) for parameter lifecycle.
 
-### `ogch.BaseSchema.files` — Files Type
+### `ogch.BaseSchema.modules.targetSpecies` — TAPP Composition Module: Target Species
 
 **Type:** schema
 
-DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
+The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 1 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.geochemProduct` — Geochem Analytical Product
 
@@ -310,23 +310,17 @@ DataDownload with checksum, size, encoding format, and file detail. Defines prop
 
 Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.
 
-### `ogch.BaseSchema.modules.targetSpecies` — TAPP Composition Module: Target Species
+### `ogch.BaseSchema.structuredData` — Structured Data File Type
 
 **Type:** schema
 
-The shared Analyte block of the 2026-08-11 TAPP library, composed by 13 of the sixteen delivery tables. 1 owned fields over 1 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
-
-### `ogch.BaseSchema.adaProduct` — ADA Product Profile
-
-**Type:** schema
-
-Top-level ADA product metadata profile composing all ADA building blocks
+A container/array data file (HDF5, NeXus) in an ADA bundle whose layout is described by a CDIF DataStructure via cdi:isStructuredBy. The bundle-part analog of the monolithic single-file isStructuredBy pattern (pattern chosen by encoding, not position). Defines properties: @type, ada:componentType, cdi:isStructuredBy. Uses building blocks: cdifDataStructure (cdifProperties).
 
 ### `ogch.BaseSchema.modules.compositionQC` — TAPP Composition Module: CompositionQC
 
 **Type:** schema
 
-The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of the sixteen delivery tables. 6 owned fields over 10 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of the sixteen delivery tables. 6 owned fields over 8 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.core` — TAPP Composition Module: Core
 
@@ -334,215 +328,11 @@ The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of
 
 The shared Core block of the 2026-08-11 TAPP library, composed by 16 of the sixteen delivery tables. 32 owned fields over 36 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
-### `ogch.techniqueProfile.adaProfile.AIVA.profile-ada` — ADA AIVA Profile
+### `ogch.BaseSchema.files` — Files Type
 
 **Type:** schema
 
-Technique-specific profile for AI-driven Visual Analysis (AIVA) products
-
-### `ogch.techniqueProfile.adaProfile.AMS.profile-ada` — ADA AMS Profile
-
-**Type:** schema
-
-Technique-specific profile for Accelerator Mass Spectrometry (AMS) products
-
-### `ogch.techniqueProfile.adaProfile.ARGT.profile-ada` — ADA ARGT Profile
-
-**Type:** schema
-
-Technique-specific profile for Argon Geochronology and Thermochronology (ARGT) products
-
-### `ogch.techniqueProfile.adaProfile.DSC.profile-ada` — ADA DSC Profile
-
-**Type:** schema
-
-Technique-specific profile for Differential Scanning Calorimetry (DSC) products
-
-### `ogch.techniqueProfile.adaProfile.EAIRMS.profile-ada` — ADA EA-IRMS Profile
-
-**Type:** schema
-
-Technique-specific profile for Elemental Analysis - Isotope Ratio Mass Spectrometry (EA-IRMS) products
-
-### `ogch.techniqueProfile.adaProfile.FTICRMS.profile-ada` — ADA FTICR-MS Profile
-
-**Type:** schema
-
-Technique-specific profile for Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (FTICR-MS) products
-
-### `ogch.techniqueProfile.adaProfile.GCMS.profile-ada` — ADA GC-MS Profile
-
-**Type:** schema
-
-Technique-specific profile for Gas Chromatography Mass Spectrometry (GC-MS) products
-
-### `ogch.techniqueProfile.adaProfile.GPYC.profile-ada` — ADA GPYC Profile
-
-**Type:** schema
-
-Technique-specific profile for Gas Pycnometry (GPYC) products
-
-### `ogch.techniqueProfile.adaProfile.IC.profile-ada` — ADA IC Profile
-
-**Type:** schema
-
-Technique-specific profile for Ion Chromatography (IC) products
-
-### `ogch.techniqueProfile.adaProfile.ICPMS.profile-ada` — ADA ICP-MS Profile
-
-**Type:** schema
-
-Technique-specific profile for Inductively Coupled Plasma Mass Spectrometry (ICP-MS) products
-
-### `ogch.techniqueProfile.adaProfile.ICPOES.profile-ada` — ADA ICP-OES Profile
-
-**Type:** schema
-
-Technique-specific profile for Inductively Coupled Plasma Optical Emission Spectrometry (ICP-OES) products
-
-### `ogch.techniqueProfile.adaProfile.L2MS.profile-ada` — ADA L2MS Profile
-
-**Type:** schema
-
-Technique-specific profile for Two-Step Laser Mass Spectrometry (L2MS) products
-
-### `ogch.techniqueProfile.adaProfile.LAF.profile-ada` — ADA LAF Profile
-
-**Type:** schema
-
-Technique-specific profile for Laser-Assisted Fluorination (LAF) products
-
-### `ogch.techniqueProfile.adaProfile.LCMS.profile-ada` — ADA LC-MS Profile
-
-**Type:** schema
-
-Technique-specific profile for Liquid Chromatography Mass Spectrometry (LC-MS) products
-
-### `ogch.techniqueProfile.adaProfile.LIT.profile-ada` — ADA LIT Profile
-
-**Type:** schema
-
-Technique-specific profile for Lock-In Thermography (LIT) products
-
-### `ogch.techniqueProfile.adaProfile.NGNSMS.profile-ada` — ADA NG-NS-MS Profile
-
-**Type:** schema
-
-Technique-specific profile for Noble Gas and Nitrogen Static Mass Spectrometry (NG-NS-MS) products
-
-### `ogch.techniqueProfile.adaProfile.NanoIR.profile-ada` — ADA NanoIR Profile
-
-**Type:** schema
-
-Technique-specific profile for Nano-Infrared Spectroscopy (NanoIR) products
-
-### `ogch.techniqueProfile.adaProfile.NanoSIMS.profile-ada` — ADA NanoSIMS Profile
-
-**Type:** schema
-
-Technique-specific profile for Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) products
-
-### `ogch.techniqueProfile.adaProfile.PSFD.profile-ada` — ADA PSFD Profile
-
-**Type:** schema
-
-Technique-specific profile for Particle Size-Frequency Distribution (PSFD) products
-
-### `ogch.techniqueProfile.adaProfile.QRIS.profile-ada` — ADA QRIS Profile
-
-**Type:** schema
-
-Technique-specific profile for Quantitative Reflectance Imaging Spectroscopy (QRIS) products
-
-### `ogch.techniqueProfile.adaProfile.RAMAN.profile-ada` — ADA RAMAN Profile
-
-**Type:** schema
-
-Technique-specific profile for Raman Spectroscopy (RAMAN) products
-
-### `ogch.techniqueProfile.adaProfile.RITOFNGMS.profile-ada` — ADA RI-TOF-NGMS Profile
-
-**Type:** schema
-
-Technique-specific profile for Resonance Ionization Time-of-Flight Noble Gas Mass Spectrometry (RI-TOF-NGMS) products
-
-### `ogch.techniqueProfile.adaProfile.SIMS.profile-ada` — ADA SIMS Profile
-
-**Type:** schema
-
-Technique-specific profile for Secondary Ion Mass Spectrometry (SIMS) products
-
-### `ogch.techniqueProfile.adaProfile.SLS.profile-ada` — ADA SLS Profile
-
-**Type:** schema
-
-Technique-specific profile for Structured Light Scanning (SLS) products
-
-### `ogch.techniqueProfile.adaProfile.SVRUEC.profile-ada` — ADA SV-RUEC Profile
-
-**Type:** schema
-
-Technique-specific profile for Seismic Velocities and Rock Ultrasonic Elastic Constants (SV-RUEC) products
-
-### `ogch.techniqueProfile.adaProfile.ToFSIMS.profile-ada` — ADA ToF-SIMS Profile
-
-**Type:** schema
-
-Technique-specific profile for Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS) products
-
-### `ogch.techniqueProfile.adaProfile.UVFM.profile-ada` — ADA UVFM Profile
-
-**Type:** schema
-
-Technique-specific profile for Ultraviolet Fluorescence Microscopy (UVFM) products
-
-### `ogch.techniqueProfile.adaProfile.VLM.profile-ada` — ADA VLM Profile
-
-**Type:** schema
-
-Technique-specific profile for Visible Light Microscopy (VLM) products
-
-### `ogch.techniqueProfile.adaProfile.VNMIR.profile-ada` — ADA VNMIR Profile
-
-**Type:** schema
-
-Technique-specific profile for Very-Near Mid-Infrared (VNMIR/FTIR) spectroscopy products
-
-### `ogch.techniqueProfile.adaProfile.XANES.profile-ada` — ADA XANES Profile
-
-**Type:** schema
-
-Technique-specific profile for X-ray Absorption Near Edge Structure (XANES) products
-
-### `ogch.techniqueProfile.adaProfile.XRD.profile-ada` — ADA XRD Profile
-
-**Type:** schema
-
-Technique-specific profile for X-ray Diffraction (XRD) products
-
-### `ogch.techniqueProfile.geochemProfile.EMPA.profile-ada` — ADA EMPA Profile
-
-**Type:** schema
-
-Technique-specific profile for Electron Microprobe Analysis (EMPA) products
-
-### `ogch.techniqueProfile.geochemProfile.SEM.profile-ada` — ADA SEM Profile
-
-**Type:** schema
-
-Technique-specific profile for Scanning Electron Microscopy (SEM) products
-
-### `ogch.techniqueProfile.geochemProfile.TEM.profile-ada` — ADA TEM Profile
-
-**Type:** schema
-
-Technique-specific profile for Transmission Electron Microscopy (TEM) products
-
-### `ogch.techniqueProfile.geochemProfile.XCT.profile-ada` — ADA XCT Profile
-
-**Type:** schema
-
-Technique-specific profile for X-ray Computed Tomography (XCT) products
+DataDownload with checksum, size, encoding format, and file detail. Defines properties: schema:additionalType, schema:description, schema:size, resultTarget, schema:relatedLink. Uses building blocks: dataDownload (schemaorgProperties), stringArray (geochemProperties), image (geochemProperties), imageMap (geochemProperties), tabularData (geochemProperties), collection (geochemProperties), dataCube (geochemProperties), document (geochemProperties), supDocImage (geochemProperties), otherFile (geochemProperties).
 
 ### `ogch.techniqueProfile.geochemProfile.AIVA.detail` — Advanced Imaging & Visualization of Astromaterials Analysis Detail
 
@@ -1252,6 +1042,12 @@ Detail block for XRD hasPart items, carrying the analysis-level properties suppl
 
 X-ray diffraction extension of the base TAPP definition. XRD reports phases rather than per-element concentrations, so no ada:targetSpeciesTemplate is defined; no mode-flag columns, since it delivers a single technique componentType. DRAFT - generated from draftTAPPs/XRD_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.
 
+### `ogch.BaseSchema.adaProduct` — ADA Product Profile
+
+**Type:** schema
+
+Top-level ADA product metadata profile composing all ADA building blocks
+
 ### `ogch.techniqueProfile.geochemProfile.CAPD.profile` — ADA Capacitance Dilatometry Product Profile
 
 **Type:** schema
@@ -1342,18 +1138,6 @@ Path-driven ADA product profile for ADA NI-MI Product Profile.
 
 Path-driven ADA product profile for ADA PCD-AFM Product Profile.
 
-### `ogch.techniqueProfile.geochemProfile.QRIS.profile-ada` — ADA QRIS Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing Quantitative Reflectance Imaging System products generated under a registered qrisTAPP procedure. Adds the QRIS analysis detail on the schema:Dataset root and pins prov:used to the qrisTAPP definition, on top of the ADA QRIS component-type constraints. DRAFT - the source table has not been through Phase 0 review.
-
-### `ogch.techniqueProfile.geochemProfile.RAMAN.profile-ada` — ADA RAMAN Profile (TAPP-linked)
-
-**Type:** schema
-
-Profile for an ADA metadata document describing Raman vibrational spectroscopy products generated under a registered ramanTAPP procedure. Adds the RAMAN analysis detail on the schema:Dataset root and pins prov:used to the ramanTAPP definition, on top of the ADA RAMAN component-type constraints. DRAFT - the source table has not been through Phase 0 review.
-
 ### `ogch.techniqueProfile.geochemProfile.S-XRF.profile` — ADA S-XRF Product Profile
 
 **Type:** schema
@@ -1432,6 +1216,228 @@ Path-driven ADA product profile for ADA TEM Product Profile.
 
 Path-driven ADA product profile for ADA TIMS Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.XCT.profile` — ADA Lab-XCT Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA Lab-XCT Product Profile.
+
+### `ogch.techniqueProfile.adaProfile.AIVA.profile-ada` — ADA AIVA Profile
+
+**Type:** schema
+
+Technique-specific profile for AI-driven Visual Analysis (AIVA) products
+
+### `ogch.techniqueProfile.adaProfile.AMS.profile-ada` — ADA AMS Profile
+
+**Type:** schema
+
+Technique-specific profile for Accelerator Mass Spectrometry (AMS) products
+
+### `ogch.techniqueProfile.adaProfile.ARGT.profile-ada` — ADA ARGT Profile
+
+**Type:** schema
+
+Technique-specific profile for Argon Geochronology and Thermochronology (ARGT) products
+
+### `ogch.techniqueProfile.adaProfile.DSC.profile-ada` — ADA DSC Profile
+
+**Type:** schema
+
+Technique-specific profile for Differential Scanning Calorimetry (DSC) products
+
+### `ogch.techniqueProfile.adaProfile.EAIRMS.profile-ada` — ADA EA-IRMS Profile
+
+**Type:** schema
+
+Technique-specific profile for Elemental Analysis - Isotope Ratio Mass Spectrometry (EA-IRMS) products
+
+### `ogch.techniqueProfile.adaProfile.FTICRMS.profile-ada` — ADA FTICR-MS Profile
+
+**Type:** schema
+
+Technique-specific profile for Fourier Transform Ion Cyclotron Resonance Mass Spectrometry (FTICR-MS) products
+
+### `ogch.techniqueProfile.adaProfile.GCMS.profile-ada` — ADA GC-MS Profile
+
+**Type:** schema
+
+Technique-specific profile for Gas Chromatography Mass Spectrometry (GC-MS) products
+
+### `ogch.techniqueProfile.adaProfile.GPYC.profile-ada` — ADA GPYC Profile
+
+**Type:** schema
+
+Technique-specific profile for Gas Pycnometry (GPYC) products
+
+### `ogch.techniqueProfile.adaProfile.IC.profile-ada` — ADA IC Profile
+
+**Type:** schema
+
+Technique-specific profile for Ion Chromatography (IC) products
+
+### `ogch.techniqueProfile.adaProfile.ICPMS.profile-ada` — ADA ICP-MS Profile
+
+**Type:** schema
+
+Technique-specific profile for Inductively Coupled Plasma Mass Spectrometry (ICP-MS) products
+
+### `ogch.techniqueProfile.adaProfile.ICPOES.profile-ada` — ADA ICP-OES Profile
+
+**Type:** schema
+
+Technique-specific profile for Inductively Coupled Plasma Optical Emission Spectrometry (ICP-OES) products
+
+### `ogch.techniqueProfile.adaProfile.L2MS.profile-ada` — ADA L2MS Profile
+
+**Type:** schema
+
+Technique-specific profile for Two-Step Laser Mass Spectrometry (L2MS) products
+
+### `ogch.techniqueProfile.adaProfile.LAF.profile-ada` — ADA LAF Profile
+
+**Type:** schema
+
+Technique-specific profile for Laser-Assisted Fluorination (LAF) products
+
+### `ogch.techniqueProfile.adaProfile.LCMS.profile-ada` — ADA LC-MS Profile
+
+**Type:** schema
+
+Technique-specific profile for Liquid Chromatography Mass Spectrometry (LC-MS) products
+
+### `ogch.techniqueProfile.adaProfile.LIT.profile-ada` — ADA LIT Profile
+
+**Type:** schema
+
+Technique-specific profile for Lock-In Thermography (LIT) products
+
+### `ogch.techniqueProfile.adaProfile.NGNSMS.profile-ada` — ADA NG-NS-MS Profile
+
+**Type:** schema
+
+Technique-specific profile for Noble Gas and Nitrogen Static Mass Spectrometry (NG-NS-MS) products
+
+### `ogch.techniqueProfile.adaProfile.NanoIR.profile-ada` — ADA NanoIR Profile
+
+**Type:** schema
+
+Technique-specific profile for Nano-Infrared Spectroscopy (NanoIR) products
+
+### `ogch.techniqueProfile.adaProfile.NanoSIMS.profile-ada` — ADA NanoSIMS Profile
+
+**Type:** schema
+
+Technique-specific profile for Nanoscale Secondary Ion Mass Spectrometry (NanoSIMS) products
+
+### `ogch.techniqueProfile.adaProfile.PSFD.profile-ada` — ADA PSFD Profile
+
+**Type:** schema
+
+Technique-specific profile for Particle Size-Frequency Distribution (PSFD) products
+
+### `ogch.techniqueProfile.adaProfile.QRIS.profile-ada` — ADA QRIS Profile
+
+**Type:** schema
+
+Technique-specific profile for Quantitative Reflectance Imaging Spectroscopy (QRIS) products
+
+### `ogch.techniqueProfile.adaProfile.RAMAN.profile-ada` — ADA RAMAN Profile
+
+**Type:** schema
+
+Technique-specific profile for Raman Spectroscopy (RAMAN) products
+
+### `ogch.techniqueProfile.adaProfile.RITOFNGMS.profile-ada` — ADA RI-TOF-NGMS Profile
+
+**Type:** schema
+
+Technique-specific profile for Resonance Ionization Time-of-Flight Noble Gas Mass Spectrometry (RI-TOF-NGMS) products
+
+### `ogch.techniqueProfile.adaProfile.SIMS.profile-ada` — ADA SIMS Profile
+
+**Type:** schema
+
+Technique-specific profile for Secondary Ion Mass Spectrometry (SIMS) products
+
+### `ogch.techniqueProfile.adaProfile.SLS.profile-ada` — ADA SLS Profile
+
+**Type:** schema
+
+Technique-specific profile for Structured Light Scanning (SLS) products
+
+### `ogch.techniqueProfile.adaProfile.SVRUEC.profile-ada` — ADA SV-RUEC Profile
+
+**Type:** schema
+
+Technique-specific profile for Seismic Velocities and Rock Ultrasonic Elastic Constants (SV-RUEC) products
+
+### `ogch.techniqueProfile.adaProfile.ToFSIMS.profile-ada` — ADA ToF-SIMS Profile
+
+**Type:** schema
+
+Technique-specific profile for Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS) products
+
+### `ogch.techniqueProfile.adaProfile.UVFM.profile-ada` — ADA UVFM Profile
+
+**Type:** schema
+
+Technique-specific profile for Ultraviolet Fluorescence Microscopy (UVFM) products
+
+### `ogch.techniqueProfile.adaProfile.VLM.profile-ada` — ADA VLM Profile
+
+**Type:** schema
+
+Technique-specific profile for Visible Light Microscopy (VLM) products
+
+### `ogch.techniqueProfile.adaProfile.VNMIR.profile-ada` — ADA VNMIR Profile
+
+**Type:** schema
+
+Technique-specific profile for Very-Near Mid-Infrared (VNMIR/FTIR) spectroscopy products
+
+### `ogch.techniqueProfile.adaProfile.XANES.profile-ada` — ADA XANES Profile
+
+**Type:** schema
+
+Technique-specific profile for X-ray Absorption Near Edge Structure (XANES) products
+
+### `ogch.techniqueProfile.adaProfile.XRD.profile-ada` — ADA XRD Profile
+
+**Type:** schema
+
+Technique-specific profile for X-ray Diffraction (XRD) products
+
+### `ogch.techniqueProfile.geochemProfile.EMPA.profile-ada` — ADA EMPA Profile
+
+**Type:** schema
+
+Technique-specific profile for Electron Microprobe Analysis (EMPA) products
+
+### `ogch.techniqueProfile.geochemProfile.QRIS.profile-ada` — ADA QRIS Profile (TAPP-linked)
+
+**Type:** schema
+
+Profile for an ADA metadata document describing Quantitative Reflectance Imaging System products generated under a registered qrisTAPP procedure. Adds the QRIS analysis detail on the schema:Dataset root and pins prov:used to the qrisTAPP definition, on top of the ADA QRIS component-type constraints. DRAFT - the source table has not been through Phase 0 review.
+
+### `ogch.techniqueProfile.geochemProfile.RAMAN.profile-ada` — ADA RAMAN Profile (TAPP-linked)
+
+**Type:** schema
+
+Profile for an ADA metadata document describing Raman vibrational spectroscopy products generated under a registered ramanTAPP procedure. Adds the RAMAN analysis detail on the schema:Dataset root and pins prov:used to the ramanTAPP definition, on top of the ADA RAMAN component-type constraints. DRAFT - the source table has not been through Phase 0 review.
+
+### `ogch.techniqueProfile.geochemProfile.SEM.profile-ada` — ADA SEM Profile
+
+**Type:** schema
+
+Technique-specific profile for Scanning Electron Microscopy (SEM) products
+
+### `ogch.techniqueProfile.geochemProfile.TEM.profile-ada` — ADA TEM Profile
+
+**Type:** schema
+
+Technique-specific profile for Transmission Electron Microscopy (TEM) products
+
 ### `ogch.techniqueProfile.geochemProfile.VNMIR.profile-ada` — ADA VNMIR Profile (TAPP-linked)
 
 **Type:** schema
@@ -1444,11 +1450,11 @@ Profile for an ADA metadata document describing data generated under a registere
 
 Profile for an ADA metadata document describing X-ray absorption near edge structure spectroscopy products generated under a registered xanesTAPP procedure. Adds the XANES analysis detail on the schema:Dataset root and pins prov:used to the xanesTAPP definition, on top of the ADA XANES component-type constraints. DRAFT - the source table has not been through Phase 0 review.
 
-### `ogch.techniqueProfile.geochemProfile.XCT.profile` — ADA Lab-XCT Product Profile
+### `ogch.techniqueProfile.geochemProfile.XCT.profile-ada` — ADA XCT Profile
 
 **Type:** schema
 
-Path-driven ADA product profile for ADA Lab-XCT Product Profile.
+Technique-specific profile for X-ray Computed Tomography (XCT) products
 
 ### `ogch.techniqueProfile.geochemProfile.XRD.profile-ada` — ADA XRD Profile (TAPP-linked)
 

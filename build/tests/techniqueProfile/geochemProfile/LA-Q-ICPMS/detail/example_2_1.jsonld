@@ -34,17 +34,18 @@
   "ada:numberOfReplicates": 9,
   "ada:transectLength": -9999,
   "ada:mappingArea": "missing",
-  "ada:signalIntegrationTime": 45,
+  "ada:signalIntegrationTime": "N \u2014 ablation lasted 45 s (\u00a72.2); the integration interval is not stated",
   "ada:proceduralBlankLevel": "missing",
   "ada:analysisInclusionAndRejectionCriteria": "Partially \u2014 each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
-  "ada:detectionLimit": "LODs for 32 elements in Li-borate glass BHVO-2: 0.005\u201323.5 \u00b5g g\u207b\u00b9 (dilution-limited; much higher than undiluted glass LODs); LODs for NIST 610: 0.007\u20130.45 \u00b5g g\u207b\u00b9; LOQ = 3.3 \u00d7 LOD (Pettke 2012) for most elements; LOQ for pollution elements = blank + 10SD (Gold Book IUPAC)",
-  "ada:limitOfQuantificationMethod": "LOQ = 3.3 \u00d7 LOD per Pettke (2012) for most elements; LOQ = blank value + 10SD per IUPAC Gold Book for pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) where blank contribution is significant",
+  "ada:combinedResults": "each sample in Table 2 (n = 9 spots)",
+  "ada:detectionLimit": "all: 0.005\u201323.5 \u00b5g g\u207b\u00b9 \u2014 LODs of 32 elements in lithium borate glass BHVO-2 (Table S2); 0.007\u20130.45 \u00b5g g\u207b\u00b9 calculated for NIST 610 (\u00a73.2)",
+  "ada:limitOfQuantificationMethod": "V, Co, Zn, Ba, La, Ce, Ta, U: blank value + 10SD (IUPAC Gold Book); other: 3.3 \u00d7 LOD \u2014 \u00a73.2",
   "ada:countingStatisticsError": "missing",
   "ada:internalAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)",
+  "ada:withinSessionAnalyticalPrecisionAndAssessmentMethod": "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] \u2014 \u00a73.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A",
   "ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod": "missing",
-  "ada:analyticalAccuracyAndAssessmentMethod": "Analytical results within 10% of reference values for most of 32 trace elements in 6 GRMs (mafic to felsic); precision (RSD) within 10% for most elements; lunar basalt (NWA14526) and shergottite (NWA13190) results compared with SN-ICP-MS and found reliable",
-  "ada:goodnessOfFitOrDispersionStatistic": "missing",
+  "ada:analyticalAccuracyAndAssessmentMethod": "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] \u2014 \u00a73.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1",
+  "ada:goodnessOfFitOrDispersionStatistic": "all: relative standard deviation \u2014 'relative standard deviations are reported as the precision measure'",
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening",
@@ -58,6 +59,19 @@
       ],
       "schema:name": "Pre-Analysis Imaging and Screening",
       "schema:value": "N \u2014 the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)"
+    },
+    {
+      "@id": "ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/laQicpmsTAPP/transectRateMappingRateOrStepSize"
+        }
+      ],
+      "schema:name": "Transect Rate, Mapping Rate or Step Size",
+      "schema:value": "N/A \u2014 spot mode"
     }
   ],
   "ada:spotDiameterMeasured": -9999

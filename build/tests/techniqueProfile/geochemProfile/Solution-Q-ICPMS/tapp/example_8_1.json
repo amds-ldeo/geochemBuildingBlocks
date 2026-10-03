@@ -15,24 +15,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 P7",
-  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v87.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Estuarine water \u2014 dissolved Se from sorption kinetics and isotherms"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe (publication column of Solution_Q-ICP-MS_TAPP_v94.csv).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "estuarine water"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -66,7 +78,7 @@
               "schema:name": "Collision Gas Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "He+H2 mixture at 92% : 8%, to minimise 40Ar37Cl interferences"
+              "schema:value": "Se masses: He + H2; other: N \u2014 \u00a72.4"
             },
             {
               "@id": "ada:parameter/module/CollisionCell/reactionGasType",
@@ -80,7 +92,7 @@
               "schema:value": "N/A \u2014 collision mode only"
             }
           ],
-          "schema:name": "CCT mode (collision cell) with a He:H2 mixture",
+          "schema:name": "Se masses: CCT mode, collision cell with He:H2; other: N \u2014 the Se masses are not listed; no cell mode is stated for Te (\u00a72.4)",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -160,6 +172,7 @@
   ],
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
+      "Te",
       "Se"
     ],
     "ada:targetSpeciesColumns": [
@@ -244,7 +257,7 @@
       "schema:name": "Collision/Reaction Gas Mixture Ratio",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "He:H2 mixture at 92% : 8%, used to minimise 40Ar37Cl interferences"
+      "schema:defaultValue": "Se masses: He:H2 = 92% : 8%; other: N \u2014 'to minimise 40Ar37Cl interferences' (\u00a72.4)"
     },
     {
       "@id": "ada:parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition",
@@ -260,35 +273,7 @@
       "schema:value": "N/A \u2014 on-mass measurement in CCT mode"
     }
   ],
-  "schema:measurementTechnique": [
-    {
-      "@type": [
-        "schema:DefinedTerm"
-      ],
-      "schema:termCode": "Solution Q-ICP-MS"
-    }
-  ],
-  "schema:location": {
-    "@type": [
-      "schema:Place"
-    ],
-    "schema:name": "Karlsruhe Institute of Technology (KIT), Germany"
-  },
-  "ada:samplingUnitType": "N \u2014 sub-sampled water aliquots",
-  "ada:analyticalMode": [
-    "Solution nebulisation (continuous)"
-  ],
-  "ada:reportedProperties": [
-    "Dissolved Se concentration (ug L-1)"
-  ],
-  "ada:internalStandardElement": "103Rh and 115In",
-  "ada:secondaryReferenceMaterialDefault": [
-    "CRM-TMDW drinking water and NIST 1643f freshwater"
-  ],
   "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
     "schema:step": [
       {
         "@type": [
@@ -303,16 +288,16 @@
         "schema:description": "missing"
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "Te run; Se run \u2014 dissolved Te 'directly analysed by ICP-MS (X-Series II, Thermo Fisher Scientific)' (\u00a72.3), no laboratory named; dissolved Se on the 'XSeries 2, Thermo Fisher Scientific, KIT' (\u00a72.4)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 2,
-        "schema:description": "missing"
+        "schema:position": 2
       },
       {
         "@type": [
@@ -338,8 +323,38 @@
         "schema:position": 4,
         "schema:description": "missing"
       }
+    ],
+    "@type": [
+      "schema:HowTo"
     ]
   },
+  "ada:numberOfAcquisitionPasses": "2",
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Solution Q-ICP-MS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Karlsruhe Institute of Technology (KIT), Germany"
+  },
+  "ada:samplingUnitType": "N \u2014 sub-sampled water aliquots",
+  "ada:analyticalMode": [
+    "Solution nebulisation (continuous)"
+  ],
+  "ada:reportedProperties": [
+    "Te, Se (\u00b5g/L) \u2014 dissolved concentrations"
+  ],
+  "ada:finalSolutionMatrix": "Te run: seawater matrices diluted in 2% HNO3, freshwater analysed directly; Se run: N \u2014 \u00a72.3",
+  "ada:internalStandardElement": "Se run: 103Rh and 115In; Te run: N \u2014 \u00a72.4",
+  "ada:secondaryReferenceMaterialDefault": [
+    "CRM-TMDW, NIST 1643f \u2014 drinking water and freshwater"
+  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -351,13 +366,10 @@
   "ada:calibrationMeasurementFrequency": "missing",
   "ada:chromatographicSeparationApplied": "missing",
   "ada:driftCorrectionMethod": "missing",
-  "ada:finalSolutionMatrix": "missing",
   "ada:isotopeDilutionSpike": "missing",
   "ada:massCyclesPerReplicate": -9999,
-  "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:uncertaintyLevel": "missing",

@@ -15,41 +15,46 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7500",
-  "schema:description": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard Reported detail: ada:driftCorrectionMethod = IS normalization (149Sm spike ratio; stated section 2).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate reference materials (basalt, andesite, peridotite), NIST SRM glasses, carbonaceous chondrites (stated section 2)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 15,
-          "schema:description": "15-63 mg (silicates); 8-22 mg (NIST glass); 9-28 mg (chondrites; stated section 2)"
-        }
-      ]
-    }
-  ],
+  "schema:description": "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996\u20130.999, Table 2) Reported detail: ada:driftCorrectionMethod = Mass discrimination corrected with the mean elemental ratios of the calibrator measured before and after each sample \u2014 step (d).",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "peridotite",
+      "dunite",
+      "synthetic glass",
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Whole-rock powder or glass chips (stated section 2)",
+        "schema:description": "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor \u2265 1000 \u2014 clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -84,18 +89,7 @@
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses"
+            "schema:value": "Eq. 1 for Sm (ID), with the pseudo-concentration Q calibrated on spike-standard mixtures, and Eq. 2 for Cd, In, Tl and Bi (ID-IS) \u2014 details in Makishima and Nakamura (2006)"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -106,10 +100,10 @@
             "schema:name": "Constants Reference Values",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "\"113In/115In = 0.0448 (Rosman and Taylor 1998)\" used in the In correction; \"For a 94Mo/95Mo value of 0.58\" and MoOH+/MoO+ \"a value of ~0.15 was obtained\", both used in the Mo-oxide correction"
+            "schema:defaultValue": "115Sn/118Sn = 0.014 and 113In/115In = 0.0448 (Rosman and Taylor 1998); 94Mo/95Mo = 0.58; MoOH+/MoO+ ~0.15 (measured); 111Cd/113Cd = 1.05 as reference"
           }
         ],
-        "ada:detectionLimitMethod": "3 sigma blank (stated section 2)",
+        "ada:detectionLimitMethod": "all: 3s of the background signal of 0.5 mol/l HNO3, average of eight sessions \u2014 Results",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -131,7 +125,7 @@
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "Ultrasonic bath (basalt/glass); TFE bomb at 245 deg C (peridotite/chondrite; stated section 2)"
+            "schema:value": "TFE bomb for peridotites and chondrites \u2014 the vessel for the ultrasonic digestion is not stated"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -143,13 +137,13 @@
             "ada:dataType": "number",
             "ada:fieldScope": "session",
             "schema:defaultValue": 245,
-            "schema:description": "Ambient for ultrasonic; 245 deg C for TFE bomb (stated section 2)"
+            "schema:description": "bomb HF: 245 \u00b0C; other: N"
           }
         ],
-        "schema:description": "Basalts, andesites and NIST SRM 612/614/616, 1: HF-HClO4 with the Sm spike in an ultrasonic bath, then dried to decompose fluorides; final uptake in 0.5 mol/l HNO3. Peridotites and carbonaceous chondrites, 1: HF with the Sm spike in a TFE bomb at 245 deg C | 2: dried with HClO4; final uptake in 0.5 mol/l HNO3.",
+        "schema:description": "ultrasonic HF-HClO4 (basalts, andesites and NIST SRM 612, 614, 616, with the Sm spike, in an ultrasonic bath, dried to decompose fluorides); bomb HF (peridotites and chondrites, with the Sm spike, in a TFE bomb at 245 \u00b0C); HClO4 drying (the bomb digests); final uptake (0.5 mol/l HNO3) \u2014 after Yokoyama et al. (1999) and Makishima and Nakamura (2006)",
         "bios:reagent": [
           {
-            "schema:name": "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)",
+            "schema:name": "ultrasonic HF-HClO4: HF + HClO4; bomb HF: HF; HClO4 drying: HClO4; final uptake: 0.5 mol/l HNO3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -169,6 +163,29 @@
       "schema:HowTo"
     ]
   },
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 15,
+          "schema:description": "15\u201342 mg (basalts and andesites); 30\u201363 mg (peridotites); 8\u201322 mg (NIST glasses); 9\u201328 mg (chondrites)"
+        }
+      ]
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -186,17 +203,6 @@
       },
       "schema:additionalProperty": [
         {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
-        },
-        {
           "@id": "ada:parameter/module/ICPMS/memoryEffectMitigationDefault",
           "@type": [
             "schema:PropertyValueSpecification"
@@ -205,7 +211,7 @@
           "schema:name": "Memory Effect Mitigation",
           "ada:dataType": "string",
           "ada:fieldScope": "session",
-          "schema:defaultValue": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)"
+          "schema:defaultValue": "~200 s wash with 0.5 mol/l HNO3, and 200 s with 0.5 mol/l HF after the Mo standard, since Mo was difficult to wash out with HNO3"
         }
       ],
       "schema:manufacturer": {
@@ -376,28 +382,32 @@
   "ada:monitoredPropertyTemplate": {
     "ada:defaultMonitoredProperties": [
       {
+        "monitoredProperty": "111Cd",
+        "targetSpecies": "Cd"
+      },
+      {
+        "monitoredProperty": "115In",
+        "targetSpecies": "In"
+      },
+      {
+        "monitoredProperty": "205Tl",
+        "targetSpecies": "Tl"
+      },
+      {
+        "monitoredProperty": "209Bi",
+        "targetSpecies": "Bi"
+      },
+      {
         "monitoredProperty": "95Mo"
       },
       {
-        "monitoredProperty": "111Cd"
-      },
-      {
         "monitoredProperty": "113Cd"
-      },
-      {
-        "monitoredProperty": "115In"
       },
       {
         "monitoredProperty": "118Sn"
       },
       {
         "monitoredProperty": "149Sm"
-      },
-      {
-        "monitoredProperty": "205Tl"
-      },
-      {
-        "monitoredProperty": "209Bi"
       }
     ],
     "ada:monitoredPropertyColumns": [
@@ -455,7 +465,22 @@
       }
     ]
   },
-  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:analysisSequenceDefault": "Multi-element standard solution after every third sample, Mo standard solution after every sixth sample \u2014 each measurement ~6 min, including ~200 s wash",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/module/SolutionIntroduction/internalStandardConcentration",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "internalStandardConcentration",
+      "schema:name": "Internal Standard Concentration",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:value": 1.22,
+      "schema:description": "N \u2014 Sm at 1.22 ng/ml in the calibrator"
+    }
+  ],
+  "ada:driftCorrectionMethod": "N/A",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -470,33 +495,43 @@
     ],
     "schema:name": "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)"
   },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Makishima and Nakamura (2006) \u2014 'Details of these methods and ICP operating conditions are described in Makishima and Nakamura (2006)'"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
   "ada:samplingUnitType": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
   "ada:analyticalMode": [
     "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
   ],
   "ada:reportedProperties": [
-    "Cd, In, Tl and Bi mass fractions (ng g-1)"
+    "Cd, In, Tl, Bi (\u00b5g/g) \u2014 Tables 3\u20135; detection limits in pg/ml and ng/g"
   ],
   "ada:chromatographicSeparationApplied": "None (direct analysis)",
-  "ada:isotopeDilutionSpike": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
-  "ada:finalSolutionMatrix": "0.5 mol/l HNO3 (stated section 2)",
-  "ada:washTimeBetweenSamples": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
+  "ada:isotopeDilutionSpike": "149Sm-enriched spike \u2014 for the ID of Sm, whose \u00b9\u2074\u2079Sm intensity is the internal standard for Cd, In, Tl and Bi",
+  "ada:finalSolutionMatrix": "all: 0.5 mol/l HNO3, dilution factor \u2265 1000 \u2014 the same acid for calibrator, sample and washout solutions",
+  "ada:washTimeBetweenSamples": "~200 s with 0.5 mol/l HNO3 \u2014 0.5 mol/l HF aspirated for 200 s after the Mo standard",
   "ada:uncertaintyLevel": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
-  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
-  "ada:internalStandardElement": "149Sm (as ID-IS reference; stated section 2)",
+  "ada:calibrationMeasurementFrequency": "After every third sample",
+  "ada:oxideProductionMethodAndThreshold": "CeO+/Ce+ < 0.01 under the operating conditions \u2014 MoO+/Mo+ from a Mo standard every sixth sample, 0.8\u20137.4 \u00d7 10\u207b\u2074 during the study",
+  "ada:internalStandardElement": "all: Sm (149Sm) \u2014 the spike isotope (ID-IS)",
   "ada:secondaryReferenceMaterialDefault": [
-    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)"
+    "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 \u2014 the chondrites are samples"
   ],
-  "ada:primaryStandardNameDefault": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
   "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
   "ada:massCyclesPerReplicate": -9999,
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:numberOfReplicatesPerSample": -9999,

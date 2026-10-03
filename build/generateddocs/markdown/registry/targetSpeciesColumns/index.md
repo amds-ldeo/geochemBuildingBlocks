@@ -4989,8 +4989,9 @@ $defs:
     - ada:dataType
   semComposition_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
+    description: Electron beam probe current for point analysis. For sub-nA values
+      use decimal notation (e.g., 0.4 nA). The current used while the beam scans an
+      area, for a map or an image, is recorded under Mapping Beam Current.
     type: object
     properties:
       '@id':
@@ -5694,8 +5695,9 @@ $defs:
     - schema:defaultValue
   semImaging_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
+    description: Electron beam probe current for point analysis. For sub-nA values
+      use decimal notation (e.g., 0.4 nA). The current used while the beam scans an
+      area, for a map or an image, is recorded under Mapping Beam Current.
     type: object
     properties:
       '@id':
@@ -5909,8 +5911,9 @@ $defs:
     - ada:dataType
   sem_beamCurrent:
     title: Beam Current
-    description: Electron beam probe current. For sub-nA values use decimal notation
-      (e.g., 0.4 nA).
+    description: Electron beam probe current for point analysis. For sub-nA values
+      use decimal notation (e.g., 0.4 nA). The current used while the beam scans an
+      area, for a map or an image, is recorded under Mapping Beam Current.
     type: object
     properties:
       '@id':

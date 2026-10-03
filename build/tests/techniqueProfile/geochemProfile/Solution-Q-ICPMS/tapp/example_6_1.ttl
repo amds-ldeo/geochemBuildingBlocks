@@ -21,23 +21,28 @@
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:description "missing" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
+                    schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ;
+                    bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2" ] ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "missing" ;
-    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v87.csv)." ;
+    schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v94.csv)." ;
     schema1:instrument <ex:instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW" ] ;
@@ -47,8 +52,7 @@
     schema1:object [ a schema1:DefinedTerm,
                 schema1:Thing,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty [ schema1:name "Target Material" ;
-                    schema1:value "Estuarine suspended particulate matter and sediment (Gironde Estuary sorption experiments)" ] ] ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "missing" ;
@@ -57,11 +61,12 @@
     ada:calibrationMeasurementFrequency "missing" ;
     ada:chromatographicSeparationApplied "missing" ;
     ada:driftCorrectionMethod "missing" ;
-    ada:finalSolutionMatrix "missing" ;
-    ada:internalStandardElement "103Rh, to correct for matrix effects" ;
+    ada:finalSolutionMatrix "N — Te digests brought to 10 mL with Milli-Q water, Se digests to 6 mL (§2.2)" ;
+    ada:internalStandardElement "all: 103Rh — 'to correct for matrix effects' (§2.3)" ;
     ada:isotopeDilutionSpike "missing" ;
     ada:massCyclesPerReplicate -9999 ;
     ada:monitoredPropertyTemplate [ ada:defaultMonitoredProperties [ ],
+                [ ],
                 [ ] ;
             ada:monitoredPropertyColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "example instrumentName" ;
@@ -78,11 +83,21 @@
     ada:numberOfAcquisitionPasses -9999 ;
     ada:numberOfReplicatesPerSample -9999 ;
     ada:oxideProductionMethodAndThreshold "missing" ;
-    ada:primaryStandardNameDefault "missing" ;
-    ada:reportedProperties "Te and Se concentrations (ug L-1; mg kg-1)" ;
+    ada:reportedProperties "Te, Se — particulate concentrations from the digestates; units not stated for this instrument" ;
     ada:samplingUnitType "missing" ;
+    ada:secondaryReferenceMaterialDefault "NCS 73307 — stream sediment, for the total digestions" ;
     ada:signalCollectionMode "missing" ;
     ada:signalIntegrationIntervalMethod "missing" ;
+    ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> ;
+            ada:targetMaterialDeclaration "suspended particulate matter — digestates of the particles from the 1000 mg/L SPM isotherm experiments in freshwater (§2.3, §2.4)" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Se",
                 "Te" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -124,7 +139,7 @@
         <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> ;
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "Collision Reaction Cell" ;
-    schema1:name "ICP-MS/MS (triple-quadrupole mode), oxygen-shift with O2 as cell gas" .
+    schema1:name "125Te, 77Se: oxygen-shift mode with O2 as cell gas; other: N — §2.3, §2.4" .
 
 <ex:instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
@@ -176,17 +191,53 @@
 
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/collisionGasType> a schema1:PropertyValueSpecification ;
     schema1:name "Collision Gas Type" ;
-    schema1:value "O2 (used as the collision/reaction gas for the mass shift)" ;
+    schema1:value "125Te, 77Se: O2; other: N — 'oxygen-shift mode using O2 as collision gas' (§2.3)" ;
     schema1:valueName "collisionGasType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/reactionGasType> a schema1:PropertyValueSpecification ;
     schema1:name "Reaction Gas Type" ;
-    schema1:value "O2" ;
+    schema1:value "N — the paper calls the O2 a collision gas" ;
     schema1:valueName "reactionGasType" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "tri-acid digestion: 2 h; microwave digestion: 10 min at 210 °C, then cooled overnight; Se recovery: 1 h; other: N — §2.2" ;
+    schema1:name "Digestion Duration" ;
+    schema1:valueName "digestionDurationDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 110 ;
+    schema1:description "tri-acid digestion: 110 °C; re-dissolution: 120 °C (evaporation); microwave digestion: up to 210 °C; Se recovery: 70 °C — §2.2" ;
+    schema1:name "Digestion Temperature" ;
+    schema1:valueName "digestionTemperatureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> a schema1:PropertyValueSpecification ;
+    schema1:name "Digestion Vessel Type" ;
+    schema1:value "Closed PP tubes (DigiTUBEs, SCP Science) for Te; microwave vessels (START 1500, MLS) then PTFE vessels for Se — §2.2" ;
+    schema1:valueName "digestionVesselType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 30 ;
+    schema1:description "30 mg (Te, tri-acid); 40–50 mg (Se, microwave) — §2.2" ;
+    schema1:name "Sample Aliquot Mass or Volume" ;
+    schema1:valueName "sampleAliquotMassOrVolumeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionQicpmsTAPP/analyticalAccuracyAndAssessmentMethod> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;
@@ -224,5 +275,5 @@
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> a schema1:PropertyValue ;
     schema1:name "Reaction Product Ion / Mass-Shift Transition" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
-    schema1:value "125Te + 16O -> 141TeO; 77Se + 16O -> 93SeO" .
+    schema1:value "125Te: 125Te + 16O → 141TeO; 77Se: 77Se + 16O → 93SeO; other: N — §2.3, §2.4" .
 

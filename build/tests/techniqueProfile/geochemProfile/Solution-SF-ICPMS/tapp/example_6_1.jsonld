@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionSficpms protocol \u2014 Willbold2005",
-  "schema:description": "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation",
+  "schema:description": "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N \u2014 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'.",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Rb",
@@ -228,7 +228,7 @@
               "schema:name": "Plasma Thermal Mode",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "Normal plasma (1235 W; Table 3)"
+              "schema:value": "N \u2014 RF power 1235 W (Table 3)"
             },
             {
               "@id": "ada:parameter/module/ICPMS/rfPowerDefault",
@@ -398,40 +398,46 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Geological reference materials (basalt, andesite, granite, shale, peridotite, NIST glass; stated Table 2)"
-          ]
-        },
-        {
-          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
-          "schema:name": "Sample Aliquot Mass or Volume",
-          "ada:dataType": "number",
-          "ada:fieldScope": "session",
-          "schema:defaultValue": 100,
-          "schema:description": "~100 mg (stated sample prep section)"
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "basalt",
+      "andesite",
+      "granite",
+      "rhyolite",
+      "shale",
+      "peridotite",
+      "synthetic glass"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:actionProcess": {
     "schema:step": [
       {
         "schema:name": "Sample preparation",
-        "schema:description": "Whole-rock powder (~100 mg; stated section on sample preparation)",
+        "schema:description": "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1\u20133), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution \u2014 cleanroom, twice sub-boiled acids (Samples and sample preparation)",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -442,16 +448,16 @@
         "schema:position": 1
       },
       {
+        "schema:name": "Data acquisition",
+        "schema:description": "LR; HR \u2014 two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'",
         "@type": [
           "cdi:Activity",
           "schema:Action"
         ],
-        "schema:name": "Data acquisition",
         "schema:additionalType": [
           "bios:LabProcess"
         ],
         "schema:position": 2,
-        "schema:description": "missing",
         "schema:additionalProperty": []
       },
       {
@@ -466,18 +472,7 @@
             "schema:name": "Isotope Dilution Data Reduction Method",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "IUPAC isotope dilution equations for 12 elements; RSF ratio calibration for 14 elements (stated section on instrumentation)"
-          },
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated"
+            "schema:value": "Eq. 1 for the ID elements and Eq. 2 for the RSF elements, from mass-fractionation- and background-corrected mean ratios, with R_ik in Eq. 2 corrected for the spike contribution to isotope k"
           },
           {
             "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
@@ -491,6 +486,7 @@
             "schema:defaultValue": "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". For Pb the paper compares two reference choices -- \"average Pb isotope abundances (Rosman and Taylor 1998)\" versus the BHVO-1 TIMS composition of \"Woodhead and Hergt 2000\" -- and quantifies the consequence: \"The difference between both approaches is 0.4% (concentration of Pb: 2.13 ug g-1 versus 2.14 ug g-1)\""
           }
         ],
+        "ada:detectionLimitMethod": "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR \u2014 Limits of detection",
         "@type": [
           "cdi:Activity",
           "schema:Action"
@@ -498,8 +494,7 @@
         "schema:additionalType": [
           "bios:LabProcess"
         ],
-        "schema:position": 3,
-        "ada:detectionLimitMethod": "missing"
+        "schema:position": 3
       },
       {
         "schema:name": "Sample digestion",
@@ -513,7 +508,7 @@
             "schema:name": "Digestion Vessel Type",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:value": "15 ml Savillex PFA beakers (non-refractory, hotplate); Parr bombs (refractory minerals; stated sample prep section)"
+            "schema:value": "Closed 15 ml Savillex PFA vials, placed in Parr bombs for samples with refractory minerals"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionDurationDefault",
@@ -524,7 +519,7 @@
             "schema:name": "Digestion Duration",
             "ada:dataType": "string",
             "ada:fieldScope": "session",
-            "schema:defaultValue": "12 h (non-refractory, hotplate); 7 days (refractory, Parr bomb; stated sample prep section)"
+            "schema:defaultValue": "hotplate HF-HNO3: 12 h; bomb HF-HNO3: 7 days; other: N"
           },
           {
             "@id": "ada:parameter/module/SolutionIntroduction/digestionTemperatureDefault",
@@ -535,14 +530,14 @@
             "schema:name": "Digestion Temperature",
             "ada:dataType": "number",
             "ada:fieldScope": "session",
-            "schema:defaultValue": 130,
-            "schema:description": "130 deg C (hotplate, non-refractory); 180 deg C (Parr bomb, refractory; stated sample prep section)"
+            "schema:defaultValue": 3,
+            "schema:description": "hotplate HF-HNO3: 130 \u00b0C; bomb HF-HNO3: 180 \u00b0C; fluoride removal: ca. 80 \u00b0C (evaporation); chloride conversion: 80 \u00b0C, then 50 \u00b0C (evaporation); final uptake: N"
           }
         ],
-        "schema:description": "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step.",
+        "schema:description": "hotplate HF-HNO3 (non-refractory samples of basaltic composition, 12 h at 130 \u00b0C in closed 15 ml Savillex PFA vials); bomb HF-HNO3 (samples with refractory minerals such as granites, stirred 7 days at 180 \u00b0C in Parr bombs, reopened after 3 days and refilled with 0.5 ml HF); fluoride removal (re-dissolved in a few drops of 14 mol/l HNO3 and evaporated to incipient dryness, repeated twice); chloride conversion (2 ml 6 mol/l HCl heated at 80 \u00b0C, then evaporated at 50 \u00b0C); final uptake (5 ml 7 mol/l HNO3) \u2014 Samples and sample preparation",
         "bios:reagent": [
           {
-            "schema:name": "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l).",
+            "schema:name": "hotplate HF-HNO3: 1\u20132 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1\u20132 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3",
             "@type": [
               "schema:DefinedTerm"
             ]
@@ -562,20 +557,47 @@
       "schema:HowTo"
     ]
   },
+  "ada:numberOfScansPerReplicate": "all: 70 to 120 scans of the whole mass spectrum \u2014 for one analysis, a total acquisition time of 10 minutes per sample",
+  "ada:numberOfReplicatesPerSample": "3 \u2014 'Triplicate determinations were performed for each digestion'",
+  "ada:analysisSequenceDefault": "N \u2014 a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated",
+  "ada:driftCorrectionMethod": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "sampleAliquotMassOrVolumeDefault",
+          "schema:name": "Sample Aliquot Mass or Volume",
+          "ada:dataType": "number",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": 100,
+          "schema:description": "About 100 mg of whole-rock powder"
+        }
+      ]
+    }
+  ],
   "schema:additionalProperty": [
     {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
+      "@id": "ada:parameter/module/ICPMS/filteringApproachDefault",
       "@type": [
         "schema:PropertyValueSpecification"
       ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
+      "schema:valueName": "filteringApproachDefault",
+      "schema:name": "Filtering Approach",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:value": "None"
+      "schema:defaultValue": "Dixon outlier test on each block of ten ratios \u2014 'Generally, less than one ratio had to be excluded from the whole data set'"
     }
   ],
-  "ada:numberOfScansPerReplicate": "70-120 scans per analysis (stated section on instrumentation)",
+  "ada:numberOfAcquisitionPasses": "2 \u2014 the LR and HR solutions",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -595,13 +617,15 @@
     "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\""
   ],
   "ada:reportedProperties": [
-    "Trace element mass fractions in ug g-1 -- Eqs (1) and (2) both return \"ug g-1\"; limits of detection as rock equivalents in ng g-1"
+    "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g) \u2014 Equations 1 and 2"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis; stated section on instrumentation)",
-  "ada:isotopeDilutionSpike": "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)",
-  "ada:finalSolutionMatrix": "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)",
+  "ada:chromatographicSeparationApplied": "None \u2014 'dissolved rock samples are analysed directly by ID without previous separation'",
+  "ada:isotopeDilutionSpike": "Three multi-element spikes: MES 1 (86Sr, 135Ba, 145Nd, 149Sm, 235U), MES 2 (155Gd, 161Dy, 167Er, 171Yb, 207Pb), MES 3 (91Zr, 179Hf) \u2014 Table 1; calibrated by reverse ID against Alfa Aesar specpure solutions, spike-concentration uncertainty 0.5\u20131% RSD",
+  "ada:finalSolutionMatrix": "LR: 0.4 mol/l HNO3, about 120 \u00b5l of the uptake solution diluted to 50 ml (dilution factor ~21000); HR: 0.4 mol/l HNO3, 2.5 ml of the uptake solution diluted with H2O to 50 ml (dilution factor ~1000) \u2014 ca. 6 \u00b5l of a Ru-Re solution (60 \u00b5g/g Ru, 20 \u00b5g/g Re) added to each dilution",
   "ada:uncertaintyLevel": "RSD for repeatability of triplicate determinations; \"confidence intervals (1s)\"; the method result is quoted as a \"combined standard uncertainty\"",
-  "ada:internalStandardElement": "Ru and Re (in-run mass fractionation correction; ~6 uL Ru-Re solution per dilution; stated section on instrumentation)",
+  "ada:calibrationMeasurementFrequency": "Standard solution once per analytical run (e.g. once per day) \u2014 RSF values constant within 1s over at least ten hours",
+  "ada:blankBackgroundCorrectionMethod": "N \u2014 'After correction for background and mass fractionation'; the method is not described",
+  "ada:internalStandardElement": "all: the ID-determined elements, for the RSF elements (Table 1 ratios, e.g. 93Nb/90Zr, 175Lu/172Yb) \u2014 Ru and Re are added for the mass-fractionation correction, not as internal standards",
   "ada:secondaryReferenceMaterialDefault": [
     "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)"
   ],
@@ -611,14 +635,7 @@
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:analysisSequenceDefault": "missing",
-  "ada:blankBackgroundCorrectionMethod": "missing",
-  "ada:calibrationMeasurementFrequency": "missing",
-  "ada:driftCorrectionMethod": "missing",
-  "ada:numberOfAcquisitionPasses": -9999,
-  "ada:numberOfReplicatesPerSample": -9999,
   "ada:oxideProductionMethodAndThreshold": "missing",
-  "ada:primaryStandardNameDefault": "missing",
   "ada:signalIntegrationIntervalMethod": "missing",
   "ada:washTimeBetweenSamples": -9999,
   "schema:datePublished": "missing"

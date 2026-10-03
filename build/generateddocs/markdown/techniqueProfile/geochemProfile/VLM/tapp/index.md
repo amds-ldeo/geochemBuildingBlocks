@@ -30,7 +30,7 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
     "bios:LabProtocol"
   ],
   "schema:name": "vlm protocol — P0",
-  "schema:description": "vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope (publication column of VLM_TAPP_draft_v2.csv).",
+  "schema:description": "vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope (publication column of VLM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Keyence.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(UAZ)Keyence VHX-7000 Digital Microscope",
   "schema:measurementTechnique": [
@@ -118,7 +118,7 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
     "bios:LabProtocol"
   ],
   "schema:name": "vlm protocol \u2014 P0",
-  "schema:description": "vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope (publication column of VLM_TAPP_draft_v2.csv).",
+  "schema:description": "vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope (publication column of VLM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Keyence.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(UAZ)Keyence VHX-7000 Digital Microscope",
   "schema:measurementTechnique": [
@@ -200,7 +200,7 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
     schema1:creator [ a schema1:Person ;
             schema1:name "Haenecour, Pierre" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope (publication column of VLM_TAPP_draft_v2.csv)." ;
+    schema1:description "vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizona | (UAZ)Keyence VHX-7000 Digital Microscope (publication column of VLM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Keyence." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

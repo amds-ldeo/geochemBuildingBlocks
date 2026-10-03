@@ -780,7 +780,7 @@
                                                 },
                                                 {
                                                   "title": "Beam Diameter",
-                                                  "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                                                  "description": "Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.",
                                                   "type": "object",
                                                   "properties": {
                                                     "@id": {
@@ -926,7 +926,7 @@
                                               {
                                                 "contains": {
                                                   "title": "Beam Diameter",
-                                                  "description": "Nominal electron beam diameter (spot size) at the sample surface, in nanometres or micrometres, as set by the condenser aperture and working distance. For mapping modes, the effective spatial sampling interval is further defined by Step Size / Pixel Size.",
+                                                  "description": "Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.",
                                                   "type": "object",
                                                   "properties": {
                                                     "@id": {
@@ -1242,6 +1242,110 @@
                   "schema:name",
                   "schema:value",
                   "schema:unitText"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "schema:variableMeasured": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Dataset variable",
+                "description": "A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.",
+                "type": "object",
+                "required": [
+                  "@type"
+                ],
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "contains": {
+                      "enum": [
+                        "cdi:InstanceVariable",
+                        "schema:PropertyValue"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "title": "Target Material of Sampling Unit",
+                "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Target Material of Sampling Unit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ]
+              }
+            ]
+          },
+          "allOf": [
+            {
+              "contains": {
+                "title": "Target Material of Sampling Unit",
+                "description": "The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue",
+                      "cdi:InstanceVariable"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Target Material of Sampling Unit"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
                 ]
               },
               "minContains": 0,

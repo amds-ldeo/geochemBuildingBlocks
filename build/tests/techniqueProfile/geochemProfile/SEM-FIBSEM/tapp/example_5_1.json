@@ -16,23 +16,22 @@
   ],
   "schema:name": "semFibsem protocol \u2014 Zega2025-2",
   "schema:description": "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Asteroid (101955) Bennu particles (OSIRIS-REx sample return)"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "Bennu particles"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the passage states only how particles were mounted, \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), and no rule for choosing where to cut",
   "schema:instrument": [
     {
@@ -233,7 +232,7 @@
     "TEM Sample Preparation"
   ],
   "ada:reportedProperties": [
-    "Electron-transparent sections for TEM analysis \u2014 the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)"
+    "electron-transparent section (nominal) \u2014 Electron-transparent sections for TEM analysis \u2014 the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)"
   ],
   "schema:measurementTechnique": [
     {

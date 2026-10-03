@@ -30,7 +30,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     "bios:LabProtocol"
   ],
   "schema:name": "dssm protocol — P0",
-  "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv).",
+  "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Test Resources electromechanical press (Model 313Q)",
   "schema:measurementTechnique": [
@@ -114,7 +114,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
     "bios:LabProtocol"
   ],
   "schema:name": "dssm protocol \u2014 P0",
-  "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv).",
+  "schema:description": "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Test Resources electromechanical press (Model 313Q)",
   "schema:measurementTechnique": [
@@ -190,7 +190,7 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv)." ;
+    schema1:description "dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgary | Test Resources electromechanical press (Model 313Q) (publication column of DSSM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Test." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/03yjb2x39" ;
             schema1:name "University of Calgary" ] ;

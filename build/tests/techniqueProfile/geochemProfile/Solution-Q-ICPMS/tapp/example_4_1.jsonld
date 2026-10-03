@@ -25,24 +25,36 @@
     "bios:LabProtocol"
   ],
   "schema:name": "solutionQicpms protocol \u2014 Agilent7900",
-  "schema:description": "He KED applied only for masses 23-75; above mass 75 no KED (stated Methods); coupled to MC-ICP-MS Neptune Plus for Zn isotopes on same dissolved aliquots Reported detail: ada:driftCorrectionMethod = IS normalization (Sc, In, Re; stated Methods).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Carbonaceous chondrites (CI, CM, CV, CO, CR, CK, CH, CY, CB types; stated abstract)"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "The Zn-isotope procedure digests ~35 mg of bulk powder in HNO3-HF at 120 \u00b0C for ~48 h; the digestion for the elemental analysis is not stated \u2014 Methods Reported detail: ada:driftCorrectionMethod = Sc, In and Re internal standards \u2014 Methods.",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -58,19 +70,6 @@
           "schema:ProductModel"
         ]
       },
-      "schema:additionalProperty": [
-        {
-          "@id": "ada:parameter/module/ICPMS/massResolutionSettingDefault",
-          "@type": [
-            "schema:PropertyValueSpecification"
-          ],
-          "schema:valueName": "massResolutionSettingDefault",
-          "schema:name": "Mass Resolution Setting",
-          "ada:dataType": "string",
-          "ada:fieldScope": "session",
-          "schema:value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
-        }
-      ],
       "schema:hasPart": [
         {
           "schema:additionalType": [
@@ -139,7 +138,7 @@
               "schema:name": "Collision Gas Type",
               "ada:dataType": "string",
               "ada:fieldScope": "session",
-              "schema:value": "He (stated Methods)"
+              "schema:value": "m/z 23\u201375: He; other: N \u2014 'analyzing atomic masses from 23 (Na) to 75 (As) in a collision-reaction cell, utilizing helium gas at a flow rate of 5 mL/min' (Methods)"
             },
             {
               "@id": "ada:parameter/module/CollisionCell/gasFlowRateDefault",
@@ -151,10 +150,10 @@
               "ada:dataType": "number",
               "ada:fieldScope": "session",
               "schema:defaultValue": 5,
-              "schema:description": "5 mL/min (stated Methods)"
+              "schema:description": "5 mL/min \u2014 'analyzing atomic masses from 23 (Na) to 75 (As) in a collision-reaction cell, utilizing helium gas at a flow rate of 5 mL/min' (Methods)"
             }
           ],
-          "schema:name": "KED (He); He at 5 mL/min applied for masses 23-75 (stated Methods)",
+          "schema:name": "m/z 23\u201375: collision-reaction cell with helium; other: N \u2014 'analyzing atomic masses from 23 (Na) to 75 (As) in a collision-reaction cell, utilizing helium gas at a flow rate of 5 mL/min' (Methods); the masses are not listed",
           "@type": [
             "schema:Product",
             "schema:Thing"
@@ -218,21 +217,8 @@
       "schema:name": "example instrumentName"
     }
   ],
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/module/SolutionIntroduction/desolvationSystem",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "desolvationSystem",
-      "schema:name": "Desolvation System",
-      "ada:dataType": "string",
-      "ada:fieldScope": "session",
-      "schema:value": "None"
-    }
-  ],
   "ada:targetSpeciesTemplate": {
-    "ada:targetSpeciesDeclaration": "Major and trace elements (masses 23-75, Na to As; stated Methods)",
+    "ada:targetSpeciesDeclaration": "N \u2014 'The elemental content of samples was analyzed' (Methods); the element list is in Tables S1\u2013S2",
     "ada:targetSpeciesColumns": [
       {
         "schema:valueName": "targetSpecies",
@@ -306,7 +292,7 @@
     ],
     "ada:defaultTargetSpecies": []
   },
-  "ada:driftCorrectionMethod": "IS normalization",
+  "ada:driftCorrectionMethod": "N/A",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -393,8 +379,8 @@
     {
       "schema:linkRelationship": "coupledTechnique",
       "schema:target": {
-        "schema:name": "MC-ICP-MS (Neptune Plus at IPGP; for Zn isotope measurements; stated Methods)",
-        "schema:description": "Same dissolved aliquots analyzed by Q-ICP-MS (major/trace elements, masses 23-75) and MC-ICP-MS (Zn isotopes); stated Methods"
+        "schema:name": "MC-ICP-MS \u2014 Zn isotopes on a Thermo Neptune Plus at IPGP (Methods)",
+        "schema:description": "N \u2014 the elements are measured by Q-ICP-MS and the Zn isotopes by MC-ICP-MS; whether on the same solutions is not stated"
       },
       "@type": [
         "schema:CreativeWork"
@@ -407,13 +393,12 @@
     "Solution nebulisation (continuous) -- \"The sample was introduced into a Scott spray chamber through a MicroMist nebulizer at an uptake rate of 0.2 mL/min\""
   ],
   "ada:reportedProperties": [
-    "Partially -- \"The elemental content of samples was analyzed\"; concentration unit ug/g attested (\"[Zn] = 309 ug/g\", \"144 ug/g\"); the reported variable list is in Tables S1-S2, not in the paper"
+    "N \u2014 concentrations in \u00b5g/g in the text (e.g. '[Zn] = 309 \u00b5g/g'); the list is in Tables S1\u2013S2"
   ],
-  "ada:chromatographicSeparationApplied": "None (direct analysis; stated Methods)",
+  "ada:chromatographicSeparationApplied": "N \u2014 the chemical purification described is for the Zn isotopes",
   "ada:isotopeDilutionSpike": "None",
   "ada:uncertaintyLevel": "N -- no uncertainty convention stated for the elemental (Q-ICP-MS) data; the \"2SD, n = 4\" in Methods applies to the delta-66Zn MC-ICP-MS results",
-  "ada:internalStandardElement": "Sc, In, Re (stated Methods)",
-  "ada:primaryStandardNameDefault": "Mixture of certified standards (not formally named; stated Methods)",
+  "ada:internalStandardElement": "all: Sc, In, Re \u2014 'added to the sample solutions to correct for any signal drift and matrix effects' (Methods)",
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

@@ -30,7 +30,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     "bios:LabProtocol"
   ],
   "schema:name": "tdm protocol — P0",
-  "schema:description": "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv).",
+  "schema:description": "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)",
   "schema:measurementTechnique": [
@@ -114,7 +114,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
     "bios:LabProtocol"
   ],
   "schema:name": "tdm protocol \u2014 P0",
-  "schema:description": "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv).",
+  "schema:description": "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "(BC)Quantum Design Physical Property Measurement System (QD-PPMS)",
   "schema:measurementTechnique": [
@@ -190,7 +190,7 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv)." ;
+    schema1:description "tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of TDM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02n2fzt79" ;
             schema1:name "Boston College" ] ;

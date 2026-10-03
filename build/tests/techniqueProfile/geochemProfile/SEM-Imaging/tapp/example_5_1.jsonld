@@ -26,23 +26,22 @@
   ],
   "schema:name": "semImaging protocol \u2014 Izawa2010",
   "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin sections"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "carbonaceous chondrite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior \u03bcXRD reconnaissance \u2014 the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
   "schema:instrument": [
     {
@@ -184,7 +183,7 @@
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels \u2014 \"red (600\u2013850 nm, including near-infrared from 700\u2013850 nm), green (500\u2026\", detected \"in the range 300\u2013850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)"
+    "CL colour (nominal); CL zoning (nominal) \u2014 Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels \u2014 \"red (600\u2013850 nm, including near-infrared from 700\u2013850 nm), green (500\u2026\", detected \"in the range 300\u2013850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)"
   ],
   "schema:actionProcess": {
     "schema:step": [

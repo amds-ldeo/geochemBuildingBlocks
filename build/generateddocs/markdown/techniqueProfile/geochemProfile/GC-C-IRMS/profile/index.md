@@ -287,6 +287,23 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
       "schema:name": "Calibration Factor and Determination Method",
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
@@ -737,6 +754,23 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
+      "schema:propertyID": [
+        "https://ada.astromat.org/vocabulary/variables/ada_primary"
+      ],
+      "schema:unitText": "counts",
+      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:role": "MeasureComponent",
+      "cdi:simpleUnitOfMeasure": "counts",
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
+    },
+    {
+      "@id": "ex:adaProduct-var-001",
+      "@type": [
+        "schema:PropertyValue",
+        "cdi:InstanceVariable"
+      ],
       "schema:name": "Calibration Factor and Determination Method",
       "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
       "schema:propertyID": [
@@ -1060,8 +1094,10 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:alternateName "ADA primary measurement" ;
     schema1:defaultValue "missing" ;
     schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value.",
-        "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing." ;
+        "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
+        "Sampling Unit Name reported for this dataset. Example value." ;
     schema1:name "Calibration Factor and Determination Method",
+        "Sampling Unit Name",
         "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;

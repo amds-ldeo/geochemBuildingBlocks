@@ -15,7 +15,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "EPMA-WDS Major Element Silicates/Glasses, Zagami (Caltech GPS Analytical Facility, JEOL 8200)",
-  "schema:description": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) \u2014 liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) \u2014 NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility.",
+  "schema:description": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) \u2014 liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) \u2014 NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis \u2014 'WDS: 15 kV, 5 nA'; the paper also mentions 'K-mapping by EPMA', with no detector or conditions.",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -25,8 +25,8 @@
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
-      "ada:beamDiameterDefault": "Focused (exact diameter N)",
-      "ada:beamMode": "Focused (stated: \"beam in focused mode\")",
+      "ada:beamDiameterDefault": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+      "ada:beamMode": "all: Focused \u2014 'WDS: 15 kV, 5 nA, beam in focused mode' (p.2)",
       "schema:manufacturer": {
         "schema:name": "JEOL",
         "@type": [
@@ -198,16 +198,6 @@
         "ada:dataType": "string"
       },
       {
-        "@id": "ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies",
-        "@type": [
-          "schema:PropertyValueSpecification"
-        ],
-        "schema:valueName": "epmaTechniquePerTargetSpecies",
-        "schema:name": "EPMA Technique per Target Species",
-        "ada:dataType": "string",
-        "schema:defaultValue": "example value"
-      },
-      {
         "@id": "ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -256,9 +246,10 @@
       "schema:name": "Beam Damage Minimization",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "Low beam current (5 nA); Na diffusion away from beam still observed in liebermannite"
+      "schema:defaultValue": "all: low beam current (5 nA) \u2014 'Although a low beam current of 5 nA was used for the analysis, the low cation sum (0.92) for the K-site is likely due to diffusion of Na away from the electron beam' (p.3)"
     }
   ],
+  "ada:edsAcquisitionMode": "N/A",
   "schema:object": [
     {
       "@type": [
@@ -277,64 +268,45 @@
           "ada:dataType": "string",
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM \u2014 \"Backscattered electron (BSE) imaging was performed using a Carl Zeiss, LLC 1550VP field emission SEM\" (p.2), locating the three occurrences of the new mineral in the Zagami thin section (Fig. 1, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
-        },
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Silicate mineral (liebermannite, lingunite, maskelynite, augite, pigeonite)"
-          ]
         }
       ]
     }
   ],
-  "schema:actionProcess": {
-    "schema:step": [
-      {
-        "schema:name": "Sample preparation",
-        "schema:description": "Polished thin section USNM 7619 (coating type N)",
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1
-      },
-      {
-        "schema:name": "Data reduction",
-        "schema:additionalProperty": [
-          {
-            "@id": "ada:parameter/module/Aggregation/analysisInclusionAndRejectionCriteriaDefault",
-            "@type": [
-              "schema:PropertyValueSpecification"
-            ],
-            "schema:valueName": "analysisInclusionAndRejectionCriteriaDefault",
-            "schema:name": "Analysis Inclusion and Rejection Criteria",
-            "ada:dataType": "string",
-            "ada:fieldScope": "session",
-            "schema:defaultValue": "Partially \u2014 each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated"
-          }
-        ],
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 2,
-        "ada:detectionLimitMethod": "missing"
-      }
-    ],
-    "@type": [
-      "schema:HowTo"
-    ]
-  },
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
   "ada:secondaryReferenceMaterialDefault": [
-    "Feldspar standards run as unknowns (material names N beyond what is listed above)"
+    "feldspar standards \u2014 'based on analysis of feldspar standards as unknowns'; not named individually"
   ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "liebermannite",
+      "lingunite",
+      "maskelynite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Occurrence of the target phase \u2014 the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)",
   "ada:monitoredElements": [
     "Si, Al, K, Ca, Na, Fe, Mg, Ti, Cr, Mn \u2014 all determined. \"Standards for analysis were Asbestos microcline (SiKa, AlKa, KKa), synthetic anorthite (CaKa), Amelia albite (NaKa), synthetic fayalite (FeKa), synthetic forsterite (MgKa), synthetic TiO2 (TiKa), synthetic Cr2O3 (CrKa), and synthetic Mn-olivine (MnKa)\", with detection limits quoted for the same ten (p.2)"
@@ -359,6 +331,14 @@
     ],
     "schema:name": "Division of Geological and Planetary Sciences Analytical Facility, Caltech"
   },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 \u2014 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'"
+    }
+  ],
   "schema:relatedLink": [
     {
       "schema:linkRelationship": "techniquePublication",
@@ -389,20 +369,52 @@
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "CITZAF correction procedure (Armstrong 1995)"
+      "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA"
     }
   ],
-  "ada:reportedProperties": [
-    "Oxide concentrations (wt%: SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O) with totals and one standard deviation of the mean; cations per formula unit; empirical formulae for liebermannite, lingunite and maskelynite (Table 1, p.3); calculated density (g cm-3) from the composition and cell volume (p.4)"
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
   ],
-  "ada:primaryStandardNameDefault": "Asbestos microcline (SiKa, AlKa, KKa); synthetic anorthite (CaKa); Amelia albite (NaKa); synthetic fayalite (FeKa); synthetic forsterite (MgKa); synthetic TiO2 (TiKa); synthetic Cr2O3 (CrKa); synthetic Mn-olivine (MnKa)",
+  "ada:reportedProperties": [
+    "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density \u2014 oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section USNM 7619 (coating type N)",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
       "schema:defaultValue": "missing"
     }
   ],
-  "ada:edsAcquisitionMode": "missing",
   "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:stepSizePixelSizeDefault": -9999,

@@ -30,7 +30,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     "bios:LabProtocol"
   ],
   "schema:name": "gcCIrms protocol — Agilent7890",
-  "schema:description": "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv).",
+  "schema:description": "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Agilent 7890B with Thermo Delta V GC-C-IRMS instrument",
   "schema:measurementTechnique": [
@@ -114,7 +114,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
     "bios:LabProtocol"
   ],
   "schema:name": "gcCIrms protocol \u2014 Agilent7890",
-  "schema:description": "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv).",
+  "schema:description": "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Agilent 7890B with Thermo Delta V GC-C-IRMS instrument",
   "schema:measurementTechnique": [
@@ -190,7 +190,7 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv)." ;
+    schema1:description "gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido University | Agilent 7890B with Thermo Delta V GC-C-IRMS instrument (publication column of GC-C-IRMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/04xt43068" ;
             schema1:name "Hokkaido University" ] ;

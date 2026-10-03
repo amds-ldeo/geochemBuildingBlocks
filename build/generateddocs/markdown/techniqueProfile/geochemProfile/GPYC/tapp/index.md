@@ -30,7 +30,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     "bios:LabProtocol"
   ],
   "schema:name": "gpyc protocol — P0",
-  "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv).",
+  "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Densinator - Custom-built glove-box mounted pycnometer",
   "schema:measurementTechnique": [
@@ -127,7 +127,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     "bios:LabProtocol"
   ],
   "schema:name": "gpyc protocol \u2014 P0",
-  "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv).",
+  "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Densinator - Custom-built glove-box mounted pycnometer",
   "schema:measurementTechnique": [
@@ -218,7 +218,7 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     schema1:creator [ a schema1:Person ;
             schema1:name "Ryan, Andy" ] ;
     schema1:datePublished "missing" ;
-    schema1:description "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv)." ;
+    schema1:description "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator." ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ] ;
     schema1:location [ a schema1:Place ;

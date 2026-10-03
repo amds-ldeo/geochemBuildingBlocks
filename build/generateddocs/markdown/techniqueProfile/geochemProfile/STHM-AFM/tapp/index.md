@@ -30,7 +30,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
     "bios:LabProtocol"
   ],
   "schema:name": "sthmAfm protocol — P0",
-  "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv).",
+  "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Park.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Park Systems NX10 AFM",
   "schema:measurementTechnique": [
@@ -105,7 +105,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
     "bios:LabProtocol"
   ],
   "schema:name": "sthmAfm protocol \u2014 P0",
-  "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv).",
+  "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Park.",
   "ada:instrumentManufacturer": "Unknown",
   "ada:instrumentModel": "Park Systems NX10 AFM",
   "schema:measurementTechnique": [
@@ -172,7 +172,7 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:datePublished "missing" ;
-    schema1:description "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv)." ;
+    schema1:description "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Park." ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/05fq50484" ;
             schema1:name "York University" ] ;

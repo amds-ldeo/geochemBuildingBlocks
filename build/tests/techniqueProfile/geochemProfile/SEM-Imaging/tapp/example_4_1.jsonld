@@ -26,23 +26,22 @@
   ],
   "schema:name": "semImaging protocol \u2014 Gucsik2013",
   "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point.",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "Forsterite grains from Kaba (CV3) carbonaceous chondrite thin section"
-          ]
-        }
-      ]
-    }
-  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "forsterite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ]
+  },
   "ada:samplingUnitSelectionCriteriaDefault": "Freedom from defects, after a prior survey \u2014 \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses because they did not contain any irregular fracturing or crystallographic imperfections\" (p.2)",
   "schema:instrument": [
     {
@@ -166,7 +165,7 @@
     "CL Mapping"
   ],
   "ada:reportedProperties": [
-    "Cathodoluminescence emission bands, reported by wavelength (nm) and colour \u2014 \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red\u2013IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties"
+    "CL emission bands (nm); CL colour (nominal); CL zoning (nominal) \u2014 Cathodoluminescence emission bands, reported by wavelength (nm) and colour \u2014 \"two broad emission bands at approximately 630 nm (impurity center of divalent Mn ions) in the red region and above 700 nm (trivalent Cr ions) in the red\u2013IR region\", with grain cores giving \"a characteristic broad band emission at 400 nm\" (p.1); the CL colour and its spatial zoning are nominal properties"
   ],
   "schema:measurementTechnique": [
     {

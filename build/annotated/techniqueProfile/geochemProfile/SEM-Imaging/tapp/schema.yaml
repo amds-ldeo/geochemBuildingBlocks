@@ -3,7 +3,7 @@ title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
 description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the
   base TAPP definition. Basic protocol-tier fields are required top-level ada: properties;
   Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate
-  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v38.csv
+  (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v44.csv
   by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -11,72 +11,18 @@ allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/ProcedureIdentification
 - type: object
   properties:
-    schema:object:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              '@type':
-                contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-            required:
-            - '@type'
-          then:
-            properties:
-              schema:additionalProperty:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Target Material
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:value:
-                          type: array
-                          items:
-                            description: General description of the material type(s)
-                              this procedure is designed to analyse.
-                            anyOf:
-                            - type: string
-                              enum:
-                              - Silicate mineral
-                              - Silicate glass
-                              - Oxide
-                              - Sulfide
-                              - Carbonate
-                              - Phosphate
-                              - Metal or alloy
-                              - Organic matter
-                              - Regolith
-                              - Porous material
-                              - Whole rock
-                              - N/A
-                              - None
-                              - missing
-                            - type: string
-                            readOnly: true
-                allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Target Material
-                    required:
-                    - schema:name
-      allOf:
-      - contains:
-          properties:
-            '@type':
-              contains:
-                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-          required:
-          - '@type'
+    ada:targetMaterialTemplate:
+      type: object
+      properties:
+        ada:defaultTargetMaterials:
+          type: array
+          items:
+            anyOf:
+            - type: string
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/DefinedTerm
+            - type: object
+      required:
+      - ada:defaultTargetMaterials
     schema:instrument:
       type: array
       items:
@@ -479,8 +425,10 @@ allOf:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - title: Beam Current
-              description: Electron beam probe current. For sub-nA values use decimal
-                notation (e.g., 0.4 nA).
+              description: Electron beam probe current for point analysis. For sub-nA
+                values use decimal notation (e.g., 0.4 nA). The current used while
+                the beam scans an area, for a map or an image, is recorded under Mapping
+                Beam Current.
               type: object
               properties:
                 '@id':
@@ -512,8 +460,10 @@ allOf:
           allOf:
           - contains:
               title: Beam Current
-              description: Electron beam probe current. For sub-nA values use decimal
-                notation (e.g., 0.4 nA).
+              description: Electron beam probe current for point analysis. For sub-nA
+                values use decimal notation (e.g., 0.4 nA). The current used while
+                the beam scans an area, for a map or an image, is recorded under Mapping
+                Beam Current.
               type: object
               properties:
                 '@id':

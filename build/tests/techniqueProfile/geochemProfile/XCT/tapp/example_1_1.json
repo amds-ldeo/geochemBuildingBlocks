@@ -15,24 +15,22 @@
     "bios:LabProtocol"
   ],
   "schema:name": "labxct protocol \u2014 Eckley2024",
-  "schema:description": "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v42.csv).",
-  "schema:object": [
-    {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
-      ],
-      "schema:additionalProperty": [
-        {
-          "schema:name": "Target Material",
-          "schema:value": [
-            "C-type asteroid particle (Bennu, OSIRIS-REx)"
-          ]
-        }
-      ]
-    }
-  ],
+  "schema:description": "labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV transmission source; ada:beamHardeningCorrectionMethod = Hardware filter (0.25 mm Al) + software BHC preset; ada:outputDataFormatDefault = TIFF (16-bit, 928 slices).",
+  "ada:targetMaterialTemplate": {
+    "ada:targetMaterialDeclaration": "C-type asteroid particle (Bennu, OSIRIS-REx)",
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "schema:name": "example instrumentName"
+      }
+    ],
+    "ada:defaultTargetMaterials": []
+  },
   "ada:targetFeature": "Internal structure; mineralogy (reconnaissance scan)",
   "ada:xRaySourceConfiguration": "180 kV transmission source",
   "schema:additionalProperty": [

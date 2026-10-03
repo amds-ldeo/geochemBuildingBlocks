@@ -7,29 +7,30 @@
         <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
     schema1:measurementTechnique <ex:solutionMcicpmsTAPP-P9> ;
     ada:analysisEndDate "missing" ;
-    ada:analysisInclusionAndRejectionCriteria "Partially — n stated per reference material (n = 13–99 for terrestrial RMs over 10 months; n = 17–38 for eucrites and Colony; n = 32 and n = 37 for standard sessions). No rejection rule stated" ;
+    ada:analysisInclusionAndRejectionCriteria "Rule: data outside the 2SD uncertainty are rejected as outliers; n stated per sample (n = 13–99 for terrestrial RMs; n = 17–38 for eucrites and Colony) — Table 1 note: 'An outlier rejection was carried out with rejection of data that falls outside the 2SD uncertainty'" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
-    ada:analyticalAccuracyAndAssessmentMethod "Terrestrial and meteorite reference materials measured repeatedly to verify data quality; doping tests with Ti, V, Cr, Mo, Hf and W showed \"the observed trace levels have no effect on the accuracy of the Zr isotope data\"" ;
-    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "Terrestrial RMs measured over 10 months (n = 13–99) give average 2SD of 0.3, 0.2 and 1.0 for ε91Zr, ε92Zr and ε96Zr; \"The external precision estimated from the geological sample measurements integrates the uncertainty introduced by the chemical separation procedure and mass spectrometry\"" ;
+    ada:analyticalAccuracyAndAssessmentMethod "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [all: measured repeatedly to verify data quality] — doping tests with Ti, V, Cr, Mo, Hf and W 'have no effect on the accuracy of the Zr isotope data'" ;
+    ada:betweenSessionAnalyticalPrecisionAndAssessmentMethod "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [ε91Zr: 0.3; ε92Zr: 0.2; ε96Zr: 1.0] — average 2SD over 10 months, n = 13–99 (eucrites and Colony n = 17–38)" ;
+    ada:combinedResults "per-sample averages (n = number of measurements); BHVO-2 average of two digestions; Ryugu average (all); Ryugu average (samples); Allende average — Table 1" ;
     ada:componentType "ada:SolutionICPMSTabular" ;
     ada:countingStatisticsError "missing" ;
-    ada:deltaOrEpsilonValueReferenceStandard "NIST SRM 3169" ;
+    ada:deltaOrEpsilonValueReferenceStandard "Zr: NIST SRM 3169" ;
     ada:detectionLimit -9999 ;
     ada:errorCorrelationBetweenReportedQuantities -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
-    ada:goodnessOfFitOrDispersionStatistic "missing" ;
+    ada:goodnessOfFitOrDispersionStatistic "all: 2SD of the individual measurements — Fig. 1: 'the 2 sd calculated from the individual sample measurements'" ;
     ada:internalAnalyticalPrecisionAndAssessmentMethod "missing" ;
     ada:limitOfQuantificationMethod "missing" ;
     ada:oxideProduction "missing" ;
     ada:peakFlatness "missing" ;
-    ada:proceduralBlankLevel "\"Total procedural blanks prepared together with Tarda and Tagish Lake contained 0.08 and 0.24 ng Zr, while total blanks treated alongside Ivuna were 0.09 and 0.13 ng Zr\"" ;
+    ada:proceduralBlankLevel "Zr: 0.08–0.24 ng — 0.08 and 0.24 ng with Tarda and Tagish Lake, 0.09 and 0.13 ng with Ivuna" ;
     ada:sampleDescription "missing" ;
     ada:sampleName "Ryugu A0106, A0106-A0107 and C0108; Tagish Lake, Tarda, Ivuna (PB and high PT), Orgueil, Murchison, Colony; eucrites Bouvante and Bereba; BHVO-2, BCR-2, AGV-1, SCo-1; NIST SRM 3169" ;
     ada:samplingUnitName "Labelled by digestion where a sample was digested more than one way: \"Ivuna PB\" and \"Ivuna high PT\", \"30 mg Tagish Lake (labeled high PT)\" and \"90 mg Tarda (high PT)\" (p.4); Ryugu A0106, A0106-A0107 and C0108 and the other samples by name only" ;
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
-    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+    ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "all [ε91Zr: 0.35; ε92Zr: 0.21; ε96Zr: 1.00] — 2SD of NIST SRM 3169 for an average session at 30 ppb (n = 32)" .
 
 <ex:solutionMcicpmsTAPP-P9> schema1:identifier "missing" .
 
@@ -41,5 +42,5 @@
 <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> a schema1:PropertyValue ;
     schema1:name "Number of Cycles per Block" ;
     schema1:propertyID <https://ada.astromat.org/metadata/parameter/solutionMcicpmsTAPP/numberOfCyclesPerBlock> ;
-    schema1:value 60 .
+    schema1:value "all: 60 ratios — static collection" .
 

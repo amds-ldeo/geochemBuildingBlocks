@@ -36,6 +36,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres …\", Fig. 1, p.2), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -75,6 +76,7 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
   "ada:fundingSourceForAnalysis": "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres \u2026\", Fig. 1, p.2), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -99,7 +101,8 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — the Tagish Lake \"carbonaceous residue was attached to an Al-SEM stub\" (p.2); globules are identified by figure panel (\"A) Single sphere, B) three coalesced spheres, C) cluster of spheres …\", Fig. 1, p.2), not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Garvie2008> schema1:identifier "missing" .
 
@@ -134,6 +137,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -173,6 +177,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3\u20134), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -197,7 +202,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Genge2025> schema1:identifier "missing" .
 
@@ -232,6 +238,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -271,6 +278,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3\u20134), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -295,7 +303,8 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Genge2025-2> schema1:identifier "missing" .
 
@@ -330,6 +339,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -369,6 +379,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -393,7 +404,8 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Gucsik2013> schema1:identifier "missing" .
 
@@ -428,6 +440,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM-CL",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -467,6 +480,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM-CL",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -491,7 +505,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"polished thin sections\" of Tagish Lake (p.2), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM-CL" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Izawa2010> schema1:identifier "missing" .
 
@@ -526,6 +541,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -565,6 +581,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -589,7 +606,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Izawa2010-2> schema1:identifier "missing" .
 
@@ -624,6 +642,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -663,6 +682,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -687,7 +707,8 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Izawa2010-3> schema1:identifier "missing" .
 
@@ -722,6 +743,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -761,6 +783,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -785,7 +808,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Liu2017> schema1:identifier "missing" .
 
@@ -820,6 +844,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -859,6 +884,7 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -883,7 +909,8 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); imaged areas are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Liu2017-2> schema1:identifier "missing" .
 
@@ -918,6 +945,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -957,6 +985,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -981,7 +1010,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:imagePixelSize -9999 ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnitName "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Ma2017> schema1:identifier "missing" .
 
@@ -1016,6 +1046,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": 0.3,
   "ada:ebsdIndexingRate": -9999
@@ -1055,6 +1086,7 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
   "ada:fundingSourceForAnalysis": "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)",
   "ada:sampleName": "Section 126A (USNM 7908)",
   "ada:samplingUnitName": "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": 0.3,
   "ada:ebsdIndexingRate": -9999
@@ -1079,7 +1111,8 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     ada:imagePixelSize -9999 ;
     ada:sampleName "Section 126A (USNM 7908)" ;
     ada:samplingUnitName "Labelled: \"section 126A of USNM 7908\" (p.1), \"prepared from a larger Grain 126\" (p.2); the three mineral locations are \"marked by rectangles\" in Fig. 1 (p.2), not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Ma2017-2> schema1:identifier "missing" .
 
@@ -1114,6 +1147,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1153,6 +1187,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1177,7 +1212,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
     ada:imagePixelSize -9999 ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Pascucci2026> schema1:identifier "missing" .
 
@@ -1212,6 +1248,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1251,6 +1288,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1275,7 +1313,8 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
     ada:imagePixelSize -9999 ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Pascucci2026-2> schema1:identifier "missing" .
 
@@ -1310,6 +1349,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1349,6 +1389,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N \u2014 the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1373,7 +1414,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Zega2025> schema1:identifier "missing" .
 
@@ -1408,6 +1450,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1447,6 +1490,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N \u2014 the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1471,7 +1515,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Zega2025-2> schema1:identifier "missing" .
 
@@ -1506,6 +1551,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1545,6 +1591,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N \u2014 the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1569,7 +1616,8 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Zega2025-3> schema1:identifier "missing" .
 
@@ -1604,6 +1652,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — the cathodoluminescence passage names no specimen (p.9)",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1643,6 +1692,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N \u2014 the cathodoluminescence passage names no specimen (p.9)",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:imagePixelSize": -9999,
   "ada:ebsdMeanAngularDeviation": -9999,
   "ada:ebsdIndexingRate": -9999
@@ -1667,107 +1717,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:imagePixelSize -9999 ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the cathodoluminescence passage names no specimen (p.9)" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semImagingTAPP-Zega2025-4> schema1:identifier "missing" .
-
-
-```
-
-
-### detail example Barnes2025
-detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | BSE Imaging (FEI Quanta 3D DualBeam + Helios DualBeam, NASA JSC).
-#### json
-```json
-{
-  "@context": {
-    "schema": "http://schema.org/",
-    "ada": "https://ada.astromat.org/metadata/"
-  },
-  "@id": "ex:detail-Barnes2025",
-  "@type": [
-    "ada:SEMImage"
-  ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semImagingTAPP-Barnes2025",
-      "schema:identifier": "missing"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnitName": "N — this procedure is not described in the paper (see Additional Notes)",
-  "ada:imagePixelSize": -9999,
-  "ada:ebsdMeanAngularDeviation": -9999,
-  "ada:ebsdIndexingRate": -9999
-}
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    },
-    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-Imaging/detail/context.jsonld",
-    {
-      "schema": "http://schema.org/",
-      "ada": "https://ada.astromat.org/metadata/"
-    }
-  ],
-  "@id": "ex:detail-Barnes2025",
-  "@type": [
-    "ada:SEMImage"
-  ],
-  "ada:componentType": "ada:SEMImage",
-  "schema:measurementTechnique": [
-    {
-      "@id": "ex:semImagingTAPP-Barnes2025",
-      "schema:identifier": "missing"
-    }
-  ],
-  "ada:sessionIdentifier": "missing",
-  "ada:analyst": "missing",
-  "ada:analysisStartDate": "missing",
-  "ada:analysisEndDate": "missing",
-  "ada:fundingSourceForAnalysis": "missing",
-  "ada:sampleName": "missing",
-  "ada:samplingUnitName": "N \u2014 this procedure is not described in the paper (see Additional Notes)",
-  "ada:imagePixelSize": -9999,
-  "ada:ebsdMeanAngularDeviation": -9999,
-  "ada:ebsdIndexingRate": -9999
-}
-```
-
-#### ttl
-```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<ex:detail-Barnes2025> a ada:SEMImage ;
-    schema1:measurementTechnique <ex:semImagingTAPP-Barnes2025> ;
-    ada:analysisEndDate "missing" ;
-    ada:analysisStartDate "missing" ;
-    ada:analyst "missing" ;
-    ada:componentType "ada:SEMImage" ;
-    ada:ebsdIndexingRate -9999 ;
-    ada:ebsdMeanAngularDeviation -9999 ;
-    ada:fundingSourceForAnalysis "missing" ;
-    ada:imagePixelSize -9999 ;
-    ada:sampleName "missing" ;
-    ada:samplingUnitName "N — this procedure is not described in the paper (see Additional Notes)" ;
-    ada:sessionIdentifier "missing" .
-
-<ex:semImagingTAPP-Barnes2025> schema1:identifier "missing" .
 
 
 ```
@@ -2549,6 +2502,79 @@ allOf:
               const: EBSD Indexing Rate
           required:
           - dqv:isMeasurementOf
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Target Material of Sampling Unit
+          description: The entry in Target Material that the sampling unit belongs
+            to, which links the unit to the point-analysis conditions registered for
+            that material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit
+            schema:name:
+              const: Target Material of Sampling Unit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+      allOf:
+      - contains:
+          title: Target Material of Sampling Unit
+          description: The entry in Target Material that the sampling unit belongs
+            to, which links the unit to the point-analysis conditions registered for
+            that material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/semImagingTAPP/targetMaterialOfSamplingUnit
+            schema:name:
+              const: Target Material of Sampling Unit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
 
 ```
 
@@ -2573,8 +2599,8 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
     "@version": 1.1
   }
 }

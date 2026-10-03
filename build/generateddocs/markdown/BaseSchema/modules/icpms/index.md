@@ -147,9 +147,9 @@ The procedure half of the ICPMS module, with every property populated. Generated
             schema1:hasPart [ schema1:additionalType "example value" ;
                     schema1:name "example value" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "example value" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ],
+            schema1:name "Uncertainty Propagation Method" ],
         [ schema1:defaultValue "example value" ;
-            schema1:name "Uncertainty Propagation Method" ] ;
+            schema1:name "Limit of Quantification (LOQ) Method" ] ;
     ada:analysisSequenceDefault "example value" ;
     ada:blankBackgroundCorrectionMethod "example value" ;
     ada:calibrationMeasurementFrequency "example value" ;
@@ -298,6 +298,22 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                   "schema:additionalType": [
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
+                    }
+                  ],
+                  "ada:collectorConfiguration": "example value",
+                  "ada:collectors": [
+                    {
+                      "@type": [
+                        "ada:Collector"
+                      ],
+                      "schema:name": "example value",
+                      "schema:description": "example value",
+                      "schema:additionalProperty": [
+                        {
+                          "schema:name": "example value",
+                          "schema:value": "example value"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -501,6 +517,22 @@ The analysis half of the ICPMS module, with every property populated. Generated 
                     {
                       "@id": "https://www.wikidata.org/wiki/Q3099911"
                     }
+                  ],
+                  "ada:collectorConfiguration": "example value",
+                  "ada:collectors": [
+                    {
+                      "@type": [
+                        "ada:Collector"
+                      ],
+                      "schema:name": "example value",
+                      "schema:description": "example value",
+                      "schema:additionalProperty": [
+                        {
+                          "schema:name": "example value",
+                          "schema:value": "example value"
+                        }
+                      ]
+                    }
                   ]
                 }
               ],
@@ -567,9 +599,9 @@ The analysis half of the ICPMS module, with every property populated. Generated 
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:variableMeasured [ schema1:name "Limit of Quantification (LOQ) Method" ;
+[] schema1:variableMeasured [ schema1:name "Uncertainty Propagation Method" ;
             schema1:value "example value" ],
-        [ schema1:name "Uncertainty Propagation Method" ;
+        [ schema1:name "Limit of Quantification (LOQ) Method" ;
             schema1:value "example value" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example value" ] ;

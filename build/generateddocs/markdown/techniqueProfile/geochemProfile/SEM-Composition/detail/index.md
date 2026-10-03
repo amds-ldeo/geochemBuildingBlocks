@@ -36,10 +36,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -82,10 +84,12 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3\u20134), not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no count or rule is stated for this procedure. The paper's \"(n = 6)\" (p.4) is its SIMS oxygen-isotope population, not an SEM outcome",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -109,6 +113,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -117,10 +122,11 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — the single particle \"micrometeorite NG-1\", analysed as \"the NG-1 section\" (p.2); regions are identified by figure panel (\"Alloy-rich regions\", Fig. 2; \"Silicate-dominated areas\", Fig. 3; pp.3–4), not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Genge2025> schema1:identifier "missing" .
 
@@ -155,10 +161,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -201,10 +209,12 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 no contributing count and no acceptance or rejection rule is stated; the grain selection is recorded under Sampling Unit Selection Criteria",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -228,6 +238,7 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -236,10 +247,11 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Labelled: \"seven representative grains (designated as B-1 through B-7)\" of \"a Kaba thin section\" (p.2), shown as the \"analyzed areas\" in Fig. 1 (p.2)" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Gucsik2013> schema1:identifier "missing" .
 
@@ -274,11 +286,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:detectionLimit": "~0.5 wt% for most elements",
+  "ada:combinedResults": "missing",
+  "ada:detectionLimit": "all: 0.5 wt% — 'with a detection limit of 0.5 wt% for most elements' (p.3), a capability of the Quartz XOne system",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -320,11 +334,13 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
-  "ada:detectionLimit": "~0.5 wt% for most elements",
+  "ada:combinedResults": "missing",
+  "ada:detectionLimit": "all: 0.5 wt% \u2014 'with a detection limit of 0.5 wt% for most elements' (p.3), a capability of the Quartz XOne system",
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
   "ada:countingStatisticsError": "missing",
@@ -347,18 +363,20 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
-    ada:detectionLimit "~0.5 wt% for most elements" ;
+    ada:detectionLimit "all: 0.5 wt% — 'with a detection limit of 0.5 wt% for most elements' (p.3), a capability of the Quartz XOne system" ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Izawa2010> schema1:identifier "missing" .
 
@@ -393,10 +411,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -439,10 +459,12 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "Sample name only \u2014 \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are \u03bcXRD spots, not SEM analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -466,6 +488,7 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -474,10 +497,11 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | ED
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "Sample name only — \"the Tagish Lake sections\" (p.3), not individually labelled; the numbered points of Table 1 and Fig. 1 (e.g. \"point #1\", \"spot 34\") are μXRD spots, not SEM analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Izawa2010-2> schema1:identifier "missing" .
 
@@ -512,10 +536,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -558,10 +584,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -585,6 +613,7 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -593,10 +622,11 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Pascucci2026> schema1:identifier "missing" .
 
@@ -631,10 +661,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": 1024,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:mapArea": 10.5,
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -677,10 +709,12 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "NWA 7317",
   "ada:samplingUnitName": "Sample name only \u2014 \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": 1024,
-  "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:mapArea": 10.5,
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -704,18 +738,20 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
     ada:edsDeadTime -9999 ;
     ada:fundingSourceForAnalysis "missing" ;
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
-    ada:mapArea -9999 ;
+    ada:mapArea 1.05e+01 ;
     ada:mapDimensions 1024 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "NWA 7317" ;
     ada:samplingUnitName "Sample name only — \"the NWA 7317 slab\" (p.3), imaged on \"almost the same portion of the VIS-IR SPIM images\" (p.4); imaged fields and analysis points are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Pascucci2026-2> schema1:identifier "missing" .
 
@@ -750,10 +786,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -796,10 +834,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N \u2014 the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 compositions are reported by phase with no contributing count and no acceptance or rejection rule stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -823,6 +863,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -831,10 +872,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the JSC SEM passage names no specimen (\"The particle was attached to an Al cylinder SEM mount\"; \"regions of interest\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Zega2025> schema1:identifier "missing" .
 
@@ -869,10 +911,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -915,10 +959,12 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
   "ada:fundingSourceForAnalysis": "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599",
   "ada:sampleName": "missing",
   "ada:samplingUnitName": "N \u2014 the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 an imaging procedure reports no aggregate over individual results, and no acceptance or rejection rule is stated",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -942,6 +988,7 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -950,10 +997,11 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "missing" ;
     ada:samplingUnitName "N — the Arizona SEM passage names no specimen (\"Polished sections were coated with a thin layer ... of carbon\", p.9); the paper's OREX numbers identify figures, not this laboratory's analyses" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Zega2025-2> schema1:identifier "missing" .
 
@@ -988,10 +1036,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnitName": "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A — no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N — this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5σ anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1034,10 +1084,12 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
   "ada:fundingSourceForAnalysis": "missing",
   "ada:sampleName": "OREX-501018-100",
   "ada:samplingUnitName": "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled",
+  "ada:targetMaterialOfSamplingUnit": "missing",
   "ada:mapDimensions": -9999,
   "ada:mapArea": -9999,
-  "ada:proceduralBlankLevel": "missing",
+  "ada:proceduralBlankLevel": "N/A \u2014 no chemical separation, so there is no procedural blank",
   "ada:analysisInclusionAndRejectionCriteria": "N \u2014 this procedure analyses \"Two O-rich presolar grains\" individually to confirm their phase (p.11), with no aggregate over results. The >5\u03c3 anomaly criterion and the requirement that an anomaly persist \"in multiple consecutive frames\" (p.11) select grains from the NanoSIMS imaging, and belong to that procedure",
+  "ada:combinedResults": "missing",
   "ada:detectionLimit": -9999,
   "ada:analyticalPrecision": "missing",
   "ada:analyticalAccuracy": "missing",
@@ -1061,6 +1113,7 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:analyst "missing" ;
     ada:analyticalAccuracy "missing" ;
     ada:analyticalPrecision "missing" ;
+    ada:combinedResults "missing" ;
     ada:componentType "ada:SEMEDSSpectrum" ;
     ada:countingStatisticsError "missing" ;
     ada:detectionLimit -9999 ;
@@ -1069,10 +1122,11 @@ detail instance derived from Barnes et al. 2025 | Bennu asteroid particles (OSIR
     ada:goodnessOfFitOrDispersionStatistic "missing" ;
     ada:mapArea -9999 ;
     ada:mapDimensions -9999 ;
-    ada:proceduralBlankLevel "missing" ;
+    ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ;
     ada:sampleName "OREX-501018-100" ;
     ada:samplingUnitName "Labelled: \"Bennu sample OREX-501018-100\" (Extended Data Fig. 8 caption, p.27), \"aggregate QL material pressed onto a gold (Au) foil mount\" (p.10); the presolar-grain regions are not labelled" ;
-    ada:sessionIdentifier "missing" .
+    ada:sessionIdentifier "missing" ;
+    ada:targetMaterialOfSamplingUnit "missing" .
 
 <ex:semCompositionTAPP-Barnes2025> schema1:identifier "missing" .
 
@@ -1599,11 +1653,11 @@ allOf:
                                       - schema:unitText
                                     - title: Beam Diameter
                                       description: Nominal electron beam diameter
-                                        (spot size) at the sample surface, in nanometres
-                                        or micrometres, as set by the condenser aperture
-                                        and working distance. For mapping modes, the
-                                        effective spatial sampling interval is further
-                                        defined by Step Size / Pixel Size.
+                                        (spot size) at the sample surface for point
+                                        analysis, in nanometres or micrometres, as
+                                        set by the condenser aperture and working
+                                        distance. The beam used for mapping is recorded
+                                        under Mapping Beam Diameter.
                                       type: object
                                       properties:
                                         '@id':
@@ -1693,11 +1747,11 @@ allOf:
                                   - contains:
                                       title: Beam Diameter
                                       description: Nominal electron beam diameter
-                                        (spot size) at the sample surface, in nanometres
-                                        or micrometres, as set by the condenser aperture
-                                        and working distance. For mapping modes, the
-                                        effective spatial sampling interval is further
-                                        defined by Step Size / Pixel Size.
+                                        (spot size) at the sample surface for point
+                                        analysis, in nanometres or micrometres, as
+                                        set by the condenser aperture and working
+                                        distance. The beam used for mapping is recorded
+                                        under Mapping Beam Diameter.
                                       type: object
                                       properties:
                                         '@id':
@@ -1892,6 +1946,79 @@ allOf:
           - schema:unitText
         minContains: 0
         maxContains: 1
+    schema:variableMeasured:
+      type: array
+      items:
+        anyOf:
+        - title: Dataset variable
+          description: A measured variable of this dataset that is not one of the
+            procedure's declared reported properties. schema:variableMeasured carries
+            the dataset's actual variables; the reported-property branches above are
+            permitted members of it, not the whole of it.
+          type: object
+          required:
+          - '@type'
+          properties:
+            '@type':
+              type: array
+              contains:
+                enum:
+                - cdi:InstanceVariable
+                - schema:PropertyValue
+        - title: Target Material of Sampling Unit
+          description: The entry in Target Material that the sampling unit belongs
+            to, which links the unit to the point-analysis conditions registered for
+            that material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit
+            schema:name:
+              const: Target Material of Sampling Unit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+      allOf:
+      - contains:
+          title: Target Material of Sampling Unit
+          description: The entry in Target Material that the sampling unit belongs
+            to, which links the unit to the point-analysis conditions registered for
+            that material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit
+            '@type':
+              const:
+              - schema:PropertyValue
+              - cdi:InstanceVariable
+            schema:propertyID:
+              const:
+              - '@id': ada:parameter/semCompositionTAPP/targetMaterialOfSamplingUnit
+            schema:name:
+              const: Target Material of Sampling Unit
+            schema:value:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:propertyID
+          - schema:name
+          - schema:value
+        minContains: 0
+        maxContains: 1
   required:
   - ada:mapDimensions
 
@@ -1919,8 +2046,8 @@ Links to the schema:
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
     "@version": 1.1
   }
 }

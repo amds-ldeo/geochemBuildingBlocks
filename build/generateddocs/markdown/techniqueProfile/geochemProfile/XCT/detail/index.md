@@ -3197,170 +3197,6 @@ allOf:
                 - schema:value
               minContains: 0
               maxContains: 1
-          schema:actionProcess:
-            type: object
-            properties:
-              schema:step:
-                type: array
-                items:
-                  type: object
-                  allOf:
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Sample preparation
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:description:
-                          description: Any preparation steps applied to the sample
-                            before scanning, including cleaning, trimming, consolidation,
-                            or drying. Note any exceptions.
-                          anyOf:
-                          - type: string
-                          - type: array
-                            items:
-                              type: string
-                  - if:
-                      properties:
-                        schema:name:
-                          const: Data reduction
-                      required:
-                      - schema:name
-                    then:
-                      properties:
-                        schema:additionalProperty:
-                          type: array
-                          items:
-                            anyOf:
-                            - title: Flat Field Correction
-                              description: Whether dark-field (detector read with
-                                X-ray source off; electronic noise baseline) and bright-field
-                                (source on, no sample; gain calibration) reference
-                                images are acquired and applied to normalize detector
-                                response before reconstruction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/labxctTAPP/flatFieldCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/labxctTAPP/flatFieldCorrection
-                                schema:name:
-                                  const: Flat Field Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - title: Sub-volume Stitching and Registration Method
-                              description: Method used to register adjacent sub-volume
-                                datasets to each other and stitch them into a single
-                                continuous 3D volume. Report the alignment strategy
-                                (manual, automated, fiducial-based), the software
-                                used, and any correction steps applied. Where rotational
-                                mismatch has been corrected via raw projection re-alignment,
-                                document it here.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
-                                schema:name:
-                                  const: Sub-volume Stitching and Registration Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                          allOf:
-                          - contains:
-                              title: Flat Field Correction
-                              description: Whether dark-field (detector read with
-                                X-ray source off; electronic noise baseline) and bright-field
-                                (source on, no sample; gain calibration) reference
-                                images are acquired and applied to normalize detector
-                                response before reconstruction.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/labxctTAPP/flatFieldCorrection
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/labxctTAPP/flatFieldCorrection
-                                schema:name:
-                                  const: Flat Field Correction
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              title: Sub-volume Stitching and Registration Method
-                              description: Method used to register adjacent sub-volume
-                                datasets to each other and stitch them into a single
-                                continuous 3D volume. Report the alignment strategy
-                                (manual, automated, fiducial-based), the software
-                                used, and any correction steps applied. Where rotational
-                                mismatch has been corrected via raw projection re-alignment,
-                                document it here.
-                              type: object
-                              properties:
-                                '@id':
-                                  const: ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
-                                '@type':
-                                  const:
-                                  - schema:PropertyValue
-                                schema:propertyID:
-                                  const:
-                                  - '@id': ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
-                                schema:name:
-                                  const: Sub-volume Stitching and Registration Method
-                                schema:value:
-                                  type: string
-                              required:
-                              - '@id'
-                              - '@type'
-                              - schema:propertyID
-                              - schema:name
-                              - schema:value
-                            minContains: 0
-                            maxContains: 1
-                          - contains:
-                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
-                            minContains: 0
-                            maxContains: 1
-                allOf:
-                - contains:
-                    properties:
-                      schema:name:
-                        const: Data reduction
-                    required:
-                    - schema:name
           prov:used:
             type: array
             items:
@@ -3707,6 +3543,153 @@ allOf:
                               schema:inDefinedTermSet: ada:vocab/instrumentType
                           required:
                           - schema:additionalType
+          schema:actionProcess:
+            type: object
+            properties:
+              schema:step:
+                type: array
+                items:
+                  type: object
+                  allOf:
+                  - if:
+                      properties:
+                        schema:name:
+                          const: Data reduction
+                      required:
+                      - schema:name
+                    then:
+                      properties:
+                        schema:additionalProperty:
+                          type: array
+                          items:
+                            anyOf:
+                            - title: Flat Field Correction
+                              description: Whether dark-field (detector read with
+                                X-ray source off; electronic noise baseline) and bright-field
+                                (source on, no sample; gain calibration) reference
+                                images are acquired and applied to normalize detector
+                                response before reconstruction.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/labxctTAPP/flatFieldCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/labxctTAPP/flatFieldCorrection
+                                schema:name:
+                                  const: Flat Field Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - title: Sub-volume Stitching and Registration Method
+                              description: Method used to register adjacent sub-volume
+                                datasets to each other and stitch them into a single
+                                continuous 3D volume. Report the alignment strategy
+                                (manual, automated, fiducial-based), the software
+                                used, and any correction steps applied. Where rotational
+                                mismatch has been corrected via raw projection re-alignment,
+                                document it here.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
+                                schema:name:
+                                  const: Sub-volume Stitching and Registration Method
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                          allOf:
+                          - contains:
+                              title: Flat Field Correction
+                              description: Whether dark-field (detector read with
+                                X-ray source off; electronic noise baseline) and bright-field
+                                (source on, no sample; gain calibration) reference
+                                images are acquired and applied to normalize detector
+                                response before reconstruction.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/labxctTAPP/flatFieldCorrection
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/labxctTAPP/flatFieldCorrection
+                                schema:name:
+                                  const: Flat Field Correction
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              title: Sub-volume Stitching and Registration Method
+                              description: Method used to register adjacent sub-volume
+                                datasets to each other and stitch them into a single
+                                continuous 3D volume. Report the alignment strategy
+                                (manual, automated, fiducial-based), the software
+                                used, and any correction steps applied. Where rotational
+                                mismatch has been corrected via raw projection re-alignment,
+                                document it here.
+                              type: object
+                              properties:
+                                '@id':
+                                  const: ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
+                                '@type':
+                                  const:
+                                  - schema:PropertyValue
+                                schema:propertyID:
+                                  const:
+                                  - '@id': ada:parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod
+                                schema:name:
+                                  const: Sub-volume Stitching and Registration Method
+                                schema:value:
+                                  type: string
+                              required:
+                              - '@id'
+                              - '@type'
+                              - schema:propertyID
+                              - schema:name
+                              - schema:value
+                            minContains: 0
+                            maxContains: 1
+                          - contains:
+                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
+                            minContains: 0
+                            maxContains: 1
+                allOf:
+                - contains:
+                    properties:
+                      schema:name:
+                        const: Data reduction
+                    required:
+                    - schema:name
         required:
         - schema:actionProcess
     schema:distribution:
@@ -4114,8 +4097,8 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "wd": "https://www.wikidata.org/entity/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
     "@version": 1.1
   }
 }

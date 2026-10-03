@@ -292,8 +292,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -301,8 +301,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -438,24 +437,6 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:description": "Inherited or Initial Signal Correction reported for this dataset. Example value.",
-      "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
-    },
-    {
-      "@id": "ex:adaProduct-var-001",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Age Model",
-      "schema:description": "Age Model reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -928,8 +909,8 @@ and technique component types on the archive distribution. Mock data for validat
         "schema:PropertyValue",
         "cdi:InstanceVariable"
       ],
-      "schema:name": "Goodness-of-Fit or Dispersion Statistic",
-      "schema:description": "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
+      "schema:name": "Sampling Unit Name",
+      "schema:description": "Sampling Unit Name reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -937,8 +918,7 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:value": "missing"
+      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
     },
     {
       "@id": "ex:adaProduct-var-001",
@@ -1074,24 +1054,6 @@ and technique component types on the archive distribution. Mock data for validat
       ],
       "schema:name": "Inherited or Initial Signal Correction",
       "schema:description": "Inherited or Initial Signal Correction reported for this dataset. Example value.",
-      "schema:propertyID": [
-        "https://ada.astromat.org/vocabulary/variables/ada_primary"
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "missing"
-    },
-    {
-      "@id": "ex:adaProduct-var-001",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Age Model",
-      "schema:description": "Age Model reported for this dataset. Example value.",
       "schema:propertyID": [
         "https://ada.astromat.org/vocabulary/variables/ada_primary"
       ],
@@ -1361,12 +1323,12 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "example goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "example oxideProduction" ] ;
+            dqv:value "example oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "example goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess <nil:missing> ;
@@ -1445,25 +1407,23 @@ ex:adaProduct-var-001 a cdi:InstanceVariable,
     schema1:defaultValue "missing" ;
     schema1:description "Age Calculation Method reported for this dataset. Example value.",
         "Age Datum / Reference Epoch reported for this dataset. Example value.",
-        "Age Model reported for this dataset. Example value.",
         "Calibration Factor and Determination Method reported for this dataset. Example value.",
         "Detection Limit reported for this dataset. Example value.",
-        "Goodness-of-Fit or Dispersion Statistic reported for this dataset. Example value.",
         "Inherited or Initial Signal Correction reported for this dataset. Example value.",
         "Limit of Quantification (LOQ) Method reported for this dataset. Example value.",
         "Primary measured quantity from Astromat Data Archive (ADA) analysis. This is example mock data for testing.",
         "Radiogenic Fraction of Measured Signal reported for this dataset. Example value.",
-        "Reported Date Type reported for this dataset. Example value." ;
+        "Reported Date Type reported for this dataset. Example value.",
+        "Sampling Unit Name reported for this dataset. Example value." ;
     schema1:name "Age Calculation Method",
         "Age Datum / Reference Epoch",
-        "Age Model",
         "Calibration Factor and Determination Method",
         "Detection Limit",
-        "Goodness-of-Fit or Dispersion Statistic",
         "Inherited or Initial Signal Correction",
         "Limit of Quantification (LOQ) Method",
         "Radiogenic Fraction of Measured Signal",
         "Reported Date Type",
+        "Sampling Unit Name",
         "measurement_value" ;
     schema1:propertyID "https://ada.astromat.org/vocabulary/variables/ada_primary" ;
     schema1:unitText "counts" ;

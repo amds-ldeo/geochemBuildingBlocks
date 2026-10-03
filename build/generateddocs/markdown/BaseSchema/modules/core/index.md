@@ -22,7 +22,7 @@ This is a **profile, not a vocabulary**: it asserts which properties a conformin
 | `$def` | composed into | properties | required |
 |---|---|---|---|
 | `ProcedureIdentification` | a TAPP schema (`prov:Plan`) | 13 | 3 |
-| `AnalysisIdentification` | a technique detail (`schema:Dataset`) | 5 | 0 |
+| `AnalysisIdentification` | a technique detail (`schema:Dataset`) | 6 | 0 |
 
 Requiredness follows the TAPP tier matrix: a field Basic on a side is required there, Advanced is permitted, N/A is absent from that side entirely.
 
@@ -30,6 +30,7 @@ Requiredness follows the TAPP tier matrix: a field Basic on a side is required t
 
 These fields belong to the module but have no schema path in any sidecar, so they are absent from the schema until one is authored:
 
+- Target Material
 - Instrument Manufacturer
 - Instrument Model
 
@@ -205,11 +206,11 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:termCode "example value" ] ;
     schema1:name "example value" ;
-    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "example value" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ] ;
+                    schema1:name "example value" ] ],
+        [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "example value" ] ] ;
     ada:analyticalMode "example value" ;
     ada:reportedProperties "example value" ;
     ada:samplingUnitType "example value" ;
@@ -240,12 +241,7 @@ The analysis half of the Core module, with every property populated. Generated f
         {
           "@type": "example value",
           "schema:name": "example value",
-          "schema:identifier": "example value",
-          "ada:samplingUnits": [
-            {
-              "schema:name": "example value"
-            }
-          ]
+          "schema:identifier": "example value"
         }
       ],
       "prov:used": [
@@ -311,6 +307,11 @@ The analysis half of the Core module, with every property populated. Generated f
     {
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example value"
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Sampling Unit Name"
     }
   ]
 }
@@ -341,12 +342,7 @@ The analysis half of the Core module, with every property populated. Generated f
         {
           "@type": "example value",
           "schema:name": "example value",
-          "schema:identifier": "example value",
-          "ada:samplingUnits": [
-            {
-              "schema:name": "example value"
-            }
-          ]
+          "schema:identifier": "example value"
         }
       ],
       "prov:used": [
@@ -413,13 +409,17 @@ The analysis half of the Core module, with every property populated. Generated f
       "schema:linkRelationship": "coupledDataset",
       "schema:target": "example value"
     }
+  ],
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Sampling Unit Name"
+    }
   ]
 }
 ```
 
 #### ttl
 ```ttl
-@prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 
@@ -427,13 +427,14 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "example value" ] ;
     schema1:measurementTechnique [ schema1:identifier "example value" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
+            schema1:target [ schema1:url "example value" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "example value" ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "example value" ;
-                    schema1:name "example value" ] ],
-        [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "example value" ] ] ;
+                    schema1:name "example value" ] ] ;
+    schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ schema1:description "example value" ;
                             schema1:name "Sample preparation" ] ] ;
             schema1:description "example value" ;
@@ -442,8 +443,7 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:location [ schema1:identifier "example value" ;
                     schema1:name "example value" ] ;
             schema1:object [ schema1:identifier "example value" ;
-                    schema1:name "example value" ;
-                    ada:samplingUnits [ schema1:name "example value" ] ] ;
+                    schema1:name "example value" ] ;
             schema1:startDate "example value" ;
             prov:used [ ] ] .
 
@@ -799,25 +799,6 @@ $defs:
                           items:
                             type: string
                         x-jsonld-id: http://schema.org/identifier
-                      ada:samplingUnits:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            schema:name:
-                              description: "The name or label of each sampling unit
-                                analysed in this session, as the laboratory records
-                                it, together with the sample it belongs to \u2014
-                                e.g. a spot number, a grain label, a map or region-of-interest
-                                name, or an aliquot identifier. Where units are too
-                                numerous to name individually, such as map pixels
-                                or reconstructed voxels, name the acquisition area
-                                they belong to instead."
-                              type: string
-                              x-jsonld-id: http://schema.org/name
-                          required:
-                          - schema:name
-                        x-jsonld-id: https://ada.astromat.org/metadata/samplingUnits
                     required:
                     - schema:name
               allOf:
@@ -1085,42 +1066,18 @@ $defs:
                       type: string
                   x-jsonld-id: http://schema.org/target
         x-jsonld-id: http://schema.org/relatedLink
-  Param_Procedure_targetMaterial:
-    title: Target Material
-    description: General description of the material type(s) this procedure is designed
-      to analyse.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/module/Core/targetMaterial
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: targetMaterial
-        x-jsonld-id: http://schema.org/valueName
-      schema:name:
-        const: Target Material
-        x-jsonld-id: http://schema.org/name
-      ada:dataType:
-        const: string
-        x-jsonld-id: https://ada.astromat.org/metadata/dataType
-      ada:fieldScope:
-        const: session
-        x-jsonld-id: https://ada.astromat.org/metadata/fieldScope
-      schema:readonlyValue:
-        const: true
-        x-jsonld-id: http://schema.org/readonlyValue
-      ada:tier:
-        const: R
-        x-jsonld-id: https://ada.astromat.org/metadata/tier
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - ada:fieldScope
+      schema:variableMeasured:
+        type: array
+        items:
+          type: object
+        allOf:
+        - contains:
+            properties:
+              schema:name:
+                const: Sampling Unit Name
+            required:
+            - schema:name
+        x-jsonld-id: http://schema.org/variableMeasured
   Param_Analysis_constantsReferenceValues:
     title: Constants Reference Values
     description: Physical constants and reference values used in data reduction to
