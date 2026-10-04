@@ -13,15 +13,15 @@
     "ex": "https://example.org/",
     "dcat": "http://www.w3.org/ns/dcat#"
   },
-  "@id": "ex:adaEMPA-monolithic-001",
+  "@id": "ex:adaEPMA-monolithic-001",
   "@type": [
     "schema:Dataset",
     "schema:Product"
   ],
   "schema:name": "ADA EPMA Example Product (single-file dataset)",
-  "schema:description": "Monolithic single-file EMPA dataset: one schema:DataDownload that is the dataset, with ada:componentType and cdi:isStructuredBy on the distribution and no schema:hasPart. Mock data.",
+  "schema:description": "Monolithic single-file EPMA dataset: one schema:DataDownload that is the dataset, with ada:componentType and cdi:isStructuredBy on the distribution and no schema:hasPart. Mock data.",
   "schema:additionalType": [
-    "Electron Microprobe Analysis (EMPA)",
+    "Electron Microprobe Analysis (EPMA)",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -186,7 +186,7 @@
           ]
         },
         {
-          "@id": "ex:empaTAPP-P0",
+          "@id": "ex:epmaTAPP-P0",
           "@type": [
             "prov:Entity",
             "prov:Plan",
@@ -271,7 +271,7 @@
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#float"
     },
     {
-      "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit",
+      "@id": "ada:parameter/epmaTAPP/targetMaterialOfSamplingUnit",
       "@type": [
         "schema:PropertyValue",
         "cdi:InstanceVariable"
@@ -280,7 +280,7 @@
       "schema:description": "Target Material of Sampling Unit reported for this dataset. Example value.",
       "schema:propertyID": [
         {
-          "@id": "ada:parameter/empaTAPP/targetMaterialOfSamplingUnit"
+          "@id": "ada:parameter/epmaTAPP/targetMaterialOfSamplingUnit"
         }
       ],
       "schema:unitText": "counts",
@@ -349,9 +349,9 @@
         "schema:DataDownload",
         "cdi:PhysicalDataSet"
       ],
-      "schema:name": "adaEMPA-monolithic.dat",
-      "schema:description": "Single EMPA data file (the whole dataset).",
-      "schema:contentUrl": "https://astromat.org/downloads/adaEMPA-monolithic-001.dat",
+      "schema:name": "adaEPMA-monolithic.dat",
+      "schema:description": "Single EPMA data file (the whole dataset).",
+      "schema:contentUrl": "https://astromat.org/downloads/adaEPMA-monolithic-001.dat",
       "schema:encodingFormat": [
         "application/x-hdf5"
       ],
@@ -369,13 +369,13 @@
         "schema:value": 1048576,
         "schema:unitText": "byte"
       },
-      "ada:componentType": "ada:EMPAImage",
+      "ada:componentType": "ada:EPMAImage",
       "cdi:isStructuredBy": {
-        "@id": "ex:adaEMPA-struct-001",
+        "@id": "ex:adaEPMA-struct-001",
         "@type": [
           "cdi:DimensionalDataStructure"
         ],
-        "schema:name": "EMPA single-file data structure",
+        "schema:name": "EPMA single-file data structure",
         "cdi:has_DataStructureComponent": [
           {
             "@type": [
@@ -412,9 +412,9 @@
         "@id": "dcat:CatalogRecord"
       }
     ],
-    "@id": "ex:adaEMPA-monolithic-metadata-001",
+    "@id": "ex:adaEPMA-monolithic-metadata-001",
     "schema:about": {
-      "@id": "ex:adaEMPA-monolithic-001"
+      "@id": "ex:adaEPMA-monolithic-001"
     },
     "schema:dateModified": "2026-01-15",
     "dcterms:conformsTo": [
@@ -437,7 +437,7 @@
         "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaEMPA"
+        "@id": "https://w3id.org/geochem/metadata/profiles/adaEPMA"
       },
       {
         "@id": "https://w3id.org/cdif/data_structure/1.1"

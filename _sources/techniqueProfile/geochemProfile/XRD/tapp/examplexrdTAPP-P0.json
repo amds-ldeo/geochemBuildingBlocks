@@ -3,9 +3,8 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "dqv": "http://www.w3.org/ns/dqv#"
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:xrdTAPP-P0",
   "@type": [
@@ -15,17 +14,10 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example procedureName",
-  "ada:targetMaterial": "Silicate mineral",
-  "ada:sampleMountDefault": "Zero-background holder",
-  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
-  "ada:instrumentManufacturer": "Malvern PANalytical",
-  "ada:instrumentModel": "example instrumentModel",
-  "ada:diffractometerGeometry": "Bragg-Brentano (theta-2theta)",
-  "ada:xRayWavelength": 1.0,
-  "ada:stepSizeDefault": 1.0,
-  "ada:timePerStepDefault": 1.0,
-  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
+  "schema:name": "xrd protocol — P0",
+  "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
+  "ada:instrumentManufacturer": "Custom-built",
+  "ada:instrumentModel": "(NHM)Position Sensitive Detector X-ray Diffraction",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -35,7 +27,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "example procedureAuthor",
+    "schema:name": "King, Ashley",
     "@type": [
       "schema:Person"
     ]
@@ -44,24 +36,53 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
+    "schema:name": "Natural History Museum",
+    "schema:identifier": "https://ror.org/039zvsn29"
   },
-  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "example fundingSourceForProcedureDevelopment"
+      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program."
     }
   ],
-  "ada:samplingUnitType": "Whole sample",
-  "ada:analyticalMode": [
-    "Powder diffraction"
-  ],
   "ada:reportedProperties": [
-    "example reportedVariablesAndUnits"
+    "Angle (degrees 2theta) | Intensity (counts)"
   ],
-  "schema:description": "example additionalNotes"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      }
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:diffractometerGeometry": "missing",
+  "ada:sampleMountDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
+  "ada:stepSizeDefault": -9999,
+  "ada:targetMaterial": "missing",
+  "ada:timePerStepDefault": -9999,
+  "ada:xRayWavelength": -9999,
+  "schema:datePublished": "missing"
 }

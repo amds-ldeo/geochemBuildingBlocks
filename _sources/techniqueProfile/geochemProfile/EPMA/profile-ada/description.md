@@ -1,18 +1,18 @@
-# ADA EMPA Profile
+# ADA EPMA Profile
 
-Technique-specific metadata profile for Electron Microprobe Analysis (EMPA) products in the Astromat Data Archive. EMPA uses focused electron beams to determine chemical composition of small volumes of solid materials through characteristic X-ray emission.
+Technique-specific metadata profile for Electron Microprobe Analysis (EPMA) products in the Astromat Data Archive. EPMA uses focused electron beams to determine chemical composition of small volumes of solid materials through characteristic X-ray emission.
 
 ## Product Types
-- **EMPA Image** - Backscattered electron or secondary electron images
-- **EMPA Collection** - Sets of EMPA images or maps
-- **EMPA QEA** - Quantitative elemental analysis tabular data
-- **EMPA SPC** - Spectral data from electron microprobe
+- **EPMA Image** - Backscattered electron or secondary electron images
+- **EPMA Collection** - Sets of EPMA images or maps
+- **EPMA QEA** - Quantitative elemental analysis tabular data
+- **EPMA SPC** - Spectral data from electron microprobe
 
 ## Valid Component Types
-- `ada:EMPAImageMap` - Image maps with spectrometer and signal detail (empa_detail)
-- `ada:EMPAImage` - Individual EMPA images
-- `ada:EMPAQEATabular` - Quantitative elemental analysis tables (empa_detail)
-- `ada:EMPAImageCollection` - Collections of EMPA images
+- `ada:EPMAImageMap` - Image maps with spectrometer and signal detail (epma_detail)
+- `ada:EPMAImage` - Individual EPMA images
+- `ada:EPMAQEATabular` - Quantitative elemental analysis tables (epma_detail)
+- `ada:EPMAImageCollection` - Collections of EPMA images
 - `ada:analysisLocation` - Supplemental analysis location images
 - `ada:supplementaryImage` - Supplementary visual materials
 - `ada:calibrationFile` - Calibration documents
@@ -20,4 +20,4 @@ Technique-specific metadata profile for Electron Microprobe Analysis (EMPA) prod
 - `ada:instrumentMetadata` - Instrument metadata documents
 
 ## Detail Type
-`empa_detail` with properties: `spectrometersUsed`, `signalUsed`
+`epma_detail` with properties: `spectrometersUsed`, `signalUsed`

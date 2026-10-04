@@ -1,15 +1,15 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA EPMA Product Profile
 description: Path-driven technique-specific profile for ADA EPMA Product Profile. Extends the base ADA
-  product profile with the EMPA analysis-instance detail on the schema:Dataset root, narrows prov:used
-  to the empaTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
+  product profile with the EPMA analysis-instance detail on the schema:Dataset root, narrows prov:used
+  to the epmaTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
 allOf:
 - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml
 - $ref: ../detail/schema.yaml
 - type: object
   properties:
     prov:wasGeneratedBy:
-      description: 'Pin the empaTAPP definition and the instrument where prov:used carries them. Constraint-only
+      description: 'Pin the epmaTAPP definition and the instrument where prov:used carries them. Constraint-only
         if/then, never a narrowed anyOf: prov:used items are role-keyed wrappers, and an anyOf here would
         allOf-merge with the base union and exclude item shapes the base allows.'
       type: array
@@ -43,11 +43,11 @@ allOf:
                 then:
                   $ref: ../tapp/schema.yaml
     schema:additionalType:
-      description: Must include a EMPA product type identifier.
+      description: Must include a EPMA product type identifier.
       contains:
         enum:
-        - Electron Microprobe Analysis (EMPA)
-        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
+        - Electron Microprobe Analysis (EPMA)
+        - Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)
         - Electron microprobe analysis
     schema:subjectOf:
       properties:
@@ -56,4 +56,4 @@ allOf:
             type: object
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaEMPA
+                const: https://w3id.org/geochem/metadata/profiles/adaEPMA

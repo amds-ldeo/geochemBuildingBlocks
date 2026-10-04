@@ -8,10 +8,10 @@
 @prefix dcterms:     <http://purl.org/dc/terms/> .
 @base <https://www.ogc.org/rules/template/> .
 
-# EMPA technique profile SHACL rules.
+# EPMA technique profile SHACL rules.
 # Base product validation (creator, distribution, wasGeneratedBy, etc.)
 # is inherited from adaProduct rules.shacl.
-# This shape constrains schema:additionalType to valid EMPA values.
+# This shape constrains schema:additionalType to valid EPMA values.
 
 cdifd:empaProductShape
     a sh:NodeShape ;
@@ -26,7 +26,7 @@ cdifd:empaProductShape
                 ?this a schema:Product .
                 ?this schema:subjectOf ?meta .
                 ?meta schema:additionalType "dcat:CatalogRecord" .
-                ?meta dcterms:conformsTo <https://w3id.org/geochem/metadata/profiles/adaEMPA> .
+                ?meta dcterms:conformsTo <https://w3id.org/geochem/metadata/profiles/adaEPMA> .
             }
         """ ;
     ] ;
@@ -35,14 +35,14 @@ cdifd:empaProductShape
         sh:qualifiedMinCount 1 ;
         sh:qualifiedValueShape [
             sh:or (
-        [sh:hasValue "Electron Microprobe Analysis (EMPA) Collection"]
-        [sh:hasValue "Electron Microprobe Analysis Image (EMPA)"]
-        [sh:hasValue "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)"]
-        [sh:hasValue "Electron Microprobe Analysis (EMPA)"]
+        [sh:hasValue "Electron Microprobe Analysis (EPMA) Collection"]
+        [sh:hasValue "Electron Microprobe Analysis Image (EPMA)"]
+        [sh:hasValue "Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)"]
+        [sh:hasValue "Electron Microprobe Analysis (EPMA)"]
         [sh:hasValue "Electron microprobe analysis"]
             )
         ] ;
-        sh:message "EMPA products must have at least one schema:additionalType matching a valid EMPA type." ;
+        sh:message "EPMA products must have at least one schema:additionalType matching a valid EPMA type." ;
     ] ;
-    sh:message "EMPA technique profile: additionalType must identify a valid EMPA product type." ;
+    sh:message "EPMA technique profile: additionalType must identify a valid EPMA product type." ;
     .

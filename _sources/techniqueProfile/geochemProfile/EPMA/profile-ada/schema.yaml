@@ -1,21 +1,21 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: ADA EMPA Product Profile
-description: Technique-specific profile for Electron Microprobe Analysis (EMPA/EPMA) products. Extends the base ADA product profile with constraints on valid EMPA component types. Generic (adaProduct-only) profile; the analysis-instance detail (detailEMPA) and empaTAPP linkage live on the path-driven geochem empaProfile.
+title: ADA EPMA Product Profile
+description: Technique-specific profile for Electron Microprobe Analysis (EPMA/EPMA) products. Extends the base ADA product profile with constraints on valid EPMA component types. Generic (adaProduct-only) profile; the analysis-instance detail (detailEPMA) and epmaTAPP linkage live on the path-driven geochem empaProfile.
 allOf:
   - $ref: ../../../../BaseSchema/adaProduct/schema.yaml
   - type: object
     properties:
       schema:additionalType:
-        description: Must include an EMPA product type identifier.
+        description: Must include an EPMA product type identifier.
         contains:
           enum:
-            - Electron Microprobe Analysis (EMPA) Collection
-            - Electron Microprobe Analysis Image (EMPA)
-            - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
-            - Electron Microprobe Analysis (EMPA)
+            - Electron Microprobe Analysis (EPMA) Collection
+            - Electron Microprobe Analysis Image (EPMA)
+            - Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)
+            - Electron Microprobe Analysis (EPMA)
             - Electron microprobe analysis
       schema:distribution:
-        description: Distribution items for adaEMPA. Archive hasPart items must have ada:componentType from technique-specific or universal values.
+        description: Distribution items for adaEPMA. Archive hasPart items must have ada:componentType from technique-specific or universal values.
         type: array
         items:
           type: object
@@ -29,12 +29,12 @@ allOf:
                       ada:componentType:
                         type: string
                         enum:
-                          - ada:EMPAImage
-                          - ada:EMPAImageMap
-                          - ada:EMPAQEATabular
-                          - ada:EMPAImageCollection
-                          - ada:EMPAESPCTabular
-                          - ada:EMPAESPCPlot
+                          - ada:EPMAImage
+                          - ada:EPMAImageMap
+                          - ada:EPMAQEATabular
+                          - ada:EPMAImageCollection
+                          - ada:EPMAESPCTabular
+                          - ada:EPMAESPCPlot
                     required:
                       - ada:componentType
       schema:subjectOf:
@@ -46,4 +46,4 @@ allOf:
               additionalProperties: false
               properties:
                 '@id':
-                  const: 'https://w3id.org/geochem/metadata/profiles/adaEMPA'
+                  const: 'https://w3id.org/geochem/metadata/profiles/adaEPMA'

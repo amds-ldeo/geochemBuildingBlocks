@@ -1,10 +1,10 @@
-# Provenance of `exampleadaEMPA-UAZ-20260131.json`
+# Provenance of `exampleadaEPMA-UAZ-20260131.json`
 
 Session `20260131_EMPA_UAZ_OREX-800150-13_1`, DOI `10.60707/3xec-yw98`.
 
 **ADA** the published ADA record. **MD** that session's own method description. **LIT:<column>** a literature column of `EPMA_TAPP_v68.csv`; `Zega+2025_UA` and `McCoy+2025_UA` are the same laboratory (K-ALFAA, U. Arizona) on the same instrument (Cameca SX-100). **SENTINEL** no source reports it.
 
-Skeleton `exampleadaEMPA.json` validates with 1 error(s); this instance validates with 0.
+Skeleton `exampleadaEPMA.json` validates with 1 error(s); this instance validates with 0.
 
 ## Accepted
 
@@ -45,7 +45,7 @@ Skeleton `exampleadaEMPA.json` validates with 1 error(s); this instance validate
 
 ## Rejected — kept out because they would have broken validation
 
-These are places where the published ADA record's own shape disagrees with the adaEMPA profile it declares conformance to.
+These are places where the published ADA record's own shape disagrees with the adaEPMA profile it declares conformance to.
 
 | JSON pointer | source | errors before | errors after |
 |---|---|---|---|

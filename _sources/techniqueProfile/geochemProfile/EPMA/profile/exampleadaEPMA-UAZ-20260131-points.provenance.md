@@ -1,10 +1,10 @@
-# Provenance of `exampleadaEMPA-UAZ-20260131-points.json`
+# Provenance of `exampleadaEPMA-UAZ-20260131-points.json`
 
 ADA record `10.60707/an7h-fg87` -- the quantitative WDS point analyses of session `20260131_EMPA_UAZ_OREX-800150-13_1`. The sibling record `10.60707/3xec-yw98` holds the X-ray maps from the same session.
 
 **ADA** the published record. **CAL** `..._calibrationFile_1.txt`. **INST** `..._instrumentMetadata_1.txt`, the session's own `.qtiDat` output. **SENT** no source reports it.
 
-Skeleton `exampleadaEMPA.json` validates with 1 error(s); this instance with 0.
+Skeleton `exampleadaEPMA.json` validates with 1 error(s); this instance with 0.
 
 ## Accepted
 
@@ -45,7 +45,7 @@ Skeleton `exampleadaEMPA.json` validates with 1 error(s); this instance with 0.
 
 ## Rejected -- kept out because they would have broken validation
 
-Places where the published ADA record's own shape disagrees with the adaEMPA profile it declares conformance to.
+Places where the published ADA record's own shape disagrees with the adaEPMA profile it declares conformance to.
 
 | JSON pointer | source | errors before | errors after |
 |---|---|---|---|
