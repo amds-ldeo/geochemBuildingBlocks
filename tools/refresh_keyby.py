@@ -15,7 +15,7 @@ left alone unless --force: the table is authoritative for the column, but silent
 value someone deliberately changed is how curation gets lost.
 
     python tools/refresh_keyby.py                    # report every sidecar
-    python tools/refresh_keyby.py empaTAPP --write
+    python tools/refresh_keyby.py epmaTAPP --write
     python tools/refresh_keyby.py --all --write
 """
 import argparse

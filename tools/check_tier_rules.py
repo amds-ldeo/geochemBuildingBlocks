@@ -17,7 +17,7 @@ Reports violations; fixes nothing. A placement can be a deliberate exception, an
 knows which — this exists so the exceptions are visible rather than accidental.
 
     python tools/check_tier_rules.py                 # every sidecar
-    python tools/check_tier_rules.py empaTAPP semTAPP
+    python tools/check_tier_rules.py epmaTAPP semTAPP
 """
 import os
 import re

@@ -48,7 +48,7 @@ _sources/
       <TECH>/detail/    instrument-detail stub                       (14 techniques)
 ```
 
-**Profile directory names are not profile names.** `EMPA/profile-ada` publishes `adaEMPA`; `SEM/profile` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path.
+**Profile directory names are not profile names.** `EPMA/profile-ada` publishes `adaEPMA`; `SEM/profile` publishes `adaSEMFull`. A profile's canonical name is the `schema:subjectOf.dcterms:conformsTo` const inside its own schema — read it from there rather than inferring from the path.
 
 ### BaseSchema
 
@@ -83,7 +83,7 @@ The catalogs are **shared dictionary resources** — multiple TAPPs `$ref` the s
 All 59 techniques under `geochemProfile/` have a `tapp/` and a `detail/`. 29 of them also publish a path-driven `profile/` — the set registered in `build_profile.PROFILES`.
 
 - **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` constraints referencing the registry catalogs.
-- **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EMPA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
+- **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EPMA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
 - **`profile/`** — path-driven product profile: bases on the domain-neutral **`geochemProduct`** + the `detail` block + `prov:used` narrowed to that technique's TAPP + the technique's `ada:componentType` enum on `hasPart` (the profile layers the ADA componentType constraint on top of the ADA-agnostic base).
 - **`profile-ada/`** — the generic product profile: bases on **`adaProduct`** + `ada:componentType` constraints only, no TAPP linkage or detail block.
 
@@ -131,11 +131,11 @@ Measure the `tapp/` schemas.
 
 ## componentType architecture
 
-Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EMPAImageMap`) that classifies the file. The term list is governed by a **vocabulary**, and two schema layers add per-context constraints:
+Each archive `hasPart` item carries an `ada:componentType` (a single string like `ada:EPMAImageMap`) that classifies the file. The term list is governed by a **vocabulary**, and two schema layers add per-context constraints:
 
 **Governing vocabulary.** `registry/vocab/componentType.json` is a SKOS ConceptScheme (`@id: ada:vocab/componentType`, the ~22 universal cross-technique terms). The base products reference it by **annotation only** — the `universalComponentType` `$def` in `geochemProduct` (and duplicated in `adaProduct`) is `{type: string, schema:inDefinedTermSet: "ada:vocab/componentType"}` with **no inline enum**, so at the base layer any string validates and conformance to the vocabulary is advisory (SHACL-checkable), not hard-enforced by JSON Schema. `geochemProduct` exposes the vocab as an optional `schema:additionalType`; `adaProduct` requires it as `ada:componentType`.
 
-1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping; columns `componentType` / `FileType` / `isSupplement`). E.g. `ada:EMPAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
+1. **File type ↔ componentType mapping** — each file-type building block (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of valid componentType values. The enum is derived from the **Components worksheet** of `amds-ldeo/metadata/ADA-AnalyticalMethodsAndAttributes.xlsx` (the canonical mapping; columns `componentType` / `FileType` / `isSupplement`). E.g. `ada:EPMAImageMap` is valid only on parts whose `@type` includes `ada:imageMap`.
 
 2. **Profile-level constraint** — a technique profile's `schema:distribution.items.schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref` to `geochemProduct/schema.yaml#/$defs/universalComponentTypeBranch` (factored once, used everywhere) for universal componentTypes; (b) inline string-enum for technique-specific componentTypes; (c) for techniques whose `detail/` block is the older *hasPart-item* kind (XRD, ARGT, DSC, …), a `$ref` to that detail schema, which pins `ada:componentType` to its technique consts and contributes detail-specific sibling properties (e.g. `ada:geometry`) flat on the hasPart item — not nested inside componentType. Path-driven profiles do **not** use branch (c): their detail block overlays the dataset root instead, and `hasPart` gets only branches (a) and (b).
 
@@ -243,7 +243,7 @@ The **schema-path sidecar** `docs/<workbook>.schemapaths.csv` is the source of t
 
 `tools/build_dataset_template.py <tapp-instance.json> [out.xlsx]` generates an xlsx data-entry template from a TAPP instance — columns from `targetSpeciesColumns`, one row per entry in `ada:defaultTargetSpecies`.
 
-> **Superseded drivers.** `build_TAPP_from_spreadsheet.py` and `build_detail_BB.py` were the earlier impl-tag/tier-matrix route and now delegate to `build_tapp.py` for empa; `build_profile_BB.py` scaffolded the old `profiles/geochemProfiles/` layout. `generate_profiles.py` is **deprecated and refuses to run** without `--force-deprecated` — its template emits the old object-form `ada:componentType`. Use the path-driven pipeline above for new work.
+> **Superseded drivers.** `build_TAPP_from_spreadsheet.py` and `build_detail_BB.py` were the earlier impl-tag/tier-matrix route and now delegate to `build_tapp.py` for epma; `build_profile_BB.py` scaffolded the old `profiles/geochemProfiles/` layout. `generate_profiles.py` is **deprecated and refuses to run** without `--force-deprecated` — its template emits the old object-form `ada:componentType`. Use the path-driven pipeline above for new work.
 
 ### Publication migration helper
 
@@ -254,7 +254,7 @@ python tools/interpret_pub_analytes.py --apply    # also rewrite source xlsx
 
 Reads publication columns whose analyte axis isn't explicitly populated and infers it from rows 48 / 59 / 64 (Halogen Correction / Primary Calibration Standard / Typical Detection Limit). Default-mode outputs:
 - `docs/TAPP_EPMA_filled-interp.xlsx` — side workbook with each `<pub>-interp` column inserted right after its source pub for side-by-side review.
-- `build/interp-review/example<empaTAPP|detailEMPA>-<pub>-interp.json` — paired review JSON instances built from the inferred data.
+- `build/interp-review/example<epmaTAPP|detailEPMA>-<pub>-interp.json` — paired review JSON instances built from the inferred data.
 
 With `--apply`, additionally rewrites rows 32 / 40 / 59 / 64 of each inferred pub column in `docs/TAPP_EPMA_filled.xlsx` to the pipe-delim convention. After migration, the regular pipeline (`build_TAPP_from_spreadsheet.py` etc.) reproduces the same rich examples directly from the source — no interp loop needed.
 
@@ -338,7 +338,7 @@ typing passes cannot tell that from an object they are meant to finish. Run befo
 reference came back with `schema:instrument: "missing"` and four `{"@id": "nil:missing"}` members
 padded into its `@type`, failing 58 of 97 examples.
 
-The four source-derived profile examples (`exampleadaEMPA-UAZ-20260131` and `-points`,
+The four source-derived profile examples (`exampleadaEPMA-UAZ-20260131` and `-points`,
 `exampleadaLAMCICPMSUPb-Sundell2021`, `exampleadaSolutionMCICPMS-ETHZ-20240903`) are **not**
 regenerated by this pipeline and carry no link. Adding one would assert which TAPP a real published
 analysis followed, which their sources do not say.
@@ -389,7 +389,7 @@ Example files use the sibling `example<bbName>-<variant>.json` pattern (validate
 - `exampletappDefinition-nmnh-spinel-oxybar-v1.json` — EPMA WDS spinel oxybarometry (Smithsonian NMNH)
 - `exampletappDefinition-uoc-laicpms-glass-v1.json` — LA-ICP-MS volcanic glass trace elements (University of Cologne)
 
-Each technique's `tapp/`, `detail/`, and `profile/` directories carry their own paired publication-derived examples (`exampleempaTAPP-P0.json`, `exampledetailEMPA-P0.json`, `exampleempaProfile.json`, …).
+Each technique's `tapp/`, `detail/`, and `profile/` directories carry their own paired publication-derived examples (`exampleepmaTAPP-P0.json`, `exampledetailEPMA-P0.json`, `exampleepmaProfile.json`, …).
 
 ### Vocabularies used
 

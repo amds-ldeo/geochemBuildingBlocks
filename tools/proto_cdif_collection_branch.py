@@ -33,7 +33,7 @@ from jsonschema import Draft202012Validator as V
 
 S = os.path.dirname(os.path.abspath(__file__))
 GBB = r"C:\GithubC\amds-ldeo\geochemBuildingBlocks"
-PROF = os.path.join(GBB, "_sources", "techniqueProfile", "geochemProfile", "EMPA", "profile",
+PROF = os.path.join(GBB, "_sources", "techniqueProfile", "geochemProfile", "EPMA", "profile",
                     "resolvedSchema.json")
 
 BUNDLE_BRANCH = {

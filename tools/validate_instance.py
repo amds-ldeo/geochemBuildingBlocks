@@ -20,7 +20,7 @@ Usage:
     python tools/validate_instance.py --dir /path/to/metadata/ --summary
 
     # Explicit profile override (skip conformsTo detection)
-    python tools/validate_instance.py example.json --profile adaEMPA
+    python tools/validate_instance.py example.json --profile adaEPMA
 
     # Fallback to termCode when conformsTo has no recognized profile
     python tools/validate_instance.py --dir /path/to/metadata/ --termcode-fallback
@@ -46,7 +46,7 @@ PROFILES_DIR = REPO_ROOT / "_sources"
 
 # All known profiles and their resolved schema locations
 KNOWN_PROFILES = [
-    "adaProduct", "adaEMPA", "adaXRD", "adaICPMS", "adaVNMIR",
+    "adaProduct", "adaEPMA", "adaXRD", "adaICPMS", "adaVNMIR",
     "adaAIVA", "adaAMS", "adaARGT", "adaDSC", "adaEAIRMS",
     "adaFTICRMS", "adaGCMS", "adaGPYC", "adaIC", "adaICPOES",
     "adaL2MS", "adaLAF", "adaLCMS", "adaLIT", "adaNGNSMS",
@@ -77,7 +77,7 @@ TERMCODE_TO_PROFILE = {
     "ARGT": "adaARGT",
     "DSC": "adaDSC",
     "EA-IRMS": "adaEAIRMS",
-    "EMPA": "adaEMPA",
+    "EPMA": "adaEPMA",
     "FIB-SEM": "adaSEM",
     "FTICR-MS": "adaFTICRMS",
     "GC-MS": "adaGCMS",

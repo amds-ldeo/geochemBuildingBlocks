@@ -639,8 +639,8 @@ def analyte_column_def(name, item, desc, jtype, read_only, ptier="", atier="", p
     """One generated TargetSpeciesColumn $def, mirroring build_tapp.param_template_def.
 
     Built here rather than via _tapp_lib.analyte_column_obj: that helper keys its @id off a
-    module-global TAPP_NAME (which stays 'empaTAPP' unless the legacy matrix route configured it,
-    so LA-ICP-MS columns came out with empaTAPP @ids) and returns OrderedDicts that
+    module-global TAPP_NAME (which stays 'epmaTAPP' unless the legacy matrix route configured it,
+    so LA-ICP-MS columns came out with epmaTAPP @ids) and returns OrderedDicts that
     yaml.safe_dump cannot represent. b.PARAM_BASE is configured per TAPP by b.configure().
     """
     base = (b.PARAM_BASE or "ada:parameter/unknownTAPP").replace("ada:parameter/", prefix + "/")

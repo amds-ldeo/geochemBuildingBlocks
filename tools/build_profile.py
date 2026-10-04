@@ -103,18 +103,18 @@ PROFILES = {
         addtype=["Multi-Collector Inductively Coupled Plasma Mass Spectrometry",
                  "Multi-Collector Inductively Coupled Plasma Mass Spectrometry (MCICPMS) processed", "Laser Ablation Inductively coupled plasma mass spectrometry", "Laser Ablation Inductively Coupled Plasma Mass Spectrometry"],
         title="ADA LA-MC-ICP-MS U-Pb Geochronology Product Profile"),
-    # EPMA and TEM predate the generator: EPMA already has a hand-made profile/ (cid adaEMPA, kept
+    # EPMA and TEM predate the generator: EPMA already has a hand-made profile/ (cid adaEPMA, kept
     # verbatim so its published conformsTo URI does not move) and TEM has none yet. Adding them here
     # brings both under the generator, so a technique regen keeps its profile in step with its own
     # detail and tapp - EPMA's profile had gone stale against them precisely because it was skipped.
-    "empaTAPP": dict(dir="EMPA", short="EMPA", cid="adaEMPA",
+    "epmaTAPP": dict(dir="EPMA", short="EPMA", cid="adaEPMA",
         # adaProduct's controlled list pairs each technique: a Title Case name carrying the
         # acronym, and a sentence-case name without it. 19 of the 20 multi-value profiles here
-        # carry both halves. EMPA carried two ACRONYM forms instead -- two products -- and never
-        # picked up its sentence-case partner, which is the value every published ADA EMPA record
+        # carry both halves. EPMA carried two ACRONYM forms instead -- two products -- and never
+        # picked up its sentence-case partner, which is the value every published ADA EPMA record
         # actually writes. Without it the profile rejects its own records.
-        addtype=["Electron Microprobe Analysis (EMPA)",
-                 "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+        addtype=["Electron Microprobe Analysis (EPMA)",
+                 "Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)",
                  "Electron microprobe analysis"],
         title="ADA EPMA Product Profile"),
     "temTAPP": dict(dir="TEM", short="TEM", cid="adaTEM",

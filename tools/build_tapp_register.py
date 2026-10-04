@@ -3,7 +3,7 @@
 Original columns are preserved verbatim and in order, so a PR back to the TAPP repo is a
 clean diff. Four columns are appended:
 
-  TAPP key        the machine key (empaTAPP). PRE-FILLED ONLY ON AN EXACT ACRONYM MATCH
+  TAPP key        the machine key (epmaTAPP). PRE-FILLED ONLY ON AN EXACT ACRONYM MATCH
                   against the technique directory -- anything less is left blank, because
                   fuzzy matching produced confident errors (it scored SNMS -> simsTAPP at
                   0.87 and offered xanesTAPP only as a runner-up for XANES).

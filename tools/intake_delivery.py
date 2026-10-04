@@ -19,7 +19,7 @@ Identifier nearly lost its placement. Confirm against the new table's own Descri
 migrate_sidecar.ALIASES entry rather than letting the paths be discarded.
 
     python tools/intake_delivery.py TAPPS20260901          # a new delivery folder
-    python tools/intake_delivery.py TAPPS20260901 --map empaTAPP=EPMA/EPMA_TAPP_v14.csv
+    python tools/intake_delivery.py TAPPS20260901 --map epmaTAPP=EPMA/EPMA_TAPP_v14.csv
     python tools/intake_delivery.py --checks-only          # just re-run 2 and 3 on what is here
 """
 import argparse

@@ -14,7 +14,7 @@ This document is written for three audiences. Read the **Big picture** first, th
 ## 1. Big picture
 
 A **TAPP** describes an analytical *protocol* (a `prov:Plan` / lab method) in a technique‑specific way —
-e.g. "EPMA/EMPA", "LA‑ICP‑MS geochronology", "Solution Q‑ICP‑MS". A subject‑matter expert captures the
+e.g. "EPMA/EPMA", "LA‑ICP‑MS geochronology", "Solution Q‑ICP‑MS". A subject‑matter expert captures the
 protocol as one row per metadata field in an Excel workbook. The pipeline turns that workbook into three
 kinds of JSON‑Schema **building block (BB)**:
 
@@ -207,7 +207,7 @@ list (`registry/vocab/adaAnalyticalParameters.json`).
 ### 3.3 Analyte columns and controlled vocabularies
 
 - **Analyte columns** (`ada:targetSpeciesTemplate.ada:targetSpeciesColumns`) describe per‑element table columns for
-  techniques with a per‑analyte axis (LA‑ICP‑MS, EMPA). Techniques without one (XCT, imaging) omit them.
+  techniques with a per‑analyte axis (LA‑ICP‑MS, EPMA). Techniques without one (XCT, imaging) omit them.
 - **Controlled vocabularies** become both an inline `enum` on the field **and** a standalone SKOS
   `ConceptScheme` file under `registry/vocab/` for reuse.
 
@@ -224,7 +224,7 @@ _sources/
     parameterTemplates/  parameterValues/  vocab/
   BaseSchema/                        # foundation BBs
     tappDefinition/  adaProduct/  instrument/ laboratory/ image/ tabularData/ …
-  techniqueProfile/geochemProfile/<Tech>/           # one folder per technique, e.g. EMPA, LA-ICPMS, XCT
+  techniqueProfile/geochemProfile/<Tech>/           # one folder per technique, e.g. EPMA, LA-ICPMS, XCT
     tapp/          # the TAPP definition BB
     detail/        # the analysis-instance detail BB
     profile/       # the path-driven product profile
@@ -233,7 +233,7 @@ _sources/
 
 Each BB folder is: `schema.yaml` (source) + `resolvedSchema.json` (compiled, self‑contained) +
 `bblock.json` (register metadata) + `example*.json`. The BB's identifier is derived from its path
-(`ogch.techniqueProfile.EMPA.tapp`).
+(`ogch.techniqueProfile.EPMA.tapp`).
 
 ### 4.2 The tools (in run order)
 

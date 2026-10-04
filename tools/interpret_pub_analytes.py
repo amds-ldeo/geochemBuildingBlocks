@@ -1,7 +1,7 @@
 """Heuristic analyte-axis inference for the publication columns of the TAPP
 spreadsheet, plus a side workbook with each <pub>-interp column inserted
 right after its source pub (layout A) for side-by-side review, plus paired
-exampleempaTAPP-<pub>-interp.json / exampledetailEMPA-<pub>-interp.json
+exampleepmaTAPP-<pub>-interp.json / exampledetailEPMA-<pub>-interp.json
 review files generated from the inferred data via the existing
 example_for_pub builder.
 
@@ -25,8 +25,8 @@ For each pub column the script parses:
 
 Outputs:
   docs/TAPP_EPMA_filled-interp.xlsx   (layout A side workbook)
-  build/interp-review/exampleempaTAPP-<pub>-interp.json
-  build/interp-review/exampledetailEMPA-<pub>-interp.json
+  build/interp-review/exampleepmaTAPP-<pub>-interp.json
+  build/interp-review/exampledetailEPMA-<pub>-interp.json
 
 The interp JSON files are rebuilt every run; review them to validate
 the inferred analyte axis and per-analyte mappings before merging the
@@ -229,7 +229,7 @@ def generate_interp_examples(layout_xlsx: Path, interp_dst_col_by_label: dict):
     sys.path.insert(0, str(REPO / "tools"))
     import _tapp_lib as L
 
-    L.configure("empaTAPP", layout_xlsx)
+    L.configure("epmaTAPP", layout_xlsx)
 
     wb = openpyxl.load_workbook(layout_xlsx, data_only=True)
     ws = wb["TAPP"]
@@ -284,20 +284,20 @@ def generate_interp_examples(layout_xlsx: Path, interp_dst_col_by_label: dict):
 
         # Override PUBS so example_for_pub uses the right code/label for @ids etc.
         L.PUBS = [(label, f"{label} (interp)")]
-        empa_ex, detail_ex = L.example_for_pub(0, f"{label} (interp)", rows)
+        epma_ex, detail_ex = L.example_for_pub(0, f"{label} (interp)", rows)
 
         # Adjust @id suffix to include "-interp" so the review file is clearly tagged
-        empa_ex["@id"] = f"ex:empaTAPP-{label}-interp"
-        detail_ex["@id"] = f"ex:detailEMPA-{label}-interp"
-        detail_ex["schema:measurementTechnique"] = {"@id": empa_ex["@id"]}
+        epma_ex["@id"] = f"ex:epmaTAPP-{label}-interp"
+        detail_ex["@id"] = f"ex:detailEPMA-{label}-interp"
+        detail_ex["schema:measurementTechnique"] = {"@id": epma_ex["@id"]}
 
-        empa_path = REVIEW_DIR / f"exampleempaTAPP-{label}-interp.json"
-        with open(empa_path, "w", encoding="utf-8") as f:
-            json.dump(empa_ex, f, indent=2, ensure_ascii=False)
+        epma_path = REVIEW_DIR / f"exampleepmaTAPP-{label}-interp.json"
+        with open(epma_path, "w", encoding="utf-8") as f:
+            json.dump(epma_ex, f, indent=2, ensure_ascii=False)
             f.write("\n")
-        written.append(empa_path)
+        written.append(epma_path)
         if detail_ex.get("schema:additionalProperty"):
-            detail_path = REVIEW_DIR / f"exampledetailEMPA-{label}-interp.json"
+            detail_path = REVIEW_DIR / f"exampledetailEPMA-{label}-interp.json"
             with open(detail_path, "w", encoding="utf-8") as f:
                 json.dump(detail_ex, f, indent=2, ensure_ascii=False)
                 f.write("\n")

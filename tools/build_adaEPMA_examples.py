@@ -1,20 +1,20 @@
-"""Build adaEMPA profile-level dataset examples from paired empaTAPP+detailEMPA
+"""Build adaEPMA profile-level dataset examples from paired epmaTAPP+detailEPMA
 example files.
 
-For each publication with both an exampleempaTAPP-<pub>.json and an
-exampledetailEMPA-<pub>.json on disk, emits exampleadaEMPA-<pub>.json under
-_sources/profiles/adaProfiles/adaEMPA/. The resulting Dataset:
+For each publication with both an exampleepmaTAPP-<pub>.json and an
+exampledetailEPMA-<pub>.json on disk, emits exampleadaEPMA-<pub>.json under
+_sources/profiles/adaProfiles/adaEPMA/. The resulting Dataset:
 
   - derives schema:variableMeasured from the TAPP's ada:defaultTargetSpecies
-  - carries the detailEMPA fields on a single tabular hasPart
+  - carries the detailEPMA fields on a single tabular hasPart
   - references the TAPP definition via schema:measurementTechnique on that
     hasPart (@id reference, not inline)
   - inserts synthetic placeholders (DOI, file size, checksum, dates) that
     authors can override per-pub when ready to publish
 
 Run from repo root:
-    python tools/build_adaEMPA_examples.py            # all pubs with paired files
-    python tools/build_adaEMPA_examples.py --pub P1 --pub P5  # specific pubs
+    python tools/build_adaEPMA_examples.py            # all pubs with paired files
+    python tools/build_adaEPMA_examples.py --pub P1 --pub P5  # specific pubs
 """
 from __future__ import annotations
 import argparse
@@ -27,7 +27,7 @@ import _tapp_lib as L
 
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--tapp", default="empaTAPP", help="TAPP name (default empaTAPP)")
+    p.add_argument("--tapp", default="epmaTAPP", help="TAPP name (default epmaTAPP)")
     p.add_argument("--xlsx", default=None, help="Path to TAPP spreadsheet (informational)")
     p.add_argument("--pub", action="append", default=None,
                    help="Restrict to specific pub code(s); repeat for multiple")
@@ -35,7 +35,7 @@ def main() -> int:
 
     L.configure(args.tapp, args.xlsx)
     counts = L.build_profile_examples(pub_filter=args.pub)
-    print(f"adaEMPA profile examples: wrote {counts['written']}, skipped {counts['skipped']}")
+    print(f"adaEPMA profile examples: wrote {counts['written']}, skipped {counts['skipped']}")
     return 0
 
 

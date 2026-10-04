@@ -135,7 +135,7 @@ clean — but only because **none of their 52 records carries `schema:contributo
 constraint never fired. RAMAN and XANES do carry it: 4 of 4 and 46 of 241 fail.
 
 More broadly, the `geochemProfile` `profile/` schemas have effectively never been run against the
-corpus. A sample of `adaEMPA` and `adaTEM` records fails them **40/40 and 40/40**, on
+corpus. A sample of `adaEPMA` and `adaTEM` records fails them **40/40 and 40/40**, on
 `schema:variableMeasured` and `schema:additionalType`. These constraints do not look wrong; they
 are simply untested against data.
 
@@ -182,7 +182,7 @@ CONTAIN a member named `Data reduction`, and `schema:step` is **optional**. So:
 * `sentinel_pinned_members` fills leaves of a pinned member that EXISTS — there is no member;
 * the `contains` therefore never fires, and the minimal object satisfies no branch.
 
-Observed on EMPA and Solution-Q-ICPMS: one error each,
+Observed on EPMA and Solution-Q-ICPMS: one error each,
 `{'@type': ['schema:HowTo']} is not valid under any of the given schemas`.
 
 This is the same mechanism this issue is about, seen from the other side. §4 counts the literals a

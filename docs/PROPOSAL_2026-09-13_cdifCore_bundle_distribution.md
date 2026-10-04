@@ -132,7 +132,7 @@ instead.
 ## 4. Tested
 
 Against two published ADA records, `10.60707/an7h-fg87` and `10.60707/3xec-yw98`, using the
-resolved adaEMPA profile schema (which composes cdifCore, cdifDataDescription, cdifManifest and
+resolved adaEPMA profile schema (which composes cdifCore, cdifDataDescription, cdifManifest and
 cdifProvenance). Prototype in `scratchpad/proto_cdif_collection_branch.py`.
 
 | | distribution errors before | after |

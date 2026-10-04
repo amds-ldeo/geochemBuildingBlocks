@@ -33,11 +33,11 @@ almost never does -- 1,206 of 3,491 concepts are defined and all but one of thos
 FIELDS (from adaAnalyticalParameters), not allowed VALUES. Adding definitions to the
 registry is what makes these IRIs worth resolving. Note the hazard before doing it by hand:
 _tapp_lib overwrites any codelist whose $id it owns, so a definition typed into
-empa_beamMode.json is destroyed by the next regenerate. Definitions need a source that
+epma_beamMode.json is destroyed by the next regenerate. Definitions need a source that
 survives regeneration -- the schemapaths sidecar is the pattern this repo already uses for
 exactly that.
 
-    python tools/build_ada_vocabulary.py empaTAPP
+    python tools/build_ada_vocabulary.py epmaTAPP
     python tools/build_ada_vocabulary.py --all
     python tools/build_ada_vocabulary.py --all --write   # emit build/vocabulary/<tapp>.json
     python tools/build_ada_vocabulary.py --check-stability  # what blocks minting; exit 1 if unsafe
