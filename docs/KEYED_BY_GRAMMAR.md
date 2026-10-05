@@ -3,17 +3,20 @@
 Written 2026-08-11 against the delivery in `TAPPS20260811/` (16 TAPPs, 1691 content rows). The
 field names, tiers, counts and examples below are taken from those CSVs.
 
-**Re-checked 2026-10-01 against `tapp @ 94fa379`**, the delivery that enforces the keyed-value
-notation on all sixteen TAPPs (`KEYED_NOTATION_EXEMPT` is now empty). **Two renames have happened
-since this document was written and it has not been reworded throughout: `analyte` is now
-`target species`, and `channel` is now `monitored property`.** Read the older sections with that
-substitution; the paths in them (`ada:targetSpeciesColumns[]`,
-`ada:monitoredPropertyColumns[]`) are current.
+**Re-checked 2026-10-05 against `tapp @ 6a6eed2`** (EPMA v88, SEM v85, SEM_Composition v83), the
+delivery that re-keys the counting times per target material. The previous re-check was against
+`94fa379`, which enforced the keyed-value notation on all sixteen TAPPs (`KEYED_NOTATION_EXEMPT` is
+now empty). **Two renames have happened since this document was written and it has not been
+reworded throughout: `analyte` is now `target species`, and `channel` is now `monitored
+property`.** Read the older sections with that substitution; the paths in them
+(`ada:targetSpeciesColumns[]`, `ada:monitoredPropertyColumns[]`) are current, and
+`keyed_path()` aliases both new spellings onto the old route keys.
 
-The column now carries **24 distinct forms**, not the eight described here:
+Counted from the sixteen `Current TAPPs/*.csv`: **1936 content rows, 674 keyed row-instances,
+25 distinct forms** — not the eight described here.
 
 ```
-monitored property 115   reported property 99   acquisition pass 83   sample 48
+monitored property 109   reported property 99   acquisition pass 83   sample 48
 target species 40   standard x reported property 33   combined result x reported property 26
 sample > sampling unit 25   sample > sampling unit x reported property 21
 defines: target material 16   defines: sample 16   defines: sample > sampling unit 16
@@ -21,21 +24,76 @@ target material 16   defines: reported property 16   defines: target species 13
 defines: monitored property per target species 13   combined result 13
 defines: combined result 13   target material x target species 12   defines: standard 12
 defines: acquisition pass 9   preparation step 9   pair: reported property 7
-defines: preparation step 3
+target material x monitored property 6   defines: preparation step 3
 ```
 
-**Thirteen are routed** by `bootstrap_schemapaths.keyed_path()`: `target species`,
-`monitored property`, `reported property`, `sample`, `target material`, `combined result`,
-`combined result x reported property`, `sample persistent identifier`, and the `defines:` forms for
-`target species`, `reported property`, `sample`, `sample > sampling unit`, `target material` and
+**What `6a6eed2` changed, and it is the whole delta:** `monitored property` drops 115 → 109 and a
+twenty-fifth form appears, `target material x monitored property` 6. Those are the same six rows —
+`Peak Counting Time` and `Background Counting Time` in each of EPMA v88, SEM v85 and
+SEM_Composition v83. A counting time is set per spectrometer AND per material, so the single key
+understated it.
+
+**Fourteen forms are routed** by `bootstrap_schemapaths.keyed_path()`, covering 453 of the 674
+instances: `monitored property`, `reported property`, `sample`, `target species`,
+`target material`, `combined result`, `combined result x reported property`,
+`target material x target species`, `sample persistent identifier`, and the `defines:` forms for
+`sample`, `sample > sampling unit`, `reported property`, `target species`, `target material` and
 `combined result`.
 
-**Eleven are flagged rather than guessed at**: `acquisition pass`, `standard x reported property`,
-`sample > sampling unit`, `sample > sampling unit x reported property`,
-`defines: monitored property per target species`, `target material x target species`,
-`defines: standard`, `defines: acquisition pass`, `preparation step`, `pair: reported property`,
-`defines: preparation step`. That is the point — an inferred placement for a domain nobody has
+**Eleven are left unrouted rather than guessed at**, 221 instances: `acquisition pass` (83),
+`standard x reported property` (33), `sample > sampling unit` (25),
+`sample > sampling unit x reported property` (21), `defines: monitored property per target
+species` (13), `defines: standard` (12), `defines: acquisition pass` (9), `preparation step` (9),
+`pair: reported property` (7), `target material x monitored property` (6),
+`defines: preparation step` (3). That is the point — an inferred placement for a domain nobody has
 modelled is worse than an empty cell, because it looks decided.
+
+> Earlier revisions of this file listed `target material x target species` among the unrouted. It
+> has been routed since the target-material template landed, to
+> `ada:targetMaterialTemplate.ada:targetMaterialColumns[]` — the X half names the table and the Y
+> half rides the column. `target material x monitored property` is the same construction and is
+> the obvious candidate to route next.
+
+### Which keys actually have a table to be a column of
+
+Four, and `tools/schema_path_emitter.KEYED_TABLES` registers exactly those: `ada:targetSpecies-`,
+`ada:monitoredProperty-`, `ada:reportedProperty-` and `ada:targetMaterialColumns`. A key outside
+that set has no table, so a row keyed by it lands wherever inference puts it — typically a
+`schema:additionalProperty` name/value pair, which records the value and loses which row it
+belongs to.
+
+`DEFAULT_ROW_ARRAYS` registers only **three** of the four row axes —
+`ada:defaultTargetSpecies`, `ada:defaultMonitoredProperties`, `ada:defaultTargetMaterials`.
+`ada:defaultReportedProperties` is defined in `tappDefinition` but is absent from both that set
+and `normalize_path`'s trailing-`[]` collapse. No sidecar row ends at it today (16, 13 and 5 rows
+end at the other three), so this is latent rather than live — but it is the same gap that made a
+path ending `ada:defaultTargetMaterials[]` emit the raw items schema instead of the members, and
+cost 136 examples.
+
+### Three keys whose modelling is settled, and settled AGAINST a table
+
+Do not read these as gaps waiting for a template:
+
+- **`acquisition pass` (83 instances, 9 tables).** Retired by rule — tapp conventions.md 7.4b/c,
+  2026-08-11, taking the in-use vocabulary from ten keys to six — and reinstatement has been
+  declined twice in writing, for Collector Configuration and then Desolvation System. The reason
+  is Rule 7's own test: the key is the finest axis attested in REPORTED data, and reported data is
+  indexed by analyte and reported property, never by which pass produced it. Multi-pass structure
+  is procedural, not a data axis. **The tables nevertheless still declare it** — 7 rows in
+  `Solution_Q-ICP-MS_TAPP_v94` at `6a6eed2`, plus a `defines:` row — because `8632ef2` was
+  documentation only and never touched the `Keyed By` column. Our sidecars mirror the tables, as
+  `Key by` must; the contradiction is upstream's to resolve.
+- **`sample > sampling unit` (25) and `defines: sample > sampling unit` (16).** A data-table axis,
+  not a procedure one. `geochemProduct/schema.yaml` states it: the procedure and the analysis can
+  state only the KIND of unit (`ada:samplingUnitType`), a particular unit's identifier is a
+  `schema:variableMeasured` naming a COLUMN in a distribution, and the unit-to-material binding
+  exists only in the instance data table. An array of sampling-unit objects was added 2026-09-25
+  and REMOVED 2026-10-01 once that was settled; `ada:samplingUnits` appears nowhere in the sources
+  today.
+- **`combined result` (13) and `defines: combined result` (13).** Analysis-side only. The
+  procedure can say HOW results will be combined (Combination Method, keyed by reported property)
+  but not WHICH were, so there is deliberately no `ada:combinedResults` counterpart in
+  `tappDefinition`.
 
 **The authoritative statement of the notation is now the delivery's own `Legends` worksheet**, not
 this file. It defines the four constructions in one place:
