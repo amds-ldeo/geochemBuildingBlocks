@@ -3,8 +3,9 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@id": "ex:ramanTAPP-P0",
   "@type": [
@@ -14,10 +15,12 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "raman protocol — P0",
-  "schema:description": "ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholtz Zentrum Munchen) | (HGMU) WITec alpha 300 R (publication column of RAMAN_TAPP_draft_v2.csv).",
+  "schema:name": "example procedureName",
+  "ada:targetMaterial": "Silicate mineral",
+  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
   "ada:instrumentManufacturer": "WITec",
-  "ada:instrumentModel": "(HGMU) WITec alpha 300 R",
+  "ada:instrumentModel": "example instrumentModel",
+  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -27,7 +30,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "Liss, Michael",
+    "schema:name": "example procedureAuthor",
     "@type": [
       "schema:Person"
     ]
@@ -36,48 +39,24 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Helmholtz University (Helmholtz Zentrum Munchen)",
-    "schema:identifier": "https://ror.org/034rhsb33"
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
   },
+  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) Project-ID 364653263%E2%80%94TRR 235 (CRC 235)."
+      "schema:name": "example fundingSourceForProcedureDevelopment"
     }
+  ],
+  "ada:samplingUnitType": "Whole sample",
+  "ada:analyticalMode": [
+    "Point spectrum"
   ],
   "ada:reportedProperties": [
-    "Point Number | Raman shift (cm-1) | Intensity (a.u.)"
+    "example reportedVariablesAndUnits"
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      }
-    ]
-  },
-  "schema:variableMeasured": [
-    {
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:defaultValue": "missing"
-    }
-  ],
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
-  "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "schema:description": "example additionalNotes"
 }

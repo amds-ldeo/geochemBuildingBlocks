@@ -3,8 +3,9 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@id": "ex:gcmsTAPP-P0",
   "@type": [
@@ -14,10 +15,12 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "gcms protocol — P0",
-  "schema:description": "gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agilent 5977B GCMSD (publication column of GCMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Agilent.",
-  "ada:instrumentManufacturer": "Unknown",
-  "ada:instrumentModel": "Agilent 5977B GCMSD",
+  "schema:name": "example procedureName",
+  "ada:targetMaterial": "Silicate mineral",
+  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
+  "ada:instrumentManufacturer": "WITec",
+  "ada:instrumentModel": "example instrumentModel",
+  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -27,7 +30,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "Sako, Sunami",
+    "schema:name": "example procedureAuthor",
     "@type": [
       "schema:Person"
     ]
@@ -36,38 +39,24 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "Tohoku University"
+    "schema:name": "example laboratory",
+    "schema:identifier": "example laboratoryId"
   },
+  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program. This analysis is supported by JSPS Kakenhi 18H03728 and 22H00165 to Yoshihiro Furukawa."
+      "schema:name": "example fundingSourceForProcedureDevelopment"
     }
   ],
-  "schema:actionProcess": {
-    "@type": [
-      "schema:HowTo"
-    ],
-    "schema:step": [
-      {
-        "@type": [
-          "cdi:Activity",
-          "schema:Action"
-        ],
-        "schema:name": "Sample preparation",
-        "schema:additionalType": [
-          "bios:LabProcess"
-        ],
-        "schema:position": 1,
-        "schema:description": "missing"
-      }
-    ]
-  },
-  "ada:constantsAndReferenceValuesUsedDefault": "missing",
-  "ada:samplingUnitSelectionCriteriaDefault": "missing",
-  "ada:samplingUnitType": "missing",
-  "ada:targetMaterial": "missing",
-  "schema:datePublished": "missing"
+  "ada:samplingUnitType": "Whole sample",
+  "ada:analyticalMode": [
+    "Point spectrum"
+  ],
+  "ada:reportedProperties": [
+    "example reportedVariablesAndUnits"
+  ],
+  "schema:description": "example additionalNotes"
 }
