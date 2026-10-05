@@ -22,6 +22,15 @@ jobs:
   validate:
     name: Validate and annotate (no pages)
     runs-on: ubuntu-latest
+    # Both triggers above fire for a branch that has an open PR, so every push ran
+    # this twice -- two identical 9-12 minute postprocess runs per push, visible in
+    # PR #23's history as pairs at 17:51 and 18:42. Keep the `push` trigger, because
+    # a feature branch with no PR yet still needs a signal, and skip the duplicate by
+    # running the pull_request event only for forks, where the push event never
+    # reaches this repository.
+    if: >-
+      github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name != github.repository
     steps:
       - name: Checkout
         uses: actions/checkout@v7
