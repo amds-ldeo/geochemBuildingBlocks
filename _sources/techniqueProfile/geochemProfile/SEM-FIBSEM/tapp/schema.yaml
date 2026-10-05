@@ -275,8 +275,17 @@ allOf:
                 anyOf:
                 - type: number
                 - type: string
+              ada:mappingBeamCurrentDefault:
+                description: 'Electron beam probe current used while the beam scans an area: an X-ray
+                  or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM
+                  work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used
+                  for milling belong in the milling condition fields.'
+                anyOf:
+                - type: number
+                - type: string
             required:
             - ada:acceleratingVoltageDefault
+            - ada:mappingBeamCurrentDefault
             - ada:workingDistanceDefault
             - schema:description
             - schema:manufacturer

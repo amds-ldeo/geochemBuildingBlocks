@@ -105,11 +105,75 @@ allOf:
                                       - schema:name
                                       - schema:value
                                       - schema:unitText
+                                    - &id003
+                                      title: Mapping Beam Current
+                                      description: Probe current in nanoamperes (nA) used during X-ray
+                                        mapping.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/epmaTAPP/mappingBeamCurrent
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
+                                        schema:name:
+                                          const: Mapping Beam Current
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    - &id004
+                                      title: Mapping Beam Diameter
+                                      description: Diameter of the electron beam in micrometres during
+                                        X-ray mapping. 0 indicates a fully focused beam.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/epmaTAPP/mappingBeamDiameter
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
+                                        schema:name:
+                                          const: Mapping Beam Diameter
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
                                   allOf:
                                   - contains: *id001
                                     minContains: 0
                                     maxContains: 1
                                   - contains: *id002
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id003
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains: *id004
                                     minContains: 0
                                     maxContains: 1
                       allOf:
@@ -125,7 +189,7 @@ allOf:
             type: array
             items:
               anyOf:
-              - &id003
+              - &id005
                 title: Beam Damage Minimization
                 description: Measures taken to minimize beam damage, particularly volatilization or migration
                   of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates.
@@ -150,7 +214,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id004
+              - &id006
                 title: Beam Raster Dimensions
                 description: Dimensions of the small area over which the beam is rastered at a single
                   analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered;
@@ -180,7 +244,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id005
+              - &id007
                 title: Drift Correction
                 description: Method used to monitor and correct for instrument drift (beam current drift,
                   spectrometer drift) during the analytical session.
@@ -204,7 +268,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id006
+              - &id008
                 title: EDS Live Time per Point or Pixel
                 description: EDS spectral acquisition live time per analysis point in seconds. Previously
                   referred to as "EDS Acquisition Time" in this TAPP and commonly used under that name
@@ -236,7 +300,7 @@ allOf:
                 - schema:name
                 - schema:value
                 - schema:unitText
-              - &id007
+              - &id009
                 title: Halogen Correction on Oxygen
                 description: Whether oxygen content was adjusted to account for halogen substitution (F
                   and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
@@ -261,7 +325,7 @@ allOf:
                 - schema:propertyID
                 - schema:name
                 - schema:value
-              - &id008
+              - &id010
                 title: Step Size / Pixel Size
                 description: Distance between adjacent measurement points in the X-ray map in micrometers,
                   defining the spatial resolution. Report both X and Y step if they differ.
@@ -292,12 +356,6 @@ allOf:
                 - schema:unitText
               - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
             allOf:
-            - contains: *id003
-              minContains: 0
-              maxContains: 1
-            - contains: *id004
-              minContains: 0
-              maxContains: 1
             - contains: *id005
               minContains: 0
               maxContains: 1
@@ -308,6 +366,12 @@ allOf:
               minContains: 0
               maxContains: 1
             - contains: *id008
+              minContains: 0
+              maxContains: 1
+            - contains: *id009
+              minContains: 0
+              maxContains: 1
+            - contains: *id010
               minContains: 0
               maxContains: 1
             - contains:
@@ -390,7 +454,7 @@ allOf:
       type: array
       items:
         anyOf:
-        - &id009
+        - &id011
           title: Map Area
           description: Physical extent of the mapped region, given either as width × height in µm or as
             a total area in µm² or mm², and equal to (map width in pixels × step size) × (map height in
@@ -421,7 +485,7 @@ allOf:
           - schema:name
           - schema:value
           - schema:unitText
-        - &id010
+        - &id012
           title: Map Dimensions
           description: Number of pixels in the X-ray map in the X and Y directions. Based on the area
             of interest and selected step size.
@@ -451,10 +515,10 @@ allOf:
           - schema:value
           - schema:unitText
       allOf:
-      - contains: *id009
+      - contains: *id011
         minContains: 0
         maxContains: 1
-      - contains: *id010
+      - contains: *id012
         minContains: 0
         maxContains: 1
     schema:variableMeasured:
@@ -475,7 +539,7 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - &id011
+        - &id013
           title: Target Material of Sampling Unit
           description: The entry in Target Material that the sampling unit belongs to, which links the
             unit to the point-analysis conditions registered for that material.
@@ -501,6 +565,6 @@ allOf:
           - schema:name
           - schema:value
       allOf:
-      - contains: *id011
+      - contains: *id013
         minContains: 0
         maxContains: 1
