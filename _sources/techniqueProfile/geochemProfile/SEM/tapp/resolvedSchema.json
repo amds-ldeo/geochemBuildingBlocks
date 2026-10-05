@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
-  "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v84.csv via the path-driven pipeline.",
+  "description": "Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v85.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -4502,6 +4502,47 @@
                           }
                         }
                       ]
+                    },
+                    "ada:mappingBeamMode": {
+                      "description": "Whether the electron beam was focused or defocused to a stated diameter during X-ray mapping. How the beam or stage moves across the mapped area is recorded by Stage Scan vs. Beam Scan and Step Size / Pixel Size.",
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "enum": [
+                            "Focused",
+                            "Defocused",
+                            "N/A",
+                            "None",
+                            "missing"
+                          ]
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ],
+                      "readOnly": true
+                    },
+                    "ada:mappingBeamCurrentDefault": {
+                      "description": "Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "ada:mappingBeamDiameterDefault": {
+                      "description": "Diameter of the electron beam in micrometres during X-ray mapping. 0 indicates a fully focused beam.",
+                      "anyOf": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "string"
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -4509,6 +4550,9 @@
                     "ada:beamDiameterDefault",
                     "ada:beamMode",
                     "ada:ionBeamSource",
+                    "ada:mappingBeamCurrentDefault",
+                    "ada:mappingBeamDiameterDefault",
+                    "ada:mappingBeamMode",
                     "schema:description",
                     "schema:manufacturer",
                     "schema:model"
@@ -6138,6 +6182,369 @@
             "ada:defaultTargetSpecies"
           ]
         },
+        "ada:targetMaterialTemplate": {
+          "type": "object",
+          "properties": {
+            "ada:targetMaterialColumns": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
+                    "allOf": [
+                      {
+                        "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/KeyedTableColumn"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schema:valueName": {
+                            "const": "targetMaterial"
+                          },
+                          "ada:dataType": {
+                            "const": "string"
+                          },
+                          "schema:readonlyValue": {
+                            "const": true
+                          },
+                          "schema:valueRequired": {
+                            "const": true
+                          },
+                          "ada:tier": {
+                            "const": "M"
+                          },
+                          "ada:cdifPropertyPath": {
+                            "const": "#/schema:variableMeasured/schema:name"
+                          }
+                        },
+                        "required": [
+                          "schema:valueName",
+                          "ada:dataType",
+                          "schema:readonlyValue",
+                          "schema:valueRequired",
+                          "ada:tier",
+                          "ada:cdifPropertyPath"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "title": "Background Counting Time",
+                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "backgroundCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Background Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Peak Counting Time",
+                    "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/peakCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "peakCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Peak Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  {
+                    "title": "Primary Calibration Standard Name",
+                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "primaryCalibrationStandardName"
+                      },
+                      "schema:name": {
+                        "const": "Primary Calibration Standard Name"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  }
+                ]
+              },
+              "allOf": [
+                {
+                  "contains": {
+                    "title": "Background Counting Time",
+                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "backgroundCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Background Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Peak Counting Time",
+                    "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/peakCountingTime"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "peakCountingTime"
+                      },
+                      "schema:name": {
+                        "const": "Peak Counting Time"
+                      },
+                      "ada:dataType": {
+                        "const": "number"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "anyOf": [
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                },
+                {
+                  "contains": {
+                    "title": "Primary Calibration Standard Name",
+                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "type": "object",
+                    "properties": {
+                      "@id": {
+                        "const": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
+                      },
+                      "@type": {
+                        "const": [
+                          "schema:PropertyValueSpecification"
+                        ]
+                      },
+                      "schema:valueName": {
+                        "const": "primaryCalibrationStandardName"
+                      },
+                      "schema:name": {
+                        "const": "Primary Calibration Standard Name"
+                      },
+                      "ada:dataType": {
+                        "const": "string"
+                      },
+                      "schema:readonlyValue": {
+                        "const": false
+                      },
+                      "ada:tier": {
+                        "const": "M"
+                      },
+                      "schema:defaultValue": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "@id",
+                      "@type",
+                      "schema:valueName",
+                      "schema:name",
+                      "ada:dataType",
+                      "schema:defaultValue"
+                    ]
+                  },
+                  "minContains": 0,
+                  "maxContains": 1
+                }
+              ]
+            },
+            "ada:defaultTargetMaterials": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "ada:defaultTargetMaterials"
+          ]
+        },
         "ada:monitoredPropertyTemplate": {
           "type": "object",
           "properties": {
@@ -6182,71 +6589,6 @@
                           "ada:cdifPropertyPath"
                         ]
                       }
-                    ]
-                  },
-                  {
-                    "title": "Background Counting Time",
-                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Background Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
                     ]
                   },
                   {
@@ -6368,71 +6710,6 @@
                       },
                       "schema:name": {
                         "const": "Dwell Time per Pixel"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  {
-                    "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/semTAPP/peakCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "peakCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Peak Counting Time"
                       },
                       "ada:dataType": {
                         "const": "number"
@@ -6751,75 +7028,6 @@
               "allOf": [
                 {
                   "contains": {
-                    "title": "Background Counting Time",
-                    "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "backgroundCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Background Counting Time"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
                     "title": "Background Position(s)",
                     "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
                     "type": "object",
@@ -6946,75 +7154,6 @@
                       },
                       "schema:name": {
                         "const": "Dwell Time per Pixel"
-                      },
-                      "ada:dataType": {
-                        "const": "number"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "anyOf": [
-                          {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "type": "string"
-                              }
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "number"
-                                },
-                                {
-                                  "type": "string"
-                                }
-                              ]
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                },
-                {
-                  "contains": {
-                    "title": "Peak Counting Time",
-                    "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:monitoredPropertyColumn/semTAPP/peakCountingTime"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "peakCountingTime"
-                      },
-                      "schema:name": {
-                        "const": "Peak Counting Time"
                       },
                       "ada:dataType": {
                         "const": "number"
@@ -8457,169 +8596,6 @@
             }
           ],
           "readOnly": true
-        },
-        "ada:targetMaterialTemplate": {
-          "type": "object",
-          "properties": {
-            "ada:targetMaterialColumns": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "description": "The mandatory target-material-identifier column, naming the material type in each row. Mirrors TargetSpeciesIdentifierColumn and MonitoredPropertyIdentifierColumn; like both it maps into schema:variableMeasured/schema:name, because the material a sampling unit hit is recorded as a column of the data table -- the variable list is shared across a procedure's table parts rather than owned by any one of them.",
-                    "allOf": [
-                      {
-                        "description": "One column of the per-target-material parameter table. Structurally a KeyedTableColumn; kept as its own name because generated schemas and the shared targetMaterialColumns registry $ref it.",
-                        "allOf": [
-                          {
-                            "$ref": "#/$defs/KeyedTableColumn"
-                          }
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "properties": {
-                          "schema:valueName": {
-                            "const": "targetMaterial"
-                          },
-                          "ada:dataType": {
-                            "const": "string"
-                          },
-                          "schema:readonlyValue": {
-                            "const": true
-                          },
-                          "schema:valueRequired": {
-                            "const": true
-                          },
-                          "ada:tier": {
-                            "const": "M"
-                          },
-                          "ada:cdifPropertyPath": {
-                            "const": "#/schema:variableMeasured/schema:name"
-                          }
-                        },
-                        "required": [
-                          "schema:valueName",
-                          "ada:dataType",
-                          "schema:readonlyValue",
-                          "schema:valueRequired",
-                          "ada:tier",
-                          "ada:cdifPropertyPath"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
-                      },
-                      "schema:name": {
-                        "const": "Primary Calibration Standard Name"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  }
-                ]
-              },
-              "allOf": [
-                {
-                  "contains": {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
-                    "type": "object",
-                    "properties": {
-                      "@id": {
-                        "const": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName"
-                      },
-                      "@type": {
-                        "const": [
-                          "schema:PropertyValueSpecification"
-                        ]
-                      },
-                      "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
-                      },
-                      "schema:name": {
-                        "const": "Primary Calibration Standard Name"
-                      },
-                      "ada:dataType": {
-                        "const": "string"
-                      },
-                      "schema:readonlyValue": {
-                        "const": false
-                      },
-                      "ada:tier": {
-                        "const": "M"
-                      },
-                      "schema:defaultValue": {
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "@id",
-                      "@type",
-                      "schema:valueName",
-                      "schema:name",
-                      "ada:dataType",
-                      "schema:defaultValue"
-                    ]
-                  },
-                  "minContains": 0,
-                  "maxContains": 1
-                }
-              ]
-            },
-            "ada:defaultTargetMaterials": {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/DefinedTerm"
-                  },
-                  {
-                    "type": "object"
-                  }
-                ]
-              }
-            }
-          },
-          "required": [
-            "ada:defaultTargetMaterials"
-          ]
         },
         "ada:sampleTiltAngle": {
           "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.",

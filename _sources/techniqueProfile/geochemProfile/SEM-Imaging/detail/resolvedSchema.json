@@ -3113,6 +3113,52 @@
                                                     "schema:value",
                                                     "schema:unitText"
                                                   ]
+                                                },
+                                                {
+                                                  "title": "Mapping Beam Current",
+                                                  "description": "Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Mapping Beam Current"
+                                                    },
+                                                    "schema:value": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "number"
+                                                        },
+                                                        {
+                                                          "type": "string"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:unitText": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value",
+                                                    "schema:unitText"
+                                                  ]
                                                 }
                                               ]
                                             },
@@ -3190,6 +3236,56 @@
                                                     },
                                                     "schema:name": {
                                                       "const": "Working Distance"
+                                                    },
+                                                    "schema:value": {
+                                                      "anyOf": [
+                                                        {
+                                                          "type": "number"
+                                                        },
+                                                        {
+                                                          "type": "string"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:unitText": {
+                                                      "type": "string"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id",
+                                                    "@type",
+                                                    "schema:propertyID",
+                                                    "schema:name",
+                                                    "schema:value",
+                                                    "schema:unitText"
+                                                  ]
+                                                },
+                                                "minContains": 0,
+                                                "maxContains": 1
+                                              },
+                                              {
+                                                "contains": {
+                                                  "title": "Mapping Beam Current",
+                                                  "description": "Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "const": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                                                    },
+                                                    "@type": {
+                                                      "const": [
+                                                        "schema:PropertyValue"
+                                                      ]
+                                                    },
+                                                    "schema:propertyID": {
+                                                      "const": [
+                                                        {
+                                                          "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                                                        }
+                                                      ]
+                                                    },
+                                                    "schema:name": {
+                                                      "const": "Mapping Beam Current"
                                                     },
                                                     "schema:value": {
                                                       "anyOf": [

@@ -298,6 +298,14 @@ def keyed_path(row):
         # ada:targetSpeciesColumns[].
         "target material x target species": ["$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"],
 
+        # Same construction, added by tapp 6a6eed2: Peak and Background Counting Time in EPMA v88,
+        # SEM v85 and SEM_Composition v83 moved from `monitored property` to
+        # `target material x monitored property`, because a counting time is set per spectrometer
+        # AND per material. X names the table and the monitored-property half rides the column's
+        # schema:valueName, exactly as above. Routed rather than left to inference because the
+        # cross-product has a settled home the moment the X half is a table we own.
+        "target material x monitored property": ["$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]"],
+
         # combined result is ANALYSIS-side only. The procedure can say HOW results will be
         # combined (Combination Method, keyed by reported property) but never WHICH were, so
         # there is no procedure-side counterpart to route. It sits on the ACTIVITY rather than in
