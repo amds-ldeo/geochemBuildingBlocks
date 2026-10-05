@@ -240,7 +240,7 @@ TAPP_CONFIGS = {
     "epmaTAPP": {
         # Converted to the path-driven pipeline (2026-08-04) from the v-numbered workbook, replacing
         # the earlier matrix/`schema path` route (build_epma) + _tapp_lib publication examples.
-        "xlsx": "tapp/Current TAPPs/EPMA_TAPP_v87.csv",
+        "xlsx": "tapp/Current TAPPs/EPMA_TAPP_v88.csv",
         "prefix": "epma",
         "component_types": ["ada:EPMAImage", "ada:EPMAImageMap", "ada:EPMAQEATabular",
                             "ada:EPMAImageCollection", "ada:EPMAESPCTabular", "ada:EPMAESPCPlot"],
@@ -250,7 +250,7 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "EPMA/EPMA Technique-Aligned Protocol Profile (epmaTAPP)",
         "description": ("Electron-probe microanalysis (EPMA/EPMA, WDS/EDS) extension of the base TAPP "
-                        "definition, generated from tapp/Current TAPPs/EPMA_TAPP_v87.csv via the path-driven pipeline "
+                        "definition, generated from tapp/Current TAPPs/EPMA_TAPP_v88.csv via the path-driven pipeline "
                         "(bootstrap_schemapaths.py + build_pathdriven.py)."),
         "detail_title": "EPMA/EPMA Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for EPMA/EPMA, reusing "
@@ -352,7 +352,7 @@ TAPP_CONFIGS = {
     # only feed build_tapp.build()'s registries/vocab/bblock pass; build_pathdriven then overwrites
     # the schemas from the schema paths. componentType consts are PROPOSED (refine vs Components ws).
     "semCompositionTAPP": {
-        "xlsx": "tapp/Current TAPPs/SEM_Composition_TAPP_v82.csv",
+        "xlsx": "tapp/Current TAPPs/SEM_Composition_TAPP_v83.csv",
         "prefix": "semComposition",
         "component_types": ["ada:SEMEDSSpectrum", "ada:SEMEDSMap", "ada:SEMWDSSpectrum",
                             "ada:SEMCompositionTabular"],
@@ -362,14 +362,14 @@ TAPP_CONFIGS = {
         "enum_props": {},
         "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
         "description": ("Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of "
-                        "the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v82.csv via "
+                        "the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v83.csv via "
                         "the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py)."),
         "detail_title": "SEM Composition Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for SEM composition (EDS/WDS), "
                                "reusing CDIF/schema.org slots on the schema:Dataset root."),
     },
     "semTAPP": {
-        "xlsx": "tapp/Current TAPPs/SEM_TAPP_v84.csv",
+        "xlsx": "tapp/Current TAPPs/SEM_TAPP_v85.csv",
         "prefix": "sem",
         "component_types": ["ada:SEMImage", "ada:BSEImage", "ada:SEMEDSSpectrum", "ada:SEMEDSMap",
                             "ada:EBSDMap", "ada:SEMTabular"],
@@ -380,7 +380,7 @@ TAPP_CONFIGS = {
         "title": "SEM Technique-Aligned Protocol Profile (semTAPP)",
         "description": ("Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + "
                         "FIB-SEM) extension of the base TAPP definition, generated from "
-                        "tapp/Current TAPPs/SEM_TAPP_v84.csv via the path-driven pipeline."),
+                        "tapp/Current TAPPs/SEM_TAPP_v85.csv via the path-driven pipeline."),
         "detail_title": "SEM Analysis Detail",
         "detail_description": ("Dataset-level analysis-instance detail for SEM (superset), reusing "
                                "CDIF/schema.org slots on the schema:Dataset root."),
