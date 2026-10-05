@@ -18,14 +18,15 @@ Coupling Description,Advanced,Editable,Text (free),,module,,placement owned by M
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,module,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,module,placement owned by Module Core,
 Sample Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterial,inferred,,,
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
+Sampling Unit Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample > sampling unit
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,,placement owned by Module Core,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),,module,,placement owned by Module SamplingUnitSelection,
 Sampling Unit Selection Criteria,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Sampling Unit Selection Criteria'].schema:value,inferred,,,
-Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,inferred,,,sample
-Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,inferred,,,sample
+Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:defaultValue,keyed,,,sample
+Pre-Analysis Imaging and Screening,Advanced,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Pre-Analysis Imaging and Screening'].schema:value,keyed,,,sample
 Instrument Manufacturer,Basic,Read-Only,Controlled list,$MethodDefinition.ada:instrumentManufacturer,inferred,,,
 Instrument Model,Basic,Read-Only,Text (free),$MethodDefinition.ada:instrumentModel,inferred,,,
 Acquisition Software,Basic,Editable,Text (free),,module,,placement owned by Module Core,
@@ -44,3 +45,4 @@ Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:was
 Reflectance Standard,Basic,Editable,Text (free),$MethodDefinition.ada:reflectanceStandardDefault,inferred,,,
 Reflectance Standard,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Reflectance Standard'].schema:value,inferred,,,
 Additional Notes,Advanced,Advanced,Text (free),,module,,placement owned by Module Core,
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core [not in current workbook],defines: sampling unit

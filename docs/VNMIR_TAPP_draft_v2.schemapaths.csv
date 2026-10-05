@@ -18,9 +18,10 @@ Coupling Description,Advanced,Editable,Text (free),,module,,placement owned by M
 Coupled Procedure DOI,N/A,Advanced,URI / DOI,,module,module,placement owned by Module Core,
 Coupled Dataset or Publication Reference,N/A,Advanced,URI / DOI / Text,,module,module,placement owned by Module Core,
 Sample Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample
-Sample Persistent Identifier,Advanced,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
+Sample Persistent Identifier,N/A,Advanced,URI / IGSN,,module,,placement owned by Module Core,sample
 Target Material,Basic,Read-Only,Controlled list / Text,$MethodDefinition.ada:targetMaterial,inferred,,,
-Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core,defines: sampling unit
+Sampling Unit Type,Basic,Read-Only,Controlled list / Text,,module,,placement owned by Module Core,
+Sampling Unit Name,N/A,Basic,Text (free),,module,,placement owned by Module Core,defines: sample > sampling unit
 Sample Preparation Method,Basic,Editable,Controlled list / Text,,module,,placement owned by Module Core,
 Sample Heated,N/A,Basic,Controlled list / Text,$MethodDefinition.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Heated'].schema:defaultValue,keyed,,,sample
 Sample Heated,N/A,Basic,Controlled list / Text,$Dataset.prov:wasGeneratedBy.schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample'].schema:additionalProperty[schema:name='Sample Heated'].schema:value,keyed,,,sample
@@ -67,3 +68,4 @@ Calibration Standards,Basic,Editable,Text (free),$MethodDefinition.ada:calibrati
 Calibration Standards,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Calibration Standards'].schema:value,inferred,,,
 Noise Uncertainty,N/A,Advanced,Numeric + unit,$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='Noise Uncertainty'].dqv:value,authored,,VNMIR analysis-tier; per-measurement value,sample > sampling unit
 Additional Notes,Advanced,Advanced,Text (free),,module,,placement owned by Module Core,
+Sampling Unit,Basic,Basic,Controlled list / Text,,module,,placement owned by Module Core [not in current workbook],defines: sampling unit
