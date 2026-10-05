@@ -729,7 +729,7 @@ def check_vocab_identifier_collisions(sources_dir):
 
     That is not hypothetical. The 2026-09 generator changed the filename convention
     to <tapp>_<name>.json and did not remove the bare <name>.json it superseded, so
-    seven empaTAPP vocabularies existed twice with DIFFERENT terms (Raster vs
+    seven epmaTAPP vocabularies existed twice with DIFFERENT terms (Raster vs
     Rastered; a matrixCorrectionMethod list missing ZAF, CITZAF and Bence-Albee).
     The ADA forms app ingests this directory sorted by filename and upserts on @id,
     so the alphabetically last file won: four of the seven resolved to the stale

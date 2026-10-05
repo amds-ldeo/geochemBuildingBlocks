@@ -45,7 +45,26 @@ def cell(v):
 
 
 def short_code(header, idx):
-    m = re.search(r"([A-Z][A-Za-z]+)\s*(?:et al\.?)?\s*\(?(\d{4})", header)
+    """`Author+Year` from a publication column header, else the positional code.
+
+    Anchored to the FIRST pipe- or newline-delimited segment, which is the citation. Unanchored,
+    re.search scanned the whole header and, whenever the author failed to match, happily matched an
+    instrument model from a later segment: three EPMA columns were named JEOL8200-2, JEOL8530 and
+    JEOL8530-2 after the microprobe rather than the paper.
+
+    The separator is [\\s+,]* rather than \\s* because EPMA writes `Ma+2015` and `McCoy+2025_SI`,
+    where the `+` sat between author and year and stopped the author matching at all. EPMA is the
+    only one of the sixteen that uses that form; SEM's `Garvie et al. 2008` matched either way.
+    """
+    pat = r"([A-Z][A-Za-z]+)[\s+,]*(?:et al\.?)?[\s+,]*\(?(\d{4})"
+    # Citation segment FIRST, then the whole header. Anchoring alone cost 12 techniques an
+    # example: where the first segment carries no author the code fell through to P{idx}, and
+    # for column 0 that is "P0" -- the reserved synthetic code -- so the de-dup loop dropped
+    # one of the pair. DSC, GC-C-IRMS, GCMS, ICPOES, LCMS, QRIS, RAMAN, SEM-CL, SVRUEC, VNMIR,
+    # XANES and XRD each went from two tapp examples to one. Falling back to the unanchored
+    # scan keeps their existing instrument-derived names, so only the headers the anchored
+    # search actually matches change.
+    m = re.search(pat, re.split(r"[|\n]", header)[0]) or re.search(pat, header)
     return (m.group(1) + m.group(2)) if m else f"P{idx}"
 
 

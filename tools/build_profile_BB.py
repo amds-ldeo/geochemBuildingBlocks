@@ -4,8 +4,8 @@ the existing detail BB and TAPP definition.
 Usage:
     python tools/build_profile_BB.py [TAPP_NAME]
 
-Defaults: empaTAPP. The script derives:
-    short = TAPP_NAME without the trailing "TAPP"  (e.g. "empa", "xrd")
+Defaults: epmaTAPP. The script derives:
+    short = TAPP_NAME without the trailing "TAPP"  (e.g. "epma", "xrd")
     profile dir = _sources/profiles/geochemProfiles/<short>Profile/
 
 Files only scaffolded when missing — re-runs are no-ops once the user starts
@@ -24,8 +24,8 @@ import _tapp_lib  # noqa: E402
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n", 1)[0])
-    parser.add_argument("tapp_name", nargs="?", default="empaTAPP",
-                        help="TAPP name (e.g. empaTAPP, xrdTAPP). Default: empaTAPP.")
+    parser.add_argument("tapp_name", nargs="?", default="epmaTAPP",
+                        help="TAPP name (e.g. epmaTAPP, xrdTAPP). Default: epmaTAPP.")
     args = parser.parse_args()
     _tapp_lib.configure(args.tapp_name)
     _tapp_lib.build_profile_BB()

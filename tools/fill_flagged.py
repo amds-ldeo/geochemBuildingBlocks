@@ -33,27 +33,27 @@ import schemapath_io
 # item -> (source TAPP, why that source, note recorded on each filled row)
 FILLS = {
     "Sample Name": (
-        "empaTAPP",
+        "epmaTAPP",
         "identical in all 8 sidecars that place it",
         "shared analysis-instance row"),
     "Analytical Mode": (
-        "empaTAPP",
+        "epmaTAPP",
         "identical in all 8 sidecars that place it",
         "shared procedure row"),
     "Additional Notes": (
-        "empaTAPP",
+        "epmaTAPP",
         "identical in all 8 sidecars that place it",
         "dual-home decision: procedure default + analysis-tier value"),
     "Constants and Reference Values Used": (
-        "empaTAPP",
+        "epmaTAPP",
         "re-attributed 2026-08-21: the original source, geochronTAPP, has been retired from the "
-        "delivery (refactored into the *_UPb_* TAPPs). empaTAPP carries the same data-reduction "
+        "delivery (refactored into the *_UPb_* TAPPs). epmaTAPP carries the same data-reduction "
         "step pair, and the reviewer confirmed that placement over temTAPP's bare ada: property",
         "data-reduction step parameter"),
     # --- wave-1 triage, reviewer-decided 2026-08-20. Each was flagged in SEM_Composition and
     # --- already placed elsewhere; the two that had rival placements were decided explicitly.
     "Analysis Inclusion and Rejection Criteria": (
-        "empaTAPP",
+        "epmaTAPP",
         "reviewer: the EPMA/SEM data-reduction step parameter is correct; TEM's bare "
         "ada:analysisInclusionAndRejectionCriteria was bootstrap-inferred and has been realigned",
         "data-reduction step parameter"),
@@ -67,12 +67,12 @@ FILLS = {
         "the only placement, authored",
         "map dimensions on the dataset"),
     "Map Area": (
-        "empaTAPP",
-        "identical authored placement in empaTAPP and semTAPP",
+        "epmaTAPP",
+        "identical authored placement in epmaTAPP and semTAPP",
         "shared analysis-instance row"),
     "Procedural Blank Level": (
-        "empaTAPP",
-        "identical authored placement in empaTAPP and semTAPP",
+        "epmaTAPP",
+        "identical authored placement in epmaTAPP and semTAPP",
         "shared analysis-instance row"),
     "Session Identifier": (
         "semTAPP",
@@ -80,11 +80,11 @@ FILLS = {
         "schema:identifier, in every technique",
         "analysis-session identifier"),
     "Target Selection Criteria": (
-        "empaTAPP",
-        "authored by hand in empaTAPP, semTAPP and labxctTAPP with the identical path; the only "
+        "epmaTAPP",
+        "authored by hand in epmaTAPP, semTAPP and labxctTAPP with the identical path; the only "
         "competing variant is the bootstrap-inferred dual-home pair in the LA family and temTAPP, "
         "and an inferred path is not independent evidence",
-        "procedure default, following the authored empaTAPP/semTAPP placement"),
+        "procedure default, following the authored epmaTAPP/semTAPP placement"),
     "Reported Variables and Units": (
         "semTAPP",
         "re-attributed 2026-08-21: geochronTAPP, the reported-property pilot this followed, has "

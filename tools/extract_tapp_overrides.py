@@ -11,8 +11,8 @@ Rows whose annotated decision already equals the content-only default (name = ca
 the Metadata Item, not an analyte column, not a special skip) produce NO entry. The printed
 stats quantify how much annotation is genuinely irreducible.
 
-Scope: the 5 tier-column TAPPs routed by build_tapp.route(). empaTAPP uses the separate
-route_empa path (impl-heavy) and is handled separately.
+Scope: the 5 tier-column TAPPs routed by build_tapp.route(). epmaTAPP uses the separate
+route_epma path (impl-heavy) and is handled separately.
 
     python tools/extract_tapp_overrides.py            # write sidecars + stats
     python tools/extract_tapp_overrides.py --dry-run  # stats only

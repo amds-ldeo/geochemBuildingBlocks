@@ -286,7 +286,7 @@ pipeline regenerates; anything the pipeline owns must come from the generator, n
                  recording where every field came from:
                    exampleadaSolutionMCICPMS-ETHZ-20240903  the deposited Neptune .exp/.log files
                                                             plus the ADA record
-                   exampleadaEMPA-UAZ-20260131 (+ -points)  a real UAZ session, its method
+                   exampleadaEPMA-UAZ-20260131 (+ -points)  a real UAZ session, its method
                                                             description, and the nearest paper
                    exampleadaLAMCICPMSUPb-Sundell2021       Sundell, Gehrels & Pecha 2021,
                                                             doi:10.1111/ggr.12355
@@ -311,9 +311,9 @@ annotation convention `componentType` uses.
 
 ## componentType architecture (source of truth: spreadsheet)
 
-`ada:componentType` is a **string** on each archive `hasPart` item, classifying the file (e.g. `ada:EMPAImageMap`). Two layers of constraint apply via `allOf`:
+`ada:componentType` is a **string** on each archive `hasPart` item, classifying the file (e.g. `ada:EPMAImageMap`). Two layers of constraint apply via `allOf`:
 
-1. **Base BB enums.** Each file-type BB (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of allowed componentType strings — derived from the **Components worksheet** of `C:\GithubC\amds-ldeo\metadata\ADA-AnalyticalMethodsAndAttributes.xlsx`. This enforces that `ada:EMPAImageMap` only validates on parts whose `@type` includes `ada:imageMap`. The cached mapping lives at `tools/componentType_enum_cache.json` and is applied via `python tools/apply_componentType_enums.py`. Run with `--refresh --xlsx PATH` after editing the spreadsheet.
+1. **Base BB enums.** Each file-type BB (`image`, `imageMap`, `tabularData`, `collection`, `dataCube`, `document`, `supDocImage`, `otherFile`) declares a sealed `enum` of allowed componentType strings — derived from the **Components worksheet** of `C:\GithubC\amds-ldeo\metadata\ADA-AnalyticalMethodsAndAttributes.xlsx`. This enforces that `ada:EPMAImageMap` only validates on parts whose `@type` includes `ada:imageMap`. The cached mapping lives at `tools/componentType_enum_cache.json` and is applied via `python tools/apply_componentType_enums.py`. Run with `--refresh --xlsx PATH` after editing the spreadsheet.
 
 2. **Profile/detail layer.** A technique profile's `schema:hasPart.items` uses a schema-level `anyOf` with three kinds of branch: (a) `$ref: '../adaProduct/schema.yaml#/$defs/universalComponentTypeBranch'` for universal componentTypes (factored from per-profile boilerplate); (b) inline `properties.ada:componentType: {type: string, enum: [...]}` for technique-specific componentTypes that have no detail block; (c) `$ref: '../detail/schema.yaml'` (the technique's own detail block) for detail-bearing componentTypes. Detail schemas pin `ada:componentType` via `anyOf: [{const: "..."}]` consts AND contribute detail-specific sibling properties (e.g. `ada:spectrometersUsed`, `ada:signalUsed`) — flat on the hasPart item, NOT nested inside componentType.
 
@@ -394,7 +394,7 @@ These are real past incidents, not hypothetical:
   composed artifact is `resolvedSchema.json`, and that is where a placement question has to be
   asked. The overlay count would have justified reverting a correct change.
 - **Two files, one `@id`, is a fork — and which one wins is read order.** Nothing `$ref`s a
-  vocabulary FILE; consumers resolve the `@id`. Seven empaTAPP vocabularies existed twice with
+  vocabulary FILE; consumers resolve the `@id`. Seven epmaTAPP vocabularies existed twice with
   DIFFERENT terms (`Raster` vs `Rastered`) after a filename convention changed without removing
   what it superseded. The ADA registry ingests sorted by filename and upserts on `@id`, so the
   alphabetically last file won and four of the seven resolved to the stale fork.

@@ -8,14 +8,14 @@ description: Registry of reusable schema:PropertyValueSpecification channel colu
   no instantiable properties of its own.
 type: object
 $defs:
-  empa_backgroundCountingTime:
+  epma_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds, summed across
       all background positions.
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime
+        const: ada:monitoredPropertyColumn/epmaTAPP/backgroundCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -44,14 +44,14 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_backgroundPosition:
+  epma_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
       and whether on the high- or low-energy side.
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/backgroundPosition
+        const: ada:monitoredPropertyColumn/epmaTAPP/backgroundPosition
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -77,13 +77,13 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_diffractingCrystal:
+  epma_diffractingCrystal:
     title: Diffracting Crystal
     description: Analyzing crystal (monochromator).
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal
+        const: ada:monitoredPropertyColumn/epmaTAPP/diffractingCrystal
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -110,7 +110,7 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_dwellTimePerPixel:
+  epma_dwellTimePerPixel:
     title: Dwell Time per Pixel
     description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
       For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum
@@ -118,7 +118,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel
+        const: ada:monitoredPropertyColumn/epmaTAPP/dwellTimePerPixel
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -147,14 +147,14 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_peakCountingTime:
+  epma_peakCountingTime:
     title: Peak Counting Time
     description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay
       within procedure-defined bounds.
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/peakCountingTime
+        const: ada:monitoredPropertyColumn/epmaTAPP/peakCountingTime
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -183,13 +183,13 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_proportionalCounterDetector:
+  epma_proportionalCounterDetector:
     title: Proportional Counter / Detector
     description: Type of detector used.
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector
+        const: ada:monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -215,7 +215,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_sequence:
+  epma_sequence:
     title: Sequence
     description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds
       the number of spectrometers — the passes the acquisition is divided into. Within a single pass all
@@ -225,7 +225,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/sequence
+        const: ada:monitoredPropertyColumn/epmaTAPP/sequence
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -253,7 +253,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_wdsPhaSetting:
+  epma_wdsPhaSetting:
     title: WDS PHA Setting
     description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
       above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections
@@ -261,7 +261,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting
+        const: ada:monitoredPropertyColumn/epmaTAPP/wdsPhaSetting
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -287,7 +287,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_xRayDetectionMethodPerMonitoredElement:
+  epma_xRayDetectionMethodPerMonitoredElement:
     title: X-ray Detection Method per Monitored Element
     description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
       (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
@@ -296,7 +296,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement
+        const: ada:monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -323,13 +323,13 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_xRayLine:
+  epma_xRayLine:
     title: X-ray Line
     description: X-ray emission line measured.
     type: object
     properties:
       '@id':
-        const: ada:monitoredPropertyColumn/empaTAPP/xRayLine
+        const: ada:monitoredPropertyColumn/epmaTAPP/xRayLine
       '@type':
         const:
         - schema:PropertyValueSpecification

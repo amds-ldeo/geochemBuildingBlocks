@@ -2,20 +2,25 @@
 _sources layout.
 
 The reorg renamed the per-technique BB dirs to roles (techniqueProfile/<tech>/{tapp,detail,profile,
-profile-ada}), so a lookup by the old identity name (empaTAPP, detailLAICPMS, adaEMPA, empaProfile…)
+profile-ada}), so a lookup by the old identity name (epmaTAPP, detailLAICPMS, adaEPMA, epmaProfile…)
 no longer matches a directory name. This resolver maps those names to their new location:
 
   - identity-named BBs (adaProduct, tappDefinition, registry catalogs, BaseSchema helpers): exact search
   - <x>TAPP        -> techniqueProfile/<tech>/tapp
   - detail<X>      -> techniqueProfile/<tech>/detail   (detailXCT -> .../detail-legacy)
   - ada<X> generic -> techniqueProfile/<tech>/profile-ada
-  - <geochem name> -> techniqueProfile/<tech>/profile   (empaProfile, LA-ICPMS, Geochron, SEM-Imaging…)
+  - <geochem name> -> techniqueProfile/<tech>/profile   (epmaProfile, LA-ICPMS, Geochron, SEM-Imaging…)
 """
 from pathlib import Path
 
 # lowercased technique token -> technique directory name under techniqueProfile/
 _ALIAS = {
-    "empa": "EMPA", "geochron": "Geochron", "laicpms": "LA-ICPMS", "icpms": "ICPMS",
+    # "empa" and "empaprofile" are the LEGACY spellings, kept pointing at the renamed directory.
+    # _ALIAS is consulted before _tech_scan, and the scan can only find EPMA now, so dropping these
+    # would make a lookup by the old token return None -- which per _tech_scan's own note makes the
+    # caller "quietly use a laxer schema" rather than fail. 436 stored records still say adaEMPA.
+    "empa": "EPMA", "empaprofile": "EPMA",
+    "epma": "EPMA", "geochron": "Geochron", "laicpms": "LA-ICPMS", "icpms": "ICPMS",
     "labxct": "XCT", "xct": "XCT", "sem": "SEM", "semimaging": "SEM-Imaging",
     "semfibsem": "SEM-FIBSEM", "semcomposition": "SEM-Composition",
     "solutionqicpms": "Solution-Q-ICPMS", "solutionsficpms": "Solution-SF-ICPMS",
@@ -27,7 +32,7 @@ _ALIAS = {
     "ritofngms": "RITOFNGMS", "sims": "SIMS", "svruec": "SVRUEC", "tofsims": "ToFSIMS",
     "uvfm": "UVFM", "vlm": "VLM", "xanes": "XANES",
     # geochemProfile dir names (path-driven product profiles)
-    "empaprofile": "EMPA", "la-icpms": "LA-ICPMS", "lab-xct": "XCT",
+    "epmaprofile": "EPMA", "la-icpms": "LA-ICPMS", "lab-xct": "XCT",
     "sem-imaging": "SEM-Imaging", "sem-fibsem": "SEM-FIBSEM", "sem-composition": "SEM-Composition",
     "solution-q-icpms": "Solution-Q-ICPMS", "solution-sf-icpms": "Solution-SF-ICPMS",
 }
@@ -48,7 +53,7 @@ def _tech_scan(token: str, tp) -> str | None:
     when this was added (every LA-*, Solution-MC-ICPMS, CAPD, TIMS, S-XRF and the rest), so a
     lookup for e.g. adaSolutionMCICPMS fell through to None and its caller quietly used a laxer
     schema. Scanning the directories themselves cannot fall behind them. _ALIAS is still consulted
-    first, since it also encodes deliberate REDIRECTS (basemap -> Basemap, empaprofile -> EMPA)
+    first, since it also encodes deliberate REDIRECTS (basemap -> Basemap, epmaprofile -> EPMA)
     that are not simple spelling differences.
     """
     want = _norm(token)

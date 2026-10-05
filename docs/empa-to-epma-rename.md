@@ -27,9 +27,13 @@ spelling is gBB's own identifier choice, so renaming it will not be reverted by 
 
 ## What has to change together
 
-1. **Identifier** `empaTAPP` → `epmaTAPP`. It is a *configuration key*, not a derived string:
-   `TAPP_CONFIG = {"empaTAPP": {...}}` in `tools/_tapp_lib.py`, plus `TAPP_NAME = "empaTAPP"` and
-   the `{"empaTAPP": "EMPA", ...}` id→directory map. ~20 tools reference it.
+1. **Identifier** `empaTAPP` → `epmaTAPP`. It is a *configuration key*, not a derived string.
+   The live one is **`TAPP_CONFIGS` in `tools/build_tapp.py`** (the `"empaTAPP": {...}` entry, and
+   the `{"empaTAPP": "EMPA", ...}` id→directory map above it) — which is also the file CLAUDE.md
+   names for this ("edit build_tapp.TAPP_CONFIGS"). `tools/_tapp_lib.py` carries a SECOND id→
+   directory map and a docstring describing a `_build_empaTAPP.py` entry point that no longer
+   exists; it is legacy and must be changed too, but it is not where the configuration lives.
+   ~20 tools reference the key.
 2. **Derived detail name** `detailEMPA` → `detailEPMA`. Derived as strip-`TAPP` + uppercase
    (`'empaTAPP' → 'detailEMPA'`), so it follows the id automatically — but `DETAIL_NAME` and the
    hardcoded `detailEMPA` strings (88 occurrences) do not.
@@ -57,6 +61,18 @@ spelling is gBB's own identifier choice, so renaming it will not be reverted by 
    `… Quantitative Elemental Abundances (EMPAQEA)`.
 8. **Tool filename** `tools/build_adaEMPA_examples.py`.
 9. **Full regeneration** to propagate into 241 `resolvedSchema.json`, the examples and the mirrors.
+10. **`build/`, which the inventory above excludes but which is tracked** — 5005 files, **183 of
+    them under `build/annotated/techniqueProfile/geochemProfile/EMPA/`** — and
+    `build/register.json`, whose entries embed the spelling in *published* identifiers
+    (`ogch.techniqueProfile.geochemProfile.EMPA.detail`,
+    `ogch.techniqueProfile.geochemProfile.EMPA.profile-ada`). Those identifiers are
+    consumer-facing, so this is not only internal churn.
+
+    CI's reusable postprocess regenerates `build/` and commits it (`8d46c08d7` touched 3301 files
+    there), so it should follow the source rename without hand editing. What is NOT established is
+    whether the postprocess DELETES a directory that has gone away or only adds the new one. If it
+    only adds, both spellings will sit in `build/` indefinitely. Check after it runs, rather than
+    assuming either way.
 
 ## Hazards, each with evidence
 
@@ -91,6 +107,13 @@ spelling is gBB's own identifier choice, so renaming it will not be reverted by 
   **does not fit a two-hour window**. A run cut off mid-`resolve` leaves a half-resolved tree that
   can still validate green, because `validate_examples.py` reads whatever `resolvedSchema.json` is
   on disk. `resolve_schema.py --all` takes repeatable `--only <substring>` to resume.
+
+  Partly mitigated since this was written: `regenerate.py` now STREAMS the resolve stage rather
+  than capturing it (gBB `d299a3101`). `run()` printed a stage's output only on failure, so both
+  runs that died at the cap had printed nothing at all from resolve and a run in progress could not
+  be told from a stalled one. Streaming does not make it faster — splitting the pipeline (stages up
+  to `profile-1`, then `resolve_schema.py` directly, then `--from profile-2`) is still what fits it
+  into the window.
 
 ## Also in scope: the publication example codes (`short_code`)
 
@@ -153,6 +176,10 @@ python tools/validate_examples.py          # expect 628 of 628
 python tools/audit_building_blocks.py      # expect 237 of 242, same 5 profile-ada holds
 python tools/intake_delivery.py --checks-only
 python tools/check_componentType.py
+```
+
+```
+git ls-files build/ | grep EMPA     # expect nothing once the postprocess has run
 ```
 
 Plus CI's **Validate and annotate** (the only thing that catches dangling-`$ref` breakage — local

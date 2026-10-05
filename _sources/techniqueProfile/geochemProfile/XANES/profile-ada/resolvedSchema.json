@@ -22,10 +22,10 @@
           "Basemap",
           "Differential Scanning Calorimetry (DSC)",
           "Differential Scanning Calorimetry",
-          "Electron Microprobe Analysis (EMPA) Collection",
-          "Electron Microprobe Analysis Image (EMPA)",
-          "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
-          "Electron Microprobe Analysis (EMPA)",
+          "Electron Microprobe Analysis (EPMA) Collection",
+          "Electron Microprobe Analysis Image (EPMA)",
+          "Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)",
+          "Electron Microprobe Analysis (EPMA)",
           "Electron microprobe analysis",
           "Elemental Analysis-Isotope Ratio Mass Spectrometry (EA-IRMS)",
           "Elemental analysis - isotope ratio mass spectrometry",
@@ -301,8 +301,8 @@
                                 "ada:BSEImage",
                                 "ada:CLImage",
                                 "ada:CPDImage",
-                                "ada:EMPAESPCPlot",
-                                "ada:EMPAImage",
+                                "ada:EPMAESPCPlot",
+                                "ada:EPMAImage",
                                 "ada:FIBSEMImage",
                                 "ada:GCMSChromatogram",
                                 "ada:GCMSSpectraPlot",
@@ -427,7 +427,7 @@
                               "type": "string",
                               "enum": [
                                 "ada:EBSDMap",
-                                "ada:EMPAImageMap",
+                                "ada:EPMAImageMap",
                                 "ada:LAICPMSMap",
                                 "ada:NanoIRMap",
                                 "ada:SEMEBSDGrainImageMap",
@@ -541,8 +541,8 @@
                                     "ada:EAIRMSProcessedData",
                                     "ada:EAIRMSRawData",
                                     "ada:EELSSpectrum",
-                                    "ada:EMPAESPCTabular",
-                                    "ada:EMPAQEATabular",
+                                    "ada:EPMAESPCTabular",
+                                    "ada:EPMAQEATabular",
                                     "ada:FIBSEMTabular",
                                     "ada:FINESSETabular",
                                     "ada:FTICRMSTabular",
@@ -1361,7 +1361,7 @@
                               "enum": [
                                 "ada:ARGTCollection",
                                 "ada:EAIRMSCollection",
-                                "ada:EMPAImageCollection",
+                                "ada:EPMAImageCollection",
                                 "ada:FIBSEMSegmentation",
                                 "ada:FIBSEMVolume",
                                 "ada:FINESSECollection",
@@ -1929,7 +1929,7 @@
                     },
                     "ada:componentType": {
                       "type": "string",
-                      "description": "ADA file-type classification, expressed as a single string drawn from a universal set or a technique-specific set. Technique profiles add an anyOf at the hasPart level: one branch declares the universal componentType enum; other branches $ref technique-specific detail schemas (e.g. detailEMPA) that enumerate technique componentType values and contribute detail-specific sibling properties (e.g. ada:spectrometersUsed)."
+                      "description": "ADA file-type classification, expressed as a single string drawn from a universal set or a technique-specific set. Technique profiles add an anyOf at the hasPart level: one branch declares the universal componentType enum; other branches $ref technique-specific detail schemas (e.g. detailEPMA) that enumerate technique componentType values and contribute detail-specific sibling properties (e.g. ada:spectrometersUsed)."
                     }
                   }
                 }
@@ -16182,8 +16182,8 @@
                                 "ada:EAIRMSProcessedData",
                                 "ada:EAIRMSRawData",
                                 "ada:EELSSpectrum",
-                                "ada:EMPAESPCTabular",
-                                "ada:EMPAQEATabular",
+                                "ada:EPMAESPCTabular",
+                                "ada:EPMAQEATabular",
                                 "ada:FIBSEMTabular",
                                 "ada:FINESSETabular",
                                 "ada:FTICRMSTabular",

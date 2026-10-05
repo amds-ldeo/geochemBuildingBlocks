@@ -3,9 +3,8 @@
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
-    "dqv": "http://www.w3.org/ns/dqv#"
+    "prov": "http://www.w3.org/ns/prov#"
   },
   "@id": "ex:qrisTAPP-P0",
   "@type": [
@@ -15,17 +14,10 @@
     "ada:TAPPDefinition",
     "bios:LabProtocol"
   ],
-  "schema:name": "example procedureName",
-  "ada:targetMaterial": "Silicate mineral",
-  "ada:samplingUnitSelectionCriteriaDefault": "example samplingUnitSelectionCriteria",
+  "schema:name": "qris protocol — P0",
+  "schema:description": "qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center | Quantitative Reflectance Imaging System (publication column of QRIS_TAPP_draft_v2.csv).",
   "ada:instrumentManufacturer": "Custom-built",
-  "ada:instrumentModel": "example instrumentModel",
-  "ada:focalLength": 1.0,
-  "ada:illuminationColour": "Blue",
-  "ada:illuminationLevelDefault": 1.0,
-  "ada:exposureTimeDefault": 1.0,
-  "ada:constantsAndReferenceValuesUsedDefault": "example constantsAndReferenceValuesUsed",
-  "ada:reflectanceStandardDefault": "example reflectanceStandard",
+  "ada:instrumentModel": "Quantitative Reflectance Imaging System",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -35,7 +27,7 @@
     }
   ],
   "schema:creator": {
-    "schema:name": "example procedureAuthor",
+    "schema:name": "Golish, Dathon | Fulford, Ruby",
     "@type": [
       "schema:Person"
     ]
@@ -44,24 +36,44 @@
     "@type": [
       "schema:Place"
     ],
-    "schema:name": "example laboratory",
-    "schema:identifier": "example laboratoryId"
+    "schema:name": "NASA Johnson Space Center",
+    "schema:identifier": "https://ror.org/04xx4z452"
   },
-  "schema:datePublished": "example procedureStartDate",
   "schema:funding": [
     {
       "@type": [
         "schema:MonetaryGrant"
       ],
-      "schema:name": "example fundingSourceForProcedureDevelopment"
+      "schema:name": "None, besides OSIRIS-REx funding | None, besides OSIRIS-REx grant | (+1 more)"
     }
   ],
-  "ada:samplingUnitType": "Whole sample",
-  "ada:analyticalMode": [
-    "Reflectance imaging"
-  ],
-  "ada:reportedProperties": [
-    "example reportedVariablesAndUnits"
-  ],
-  "schema:description": "example additionalNotes"
+  "schema:actionProcess": {
+    "@type": [
+      "schema:HowTo"
+    ],
+    "schema:step": [
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Sample preparation",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1,
+        "schema:description": "missing"
+      }
+    ]
+  },
+  "ada:constantsAndReferenceValuesUsedDefault": "missing",
+  "ada:exposureTimeDefault": -9999,
+  "ada:focalLength": -9999,
+  "ada:illuminationColour": "missing",
+  "ada:illuminationLevelDefault": -9999,
+  "ada:reflectanceStandardDefault": "missing",
+  "ada:samplingUnitSelectionCriteriaDefault": "missing",
+  "ada:samplingUnitType": "missing",
+  "ada:targetMaterial": "missing",
+  "schema:datePublished": "missing"
 }

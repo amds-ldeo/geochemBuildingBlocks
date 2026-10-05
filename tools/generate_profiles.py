@@ -873,7 +873,7 @@ def _generate_examples_yaml(cfg: dict, profile_name: str) -> str:
 
 # adaXxx generic-profile name -> technique dir under techniqueProfile/<tech>/profile-ada
 _TECH_ALIAS = {
-    "empa": "EMPA", "geochron": "Geochron", "icpms": "ICPMS", "sem": "SEM", "tem": "TEM",
+    "epma": "EPMA", "geochron": "Geochron", "icpms": "ICPMS", "sem": "SEM", "tem": "TEM",
     "xct": "XCT", "xrd": "XRD", "vnmir": "VNMIR", "aiva": "AIVA", "ams": "AMS", "argt": "ARGT",
     "dsc": "DSC", "eairms": "EAIRMS", "fticrms": "FTICRMS", "gcms": "GCMS", "gpyc": "GPYC",
     "ic": "IC", "icpoes": "ICPOES", "l2ms": "L2MS", "laf": "LAF", "lcms": "LCMS", "lit": "LIT",
@@ -890,7 +890,7 @@ def _tech(name: str) -> str:
 
 # TAPP-aware techniques live under geochemProfile/, every other technique under adaProfile/.
 _TAPP_TECHS = {
-    "EMPA", "Geochron", "LA-ICPMS", "SEM", "SEM-Composition", "SEM-FIBSEM", "SEM-Imaging",
+    "EPMA", "Geochron", "LA-ICPMS", "SEM", "SEM-Composition", "SEM-FIBSEM", "SEM-Imaging",
     "Solution-MC-ICPMS", "Solution-Q-ICPMS", "Solution-SF-ICPMS", "TEM", "XCT",
 }
 

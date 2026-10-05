@@ -1,7 +1,7 @@
-"""One-shot: generate empaTAPP building block from the TAPP_EPMA_filled spreadsheet.
+"""One-shot: generate epmaTAPP building block from the TAPP_EPMA_filled spreadsheet.
 
 Reads docs/TAPP_EPMA_filled.xlsx (sheet 'TAPP') and emits, into
-_sources/techniqueProtocols/empaTAPP/:
+_sources/techniqueProtocols/epmaTAPP/:
 
 - vocab/<name>.json          one CDIF-codelist skos:ConceptScheme per enum-typed row
 - parameterTemplates/schema.yaml  registered collection BB: one $def per
@@ -11,12 +11,12 @@ _sources/techniqueProtocols/empaTAPP/:
 - schema.yaml properties     one entry per property-tagged row (overwrites the existing
                               POC schema.yaml's allOf[1].properties block)
 
-Then generates 10 example empaTAPP instances (exampleempaTAPP-P1..P10.json) using
+Then generates 10 example epmaTAPP instances (exampleepmaTAPP-P1..P10.json) using
 the publication columns H..Q. Each row's value in a given publication column populates
 either the top-level property, a methodParameters entry (as schema:defaultValue), or a
 defaultAnalytes hint.
 
-Run from repo root: python tools/_build_empaTAPP.py
+Run from repo root: python tools/_build_epmaTAPP.py
 """
 from __future__ import annotations
 import json
@@ -32,7 +32,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 # group-by-technique layout: each TAPP lives at techniqueProfile/<tech>/{tapp,detail,profile};
 # catalogs+vocab under registry/; base schemas under BaseSchema/.
 TECH_DIR = {
-    "empaTAPP": "EMPA", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
+    "epmaTAPP": "EPMA", "laicpmsTAPP": "LA-ICPMS", "labxctTAPP": "XCT",
     "semTAPP": "SEM", "semImagingTAPP": "SEM-Imaging", "semFibsemTAPP": "SEM-FIBSEM",
     "semCompositionTAPP": "SEM-Composition", "solutionQicpmsTAPP": "Solution-Q-ICPMS",
     "solutionSficpmsTAPP": "Solution-SF-ICPMS", "temTAPP": "TEM",
@@ -43,24 +43,24 @@ def _tech(tapp_name):
     return TECH_DIR.get(tapp_name, tapp_name.replace("TAPP", ""))
 
 
-# Module-level configuration set by configure(). Defaults target empaTAPP for
+# Module-level configuration set by configure(). Defaults target epmaTAPP for
 # backward-compat — new TAPP profiles call configure(tapp_name, xlsx_path)
 # before invoking build_tapp_artifacts() or build_detail_artifacts().
-TAPP_NAME = "empaTAPP"
-DETAIL_NAME = "detailEMPA"
+TAPP_NAME = "epmaTAPP"
+DETAIL_NAME = "detailEPMA"
 XLSX = REPO_ROOT / "docs" / "TAPP_EPMA_filled.xlsx"
 BB = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
-DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
+DETAIL_EPMA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
 
 
 # ---------- per-TAPP configuration ----------
 # Each entry holds the technique-specific knobs. configure() copies the matching
 # entry into CFG so the rest of the module can read CFG[...] without having to
-# care which TAPP is being built. Default behavior is empaTAPP, so existing
+# care which TAPP is being built. Default behavior is epmaTAPP, so existing
 # callers that don't set configure() still get bit-identical EPMA output.
 
 TAPP_PROFILES: dict[str, dict] = {
-    "empaTAPP": {
+    "epmaTAPP": {
         "pubs": [
             ("P0", "Richard & Deng 2026 (synthetic comprehensive WDS example)"),
             ("P1", "Chi et al. 2015 (Tissintite, EPSL)"),
@@ -87,8 +87,8 @@ TAPP_PROFILES: dict[str, dict] = {
         "termcode": "EPMA-WDS",
         "termname": "Electron Microprobe Analysis - WDS",
         "example_name_template": "EPMA TAPP example {code}",
-        "detail_componenttype_default": "ada:EMPAQEATabular",
-        "schema_title": "EPMA Technique-Aligned Protocol Profile (empaTAPP)",
+        "detail_componenttype_default": "ada:EPMAQEATabular",
+        "schema_title": "EPMA Technique-Aligned Protocol Profile (epmaTAPP)",
         "schema_description": (
             "EPMA-specific extension of the base TAPP definition. Adds top-level EPMA "
             "properties (beam mode, accelerating voltage default, matrix correction "
@@ -98,20 +98,20 @@ TAPP_PROFILES: dict[str, dict] = {
             "catalog files in targetSpeciesColumns/ (or the inherited identifier column from "
             "tappDefinition); each catalog file is itself a JSON Schema whose "
             "examples[0] carries the canonical instance. Generated from "
-            "docs/TAPP_EPMA_filled.xlsx by tools/build_empaTAPP_from_spreadsheet.py."
+            "docs/TAPP_EPMA_filled.xlsx by tools/build_epmaTAPP_from_spreadsheet.py."
         ),
-        "detail_constraint_title": "detailEMPA additionalProperty constraint (generated from empaTAPP spreadsheet)",
+        "detail_constraint_title": "detailEPMA additionalProperty constraint (generated from epmaTAPP spreadsheet)",
         "detail_constraint_catchall_desc": (
             "Catch-all for additional schema:PropertyValue entries beyond those "
-            "enumerated in the empaTAPP-derived catalog above."
+            "enumerated in the epmaTAPP-derived catalog above."
         ),
         "detail_constraint_addprop_desc": (
             "Per-dataset schema:PropertyValue entries for this EPMA dataset. "
-            "Each item is any of the empaTAPP-derived parameter types or "
+            "Each item is any of the epmaTAPP-derived parameter types or "
             "(via the catch-all branch) any other PropertyValue. All entries "
             "are optional — include only the parameters you have values for."
         ),
-        "example_description_template": "empaTAPP example derived from {pub_label}.",
+        "example_description_template": "epmaTAPP example derived from {pub_label}.",
         "has_wds_config": True,
         "emit_profile_examples": True,
     },
@@ -157,8 +157,8 @@ TAPP_PROFILES: dict[str, dict] = {
     },
 }
 
-# Active per-TAPP configuration. Defaults to empaTAPP for backward-compat.
-CFG: dict = dict(TAPP_PROFILES["empaTAPP"])
+# Active per-TAPP configuration. Defaults to epmaTAPP for backward-compat.
+CFG: dict = dict(TAPP_PROFILES["epmaTAPP"])
 
 # Catalog conflicts encountered during this build run. Surfaced as warnings
 # by share_or_write_catalog() instead of aborting the build, so a multi-TAPP
@@ -176,13 +176,13 @@ ANALYTE_COLUMN_OBJS: "OrderedDict[str, dict]" = OrderedDict()
 
 
 def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
-    """Set module globals for a build run. tapp_name like 'empaTAPP' / 'laicpmsTAPP'.
+    """Set module globals for a build run. tapp_name like 'epmaTAPP' / 'laicpmsTAPP'.
     The detail BB name is derived as 'detail' + uppercase(strip-'TAPP'(tapp_name))
-    — e.g. 'empaTAPP' → 'detailEMPA', 'laicpmsTAPP' → 'detailLAICPMS'.
+    — e.g. 'epmaTAPP' → 'detailEPMA', 'laicpmsTAPP' → 'detailLAICPMS'.
 
     Looks up the per-TAPP knobs in TAPP_PROFILES and copies them into CFG so
     other functions can read CFG[...] without caring which TAPP is active."""
-    global TAPP_NAME, DETAIL_NAME, XLSX, BB, DETAIL_EMPA, CFG
+    global TAPP_NAME, DETAIL_NAME, XLSX, BB, DETAIL_EPMA, CFG
     TAPP_NAME = tapp_name
     short = tapp_name.replace("TAPP", "").upper()
     DETAIL_NAME = f"detail{short}"
@@ -190,7 +190,7 @@ def configure(tapp_name: str, xlsx_path: str | Path | None = None) -> None:
         p = Path(xlsx_path)
         XLSX = p if p.is_absolute() else REPO_ROOT / p
     BB = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "tapp"
-    DETAIL_EMPA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
+    DETAIL_EPMA = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "detail"
     if tapp_name not in TAPP_PROFILES:
         raise ValueError(
             f"Unknown TAPP {tapp_name!r}. Add an entry to TAPP_PROFILES in "
@@ -220,13 +220,13 @@ COL = {
     "item": 0, "desc": 1, "basic": 2, "dtype": 3, "example": 4,
     "level": 6, "schema_path": 7, "matchComment": 8, "impl": 9,
     "p_start": 10,  # column K = index 10 (first publication / mode column)
-    # p_end is per-TAPP; read from CFG["p_end_col"] (26 for empaTAPP, 12 for laicpmsTAPP).
+    # p_end is per-TAPP; read from CFG["p_end_col"] (26 for epmaTAPP, 12 for laicpmsTAPP).
 }
 
 
 def _detect_columns(header_row) -> dict:
     """Resolve logical column -> 0-based index BY HEADER NAME, so a single reader
-    handles both the empa-filled(-noInterp) layout (A-F, G=Level, H=schema path,
+    handles both the epma-filled(-noInterp) layout (A-F, G=Level, H=schema path,
     I=matchComment, J=implementation notes, K+=pubs) and the newer Ruolin workbook
     layout (…Spot/Transect/Mapping, schema path/matchComment/implementation notes,
     Literature Assessment, then pubs). Publication columns are everything after the
@@ -250,7 +250,7 @@ def _detect_columns(header_row) -> dict:
     cols = {
         "item": find(lambda h: h == "metadata item", "Metadata Item"),
         "desc": find(lambda h: h.startswith("description"), "Description"),
-        # Protocol-Level Tier: the empa prototype labels it "Basic/Advanced";
+        # Protocol-Level Tier: the epma prototype labels it "Basic/Advanced";
         # the newer Ruolin workbooks label it "Protocol-Level Tier".
         "protocol_tier": find(lambda h: h in ("basic/advanced", "protocol-level tier"),
                               "Protocol-Level Tier", required=False),
@@ -430,7 +430,7 @@ def share_or_write_catalog(path: Path, data: dict) -> None:
         return
 
     # Soft-share: catalog entries that differ ONLY in their TAPP-namespace
-    # @id/$id/propertyID token (e.g. `ada:vocab/empaTAPP/Technique` vs
+    # @id/$id/propertyID token (e.g. `ada:vocab/epmaTAPP/Technique` vs
     # `ada:vocab/laicpmsTAPP/Technique`) are still semantically equal. Strip
     # the TAPP segment from any ada:vocab|parameter|analyteColumn URI in both
     # records and compare. If equal, leave the existing (foreign-owned) file
@@ -586,9 +586,9 @@ def parameter_obj(name: str, label: str, desc: str, dtype: str, enum_vname: str 
                   readOnly: bool | None, tier: str = "R") -> dict:
     """Hybrid JSON Schema + canonical instance for one method parameter.
 
-    Pins ada:fieldScope to "session" (the conventional default for empaTAPP
+    Pins ada:fieldScope to "session" (the conventional default for epmaTAPP
     method parameters). The parent MethodParameter shape is enforced via
-    the empaTAPP wrapper schema's items: $ref: MethodParameter that
+    the epmaTAPP wrapper schema's items: $ref: MethodParameter that
     applies alongside this catalog file's discriminator constraints in
     the wrapper's oneOf — so the catalog file itself stays self-contained
     (no cross-folder $ref that the OGC bblocks postprocessor mishandles).
@@ -670,11 +670,11 @@ def _value_type_for(dtype_col: str | None) -> tuple[str | list[str], str | None]
 
 def additional_property_obj(name: str, label: str, desc: str, dtype_col: str | None,
                             enum_vname: str | None, dtype_impl: str | None) -> dict:
-    """Hybrid JSON Schema + canonical instance for one detailEMPA additionalProperty.
+    """Hybrid JSON Schema + canonical instance for one detailEPMA additionalProperty.
 
     Models a schema:PropertyValue entry that carries an actual reading (per-dataset)
     rather than a parameter template. Pinned: @type, @context, schema:propertyID
-    (= ada:parameter/empaTAPP/<name>), schema:name. schema:value type comes from the
+    (= ada:parameter/epmaTAPP/<name>), schema:name. schema:value type comes from the
     spreadsheet's Data Type column. schema:unitText is required (when the dtype
     carries a parenthesised unit like 'Numeric (kV)') but only type-checked as
     string — different authors may write 'µm' / 'um' / 'micrometer' / 'µm × µm'
@@ -893,7 +893,7 @@ def _haspart_catchall_branch(known_addtypes: list[str]) -> dict:
 
 
 def build_haspart_constraint(rows: list[dict]) -> dict | None:
-    """Build the empaTAPP overlay's schema:instrument.schema:hasPart constraint.
+    """Build the epmaTAPP overlay's schema:instrument.schema:hasPart constraint.
 
     Strategy:
     - For each spreadsheet row whose schema path matches
@@ -1226,14 +1226,14 @@ def write_parameter_templates_registry(parameter_template_defs: "OrderedDict[str
     )
 
 
-def write_detail_empa_constraint(detail_param_names: list[str]) -> None:
+def write_detail_epma_constraint(detail_param_names: list[str]) -> None:
     """No-op for the constraint snippet: the per-dataset additionalProperty
     constraint now lives INLINE in the authored detail schema.yaml's allOf,
     referencing the parameterValues registry $defs (schema.yaml#/$defs/<name>).
     The detail schema.yaml is source and never regenerated here, so this
     function only cleans up the legacy generated parametersConstraint.yaml if a
     stale copy is still present."""
-    stale = DETAIL_EMPA / "parametersConstraint.yaml"
+    stale = DETAIL_EPMA / "parametersConstraint.yaml"
     if stale.exists():
         stale.unlink()
         print(f"  removed legacy {stale.relative_to(REPO_ROOT)} (constraint now inline in schema.yaml)")
@@ -1245,8 +1245,8 @@ def scaffold_detail_bb_if_missing() -> None:
     to write parametersConstraint.yaml. Existing files are never overwritten —
     the user maintains the authored componentType enum and any
     technique-specific properties on schema.yaml directly."""
-    DETAIL_EMPA.mkdir(parents=True, exist_ok=True)
-    schema_path = DETAIL_EMPA / "schema.yaml"
+    DETAIL_EPMA.mkdir(parents=True, exist_ok=True)
+    schema_path = DETAIL_EPMA / "schema.yaml"
     if not schema_path.exists():
         yaml = YAML()
         yaml.preserve_quotes = True
@@ -1300,7 +1300,7 @@ def scaffold_detail_bb_if_missing() -> None:
             yaml.dump(doc, f)
         print(f"  scaffolded {schema_path.relative_to(REPO_ROOT)} (fill in ada:componentType)")
 
-    bblock_path = DETAIL_EMPA / "bblock.json"
+    bblock_path = DETAIL_EPMA / "bblock.json"
     if not bblock_path.exists():
         bblock = OrderedDict([
             ("$schema", "metaschema.yaml"),
@@ -1352,15 +1352,15 @@ def _cleanup_legacy_flat_catalog(catalog_dir: Path, dir_basename: str) -> None:
             print(f"  deleted legacy flat {fp.relative_to(REPO_ROOT)} (now a $def)")
 
 
-def cleanup_orphan_param_files(empa_param_names: list[str], detail_param_names: list[str]) -> None:
+def cleanup_orphan_param_files(epma_param_names: list[str], detail_param_names: list[str]) -> None:
     """Delete *.json under techniqueProtocols/parameterTemplates/ or
     techniqueProtocols/parameterValues/ that don't correspond to a current
     spreadsheet parameter row in the appropriate bucket. Avoids stale
     orphans after spreadsheet edits or readOnly toggles."""
-    keep_empa = set(empa_param_names)
+    keep_epma = set(epma_param_names)
     if PARAMETER_TEMPLATES_DIR.exists():
         for fp in PARAMETER_TEMPLATES_DIR.glob("*.json"):
-            if fp.stem not in keep_empa:
+            if fp.stem not in keep_epma:
                 fp.unlink()
                 print(f"  deleted orphan {fp.relative_to(REPO_ROOT)}")
     # parameterValues is now a registered collection BB (schema.yaml $defs +
@@ -1535,16 +1535,16 @@ def _coerce_value(val, dtype_col: str | None):
 
 def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                     route_map: dict | None = None) -> tuple[dict, dict]:
-    """Build a paired (empaTAPP, detailEMPA) example from one publication column.
+    """Build a paired (epmaTAPP, detailEPMA) example from one publication column.
 
-    empaTAPP carries the protocol definition (top-level ada:* properties from
+    epmaTAPP carries the protocol definition (top-level ada:* properties from
     `property:` tags + readOnly:true schema:additionalProperty templates).
-    detailEMPA carries the per-dataset values (schema:additionalProperty entries
+    detailEPMA carries the per-dataset values (schema:additionalProperty entries
     for readOnly:false parameters with a value in this publication's column),
-    pointing back at the empaTAPP via schema:measurementTechnique by @id.
+    pointing back at the epmaTAPP via schema:measurementTechnique by @id.
     """
     pub_code = _pubs()[pub_index][0].lower()
-    empa_id = f"ex:{TAPP_NAME}-{pub_code}"
+    epma_id = f"ex:{TAPP_NAME}-{pub_code}"
     detail_id = f"ex:{DETAIL_NAME}-{pub_code}"
 
     parts = OrderedDict()
@@ -1555,7 +1555,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
         "bios": "https://bioschemas.org/",
         "prov": "http://www.w3.org/ns/prov#",
     }
-    parts["@id"] = empa_id
+    parts["@id"] = epma_id
     parts["@type"] = [
         "prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
     ]
@@ -1572,7 +1572,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
     detail["@id"] = detail_id
     detail["@type"] = ["schema:Thing"]
     detail["ada:componentType"] = CFG["detail_componenttype_default"]
-    detail["schema:measurementTechnique"] = [{"@id": empa_id}]
+    detail["schema:measurementTechnique"] = [{"@id": epma_id}]
     detail["schema:additionalProperty"] = []
 
     method_params = []
@@ -1682,7 +1682,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
                 })
             continue
 
-        # Matrix placement (build_tapp.route_empa): a route_map keyed by item carries
+        # Matrix placement (build_tapp.route_epma): a route_map keyed by item carries
         # the canonical home(s). Basic-protocol -> top-level ada: prop (…Default if
         # editable at analysis); Advanced-protocol -> schema:additionalProperty
         # PropertyValueSpecification (defaultValue); Analysis Editable/Advanced -> a
@@ -1874,7 +1874,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
     return parts, detail
 
 
-# ---------- profile-level (adaEMPA) example builder ----------
+# ---------- profile-level (adaEPMA) example builder ----------
 
 def variable_measured_from_default_analytes(pub_label: str, default_analytes: list,
                                              unit_text: str = "wt%") -> list:
@@ -1907,7 +1907,7 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
             desc += f" ({detail})"
         desc += "."
         out.append(OrderedDict([
-            ("@id", f"ex:adaEMPA-{pub_label}-var-{analyte}"),
+            ("@id", f"ex:adaEPMA-{pub_label}-var-{analyte}"),
             ("@type", ["schema:PropertyValue", "cdi:InstanceVariable"]),
             ("schema:name", analyte),
             ("schema:description", desc),
@@ -1925,17 +1925,17 @@ def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
     """Adapt a TAPP-level schema:instrument record into a prov:used entry. Adds
     schema:Thing + schema:Product to @type and ensures the additionalType
     contains the instrument-class markers expected by the profile schema."""
-    # NOTE: this is only invoked from the empaTAPP profile-example builder
-    # (build_adaEMPA_example / emit_adaEMPA_examples), which is gated by
-    # CFG["emit_profile_examples"] = True for empaTAPP only. The literal
-    # "EMPA Instrument" preserves the legacy adaEMPA profile-example output.
+    # NOTE: this is only invoked from the epmaTAPP profile-example builder
+    # (build_adaEPMA_example / emit_adaEPMA_examples), which is gated by
+    # CFG["emit_profile_examples"] = True for epmaTAPP only. The literal
+    # "EPMA Instrument" preserves the legacy adaEPMA profile-example output.
     base = OrderedDict([
         ("@type", ["schema:Thing", "schema:Product"]),
         ("schema:additionalType", [
-            {"@id": "nxs:base_classes/NXinstrument.html"}, "ada:EMPAInstrument",
+            {"@id": "nxs:base_classes/NXinstrument.html"}, "ada:EPMAInstrument",
         ]),
-        ("schema:name", "EMPA Instrument"),
-        ("schema:identifier", ["ex:instrument-empa-001"]),
+        ("schema:name", "EPMA Instrument"),
+        ("schema:identifier", ["ex:instrument-epma-001"]),
     ])
     if isinstance(tapp_instrument, dict):
         if tapp_instrument.get("schema:name"):
@@ -1984,22 +1984,22 @@ _REQUIRED_CONFORMS_TO = [
     "https://w3id.org/cdif/data_description/1.1",
     "https://w3id.org/cdif/provenance/1.1",
     "https://w3id.org/cdif/manifest/1.1",
-    "https://w3id.org/geochem/metadata/profiles/adaEMPA",
+    "https://w3id.org/geochem/metadata/profiles/adaEPMA",
     "https://w3id.org/geochem/metadata/profiles/adaProduct",
 ]
 
 
 def profile_example_for_pub(pub_label: str, pub_citation: str,
                             tapp_ex: dict, detail_ex: dict) -> dict:
-    """Build an adaEMPA profile-level schema:Dataset example for one publication.
+    """Build an adaEPMA profile-level schema:Dataset example for one publication.
 
     Composes:
       - schema:variableMeasured: derived from tapp.ada:targetSpeciesTemplate.ada:defaultTargetSpecies
       - prov:wasGeneratedBy[].prov:used: from tapp.schema:instrument
       - prov:wasGeneratedBy[].schema:location: from tapp.schema:location
       - prov:wasGeneratedBy[].schema:object: synthesized MaterialSample referencing tapp.schema:object
-      - schema:distribution[].schema:hasPart[]: an EMPAQEATabular file carrying
-        the detailEMPA fields (componentType, spectrometersUsed, signalUsed,
+      - schema:distribution[].schema:hasPart[]: an EPMAQEATabular file carrying
+        the detailEPMA fields (componentType, spectrometersUsed, signalUsed,
         schema:additionalProperty, schema:measurementTechnique → tapp_ex.@id)
       - schema:subjectOf: catalog-record metadata with the required dcterms:conformsTo URIs
 
@@ -2012,17 +2012,17 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
 
     tapp_id = tapp_ex.get("@id", f"ex:{TAPP_NAME}-{pub_label.lower()}")
 
-    detail_componenttype = detail_ex.get("ada:componentType", "ada:EMPAQEATabular")
+    detail_componenttype = detail_ex.get("ada:componentType", "ada:EPMAQEATabular")
     detail_spectrometers = detail_ex.get("ada:spectrometersUsed", "5x WDS")
     detail_signal = detail_ex.get("ada:signalUsed", "Kα x-ray lines")
     detail_addprops = detail_ex.get("schema:additionalProperty", [])
 
     haspart = OrderedDict([
-        ("@id", f"ex:adaEMPA-{pub_label}-data-001"),
+        ("@id", f"ex:adaEPMA-{pub_label}-data-001"),
         ("@type", ["schema:MediaObject", "ada:tabularData", "cdi:TabularTextDataSet", "schema:Thing"]),
-        ("schema:name", f"adaEMPA-{pub_label}-data.csv"),
+        ("schema:name", f"adaEPMA-{pub_label}-data.csv"),
         ("schema:description", f"Per-point quantitative EPMA analyses ({pub_citation})."),
-        ("schema:additionalType", ["ada:EMPAQEATabular"]),
+        ("schema:additionalType", ["ada:EPMAQEATabular"]),
         ("schema:encodingFormat", ["text/csv"]),
         ("cdi:isDelimited", True),
         ("cdi:isFixedWidth", False),
@@ -2052,18 +2052,18 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("ex", "https://example.org/"),
         ("dcat", "http://www.w3.org/ns/dcat#"),
     ])
-    out["@id"] = f"ex:adaEMPA-{pub_label}"
+    out["@id"] = f"ex:adaEPMA-{pub_label}"
     out["@type"] = ["schema:Dataset", "schema:Product"]
-    out["schema:name"] = f"adaEMPA dataset for {pub_label} ({pub_citation})"
+    out["schema:name"] = f"adaEPMA dataset for {pub_label} ({pub_citation})"
     out["schema:description"] = (
-        f"Auto-generated adaEMPA profile-level Dataset for publication {pub_label}: "
+        f"Auto-generated adaEPMA profile-level Dataset for publication {pub_label}: "
         f"{pub_citation}. The schema:hasPart entry under schema:distribution "
-        f"carries detailEMPA fields and points at the empaTAPP TAPP definition "
+        f"carries detailEPMA fields and points at the epmaTAPP TAPP definition "
         f"({tapp_id}); schema:variableMeasured is derived from the TAPP's "
         f"ada:defaultTargetSpecies."
     )
     out["schema:additionalType"] = [
-        "Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)",
+        "Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)",
         "ada:DataDeliveryPackage",
     ]
     out["schema:identifier"] = OrderedDict([
@@ -2072,22 +2072,22 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         # gh-pages (local CDIF source has the anyOf; gh-pages still serves type:string) —
         # same publish-lag as instrument additionalType; flip to {"@id": ...} once gh-pages catches up.
         ("schema:propertyID", "https://registry.identifiers.org/registry/doi"),
-        ("schema:value", f"10.PLACEHOLDER/adaempa-{pub_label.lower()}"),
+        ("schema:value", f"10.PLACEHOLDER/adaepma-{pub_label.lower()}"),
     ])
-    out["schema:url"] = f"https://astromat.org/products/adaempa-{pub_label.lower()}"
+    out["schema:url"] = f"https://astromat.org/products/adaepma-{pub_label.lower()}"
     out["schema:dateModified"] = "2026-04-29"
     out["schema:version"] = "0.1"
     out["schema:license"] = ["https://creativecommons.org/licenses/by/4.0/"]
     out["schema:creativeWorkStatus"] = "Draft"
     out["schema:measurementTechnique"] = [OrderedDict([
         ("@type", ["schema:DefinedTerm"]),
-        ("schema:name", "Electron Microprobe Analysis (EMPA)"),
-        ("schema:identifier", "https://ada.astromat.org/vocabulary/techniques/EMPA"),
+        ("schema:name", "Electron Microprobe Analysis (EPMA)"),
+        ("schema:identifier", "https://ada.astromat.org/vocabulary/techniques/EPMA"),
     ])]
     tapp_object_first = (tapp_ex.get("schema:object") or [None])[0]
     out["prov:wasGeneratedBy"] = [OrderedDict([
         ("@type", ["prov:Activity", "schema:Action"]),
-        ("schema:identifier", f"session-empa-{pub_label.lower()}"),
+        ("schema:identifier", f"session-epma-{pub_label.lower()}"),
         ("schema:startDate", "2026-04-29"),
         ("prov:used", [_instrument_for_provused(tapp_ex.get("schema:instrument"))]),
         ("schema:location", _location_for_provused(tapp_ex.get("schema:location"))),
@@ -2096,9 +2096,9 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     out["schema:variableMeasured"] = variable_measured
     out["schema:distribution"] = [OrderedDict([
         ("@type", ["schema:DataDownload"]),
-        ("schema:name", f"adaEMPA-{pub_label}-archive.zip"),
+        ("schema:name", f"adaEPMA-{pub_label}-archive.zip"),
         ("schema:description", f"Archive containing tabular EPMA data for {pub_label}."),
-        ("schema:contentUrl", f"https://astromat.org/downloads/adaempa-{pub_label.lower()}.zip"),
+        ("schema:contentUrl", f"https://astromat.org/downloads/adaepma-{pub_label.lower()}.zip"),
         ("schema:encodingFormat", ["application/zip"]),
         ("spdx:checksum", OrderedDict([
             ("@type", ["spdx:Checksum"]),
@@ -2115,8 +2115,8 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
     out["schema:subjectOf"] = OrderedDict([
         ("@type", ["schema:Dataset"]),
         ("schema:additionalType", [{"@id": "dcat:CatalogRecord"}]),
-        ("@id", f"ex:adaEMPA-{pub_label}-metadata"),
-        ("schema:about", {"@id": f"ex:adaEMPA-{pub_label}"}),
+        ("@id", f"ex:adaEPMA-{pub_label}-metadata"),
+        ("schema:about", {"@id": f"ex:adaEPMA-{pub_label}"}),
         ("schema:dateModified", "2026-04-29"),
         ("dcterms:conformsTo", [{"@id": uri} for uri in _REQUIRED_CONFORMS_TO]),
         ("schema:maintainer", OrderedDict([
@@ -2129,8 +2129,8 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
 
 
 def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
-    """For each pub with a paired (empaTAPP, detailEMPA) example pair on disk,
-    emit _sources/profiles/adaProfiles/adaEMPA/exampleadaEMPA-<pub>.json. Returns
+    """For each pub with a paired (epmaTAPP, detailEPMA) example pair on disk,
+    emit _sources/profiles/adaProfiles/adaEPMA/exampleadaEPMA-<pub>.json. Returns
     a counts dict {written: int, skipped: int}.
 
     EPMA-only — emits nothing when CFG["emit_profile_examples"] is False
@@ -2154,7 +2154,7 @@ def build_profile_examples(pub_filter: list[str] | None = None) -> dict:
         tapp_ex = json.loads(tapp_path.read_text(encoding="utf-8"))
         detail_ex = json.loads(detail_path.read_text(encoding="utf-8"))
         profile_ex = profile_example_for_pub(pub_code, pub_citation, tapp_ex, detail_ex)
-        out_path = profile_dir / f"exampleadaEMPA-{pub_code}.json"
+        out_path = profile_dir / f"exampleadaEPMA-{pub_code}.json"
         out_path.write_text(json.dumps(profile_ex, indent=2, ensure_ascii=False) + "\n",
                             encoding="utf-8")
         written += 1
@@ -2477,19 +2477,19 @@ def build_tapp_artifacts(pub_filter: list[str] | None = None) -> dict:
         if pub_filter and pcode not in pub_filter:
             examples_yaml.append((pcode, plabel))
             continue
-        empa_ex, _ = example_for_pub(i, plabel, rows)
+        epma_ex, _ = example_for_pub(i, plabel, rows)
         # canonical model: required props get a real value or a sentinel; non-meaningful
         # values ("N") are cleaned (sentinel if required, dropped if optional).
         for key, _b in cls["schema_properties"]:
-            present = key in empa_ex
-            ok = present and _pub_meaningful(empa_ex[key])
+            present = key in epma_ex
+            ok = present and _pub_meaningful(epma_ex[key])
             if key in required_set:
                 if not ok:
-                    empa_ex[key] = (-9999 if prop_type.get(key) in ("number", "integer")
+                    epma_ex[key] = (-9999 if prop_type.get(key) in ("number", "integer")
                                     else "missing")
             elif present and not ok:
-                del empa_ex[key]
-        write_json(BB / f"example{TAPP_NAME}-{pcode}.json", empa_ex)
+                del epma_ex[key]
+        write_json(BB / f"example{TAPP_NAME}-{pcode}.json", epma_ex)
         examples_yaml.append((pcode, plabel))
         written += 1
     print(f"  wrote {written} per-publication {TAPP_NAME} examples"
@@ -2517,7 +2517,7 @@ def build_detail_artifacts(pub_filter: list[str] | None = None) -> dict:
     write_parameter_values_registry(cls["param_value_defs"])
     # Clean up the legacy generated parametersConstraint.yaml (constraint is now
     # inline in the authored detail schema.yaml).
-    write_detail_empa_constraint(cls["detail_param_names"])
+    write_detail_epma_constraint(cls["detail_param_names"])
 
     # Clean up any legacy flat parameterValues/<name>.json files owned by THIS
     # TAPP — they are superseded by schema.yaml $defs. Foreign-owned flat files
@@ -2543,7 +2543,7 @@ def build_detail_artifacts(pub_filter: list[str] | None = None) -> dict:
             continue
         _, detail_ex = example_for_pub(i, _plabel, rows)
         if detail_ex.get("schema:additionalProperty"):
-            write_json(DETAIL_EMPA / f"example{DETAIL_NAME}-{pcode}.json", detail_ex)
+            write_json(DETAIL_EPMA / f"example{DETAIL_NAME}-{pcode}.json", detail_ex)
             written += 1
     print(f"  wrote {written} per-publication {DETAIL_NAME} examples"
           + (f" (filtered to {pub_filter})" if pub_filter else ""))
@@ -2562,7 +2562,7 @@ def build_profile_BB() -> None:
       - schema:measurementTechnique anyOf [{@id ref}, inline TAPP]
       - schema:distribution[*].schema:hasPart[*] anyOf includes detailXXX
     """
-    short = TAPP_NAME.replace("TAPP", "")  # e.g. "empa", "xrd"
+    short = TAPP_NAME.replace("TAPP", "")  # e.g. "epma", "xrd"
     profile_dir = REPO_ROOT / "_sources" / "techniqueProfile" / "geochemProfile" / _tech(TAPP_NAME) / "profile"
     profile_dir.mkdir(parents=True, exist_ok=True)
 
