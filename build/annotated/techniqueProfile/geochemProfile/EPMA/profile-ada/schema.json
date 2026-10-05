@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ADA EPMA Product Profile",
+  "description": "Technique-specific profile for Electron Microprobe Analysis (EPMA/EPMA) products. Extends the base ADA product profile with constraints on valid EPMA component types. Generic (adaProduct-only) profile; the analysis-instance detail (detailEPMA) and epmaTAPP linkage live on the path-driven geochem empaProfile.",
+  "allOf": [
+    {
+      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "schema:additionalType": {
+          "description": "Must include an EPMA product type identifier.",
+          "contains": {
+            "enum": [
+              "Electron Microprobe Analysis (EPMA) Collection",
+              "Electron Microprobe Analysis Image (EPMA)",
+              "Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)",
+              "Electron Microprobe Analysis (EPMA)",
+              "Electron microprobe analysis"
+            ]
+          },
+          "x-jsonld-id": "http://schema.org/additionalType"
+        },
+        "schema:distribution": {
+          "description": "Distribution items for adaEPMA. Archive hasPart items must have ada:componentType from technique-specific or universal values.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schema:hasPart": {
+                "items": {
+                  "type": "object",
+                  "anyOf": [
+                    {
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/adaProduct/schema.json#/$defs/universalComponentTypeBranch"
+                    },
+                    {
+                      "properties": {
+                        "ada:componentType": {
+                          "type": "string",
+                          "enum": [
+                            "ada:EPMAImage",
+                            "ada:EPMAImageMap",
+                            "ada:EPMAQEATabular",
+                            "ada:EPMAImageCollection",
+                            "ada:EPMAESPCTabular",
+                            "ada:EPMAESPCPlot"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "ada:componentType"
+                      ]
+                    }
+                  ]
+                },
+                "x-jsonld-id": "http://schema.org/hasPart"
+              }
+            }
+          },
+          "x-jsonld-id": "http://schema.org/distribution"
+        },
+        "schema:subjectOf": {
+          "properties": {
+            "dcterms:conformsTo": {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/geochem/metadata/profiles/adaEPMA"
+                  }
+                }
+              },
+              "x-jsonld-id": "http://purl.org/dc/terms/conformsTo"
+            }
+          },
+          "x-jsonld-id": "http://schema.org/subjectOf"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "schema": "http://schema.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geosparql": "http://www.opengis.net/ont/geosparql#"
+  }
+}

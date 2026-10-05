@@ -1,0 +1,417 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EPMA/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:epmaTAPP-Broussard2026",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EPMA-WDS Quantitative Mapping+Analysis, CI Chondrite Minerals (WashU, JEOL JXA-8200)",
+  "schema:description": "Broussard et al. 2026, Meteorit. Planet. Sci. \u2014 OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" \u2014 NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) \u2014 NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis; WDS Mapping \u2014 'wavelength-dispersive quantitative compositional mapping and analysis'.",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "EPMA",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "15 kV",
+      "schema:manufacturer": {
+        "schema:name": "JEOL",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "schema:hasPart": [
+        {
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "5 wavelength-dispersive spectrometers (JEOL)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EDS Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source",
+          "schema:description": "missing"
+        }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/EPMA",
+      "schema:name": "example instrumentName",
+      "ada:beamDiameterDefault": -9999,
+      "ada:beamMode": "missing"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "F",
+      "O",
+      "CO2",
+      "H2O"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:edsAcquisitionMode": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Optical microscopy of the same thin section \u2014 \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)"
+        }
+      ]
+    }
+  ],
+  "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
+  "ada:secondaryReferenceMaterialDefault": [
+    "Smithsonian Microbeam standards (specific materials and values N)"
+  ],
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/epmaTAPP/stageScanVsBeamScan",
+      "@type": [
+        "schema:PropertyValue"
+      ],
+      "schema:propertyID": [
+        {
+          "@id": "ada:parameter/epmaTAPP/stageScanVsBeamScan"
+        }
+      ],
+      "schema:name": "Stage Scan vs. Beam Scan",
+      "schema:value": "Stage scan"
+    }
+  ],
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "phyllosilicate",
+      "oxide",
+      "sulfide",
+      "carbonate",
+      "phosphate"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+  "ada:monitoredElements": [
+    "F \u2014 'Fluorine measurement was made using the LDE1 diffracting crystal'; no other element is named"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "EPMA-WDS"
+    }
+  ],
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Washington University in St. Louis"
+  },
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnitType": "Region of interest > Phase \u2014 \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Probe for EPMA microanalysis software"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)"
+    }
+  ],
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
+  ],
+  "ada:reportedProperties": [
+    "Element concentrations in the carbonates (wt%: Fe, Mn \u2014 \"Dolomite contains 2.0 \u00b1 0.4 wt% Fe and 3.0 \u00b1 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:massAbsorptionCoefficients": "missing",
+  "ada:stepSizePixelSizeDefault": -9999,
+  "ada:wdsDeadTimeCorrection": "missing",
+  "schema:datePublished": "missing"
+}

@@ -4,13 +4,13 @@
   "description": "Registry of reusable schema:PropertyValueSpecification channel column definitions derived from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.",
   "type": "object",
   "$defs": {
-    "empa_backgroundCountingTime": {
+    "epma_backgroundCountingTime": {
       "title": "Background Counting Time",
       "description": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/backgroundCountingTime"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/backgroundCountingTime"
         },
         "@type": {
           "const": [
@@ -69,13 +69,13 @@
         "schema:defaultValue"
       ]
     },
-    "empa_backgroundPosition": {
+    "epma_backgroundPosition": {
       "title": "Background Position(s)",
       "description": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/backgroundPosition"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/backgroundPosition"
         },
         "@type": {
           "const": [
@@ -119,13 +119,13 @@
         "ada:dataType"
       ]
     },
-    "empa_diffractingCrystal": {
+    "epma_diffractingCrystal": {
       "title": "Diffracting Crystal",
       "description": "Analyzing crystal (monochromator).",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/diffractingCrystal"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/diffractingCrystal"
         },
         "@type": {
           "const": [
@@ -170,13 +170,13 @@
         "schema:defaultValue"
       ]
     },
-    "empa_dwellTimePerPixel": {
+    "epma_dwellTimePerPixel": {
       "title": "Dwell Time per Pixel",
       "description": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/dwellTimePerPixel"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/dwellTimePerPixel"
         },
         "@type": {
           "const": [
@@ -235,13 +235,13 @@
         "schema:defaultValue"
       ]
     },
-    "empa_peakCountingTime": {
+    "epma_peakCountingTime": {
       "title": "Peak Counting Time",
       "description": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/peakCountingTime"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/peakCountingTime"
         },
         "@type": {
           "const": [
@@ -300,13 +300,13 @@
         "schema:defaultValue"
       ]
     },
-    "empa_proportionalCounterDetector": {
+    "epma_proportionalCounterDetector": {
       "title": "Proportional Counter / Detector",
       "description": "Type of detector used.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/proportionalCounterDetector"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/proportionalCounterDetector"
         },
         "@type": {
           "const": [
@@ -350,13 +350,13 @@
         "ada:dataType"
       ]
     },
-    "empa_sequence": {
+    "epma_sequence": {
       "title": "Sequence",
       "description": "Order in which spectrometer assignments are acquired, and \u2014 where the element suite exceeds the number of spectrometers \u2014 the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/sequence"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/sequence"
         },
         "@type": {
           "const": [
@@ -414,13 +414,13 @@
         "ada:dataType"
       ]
     },
-    "empa_wdsPhaSetting": {
+    "epma_wdsPhaSetting": {
       "title": "WDS PHA Setting",
       "description": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/wdsPhaSetting"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/wdsPhaSetting"
         },
         "@type": {
           "const": [
@@ -464,13 +464,13 @@
         "ada:dataType"
       ]
     },
-    "empa_xRayDetectionMethodPerMonitoredElement": {
+    "epma_xRayDetectionMethodPerMonitoredElement": {
       "title": "X-ray Detection Method per Monitored Element",
       "description": "The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/xRayDetectionMethodPerMonitoredElement"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/xRayDetectionMethodPerMonitoredElement"
         },
         "@type": {
           "const": [
@@ -515,13 +515,13 @@
         "schema:defaultValue"
       ]
     },
-    "empa_xRayLine": {
+    "epma_xRayLine": {
       "title": "X-ray Line",
       "description": "X-ray emission line measured.",
       "type": "object",
       "properties": {
         "@id": {
-          "const": "ada:monitoredPropertyColumn/empaTAPP/xRayLine"
+          "const": "ada:monitoredPropertyColumn/epmaTAPP/xRayLine"
         },
         "@type": {
           "const": [

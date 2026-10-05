@@ -13,18 +13,18 @@
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType "bios:LabProcess" ;
                     schema1:name "Data reduction" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "N — stated as \"detection limits\" without specific formula" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "missing" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
@@ -58,11 +58,11 @@
     schema1:variableMeasured [ schema1:defaultValue "missing" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "missing" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "missing" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "missing" ] ;
+            schema1:value "missing" ],
+        [ schema1:defaultValue "missing" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "missing" ;
     ada:ablationSamplingMode "N — ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written" ;
     ada:ablationSpotDurationDefault -9999 ;

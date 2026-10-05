@@ -11,7 +11,7 @@ ADA image with componentType classification for analytical images. Defines prope
 
 # Image Type
 
-Describes image objects in ADA metadata with acquisition details and component type classification. Typed as `ada:image` and `schema:ImageObject`. Supports various analytical image types including EMPA, SEM, TEM, STEM, and spectroscopic images.
+Describes image objects in ADA metadata with acquisition details and component type classification. Typed as `ada:image` and `schema:ImageObject`. Supports various analytical image types including EPMA, SEM, TEM, STEM, and spectroscopic images.
 
 ## Examples
 
@@ -105,8 +105,8 @@ properties:
     - ada:BSEImage
     - ada:CLImage
     - ada:CPDImage
-    - ada:EMPAESPCPlot
-    - ada:EMPAImage
+    - ada:EPMAESPCPlot
+    - ada:EPMAImage
     - ada:FIBSEMImage
     - ada:GCMSChromatogram
     - ada:GCMSSpectraPlot

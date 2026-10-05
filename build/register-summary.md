@@ -28,17 +28,17 @@ Shell type for labeled links to creative works (schema:CreativeWork). Defines pr
 
 Supplemental documents for calibration, methods, and analysis info. Defines properties: @type, componentType, schema:version, schema:isBasedOn. Uses building blocks: detailARGT (geochemProperties).
 
-### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
-
-**Type:** schema
-
-Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
-
 ### `ogch.BaseSchema.otherFile` — Other File Type
 
 **Type:** schema
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
+
+### `ogch.BaseSchema.supDocImage` — Supplemental Document Image Type
+
+**Type:** schema
+
+Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
 ### `ogch.BaseSchema.image` — Image Type
 
@@ -254,7 +254,7 @@ Point Spread Function Data with image names and conditions. Defines properties: 
 
 **Type:** schema
 
-Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEMPA (geochemProperties), spatialRegistration (geochemProperties).
+Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEPMA (geochemProperties), spatialRegistration (geochemProperties).
 
 ### `ogch.BaseSchema.laboratory` — ADA Analysis Laboratory
 
@@ -272,7 +272,7 @@ CDI DimensionalDataStructure for multidimensional data. Defines properties: @typ
 
 **Type:** schema
 
-CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEMPA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
+CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEPMA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
 
 ### `ogch.BaseSchema.instrument` — ADA Analysis Instrument
 
@@ -430,17 +430,17 @@ Detail block for EAIRMS hasPart items, carrying the analysis-identification prop
 
 Elemental analysis - isotope ratio mass spectrometry extension of the base TAPP definition. CORE-ONLY DRAFT: the native technique layer is empty. EAIRMS has no ADA detail schema and no technique-specific property in any ADA record, so there was nothing to seed one from and none was invented. This registers the procedure skeleton and needs Phase 0 seed papers before it says anything EAIRMS-specific. Generated from draftTAPPs/EAIRMS_TAPP_draft_v2.csv by tools/build_tapp.py.
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.detail` — EMPA Instrument Detail
+### `ogch.techniqueProfile.geochemProfile.EPMA.detail` — EPMA Instrument Detail
 
 **Type:** schema
 
 Electron Microprobe Analysis instrument-specific detail properties. Defines properties: @type, spectrometersUsed, signalUsed.
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.tapp` — EMPA Technique-Aligned Protocol Profile (empaTAPP)
+### `ogch.techniqueProfile.geochemProfile.EPMA.tapp` — EPMA Technique-Aligned Protocol Profile (epmaTAPP)
 
 **Type:** schema
 
-EMPA-specific extension of the base TAPP definition. Adds EPMA top-level properties (beam mode, accelerating voltage, matrix correction method), a parameter vocabulary, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability.
+EPMA-specific extension of the base TAPP definition. Adds EPMA top-level properties (beam mode, accelerating voltage, matrix correction method), a parameter vocabulary, and an analyte-column template covering EPMA per-element acquisition and reporting fields. Vocabularies, parameter templates, and analyte-column templates ship as separate JSON files under vocab/, parameters/, and analyteColumns/ for maintainability.
 
 ### `ogch.techniqueProfile.geochemProfile.FINESSE.detail` — Stepped Heating Carbon and Nitrogen Isotopic Compositions Analysis Detail
 
@@ -1066,7 +1066,7 @@ Path-driven ADA product profile for ADA Curation Photo-Documentation Product Pro
 
 Path-driven ADA product profile for ADA Direct Shear Strength Product Profile.
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.profile` — ADA EPMA Product Profile
+### `ogch.techniqueProfile.geochemProfile.EPMA.profile` — ADA EPMA Product Profile
 
 **Type:** schema
 
@@ -1408,11 +1408,11 @@ Technique-specific profile for X-ray Absorption Near Edge Structure (XANES) prod
 
 Technique-specific profile for X-ray Diffraction (XRD) products
 
-### `ogch.techniqueProfile.geochemProfile.EMPA.profile-ada` — ADA EMPA Profile
+### `ogch.techniqueProfile.geochemProfile.EPMA.profile-ada` — ADA EPMA Profile
 
 **Type:** schema
 
-Technique-specific profile for Electron Microprobe Analysis (EMPA) products
+Technique-specific profile for Electron Microprobe Analysis (EPMA) products
 
 ### `ogch.techniqueProfile.geochemProfile.QRIS.profile-ada` — ADA QRIS Profile (TAPP-linked)
 

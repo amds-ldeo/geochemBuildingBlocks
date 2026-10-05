@@ -6050,7 +6050,8 @@ x-defs:
           contacts as well
         properties:
           '@type':
-            default: schema:ContactPoint
+            default:
+            - schema:ContactPoint
             type: array
             items:
               type: string
@@ -6097,7 +6098,8 @@ x-defs:
       '@id':
         type: string
       '@type':
-        default: schema:Organization
+        default:
+        - schema:Organization
         type: array
         items:
           anyOf:
@@ -6201,7 +6203,8 @@ x-defs:
           it as a class. A pure DCAT relation then met a SHACL requirement with no
           schema counterpart. This anyOf restores the type to the schema WITHOUT restoring
           the conjunction.'
-        default: schema:CreativeWork
+        default:
+        - schema:CreativeWork
         type: array
         items:
           type: string
@@ -6337,7 +6340,8 @@ x-defs:
         type: string
         description: URI identifier for this funding record
       '@type':
-        default: schema:MonetaryGrant
+        default:
+        - schema:MonetaryGrant
         type: array
         items:
           type: string
@@ -7451,7 +7455,8 @@ x-defs:
     type: object
     properties:
       '@type':
-        default: schema:Place
+        default:
+        - schema:Place
         type: array
         items:
           type: string
@@ -7498,7 +7503,8 @@ x-defs:
             might only index or display bounding box extents or a single point location.
           properties:
             '@type':
-              default: schema:GeoCoordinates
+              default:
+              - schema:GeoCoordinates
               type: array
               items:
                 type: string
@@ -7528,7 +7534,8 @@ x-defs:
             of several such points.'
           properties:
             '@type':
-              default: schema:GeoShape
+              default:
+              - schema:GeoShape
               type: array
               items:
                 type: string
@@ -7553,7 +7560,8 @@ x-defs:
             a linear trace like a ship track or airplane flight line
           properties:
             '@type':
-              default: schema:GeoShape
+              default:
+              - schema:GeoShape
               type: array
               items:
                 type: string
@@ -7719,7 +7727,8 @@ x-defs:
           - schema:DataCatalog
           - schema:DefinedTermSet
           - schema:MediaObject
-        default: schema:Dataset
+        default:
+        - schema:Dataset
         minItems: 1
         contains:
           enum:
@@ -9192,8 +9201,8 @@ x-defs:
           - ada:EAIRMSProcessedData
           - ada:EAIRMSRawData
           - ada:EELSSpectrum
-          - ada:EMPAESPCTabular
-          - ada:EMPAQEATabular
+          - ada:EPMAESPCTabular
+          - ada:EPMAQEATabular
           - ada:FIBSEMTabular
           - ada:FINESSETabular
           - ada:FTICRMSTabular
@@ -9318,7 +9327,8 @@ x-defs:
         eras with identifier, e.g. geologic age. This is a SOSO schema.org extension
       properties:
         '@type':
-          default: time:ProperInterval
+          default:
+          - time:ProperInterval
           type: array
           items:
             type: string
@@ -9367,7 +9377,8 @@ x-defs:
           additionalProperties: true
           description: Must exactly match the specified @context object.
         '@type':
-          default: time:ProperInterval
+          default:
+          - time:ProperInterval
           type: array
           items:
             type: string
@@ -9424,7 +9435,8 @@ x-defs:
         type: object
         properties:
           '@type':
-            default: time:TimePosition
+            default:
+            - time:TimePosition
             type: array
             items:
               type: string
@@ -9459,7 +9471,8 @@ x-defs:
     type: object
     properties:
       '@type':
-        default: schema:Role
+        default:
+        - schema:Role
         type: array
         items:
           type: string
@@ -9578,7 +9591,8 @@ x-defs:
     type: object
     properties:
       '@type':
-        default: schema:LinkRole
+        default:
+        - schema:LinkRole
         type: array
         items:
           type: string
@@ -9602,7 +9616,8 @@ x-defs:
           and domain-specific properties, and JSON-LD is open-world.'
         properties:
           '@type':
-            default: schema:EntryPoint
+            default:
+            - schema:EntryPoint
             type: array
             items:
               type: string
@@ -10034,7 +10049,8 @@ x-defs:
             type: string
             description: identifier for the graph node.
           '@type':
-            default: schema:DataCatalog
+            default:
+            - schema:DataCatalog
             type: array
             items:
               type: string
@@ -11769,11 +11785,10 @@ x-defs:
             description: Inline schema:Thing object describing the input entity.
             properties:
               '@type':
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+                type: array
+                items:
+                  type: string
+                minItems: 1
             required:
             - '@type'
           - type: array
@@ -11806,11 +11821,10 @@ x-defs:
             description: Inline schema:Thing object describing the output entity.
             properties:
               '@type':
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+                type: array
+                items:
+                  type: string
+                minItems: 1
             required:
             - '@type'
           - type: array
@@ -12577,7 +12591,8 @@ x-defs:
     properties:
       '@type':
         description: The type of action. Must be schema:Action or one of its subtypes.
-        default: schema:Action
+        default:
+        - schema:Action
         type: array
         items:
           type: string
@@ -12608,7 +12623,8 @@ x-defs:
           handle post requests.
         properties:
           '@type':
-            default: schema:EntryPoint
+            default:
+            - schema:EntryPoint
             type: array
             items:
               type: string
@@ -12681,7 +12697,8 @@ x-defs:
           superfluous.
         properties:
           '@type':
-            default: schema:Thing
+            default:
+            - schema:Thing
             type: array
             items:
               type: string
@@ -12699,7 +12716,8 @@ x-defs:
             '@id':
               type: string
             '@type':
-              default: schema:PropertyValueSpecification
+              default:
+              - schema:PropertyValueSpecification
               type: array
               items:
                 type: string

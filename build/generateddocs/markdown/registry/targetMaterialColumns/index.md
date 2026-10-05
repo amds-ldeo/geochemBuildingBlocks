@@ -22,7 +22,7 @@ description: Registry of reusable schema:PropertyValueSpecification target-mater
   of its own.
 type: object
 $defs:
-  empa_primaryCalibrationStandardName:
+  epma_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: "Name and reference material identifier of the primary reference
       material(s) against which the instrument is calibrated \u2014 converting raw
@@ -36,7 +36,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:targetMaterialColumn/empaTAPP/primaryCalibrationStandardName
+        const: ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName
       '@type':
         const:
         - schema:PropertyValueSpecification

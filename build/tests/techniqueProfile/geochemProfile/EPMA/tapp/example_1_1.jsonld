@@ -1,0 +1,418 @@
+{
+  "@context": [
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    },
+    "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EPMA/tapp/context.jsonld",
+    {
+      "schema": "http://schema.org/",
+      "ada": "https://ada.astromat.org/metadata/",
+      "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+      "bios": "https://bioschemas.org/",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@id": "ex:epmaTAPP-Ma2015",
+  "@type": [
+    "prov:Plan",
+    "cdi:Activity",
+    "schema:Action",
+    "ada:TAPPDefinition",
+    "bios:LabProtocol"
+  ],
+  "schema:name": "EPMA-WDS Major Element Silicates/Oxides, Tissint Mars Meteorite (Caltech GPS, JEOL 8200)",
+  "schema:description": "Ma et al. 2015, Earth Planet. Sci. Lett. \u2014 tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility. Reported detail: ada:edsAcquisitionMode = N/A \u2014 WDS procedure; ada:analyticalMode = WDS Point Analysis \u2014 'WDS: 15 kV; 5 nA; beam in focused mode'; point analyses only.",
+  "schema:instrument": [
+    {
+      "schema:additionalType": [
+        "EPMA",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "ada:acceleratingVoltageDefault": "15 kV",
+      "ada:beamDiameterDefault": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+      "ada:beamMode": "all: Focused \u2014 'WDS: 15 kV; 5 nA; beam in focused mode' (p.3)",
+      "schema:manufacturer": {
+        "schema:name": "JEOL",
+        "@type": [
+          "schema:Organization"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/EPMA",
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "EDS Detector",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/EDS-Detector"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "Electron Source",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/Electron-Source",
+          "schema:description": "missing"
+        },
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/wiki/Q3099911"
+            }
+          ],
+          "schema:name": "missing",
+          "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
+        }
+      ],
+      "schema:name": "example instrumentName"
+    },
+    {
+      "schema:additionalType": [
+        "SEM",
+        {
+          "@id": "https://www.wikidata.org/wiki/Q3099911"
+        }
+      ],
+      "schema:model": {
+        "schema:name": "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)",
+        "@type": [
+          "schema:ProductModel"
+        ]
+      },
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "@id": "ex:instrument/SEM",
+      "schema:name": "example instrumentName"
+    }
+  ],
+  "ada:targetSpeciesTemplate": {
+    "ada:defaultTargetSpecies": [
+      "Si",
+      "Ti",
+      "Al",
+      "Cr",
+      "Fe",
+      "Mn",
+      "Mg",
+      "Ca",
+      "Na",
+      "K"
+    ],
+    "ada:targetSpeciesColumns": [
+      {
+        "schema:valueName": "targetSpecies",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "targetSpeciesEstimationMethod",
+        "schema:name": "Target Species Estimation Method",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalAccuracy",
+        "schema:name": "Analytical Accuracy",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "analyticalPrecision",
+        "schema:name": "Analytical Precision",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayBackgroundCorrectionMethod",
+        "schema:name": "X-ray Background Correction Method",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/beamCurrent",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "beamCurrent",
+        "schema:name": "Beam Current",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/blankCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "blankCorrection",
+        "schema:name": "Blank Correction",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "countingStatisticsError",
+        "schema:name": "Counting Statistics Error",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferenceCorrectionStandard",
+        "schema:name": "Interference Correction Standard",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "xRayLineOverlapCorrectionsApplied",
+        "schema:name": "X-ray Line Overlap Corrections Applied",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/interferingElements",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "interferingElements",
+        "schema:name": "Interfering Elements",
+        "ada:dataType": "string"
+      },
+      {
+        "@id": "ada:targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "timeDependentIntensityCorrection",
+        "schema:name": "Time-Dependent Intensity Correction",
+        "ada:dataType": "string"
+      }
+    ]
+  },
+  "ada:edsAcquisitionMode": "N/A",
+  "schema:object": [
+    {
+      "@type": [
+        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        "schema:DefinedTerm",
+        "schema:Thing"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@id": "ada:parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault",
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:valueName": "preAnalysisImagingAndScreeningDefault",
+          "schema:name": "Pre-Analysis Imaging and Screening",
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses \u2014 \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
+        }
+      ]
+    }
+  ],
+  "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
+  "ada:targetMaterialTemplate": {
+    "ada:defaultTargetMaterials": [
+      "tissintite",
+      "maskelynite",
+      "pigeonite",
+      "fayalite"
+    ],
+    "ada:targetMaterialColumns": [
+      {
+        "schema:valueName": "targetMaterial",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "primaryCalibrationStandardName",
+        "schema:name": "Primary Calibration Standard Name",
+        "ada:dataType": "string",
+        "schema:defaultValue": "example value"
+      }
+    ]
+  },
+  "ada:samplingUnitSelectionCriteriaDefault": "Textural position relative to the shock-melt pockets \u2014 the analyses are grouped as \"Wormy type tissintite\", \"Rimming tissintite\", \"Maskelynite associated with wormy tissintite\" and \"Maskelynite away from melt pockets\" (Table 1, p.5), the phase itself occurring \"only in maskelynite less than ~25 \u03bcm of a shock melt pocket\" (p.1)",
+  "ada:monitoredElements": [
+    "Si, Al, Ca, Na, Fe, Mg, Mn, Ti, Cr, K \u2014 all determined; no monitor-only element. \"Standards for analysis were anorthite (SiK\u03b1, AlK\u03b1, CaK\u03b1); albite (NaK\u03b1); fayalite (FeK\u03b1); forsterite (MgK\u03b1); Mn2SiO4 (MnK\u03b1); TiO2 (TiK\u03b1); Cr2O3 (CrK\u03b1); and microcline (KK\u03b1)\" (p.3)"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "EPMA-WDS"
+    }
+  ],
+  "schema:creator": {
+    "schema:name": "Chi Ma",
+    "@type": [
+      "schema:Person"
+    ]
+  },
+  "schema:location": {
+    "@type": [
+      "schema:Place"
+    ],
+    "schema:name": "Caltech GPS Division Analytical Facility"
+  },
+  "schema:funding": [
+    {
+      "@type": [
+        "schema:MonetaryGrant"
+      ],
+      "schema:name": "NSF EAR-0318518; NSF DMR-0080065 \u2014 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'"
+    }
+  ],
+  "schema:relatedLink": [
+    {
+      "schema:linkRelationship": "techniquePublication",
+      "schema:target": {
+        "schema:name": "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    },
+    {
+      "schema:linkRelationship": "coupledTechnique",
+      "schema:target": {
+        "schema:name": "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman"
+      },
+      "@type": [
+        "schema:CreativeWork"
+      ],
+      "schema:url": "https://ada.astromat.org/missing"
+    }
+  ],
+  "ada:samplingUnitType": "Phase > Analysis point \u2014 Table 1 reports one column per phase and textural setting (\"Wormy type tissintite\", \"Maskelynite away from melt pockets\" \u2026), each the mean of n = 5\u201317 focused-beam point analyses (p.5)",
+  "bios:computationalTool": [
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Probe for EPMA (Probe Software, Inc.)"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA"
+    }
+  ],
+  "ada:analyticalMode": [
+    "WDS Point Analysis"
+  ],
+  "ada:reportedProperties": [
+    "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO; cations per formula unit; Ca/(Ca+Na+K); Ca-Eskola component; An content of the precursor plagioclase \u2014 oxide wt% with totals and 1 s.d. of the mean, cations on 6 or 8 oxygens (Table 1); Ca-Eskola (mol%) and An58\u201369 (p.1)"
+  ],
+  "schema:actionProcess": {
+    "schema:step": [
+      {
+        "schema:name": "Sample preparation",
+        "schema:description": "Polished thin section; carbon coating N",
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 1
+      },
+      {
+        "@type": [
+          "cdi:Activity",
+          "schema:Action"
+        ],
+        "schema:name": "Data reduction",
+        "schema:additionalType": [
+          "bios:LabProcess"
+        ],
+        "schema:position": 2,
+        "ada:detectionLimitMethod": "missing"
+      }
+    ],
+    "@type": [
+      "schema:HowTo"
+    ]
+  },
+  "schema:variableMeasured": [
+    {
+      "schema:name": "Calibration Factor and Determination Method",
+      "schema:defaultValue": "missing"
+    }
+  ],
+  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
+  "ada:massAbsorptionCoefficients": "missing",
+  "ada:stepSizePixelSizeDefault": -9999,
+  "ada:wdsDeadTimeCorrection": "missing",
+  "schema:datePublished": "missing"
+}

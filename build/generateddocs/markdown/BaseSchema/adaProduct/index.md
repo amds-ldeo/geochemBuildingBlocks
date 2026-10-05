@@ -52,7 +52,7 @@ Mock data for validation and testing.
   "schema:name": "ADA Analysis of Meteorite ALH 84001 Fragment",
   "schema:description": "Example Astromat Data Archive (ADA) product metadata demonstrating all properties defined by the adaProduct profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
-    "Electron Microprobe Analysis Image (EMPA)",
+    "Electron Microprobe Analysis Image (EPMA)",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -334,7 +334,7 @@ Mock data for validation and testing.
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:EMPAImage"
+            "ada:EPMAImage"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -353,7 +353,7 @@ Mock data for validation and testing.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": "ada:EMPAImage"
+          "ada:componentType": "ada:EPMAImage"
         },
         {
           "@id": "ex:adaProduct-file-002",
@@ -473,7 +473,7 @@ Mock data for validation and testing.
   "schema:name": "ADA Analysis of Meteorite ALH 84001 Fragment",
   "schema:description": "Example Astromat Data Archive (ADA) product metadata demonstrating all properties defined by the adaProduct profile. Contains mock data for testing and validation.",
   "schema:additionalType": [
-    "Electron Microprobe Analysis Image (EMPA)",
+    "Electron Microprobe Analysis Image (EPMA)",
     "ada:DataDeliveryPackage"
   ],
   "schema:identifier": {
@@ -755,7 +755,7 @@ Mock data for validation and testing.
           "schema:name": "ALH84001_ADA_001.tif",
           "schema:description": "ADA data file for ALH 84001 thin section",
           "schema:additionalType": [
-            "ada:EMPAImage"
+            "ada:EPMAImage"
           ],
           "schema:encodingFormat": [
             "image/tiff"
@@ -774,7 +774,7 @@ Mock data for validation and testing.
             "spdx:algorithm": "MD5",
             "spdx:checksumValue": "d41d8cd98f00b204e9800998ecf8427e"
           },
-          "ada:componentType": "ada:EMPAImage"
+          "ada:componentType": "ada:EPMAImage"
         },
         {
           "@id": "ex:adaProduct-file-002",
@@ -874,7 +874,7 @@ Mock data for validation and testing.
 
 ex:adaProduct-example-001 a schema1:Dataset,
         schema1:Product ;
-    schema1:additionalType "Electron Microprobe Analysis Image (EMPA)",
+    schema1:additionalType "Electron Microprobe Analysis Image (EPMA)",
         "ada:DataDeliveryPackage" ;
     schema1:conditionsOfAccess "Unrestricted access for research purposes" ;
     schema1:contributor [ a schema1:Role ;
@@ -965,7 +965,7 @@ ex:adaProduct-example-001 a schema1:Dataset,
 ex:adaProduct-file-001 a schema1:ImageObject,
         schema1:MediaObject,
         ada:image ;
-    schema1:additionalType "ada:EMPAImage" ;
+    schema1:additionalType "ada:EPMAImage" ;
     schema1:description "ADA data file for ALH 84001 thin section" ;
     schema1:encodingFormat "image/tiff" ;
     schema1:name "ALH84001_ADA_001.tif" ;
@@ -975,7 +975,7 @@ ex:adaProduct-file-001 a schema1:ImageObject,
     spdx:checksum [ a spdx:Checksum ;
             spdx:algorithm "MD5" ;
             spdx:checksumValue "d41d8cd98f00b204e9800998ecf8427e" ] ;
-    ada:componentType "ada:EMPAImage" .
+    ada:componentType "ada:EPMAImage" .
 
 ex:adaProduct-file-002 a schema1:DigitalDocument,
         schema1:MediaObject,
@@ -1078,10 +1078,10 @@ allOf:
         - Basemap
         - Differential Scanning Calorimetry (DSC)
         - Differential Scanning Calorimetry
-        - Electron Microprobe Analysis (EMPA) Collection
-        - Electron Microprobe Analysis Image (EMPA)
-        - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
-        - Electron Microprobe Analysis (EMPA)
+        - Electron Microprobe Analysis (EPMA) Collection
+        - Electron Microprobe Analysis Image (EPMA)
+        - Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)
+        - Electron Microprobe Analysis (EPMA)
         - Electron microprobe analysis
         - Elemental Analysis-Isotope Ratio Mass Spectrometry (EA-IRMS)
         - Elemental analysis - isotope ratio mass spectrometry
@@ -1243,7 +1243,7 @@ allOf:
                       string drawn from a universal set or a technique-specific set.
                       Technique profiles add an anyOf at the hasPart level: one branch
                       declares the universal componentType enum; other branches $ref
-                      technique-specific detail schemas (e.g. detailEMPA) that enumerate
+                      technique-specific detail schemas (e.g. detailEPMA) that enumerate
                       technique componentType values and contribute detail-specific
                       sibling properties (e.g. ada:spectrometersUsed).'
             x-jsonld-id: http://schema.org/hasPart

@@ -1,0 +1,219 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
+@prefix bios: <https://bioschemas.org/> .
+@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<ex:epmaTAPP-Hu2020> a cdi:Activity,
+        schema1:Action,
+        prov:Plan,
+        ada:TAPPDefinition,
+        bios:LabProtocol ;
+    schema1:actionProcess [ a schema1:HowTo ;
+            schema1:step [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
+    schema1:creator [ a schema1:Person ;
+            schema1:name "Sen Hu" ] ;
+    schema1:datePublished "missing" ;
+    schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one." ;
+    schema1:instrument <ex:instrument/EPMA>,
+        <ex:instrument/SEM> ;
+    schema1:location [ a schema1:Place ;
+            schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing" ] ;
+    schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "epma" ;
+            schema1:termCode "epma" ] ;
+    schema1:name "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)" ;
+    schema1:object [ a schema1:DefinedTerm,
+                schema1:Thing,
+                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
+            schema1:url "https://ada.astromat.org/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
+            schema1:url "https://ada.astromat.org/missing" ] ;
+    schema1:variableMeasured [ schema1:defaultValue "missing" ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
+    ada:edsAcquisitionMode "N/A" ;
+    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
+    ada:massAbsorptionCoefficients "missing" ;
+    ada:matrixCorrectionMethod "Bence-Albee" ;
+    ada:monitoredElements "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr — all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction — \"X-ray interference of the Kα line of Mn by the Kβ line of Cr was corrected\" — but is itself determined, so it is not an orphan" ;
+    ada:reportedProperties "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)" ;
+    ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
+    ada:samplingUnitType "Phase > Analysis point — \"Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by electron probe microanalysis\" (p.2); points are grouped by phase, not reported individually in the archived PDF" ;
+    ada:stepSizePixelSizeDefault -9999 ;
+    ada:targetMaterialTemplate [ ada:defaultTargetMaterials "coesite aggregates",
+                "maskelynite",
+                "mesostasis",
+                "silica glasses" ;
+            ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetMaterial" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ;
+            ada:targetMaterialDeclaration "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis — 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)" ] ;
+    ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
+                "Ca",
+                "Cr",
+                "Fe",
+                "K",
+                "Mg",
+                "Mn",
+                "Na",
+                "Si",
+                "Ti" ;
+            ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
+                    schema1:name "example instrumentName" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalAccuracy>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalPrecision>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/beamCurrent>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/countingStatisticsError>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferingElements>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod>,
+                <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> ] ;
+    ada:wdsDeadTimeCorrection "missing" ;
+    bios:computationalTool [ schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
+            ada:toolRole "dataReduction" ] .
+
+<ex:instrument/EPMA> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EPMA" ;
+    schema1:hasPart <ex:instrument/EPMA/part/EDS-Detector>,
+        <ex:instrument/EPMA/part/Electron-Source>,
+        <ex:instrument/EPMA/part/WDS-Spectrometer> ;
+    schema1:manufacturer [ a schema1:Organization ;
+            schema1:name "JEOL" ] ;
+    schema1:name "example instrumentName" ;
+    ada:acceleratingVoltageDefault "15 kV" ;
+    ada:beamDiameterDefault "N — only 15 kV and 10 nA are given" ;
+    ada:beamMode "N — only 15 kV and 10 nA are given" .
+
+<ex:instrument/EPMA/part/EDS-Detector> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "EDS Detector" ;
+    schema1:name "missing" .
+
+<ex:instrument/EPMA/part/Electron-Source> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "Electron Source" ;
+    schema1:description "missing" ;
+    schema1:name "missing" .
+
+<ex:instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "WDS Spectrometer" ;
+    schema1:name "missing" .
+
+<ex:instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+        "SEM" ;
+    schema1:model [ a schema1:ProductModel ;
+            schema1:name "JXA-8100 (stated as \"JEOL JXA-8100\")" ] ;
+    schema1:name "example instrumentName" .
+
+<https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "SEM imaging and EDS mapping on three instruments before the probe — \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)" ;
+    schema1:name "Pre-Analysis Imaging and Screening" ;
+    schema1:valueName "preAnalysisImagingAndScreeningDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "Primary Calibration Standard Name" ;
+    schema1:valueName "primaryCalibrationStandardName" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalAccuracy> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Accuracy" ;
+    schema1:valueName "analyticalAccuracy" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/analyticalPrecision> a schema1:PropertyValueSpecification ;
+    schema1:name "Analytical Precision" ;
+    schema1:valueName "analyticalPrecision" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Beam Current" ;
+    schema1:valueName "beamCurrent" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Blank Correction" ;
+    schema1:valueName "blankCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/countingStatisticsError> a schema1:PropertyValueSpecification ;
+    schema1:name "Counting Statistics Error" ;
+    schema1:valueName "countingStatisticsError" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard> a schema1:PropertyValueSpecification ;
+    schema1:name "Interference Correction Standard" ;
+    schema1:valueName "interferenceCorrectionStandard" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/interferingElements> a schema1:PropertyValueSpecification ;
+    schema1:name "Interfering Elements" ;
+    schema1:valueName "interferingElements" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod> a schema1:PropertyValueSpecification ;
+    schema1:name "Target Species Estimation Method" ;
+    schema1:valueName "targetSpeciesEstimationMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection> a schema1:PropertyValueSpecification ;
+    schema1:name "Time-Dependent Intensity Correction" ;
+    schema1:valueName "timeDependentIntensityCorrection" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Background Correction Method" ;
+    schema1:valueName "xRayBackgroundCorrectionMethod" ;
+    ada:dataType "string" .
+
+<https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "example value" ;
+    schema1:name "X-ray Line Overlap Corrections Applied" ;
+    schema1:valueName "xRayLineOverlapCorrectionsApplied" ;
+    ada:dataType "string" .
+
