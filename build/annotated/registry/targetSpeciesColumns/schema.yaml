@@ -8,271 +8,7 @@ description: Registry of reusable schema:PropertyValueSpecification analyte-colu
   instantiable properties of its own.
 type: object
 $defs:
-  analysisOrder:
-    title: Sequence
-    description: Order of analysis on spectormeter.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/analysisOrder
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: analysisOrder
-      schema:name:
-        const: Sequence
-      ada:dataType:
-        const: integer
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  backgroundCorrectionMethod:
-    title: Background Correction Method
-    description: 'Method used to estimate and subtract background X-ray intensity
-      beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
-      Mean Atomic Number (MAN) background model. For EDS: spectral background fitting
-      or top-hat filter applied during spectral processing.'
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/backgroundCorrectionMethod
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCorrectionMethod
-      schema:name:
-        const: Background Correction Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  backgroundCountingPosition:
-    title: Typical Background Position(s)
-    description: "Positions of background measurements relative to the peak, in mm
-      and/or sin\u03B8, and whether on the high or low energy side."
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/backgroundCountingPosition
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingPosition
-      schema:name:
-        const: Typical Background Position(s)
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds,
-      summed across all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  blankCorrection:
-    title: Blank Correction
-    description: Method and reference material(s) used to determine and subtract blank
-      signal contributions (e.g., carbon coat contribution to C signal, or background
-      contamination for trace elements).
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/blankCorrection
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: blankCorrection
-      schema:name:
-        const: Blank Correction
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  detectionLimitMethod:
-    title: Detection Limit Method
-    description: Formula or approach used to calculate detection limits. Reference
-      method publication if applicable. When the procedure does not specify a method,
-      the analyst should complete this field.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/detectionLimitMethod
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: detectionLimitMethod
-      schema:name:
-        const: Detection Limit Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  edsDeadTime:
-    title: EDS Dead Time
-    description: Percent dead time reported by the EDS spectrometer
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/edsDeadTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: edsDeadTime
-      schema:name:
-        const: EDS Dead Time
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  elementEstimationMethod:
-    title: Element Estimation Method
-    description: "How elemental concentrations were calculated \u2014 directly from
-      measured X-ray intensities or via cation stoichiometry."
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/elementEstimationMethod
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: elementEstimationMethod
-      schema:name:
-        const: Element Estimation Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:inDefinedTermSet:
-        const:
-          '@id': ada:vocab/empaTAPP/elementEstimationMethod
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  empa_analyteEstimationMethod:
-    title: Analyte Estimation Method
-    description: Whether elemental concentrations were calculated directly from measured
-      X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
-      from cation proportions in silicates; carbon from stoichiometry in carbonates).
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/analyteEstimationMethod
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: targetSpeciesEstimationMethod
-      schema:name:
-        const: Analyte Estimation Method
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  empa_analyticalAccuracy:
+  epma_analyticalAccuracy:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
@@ -280,7 +16,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/analyticalAccuracy
+        const: ada:targetSpeciesColumn/epmaTAPP/analyticalAccuracy
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -302,7 +38,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_analyticalPrecision:
+  epma_analyticalPrecision:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
@@ -310,7 +46,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/analyticalPrecision
+        const: ada:targetSpeciesColumn/epmaTAPP/analyticalPrecision
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -332,43 +68,14 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_backgroundPosition:
-    title: Background Position(s)
-    description: Location(s) of off-peak background measurement(s) relative to the
-      peak, in mm or sin-theta, and whether on the high- or low-energy side.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/backgroundPosition
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundPosition
-      schema:name:
-        const: Background Position(s)
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  empa_beamCurrent:
+  epma_beamCurrent:
     title: Beam Current
     description: Probe current in nanoamperes (nA). Often varies by phase type or
       target species; record the procedure-standard value(s).
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/beamCurrent
+        const: ada:targetSpeciesColumn/epmaTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -393,7 +100,37 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_countingStatisticsError:
+  epma_blankCorrection:
+    title: Blank Correction
+    description: Method and reference material(s) used to determine and subtract blank
+      signal contributions (e.g., carbon coat contribution to C signal, or background
+      contamination for trace elements).
+    type: object
+    properties:
+      '@id':
+        const: ada:targetSpeciesColumn/epmaTAPP/blankCorrection
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: blankCorrection
+      schema:name:
+        const: Blank Correction
+      ada:dataType:
+        const: string
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+  epma_countingStatisticsError:
     title: Counting Statistics Error
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
@@ -404,7 +141,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/countingStatisticsError
+        const: ada:targetSpeciesColumn/epmaTAPP/countingStatisticsError
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -426,234 +163,21 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_detectionLimit:
-    title: Detection Limit
-    description: Method detection limit at 99% confidence (3-sigma), one per reported
-      concentration variable (one per analyte, these being the same set), derived
-      from counting statistics on peak and background. Include the method and the
-      resulting value for each.
+  epma_interferenceCorrectionStandard:
+    title: Interference Correction Standard
+    description: Reference material used to quantify and calibrate the interference
+      correction.
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/detectionLimit
+        const: ada:targetSpeciesColumn/epmaTAPP/interferenceCorrectionStandard
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: detectionLimit
+        const: interferenceCorrectionStandard
       schema:name:
-        const: Detection Limit
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  empa_diffractingCrystal:
-    title: Diffracting Crystal
-    description: Analyzing crystal (monochromator) used on each spectrometer assignment.
-      Crystal choice determines the detectable wavelength range and dispersion.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/diffractingCrystal
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: diffractingCrystal
-      schema:name:
-        const: Diffracting Crystal
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  empa_epmaTechniquePerAnalyte:
-    title: EPMA Technique per Analyte
-    description: Whether the measurement was made by WDS or EDS. Applies where a procedure
-      uses both WDS and EDS.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerAnalyte
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: epmaTechniquePerAnalyte
-      schema:name:
-        const: EPMA Technique per Analyte
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  empa_epmaTechniquePerTargetSpecies:
-    title: EPMA Technique per Target Species
-    description: Whether the measurement was made by WDS or EDS. Applies where a procedure
-      uses both WDS and EDS.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/epmaTechniquePerTargetSpecies
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: epmaTechniquePerTargetSpecies
-      schema:name:
-        const: EPMA Technique per Target Species
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  empa_interferenceCorrectionsApplied:
-    title: Interference Corrections Applied
-    description: Whether a spectral interference correction was applied for each analyte.
-      Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti
-      Ka.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionsApplied
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: interferenceCorrectionsApplied
-      schema:name:
-        const: Interference Corrections Applied
-      ada:dataType:
-        const: boolean
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  empa_normalizationStandardsBasedCorrection:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials to correct for session-to-session calibration drift.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/normalizationStandardsBasedCorrection
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalizationStandardsBasedCorrection
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  empa_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: Name(s) of the primary reference material(s) used for element standardization
-      (intensity calibration). Include the material name, its source or supplier,
-      and a citation for the accepted values used, since results calibrated against
-      different published values for the same material are not directly comparable.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  empa_proportionalCounterDetector:
-    title: Proportional Counter / Detector
-    description: Type of detector used on each spectrometer assignment. Affects sensitivity
-      and count rate linearity.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/proportionalCounterDetector
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: proportionalCounterDetector
-      schema:name:
-        const: Proportional Counter / Detector
+        const: Interference Correction Standard
       ada:dataType:
         const: string
       schema:readonlyValue:
@@ -668,28 +192,27 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) analyzed alongside unknowns
-      to verify calibration accuracy. Include material name, assessed elements, number
-      of analyses (n), and measured vs. accepted values.
+  epma_interferingElements:
+    title: Interfering Elements
+    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
+      a correction.
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/secondaryReferenceMaterials
+        const: ada:targetSpeciesColumn/epmaTAPP/interferingElements
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: secondaryReferenceMaterials
+        const: interferingElements
       schema:name:
-        const: Secondary Reference Materials
+        const: Interfering Elements
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: false
+        const: true
       ada:tier:
-        const: M
+        const: R
       schema:defaultValue:
         type: string
     required:
@@ -698,8 +221,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-    - schema:defaultValue
-  empa_targetSpeciesEstimationMethod:
+  epma_targetSpeciesEstimationMethod:
     title: Target Species Estimation Method
     description: Whether elemental concentrations were calculated directly from measured
       X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
@@ -707,7 +229,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/targetSpeciesEstimationMethod
+        const: ada:targetSpeciesColumn/epmaTAPP/targetSpeciesEstimationMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -729,26 +251,26 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_wdsPhaSetting:
-    title: WDS PHA Setting
-    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral
-      mode accepts all pulses above a threshold; Differential mode selects a narrow
-      energy window to reject higher-order reflections and escape peaks.
+  epma_timeDependentIntensityCorrection:
+    title: Time-Dependent Intensity Correction
+    description: Type of time-dependent intensity (TDI) correction applied to compensate
+      for beam-induced volatilization or migration of sensitive elements (e.g., Na,
+      K, F in glasses, feldspars, carbonates).
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/wdsPhaSetting
+        const: ada:targetSpeciesColumn/epmaTAPP/timeDependentIntensityCorrection
       '@type':
         const:
         - schema:PropertyValueSpecification
       schema:valueName:
-        const: wdsPhaSetting
+        const: timeDependentIntensityCorrection
       schema:name:
-        const: WDS PHA Setting
+        const: Time-Dependent Intensity Correction
       ada:dataType:
         const: string
       schema:readonlyValue:
-        const: true
+        const: false
       ada:tier:
         const: R
       schema:defaultValue:
@@ -759,40 +281,7 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  empa_wdsSpectrometerChannel:
-    title: WDS Spectrometer Channel
-    description: "WDS spectrometer position(s) assigned to each analyte, one entry
-      per assignment. An analyte may be assigned to more than one spectrometer with
-      intensities aggregated (aggregate intensity counting), and one spectrometer
-      serves several analytes across a run, so the assignment \u2014 not the analyte
-      \u2014 is the unit carrying the spectrometer setup. Different spectrometers
-      may have different crystal configurations."
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/wdsSpectrometerChannel
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: wdsSpectrometerChannel
-      schema:name:
-        const: WDS Spectrometer Channel
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  empa_xRayBackgroundCorrectionMethod:
+  epma_xRayBackgroundCorrectionMethod:
     title: X-ray Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity
       beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
@@ -801,7 +290,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/xRayBackgroundCorrectionMethod
+        const: ada:targetSpeciesColumn/epmaTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -824,14 +313,14 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  empa_xRayLineOverlapCorrectionsApplied:
+  epma_xRayLineOverlapCorrectionsApplied:
     title: X-ray Line Overlap Corrections Applied
     description: Whether a spectral interference correction was applied. Common interferences
       include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
     type: object
     properties:
       '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/xRayLineOverlapCorrectionsApplied
+        const: ada:targetSpeciesColumn/epmaTAPP/xRayLineOverlapCorrectionsApplied
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -854,120 +343,6 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  epmaTechnique:
-    title: EPMA Technique per Element
-    description: Whether this element was measured by WDS or EDS.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/epmaTechnique
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: epmaTechnique
-      schema:name:
-        const: EPMA Technique per Element
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:inDefinedTermSet:
-        const:
-          '@id': ada:vocab/empaTAPP/epmaTechnique
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  interferenceCorrection:
-    title: Interference Corrections Applied
-    description: Flag indicating whether a spectral interference correction was applied
-      for this element.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrection
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: interferenceCorrection
-      schema:name:
-        const: Interference Corrections Applied
-      ada:dataType:
-        const: boolean
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  interferenceCorrectionStandard:
-    title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/interferenceCorrectionStandard
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: interferenceCorrectionStandard
-      schema:name:
-        const: Interference Correction Standard
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  interferingElements:
-    title: Interfering Elements
-    description: Element(s) whose X-ray lines overlap with the measured peak, requiring
-      a correction.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/interferingElements
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: interferingElements
-      schema:name:
-        const: Interfering Elements
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
   laMcicpmsUPb_analyticalAccuracyAndAssessmentMethod:
     title: Analytical Accuracy and Assessment Method
     description: Offset between measured and accepted values for secondary reference
@@ -4623,175 +3998,6 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  monochromatorCrystal:
-    title: Diffracting Crystal
-    description: Analysing crystal (monochromator) used in the WDS spectrometer for
-      this element.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/monochromatorCrystal
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: monochromatorCrystal
-      schema:name:
-        const: Diffracting Crystal
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:inDefinedTermSet:
-        const:
-          '@id': ada:vocab/empaTAPP/monochromatorCrystal
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  normalization-standardsCorrection:
-    title: Normalization / Standards-Based Correction
-    description: Post-acquisition normalization applied using secondary reference
-      materials.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/normalization-standardsCorrection
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: normalization-standardsCorrection
-      schema:name:
-        const: Normalization / Standards-Based Correction
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds,
-      on each spectrometer assignment. Procedure specifies standard values; analysts
-      may adjust within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - type: number
-        - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  primaryCalibrationStandard:
-    title: Primary Calibration Standard Name
-    description: Primary reference material used for element standardization (calibration).
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/primaryCalibrationStandard
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: primaryCalibrationStandard
-      schema:name:
-        const: Primary Calibration Standard Name
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  pulseHeightAnalyzeSetting:
-    title: WDS PHA Setting
-    description: Pulse height analyzer setting used for the WDS detector.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/pulseHeightAnalyzeSetting
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: pulseHeightAnalyzeSetting
-      schema:name:
-        const: WDS PHA Setting
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  secondaryReferenceMaterial:
-    title: Secondary Reference Materials
-    description: List of quality-control reference materials (secondary standards)
-      routinely analyzed alongside unknowns.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/secondaryReferenceMaterial
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: secondaryReferenceMaterial
-      schema:name:
-        const: Secondary Reference Materials
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
   semComposition_analyteEstimationMethod:
     title: Analyte Estimation Method
     description: Whether elemental concentrations were calculated directly from measured
@@ -7913,222 +7119,3 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  spectrometerNumber:
-    title: WDS Spectrometer Channel
-    description: WDS spectrometer number used for this element.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/spectrometerNumber
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: spectrometerNumber
-      schema:name:
-        const: WDS Spectrometer Channel
-      ada:dataType:
-        const: integer
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  timeDependentIntensityCorrection:
-    title: Time-Dependent Intensity Correction
-    description: Type of time-dependent intensity (TDI) correction applied to compensate
-      for beam-induced volatilization or migration of sensitive elements (e.g., Na,
-      K, F in glasses, feldspars, carbonates).
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/timeDependentIntensityCorrection
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: timeDependentIntensityCorrection
-      schema:name:
-        const: Time-Dependent Intensity Correction
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: R
-      schema:defaultValue:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  typicalAnalyticalAccuracy:
-    title: Typical Analytical Accuracy
-    description: Offset between measured and accepted reference values for secondary
-      standards, expressed as % relative bias.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/typicalAnalyticalAccuracy
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: typicalAnalyticalAccuracy
-      schema:name:
-        const: Typical Analytical Accuracy
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  typicalAnalyticalPrecision:
-    title: Typical Analytical Precision
-    description: "Reproducibility of repeated measurements on the same or equivalent
-      standard, expressed as 1\u03C3 relative standard deviation (%)."
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/typicalAnalyticalPrecision
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: typicalAnalyticalPrecision
-      schema:name:
-        const: Typical Analytical Precision
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  typicalCountingStatisticsError:
-    title: Typical Counting Statistics Error
-    description: "1\u03C3 uncertainty propagated from counting statistics on peak
-      and background intensities."
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/typicalCountingStatisticsError
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: typicalCountingStatisticsError
-      schema:name:
-        const: Typical Counting Statistics Error
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  typicalDetectionLimit:
-    title: Typical Detection Limit
-    description: "Method detection limit at 99% confidence (3\u03C3) for each measured
-      element."
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/typicalDetectionLimit
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: typicalDetectionLimit
-      schema:name:
-        const: Typical Detection Limit
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  wdsDetectorType:
-    title: Proportional Counter / Detector
-    description: Type of detector used in the WDS spectrometer for this element.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/wdsDetectorType
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: wdsDetectorType
-      schema:name:
-        const: Proportional Counter / Detector
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-      schema:inDefinedTermSet:
-        const:
-          '@id': ada:vocab/empaTAPP/wdsDetectorType
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-  xrayEmissionLine:
-    title: X-ray Line
-    description: The X-ray emission line measured for this element.
-    type: object
-    properties:
-      '@id':
-        const: ada:targetSpeciesColumn/empaTAPP/xrayEmissionLine
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: xrayEmissionLine
-      schema:name:
-        const: X-ray Line
-      ada:dataType:
-        const: string
-      schema:readonlyValue:
-        const: true
-      ada:tier:
-        const: M
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType

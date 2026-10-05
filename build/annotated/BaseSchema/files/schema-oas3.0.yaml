@@ -37,8 +37,8 @@ x-defs:
         - ada:BSEImage
         - ada:CLImage
         - ada:CPDImage
-        - ada:EMPAESPCPlot
-        - ada:EMPAImage
+        - ada:EPMAESPCPlot
+        - ada:EPMAImage
         - ada:FIBSEMImage
         - ada:GCMSChromatogram
         - ada:GCMSSpectraPlot
@@ -162,7 +162,7 @@ x-defs:
         type: string
         enum:
         - ada:EBSDMap
-        - ada:EMPAImageMap
+        - ada:EPMAImageMap
         - ada:LAICPMSMap
         - ada:NanoIRMap
         - ada:SEMEBSDGrainImageMap
@@ -272,8 +272,8 @@ x-defs:
           - ada:EAIRMSProcessedData
           - ada:EAIRMSRawData
           - ada:EELSSpectrum
-          - ada:EMPAESPCTabular
-          - ada:EMPAQEATabular
+          - ada:EPMAESPCTabular
+          - ada:EPMAQEATabular
           - ada:FIBSEMTabular
           - ada:FINESSETabular
           - ada:FTICRMSTabular
@@ -461,7 +461,7 @@ x-defs:
         enum:
         - ada:ARGTCollection
         - ada:EAIRMSCollection
-        - ada:EMPAImageCollection
+        - ada:EPMAImageCollection
         - ada:FIBSEMSegmentation
         - ada:FIBSEMVolume
         - ada:FINESSECollection
@@ -3451,7 +3451,8 @@ x-defs:
           it as a class. A pure DCAT relation then met a SHACL requirement with no
           schema counterpart. This anyOf restores the type to the schema WITHOUT restoring
           the conjunction.'
-        default: schema:CreativeWork
+        default:
+        - schema:CreativeWork
         type: array
         items:
           type: string

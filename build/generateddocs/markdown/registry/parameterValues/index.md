@@ -2019,20 +2019,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_acceleratingVoltage:
+  epma_acceleratingVoltage:
     title: Accelerating Voltage
     description: Electron beam accelerating voltage in kilovolts (kV). Justify any
       deviation from the standard operating voltage.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/acceleratingVoltage
+        const: ada:parameter/epmaTAPP/acceleratingVoltage
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/acceleratingVoltage
+        - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
       schema:name:
         const: Accelerating Voltage
       schema:value:
@@ -2048,20 +2048,20 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_backgroundCountingTime:
+  epma_backgroundCountingTime:
     title: Background Counting Time
     description: Total time spent counting at off-peak background position(s) in seconds,
       summed across all background positions.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/backgroundCountingTime
+        const: ada:parameter/epmaTAPP/backgroundCountingTime
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/backgroundCountingTime
+        - '@id': ada:parameter/epmaTAPP/backgroundCountingTime
       schema:name:
         const: Background Counting Time
       schema:value:
@@ -2077,20 +2077,20 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_backgroundPosition:
+  epma_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the
       peak, in mm or sin-theta, and whether on the high- or low-energy side.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/backgroundPosition
+        const: ada:parameter/epmaTAPP/backgroundPosition
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/backgroundPosition
+        - '@id': ada:parameter/epmaTAPP/backgroundPosition
       schema:name:
         const: Background Position(s)
       schema:value:
@@ -2101,20 +2101,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_beamCurrent:
+  epma_beamCurrent:
     title: Beam Current
     description: Probe current in nanoamperes (nA). Often varies by phase type or
       target species; record the procedure-standard value(s).
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamCurrent
+        const: ada:parameter/epmaTAPP/beamCurrent
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/beamCurrent
+        - '@id': ada:parameter/epmaTAPP/beamCurrent
       schema:name:
         const: Beam Current
       schema:value:
@@ -2130,7 +2130,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_beamDamageMinimization:
+  epma_beamDamageMinimization:
     title: Beam Damage Minimization
     description: Measures taken to minimize beam damage, particularly volatilization
       or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates,
@@ -2139,13 +2139,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamDamageMinimization
+        const: ada:parameter/epmaTAPP/beamDamageMinimization
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/beamDamageMinimization
+        - '@id': ada:parameter/epmaTAPP/beamDamageMinimization
       schema:name:
         const: Beam Damage Minimization
       schema:value:
@@ -2156,7 +2156,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_beamDiameter:
+  epma_beamDiameter:
     title: Beam Diameter
     description: Diameter of the electron beam in micrometers. 0 indicates a fully
       focused beam. Document defocused diameter when used to minimize beam damage
@@ -2164,13 +2164,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamDiameter
+        const: ada:parameter/epmaTAPP/beamDiameter
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/beamDiameter
+        - '@id': ada:parameter/epmaTAPP/beamDiameter
       schema:name:
         const: Beam Diameter
       schema:value:
@@ -2186,7 +2186,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_beamRasterDimensions:
+  epma_beamRasterDimensions:
     title: Beam Raster Dimensions
     description: "Dimensions of the small area over which the beam is rastered at
       a single analysis point, reported as width \xD7 height in \xB5m. Applicable
@@ -2195,13 +2195,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamRasterDimensions
+        const: ada:parameter/epmaTAPP/beamRasterDimensions
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/beamRasterDimensions
+        - '@id': ada:parameter/epmaTAPP/beamRasterDimensions
       schema:name:
         const: Beam Raster Dimensions
       schema:value:
@@ -2217,7 +2217,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_blankCorrection:
+  epma_blankCorrection:
     title: Blank Correction
     description: Method and reference material(s) used to determine and subtract blank
       signal contributions (e.g., carbon coat contribution to C signal, or background
@@ -2225,13 +2225,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/blankCorrection
+        const: ada:parameter/epmaTAPP/blankCorrection
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/blankCorrection
+        - '@id': ada:parameter/epmaTAPP/blankCorrection
       schema:name:
         const: Blank Correction
       schema:value:
@@ -2242,7 +2242,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_calibrationFactorAndDeterminationMethod:
+  epma_calibrationFactorAndDeterminationMethod:
     title: Calibration Factor and Determination Method
     description: 'An externally-calibrated factor that converts the measured quantity
       into the reported quantity, how it was determined, and its uncertainty. Applies
@@ -2254,13 +2254,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+        const: ada:parameter/epmaTAPP/calibrationFactorAndDeterminationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/calibrationFactorAndDeterminationMethod
+        - '@id': ada:parameter/epmaTAPP/calibrationFactorAndDeterminationMethod
       schema:name:
         const: Calibration Factor and Determination Method
       schema:value:
@@ -2271,7 +2271,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_combinationMethod:
+  epma_combinationMethod:
     title: Combination Method
     description: 'Whether the reported variable is an individual result or combines
       several, and if combined, how: the statistical model used, including any criteria
@@ -2282,13 +2282,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/combinationMethod
+        const: ada:parameter/epmaTAPP/combinationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/combinationMethod
+        - '@id': ada:parameter/epmaTAPP/combinationMethod
       schema:name:
         const: Combination Method
       schema:value:
@@ -2299,7 +2299,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_constantsAndReferenceValuesUsed:
+  epma_constantsAndReferenceValuesUsed:
     title: Constants and Reference Values Used
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
@@ -2311,13 +2311,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
+        const: ada:parameter/epmaTAPP/constantsAndReferenceValuesUsed
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/constantsAndReferenceValuesUsed
+        - '@id': ada:parameter/epmaTAPP/constantsAndReferenceValuesUsed
       schema:name:
         const: Constants and Reference Values Used
       schema:value:
@@ -2328,7 +2328,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_coupledDatasetOrPublicationReference:
+  epma_coupledDatasetOrPublicationReference:
     title: Coupled Dataset or Publication Reference
     description: 'DOI or other persistent identifier for the co-registered dataset
       or publication where both datasets are reported together. Accepts: a dedicated
@@ -2340,13 +2340,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/coupledDatasetOrPublicationReference
+        const: ada:parameter/epmaTAPP/coupledDatasetOrPublicationReference
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/coupledDatasetOrPublicationReference
+        - '@id': ada:parameter/epmaTAPP/coupledDatasetOrPublicationReference
       schema:name:
         const: Coupled Dataset or Publication Reference
       schema:value:
@@ -2357,7 +2357,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_coupledProcedureDoi:
+  epma_coupledProcedureDoi:
     title: Coupled Procedure DOI
     description: Registered procedure DOI for the coupled technique named above. If
       the coupled procedure has not yet been registered, enter the DOI of a publication
@@ -2366,13 +2366,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/coupledProcedureDoi
+        const: ada:parameter/epmaTAPP/coupledProcedureDoi
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/coupledProcedureDoi
+        - '@id': ada:parameter/epmaTAPP/coupledProcedureDoi
       schema:name:
         const: Coupled Procedure DOI
       schema:value:
@@ -2383,7 +2383,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_dataProcessingSoftware:
+  epma_dataProcessingSoftware:
     title: Data Processing Software(s)
     description: All software applied to the data after acquisition in order to produce
       the reported quantities, including version numbers. List every package used.
@@ -2392,13 +2392,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/dataProcessingSoftware
+        const: ada:parameter/epmaTAPP/dataProcessingSoftware
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/dataProcessingSoftware
+        - '@id': ada:parameter/epmaTAPP/dataProcessingSoftware
       schema:name:
         const: Data Processing Software(s)
       schema:value:
@@ -2409,20 +2409,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_driftCorrection:
+  epma_driftCorrection:
     title: Drift Correction
     description: Method used to monitor and correct for instrument drift (beam current
       drift, spectrometer drift) during the analytical session.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/driftCorrection
+        const: ada:parameter/epmaTAPP/driftCorrection
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/driftCorrection
+        - '@id': ada:parameter/epmaTAPP/driftCorrection
       schema:name:
         const: Drift Correction
       schema:value:
@@ -2433,7 +2433,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_dwellTimePerPixel:
+  epma_dwellTimePerPixel:
     title: Dwell Time per Pixel
     description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping,
       in milliseconds. For WDS: one value per spectrometer assignment per pixel. For
@@ -2441,13 +2441,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/dwellTimePerPixel
+        const: ada:parameter/epmaTAPP/dwellTimePerPixel
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/dwellTimePerPixel
+        - '@id': ada:parameter/epmaTAPP/dwellTimePerPixel
       schema:name:
         const: Dwell Time per Pixel
       schema:value:
@@ -2463,7 +2463,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_edsDetectorConfiguration:
+  epma_edsDetectorConfiguration:
     title: EDS Detector Configuration
     description: EDS detector type, manufacturer, number of detector elements, active
       area and solid angle, window type, and geometry (take-off angle, position).
@@ -2472,13 +2472,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/edsDetectorConfiguration
+        const: ada:parameter/epmaTAPP/edsDetectorConfiguration
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/edsDetectorConfiguration
+        - '@id': ada:parameter/epmaTAPP/edsDetectorConfiguration
       schema:name:
         const: EDS Detector Configuration
       schema:value:
@@ -2489,7 +2489,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_edsLiveTimePerPointOrPixel:
+  epma_edsLiveTimePerPointOrPixel:
     title: EDS Live Time per Point or Pixel
     description: EDS spectral acquisition live time per analysis point in seconds.
       Previously referred to as "EDS Acquisition Time" in this TAPP and commonly used
@@ -2499,13 +2499,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
+        const: ada:parameter/epmaTAPP/edsLiveTimePerPointOrPixel
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/edsLiveTimePerPointOrPixel
+        - '@id': ada:parameter/epmaTAPP/edsLiveTimePerPointOrPixel
       schema:name:
         const: EDS Live Time per Point or Pixel
       schema:value:
@@ -2521,7 +2521,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_edsSpectralProcessingType:
+  epma_edsSpectralProcessingType:
     title: EDS Spectral Processing Type
     description: Method used to process EDS spectra and extract net peak intensities
       from raw spectral data. Applied before quantification (see Matrix Correction
@@ -2531,13 +2531,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/edsSpectralProcessingType
+        const: ada:parameter/epmaTAPP/edsSpectralProcessingType
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/edsSpectralProcessingType
+        - '@id': ada:parameter/epmaTAPP/edsSpectralProcessingType
       schema:name:
         const: EDS Spectral Processing Type
       schema:value:
@@ -2548,7 +2548,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_halogenCorrectionOnOxygen:
+  epma_halogenCorrectionOnOxygen:
     title: Halogen Correction on Oxygen
     description: Whether oxygen content was adjusted to account for halogen substitution
       (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole,
@@ -2556,13 +2556,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+        const: ada:parameter/epmaTAPP/halogenCorrectionOnOxygen
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/halogenCorrectionOnOxygen
+        - '@id': ada:parameter/epmaTAPP/halogenCorrectionOnOxygen
       schema:name:
         const: Halogen Correction on Oxygen
       schema:value:
@@ -2573,20 +2573,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_interferenceCorrectionStandard:
+  epma_interferenceCorrectionStandard:
     title: Interference Correction Standard
     description: Reference material used to quantify and calibrate the interference
       correction.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/interferenceCorrectionStandard
+        const: ada:parameter/epmaTAPP/interferenceCorrectionStandard
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/interferenceCorrectionStandard
+        - '@id': ada:parameter/epmaTAPP/interferenceCorrectionStandard
       schema:name:
         const: Interference Correction Standard
       schema:value:
@@ -2597,20 +2597,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_interferingElements:
+  epma_interferingElements:
     title: Interfering Elements
     description: Element(s) whose X-ray lines overlap with the measured peak, requiring
       a correction.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/interferingElements
+        const: ada:parameter/epmaTAPP/interferingElements
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/interferingElements
+        - '@id': ada:parameter/epmaTAPP/interferingElements
       schema:name:
         const: Interfering Elements
       schema:value:
@@ -2621,19 +2621,19 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_mappingBeamCurrent:
+  epma_mappingBeamCurrent:
     title: Mapping Beam Current
     description: Probe current in nanoamperes (nA) used during X-ray mapping.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/mappingBeamCurrent
+        const: ada:parameter/epmaTAPP/mappingBeamCurrent
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/mappingBeamCurrent
+        - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
       schema:name:
         const: Mapping Beam Current
       schema:value:
@@ -2649,20 +2649,20 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_mappingBeamDiameter:
+  epma_mappingBeamDiameter:
     title: Mapping Beam Diameter
     description: Diameter of the electron beam in micrometres during X-ray mapping.
       0 indicates a fully focused beam.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/mappingBeamDiameter
+        const: ada:parameter/epmaTAPP/mappingBeamDiameter
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/mappingBeamDiameter
+        - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
       schema:name:
         const: Mapping Beam Diameter
       schema:value:
@@ -2678,7 +2678,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_normalizationStandardsBasedCorrection:
+  epma_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
       the primary calibration \u2014 for example correction to a reference value derived
@@ -2687,13 +2687,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+        const: ada:parameter/epmaTAPP/normalizationStandardsBasedCorrection
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/normalizationStandardsBasedCorrection
+        - '@id': ada:parameter/epmaTAPP/normalizationStandardsBasedCorrection
       schema:name:
         const: Normalization / Standards-Based Correction
       schema:value:
@@ -2704,20 +2704,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_otherStatistics:
+  epma_otherStatistics:
     title: Other Statistics
     description: Any statistic reported for a combined result beyond the dispersion
       statistic, with the statistic named and its value.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/otherStatistics
+        const: ada:parameter/epmaTAPP/otherStatistics
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/otherStatistics
+        - '@id': ada:parameter/epmaTAPP/otherStatistics
       schema:name:
         const: Other Statistics
       schema:value:
@@ -2728,20 +2728,20 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_peakCountingTime:
+  epma_peakCountingTime:
     title: Peak Counting Time
     description: Time spent counting X-ray intensity at the peak position, in seconds.
       Adjustments stay within procedure-defined bounds.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/peakCountingTime
+        const: ada:parameter/epmaTAPP/peakCountingTime
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/peakCountingTime
+        - '@id': ada:parameter/epmaTAPP/peakCountingTime
       schema:name:
         const: Peak Counting Time
       schema:value:
@@ -2757,7 +2757,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_preAnalysisImagingAndScreening:
+  epma_preAnalysisImagingAndScreening:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
       in order to select or locate the sampling unit to be analysed, including the
@@ -2768,13 +2768,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+        const: ada:parameter/epmaTAPP/preAnalysisImagingAndScreening
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/preAnalysisImagingAndScreening
+        - '@id': ada:parameter/epmaTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
       schema:value:
@@ -2785,7 +2785,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_primaryCalibrationStandardName:
+  epma_primaryCalibrationStandardName:
     title: Primary Calibration Standard Name
     description: "Name and reference material identifier of the primary reference
       material(s) against which the instrument is calibrated \u2014 converting raw
@@ -2799,13 +2799,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/primaryCalibrationStandardName
+        const: ada:parameter/epmaTAPP/primaryCalibrationStandardName
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/primaryCalibrationStandardName
+        - '@id': ada:parameter/epmaTAPP/primaryCalibrationStandardName
       schema:name:
         const: Primary Calibration Standard Name
       schema:value:
@@ -2816,19 +2816,19 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_proportionalCounterDetector:
+  epma_proportionalCounterDetector:
     title: Proportional Counter / Detector
     description: Type of detector used.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/proportionalCounterDetector
+        const: ada:parameter/epmaTAPP/proportionalCounterDetector
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/proportionalCounterDetector
+        - '@id': ada:parameter/epmaTAPP/proportionalCounterDetector
       schema:name:
         const: Proportional Counter / Detector
       schema:value:
@@ -2839,7 +2839,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_samplePersistentIdentifier:
+  epma_samplePersistentIdentifier:
     title: Sample Persistent Identifier
     description: Globally unique, persistent identifier for each sample listed in
       Sample Name. IGSN (International Geo Sample Number) is the recommended standard
@@ -2849,13 +2849,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/samplePersistentIdentifier
+        const: ada:parameter/epmaTAPP/samplePersistentIdentifier
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/samplePersistentIdentifier
+        - '@id': ada:parameter/epmaTAPP/samplePersistentIdentifier
       schema:name:
         const: Sample Persistent Identifier
       schema:value:
@@ -2866,7 +2866,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_samplePreparationMethod:
+  epma_samplePreparationMethod:
     title: Sample Preparation Method
     description: "The form in which the sample is presented to the instrument, and
       the preparation that brought it to that form \u2014 for example mounting, sectioning,
@@ -2875,13 +2875,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/samplePreparationMethod
+        const: ada:parameter/epmaTAPP/samplePreparationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/samplePreparationMethod
+        - '@id': ada:parameter/epmaTAPP/samplePreparationMethod
       schema:name:
         const: Sample Preparation Method
       schema:value:
@@ -2892,7 +2892,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_samplingUnitSelectionCriteria:
+  epma_samplingUnitSelectionCriteria:
     title: Sampling Unit Selection Criteria
     description: "The rules governing which sampling unit(s) within a sample are selected
       for analysis, and why. Covers the criteria applied when choosing grains, aliquots,
@@ -2905,13 +2905,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/samplingUnitSelectionCriteria
+        const: ada:parameter/epmaTAPP/samplingUnitSelectionCriteria
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/samplingUnitSelectionCriteria
+        - '@id': ada:parameter/epmaTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
       schema:value:
@@ -2922,7 +2922,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_secondaryReferenceMaterials:
+  epma_secondaryReferenceMaterials:
     title: Secondary Reference Materials
     description: Quality-control reference material(s) measured as unknowns alongside
       samples to assess accuracy independently and to monitor drift. Give the material
@@ -2931,13 +2931,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/secondaryReferenceMaterials
+        const: ada:parameter/epmaTAPP/secondaryReferenceMaterials
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/secondaryReferenceMaterials
+        - '@id': ada:parameter/epmaTAPP/secondaryReferenceMaterials
       schema:name:
         const: Secondary Reference Materials
       schema:value:
@@ -2948,7 +2948,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_sequence:
+  epma_sequence:
     title: Sequence
     description: "Order in which spectrometer assignments are acquired, and \u2014
       where the element suite exceeds the number of spectrometers \u2014 the passes
@@ -2959,13 +2959,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/sequence
+        const: ada:parameter/epmaTAPP/sequence
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/sequence
+        - '@id': ada:parameter/epmaTAPP/sequence
       schema:name:
         const: Sequence
       schema:value:
@@ -2978,7 +2978,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_stageScanVsBeamScan:
+  epma_stageScanVsBeamScan:
     title: Stage Scan vs. Beam Scan
     description: For mapping modes, whether the map was acquired by moving the stage
       while the beam is held fixed (stage scan), or by deflecting the beam across
@@ -2986,13 +2986,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/stageScanVsBeamScan
+        const: ada:parameter/epmaTAPP/stageScanVsBeamScan
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/stageScanVsBeamScan
+        - '@id': ada:parameter/epmaTAPP/stageScanVsBeamScan
       schema:name:
         const: Stage Scan vs. Beam Scan
       schema:value:
@@ -3003,7 +3003,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_stepSizePixelSize:
+  epma_stepSizePixelSize:
     title: Step Size / Pixel Size
     description: Distance between adjacent measurement points in the X-ray map in
       micrometers, defining the spatial resolution. Report both X and Y step if they
@@ -3011,13 +3011,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/stepSizePixelSize
+        const: ada:parameter/epmaTAPP/stepSizePixelSize
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/stepSizePixelSize
+        - '@id': ada:parameter/epmaTAPP/stepSizePixelSize
       schema:name:
         const: Step Size / Pixel Size
       schema:value:
@@ -3033,7 +3033,7 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
-  empa_targetSpecies:
+  epma_targetSpecies:
     title: Target Species
     description: "The chemical species this procedure is designed to determine, recorded
       at whatever resolution the chemistry is resolved \u2014 element(s) for this
@@ -3045,13 +3045,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/targetSpecies
+        const: ada:parameter/epmaTAPP/targetSpecies
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/targetSpecies
+        - '@id': ada:parameter/epmaTAPP/targetSpecies
       schema:name:
         const: Target Species
       schema:value:
@@ -3062,7 +3062,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_targetSpeciesEstimationMethod:
+  epma_targetSpeciesEstimationMethod:
     title: Target Species Estimation Method
     description: Whether elemental concentrations were calculated directly from measured
       X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated
@@ -3070,13 +3070,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/targetSpeciesEstimationMethod
+        const: ada:parameter/epmaTAPP/targetSpeciesEstimationMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/targetSpeciesEstimationMethod
+        - '@id': ada:parameter/epmaTAPP/targetSpeciesEstimationMethod
       schema:name:
         const: Target Species Estimation Method
       schema:value:
@@ -3087,7 +3087,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_timeDependentIntensityCorrection:
+  epma_timeDependentIntensityCorrection:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilization or migration of sensitive elements (e.g., Na,
@@ -3095,13 +3095,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/timeDependentIntensityCorrection
+        const: ada:parameter/epmaTAPP/timeDependentIntensityCorrection
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/timeDependentIntensityCorrection
+        - '@id': ada:parameter/epmaTAPP/timeDependentIntensityCorrection
       schema:name:
         const: Time-Dependent Intensity Correction
       schema:value:
@@ -3112,7 +3112,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_wdsPhaSetting:
+  epma_wdsPhaSetting:
     title: WDS PHA Setting
     description: Pulse height analyzer (PHA) setting for the WDS detector. Integral
       mode accepts all pulses above a threshold; Differential mode selects a narrow
@@ -3120,13 +3120,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/wdsPhaSetting
+        const: ada:parameter/epmaTAPP/wdsPhaSetting
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/wdsPhaSetting
+        - '@id': ada:parameter/epmaTAPP/wdsPhaSetting
       schema:name:
         const: WDS PHA Setting
       schema:value:
@@ -3137,7 +3137,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_wdsSpectrometerChannel:
+  epma_wdsSpectrometerChannel:
     title: WDS Spectrometer Channel
     description: "WDS spectrometer position(s) assigned to each target species, one
       entry per assignment. An target species may be assigned to more than one spectrometer
@@ -3147,13 +3147,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/wdsSpectrometerChannel
+        const: ada:parameter/epmaTAPP/wdsSpectrometerChannel
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/wdsSpectrometerChannel
+        - '@id': ada:parameter/epmaTAPP/wdsSpectrometerChannel
       schema:name:
         const: WDS Spectrometer Channel
       schema:value:
@@ -3164,7 +3164,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_wdsSpectrometerConfiguration:
+  epma_wdsSpectrometerConfiguration:
     title: WDS Spectrometer Configuration
     description: Number, type, and crystal range of WDS spectrometers on the instrument.
       Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party
@@ -3172,13 +3172,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/wdsSpectrometerConfiguration
+        const: ada:parameter/epmaTAPP/wdsSpectrometerConfiguration
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/wdsSpectrometerConfiguration
+        - '@id': ada:parameter/epmaTAPP/wdsSpectrometerConfiguration
       schema:name:
         const: WDS Spectrometer Configuration
       schema:value:
@@ -3189,7 +3189,7 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  empa_xRayBackgroundCorrectionMethod:
+  epma_xRayBackgroundCorrectionMethod:
     title: X-ray Background Correction Method
     description: 'Method used to estimate and subtract background X-ray intensity
       beneath the peak. For WDS: typically 2-point off-peak linear interpolation or
@@ -3198,13 +3198,13 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/xRayBackgroundCorrectionMethod
+        const: ada:parameter/epmaTAPP/xRayBackgroundCorrectionMethod
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/empaTAPP/xRayBackgroundCorrectionMethod
+        - '@id': ada:parameter/epmaTAPP/xRayBackgroundCorrectionMethod
       schema:name:
         const: X-ray Background Correction Method
       schema:value:

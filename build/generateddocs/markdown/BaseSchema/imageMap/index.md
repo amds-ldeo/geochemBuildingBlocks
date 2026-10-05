@@ -3,7 +3,7 @@
 
 `ogch.BaseSchema.imageMap` *v0.1*
 
-Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEMPA (geochemProperties), spatialRegistration (geochemProperties).
+Spatially registered image map with pixel coordinates and component types. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, illuminationType, imageType, numPixelsX, numPixelsY, spatialRegistration. Uses building blocks: detailEPMA (geochemProperties), spatialRegistration (geochemProperties).
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -11,7 +11,7 @@ Spatially registered image map with pixel coordinates and component types. Defin
 
 # Image Map Type
 
-Describes spatially registered image maps with pixel coordinates, component type classification (including EMPA details), and spatial registration metadata. Extends the basic image type with pixel dimensions and spatial registration.
+Describes spatially registered image maps with pixel coordinates, component type classification (including EPMA details), and spatial registration metadata. Extends the basic image type with pixel dimensions and spatial registration.
 
 ## Examples
 
@@ -130,7 +130,7 @@ properties:
     type: string
     enum:
     - ada:EBSDMap
-    - ada:EMPAImageMap
+    - ada:EPMAImageMap
     - ada:LAICPMSMap
     - ada:NanoIRMap
     - ada:SEMEBSDGrainImageMap

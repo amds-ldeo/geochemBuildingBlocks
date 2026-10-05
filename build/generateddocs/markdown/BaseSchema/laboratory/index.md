@@ -24,7 +24,7 @@ NeXus NXsource classification in additionalType.
   "@type": ["schema:Place"],
   "schema:additionalType": ["nxs:BaseClass/NXsource"],
   "schema:name": ["Lunar and Planetary Laboratory Electron Microprobe Facility"],
-  "schema:alternateName": "LPL EMPA Lab",
+  "schema:alternateName": "LPL EPMA Lab",
   "schema:identifier": "https://ror.org/03m2x1q45"
 }
 
@@ -49,7 +49,7 @@ NeXus NXsource classification in additionalType.
   "schema:name": [
     "Lunar and Planetary Laboratory Electron Microprobe Facility"
   ],
-  "schema:alternateName": "LPL EMPA Lab",
+  "schema:alternateName": "LPL EPMA Lab",
   "schema:identifier": "https://ror.org/03m2x1q45"
 }
 ```
@@ -60,7 +60,7 @@ NeXus NXsource classification in additionalType.
 
 [] a schema1:Place ;
     schema1:additionalType "nxs:BaseClass/NXsource" ;
-    schema1:alternateName "LPL EMPA Lab" ;
+    schema1:alternateName "LPL EPMA Lab" ;
     schema1:identifier "https://ror.org/03m2x1q45" ;
     schema1:name "Lunar and Planetary Laboratory Electron Microprobe Facility" .
 

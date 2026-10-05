@@ -53,7 +53,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
   "prov:wasGeneratedBy": [
     {
       "ada:combinedResults": [
-        "example value"
+        {}
       ]
     }
   ],
@@ -87,7 +87,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
   "prov:wasGeneratedBy": [
     {
       "ada:combinedResults": [
-        "example value"
+        {}
       ]
     }
   ],
@@ -111,7 +111,7 @@ The analysis half of the Aggregation module, with every property populated. Gene
             schema1:value "example value" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example value" ] ;
-    prov:wasGeneratedBy [ ada:combinedResults "example value" ] .
+    prov:wasGeneratedBy [ ada:combinedResults [ ] ] .
 
 
 ```

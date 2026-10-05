@@ -3,7 +3,7 @@
 
 `ogch.BaseSchema.tabularData` *v0.1*
 
-CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEMPA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
+CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEPMA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -114,8 +114,8 @@ allOf:
       - ada:EAIRMSProcessedData
       - ada:EAIRMSRawData
       - ada:EELSSpectrum
-      - ada:EMPAESPCTabular
-      - ada:EMPAQEATabular
+      - ada:EPMAESPCTabular
+      - ada:EPMAQEATabular
       - ada:FIBSEMTabular
       - ada:FINESSETabular
       - ada:FTICRMSTabular

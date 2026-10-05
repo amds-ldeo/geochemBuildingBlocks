@@ -292,7 +292,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_analyticalAccuracyDefault:
+  epma_analyticalAccuracyDefault:
     title: Analytical Accuracy
     description: Offset between measured and accepted reference values for secondary
       standards, expressed as percent relative bias. Include reference material, reference
@@ -300,7 +300,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/analyticalAccuracyDefault
+        const: ada:parameter/epmaTAPP/analyticalAccuracyDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -323,7 +323,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_analyticalPrecisionDefault:
+  epma_analyticalPrecisionDefault:
     title: Analytical Precision
     description: Reproducibility of repeated measurements on the same or equivalent
       reference material, expressed as 1-sigma relative standard deviation (%). Include
@@ -331,7 +331,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/analyticalPrecisionDefault
+        const: ada:parameter/epmaTAPP/analyticalPrecisionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -354,14 +354,14 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_backgroundPositionDefault:
+  epma_backgroundPositionDefault:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the
       peak, in mm or sin-theta, and whether on the high- or low-energy side.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/backgroundPositionDefault
+        const: ada:parameter/epmaTAPP/backgroundPositionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -384,7 +384,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_beamDamageMinimizationDefault:
+  epma_beamDamageMinimizationDefault:
     title: Beam Damage Minimization
     description: Measures taken to minimize beam damage, particularly volatilization
       or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates,
@@ -393,7 +393,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamDamageMinimizationDefault
+        const: ada:parameter/epmaTAPP/beamDamageMinimizationDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -416,7 +416,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_beamRasterDimensionsDefault:
+  epma_beamRasterDimensionsDefault:
     title: Beam Raster Dimensions
     description: "Dimensions of the small area over which the beam is rastered at
       a single analysis point, reported as width \xD7 height in \xB5m. Applicable
@@ -425,7 +425,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/beamRasterDimensionsDefault
+        const: ada:parameter/epmaTAPP/beamRasterDimensionsDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -450,7 +450,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_blankCorrectionDefault:
+  epma_blankCorrectionDefault:
     title: Blank Correction
     description: Method and reference material(s) used to determine and subtract blank
       signal contributions (e.g., carbon coat contribution to C signal, or background
@@ -458,7 +458,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/blankCorrectionDefault
+        const: ada:parameter/epmaTAPP/blankCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -481,7 +481,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_countingStatisticsErrorDefault:
+  epma_countingStatisticsErrorDefault:
     title: Counting Statistics Error
     description: "Uncertainty predicted from counting statistics \u2014 the theoretical
       limit set by the Poisson distribution of the counts accumulated \u2014 for each
@@ -492,7 +492,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/countingStatisticsErrorDefault
+        const: ada:parameter/epmaTAPP/countingStatisticsErrorDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -515,7 +515,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_detectionLimitDefault:
+  epma_detectionLimitDefault:
     title: Detection Limit
     description: Detection limit, one per reported concentration variable (one per
       target species, these being the same set). State the units and whether the values
@@ -525,7 +525,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/detectionLimitDefault
+        const: ada:parameter/epmaTAPP/detectionLimitDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -550,14 +550,14 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_driftCorrectionDefault:
+  epma_driftCorrectionDefault:
     title: Drift Correction
     description: Method used to monitor and correct for instrument drift (beam current
       drift, spectrometer drift) during the analytical session.
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/driftCorrectionDefault
+        const: ada:parameter/epmaTAPP/driftCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -580,7 +580,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_halogenCorrectionOnOxygenDefault:
+  epma_halogenCorrectionOnOxygenDefault:
     title: Halogen Correction on Oxygen
     description: Whether oxygen content was adjusted to account for halogen substitution
       (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole,
@@ -588,7 +588,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/halogenCorrectionOnOxygenDefault
+        const: ada:parameter/epmaTAPP/halogenCorrectionOnOxygenDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -611,7 +611,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_normalizationStandardsBasedCorrectionDefault:
+  epma_normalizationStandardsBasedCorrectionDefault:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
       the primary calibration \u2014 for example correction to a reference value derived
@@ -620,7 +620,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/normalizationStandardsBasedCorrectionDefault
+        const: ada:parameter/epmaTAPP/normalizationStandardsBasedCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -643,7 +643,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_preAnalysisImagingAndScreeningDefault:
+  epma_preAnalysisImagingAndScreeningDefault:
     title: Pre-Analysis Imaging and Screening
     description: Imaging or other characterisation performed before the measurement
       in order to select or locate the sampling unit to be analysed, including the
@@ -654,7 +654,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/preAnalysisImagingAndScreeningDefault
+        const: ada:parameter/epmaTAPP/preAnalysisImagingAndScreeningDefault
       '@type':
         const:
         - schema:PropertyValueSpecification
@@ -677,7 +677,7 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
-  empa_timeDependentIntensityCorrectionDefault:
+  epma_timeDependentIntensityCorrectionDefault:
     title: Time-Dependent Intensity Correction
     description: Type of time-dependent intensity (TDI) correction applied to compensate
       for beam-induced volatilization or migration of sensitive elements (e.g., Na,
@@ -685,7 +685,7 @@ $defs:
     type: object
     properties:
       '@id':
-        const: ada:parameter/empaTAPP/timeDependentIntensityCorrectionDefault
+        const: ada:parameter/epmaTAPP/timeDependentIntensityCorrectionDefault
       '@type':
         const:
         - schema:PropertyValueSpecification

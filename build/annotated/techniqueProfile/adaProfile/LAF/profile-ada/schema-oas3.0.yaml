@@ -31,10 +31,10 @@ x-defs:
             - Basemap
             - Differential Scanning Calorimetry (DSC)
             - Differential Scanning Calorimetry
-            - Electron Microprobe Analysis (EMPA) Collection
-            - Electron Microprobe Analysis Image (EMPA)
-            - Electron Microprobe Analysis Quantitative Elemental Abundances (EMPAQEA)
-            - Electron Microprobe Analysis (EMPA)
+            - Electron Microprobe Analysis (EPMA) Collection
+            - Electron Microprobe Analysis Image (EPMA)
+            - Electron Microprobe Analysis Quantitative Elemental Abundances (EPMAQEA)
+            - Electron Microprobe Analysis (EPMA)
             - Electron microprobe analysis
             - Elemental Analysis-Isotope Ratio Mass Spectrometry (EA-IRMS)
             - Elemental analysis - isotope ratio mass spectrometry
@@ -206,7 +206,7 @@ x-defs:
                           single string drawn from a universal set or a technique-specific
                           set. Technique profiles add an anyOf at the hasPart level:
                           one branch declares the universal componentType enum; other
-                          branches $ref technique-specific detail schemas (e.g. detailEMPA)
+                          branches $ref technique-specific detail schemas (e.g. detailEPMA)
                           that enumerate technique componentType values and contribute
                           detail-specific sibling properties (e.g. ada:spectrometersUsed).'
                 x-jsonld-id: http://schema.org/hasPart
@@ -1130,7 +1130,8 @@ x-defs:
           - schema:DataCatalog
           - schema:DefinedTermSet
           - schema:MediaObject
-        default: schema:Dataset
+        default:
+        - schema:Dataset
         minItems: 1
         contains:
           enum:
@@ -4414,8 +4415,8 @@ x-defs:
           - ada:EAIRMSProcessedData
           - ada:EAIRMSRawData
           - ada:EELSSpectrum
-          - ada:EMPAESPCTabular
-          - ada:EMPAQEATabular
+          - ada:EPMAESPCTabular
+          - ada:EPMAQEATabular
           - ada:FIBSEMTabular
           - ada:FINESSETabular
           - ada:FTICRMSTabular
@@ -4534,7 +4535,8 @@ x-defs:
     type: object
     properties:
       '@type':
-        default: schema:Place
+        default:
+        - schema:Place
         type: array
         items:
           type: string
@@ -4581,7 +4583,8 @@ x-defs:
             might only index or display bounding box extents or a single point location.
           properties:
             '@type':
-              default: schema:GeoCoordinates
+              default:
+              - schema:GeoCoordinates
               type: array
               items:
                 type: string
@@ -4611,7 +4614,8 @@ x-defs:
             of several such points.'
           properties:
             '@type':
-              default: schema:GeoShape
+              default:
+              - schema:GeoShape
               type: array
               items:
                 type: string
@@ -4636,7 +4640,8 @@ x-defs:
             a linear trace like a ship track or airplane flight line
           properties:
             '@type':
-              default: schema:GeoShape
+              default:
+              - schema:GeoShape
               type: array
               items:
                 type: string
@@ -4732,7 +4737,8 @@ x-defs:
         eras with identifier, e.g. geologic age. This is a SOSO schema.org extension
       properties:
         '@type':
-          default: time:ProperInterval
+          default:
+          - time:ProperInterval
           type: array
           items:
             type: string
@@ -4781,7 +4787,8 @@ x-defs:
           additionalProperties: true
           description: Must exactly match the specified @context object.
         '@type':
-          default: time:ProperInterval
+          default:
+          - time:ProperInterval
           type: array
           items:
             type: string
@@ -4838,7 +4845,8 @@ x-defs:
         type: object
         properties:
           '@type':
-            default: time:TimePosition
+            default:
+            - time:TimePosition
             type: array
             items:
               type: string
@@ -4946,8 +4954,8 @@ x-defs:
         - ada:BSEImage
         - ada:CLImage
         - ada:CPDImage
-        - ada:EMPAESPCPlot
-        - ada:EMPAImage
+        - ada:EPMAESPCPlot
+        - ada:EPMAImage
         - ada:FIBSEMImage
         - ada:GCMSChromatogram
         - ada:GCMSSpectraPlot
@@ -5071,7 +5079,7 @@ x-defs:
         type: string
         enum:
         - ada:EBSDMap
-        - ada:EMPAImageMap
+        - ada:EPMAImageMap
         - ada:LAICPMSMap
         - ada:NanoIRMap
         - ada:SEMEBSDGrainImageMap
@@ -5218,7 +5226,7 @@ x-defs:
         enum:
         - ada:ARGTCollection
         - ada:EAIRMSCollection
-        - ada:EMPAImageCollection
+        - ada:EPMAImageCollection
         - ada:FIBSEMSegmentation
         - ada:FIBSEMVolume
         - ada:FINESSECollection
@@ -5653,7 +5661,8 @@ x-defs:
     type: object
     properties:
       '@type':
-        default: schema:LinkRole
+        default:
+        - schema:LinkRole
         type: array
         items:
           type: string
@@ -5677,7 +5686,8 @@ x-defs:
           and domain-specific properties, and JSON-LD is open-world.'
         properties:
           '@type':
-            default: schema:EntryPoint
+            default:
+            - schema:EntryPoint
             type: array
             items:
               type: string
@@ -5752,7 +5762,8 @@ x-defs:
           it as a class. A pure DCAT relation then met a SHACL requirement with no
           schema counterpart. This anyOf restores the type to the schema WITHOUT restoring
           the conjunction.'
-        default: schema:CreativeWork
+        default:
+        - schema:CreativeWork
         type: array
         items:
           type: string
@@ -6212,7 +6223,8 @@ x-defs:
           contacts as well
         properties:
           '@type':
-            default: schema:ContactPoint
+            default:
+            - schema:ContactPoint
             type: array
             items:
               type: string
@@ -6259,7 +6271,8 @@ x-defs:
       '@id':
         type: string
       '@type':
-        default: schema:Organization
+        default:
+        - schema:Organization
         type: array
         items:
           anyOf:
@@ -6339,7 +6352,8 @@ x-defs:
     type: object
     properties:
       '@type':
-        default: schema:Role
+        default:
+        - schema:Role
         type: array
         items:
           type: string
@@ -6383,7 +6397,8 @@ x-defs:
         type: string
         description: URI identifier for this funding record
       '@type':
-        default: schema:MonetaryGrant
+        default:
+        - schema:MonetaryGrant
         type: array
         items:
           type: string
@@ -6613,7 +6628,8 @@ x-defs:
             type: string
             description: identifier for the graph node.
           '@type':
-            default: schema:DataCatalog
+            default:
+            - schema:DataCatalog
             type: array
             items:
               type: string
@@ -8348,11 +8364,10 @@ x-defs:
             description: Inline schema:Thing object describing the input entity.
             properties:
               '@type':
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+                type: array
+                items:
+                  type: string
+                minItems: 1
             required:
             - '@type'
           - type: array
@@ -8385,11 +8400,10 @@ x-defs:
             description: Inline schema:Thing object describing the output entity.
             properties:
               '@type':
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
+                type: array
+                items:
+                  type: string
+                minItems: 1
             required:
             - '@type'
           - type: array
@@ -9577,7 +9591,8 @@ x-defs:
     properties:
       '@type':
         description: The type of action. Must be schema:Action or one of its subtypes.
-        default: schema:Action
+        default:
+        - schema:Action
         type: array
         items:
           type: string
@@ -9608,7 +9623,8 @@ x-defs:
           handle post requests.
         properties:
           '@type':
-            default: schema:EntryPoint
+            default:
+            - schema:EntryPoint
             type: array
             items:
               type: string
@@ -9681,7 +9697,8 @@ x-defs:
           superfluous.
         properties:
           '@type':
-            default: schema:Thing
+            default:
+            - schema:Thing
             type: array
             items:
               type: string
@@ -9699,7 +9716,8 @@ x-defs:
             '@id':
               type: string
             '@type':
-              default: schema:PropertyValueSpecification
+              default:
+              - schema:PropertyValueSpecification
               type: array
               items:
                 type: string
