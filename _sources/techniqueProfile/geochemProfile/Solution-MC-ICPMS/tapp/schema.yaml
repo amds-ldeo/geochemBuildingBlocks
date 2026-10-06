@@ -1,7 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
-description: Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current
-  TAPPs/Solution_MC-ICP-MS_TAPP_v91.csv via the path-driven pipeline.
+description: Solution multi-collector ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v91.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -31,14 +30,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
             - &id001
               title: Primary Calibration Standard Name
-              description: Name and reference material identifier of the primary reference material(s)
-                against which the instrument is calibrated — converting raw signal intensities to concentrations,
-                or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give
-                the material name, its source or supplier, and a citation for the accepted values used.
-                Where calibration instead uses the vendor's stored library or theoretical response factors
-                rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification
-                — record that here, naming the library or model used. 'None' means no calibration was
-                performed at all, which is a different answer.
+              description: Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.
               type: object
               properties:
                 '@id':
@@ -108,14 +100,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                   schema:description:
-                    description: Each distinct acid digestion step applied to dissolve the sample, listed
-                      in the order performed and named by its attack. A step is distinct when its acid
-                      mixture, vessel, temperature or duration differs from the one before; an evaporation
-                      or dry-down that carries no attack of its own is part of the step it follows, and
-                      an identical attack repeated on the residue is a repeat of that step rather than
-                      a new one. Enumerating the steps is what allows Digestion Acid(s), Digestion Temperature
-                      and Digestion Duration to be recorded per step. Record N/A where the sample is introduced
-                      without acid digestion.
+                    description: Each distinct acid digestion step applied to dissolve the sample, listed in the order performed and named by its attack. A step is distinct when its acid mixture, vessel, temperature or duration differs from the one before; an evaporation or dry-down that carries no attack of its own is part of the step it follows, and an identical attack repeated on the residue is a repeat of that step rather than a new one. Enumerating the steps is what allows Digestion Acid(s), Digestion Temperature and Digestion Duration to be recorded per step. Record N/A where the sample is introduced without acid digestion.
                     anyOf:
                     - type: string
                       readOnly: true
@@ -143,13 +128,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                   schema:description:
-                    description: 'The acquisition passes the procedure is divided into, named and described
-                      so that fields keyed by acquisition pass can point at them. A pass is a sub-procedure:
-                      a distinct traversal of the measurement with its own configuration, run in sequence
-                      on the same material. State what distinguishes each pass — resolution mode, cup
-                      or cell configuration, plasma or introduction path, spot size — since that differs
-                      by technique. Identical repeats of one configuration are replicates, not passes,
-                      and belong in Number of Replicates.'
+                    description: 'The acquisition passes the procedure is divided into, named and described so that fields keyed by acquisition pass can point at them. A pass is a sub-procedure: a distinct traversal of the measurement with its own configuration, run in sequence on the same material. State what distinguishes each pass — resolution mode, cup or cell configuration, plasma or introduction path, spot size — since that differs by technique. Identical repeats of one configuration are replicates, not passes, and belong in Number of Replicates.'
                     anyOf:
                     - type: string
                       readOnly: true
@@ -174,16 +153,7 @@ allOf:
                       - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_isotopeDilutionDataReductionMethod
                       - &id002
                         title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual results contribute to a combined
-                          result, together with the outcome of applying them: how many results were obtained,
-                          how many were included, and on what grounds any were excluded. An individual
-                          result is the value of the reported quantity obtained from one acquisition:
-                          a replicate measurement of the same solution or location, a spot or grain within
-                          a sample, or an independently prepared aliquot or digestion, whichever the procedure
-                          combines. Distinct from filtering the acquired signal during data reduction
-                          (removing spikes, cycles or scans, or discarding an acquisition whose signal
-                          is compromised): this field records which finished results enter the combined
-                          result, and on what grounds.'
+                        description: 'The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.'
                         type: object
                         properties:
                           '@id':
@@ -299,10 +269,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the instrument that performs the measurement, including
-                      any generation or configuration suffix. Conventionally written with the manufacturer
-                      name included; Instrument Manufacturer records the vendor separately, as a controlled
-                      value, so that procedures remain findable by vendor.
+                    description: Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
                 required:
@@ -318,10 +285,7 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
                   - &id003
                     title: Doubly-Charged Species Monitor
-                    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation
-                      during instrument tuning. The monitor species and the mass positions monitored should
-                      be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide
-                      monitoring.
+                    description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
                     type: object
                     properties:
                       '@id':
@@ -350,9 +314,7 @@ allOf:
                     - ada:fieldScope
                   - &id004
                     title: Doubly-Charged Species Production
-                    description: Measured percentage of doubly-charged ion production for the monitored
-                      species at the time of instrument tuning. The acceptable threshold is typically
-                      <1% or <3%. Record both the threshold and the measured value.
+                    description: Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.
                     type: object
                     properties:
                       '@id':
@@ -591,16 +553,7 @@ allOf:
                             minContains: 0
                             maxContains: 1
                         ada:collectorConfiguration:
-                          description: Assignment of isotope masses to Faraday cup or ion counter detector
-                            positions for this procedure, and the target species each position serves.
-                            Lists the mass number monitored in each collector position with its target
-                            species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn
-                            (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor
-                            and internal-standard positions serve no target species and carry no parent
-                            element; the target species list itself is given by the Target Species field
-                            and is never inferred from the mass labels here. For static multi-collection
-                            procedures, one configuration applies throughout the measurement. For multi-dynamic
-                            procedures, list all configurations and the cycling sequence.
+                          description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -655,10 +608,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer of the instrument that performs the measurement, recorded
-                      as a controlled value. Where a procedure couples a sample-introduction system to
-                      an analysing instrument, this records the analysing instrument. Instrument Model
-                      gives the specific designation.
+                    description: Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - Thermo Fisher Scientific
@@ -702,8 +652,7 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Procedure_doubleSpikeMixingRatio
         - &id005
           title: Error Correlation Between Reported Quantities
-          description: The correlation coefficient between pairs of reported quantities whose uncertainties
-            are not independent, together with the pair it applies to and how it was obtained.
+          description: The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.
           type: object
           properties:
             '@id':
@@ -732,9 +681,7 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
         - &id006
           title: Collision/Reaction Gas Mixture Ratio
-          description: Where the collision or reaction cell is supplied with a mixture of gases rather
-            than a single gas, the identities and proportions of that mixture. Recorded separately from
-            the gas identity. Record 'N/A' where a single gas is used.
+          description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
           type: object
           properties:
             '@id':
@@ -762,10 +709,7 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: Reaction Product Ion / Mass-Shift Transition
-          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
-            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
-            relating the mass measured to the target species it reports, which the monitored mass alone
-            does not state. Record 'N/A' where the target species is measured on its own mass.
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
           type: object
           properties:
             '@id':
@@ -840,10 +784,7 @@ allOf:
         maxContains: 1
       - contains:
           title: Reaction Product Ion / Mass-Shift Transition
-          description: Where a monitored mass is produced by a reaction in the collision/reaction cell,
-            the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry
-            relating the mass measured to the target species it reports, which the monitored mass alone
-            does not state. Record 'N/A' where the target species is measured on its own mass.
+          description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
           type: object
           properties:
             '@id':
@@ -884,13 +825,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - &id007
               title: Calibration Strategy per Target Species
-              description: Approach used to convert measured ion signals to reported concentrations, and
-                specifically any case where different target species or target species groups within one
-                procedure are calibrated differently - different primary standards for different mass
-                ranges or phases, or one element serving as internal standard while others are externally
-                calibrated. Where a single strategy applies to all target species, record that strategy.
-                Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable
-                (isotope ratios only)'.
+              description: Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
               properties:
                 '@id':
@@ -919,12 +854,7 @@ allOf:
               - schema:defaultValue
             - &id008
               title: Analytical Accuracy and Assessment Method
-              description: Offset between measured and accepted values for secondary reference materials,
-                and the method used to assess it. Specify the reference material and the source of its
-                accepted values, the number of analyses, and the quantities assessed. Report systematic
-                biases and their likely causes. Express the offset in the form appropriate to what the
-                procedure reports - percent relative bias for concentrations, or deviation in delta or
-                ratio units for isotopic quantities.
+              description: Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.
               type: object
               properties:
                 '@id':
@@ -953,12 +883,7 @@ allOf:
               - schema:defaultValue
             - &id009
               title: Internal (Within-Measurement) Analytical Precision and Assessment Method
-              description: Precision of a single measurement, derived from the scatter of the cycles,
-                sweeps or integrations that make it up, together with the method used to assess it. State
-                the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported
-                quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty
-                predicted from the counts rather than the scatter observed; where a procedure reports
-                both, record the observed value here and the predicted value there.
+              description: Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it. State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to. Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there.
               type: object
               properties:
                 '@id':
@@ -986,10 +911,7 @@ allOf:
               - ada:dataType
             - &id010
               title: Between-Session (Long-Term) Analytical Precision and Assessment Method
-              description: Precision of measurements across multiple analytical sessions over weeks to
-                months — long-term or intermediate precision — and the method used to assess it. Report
-                both the assessment method and the precision values, specifying the reference material,
-                the number of measurements and sessions, the time span covered, and the statistic reported.
+              description: Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.
               type: object
               properties:
                 '@id':
@@ -1017,11 +939,7 @@ allOf:
               - ada:dataType
             - &id011
               title: Counting Statistics Error
-              description: Uncertainty predicted from counting statistics — the theoretical limit set
-                by the Poisson distribution of the counts accumulated — for each reported quantity per
-                analysis, with the sigma level stated. Derived from the counts on the target species together
-                with those on any background or blank subtracted from it. Distinct from the scatter actually
-                observed within a measurement or between repeated measurements, which is recorded separately.
+              description: Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.
               type: object
               properties:
                 '@id':
@@ -1049,12 +967,7 @@ allOf:
               - ada:dataType
             - &id012
               title: Within-Session Analytical Precision and Assessment Method
-              description: Precision of repeated measurements within a single analytical session and the
-                method used to assess it. Report both the assessment method and the precision values.
-                The assessment method must specify the reference material or standard measured, the number
-                of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct
-                from the internal precision of a single measurement, which derives from counting statistics
-                over the cycles of that measurement rather than from repeated analyses.
+              description: Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.
               type: object
               properties:
                 '@id':
@@ -1112,10 +1025,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - &id017
               title: Spectral Interference Corrections Applied
-              description: Whether mathematical corrections for isobaric, polyatomic or residual interferences
-                are applied in data reduction, supplementary to any suppression already achieved by chemical
-                separation, mass resolution, or a collision/reaction cell. Detail for each affected mass
-                is carried by Interfering Species and Interference Correction Method.
+              description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.
               type: object
               properties:
                 '@id':
@@ -1148,10 +1058,7 @@ allOf:
               - schema:defaultValue
             - &id018
               title: Interfering Species
-              description: The isobaric, polyatomic and doubly charged species that overlap the measured
-                masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides,
-                and abundance-sensitivity tailing from an adjacent large beam. Name each species and the
-                mass it affects.
+              description: The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.
               type: object
               properties:
                 '@id':
@@ -1184,11 +1091,7 @@ allOf:
               - schema:defaultValue
             - &id019
               title: Interference Correction Method
-              description: Equation or procedure used to calculate and remove each interference contribution,
-                together with how its magnitude was established - a monitor mass measured simultaneously
-                and scaled by natural abundance ratios, a production-rate factor measured on a reference
-                material or interference standard solution, or a tailing factor measured on a pure standard.
-                Name the reference material used.
+              description: Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.
               type: object
               properties:
                 '@id':
@@ -1221,10 +1124,7 @@ allOf:
               - schema:defaultValue
             - &id020
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One target species may be acquired
-                at more than one resolution, so the assignment is per acquired mass rather than per element.
-                The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group
-                3).
+              description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
               type: object
               properties:
                 '@id':
@@ -1278,14 +1178,7 @@ allOf:
       required:
       - ada:defaultMonitoredProperties
     ada:massBiasCorrectionStrategy:
-      description: 'Primary strategy used to correct for instrumental isotopic mass fractionation. Four
-        main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard
-        measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a
-        mixture of two enriched isotopes of the target species element added before digestion provides
-        an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization:
-        an element of known isotopic composition added to samples and standards; measured ratio of normalizing
-        element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal
-        normalization: both strategies applied simultaneously for redundant bias correction.'
+      description: 'Primary strategy used to correct for instrumental isotopic mass fractionation. Four main strategies: (1) Sample-standard bracketing (SSB): alternating sample and isotopic standard measurements; bias interpolated linearly between bracketing measurements. (2) Double-spike: a mixture of two enriched isotopes of the target species element added before digestion provides an internal monitor of both instrumental and chemical mass fractionation. (3) Internal normalization: an element of known isotopic composition added to samples and standards; measured ratio of normalizing element used to calculate the mass bias factor applied to target species ratios. (4) SSB + internal normalization: both strategies applied simultaneously for redundant bias correction.'
       type: string
       readOnly: true
     schema:variableMeasured:
@@ -1293,9 +1186,7 @@ allOf:
       items:
         anyOf:
         - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
+          description: A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.
           type: object
           required:
           - '@type'
@@ -1307,9 +1198,7 @@ allOf:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
         - title: Isotope Ratio Reported
-          description: Specific isotope ratio pair(s) reported as primary data output. The denominator
-            isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes,
-            235U for U isotopes). Report all ratio pairs routinely calculated and reported.
+          description: Specific isotope ratio pair(s) reported as primary data output. The denominator isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes, 235U for U isotopes). Report all ratio pairs routinely calculated and reported.
           type: object
           properties:
             '@id':
@@ -1335,9 +1224,7 @@ allOf:
       allOf:
       - contains:
           title: Isotope Ratio Reported
-          description: Specific isotope ratio pair(s) reported as primary data output. The denominator
-            isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes,
-            235U for U isotopes). Report all ratio pairs routinely calculated and reported.
+          description: Specific isotope ratio pair(s) reported as primary data output. The denominator isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes, 235U for U isotopes). Report all ratio pairs routinely calculated and reported.
           type: object
           properties:
             '@id':
@@ -1363,9 +1250,7 @@ allOf:
         minContains: 0
         maxContains: 1
     ada:numberOfAcquisitionPasses:
-      description: Number of acquisition passes the procedure runs. A count of the passes enumerated in
-        Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that
-        field.
+      description: Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.
       anyOf:
       - type: integer
       - type: string

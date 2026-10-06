@@ -1,7 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Analysis Detail
-description: Dataset-level analysis-instance detail for SEM (superset), reusing CDIF/schema.org slots
-  on the schema:Dataset root.
+description: Dataset-level analysis-instance detail for SEM (superset), reusing CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
@@ -20,8 +19,7 @@ allOf:
               anyOf:
               - &id001
                 title: 3D Image Registration
-                description: Method used to align consecutive SEM image slices in the 3D stack to correct
-                  for drift, vibration, and curtaining artifacts. Include software used.
+                description: Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.
                 type: object
                 properties:
                   '@id':
@@ -44,8 +42,7 @@ allOf:
                 - schema:value
               - &id002
                 title: Segmentation Method
-                description: Method and software used to separate distinct phases or features in the reconstructed
-                  3D volume, turning the grayscale volume into labelled regions.
+                description: Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
                 type: object
                 properties:
                   '@id':
@@ -68,10 +65,7 @@ allOf:
                 - schema:value
               - &id003
                 title: Beam Damage Minimization
-                description: 'Describes any measures taken to reduce electron beam damage to the sample
-                  during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused
-                  or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple
-                  points.'
+                description: 'Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.'
                 type: object
                 properties:
                   '@id':
@@ -94,9 +88,7 @@ allOf:
                 - schema:value
               - &id004
                 title: Beam Raster Dimensions
-                description: Dimensions of the small area over which the beam is rastered at a single
-                  analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered;
-                  defines the effective spatial footprint of the measurement. Not applicable when mapping.
+                description: Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.
                 type: object
                 properties:
                   '@id':
@@ -124,9 +116,7 @@ allOf:
                 - schema:unitText
               - &id005
                 title: Chamber Pressure
-                description: Chamber pressure and gas type during analysis. Required for variable pressure
-                  (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and
-                  gas composition. Use 'None' for standard high-vacuum operation.
+                description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
                 type: object
                 properties:
                   '@id':
@@ -154,8 +144,7 @@ allOf:
                 - schema:unitText
               - &id006
                 title: CL Integration Time
-                description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral
-                  point mode), in ms or s.
+                description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.
                 type: object
                 properties:
                   '@id':
@@ -183,9 +172,7 @@ allOf:
                 - schema:unitText
               - &id007
                 title: CL Wavelength Calibration Reference
-                description: Reference light source or standard material used to calibrate the wavelength
-                  axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral
-                  mapping.
+                description: Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
                 type: object
                 properties:
                   '@id':
@@ -208,10 +195,7 @@ allOf:
                 - schema:value
               - &id008
                 title: Drift Correction
-                description: 'Describes whether and how stage or beam drift was monitored and corrected
-                  during the measurement session. Examples: periodic stage realignment to a fiducial marker,
-                  automated beam drift correction in acquisition software, or reanalysis of a reference
-                  point at regular intervals.'
+                description: 'Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.'
                 type: object
                 properties:
                   '@id':
@@ -262,9 +246,7 @@ allOf:
                 - schema:unitText
               - &id010
                 title: EBSD Phase List
-                description: Mineral phases included in the EBSD reference pattern library for this procedure.
-                  Phases may be added for specific sample compositions beyond the expected suite for the
-                  target material.
+                description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.
                 type: object
                 properties:
                   '@id':
@@ -287,8 +269,7 @@ allOf:
                 - schema:value
               - &id011
                 title: EBSD Step Size
-                description: Distance between adjacent EBSD measurement points in the map in nm or µm.
-                  Must be smaller than the smallest grain of interest.
+                description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.
                 type: object
                 properties:
                   '@id':
@@ -344,9 +325,7 @@ allOf:
                 - schema:unitText
               - &id013
                 title: Halogen Correction on Oxygen
-                description: Whether oxygen content was adjusted to account for halogen substitution (F
-                  and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
-                  where oxygen is calculated by stoichiometry.
+                description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
                 type: object
                 properties:
                   '@id':
@@ -369,9 +348,7 @@ allOf:
                 - schema:value
               - &id014
                 title: Image Pixel Size
-                description: Physical size of each image pixel at the sample surface, in nm or µm. For
-                  large-area mosaic imaging, report the pixel size of individual tiles and the number
-                  and arrangement of tiles.
+                description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.
                 type: object
                 properties:
                   '@id':
@@ -399,8 +376,7 @@ allOf:
                 - schema:unitText
               - &id015
                 title: Step Size / Pixel Size
-                description: Centre-to-centre distance between adjacent measurement points (WDS mapping)
-                  or pixels (EDS mapping) in µm.
+                description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.
                 type: object
                 properties:
                   '@id':
@@ -429,8 +405,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - &id016
                 title: Working Distance
-                description: Distance between the objective lens pole piece and the specimen surface in
-                  millimetres.
+                description: Distance between the objective lens pole piece and the specimen surface in millimetres.
                 type: object
                 properties:
                   '@id':
@@ -570,10 +545,7 @@ allOf:
                                       - schema:unitText
                                     - &id018
                                       title: Beam Diameter
-                                      description: Nominal electron beam diameter (spot size) at the sample
-                                        surface for point analysis, in nanometres or micrometres, as set
-                                        by the condenser aperture and working distance. The beam used
-                                        for mapping is recorded under Mapping Beam Diameter.
+                                      description: Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.
                                       type: object
                                       properties:
                                         '@id':
@@ -601,11 +573,7 @@ allOf:
                                       - schema:unitText
                                     - &id019
                                       title: Mapping Beam Current
-                                      description: 'Electron beam probe current used while the beam scans
-                                        an area: an X-ray or CL map, an EBSD map, or an SE or BSE image,
-                                        including images taken during FIB-SEM work. For sub-nA values
-                                        use decimal notation (e.g., 0.4 nA). Ion-beam currents used for
-                                        milling belong in the milling condition fields.'
+                                      description: 'Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.'
                                       type: object
                                       properties:
                                         '@id':
@@ -633,8 +601,7 @@ allOf:
                                       - schema:unitText
                                     - &id020
                                       title: Mapping Beam Diameter
-                                      description: Diameter of the electron beam in micrometres during
-                                        X-ray mapping. 0 indicates a fully focused beam.
+                                      description: Diameter of the electron beam in micrometres during X-ray mapping. 0 indicates a fully focused beam.
                                       type: object
                                       properties:
                                         '@id':
@@ -704,10 +671,7 @@ allOf:
                             anyOf:
                             - &id021
                               title: Coarse Milling Conditions
-                              description: 'Ion beam voltage and current used for bulk material removal
-                                during FIB milling. For TEM specimen preparation: bulk trenching to isolate
-                                the lamella and intermediate thinning. For 3D tomography: face preparation
-                                and initial slice removal.'
+                              description: 'Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.'
                               type: object
                               properties:
                                 '@id':
@@ -730,8 +694,7 @@ allOf:
                               - schema:value
                             - &id022
                               title: Fine Polishing Conditions
-                              description: Ion beam voltage and current for final thinning and surface
-                                polishing of the TEM lamella.
+                              description: Ion beam voltage and current for final thinning and surface polishing of the TEM lamella.
                               type: object
                               properties:
                                 '@id':
@@ -754,11 +717,7 @@ allOf:
                               - schema:value
                             - &id023
                               title: Protective Coating Deposition
-                              description: 'Type and deposition conditions of the protective coating applied
-                                to the sample surface before FIB milling. E-beam deposition should be
-                                applied as the initial layer. Typical coatings: platinum (Pt) or carbon
-                                (C). State material, deposition method, beam conditions, and approximate
-                                thickness.'
+                              description: 'Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.'
                               type: object
                               properties:
                                 '@id':
@@ -804,8 +763,7 @@ allOf:
                             - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Analysis_constantsReferenceValues
                             - &id024
                               title: Crystal Structure Database
-                              description: Crystal structure database used for EBSD phase identification
-                                and Kikuchi pattern simulation.
+                              description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
                               type: object
                               properties:
                                 '@id':
@@ -843,8 +801,7 @@ allOf:
                     then:
                       properties:
                         schema:description:
-                          description: Ion beam voltage and current used to mill each slice during FIB-SEM
-                            serial sectioning.
+                          description: Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.
                           anyOf:
                           - type: string
                           - type: array
@@ -872,10 +829,7 @@ allOf:
                     required:
                     - schema:name
           ada:edsDeadTime:
-            description: Percent dead time reported by the EDS detector during the session — the fraction
-              of total acquisition time the detector spent processing rather than counting. This field
-              documents the resulting percentage as a session QC metric. Unlike WDS dead time (see WDS
-              Dead Time Correction), no user-selectable correction algorithm is required.
+            description: Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. This field documents the resulting percentage as a session QC metric. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable correction algorithm is required.
             anyOf:
             - type: number
             - type: string
@@ -899,8 +853,7 @@ allOf:
                         anyOf:
                         - &id025
                           title: Foil Thickness
-                          description: Target thickness of the electron-transparent TEM lamella after
-                            final FIB polishing, in nanometres. Actual thickness may differ from target.
+                          description: Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target.
                           type: object
                           properties:
                             '@id':
@@ -929,8 +882,7 @@ allOf:
                         - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         - &id026
                           title: Slice Thickness
-                          description: Thickness of each FIB-milled slice during serial sectioning in
-                            nanometres.
+                          description: Thickness of each FIB-milled slice during serial sectioning in nanometres.
                           type: object
                           properties:
                             '@id':
@@ -976,9 +928,7 @@ allOf:
                 required:
                 - '@type'
           ada:proceduralBlankLevel:
-            description: The measured level of the analytical blank in the session, and — where the reported
-              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
-              result unless its own composition is known. Companion to the blank correction method.
+            description: The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.
             type: string
         required:
         - ada:edsDeadTime
@@ -998,8 +948,7 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Fraction of EBSD map points successfully indexed, expressed as a percentage
-                  of total map points.
+                description: Fraction of EBSD map points successfully indexed, expressed as a percentage of total map points.
                 anyOf:
                 - type: number
                 - type: string
@@ -1014,9 +963,7 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees.
-                  MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit
-                  crystal orientation.
+                description: Mean angular deviation (MAD) of the EBSD pattern indexing solution in degrees. MAD quantifies the misfit between experimental Kikuchi band positions and the best-fit crystal orientation.
                 anyOf:
                 - type: number
                 - type: string
@@ -1031,9 +978,7 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Minimum pattern quality or confidence index threshold applied during EBSD
-                  data processing to exclude unreliably indexed points from orientation maps. Include
-                  metric name and threshold value.
+                description: Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.
                 anyOf:
                 - type: string
                 - type: array
@@ -1053,8 +998,7 @@ allOf:
           required:
           - dqv:isMeasurementOf
     ada:mapDimensions:
-      description: Number of pixels in the EDS map in the X and Y directions. Based on the area of interest
-        and selected pixel size.
+      description: Number of pixels in the EDS map in the X and Y directions. Based on the area of interest and selected pixel size.
       anyOf:
       - type: number
       - type: string
@@ -1062,10 +1006,7 @@ allOf:
       type: array
       items: &id027
         title: Map Area
-        description: Physical extent of the mapped region, given either as width × height in µm or as
-          a total area in µm² or mm², and equal to (map width in pixels × step size) × (map height in
-          pixels × step size). Complements the map's pixel-grid dimensions by recording the physical scale
-          of the mapped region.
+        description: Physical extent of the mapped region, given either as width × height in µm or as a total area in µm² or mm², and equal to (map width in pixels × step size) × (map height in pixels × step size). Complements the map's pixel-grid dimensions by recording the physical scale of the mapped region.
         type: object
         properties:
           '@id':
@@ -1096,21 +1037,17 @@ allOf:
         minContains: 0
         maxContains: 1
     ada:voxelSize:
-      description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres (X-Y pixel size from
-        SEM image calibration; Z from slice thickness), and the total number of slices in the stack.
+      description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres (X-Y pixel size from SEM image calibration; Z from slice thickness), and the total number of slices in the stack.
       type: string
     ada:imageStackDimenstions:
-      description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres (X-Y pixel size from
-        SEM image calibration; Z from slice thickness), and the total number of slices in the stack.
+      description: X, Y, Z dimensions of the reconstructed 3D voxel in nanometres (X-Y pixel size from SEM image calibration; Z from slice thickness), and the total number of slices in the stack.
       type: string
     schema:variableMeasured:
       type: array
       items:
         anyOf:
         - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
+          description: A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.
           type: object
           required:
           - '@type'
@@ -1123,8 +1060,7 @@ allOf:
                 - schema:PropertyValue
         - &id028
           title: Target Material of Sampling Unit
-          description: The entry in Target Material that the sampling unit belongs to, which links the
-            unit to the point-analysis conditions registered for that material.
+          description: The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.
           type: object
           properties:
             '@id':

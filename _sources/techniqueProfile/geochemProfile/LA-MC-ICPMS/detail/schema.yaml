@@ -1,7 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-MC-ICP-MS Analysis Detail
-description: Dataset-level analysis-instance detail for LA-MC-ICP-MS, reusing CDIF/schema.org slots on
-  the schema:Dataset root.
+description: Dataset-level analysis-instance detail for LA-MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/AnalysisIdentification
@@ -62,11 +61,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_numberOfCyclesPerBlock
               - &id001
                 title: Number of Replicates
-                description: Number of replicate measurements performed on the same sample, or on the
-                  same nominal location where the technique is spatially resolved. For spot analysis this
-                  is the number of individual spots per grain or location; for transects, the number of
-                  replicate lines; for mapping, the number of map acquisitions of the same area; for solution
-                  work, the number of discrete replicate measurements acquired per sample solution.
+                description: Number of replicate measurements performed on the same sample, or on the same nominal location where the technique is spatially resolved. For spot analysis this is the number of individual spots per grain or location; for transects, the number of replicate lines; for mapping, the number of map acquisitions of the same area; for solution work, the number of discrete replicate measurements acquired per sample solution.
                 type: object
                 properties:
                   '@id':
@@ -97,9 +92,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_transectRateMappingRateOrStepSize
               - &id002
                 title: Collision/Reaction Gas Mixture Ratio
-                description: Where the collision or reaction cell is supplied with a mixture of gases
-                  rather than a single gas, the identities and proportions of that mixture. Recorded separately
-                  from the gas identity. Record 'N/A' where a single gas is used.
+                description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
                 type: object
                 properties:
                   '@id':
@@ -292,11 +285,7 @@ allOf:
                                               - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
                                               - &id003
                                                 title: Ion Counter Dead Time
-                                                description: Dead time of the ion-counting detector(s),
-                                                  used in the dead-time correction applied to high count
-                                                  rates. Distinct from pulse/analog cross-calibration,
-                                                  which relates the two detector modes rather than correcting
-                                                  counting losses within the pulse-counting mode.
+                                                description: Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.
                                                 type: object
                                                 properties:
                                                   '@id':
@@ -380,10 +369,7 @@ allOf:
                                     anyOf:
                                     - &id004
                                       title: Doubly-Charged Species Monitor
-                                      description: The mass ratio monitored to estimate doubly-charged
-                                        ion (M²⁺) formation during instrument tuning. The monitor species
-                                        and the mass positions monitored should be stated explicitly.
-                                        Analogous to Oxide Production Method and Threshold for oxide monitoring.
+                                      description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
                                       type: object
                                       properties:
                                         '@id':
@@ -406,10 +392,7 @@ allOf:
                                       - schema:value
                                     - &id005
                                       title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged ion production
-                                        for the monitored species at the time of instrument tuning. The
-                                        acceptable threshold is typically <1% or <3%. Record both the
-                                        threshold and the measured value.
+                                      description: Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -535,9 +518,7 @@ allOf:
                             minContains: 0
                             maxContains: 1
           ada:proceduralBlankLevel:
-            description: The measured level of the analytical blank in the session, and — where the reported
-              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
-              result unless its own composition is known. Companion to the blank correction method.
+            description: The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.
             type: string
         required:
         - ada:proceduralBlankLevel

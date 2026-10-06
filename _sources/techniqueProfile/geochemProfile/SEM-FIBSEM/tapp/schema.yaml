@@ -1,9 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)
-description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition.
-  Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are
-  schema:additionalProperty[] entries. No ada:targetSpeciesTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v45.csv
-  by tools/build_tapp.py.'
+description: 'Focused-ion-beam SEM (FIB-SEM tomography, TEM lamella prep) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate. Generated from tapp/Current TAPPs/SEM_FIBSEM_TAPP_v45.csv by tools/build_tapp.py.'
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -41,10 +38,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer of the instrument that performs the measurement, recorded
-                      as a controlled value. Where a procedure couples a sample-introduction system to
-                      an analysing instrument, this records the analysing instrument. Instrument Model
-                      gives the specific designation.
+                    description: Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -64,10 +58,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the instrument that performs the measurement, including
-                      any generation or configuration suffix. Conventionally written with the manufacturer
-                      name included; Instrument Manufacturer records the vendor separately, as a controlled
-                      value, so that procedures remain findable by vendor.
+                    description: Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
                 required:
@@ -131,11 +122,7 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of secondary electron detector used. Everhart-Thornley (ET)
-                            detector is the standard off-axis collector sensitive to SE2 and some BSE;
-                            in-lens (TLD) detectors collect high-resolution SE1 signal at short working
-                            distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber
-                            gas as the signal amplification medium.
+                          description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.
                           anyOf:
                           - type: string
                             enum:
@@ -172,9 +159,7 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of backscattered electron detector. Segmented detectors can
-                            operate in composition mode (segments summed) or topography mode (differential
-                            signal between segments).
+                          description: Type of backscattered electron detector. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments).
                           anyOf:
                           - type: string
                             enum:
@@ -232,15 +217,7 @@ allOf:
                     required:
                     - schema:additionalType
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only
-                  SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables
-                  TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM'': variable-pressure
-                  SEM, a dry gas at low chamber pressure for uncoated or charging specimens. ''ESEM'':
-                  environmental SEM, water vapour at higher pressure for hydrated specimens, requiring
-                  a gaseous secondary electron detector. Where an instrument combines categories, join
-                  them with ''; '' — ''FIB-SEM dual-beam; VP-SEM'' — rather than looking for a combined
-                  member. This field records the COLUMN AND CHAMBER configuration only: field emission
-                  is a source type and belongs in Electron Source, not here.'
+                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM'': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. ''ESEM'': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with ''; '' — ''FIB-SEM dual-beam; VP-SEM'' — rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.'
                 anyOf:
                 - type: string
                   enum:
@@ -270,16 +247,12 @@ allOf:
                 - type: number
                 - type: string
               ada:workingDistanceDefault:
-                description: Distance between the objective lens pole piece and the specimen surface in
-                  millimetres.
+                description: Distance between the objective lens pole piece and the specimen surface in millimetres.
                 anyOf:
                 - type: number
                 - type: string
               ada:mappingBeamCurrentDefault:
-                description: 'Electron beam probe current used while the beam scans an area: an X-ray
-                  or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM
-                  work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used
-                  for milling belong in the milling condition fields.'
+                description: 'Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.'
                 anyOf:
                 - type: number
                 - type: string
@@ -369,8 +342,7 @@ allOf:
           required:
           - schema:additionalType
     ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning, or on each step
-        position during mapping, in microseconds or milliseconds.
+      description: Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.
       anyOf:
       - type: number
       - type: string
@@ -394,10 +366,7 @@ allOf:
                     type: array
                     items: &id001
                       title: Protective Coating Deposition
-                      description: 'Type and deposition conditions of the protective coating applied to
-                        the sample surface before FIB milling. E-beam deposition should be applied as
-                        the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material,
-                        deposition method, beam conditions, and approximate thickness.'
+                      description: 'Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.'
                       type: object
                       properties:
                         '@id':
@@ -429,9 +398,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                   ada:coarseMillingConditionsDefault:
-                    description: 'Ion beam voltage and current used for bulk material removal during FIB
-                      milling. For TEM specimen preparation: bulk trenching to isolate the lamella and
-                      intermediate thinning. For 3D tomography: face preparation and initial slice removal.'
+                    description: 'Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.'
                     anyOf:
                     - type: string
                     - type: array
@@ -453,8 +420,7 @@ allOf:
                       anyOf:
                       - &id002
                         title: Fine Polishing Conditions
-                        description: Ion beam voltage and current for final thinning and surface polishing
-                          of the TEM lamella.
+                        description: Ion beam voltage and current for final thinning and surface polishing of the TEM lamella.
                         type: object
                         properties:
                           '@id':
@@ -483,8 +449,7 @@ allOf:
                         - ada:fieldScope
                       - &id003
                         title: Foil Thickness
-                        description: Target thickness of the electron-transparent TEM lamella after final
-                          FIB polishing, in nanometres. Actual thickness may differ from target.
+                        description: Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target.
                         type: object
                         properties:
                           '@id':
@@ -514,8 +479,7 @@ allOf:
                         - ada:dataType
                         - ada:fieldScope
                       - title: Lift-out Method
-                        description: Method used to transfer the FIB-prepared lamella to the TEM support
-                          grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.
+                        description: Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.
                         type: object
                         properties:
                           '@id':
@@ -577,8 +541,7 @@ allOf:
                       maxContains: 1
                     - contains:
                         title: Lift-out Method
-                        description: Method used to transfer the FIB-prepared lamella to the TEM support
-                          grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.
+                        description: Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.
                         type: object
                         properties:
                           '@id':
@@ -606,8 +569,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                   schema:description:
-                    description: Ion beam voltage and current used to mill each slice during FIB-SEM serial
-                      sectioning.
+                    description: Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.
                     anyOf:
                     - type: string
                     - type: array
@@ -652,12 +614,10 @@ allOf:
               required:
               - schema:name
     ada:imageRegistration3DDefault:
-      description: Method used to align consecutive SEM image slices in the 3D stack to correct for drift,
-        vibration, and curtaining artifacts. Include software used.
+      description: Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.
       type: string
     ada:segmentationMethod3DDefault:
-      description: Method and software used to separate distinct phases or features in the reconstructed
-        3D volume, turning the grayscale volume into labelled regions.
+      description: Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
       anyOf:
       - type: string
         enum:
