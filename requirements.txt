@@ -1,0 +1,33 @@
+# Python dependencies for the tools in tools/.
+#
+# This repository is not a package -- tools/ is a set of scripts run directly, and the validation
+# tools ARE the test suite (see CLAUDE.md). So this file pins what those scripts import, nothing
+# more. There is no setup.py or pyproject.toml because there is nothing to install.
+#
+# Versions are pinned rather than bounded because the output of these tools is committed and
+# diffed. A library whose formatting changes between versions turns a regeneration into a
+# whole-file rewrite: PyYAML's line-wrapping algorithm did exactly that to
+# registry/parameterTemplates and registry/parameterValues, 2764 lines of reflow with no semantic
+# change, twice. build_tapp now dumps with width=4096 so wrapping cannot vary, but the pin is the
+# second line of defence -- and the first one for anything else that formats output.
+#
+#   pip install -r requirements.txt
+#
+# Verify after changing a pin by regenerating and diffing:
+#   python tools/regenerate.py && git diff --ignore-cr-at-eol --name-only
+# An empty diff means the new version produces the same artifacts.
+
+# Reads and writes schema.yaml, every sidecar-driven generator, and both synced tools
+# (resolve_schema.py, regenerate_schema_json.py). The single most load-bearing dependency.
+PyYAML==6.0.2
+
+# Reads the delivered TAPP workbooks in the tapp/ submodule and writes the draft .xlsx twins.
+# 3.2.0b1 is a PRE-RELEASE and is pinned because it is what the generated artifacts were built
+# with; move to a stable release deliberately, with a regenerate-and-diff to confirm nothing moves.
+openpyxl==3.2.0b1
+
+# validate_examples.py, validate_instance.py, audit_building_blocks.py and the other validators.
+jsonschema==4.23.0
+
+# Round-trip YAML where comments and key order must survive an edit, which PyYAML cannot do.
+ruamel.yaml==0.19.1

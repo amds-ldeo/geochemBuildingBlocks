@@ -46,8 +46,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      # Pinned, because this job regenerates artifacts and diffs them against what is
+      # committed: a library whose formatting differs from the author's turns that comparison
+      # into a whole-file rewrite and reports drift that is not drift.
       - name: Install dependencies
-        run: pip install pyyaml
+        run: pip install -r requirements.txt
 
       # Unlike the same check in metadataBuildingBlocks, this one is NOT
       # offline: 31 sources $ref building blocks in that repository by
