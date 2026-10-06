@@ -1,53 +1,11 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA Channel Column Specification Registry
-description: Registry of reusable schema:PropertyValueSpecification channel column definitions derived
-  from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being
-  an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as
-  distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment
-  $refs so they resolve locally through the building-block register. The root only hosts $defs; it has
-  no instantiable properties of its own.
+description: Registry of reusable schema:PropertyValueSpecification channel column definitions derived from technique TAPP workbooks. Each $def constrains one column of the channel table, a channel being an instrument selection position -- a mass, a Faraday cup, an energy-loss edge, an X-ray line -- as distinct from the analyte measured on it. TAPP building blocks reference these definitions via fragment $refs so they resolve locally through the building-block register. The root only hosts $defs; it has no instantiable properties of its own.
 type: object
 $defs:
-  epma_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds, summed across
-      all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/epmaTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - &id001
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id001
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
   epma_backgroundPosition:
     title: Background Position(s)
-    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
-      and whether on the high- or low-energy side.
+    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
     type: object
     properties:
       '@id':
@@ -67,10 +25,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id002
+        - &id001
           type: string
         - type: array
-          items: *id002
+          items: *id001
     required:
     - '@id'
     - '@type'
@@ -99,10 +57,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id003
+        - &id002
           type: string
         - type: array
-          items: *id003
+          items: *id002
     required:
     - '@id'
     - '@type'
@@ -112,9 +70,7 @@ $defs:
     - schema:defaultValue
   epma_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds.
-      For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum
-      per pixel, a single value.'
+    description: 'Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.'
     type: object
     properties:
       '@id':
@@ -134,48 +90,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id004
+        - &id003
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id004
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  epma_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay
-      within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/epmaTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - &id005
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id005
+          items: *id003
     required:
     - '@id'
     - '@type'
@@ -205,10 +125,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id006
+        - &id004
           type: string
         - type: array
-          items: *id006
+          items: *id004
     required:
     - '@id'
     - '@type'
@@ -217,11 +137,7 @@ $defs:
     - ada:dataType
   epma_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds
-      the number of spectrometers — the passes the acquisition is divided into. Within a single pass all
-      assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite
-      larger than the spectrometer count therefore requires the acquisition to be run more than once,
-      each pass covering a different subset of elements.
+    description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
     type: object
     properties:
       '@id':
@@ -241,12 +157,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id007
+        - &id005
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id007
+          items: *id005
     required:
     - '@id'
     - '@type'
@@ -255,9 +171,7 @@ $defs:
     - ada:dataType
   epma_wdsPhaSetting:
     title: WDS PHA Setting
-    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
-      above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections
-      and escape peaks.
+    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
     type: object
     properties:
       '@id':
@@ -277,10 +191,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id008
+        - &id006
           type: string
         - type: array
-          items: *id008
+          items: *id006
     required:
     - '@id'
     - '@type'
@@ -289,10 +203,7 @@ $defs:
     - ada:dataType
   epma_xRayDetectionMethodPerMonitoredElement:
     title: X-ray Detection Method per Monitored Element
-    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
-      (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
-      counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy
-      at once. Applies where a procedure uses both.'
+    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
     type: object
     properties:
       '@id':
@@ -312,10 +223,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id009
+        - &id007
           type: string
         - type: array
-          items: *id009
+          items: *id007
     required:
     - '@id'
     - '@type'
@@ -345,10 +256,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id010
+        - &id008
           type: string
         - type: array
-          items: *id010
+          items: *id008
     required:
     - '@id'
     - '@type'
@@ -358,14 +269,7 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_collectorConfiguration:
     title: Collector Configuration
-    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this
-      procedure, and the target species each position serves. Lists the mass number monitored in each
-      collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
-      (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and
-      internal-standard positions serve no target species and carry no parent element; the target species
-      list itself is given by the Target Species field and is never inferred from the mass labels here.
-      For static multi-collection procedures, one configuration applies throughout the measurement. For
-      multi-dynamic procedures, list all configurations and the cycling sequence.
+    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.
     type: object
     properties:
       '@id':
@@ -385,10 +289,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id011
+        - &id009
           type: string
         - type: array
-          items: *id011
+          items: *id009
     required:
     - '@id'
     - '@type'
@@ -398,9 +302,7 @@ $defs:
     - schema:defaultValue
   laMcicpmsUPb_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
-      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
-      Record 'N/A' where a single gas is used.
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
     type: object
     properties:
       '@id':
@@ -428,10 +330,7 @@ $defs:
     - ada:dataType
   laMcicpmsUPb_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
-      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
-      the mass measured to the target species it reports, which the monitored mass alone does not state.
-      Record 'N/A' where the target species is measured on its own mass.
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -459,14 +358,7 @@ $defs:
     - ada:dataType
   laMcicpms_collectorConfiguration:
     title: Collector Configuration
-    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this
-      procedure, and the target species each position serves. Lists the mass number monitored in each
-      collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
-      (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and
-      internal-standard positions serve no target species and carry no parent element; the target species
-      list itself is given by the Target Species field and is never inferred from the mass labels here.
-      For static multi-collection procedures, one configuration applies throughout the measurement. For
-      multi-dynamic procedures, list all configurations and the cycling sequence.
+    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.
     type: object
     properties:
       '@id':
@@ -486,10 +378,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id012
+        - &id010
           type: string
         - type: array
-          items: *id012
+          items: *id010
     required:
     - '@id'
     - '@type'
@@ -499,9 +391,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
-      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
-      Record 'N/A' where a single gas is used.
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
     type: object
     properties:
       '@id':
@@ -529,9 +419,7 @@ $defs:
     - ada:dataType
   laMcicpms_faradayCupAmplifierResistorValues:
     title: Faraday Cup Amplifier Resistor Values
-    description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard
-      amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the
-      resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.
+    description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.
     type: object
     properties:
       '@id':
@@ -551,10 +439,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id013
+        - &id011
           type: string
         - type: array
-          items: *id013
+          items: *id011
     required:
     - '@id'
     - '@type'
@@ -564,12 +452,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_faradayCupGainCalibrationMethod:
     title: Faraday Cup Gain Calibration Method
-    description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup
-      amplifier at the start of or during each analytical session. Common approaches: instrument internal
-      gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier
-      rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments
-      with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency
-      (per session, per block, weekly).'
+    description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).'
     type: object
     properties:
       '@id':
@@ -589,10 +472,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id014
+        - &id012
           type: string
         - type: array
-          items: *id014
+          items: *id012
     required:
     - '@id'
     - '@type'
@@ -622,12 +505,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id015
+        - &id013
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id015
+          items: *id013
     required:
     - '@id'
     - '@type'
@@ -637,10 +520,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to calculate and remove each interference contribution, together
-      with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural
-      abundance ratios, a production-rate factor measured on a reference material or interference standard
-      solution, or a tailing factor measured on a pure standard. Name the reference material used.
+    description: Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -660,10 +540,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id016
+        - &id014
           type: string
         - type: array
-          items: *id016
+          items: *id014
     required:
     - '@id'
     - '@type'
@@ -673,9 +553,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_interferingSpecies:
     title: Interfering Species
-    description: The isobaric, polyatomic and doubly charged species that overlap the measured masses
-      and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity
-      tailing from an adjacent large beam. Name each species and the mass it affects.
+    description: The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -695,10 +573,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id017
+        - &id015
           type: string
         - type: array
-          items: *id017
+          items: *id015
     required:
     - '@id'
     - '@type'
@@ -708,9 +586,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_ionCounterDeadTime:
     title: Ion Counter Dead Time
-    description: Dead time of the ion-counting detector(s), used in the dead-time correction applied to
-      high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes
-      rather than correcting counting losses within the pulse-counting mode.
+    description: Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.
     type: object
     properties:
       '@id':
@@ -729,12 +605,12 @@ $defs:
         const: M
       schema:value:
         anyOf:
-        - &id018
+        - &id016
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id018
+          items: *id016
     required:
     - '@id'
     - '@type'
@@ -744,9 +620,7 @@ $defs:
     - schema:value
   laMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One target species may be acquired at more
-      than one resolution, so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -766,10 +640,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id019
+        - &id017
           type: string
         - type: array
-          items: *id019
+          items: *id017
     required:
     - '@id'
     - '@type'
@@ -779,10 +653,7 @@ $defs:
     - schema:defaultValue
   laMcicpms_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
-      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
-      the mass measured to the target species it reports, which the monitored mass alone does not state.
-      Record 'N/A' where the target species is measured on its own mass.
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -810,9 +681,7 @@ $defs:
     - ada:dataType
   laQicpmsUPb_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
-      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
-      Record 'N/A' where a single gas is used.
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
     type: object
     properties:
       '@id':
@@ -840,10 +709,7 @@ $defs:
     - ada:dataType
   laQicpmsUPb_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
-      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
-      the mass measured to the target species it reports, which the monitored mass alone does not state.
-      Record 'N/A' where the target species is measured on its own mass.
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -871,9 +737,7 @@ $defs:
     - ada:dataType
   laQicpms_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
-      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
-      Record 'N/A' where a single gas is used.
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
     type: object
     properties:
       '@id':
@@ -901,10 +765,7 @@ $defs:
     - ada:dataType
   laQicpms_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
-      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
-      the mass measured to the target species it reports, which the monitored mass alone does not state.
-      Record 'N/A' where the target species is measured on its own mass.
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -930,46 +791,9 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  semComposition_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds, summed across
-      all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - &id020
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id020
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
   semComposition_backgroundPosition:
     title: Background Position(s)
-    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
-      and whether on the high- or low-energy side.
+    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
     type: object
     properties:
       '@id':
@@ -989,10 +813,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id021
+        - &id018
           type: string
         - type: array
-          items: *id021
+          items: *id018
     required:
     - '@id'
     - '@type'
@@ -1021,10 +845,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id022
+        - &id019
           type: string
         - type: array
-          items: *id022
+          items: *id019
     required:
     - '@id'
     - '@type'
@@ -1034,9 +858,7 @@ $defs:
     - schema:defaultValue
   semComposition_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or
-      on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds
-      or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
+    description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
     type: object
     properties:
       '@id':
@@ -1056,48 +878,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id023
+        - &id020
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id023
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  semComposition_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay
-      within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - &id024
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id024
+          items: *id020
     required:
     - '@id'
     - '@type'
@@ -1127,10 +913,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id025
+        - &id021
           type: string
         - type: array
-          items: *id025
+          items: *id021
     required:
     - '@id'
     - '@type'
@@ -1139,11 +925,7 @@ $defs:
     - ada:dataType
   semComposition_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds
-      the number of spectrometers — the passes the acquisition is divided into. Within a single pass all
-      assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite
-      larger than the spectrometer count therefore requires the acquisition to be run more than once,
-      each pass covering a different subset of elements.
+    description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
     type: object
     properties:
       '@id':
@@ -1163,12 +945,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id026
+        - &id022
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id026
+          items: *id022
     required:
     - '@id'
     - '@type'
@@ -1177,9 +959,7 @@ $defs:
     - ada:dataType
   semComposition_wdsPhaSetting:
     title: WDS PHA Setting
-    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
-      above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections
-      and escape peaks.
+    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
     type: object
     properties:
       '@id':
@@ -1199,10 +979,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id027
+        - &id023
           type: string
         - type: array
-          items: *id027
+          items: *id023
     required:
     - '@id'
     - '@type'
@@ -1211,10 +991,7 @@ $defs:
     - ada:dataType
   semComposition_xRayDetectionMethodPerMonitoredElement:
     title: X-ray Detection Method per Monitored Element
-    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
-      (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
-      counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy
-      at once. Applies where a procedure uses both.'
+    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
     type: object
     properties:
       '@id':
@@ -1234,10 +1011,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id028
+        - &id024
           type: string
         - type: array
-          items: *id028
+          items: *id024
     required:
     - '@id'
     - '@type'
@@ -1267,46 +1044,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id029
+        - &id025
           type: string
         - type: array
-          items: *id029
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  sem_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds, summed across
-      all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - &id030
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id030
+          items: *id025
     required:
     - '@id'
     - '@type'
@@ -1316,8 +1057,7 @@ $defs:
     - schema:defaultValue
   sem_backgroundPosition:
     title: Background Position(s)
-    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta,
-      and whether on the high- or low-energy side.
+    description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
     type: object
     properties:
       '@id':
@@ -1337,10 +1077,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id031
+        - &id026
           type: string
         - type: array
-          items: *id031
+          items: *id026
     required:
     - '@id'
     - '@type'
@@ -1369,10 +1109,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id032
+        - &id027
           type: string
         - type: array
-          items: *id032
+          items: *id027
     required:
     - '@id'
     - '@type'
@@ -1382,9 +1122,7 @@ $defs:
     - schema:defaultValue
   sem_dwellTimePerPixel:
     title: Dwell Time per Pixel
-    description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or
-      on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds
-      or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
+    description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
     type: object
     properties:
       '@id':
@@ -1404,48 +1142,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id033
+        - &id028
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id033
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  sem_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay
-      within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - &id034
-          anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items: *id034
+          items: *id028
     required:
     - '@id'
     - '@type'
@@ -1475,10 +1177,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id035
+        - &id029
           type: string
         - type: array
-          items: *id035
+          items: *id029
     required:
     - '@id'
     - '@type'
@@ -1487,11 +1189,7 @@ $defs:
     - ada:dataType
   sem_sequence:
     title: Sequence
-    description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds
-      the number of spectrometers — the passes the acquisition is divided into. Within a single pass all
-      assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite
-      larger than the spectrometer count therefore requires the acquisition to be run more than once,
-      each pass covering a different subset of elements.
+    description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
     type: object
     properties:
       '@id':
@@ -1511,12 +1209,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id036
+        - &id030
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id036
+          items: *id030
     required:
     - '@id'
     - '@type'
@@ -1525,9 +1223,7 @@ $defs:
     - ada:dataType
   sem_wdsPhaSetting:
     title: WDS PHA Setting
-    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses
-      above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections
-      and escape peaks.
+    description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
     type: object
     properties:
       '@id':
@@ -1547,10 +1243,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id037
+        - &id031
           type: string
         - type: array
-          items: *id037
+          items: *id031
     required:
     - '@id'
     - '@type'
@@ -1559,10 +1255,7 @@ $defs:
     - ada:dataType
   sem_xRayDetectionMethodPerMonitoredElement:
     title: X-ray Detection Method per Monitored Element
-    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
-      (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter
-      counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy
-      at once. Applies where a procedure uses both.'
+    description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
     type: object
     properties:
       '@id':
@@ -1582,10 +1275,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id038
+        - &id032
           type: string
         - type: array
-          items: *id038
+          items: *id032
     required:
     - '@id'
     - '@type'
@@ -1615,10 +1308,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id039
+        - &id033
           type: string
         - type: array
-          items: *id039
+          items: *id033
     required:
     - '@id'
     - '@type'
@@ -1628,14 +1321,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_collectorConfiguration:
     title: Collector Configuration
-    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this
-      procedure, and the target species each position serves. Lists the mass number monitored in each
-      collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn
-      (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and
-      internal-standard positions serve no target species and carry no parent element; the target species
-      list itself is given by the Target Species field and is never inferred from the mass labels here.
-      For static multi-collection procedures, one configuration applies throughout the measurement. For
-      multi-dynamic procedures, list all configurations and the cycling sequence.
+    description: Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the target species each position serves. Lists the mass number monitored in each collector position with its target species element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no target species)'. Interference-monitor and internal-standard positions serve no target species and carry no parent element; the target species list itself is given by the Target Species field and is never inferred from the mass labels here. For static multi-collection procedures, one configuration applies throughout the measurement. For multi-dynamic procedures, list all configurations and the cycling sequence.
     type: object
     properties:
       '@id':
@@ -1655,10 +1341,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id040
+        - &id034
           type: string
         - type: array
-          items: *id040
+          items: *id034
     required:
     - '@id'
     - '@type'
@@ -1668,9 +1354,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
-      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
-      Record 'N/A' where a single gas is used.
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
     type: object
     properties:
       '@id':
@@ -1698,9 +1382,7 @@ $defs:
     - ada:dataType
   solutionMcicpms_faradayCupAmplifierResistorValues:
     title: Faraday Cup Amplifier Resistor Values
-    description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard
-      amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the
-      resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.
+    description: Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers. Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second. Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform.
     type: object
     properties:
       '@id':
@@ -1729,12 +1411,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_faradayCupGainCalibrationMethod:
     title: Faraday Cup Gain Calibration Method
-    description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup
-      amplifier at the start of or during each analytical session. Common approaches: instrument internal
-      gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier
-      rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments
-      with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency
-      (per session, per block, weekly).'
+    description: 'Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session. Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup. For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence. Specify frequency (per session, per block, weekly).'
     type: object
     properties:
       '@id':
@@ -1794,10 +1471,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to calculate and remove each interference contribution, together
-      with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural
-      abundance ratios, a production-rate factor measured on a reference material or interference standard
-      solution, or a tailing factor measured on a pure standard. Name the reference material used.
+    description: Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -1817,10 +1491,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id041
+        - &id035
           type: string
         - type: array
-          items: *id041
+          items: *id035
     required:
     - '@id'
     - '@type'
@@ -1830,9 +1504,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_interferingSpecies:
     title: Interfering Species
-    description: The isobaric, polyatomic and doubly charged species that overlap the measured masses
-      and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity
-      tailing from an adjacent large beam. Name each species and the mass it affects.
+    description: The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -1852,10 +1524,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id042
+        - &id036
           type: string
         - type: array
-          items: *id042
+          items: *id036
     required:
     - '@id'
     - '@type'
@@ -1865,11 +1537,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_isobaricInterferenceCorrectionsApplied:
     title: Isobaric Interference Corrections Applied
-    description: 'Whether mathematical corrections for residual isobaric or polyatomic interferences are
-      applied in data reduction, supplementary to any interference suppression achieved by chemical separation
-      or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation;
-      mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance
-      sensitivity tailing of 238U onto 236U and 235U.'
+    description: 'Whether mathematical corrections for residual isobaric or polyatomic interferences are applied in data reduction, supplementary to any interference suppression achieved by chemical separation or mass resolution. In solution MC-ICP-MS, chemical separation is the primary interference mitigation; mathematical corrections address residual contributions. Common examples: 204Hg on 204Pb; abundance sensitivity tailing of 238U onto 236U and 235U.'
     type: object
     properties:
       '@id':
@@ -1889,10 +1557,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id043
+        - &id037
           type: string
         - type: array
-          items: *id043
+          items: *id037
     required:
     - '@id'
     - '@type'
@@ -1902,9 +1570,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One target species may be acquired at more
-      than one resolution, so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -1924,10 +1590,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id044
+        - &id038
           type: string
         - type: array
-          items: *id044
+          items: *id038
     required:
     - '@id'
     - '@type'
@@ -1937,10 +1603,7 @@ $defs:
     - schema:defaultValue
   solutionMcicpms_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
-      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
-      the mass measured to the target species it reports, which the monitored mass alone does not state.
-      Record 'N/A' where the target species is measured on its own mass.
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -1968,10 +1631,7 @@ $defs:
     - ada:dataType
   solutionMcicpms_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
-    description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are
-      applied in data reduction, supplementary to any suppression already achieved by chemical separation,
-      mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering
-      Species and Interference Correction Method.
+    description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.
     type: object
     properties:
       '@id':
@@ -1991,10 +1651,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id045
+        - &id039
           type: string
         - type: array
-          items: *id045
+          items: *id039
     required:
     - '@id'
     - '@type'
@@ -2004,9 +1664,7 @@ $defs:
     - schema:defaultValue
   solutionQicpms_collisionReactionGasMixtureRatio:
     title: Collision/Reaction Gas Mixture Ratio
-    description: Where the collision or reaction cell is supplied with a mixture of gases rather than
-      a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity.
-      Record 'N/A' where a single gas is used.
+    description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
     type: object
     properties:
       '@id':
@@ -2034,8 +1692,7 @@ $defs:
     - ada:dataType
   solutionQicpms_dwellTimePerMass:
     title: Dwell Time per Mass
-    description: Count (dwell) time at the mass position, in milliseconds. Where the procedure defines
-      it per sweep or per scan rather than per measurement, state that basis.
+    description: Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.
     type: object
     properties:
       '@id':
@@ -2055,12 +1712,12 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id046
+        - &id040
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id046
+          items: *id040
     required:
     - '@id'
     - '@type'
@@ -2070,10 +1727,7 @@ $defs:
     - schema:defaultValue
   solutionQicpms_interferenceCorrectionMethod:
     title: Interference Correction Method
-    description: Equation or procedure used to calculate and remove each interference contribution, together
-      with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural
-      abundance ratios, a production-rate factor measured on a reference material or interference standard
-      solution, or a tailing factor measured on a pure standard. Name the reference material used.
+    description: Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.
     type: object
     properties:
       '@id':
@@ -2093,10 +1747,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id047
+        - &id041
           type: string
         - type: array
-          items: *id047
+          items: *id041
     required:
     - '@id'
     - '@type'
@@ -2106,9 +1760,7 @@ $defs:
     - schema:defaultValue
   solutionQicpms_interferingSpecies:
     title: Interfering Species
-    description: The isobaric, polyatomic and doubly charged species that overlap the measured masses
-      and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity
-      tailing from an adjacent large beam. Name each species and the mass it affects.
+    description: The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.
     type: object
     properties:
       '@id':
@@ -2128,10 +1780,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id048
+        - &id042
           type: string
         - type: array
-          items: *id048
+          items: *id042
     required:
     - '@id'
     - '@type'
@@ -2141,8 +1793,7 @@ $defs:
     - schema:defaultValue
   solutionQicpms_isobaricInterferenceCorrectionsApplied:
     title: Isobaric Interference Corrections Applied
-    description: Whether mathematical corrections for isobaric or polyatomic interferences are applied
-      during data reduction (in addition to any KED or DRC mitigation in the instrument).
+    description: Whether mathematical corrections for isobaric or polyatomic interferences are applied during data reduction (in addition to any KED or DRC mitigation in the instrument).
     type: object
     properties:
       '@id':
@@ -2162,10 +1813,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id049
+        - &id043
           type: string
         - type: array
-          items: *id049
+          items: *id043
     required:
     - '@id'
     - '@type'
@@ -2175,10 +1826,7 @@ $defs:
     - schema:defaultValue
   solutionQicpms_reactionProductIonMassShiftTransition:
     title: Reaction Product Ion / Mass-Shift Transition
-    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the
-      precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating
-      the mass measured to the target species it reports, which the monitored mass alone does not state.
-      Record 'N/A' where the target species is measured on its own mass.
+    description: Where a monitored mass is produced by a reaction in the collision/reaction cell, the precursor ion, the reagent gas and the product ion measured. Records the mass-shift chemistry relating the mass measured to the target species it reports, which the monitored mass alone does not state. Record 'N/A' where the target species is measured on its own mass.
     type: object
     properties:
       '@id':
@@ -2206,10 +1854,7 @@ $defs:
     - ada:dataType
   solutionQicpms_spectralInterferenceCorrectionsApplied:
     title: Spectral Interference Corrections Applied
-    description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are
-      applied in data reduction, supplementary to any suppression already achieved by chemical separation,
-      mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering
-      Species and Interference Correction Method.
+    description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.
     type: object
     properties:
       '@id':
@@ -2229,10 +1874,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id050
+        - &id044
           type: string
         - type: array
-          items: *id050
+          items: *id044
     required:
     - '@id'
     - '@type'
@@ -2242,9 +1887,7 @@ $defs:
     - schema:defaultValue
   solutionSficpms_massResolutionAssignment:
     title: Mass Resolution Assignment
-    description: Mass resolution mode used for acquisition. One target species may be acquired at more
-      than one resolution, so the assignment is per acquired mass rather than per element. The overall
-      mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+    description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
     type: object
     properties:
       '@id':
@@ -2264,10 +1907,10 @@ $defs:
         const: M
       schema:defaultValue:
         anyOf:
-        - &id051
+        - &id045
           type: string
         - type: array
-          items: *id051
+          items: *id045
     required:
     - '@id'
     - '@type'
@@ -2277,8 +1920,7 @@ $defs:
     - schema:defaultValue
   tem_eelsBackgroundSubtractionMethod:
     title: EELS Background Subtraction Method
-    description: Method used to subtract the background beneath the ionization edge of interest to extract
-      the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+    description: Method used to subtract the background beneath the ionization edge of interest to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -2298,10 +1940,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id052
+        - &id046
           type: string
         - type: array
-          items: *id052
+          items: *id046
     required:
     - '@id'
     - '@type'
@@ -2310,8 +1952,7 @@ $defs:
     - ada:dataType
   tem_eelsDetectionLimit:
     title: EELS Detection Limit
-    description: Estimated detection limit or minimum detectable concentration, under this procedure,
-      of each quantity determined by EELS. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+    description: Estimated detection limit or minimum detectable concentration, under this procedure, of each quantity determined by EELS. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -2331,12 +1972,12 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id053
+        - &id047
           anyOf:
           - type: number
           - type: string
         - type: array
-          items: *id053
+          items: *id047
     required:
     - '@id'
     - '@type'
@@ -2345,9 +1986,7 @@ $defs:
     - ada:dataType
   tem_eelsSensitivityAndDetectionLimit:
     title: EELS Sensitivity and Detection Limit
-    description: Practical energy resolution (ZLP FWHM measured at operating conditions) and estimated
-      detection limit or minimum detectable concentration for target edges under this procedure. Record
-      'N/A' where EELS is not listed in Spectroscopic Detector(s).
+    description: Practical energy resolution (ZLP FWHM measured at operating conditions) and estimated detection limit or minimum detectable concentration for target edges under this procedure. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
     type: object
     properties:
       '@id':
@@ -2367,10 +2006,10 @@ $defs:
         const: R
       schema:defaultValue:
         anyOf:
-        - &id054
+        - &id048
           type: string
         - type: array
-          items: *id054
+          items: *id048
     required:
     - '@id'
     - '@type'
