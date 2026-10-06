@@ -12218,6 +12218,55 @@
                       "items": {
                         "type": "object"
                       }
+                    },
+                    "ada:spatialRegistration": {
+                      "title": "Spatial Registration Type",
+                      "description": "The coordinate system defined ON the sample -- typically a planar thin section -- that image pixel coordinates are registered to. Distinct from the ada:spatialRegistration on an image or imageMap part, which maps pixel coordinates WITHIN one file: this one is the frame those are registered to, and is what lets two images of the same section be compared. Optional, and no record carries it yet.",
+                      "type": "object",
+                      "properties": {
+                        "ada:basemap": {
+                          "type": "string",
+                          "description": "link to appropriate basemap image map"
+                        },
+                        "ada:originX": {
+                          "type": "number"
+                        },
+                        "ada:originY": {
+                          "type": "number"
+                        },
+                        "ada:originZ": {
+                          "type": "number"
+                        },
+                        "ada:coordDef": {
+                          "type": "string",
+                          "description": "Whether coordinates are stage-defined or pixel-defined. If pixel-defined, are coordinates from stage, upperleftPixel, or centerPixel."
+                        },
+                        "ada:coordUnits": {
+                          "type": "string"
+                        },
+                        "ada:pixelUnits": {
+                          "type": "string"
+                        },
+                        "ada:pixelScaleX": {
+                          "type": "number"
+                        },
+                        "ada:pixelScaleY": {
+                          "type": "number"
+                        },
+                        "ada:originLocation": {
+                          "type": "string",
+                          "description": "The location of the origin pixel of an image. Range: upperLeft, upperRight, lowerLeft, lowerRight, center"
+                        }
+                      },
+                      "required": [
+                        "ada:originX",
+                        "ada:originY",
+                        "ada:pixelScaleX",
+                        "ada:pixelScaleY",
+                        "ada:pixelUnits",
+                        "ada:originLocation",
+                        "ada:coordDef"
+                      ]
                     }
                   }
                 }
