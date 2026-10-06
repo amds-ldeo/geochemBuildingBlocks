@@ -24,14 +24,11 @@ name: Check generators are deterministic
 on:
   push:
     branches: [main]
+  # NO paths filter, deliberately, because this is a REQUIRED check. A required check that does
+  # not run sits pending forever, so filtering by path would deadlock every PR that happens to
+  # touch none of the listed files. It costs a few minutes per PR to always report; a merge that
+  # cannot happen costs more.
   pull_request:
-    paths:
-      - 'tools/schema_path_example_emitter.py'
-      - 'tools/build_tapp_examples.py'
-      - 'tools/schema_path_emitter.py'
-      - 'tools/build_pathdriven.py'
-      - 'docs/*.schemapaths.csv'
-      - '.github/workflows/check-determinism.yml'
   workflow_dispatch:
 
 permissions:
@@ -57,8 +54,31 @@ jobs:
       # commits nothing, is a different act.
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          submodules: true
+
+      # `submodules: true` on actions/checkout is NOT enough, which cost one red run to learn:
+      # .gitmodules sets `update = none`, actions/checkout honours it, and the submodule ends up
+      # registered but empty -- the examples stage then failed on
+      # 'tapp/Current TAPPs/EPMA_TAPP_v88.csv' for all 16 workbook-based techniques. The explicit
+      # --checkout is the same flag CLAUDE.md says a fresh clone needs, for the same reason.
+      #
+      # This does not undo `update = none`. That exists to stop OGC's postprocess workflow from
+      # running `git submodule update --remote` and COMMITTING a bumped pointer, as it did in
+      # c0194f7e4. Checking the PINNED revision out, in a job that commits nothing, is a
+      # different act -- note there is no --remote here.
+      - name: Populate the tapp submodule
+        run: git submodule update --init --checkout tapp
+
+      # Fail loudly if the submodule is empty rather than 16 stages in, since that is how this
+      # was first discovered.
+      - name: Verify the delivery is present
+        run: |
+          n=$(ls "tapp/Current TAPPs"/*.csv 2>/dev/null | wc -l)
+          echo "$n delivered TAPP table(s) present"
+          if [ "$n" -lt 16 ]; then
+            echo "::error::tapp/ is not populated ($n tables). The examples stage reads each"
+            echo "technique's workbook from there, so it cannot run."
+            exit 1
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
