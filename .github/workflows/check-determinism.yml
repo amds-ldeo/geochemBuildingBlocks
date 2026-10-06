@@ -24,14 +24,11 @@ name: Check generators are deterministic
 on:
   push:
     branches: [main]
+  # NO paths filter, deliberately, because this is a REQUIRED check. A required check that does
+  # not run sits pending forever, so filtering by path would deadlock every PR that happens to
+  # touch none of the listed files. It costs a few minutes per PR to always report; a merge that
+  # cannot happen costs more.
   pull_request:
-    paths:
-      - 'tools/schema_path_example_emitter.py'
-      - 'tools/build_tapp_examples.py'
-      - 'tools/schema_path_emitter.py'
-      - 'tools/build_pathdriven.py'
-      - 'docs/*.schemapaths.csv'
-      - '.github/workflows/check-determinism.yml'
   workflow_dispatch:
 
 permissions:
