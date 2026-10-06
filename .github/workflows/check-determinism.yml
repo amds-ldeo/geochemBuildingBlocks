@@ -1,0 +1,121 @@
+# Fail when a generator's output depends on something other than its source.
+#
+# "Regenerate and compare" is the premise of check-schema-drift.yml, and it
+# cannot hold against a generator that varies per process. One did:
+# _collector_map took the FIRST match out of a set, so which of several
+# substring-matching members won depended on string hash randomisation, and
+# three consecutive runs over unchanged sources produced three different
+# Solution-MC-ICPMS examples. The drift check did not catch it -- it passed on
+# the run that happened to agree with what was committed. It was noticed only
+# because a human saw two examples moving between regenerations.
+#
+# The two passes use DIFFERENT fixed hash seeds rather than the default random
+# one. Two default runs are each random and may coincide, so a passing result
+# would mean little; a deterministic generator gives identical bytes under any
+# seed, while anything iterating a set of strings almost certainly differs
+# between seed 1 and seed 2.
+#
+# Scoped to the example stage, which is where this class of bug lives: the
+# emitters parse free-text workbook cells by recognising known tokens, which
+# means set and dict membership over strings. The schema stages are a
+# straight structural walk of their sources. Widen it if that stops being true.
+name: Check generators are deterministic
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - 'tools/schema_path_example_emitter.py'
+      - 'tools/build_tapp_examples.py'
+      - 'tools/schema_path_emitter.py'
+      - 'tools/build_pathdriven.py'
+      - 'docs/*.schemapaths.csv'
+      - '.github/workflows/check-determinism.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: determinism-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  twice:
+    name: Regenerate twice and compare
+    runs-on: ubuntu-latest
+    steps:
+      # WITH the submodule, unlike the other workflows here. build_tapp_examples reads the
+      # publication columns out of each TAPP's .xlsx twin, so the example stage cannot run
+      # without tapp/ -- it failed for all 16 workbook-based techniques on this check's first
+      # run, which is how we learned CI had never exercised example generation at all.
+      #
+      # This does not undo the `update = none` in .gitmodules. That setting exists to stop OGC's
+      # postprocess workflow from running `git submodule update --remote` and COMMITTING a bumped
+      # pointer, as it did in c0194f7e4. Checking the pinned revision out read-only, in a job that
+      # commits nothing, is a different act.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Pass 1 (PYTHONHASHSEED=1)
+        env:
+          PYTHONHASHSEED: '1'
+        run: python tools/regenerate.py --from examples
+
+      # Hash the generated examples rather than keeping two copies of the tree.
+      - name: Record pass 1
+        run: |
+          find _sources -name 'example*.json' -print0 \
+            | sort -z | xargs -0 sha256sum > /tmp/pass1.sha
+
+      # Back to the committed state, so pass 2 starts where pass 1 did and the
+      # comparison is between two generations, not between a generation and
+      # whatever the previous one left behind.
+      - name: Restore
+        run: git checkout -- _sources
+
+      - name: Pass 2 (PYTHONHASHSEED=2)
+        env:
+          PYTHONHASHSEED: '2'
+        run: python tools/regenerate.py --from examples
+
+      - name: Record pass 2
+        run: |
+          find _sources -name 'example*.json' -print0 \
+            | sort -z | xargs -0 sha256sum > /tmp/pass2.sha
+
+      - name: Compare
+        run: |
+          if diff -q /tmp/pass1.sha /tmp/pass2.sha > /dev/null; then
+            echo "Both passes produced identical bytes for every generated example."
+            exit 0
+          fi
+
+          echo "::error::A generator's output changed between two runs over identical sources."
+          echo
+          echo "Files that differ between the two passes:"
+          # Second field is the path; report only the ones whose hash moved.
+          join -j 2 <(sort -k2 /tmp/pass1.sha) <(sort -k2 /tmp/pass2.sha) \
+            | awk '$2 != $3 { print "  " $1 }'
+          echo
+          echo "The two passes differ only in PYTHONHASHSEED, so the output depends on"
+          echo "the iteration order of a set or dict of strings somewhere in the"
+          echo "generator. Look for a membership scan whose FIRST hit is taken --"
+          echo "next((m for m in members if ...)) over a set was the last one -- and"
+          echo "make the choice explicit: longest match, or sorted order."
+          echo
+          echo "This also invalidates check-schema-drift until it is fixed: that job"
+          echo "compares one generation against the committed artifacts, which is"
+          echo "meaningless if a second generation would differ from the first."
+          exit 1
