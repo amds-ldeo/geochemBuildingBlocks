@@ -15,7 +15,18 @@ jobs:
     # Avoid running the workflow on template clone
     if: github.run_number != 1
     name: Validate and process
-    uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@master
+    # PINNED to v1, not master. Tracking master put this workflow on whatever OGC had just
+    # pushed, and it has failed 4 of 4 runs since: jsonschema raises "TypeError: string
+    # indices must be integers" from its own JSON Pointer resolution, on 15 of the
+    # techniqueProfile .profile blocks. Our schemas are not the cause -- scanning every
+    # internal $ref in the resolved profiles finds 0 pointers that walk into a non-container,
+    # and validate-branch.yml runs the same postprocess pinned at full@v1 over the same
+    # content with 6 successes. Because deploy-viewer triggers on this workflow completing,
+    # the published viewer went stale too.
+    #
+    # v1 is a moving major tag, so this still picks up v1.1.x fixes without tracking an
+    # unreleased branch. Move it deliberately, and only with a green run behind it.
+    uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@v1
     with:
       skip-pages: true
     secrets:
