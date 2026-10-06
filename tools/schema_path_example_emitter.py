@@ -543,14 +543,29 @@ def _collector_map(values, members):
     out = {}
     for entry in _split_depth0(_strip_provenance(cell), ";"):
         body = re.sub(r"\(([^()]*)\)\s*$", "", entry).strip()      # drop the qualifier
-        hit = next((m for m in members if m and m in body), None)   # the member we already know
+        # LONGEST match, over a sorted list, not the first match over a set. `members` arrives
+        # as a set, and several known members are substrings of one entry -- 'V' and '51V',
+        # 'Cr' and '52Cr' -- so `next()` picked whichever the set happened to yield first,
+        # which varies per process under string hash randomisation. Three consecutive runs of
+        # build_tapp_examples on solutionMcicpmsTAPP produced three different files, and the
+        # collector hopped between rows and between the species and monitored axes.
+        # Longest-match is also the right answer, not merely a stable one: where both 'Cr' and
+        # '52Cr' occur in the entry, '52Cr' is the member actually named. sorted() breaks
+        # length ties by name so the pick cannot depend on iteration order at all.
+        hit = max(sorted(m for m in members if m and m in body), key=len, default=None)
         if not hit:
             continue
         # Take what PRECEDES the member, not the whole entry: the last entry commonly runs on
         # into prose ("H3=⁸⁸Sr (Sr). Static multi-collection, one configuration throughout"),
         # and everything after the member is that sentence, not a label.
         residue = body.split(hit)[0].strip(" =:" + chr(8212) + "-" + chr(9))
-        if residue and len(residue) <= 12 and chr(10) not in residue:
+        # It has to LOOK like a cup. COLLECTOR_LABEL is the same test _classify applies to a
+        # qualifier, and not applying it here accepted whatever happened to precede the member --
+        # so a plain mass list, '... 51V, 52Cr ...', yielded collector '51V,' for member 52Cr.
+        # That asserts a cup that does not exist, and it is the mass-onto-the-collector-axis move
+        # that Proposal_Monitored_Property Section 10 withdrew: resistor values are attested per
+        # MASS, not per cup. An absent mapping is the honest answer here, as the docstring says.
+        if residue and len(residue) <= 12 and chr(10) not in residue                 and COLLECTOR_LABEL.match(residue):
             out[hit] = residue
     return out
 
