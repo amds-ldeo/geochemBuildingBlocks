@@ -78,6 +78,63 @@ def _def_id(body):
     return str(((body.get("properties") or {}).get("@id") or {}).get("const", ""))
 
 
+# What the PATH-DRIVEN route has published into each shared registry, per TAPP:
+#   {registry_name: {tapp: [@id, ...]}}
+# Only this route's own emissions are listed, which is what makes retirement safe -- a legacy-only
+# def was never emitted here, so it can never appear in this manifest and can never be retired.
+# Same contract as docs/modules/emitted.json: never hand-edit it, and a missing manifest means
+# retire nothing.
+REGISTRY_MANIFEST = os.path.join(b.ROOT, "docs", "registry_emitted.json")
+
+
+def _load_registry_manifest():
+    try:
+        with open(REGISTRY_MANIFEST, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
+def _save_registry_manifest(man):
+    os.makedirs(os.path.dirname(REGISTRY_MANIFEST), exist_ok=True)
+    with open(REGISTRY_MANIFEST, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(man, f, indent=2, sort_keys=True)
+        f.write("\n")
+
+
+def _referenced_def_keys(reg_name):
+    """Every $def key of this registry that something in _sources points a $ref at.
+
+    These catalogs are resolved by @id by the ADA registry, but they are ALSO $ref'd by key from
+    the technique schemas -- build_tapp emits
+    `$ref: ../../../../registry/<reg>/schema.yaml#/$defs/<key>`. Retiring a key that is still
+    referenced would turn a stale-but-harmless entry into a dangling $ref, which resolve_schema
+    refuses to write around. So the keys in use are collected first and never retired.
+    """
+    needle = "registry/" + reg_name + "/schema.yaml#/$defs/"
+    used = set()
+    for dirpath, _dirs, files in os.walk(os.path.join(b.ROOT, "_sources")):
+        for fn in files:
+            if not fn.endswith((".yaml", ".yml", ".json")):
+                continue
+            try:
+                text = open(os.path.join(dirpath, fn), encoding="utf-8", errors="replace").read()
+            except OSError:
+                continue
+            start = 0
+            while True:
+                i = text.find(needle, start)
+                if i < 0:
+                    break
+                j = i + len(needle)
+                k = j
+                while k < len(text) and (text[k].isalnum() or text[k] in "_-."):
+                    k += 1
+                used.add(text[j:k])
+                start = k
+    return used
+
+
 def _write_registry(reg_name, defs, tapp):
     """Publish this TAPP's generated $defs into the shared registry file by UPSERT.
 
@@ -98,8 +155,10 @@ def _write_registry(reg_name, defs, tapp):
     each of which reached only the handful of defs whose @id happened to be new. Upsert keeps the
     non-destructive property while letting a regenerated body actually land.
 
-    Consequence: entries the path-driven route no longer generates are still NOT pruned. Converging
-    the two routes remains a separate decision; the registry stays a union.
+    Entries this route published before and no longer publishes ARE now retired, recorded in
+    docs/registry_emitted.json and guarded by the three conditions below the upsert. A legacy-only
+    def was never emitted here, so it is never in that manifest and is never retired -- converging
+    the two routes remains a separate decision, and the registry stays a union of both.
     """
     path = os.path.join(b.ROOT, "_sources", "registry", reg_name, "schema.yaml")
     if not os.path.exists(path):
@@ -122,13 +181,38 @@ def _write_registry(reg_name, defs, tapp):
         else:
             merged[prior] = v      # keep the established key; $refs point at it
             updated += 1
-    if not (added or updated):
+    # Retire what THIS route published before and no longer publishes. Three conditions, all
+    # required; see REGISTRY_MANIFEST and _referenced_def_keys for why each one is load-bearing.
+    man = _load_registry_manifest()
+    now_ids = sorted({_def_id(v) for v in defs.values() if _def_id(v)})
+    prior_ids = set((man.get(reg_name) or {}).get(tapp) or [])
+    retired = []
+    if prior_ids:
+        gone = prior_ids - set(now_ids)
+        if gone:
+            referenced = _referenced_def_keys(reg_name)
+            for key, body in list(merged.items()):
+                if _def_id(body) in gone:
+                    if key in referenced:
+                        print(f"  registry {reg_name}: {tapp} keeping {key} -- no longer emitted "
+                              f"but still $ref'd by key")
+                        continue
+                    del merged[key]
+                    retired.append(key)
+
+    man.setdefault(reg_name, {})[tapp] = now_ids
+    _save_registry_manifest(man)
+
+    if not (added or updated or retired):
         print(f"  registry {reg_name}: {tapp} already current ({same} unchanged), no change")
         return
     doc["$defs"] = dict(sorted(merged.items()))
     b.write(path, b.dump_yaml(doc))
-    print(f"  registry {reg_name}: {tapp} +{added} new, ~{updated} updated, {same} unchanged; "
-          f"{len(doc['$defs'])} total")
+    msg = (f"  registry {reg_name}: {tapp} +{added} new, ~{updated} updated, {same} unchanged")
+    if retired:
+        msg += f", -{len(retired)} retired ({', '.join(sorted(retired)[:4])}"
+        msg += ", ...)" if len(retired) > 4 else ")"
+    print(msg + f"; {len(doc['$defs'])} total")
 
 
 def registry_diff(tapp):
