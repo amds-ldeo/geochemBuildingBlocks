@@ -1,0 +1,15 @@
+# Optional: only for the tools that read the live ADA database.
+#
+# Just one path needs this today -- build_html_views.py --source ada2, which connects with
+# ADA_NAME / DB_2024_USER / DB_2024_PASSWORD / DB_2024_HOST / DB_2024_PORT, the same variables the
+# metadata repository's loaders use. It is NOT reached through PGSERVICEFILE or .pgpass; testing
+# those and concluding the database is unreachable is a mistake already made once.
+#
+# Kept separate from requirements.txt so CI and anyone regenerating schemas does not need a
+# database driver, and so a failure to build psycopg2 cannot block the schema work.
+#
+#   pip install -r requirements.txt -r requirements-db.txt
+
+-r requirements.txt
+
+psycopg2==2.9.10
