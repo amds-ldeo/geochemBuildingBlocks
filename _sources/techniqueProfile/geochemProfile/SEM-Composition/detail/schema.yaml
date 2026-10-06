@@ -1,7 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Composition Analysis Detail
-description: Dataset-level analysis-instance detail for SEM composition (EDS/WDS), reusing CDIF/schema.org
-  slots on the schema:Dataset root.
+description: Dataset-level analysis-instance detail for SEM composition (EDS/WDS), reusing CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
@@ -21,9 +20,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_samplingUnitSelectionCriteria
               - &id001
                 title: Beam Raster Dimensions
-                description: Dimensions of the small area over which the beam is rastered at a single
-                  analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered;
-                  defines the effective spatial footprint of the measurement. Not applicable when mapping.
+                description: Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.
                 type: object
                 properties:
                   '@id':
@@ -51,10 +48,7 @@ allOf:
                 - schema:unitText
               - &id002
                 title: Beam Damage Minimization
-                description: 'Describes any measures taken to reduce electron beam damage to the sample
-                  during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused
-                  or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple
-                  points.'
+                description: 'Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.'
                 type: object
                 properties:
                   '@id':
@@ -77,10 +71,7 @@ allOf:
                 - schema:value
               - &id003
                 title: Drift Correction
-                description: 'Describes whether and how stage or beam drift was monitored and corrected
-                  during the measurement session. Examples: periodic stage realignment to a fiducial marker,
-                  automated beam drift correction in acquisition software, or reanalysis of a reference
-                  point at regular intervals.'
+                description: 'Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.'
                 type: object
                 properties:
                   '@id':
@@ -103,9 +94,7 @@ allOf:
                 - schema:value
               - &id004
                 title: Chamber Pressure
-                description: Chamber pressure and gas type during analysis. Required for variable pressure
-                  (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and
-                  gas composition. Use 'None' for standard high-vacuum operation.
+                description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
                 type: object
                 properties:
                   '@id':
@@ -161,8 +150,7 @@ allOf:
                 - schema:unitText
               - &id006
                 title: Step Size / Pixel Size
-                description: Centre-to-centre distance between adjacent measurement points (WDS mapping)
-                  or pixels (EDS mapping) in µm.
+                description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.
                 type: object
                 properties:
                   '@id':
@@ -190,9 +178,7 @@ allOf:
                 - schema:unitText
               - &id007
                 title: Halogen Correction on Oxygen
-                description: Whether oxygen content was adjusted to account for halogen substitution (F
-                  and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica,
-                  where oxygen is calculated by stoichiometry.
+                description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
                 type: object
                 properties:
                   '@id':
@@ -323,10 +309,7 @@ allOf:
                                       - schema:unitText
                                     - &id009
                                       title: Beam Diameter
-                                      description: Nominal electron beam diameter (spot size) at the sample
-                                        surface for point analysis, in nanometres or micrometres, as set
-                                        by the condenser aperture and working distance. The beam used
-                                        for mapping is recorded under Mapping Beam Diameter.
+                                      description: Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.
                                       type: object
                                       properties:
                                         '@id':
@@ -354,8 +337,7 @@ allOf:
                                       - schema:unitText
                                     - &id010
                                       title: Working Distance
-                                      description: Distance between the objective lens pole piece and
-                                        the specimen surface in millimetres.
+                                      description: Distance between the objective lens pole piece and the specimen surface in millimetres.
                                       type: object
                                       properties:
                                         '@id':
@@ -383,8 +365,7 @@ allOf:
                                       - schema:unitText
                                     - &id011
                                       title: Mapping Beam Current
-                                      description: Probe current in nanoamperes (nA) used during X-ray
-                                        mapping.
+                                      description: Probe current in nanoamperes (nA) used during X-ray mapping.
                                       type: object
                                       properties:
                                         '@id':
@@ -412,8 +393,7 @@ allOf:
                                       - schema:unitText
                                     - &id012
                                       title: Mapping Beam Diameter
-                                      description: Diameter of the electron beam in micrometres during
-                                        X-ray mapping. 0 indicates a fully focused beam.
+                                      description: Diameter of the electron beam in micrometres during X-ray mapping. 0 indicates a fully focused beam.
                                       type: object
                                       properties:
                                         '@id':
@@ -465,9 +445,7 @@ allOf:
                           required:
                           - schema:additionalType
           ada:proceduralBlankLevel:
-            description: The measured level of the analytical blank in the session, and — where the reported
-              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
-              result unless its own composition is known. Companion to the blank correction method.
+            description: The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.
             type: string
           schema:actionProcess:
             type: object
@@ -502,10 +480,7 @@ allOf:
                     required:
                     - schema:name
           ada:deadTime:
-            description: Percent dead time reported by the EDS detector during the session — the fraction
-              of total acquisition time the detector spent processing rather than counting. This field
-              documents the resulting percentage as a session QC metric. Unlike WDS dead time (see WDS
-              Dead Time Correction), no user-selectable correction algorithm is required.
+            description: Percent dead time reported by the EDS detector during the session — the fraction of total acquisition time the detector spent processing rather than counting. This field documents the resulting percentage as a session QC metric. Unlike WDS dead time (see WDS Dead Time Correction), no user-selectable correction algorithm is required.
             anyOf:
             - type: number
             - type: string
@@ -514,8 +489,7 @@ allOf:
         - ada:proceduralBlankLevel
         - schema:actionProcess
     ada:mapDimensions:
-      description: Number of pixels in the EDS map in the X and Y directions. Based on the area of interest
-        and selected pixel size.
+      description: Number of pixels in the EDS map in the X and Y directions. Based on the area of interest and selected pixel size.
       anyOf:
       - type: number
       - type: string
@@ -523,10 +497,7 @@ allOf:
       type: array
       items: &id013
         title: Map Area
-        description: Physical extent of the mapped region, given either as width × height in µm or as
-          a total area in µm² or mm², and equal to (map width in pixels × step size) × (map height in
-          pixels × step size). Complements the map's pixel-grid dimensions by recording the physical scale
-          of the mapped region.
+        description: Physical extent of the mapped region, given either as width × height in µm or as a total area in µm² or mm², and equal to (map width in pixels × step size) × (map height in pixels × step size). Complements the map's pixel-grid dimensions by recording the physical scale of the mapped region.
         type: object
         properties:
           '@id':
@@ -561,9 +532,7 @@ allOf:
       items:
         anyOf:
         - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
+          description: A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.
           type: object
           required:
           - '@type'
@@ -576,8 +545,7 @@ allOf:
                 - schema:PropertyValue
         - &id014
           title: Target Material of Sampling Unit
-          description: The entry in Target Material that the sampling unit belongs to, which links the
-            unit to the point-analysis conditions registered for that material.
+          description: The entry in Target Material that the sampling unit belongs to, which links the unit to the point-analysis conditions registered for that material.
           type: object
           properties:
             '@id':

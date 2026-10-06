@@ -1503,7 +1503,14 @@ def enum_terms(ex):
 
 
 def dump_yaml(obj):
-    return yaml.safe_dump(obj, sort_keys=False, allow_unicode=True, default_flow_style=False, width=100)
+    # width=4096, not 100: PyYAML's line-wrapping algorithm differs between versions, so a
+    # wrapped dump is a function of whoever ran it. Regenerating parameterTemplates and
+    # parameterValues rewrapped 2764 lines with no semantic change, twice, and both times the
+    # diff had to be reverted to keep the drift check from flapping. Not wrapping at all removes
+    # the variable instead of agreeing on a version -- the same choice the ruamel dumper below
+    # already makes.
+    return yaml.safe_dump(obj, sort_keys=False, allow_unicode=True, default_flow_style=False,
+                          width=4096)
 
 
 def write(path, text):

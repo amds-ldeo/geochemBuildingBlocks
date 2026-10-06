@@ -1,18 +1,13 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA Solution SF-ICP-MS Product Profile
-description: Path-driven technique-specific profile for ADA Solution SF-ICP-MS Product Profile. Extends
-  the base ADA product profile with the SOLUTIONSFICPMS analysis-instance detail on the schema:Dataset
-  root, narrows prov:used to the solutionSficpmsTAPP protocol, and constrains valid component types on
-  schema:distribution.hasPart.
+description: Path-driven technique-specific profile for ADA Solution SF-ICP-MS Product Profile. Extends the base ADA product profile with the SOLUTIONSFICPMS analysis-instance detail on the schema:Dataset root, narrows prov:used to the solutionSficpmsTAPP protocol, and constrains valid component types on schema:distribution.hasPart.
 allOf:
 - $ref: ../../../../BaseSchema/geochemProduct/schema.yaml
 - $ref: ../detail/schema.yaml
 - type: object
   properties:
     prov:wasGeneratedBy:
-      description: 'Pin the solutionSficpmsTAPP definition and the instrument where prov:used carries
-        them. Constraint-only if/then, never a narrowed anyOf: prov:used items are role-keyed wrappers,
-        and an anyOf here would allOf-merge with the base union and exclude item shapes the base allows.'
+      description: 'Pin the solutionSficpmsTAPP definition and the instrument where prov:used carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items are role-keyed wrappers, and an anyOf here would allOf-merge with the base union and exclude item shapes the base allows.'
       type: array
       items:
         type: object

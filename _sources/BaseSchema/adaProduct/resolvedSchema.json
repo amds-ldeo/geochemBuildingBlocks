@@ -739,7 +739,9 @@
                                   "type": "string"
                                 },
                                 "@type": {
-                                  "default": "schema:Organization",
+                                  "default": [
+                                    "schema:Organization"
+                                  ],
                                   "type": "array",
                                   "items": {
                                     "anyOf": [
@@ -908,7 +910,9 @@
                               "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                               "properties": {
                                 "@type": {
-                                  "default": "schema:ContactPoint",
+                                  "default": [
+                                    "schema:ContactPoint"
+                                  ],
                                   "type": "array",
                                   "items": {
                                     "type": "string"
@@ -980,7 +984,9 @@
                               "type": "string"
                             },
                             "@type": {
-                              "default": "schema:Organization",
+                              "default": [
+                                "schema:Organization"
+                              ],
                               "type": "array",
                               "items": {
                                 "anyOf": [
@@ -1334,15 +1340,27 @@
                             "type": "object",
                             "properties": {
                               "@type": {
-                                "default": "schema:CreativeWork",
+                                "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                                "default": [
+                                  "schema:CreativeWork"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
                                 },
-                                "contains": {
-                                  "const": "schema:CreativeWork"
-                                },
-                                "minItems": 1
+                                "minItems": 1,
+                                "anyOf": [
+                                  {
+                                    "contains": {
+                                      "const": "schema:CreativeWork"
+                                    }
+                                  },
+                                  {
+                                    "contains": {
+                                      "const": "dcat:Relationship"
+                                    }
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "type": "string"
@@ -1355,18 +1373,64 @@
                                 "format": "uri"
                               },
                               "dcat:hadRole": {
-                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                                "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                                "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/$defs/DcatRole"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                                  }
+                                ]
                               },
                               "dcterms:relation": {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                                "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                                "anyOf": [
+                                  {
+                                    "title": "Object Reference",
+                                    "description": "A reference to a node defined elsewhere, by its @id.",
+                                    "type": "object",
+                                    "properties": {
+                                      "@id": {
+                                        "type": "string",
+                                        "description": "resolvable @id of the referenced node"
+                                      }
+                                    },
+                                    "required": [
+                                      "@id"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                ]
                               }
                             },
                             "required": [
-                              "@type",
-                              "schema:url"
+                              "@type"
+                            ],
+                            "allOf": [
+                              {
+                                "if": {
+                                  "required": [
+                                    "@type"
+                                  ],
+                                  "properties": {
+                                    "@type": {
+                                      "contains": {
+                                        "const": "schema:CreativeWork"
+                                      }
+                                    }
+                                  }
+                                },
+                                "then": {
+                                  "required": [
+                                    "schema:url"
+                                  ]
+                                }
+                              }
                             ]
                           },
                           {
@@ -1391,15 +1455,27 @@
                             "type": "object",
                             "properties": {
                               "@type": {
-                                "default": "schema:CreativeWork",
+                                "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                                "default": [
+                                  "schema:CreativeWork"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
                                 },
-                                "contains": {
-                                  "const": "schema:CreativeWork"
-                                },
-                                "minItems": 1
+                                "minItems": 1,
+                                "anyOf": [
+                                  {
+                                    "contains": {
+                                      "const": "schema:CreativeWork"
+                                    }
+                                  },
+                                  {
+                                    "contains": {
+                                      "const": "dcat:Relationship"
+                                    }
+                                  }
+                                ]
                               },
                               "schema:name": {
                                 "type": "string"
@@ -1412,18 +1488,64 @@
                                 "format": "uri"
                               },
                               "dcat:hadRole": {
-                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                                "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                                "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/$defs/DcatRole"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                                  }
+                                ]
                               },
                               "dcterms:relation": {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                                "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                                "anyOf": [
+                                  {
+                                    "title": "Object Reference",
+                                    "description": "A reference to a node defined elsewhere, by its @id.",
+                                    "type": "object",
+                                    "properties": {
+                                      "@id": {
+                                        "type": "string",
+                                        "description": "resolvable @id of the referenced node"
+                                      }
+                                    },
+                                    "required": [
+                                      "@id"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "string",
+                                    "format": "uri"
+                                  }
+                                ]
                               }
                             },
                             "required": [
-                              "@type",
-                              "schema:url"
+                              "@type"
+                            ],
+                            "allOf": [
+                              {
+                                "if": {
+                                  "required": [
+                                    "@type"
+                                  ],
+                                  "properties": {
+                                    "@type": {
+                                      "contains": {
+                                        "const": "schema:CreativeWork"
+                                      }
+                                    }
+                                  }
+                                },
+                                "then": {
+                                  "required": [
+                                    "schema:url"
+                                  ]
+                                }
+                              }
                             ]
                           },
                           {
@@ -3086,23 +3208,21 @@
                         "cdi:arrayBase": {
                           "type": "integer"
                         },
-                        "csvw:commentPrefix": {
+                        "cdi:commentPrefix": {
                           "type": "string",
-                          "description": "An atomic property that sets the comment prefix flag to the single provided value, which MUST be a string. The default is '#'."
+                          "description": "Character(s) that mark a line as a comment."
                         },
-                        "csvw:delimiter": {
+                        "cdi:delimiter": {
                           "type": "string",
-                          "description": "Sets the delimiter flag to the single provided value, which MUST be a string. The default is ','."
+                          "description": "Field delimiter (e.g., \",\" or tab)."
                         },
-                        "csvw:header": {
+                        "cdi:hasHeader": {
                           "type": "boolean",
-                          "description": "If true, sets the header row count flag to 1, and if false to 0, unless headerRowCount is provided, in which case the value provided for the header property is ignored. The default is true."
+                          "default": true
                         },
-                        "csvw:headerRowCount": {
+                        "cdi:headerRowCount": {
                           "type": "integer",
-                          "minimum": 0,
-                          "default": 1,
-                          "description": "A numeric atomic property that sets the header row count flag to the single provided value, which MUST be a non-negative integer."
+                          "default": 1
                         },
                         "cdi:isDelimited": {
                           "type": "boolean",
@@ -3111,36 +3231,31 @@
                         "cdi:isFixedWidth": {
                           "type": "boolean"
                         },
-                        "csvw:lineTerminators": {
-                          "type": "string",
-                          "enum": [
-                            "CRLF",
-                            "LF",
-                            "\r\n",
-                            "\n"
-                          ]
+                        "cdi:lineTerminator": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Allowed line terminators, in order (default [CRLF, LF])."
                         },
-                        "csvw:quoteChar": {
+                        "cdi:quoteCharacter": {
                           "type": "string",
-                          "default": "\"",
-                          "description": "Same as DDI-CDI quoteCharacter. The string that is used around escaped cells."
+                          "default": "\""
                         },
-                        "csvw:skipBlankRows": {
+                        "cdi:skipBlankRows": {
                           "type": "boolean",
                           "default": false
                         },
-                        "csvw:skipColumns": {
+                        "cdi:skipDataColumns": {
                           "type": "integer",
-                          "default": 0,
-                          "description": "The number of columns to skip at the beginning of each row."
+                          "default": 0
                         },
-                        "csvw:skipInitialSpace": {
+                        "cdi:skipInitialSpace": {
                           "type": "boolean",
                           "default": true
                         },
-                        "csvw:skipRows": {
+                        "cdi:skipRows": {
                           "type": "integer",
-                          "description": "The number of rows to skip at the beginning of the file, before a header row or tabular data.",
                           "default": 0
                         },
                         "cdi:escapeCharacter": {
@@ -3157,16 +3272,17 @@
                           "default": false,
                           "description": "Whether consecutive delimiters should be treated as a single delimiter. From DDI-CDI PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne."
                         },
-                        "csvw:tableDirection": {
+                        "cdi:tableDirection": {
                           "type": "string",
+                          "default": "Auto",
                           "enum": [
+                            "Auto",
                             "Ltr",
                             "Rtl"
                           ],
-                          "default": "Ltr",
-                          "description": "Indicates the direction of the table layout (left-to-right or right-to-left). From DDI-CDI PhysicalSegmentLayout.tableDirection."
+                          "description": "Direction in which columns are arranged in each row (DDI-CDI TabularTextDataSet.tableDirection, TableDirectionValues enumeration)."
                         },
-                        "csvw:textDirection": {
+                        "cdi:textDirection": {
                           "type": "string",
                           "enum": [
                             "Auto",
@@ -3174,18 +3290,17 @@
                             "Ltr",
                             "Rtl"
                           ],
-                          "default": "Auto",
-                          "description": "Indicates whether the text within cells should be displayed as left-to-right, right-to-left, according to content, or inherited from the table direction. From DDI-CDI PhysicalSegmentLayout.textDirection."
+                          "description": "Reading order of text within cells (DDI-CDI TabularTextDataSet.textDirection, TextDirectionValues enumeration)."
                         },
-                        "csvw:trim": {
+                        "cdi:trim": {
                           "type": "string",
                           "enum": [
-                            "true",
-                            "end",
-                            "false",
-                            "start"
+                            "Both",
+                            "End",
+                            "Neither",
+                            "Start"
                           ],
-                          "description": "Indicates whether to trim whitespace around cells. 'true' corresponds to DDI-CDI 'both' value, 'false' corresponds to DDI-CDI 'neither' value."
+                          "description": "Which spaces to remove from a data value (DDI-CDI TabularTextDataSet.trim, TrimValues enumeration)."
                         },
                         "cdif:hasPhysicalMapping": {
                           "type": "array",
@@ -3826,7 +3941,9 @@
                             "type": "string"
                           },
                           "@type": {
-                            "default": "schema:Organization",
+                            "default": [
+                              "schema:Organization"
+                            ],
                             "type": "array",
                             "items": {
                               "anyOf": [
@@ -3995,7 +4112,9 @@
                         "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                         "properties": {
                           "@type": {
-                            "default": "schema:ContactPoint",
+                            "default": [
+                              "schema:ContactPoint"
+                            ],
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -4067,7 +4186,9 @@
                         "type": "string"
                       },
                       "@type": {
-                        "default": "schema:Organization",
+                        "default": [
+                          "schema:Organization"
+                        ],
                         "type": "array",
                         "items": {
                           "anyOf": [
@@ -4304,7 +4425,9 @@
             "description": "URI identifier for this funding record"
           },
           "@type": {
-            "default": "schema:MonetaryGrant",
+            "default": [
+              "schema:MonetaryGrant"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -4512,7 +4635,9 @@
                         "type": "string"
                       },
                       "@type": {
-                        "default": "schema:Organization",
+                        "default": [
+                          "schema:Organization"
+                        ],
                         "type": "array",
                         "items": {
                           "anyOf": [
@@ -4681,7 +4806,9 @@
                     "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                     "properties": {
                       "@type": {
-                        "default": "schema:ContactPoint",
+                        "default": [
+                          "schema:ContactPoint"
+                        ],
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -4753,7 +4880,9 @@
                     "type": "string"
                   },
                   "@type": {
-                    "default": "schema:Organization",
+                    "default": [
+                      "schema:Organization"
+                    ],
                     "type": "array",
                     "items": {
                       "anyOf": [
@@ -5581,7 +5710,9 @@
                                                     "type": "string"
                                                   },
                                                   "@type": {
-                                                    "default": "schema:Organization",
+                                                    "default": [
+                                                      "schema:Organization"
+                                                    ],
                                                     "type": "array",
                                                     "items": {
                                                       "anyOf": [
@@ -5750,7 +5881,9 @@
                                                 "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                                                 "properties": {
                                                   "@type": {
-                                                    "default": "schema:ContactPoint",
+                                                    "default": [
+                                                      "schema:ContactPoint"
+                                                    ],
                                                     "type": "array",
                                                     "items": {
                                                       "type": "string"
@@ -5822,7 +5955,9 @@
                                                 "type": "string"
                                               },
                                               "@type": {
-                                                "default": "schema:Organization",
+                                                "default": [
+                                                  "schema:Organization"
+                                                ],
                                                 "type": "array",
                                                 "items": {
                                                   "anyOf": [
@@ -6475,7 +6610,9 @@
                                 "type": "string"
                               },
                               "@type": {
-                                "default": "schema:Organization",
+                                "default": [
+                                  "schema:Organization"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "anyOf": [
@@ -6644,7 +6781,9 @@
                             "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                             "properties": {
                               "@type": {
-                                "default": "schema:ContactPoint",
+                                "default": [
+                                  "schema:ContactPoint"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
@@ -6716,7 +6855,9 @@
                             "type": "string"
                           },
                           "@type": {
-                            "default": "schema:Organization",
+                            "default": [
+                              "schema:Organization"
+                            ],
                             "type": "array",
                             "items": {
                               "anyOf": [
@@ -7021,7 +7162,9 @@
                                         "type": "string"
                                       },
                                       "@type": {
-                                        "default": "schema:Organization",
+                                        "default": [
+                                          "schema:Organization"
+                                        ],
                                         "type": "array",
                                         "items": {
                                           "anyOf": [
@@ -7190,7 +7333,9 @@
                                     "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                                     "properties": {
                                       "@type": {
-                                        "default": "schema:ContactPoint",
+                                        "default": [
+                                          "schema:ContactPoint"
+                                        ],
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -7262,7 +7407,9 @@
                                     "type": "string"
                                   },
                                   "@type": {
-                                    "default": "schema:Organization",
+                                    "default": [
+                                      "schema:Organization"
+                                    ],
                                     "type": "array",
                                     "items": {
                                       "anyOf": [
@@ -7563,7 +7710,9 @@
                                   "type": "string"
                                 },
                                 "@type": {
-                                  "default": "schema:Organization",
+                                  "default": [
+                                    "schema:Organization"
+                                  ],
                                   "type": "array",
                                   "items": {
                                     "anyOf": [
@@ -7732,7 +7881,9 @@
                               "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                               "properties": {
                                 "@type": {
-                                  "default": "schema:ContactPoint",
+                                  "default": [
+                                    "schema:ContactPoint"
+                                  ],
                                   "type": "array",
                                   "items": {
                                     "type": "string"
@@ -7804,7 +7955,9 @@
                               "type": "string"
                             },
                             "@type": {
-                              "default": "schema:Organization",
+                              "default": [
+                                "schema:Organization"
+                              ],
                               "type": "array",
                               "items": {
                                 "anyOf": [
@@ -8109,7 +8262,9 @@
                                           "type": "string"
                                         },
                                         "@type": {
-                                          "default": "schema:Organization",
+                                          "default": [
+                                            "schema:Organization"
+                                          ],
                                           "type": "array",
                                           "items": {
                                             "anyOf": [
@@ -8278,7 +8433,9 @@
                                       "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                                       "properties": {
                                         "@type": {
-                                          "default": "schema:ContactPoint",
+                                          "default": [
+                                            "schema:ContactPoint"
+                                          ],
                                           "type": "array",
                                           "items": {
                                             "type": "string"
@@ -8350,7 +8507,9 @@
                                       "type": "string"
                                     },
                                     "@type": {
-                                      "default": "schema:Organization",
+                                      "default": [
+                                        "schema:Organization"
+                                      ],
                                       "type": "array",
                                       "items": {
                                         "anyOf": [
@@ -8678,7 +8837,9 @@
                         "type": "object",
                         "properties": {
                           "@type": {
-                            "default": "schema:Place",
+                            "default": [
+                              "schema:Place"
+                            ],
                             "type": "array",
                             "items": {
                               "type": "string"
@@ -8739,7 +8900,9 @@
                                 "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
                                 "properties": {
                                   "@type": {
-                                    "default": "schema:GeoCoordinates",
+                                    "default": [
+                                      "schema:GeoCoordinates"
+                                    ],
                                     "type": "array",
                                     "items": {
                                       "type": "string"
@@ -8771,7 +8934,9 @@
                                 "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
                                 "properties": {
                                   "@type": {
-                                    "default": "schema:GeoShape",
+                                    "default": [
+                                      "schema:GeoShape"
+                                    ],
                                     "type": "array",
                                     "items": {
                                       "type": "string"
@@ -8796,7 +8961,9 @@
                                 "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
                                 "properties": {
                                   "@type": {
-                                    "default": "schema:GeoShape",
+                                    "default": [
+                                      "schema:GeoShape"
+                                    ],
                                     "type": "array",
                                     "items": {
                                       "type": "string"
@@ -9926,7 +10093,9 @@
                                 "type": "object",
                                 "properties": {
                                   "@type": {
-                                    "default": "schema:Place",
+                                    "default": [
+                                      "schema:Place"
+                                    ],
                                     "type": "array",
                                     "items": {
                                       "type": "string"
@@ -9987,7 +10156,9 @@
                                         "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
                                         "properties": {
                                           "@type": {
-                                            "default": "schema:GeoCoordinates",
+                                            "default": [
+                                              "schema:GeoCoordinates"
+                                            ],
                                             "type": "array",
                                             "items": {
                                               "type": "string"
@@ -10019,7 +10190,9 @@
                                         "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
                                         "properties": {
                                           "@type": {
-                                            "default": "schema:GeoShape",
+                                            "default": [
+                                              "schema:GeoShape"
+                                            ],
                                             "type": "array",
                                             "items": {
                                               "type": "string"
@@ -10044,7 +10217,9 @@
                                         "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
                                         "properties": {
                                           "@type": {
-                                            "default": "schema:GeoShape",
+                                            "default": [
+                                              "schema:GeoShape"
+                                            ],
                                             "type": "array",
                                             "items": {
                                               "type": "string"
@@ -10294,7 +10469,9 @@
                                         "type": "string"
                                       },
                                       "@type": {
-                                        "default": "schema:Organization",
+                                        "default": [
+                                          "schema:Organization"
+                                        ],
                                         "type": "array",
                                         "items": {
                                           "anyOf": [
@@ -10463,7 +10640,9 @@
                                     "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                                     "properties": {
                                       "@type": {
-                                        "default": "schema:ContactPoint",
+                                        "default": [
+                                          "schema:ContactPoint"
+                                        ],
                                         "type": "array",
                                         "items": {
                                           "type": "string"
@@ -10535,7 +10714,9 @@
                                     "type": "string"
                                   },
                                   "@type": {
-                                    "default": "schema:Organization",
+                                    "default": [
+                                      "schema:Organization"
+                                    ],
                                     "type": "array",
                                     "items": {
                                       "anyOf": [
@@ -10781,15 +10962,27 @@
                                           "type": "object",
                                           "properties": {
                                             "@type": {
-                                              "default": "schema:CreativeWork",
+                                              "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                                              "default": [
+                                                "schema:CreativeWork"
+                                              ],
                                               "type": "array",
                                               "items": {
                                                 "type": "string"
                                               },
-                                              "contains": {
-                                                "const": "schema:CreativeWork"
-                                              },
-                                              "minItems": 1
+                                              "minItems": 1,
+                                              "anyOf": [
+                                                {
+                                                  "contains": {
+                                                    "const": "schema:CreativeWork"
+                                                  }
+                                                },
+                                                {
+                                                  "contains": {
+                                                    "const": "dcat:Relationship"
+                                                  }
+                                                }
+                                              ]
                                             },
                                             "schema:name": {
                                               "type": "string"
@@ -10802,18 +10995,64 @@
                                               "format": "uri"
                                             },
                                             "dcat:hadRole": {
-                                              "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                                              "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                                              "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                                              "anyOf": [
+                                                {
+                                                  "$ref": "#/$defs/DcatRole"
+                                                },
+                                                {
+                                                  "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                                                }
+                                              ]
                                             },
                                             "dcterms:relation": {
-                                              "type": "string",
-                                              "format": "uri",
-                                              "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                                              "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                                              "anyOf": [
+                                                {
+                                                  "title": "Object Reference",
+                                                  "description": "A reference to a node defined elsewhere, by its @id.",
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "@id": {
+                                                      "type": "string",
+                                                      "description": "resolvable @id of the referenced node"
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "@id"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                {
+                                                  "type": "string",
+                                                  "format": "uri"
+                                                }
+                                              ]
                                             }
                                           },
                                           "required": [
-                                            "@type",
-                                            "schema:url"
+                                            "@type"
+                                          ],
+                                          "allOf": [
+                                            {
+                                              "if": {
+                                                "required": [
+                                                  "@type"
+                                                ],
+                                                "properties": {
+                                                  "@type": {
+                                                    "contains": {
+                                                      "const": "schema:CreativeWork"
+                                                    }
+                                                  }
+                                                }
+                                              },
+                                              "then": {
+                                                "required": [
+                                                  "schema:url"
+                                                ]
+                                              }
+                                            }
                                           ]
                                         },
                                         {
@@ -11472,15 +11711,27 @@
                               "type": "object",
                               "properties": {
                                 "@type": {
-                                  "default": "schema:CreativeWork",
+                                  "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                                  "default": [
+                                    "schema:CreativeWork"
+                                  ],
                                   "type": "array",
                                   "items": {
                                     "type": "string"
                                   },
-                                  "contains": {
-                                    "const": "schema:CreativeWork"
-                                  },
-                                  "minItems": 1
+                                  "minItems": 1,
+                                  "anyOf": [
+                                    {
+                                      "contains": {
+                                        "const": "schema:CreativeWork"
+                                      }
+                                    },
+                                    {
+                                      "contains": {
+                                        "const": "dcat:Relationship"
+                                      }
+                                    }
+                                  ]
                                 },
                                 "schema:name": {
                                   "type": "string"
@@ -11493,18 +11744,64 @@
                                   "format": "uri"
                                 },
                                 "dcat:hadRole": {
-                                  "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                                  "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                                  "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                                  "anyOf": [
+                                    {
+                                      "$ref": "#/$defs/DcatRole"
+                                    },
+                                    {
+                                      "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                                    }
+                                  ]
                                 },
                                 "dcterms:relation": {
-                                  "type": "string",
-                                  "format": "uri",
-                                  "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                                  "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                                  "anyOf": [
+                                    {
+                                      "title": "Object Reference",
+                                      "description": "A reference to a node defined elsewhere, by its @id.",
+                                      "type": "object",
+                                      "properties": {
+                                        "@id": {
+                                          "type": "string",
+                                          "description": "resolvable @id of the referenced node"
+                                        }
+                                      },
+                                      "required": [
+                                        "@id"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    {
+                                      "type": "string",
+                                      "format": "uri"
+                                    }
+                                  ]
                                 }
                               },
                               "required": [
-                                "@type",
-                                "schema:url"
+                                "@type"
+                              ],
+                              "allOf": [
+                                {
+                                  "if": {
+                                    "required": [
+                                      "@type"
+                                    ],
+                                    "properties": {
+                                      "@type": {
+                                        "contains": {
+                                          "const": "schema:CreativeWork"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "then": {
+                                    "required": [
+                                      "schema:url"
+                                    ]
+                                  }
+                                }
                               ]
                             }
                           },
@@ -11520,7 +11817,9 @@
                                   "description": "URI identifier for this funding record"
                                 },
                                 "@type": {
-                                  "default": "schema:MonetaryGrant",
+                                  "default": [
+                                    "schema:MonetaryGrant"
+                                  ],
                                   "type": "array",
                                   "items": {
                                     "type": "string"
@@ -11728,7 +12027,9 @@
                                               "type": "string"
                                             },
                                             "@type": {
-                                              "default": "schema:Organization",
+                                              "default": [
+                                                "schema:Organization"
+                                              ],
                                               "type": "array",
                                               "items": {
                                                 "anyOf": [
@@ -11897,7 +12198,9 @@
                                           "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                                           "properties": {
                                             "@type": {
-                                              "default": "schema:ContactPoint",
+                                              "default": [
+                                                "schema:ContactPoint"
+                                              ],
                                               "type": "array",
                                               "items": {
                                                 "type": "string"
@@ -11969,7 +12272,9 @@
                                           "type": "string"
                                         },
                                         "@type": {
-                                          "default": "schema:Organization",
+                                          "default": [
+                                            "schema:Organization"
+                                          ],
                                           "type": "array",
                                           "items": {
                                             "anyOf": [
@@ -12199,7 +12504,9 @@
                     "type": "object",
                     "properties": {
                       "@type": {
-                        "default": "schema:Place",
+                        "default": [
+                          "schema:Place"
+                        ],
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -12260,7 +12567,9 @@
                             "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
                             "properties": {
                               "@type": {
-                                "default": "schema:GeoCoordinates",
+                                "default": [
+                                  "schema:GeoCoordinates"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
@@ -12292,7 +12601,9 @@
                             "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
                             "properties": {
                               "@type": {
-                                "default": "schema:GeoShape",
+                                "default": [
+                                  "schema:GeoShape"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
@@ -12317,7 +12628,9 @@
                             "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
                             "properties": {
                               "@type": {
-                                "default": "schema:GeoShape",
+                                "default": [
+                                  "schema:GeoShape"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
@@ -12581,15 +12894,27 @@
                 "type": "object",
                 "properties": {
                   "@type": {
-                    "default": "schema:CreativeWork",
+                    "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                    "default": [
+                      "schema:CreativeWork"
+                    ],
                     "type": "array",
                     "items": {
                       "type": "string"
                     },
-                    "contains": {
-                      "const": "schema:CreativeWork"
-                    },
-                    "minItems": 1
+                    "minItems": 1,
+                    "anyOf": [
+                      {
+                        "contains": {
+                          "const": "schema:CreativeWork"
+                        }
+                      },
+                      {
+                        "contains": {
+                          "const": "dcat:Relationship"
+                        }
+                      }
+                    ]
                   },
                   "schema:name": {
                     "type": "string"
@@ -12602,18 +12927,64 @@
                     "format": "uri"
                   },
                   "dcat:hadRole": {
-                    "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                    "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                    "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                    "anyOf": [
+                      {
+                        "$ref": "#/$defs/DcatRole"
+                      },
+                      {
+                        "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                      }
+                    ]
                   },
                   "dcterms:relation": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                    "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                    "anyOf": [
+                      {
+                        "title": "Object Reference",
+                        "description": "A reference to a node defined elsewhere, by its @id.",
+                        "type": "object",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "description": "resolvable @id of the referenced node"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    ]
                   }
                 },
                 "required": [
-                  "@type",
-                  "schema:url"
+                  "@type"
+                ],
+                "allOf": [
+                  {
+                    "if": {
+                      "required": [
+                        "@type"
+                      ],
+                      "properties": {
+                        "@type": {
+                          "contains": {
+                            "const": "schema:CreativeWork"
+                          }
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  }
                 ]
               },
               {
@@ -12884,7 +13255,9 @@
                       "type": "string"
                     },
                     "@type": {
-                      "default": "schema:Organization",
+                      "default": [
+                        "schema:Organization"
+                      ],
                       "type": "array",
                       "items": {
                         "anyOf": [
@@ -13053,7 +13426,9 @@
                   "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                   "properties": {
                     "@type": {
-                      "default": "schema:ContactPoint",
+                      "default": [
+                        "schema:ContactPoint"
+                      ],
                       "type": "array",
                       "items": {
                         "type": "string"
@@ -13125,7 +13500,9 @@
                   "type": "string"
                 },
                 "@type": {
-                  "default": "schema:Organization",
+                  "default": [
+                    "schema:Organization"
+                  ],
                   "type": "array",
                   "items": {
                     "anyOf": [
@@ -14992,7 +15369,9 @@
         "type": "object",
         "properties": {
           "@type": {
-            "default": "schema:Place",
+            "default": [
+              "schema:Place"
+            ],
             "type": "array",
             "items": {
               "type": "string"
@@ -15053,7 +15432,9 @@
                 "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
                 "properties": {
                   "@type": {
-                    "default": "schema:GeoCoordinates",
+                    "default": [
+                      "schema:GeoCoordinates"
+                    ],
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -15085,7 +15466,9 @@
                 "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
                 "properties": {
                   "@type": {
-                    "default": "schema:GeoShape",
+                    "default": [
+                      "schema:GeoShape"
+                    ],
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -15110,7 +15493,9 @@
                 "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
                 "properties": {
                   "@type": {
-                    "default": "schema:GeoShape",
+                    "default": [
+                      "schema:GeoShape"
+                    ],
                     "type": "array",
                     "items": {
                       "type": "string"
@@ -15217,7 +15602,9 @@
             "description": "a w3c time proper interval with bounds that are named time ordinal eras with identifier, e.g. geologic age. This is a SOSO schema.org extension",
             "properties": {
               "@type": {
-                "default": "time:ProperInterval",
+                "default": [
+                  "time:ProperInterval"
+                ],
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -15279,7 +15666,9 @@
                 "description": "Must exactly match the specified @context object."
               },
               "@type": {
-                "default": "time:ProperInterval",
+                "default": [
+                  "time:ProperInterval"
+                ],
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -15310,7 +15699,9 @@
                     "type": "object",
                     "properties": {
                       "@type": {
-                        "default": "time:TimePosition",
+                        "default": [
+                          "time:TimePosition"
+                        ],
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -15354,7 +15745,9 @@
                     "type": "object",
                     "properties": {
                       "@type": {
-                        "default": "time:TimePosition",
+                        "default": [
+                          "time:TimePosition"
+                        ],
                         "type": "array",
                         "items": {
                           "type": "string"
@@ -15993,6 +16386,54 @@
                                   }
                                 }
                               },
+                              "schema:width": {
+                                "type": "object",
+                                "description": "Pixel width of a raster file, as a QuantitativeValue. schema:width has schema:MediaObject in its domain, which a part here is required to be, so no more specific type such as schema:ImageObject is needed. A QuantitativeValue rather than a bare number because the same property carries physical dimensions elsewhere, so the unit has to be stated -- and because schema:size beside it already takes this shape.",
+                                "properties": {
+                                  "@type": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:QuantitativeValue"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:value": {
+                                    "type": "number",
+                                    "description": "Width in pixels."
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string",
+                                    "description": "Unit of measure (e.g. 'pixel')."
+                                  }
+                                }
+                              },
+                              "schema:height": {
+                                "type": "object",
+                                "description": "Pixel height of a raster file, as a QuantitativeValue. schema:height has schema:MediaObject in its domain, which a part here is required to be, so no more specific type such as schema:ImageObject is needed. A QuantitativeValue rather than a bare number because the same property carries physical dimensions elsewhere, so the unit has to be stated -- and because schema:size beside it already takes this shape.",
+                                "properties": {
+                                  "@type": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "contains": {
+                                      "const": "schema:QuantitativeValue"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "schema:value": {
+                                    "type": "number",
+                                    "description": "Height in pixels."
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string",
+                                    "description": "Unit of measure (e.g. 'pixel')."
+                                  }
+                                }
+                              },
                               "schema:about": {
                                 "type": "array",
                                 "description": "For metadata sidecar files, references the data file this metadata describes.",
@@ -16182,23 +16623,21 @@
                                   "cdi:arrayBase": {
                                     "type": "integer"
                                   },
-                                  "csvw:commentPrefix": {
+                                  "cdi:commentPrefix": {
                                     "type": "string",
-                                    "description": "An atomic property that sets the comment prefix flag to the single provided value, which MUST be a string. The default is '#'."
+                                    "description": "Character(s) that mark a line as a comment."
                                   },
-                                  "csvw:delimiter": {
+                                  "cdi:delimiter": {
                                     "type": "string",
-                                    "description": "Sets the delimiter flag to the single provided value, which MUST be a string. The default is ','."
+                                    "description": "Field delimiter (e.g., \",\" or tab)."
                                   },
-                                  "csvw:header": {
+                                  "cdi:hasHeader": {
                                     "type": "boolean",
-                                    "description": "If true, sets the header row count flag to 1, and if false to 0, unless headerRowCount is provided, in which case the value provided for the header property is ignored. The default is true."
+                                    "default": true
                                   },
-                                  "csvw:headerRowCount": {
+                                  "cdi:headerRowCount": {
                                     "type": "integer",
-                                    "minimum": 0,
-                                    "default": 1,
-                                    "description": "A numeric atomic property that sets the header row count flag to the single provided value, which MUST be a non-negative integer."
+                                    "default": 1
                                   },
                                   "cdi:isDelimited": {
                                     "type": "boolean",
@@ -16207,36 +16646,31 @@
                                   "cdi:isFixedWidth": {
                                     "type": "boolean"
                                   },
-                                  "csvw:lineTerminators": {
-                                    "type": "string",
-                                    "enum": [
-                                      "CRLF",
-                                      "LF",
-                                      "\r\n",
-                                      "\n"
-                                    ]
+                                  "cdi:lineTerminator": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "description": "Allowed line terminators, in order (default [CRLF, LF])."
                                   },
-                                  "csvw:quoteChar": {
+                                  "cdi:quoteCharacter": {
                                     "type": "string",
-                                    "default": "\"",
-                                    "description": "Same as DDI-CDI quoteCharacter. The string that is used around escaped cells."
+                                    "default": "\""
                                   },
-                                  "csvw:skipBlankRows": {
+                                  "cdi:skipBlankRows": {
                                     "type": "boolean",
                                     "default": false
                                   },
-                                  "csvw:skipColumns": {
+                                  "cdi:skipDataColumns": {
                                     "type": "integer",
-                                    "default": 0,
-                                    "description": "The number of columns to skip at the beginning of each row."
+                                    "default": 0
                                   },
-                                  "csvw:skipInitialSpace": {
+                                  "cdi:skipInitialSpace": {
                                     "type": "boolean",
                                     "default": true
                                   },
-                                  "csvw:skipRows": {
+                                  "cdi:skipRows": {
                                     "type": "integer",
-                                    "description": "The number of rows to skip at the beginning of the file, before a header row or tabular data.",
                                     "default": 0
                                   },
                                   "cdi:escapeCharacter": {
@@ -16253,16 +16687,17 @@
                                     "default": false,
                                     "description": "Whether consecutive delimiters should be treated as a single delimiter. From DDI-CDI PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne."
                                   },
-                                  "csvw:tableDirection": {
+                                  "cdi:tableDirection": {
                                     "type": "string",
+                                    "default": "Auto",
                                     "enum": [
+                                      "Auto",
                                       "Ltr",
                                       "Rtl"
                                     ],
-                                    "default": "Ltr",
-                                    "description": "Indicates the direction of the table layout (left-to-right or right-to-left). From DDI-CDI PhysicalSegmentLayout.tableDirection."
+                                    "description": "Direction in which columns are arranged in each row (DDI-CDI TabularTextDataSet.tableDirection, TableDirectionValues enumeration)."
                                   },
-                                  "csvw:textDirection": {
+                                  "cdi:textDirection": {
                                     "type": "string",
                                     "enum": [
                                       "Auto",
@@ -16270,18 +16705,17 @@
                                       "Ltr",
                                       "Rtl"
                                     ],
-                                    "default": "Auto",
-                                    "description": "Indicates whether the text within cells should be displayed as left-to-right, right-to-left, according to content, or inherited from the table direction. From DDI-CDI PhysicalSegmentLayout.textDirection."
+                                    "description": "Reading order of text within cells (DDI-CDI TabularTextDataSet.textDirection, TextDirectionValues enumeration)."
                                   },
-                                  "csvw:trim": {
+                                  "cdi:trim": {
                                     "type": "string",
                                     "enum": [
-                                      "true",
-                                      "end",
-                                      "false",
-                                      "start"
+                                      "Both",
+                                      "End",
+                                      "Neither",
+                                      "Start"
                                     ],
-                                    "description": "Indicates whether to trim whitespace around cells. 'true' corresponds to DDI-CDI 'both' value, 'false' corresponds to DDI-CDI 'neither' value."
+                                    "description": "Which spaces to remove from a data value (DDI-CDI TabularTextDataSet.trim, TrimValues enumeration)."
                                   },
                                   "cdif:hasPhysicalMapping": {
                                     "type": "array",
@@ -17112,23 +17546,21 @@
                                     "cdi:arrayBase": {
                                       "type": "integer"
                                     },
-                                    "csvw:commentPrefix": {
+                                    "cdi:commentPrefix": {
                                       "type": "string",
-                                      "description": "An atomic property that sets the comment prefix flag to the single provided value, which MUST be a string. The default is '#'."
+                                      "description": "Character(s) that mark a line as a comment."
                                     },
-                                    "csvw:delimiter": {
+                                    "cdi:delimiter": {
                                       "type": "string",
-                                      "description": "Sets the delimiter flag to the single provided value, which MUST be a string. The default is ','."
+                                      "description": "Field delimiter (e.g., \",\" or tab)."
                                     },
-                                    "csvw:header": {
+                                    "cdi:hasHeader": {
                                       "type": "boolean",
-                                      "description": "If true, sets the header row count flag to 1, and if false to 0, unless headerRowCount is provided, in which case the value provided for the header property is ignored. The default is true."
+                                      "default": true
                                     },
-                                    "csvw:headerRowCount": {
+                                    "cdi:headerRowCount": {
                                       "type": "integer",
-                                      "minimum": 0,
-                                      "default": 1,
-                                      "description": "A numeric atomic property that sets the header row count flag to the single provided value, which MUST be a non-negative integer."
+                                      "default": 1
                                     },
                                     "cdi:isDelimited": {
                                       "type": "boolean",
@@ -17137,36 +17569,31 @@
                                     "cdi:isFixedWidth": {
                                       "type": "boolean"
                                     },
-                                    "csvw:lineTerminators": {
-                                      "type": "string",
-                                      "enum": [
-                                        "CRLF",
-                                        "LF",
-                                        "\r\n",
-                                        "\n"
-                                      ]
+                                    "cdi:lineTerminator": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "description": "Allowed line terminators, in order (default [CRLF, LF])."
                                     },
-                                    "csvw:quoteChar": {
+                                    "cdi:quoteCharacter": {
                                       "type": "string",
-                                      "default": "\"",
-                                      "description": "Same as DDI-CDI quoteCharacter. The string that is used around escaped cells."
+                                      "default": "\""
                                     },
-                                    "csvw:skipBlankRows": {
+                                    "cdi:skipBlankRows": {
                                       "type": "boolean",
                                       "default": false
                                     },
-                                    "csvw:skipColumns": {
+                                    "cdi:skipDataColumns": {
                                       "type": "integer",
-                                      "default": 0,
-                                      "description": "The number of columns to skip at the beginning of each row."
+                                      "default": 0
                                     },
-                                    "csvw:skipInitialSpace": {
+                                    "cdi:skipInitialSpace": {
                                       "type": "boolean",
                                       "default": true
                                     },
-                                    "csvw:skipRows": {
+                                    "cdi:skipRows": {
                                       "type": "integer",
-                                      "description": "The number of rows to skip at the beginning of the file, before a header row or tabular data.",
                                       "default": 0
                                     },
                                     "cdi:escapeCharacter": {
@@ -17183,16 +17610,17 @@
                                       "default": false,
                                       "description": "Whether consecutive delimiters should be treated as a single delimiter. From DDI-CDI PhysicalSegmentLayout.treatConsecutiveDelimitersAsOne."
                                     },
-                                    "csvw:tableDirection": {
+                                    "cdi:tableDirection": {
                                       "type": "string",
+                                      "default": "Auto",
                                       "enum": [
+                                        "Auto",
                                         "Ltr",
                                         "Rtl"
                                       ],
-                                      "default": "Ltr",
-                                      "description": "Indicates the direction of the table layout (left-to-right or right-to-left). From DDI-CDI PhysicalSegmentLayout.tableDirection."
+                                      "description": "Direction in which columns are arranged in each row (DDI-CDI TabularTextDataSet.tableDirection, TableDirectionValues enumeration)."
                                     },
-                                    "csvw:textDirection": {
+                                    "cdi:textDirection": {
                                       "type": "string",
                                       "enum": [
                                         "Auto",
@@ -17200,18 +17628,17 @@
                                         "Ltr",
                                         "Rtl"
                                       ],
-                                      "default": "Auto",
-                                      "description": "Indicates whether the text within cells should be displayed as left-to-right, right-to-left, according to content, or inherited from the table direction. From DDI-CDI PhysicalSegmentLayout.textDirection."
+                                      "description": "Reading order of text within cells (DDI-CDI TabularTextDataSet.textDirection, TextDirectionValues enumeration)."
                                     },
-                                    "csvw:trim": {
+                                    "cdi:trim": {
                                       "type": "string",
                                       "enum": [
-                                        "true",
-                                        "end",
-                                        "false",
-                                        "start"
+                                        "Both",
+                                        "End",
+                                        "Neither",
+                                        "Start"
                                       ],
-                                      "description": "Indicates whether to trim whitespace around cells. 'true' corresponds to DDI-CDI 'both' value, 'false' corresponds to DDI-CDI 'neither' value."
+                                      "description": "Which spaces to remove from a data value (DDI-CDI TabularTextDataSet.trim, TrimValues enumeration)."
                                     },
                                     "cdif:hasPhysicalMapping": {
                                       "type": "array",
@@ -18845,7 +19272,9 @@
                                 "type": "string"
                               },
                               "@type": {
-                                "default": "schema:Organization",
+                                "default": [
+                                  "schema:Organization"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "anyOf": [
@@ -19014,7 +19443,9 @@
                             "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
                             "properties": {
                               "@type": {
-                                "default": "schema:ContactPoint",
+                                "default": [
+                                  "schema:ContactPoint"
+                                ],
                                 "type": "array",
                                 "items": {
                                   "type": "string"
@@ -19086,7 +19517,9 @@
                             "type": "string"
                           },
                           "@type": {
-                            "default": "schema:Organization",
+                            "default": [
+                              "schema:Organization"
+                            ],
                             "type": "array",
                             "items": {
                               "anyOf": [
@@ -19773,15 +20206,27 @@
       "type": "object",
       "properties": {
         "@type": {
-          "default": "schema:CreativeWork",
+          "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+          "default": [
+            "schema:CreativeWork"
+          ],
           "type": "array",
           "items": {
             "type": "string"
           },
-          "contains": {
-            "const": "schema:CreativeWork"
-          },
-          "minItems": 1
+          "minItems": 1,
+          "anyOf": [
+            {
+              "contains": {
+                "const": "schema:CreativeWork"
+              }
+            },
+            {
+              "contains": {
+                "const": "dcat:Relationship"
+              }
+            }
+          ]
         },
         "schema:name": {
           "type": "string"
@@ -19794,18 +20239,64 @@
           "format": "uri"
         },
         "dcat:hadRole": {
-          "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-          "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+          "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DcatRole"
+            },
+            {
+              "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+            }
+          ]
         },
         "dcterms:relation": {
-          "type": "string",
-          "format": "uri",
-          "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+          "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+          "anyOf": [
+            {
+              "title": "Object Reference",
+              "description": "A reference to a node defined elsewhere, by its @id.",
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "resolvable @id of the referenced node"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ]
         }
       },
       "required": [
-        "@type",
-        "schema:url"
+        "@type"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "const": "schema:CreativeWork"
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "schema:url"
+            ]
+          }
+        }
       ]
     },
     "Person": {
@@ -19917,7 +20408,9 @@
               "type": "string"
             },
             "@type": {
-              "default": "schema:Organization",
+              "default": [
+                "schema:Organization"
+              ],
               "type": "array",
               "items": {
                 "anyOf": [
@@ -20086,7 +20579,9 @@
           "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
           "properties": {
             "@type": {
-              "default": "schema:ContactPoint",
+              "default": [
+                "schema:ContactPoint"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -20158,7 +20653,9 @@
           "type": "string"
         },
         "@type": {
-          "default": "schema:Organization",
+          "default": [
+            "schema:Organization"
+          ],
           "type": "array",
           "items": {
             "anyOf": [
@@ -23795,15 +24292,27 @@
       "type": "object",
       "properties": {
         "@type": {
-          "default": "schema:CreativeWork",
+          "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+          "default": [
+            "schema:CreativeWork"
+          ],
           "type": "array",
           "items": {
             "type": "string"
           },
-          "contains": {
-            "const": "schema:CreativeWork"
-          },
-          "minItems": 1
+          "minItems": 1,
+          "anyOf": [
+            {
+              "contains": {
+                "const": "schema:CreativeWork"
+              }
+            },
+            {
+              "contains": {
+                "const": "dcat:Relationship"
+              }
+            }
+          ]
         },
         "schema:name": {
           "type": "string"
@@ -23816,18 +24325,64 @@
           "format": "uri"
         },
         "dcat:hadRole": {
-          "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-          "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+          "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DcatRole"
+            },
+            {
+              "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+            }
+          ]
         },
         "dcterms:relation": {
-          "type": "string",
-          "format": "uri",
-          "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+          "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+          "anyOf": [
+            {
+              "title": "Object Reference",
+              "description": "A reference to a node defined elsewhere, by its @id.",
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "resolvable @id of the referenced node"
+                }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ]
         }
       },
       "required": [
-        "@type",
-        "schema:url"
+        "@type"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "@type"
+            ],
+            "properties": {
+              "@type": {
+                "contains": {
+                  "const": "schema:CreativeWork"
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "schema:url"
+            ]
+          }
+        }
       ]
     },
     "Statistics": {
@@ -26452,7 +27007,9 @@
           "type": "string"
         },
         "@type": {
-          "default": "schema:Organization",
+          "default": [
+            "schema:Organization"
+          ],
           "type": "array",
           "items": {
             "anyOf": [
@@ -27096,6 +27653,29 @@
       "required": [
         "@type",
         "schema:step"
+      ]
+    },
+    "DcatRole": {
+      "description": "A dcat:Role -- DCAT's declared range for dcat:hadRole. Defined inline rather than as its own building block because nothing else in the register needs it yet; dcat:hadRole's domain is owl:unionOf [prov:Attribution, dcat:Relationship], so promote it to a block if a qualified attribution ever needs the same shape.\ndcat:Role rdfs:subClassOf skos:Concept, so the skos:prefLabel / skos:inScheme furniture of a concept is permitted alongside; it is not required here because DCAT states no cardinality constraints on the class -- dcat.ttl declares no rdfs:subClassOf and no owl:Restriction on dcat:Relationship, and the \"mandatory\" wording in the DCAT-3 document is prose in the spec tables rather than an axiom in the vocabulary.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "IRI of the role concept, ideally from a controlled vocabulary."
+        },
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "dcat:Role"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "@type"
       ]
     },
     "LabeledLink_cdifConceptOrTermOrString": {
@@ -28648,7 +29228,7 @@
             ]
           }
         },
-        "cdif:references": {
+        "cdif:references_PrimaryKey": {
           "title": "Object Reference",
           "description": "references a primary key in a different dataset",
           "type": "object",
@@ -28667,7 +29247,7 @@
       "required": [
         "@type",
         "cdif:isComposedOf",
-        "cdif:references"
+        "cdif:references_PrimaryKey"
       ]
     },
     "IdentifierComponent": {
@@ -35355,15 +35935,27 @@
                         "type": "object",
                         "properties": {
                           "@type": {
-                            "default": "schema:CreativeWork",
+                            "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                            "default": [
+                              "schema:CreativeWork"
+                            ],
                             "type": "array",
                             "items": {
                               "type": "string"
                             },
-                            "contains": {
-                              "const": "schema:CreativeWork"
-                            },
-                            "minItems": 1
+                            "minItems": 1,
+                            "anyOf": [
+                              {
+                                "contains": {
+                                  "const": "schema:CreativeWork"
+                                }
+                              },
+                              {
+                                "contains": {
+                                  "const": "dcat:Relationship"
+                                }
+                              }
+                            ]
                           },
                           "schema:name": {
                             "type": "string"
@@ -35376,18 +35968,64 @@
                             "format": "uri"
                           },
                           "dcat:hadRole": {
-                            "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                            "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                            "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                            "anyOf": [
+                              {
+                                "$ref": "#/$defs/DcatRole"
+                              },
+                              {
+                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                              }
+                            ]
                           },
                           "dcterms:relation": {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                            "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                            "anyOf": [
+                              {
+                                "title": "Object Reference",
+                                "description": "A reference to a node defined elsewhere, by its @id.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "resolvable @id of the referenced node"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              }
+                            ]
                           }
                         },
                         "required": [
-                          "@type",
-                          "schema:url"
+                          "@type"
+                        ],
+                        "allOf": [
+                          {
+                            "if": {
+                              "required": [
+                                "@type"
+                              ],
+                              "properties": {
+                                "@type": {
+                                  "contains": {
+                                    "const": "schema:CreativeWork"
+                                  }
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          }
                         ]
                       },
                       {
@@ -35733,15 +36371,27 @@
               "type": "object",
               "properties": {
                 "@type": {
-                  "default": "schema:CreativeWork",
+                  "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                  "default": [
+                    "schema:CreativeWork"
+                  ],
                   "type": "array",
                   "items": {
                     "type": "string"
                   },
-                  "contains": {
-                    "const": "schema:CreativeWork"
-                  },
-                  "minItems": 1
+                  "minItems": 1,
+                  "anyOf": [
+                    {
+                      "contains": {
+                        "const": "schema:CreativeWork"
+                      }
+                    },
+                    {
+                      "contains": {
+                        "const": "dcat:Relationship"
+                      }
+                    }
+                  ]
                 },
                 "schema:name": {
                   "type": "string"
@@ -35754,18 +36404,64 @@
                   "format": "uri"
                 },
                 "dcat:hadRole": {
-                  "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString",
-                  "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot). Present only on a link that expresses a relationship; a plain labeled link such as a license omits it."
+                  "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/DcatRole"
+                    },
+                    {
+                      "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                    }
+                  ]
                 },
                 "dcterms:relation": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "URI of the related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself."
+                  "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                  "anyOf": [
+                    {
+                      "title": "Object Reference",
+                      "description": "A reference to a node defined elsewhere, by its @id.",
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string",
+                          "description": "resolvable @id of the referenced node"
+                        }
+                      },
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  ]
                 }
               },
               "required": [
-                "@type",
-                "schema:url"
+                "@type"
+              ],
+              "allOf": [
+                {
+                  "if": {
+                    "required": [
+                      "@type"
+                    ],
+                    "properties": {
+                      "@type": {
+                        "contains": {
+                          "const": "schema:CreativeWork"
+                        }
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "schema:url"
+                    ]
+                  }
+                }
               ]
             },
             {

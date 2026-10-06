@@ -1,7 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution Q-ICP-MS Analysis Detail
-description: Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schema.org slots
-  on the schema:Dataset root.
+description: Dataset-level analysis-instance detail for solution Q-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
@@ -30,8 +29,7 @@ allOf:
                 then:
                   properties:
                     schema:description:
-                      description: Brief description of sample provenance, form, or preparation state
-                        relevant to this analysis.
+                      description: Brief description of sample provenance, form, or preparation state relevant to this analysis.
                       anyOf:
                       - type: string
                       - type: array
@@ -300,10 +298,7 @@ allOf:
                                     anyOf:
                                     - &id001
                                       title: Doubly-Charged Species Monitor
-                                      description: The mass ratio monitored to estimate doubly-charged
-                                        ion (M²⁺) formation during instrument tuning. The monitor species
-                                        and the mass positions monitored should be stated explicitly.
-                                        Analogous to Oxide Production Method and Threshold for oxide monitoring.
+                                      description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
                                       type: object
                                       properties:
                                         '@id':
@@ -326,10 +321,7 @@ allOf:
                                       - schema:value
                                     - &id002
                                       title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged ion production
-                                        for the monitored species at the time of instrument tuning. The
-                                        acceptable threshold is typically <1% or <3%. Record both the
-                                        threshold and the measured value.
+                                      description: Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -383,9 +375,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_signalIntegrationTime
               - &id003
                 title: Collision/Reaction Gas Mixture Ratio
-                description: Where the collision or reaction cell is supplied with a mixture of gases
-                  rather than a single gas, the identities and proportions of that mixture. Recorded separately
-                  from the gas identity. Record 'N/A' where a single gas is used.
+                description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
                 type: object
                 properties:
                   '@id':
@@ -415,9 +405,7 @@ allOf:
               minContains: 0
               maxContains: 1
           ada:proceduralBlankLevel:
-            description: The measured level of the analytical blank in the session, and — where the reported
-              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
-              result unless its own composition is known. Companion to the blank correction method.
+            description: The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.
             type: string
         required:
         - ada:proceduralBlankLevel

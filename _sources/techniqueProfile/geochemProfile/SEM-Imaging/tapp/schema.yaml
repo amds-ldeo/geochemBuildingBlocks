@@ -1,9 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Imaging Technique-Aligned Protocol Profile (semImagingTAPP)
-description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition.
-  Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are
-  schema:additionalProperty[] entries. No ada:targetSpeciesTemplate (imaging has no per-element analyte
-  axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v44.csv by tools/build_tapp.py.'
+description: 'Scanning electron microscopy imaging (SE/BSE/CL/EBSD) extension of the base TAPP definition. Basic protocol-tier fields are required top-level ada: properties; Advanced protocol-tier fields are schema:additionalProperty[] entries. No ada:targetSpeciesTemplate (imaging has no per-element analyte axis). Generated from tapp/Current TAPPs/SEM_Imaging_TAPP_v44.csv by tools/build_tapp.py.'
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -41,10 +38,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer of the instrument that performs the measurement, recorded
-                      as a controlled value. Where a procedure couples a sample-introduction system to
-                      an analysing instrument, this records the analysing instrument. Instrument Model
-                      gives the specific designation.
+                    description: Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -64,10 +58,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the instrument that performs the measurement, including
-                      any generation or configuration suffix. Conventionally written with the manufacturer
-                      name included; Instrument Manufacturer records the vendor separately, as a controlled
-                      value, so that procedures remain findable by vendor.
+                    description: Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
                 required:
@@ -131,11 +122,7 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of secondary electron detector used. Everhart-Thornley (ET)
-                            detector is the standard off-axis collector sensitive to SE2 and some BSE;
-                            in-lens (TLD) detectors collect high-resolution SE1 signal at short working
-                            distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber
-                            gas as the signal amplification medium.
+                          description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.
                           anyOf:
                           - type: string
                             enum:
@@ -172,9 +159,7 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of backscattered electron detector. Segmented detectors can
-                            operate in composition mode (segments summed) or topography mode (differential
-                            signal between segments).
+                          description: Type of backscattered electron detector. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments).
                           anyOf:
                           - type: string
                             enum:
@@ -232,15 +217,7 @@ allOf:
                     required:
                     - schema:additionalType
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only
-                  SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables
-                  TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM'': variable-pressure
-                  SEM, a dry gas at low chamber pressure for uncoated or charging specimens. ''ESEM'':
-                  environmental SEM, water vapour at higher pressure for hydrated specimens, requiring
-                  a gaseous secondary electron detector. Where an instrument combines categories, join
-                  them with ''; '' — ''FIB-SEM dual-beam; VP-SEM'' — rather than looking for a combined
-                  member. This field records the COLUMN AND CHAMBER configuration only: field emission
-                  is a source type and belongs in Electron Source, not here.'
+                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM'': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. ''ESEM'': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with ''; '' — ''FIB-SEM dual-beam; VP-SEM'' — rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.'
                 anyOf:
                 - type: string
                   enum:
@@ -269,9 +246,7 @@ allOf:
                 items:
                   anyOf:
                   - title: CL Detector Configuration
-                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic
-                      mirror, elliptical mirror, light guide), and spectral detection configuration (PMT
-                      for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
                     type: object
                     properties:
                       '@id':
@@ -294,9 +269,7 @@ allOf:
                     - schema:value
                     readOnly: true
                   - title: CL Grating
-                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition,
-                      including groove density and blaze wavelength. Not applicable to panchromatic-only
-                      acquisition.
+                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
                     type: object
                     properties:
                       '@id':
@@ -321,9 +294,7 @@ allOf:
                 allOf:
                 - contains:
                     title: CL Detector Configuration
-                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic
-                      mirror, elliptical mirror, light guide), and spectral detection configuration (PMT
-                      for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
                     type: object
                     properties:
                       '@id':
@@ -349,9 +320,7 @@ allOf:
                   maxContains: 1
                 - contains:
                     title: CL Grating
-                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition,
-                      including groove density and blaze wavelength. Not applicable to panchromatic-only
-                      acquisition.
+                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
                     type: object
                     properties:
                       '@id':
@@ -381,16 +350,12 @@ allOf:
                 - type: number
                 - type: string
               ada:workingDistanceDefault:
-                description: Distance between the objective lens pole piece and the specimen surface in
-                  millimetres.
+                description: Distance between the objective lens pole piece and the specimen surface in millimetres.
                 anyOf:
                 - type: number
                 - type: string
               ada:mappingBeamCurrentDefault:
-                description: 'Electron beam probe current used while the beam scans an area: an X-ray
-                  or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM
-                  work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used
-                  for milling belong in the milling condition fields.'
+                description: 'Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.'
                 anyOf:
                 - type: number
                 - type: string
@@ -411,8 +376,7 @@ allOf:
           required:
           - schema:additionalType
     ada:ebsdDetectorConfiguration:
-      description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and
-        EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
+      description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
       type: string
       readOnly: true
     ada:targetSpeciesTemplate:
@@ -425,9 +389,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - &id001
               title: Beam Current
-              description: Electron beam probe current for point analysis. For sub-nA values use decimal
-                notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an
-                image, is recorded under Mapping Beam Current.
+              description: Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.
               type: object
               properties:
                 '@id':
@@ -466,9 +428,7 @@ allOf:
         anyOf:
         - &id002
           title: Chamber Pressure
-          description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
-            and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
-            Use 'None' for standard high-vacuum operation.
+          description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
           type: object
           properties:
             '@id':
@@ -499,9 +459,7 @@ allOf:
           - ada:fieldScope
         - &id003
           title: Image Pixel Size
-          description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area
-            mosaic imaging, report the pixel size of individual tiles and the number and arrangement of
-            tiles.
+          description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.
           type: object
           properties:
             '@id':
@@ -532,8 +490,7 @@ allOf:
           - ada:fieldScope
         - &id004
           title: CL Wavelength Calibration Reference
-          description: Reference light source or standard material used to calibrate the wavelength axis
-            of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
+          description: Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
           type: object
           properties:
             '@id':
@@ -571,15 +528,12 @@ allOf:
         minContains: 0
         maxContains: 1
     ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning, or on each step
-        position during mapping, in microseconds or milliseconds.
+      description: Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.
       anyOf:
       - type: number
       - type: string
     ada:clAcquisitionMode:
-      description: 'CL data collection strategy. Panchromatic: total light intensity collected by PMT
-        across the full detector wavelength range. Spectral point: full CL spectrum at discrete point
-        locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.'
+      description: 'CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.'
       type: string
       enum:
       - Panchromatic
@@ -598,8 +552,7 @@ allOf:
       - type: string
       readOnly: true
     ada:clIntegrationTimeDefault:
-      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point
-        mode), in ms or s.
+      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.
       anyOf:
       - type: number
       - type: string
@@ -610,14 +563,12 @@ allOf:
       - type: string
       readOnly: true
     ada:ebsdStepSizeDefault:
-      description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller
-        than the smallest grain of interest.
+      description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.
       anyOf:
       - type: number
       - type: string
     ada:ebsdPhaseListDefault:
-      description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases
-        may be added for specific sample compositions beyond the expected suite for the target material.
+      description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.
       type: string
     schema:actionProcess:
       type: object
@@ -636,10 +587,7 @@ allOf:
               then:
                 properties:
                   ada:ebsdIndexingMethod:
-                    description: Algorithm used to index EBSD diffraction patterns and assign crystal
-                      orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary
-                      indexing (DI) matches experimental patterns to a pre-computed library of simulated
-                      patterns.
+                    description: Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.
                     anyOf:
                     - type: string
                       enum:
@@ -669,8 +617,7 @@ allOf:
                       anyOf:
                       - &id005
                         title: Crystal Structure Database
-                        description: Crystal structure database used for EBSD phase identification and
-                          Kikuchi pattern simulation.
+                        description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
                         type: object
                         properties:
                           '@id':
@@ -729,9 +676,7 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Minimum pattern quality or confidence index threshold applied during EBSD
-                  data processing to exclude unreliably indexed points from orientation maps. Include
-                  metric name and threshold value.
+                description: Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.
                 anyOf:
                 - type: string
                 - type: array

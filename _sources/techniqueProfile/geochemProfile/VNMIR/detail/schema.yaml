@@ -1,8 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: VNMIR Analysis Detail
-description: Detail block for VNMIR hasPart items. Discriminates on ada:componentType and carries the
-  analysis-level properties - viewing geometry, sample state and per-measurement results - that are supplied
-  per measurement rather than fixed by the procedure.
+description: Detail block for VNMIR hasPart items. Discriminates on ada:componentType and carries the analysis-level properties - viewing geometry, sample state and per-measurement results - that are supplied per measurement rather than fixed by the procedure.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/calibrationFactor/schema.yaml#/$defs/AnalysisIdentification
@@ -33,8 +31,7 @@ allOf:
                         anyOf:
                         - &id001
                           title: Sample Heated
-                          description: Whether the sample was heated during measurement. Record 'N/A'
-                            where the procedure does not control sample temperature.
+                          description: Whether the sample was heated during measurement. Record 'N/A' where the procedure does not control sample temperature.
                           type: object
                           properties:
                             '@id':
@@ -57,8 +54,7 @@ allOf:
                           - schema:value
                         - &id002
                           title: Vacuum Exposed Sample
-                          description: Whether this sample was exposed to vacuum before or during measurement,
-                            which alters adsorbed water and therefore the spectrum.
+                          description: Whether this sample was exposed to vacuum before or during measurement, which alters adsorbed water and therefore the spectrum.
                           type: object
                           properties:
                             '@id':
@@ -157,8 +153,7 @@ allOf:
                 - schema:value
               - &id005
                 title: Spot Size
-                description: Diameter of the analysed area for a point measurement, or the pixel footprint
-                  for a map.
+                description: Diameter of the analysed area for a point measurement, or the pixel footprint for a map.
                 type: object
                 properties:
                   '@id':
@@ -211,8 +206,7 @@ allOf:
                 - schema:value
               - &id007
                 title: Emissivity Maximum Fit Region Minimum
-                description: Short-wavelength limit of the window over which the emissivity maximum is
-                  fitted. Record 'N/A' where Measurement Type is not Emissivity.
+                description: Short-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.
                 type: object
                 properties:
                   '@id':
@@ -240,8 +234,7 @@ allOf:
                 - schema:unitText
               - &id008
                 title: Emissivity Maximum Fit Region Maximum
-                description: Long-wavelength limit of the window over which the emissivity maximum is
-                  fitted. Record 'N/A' where Measurement Type is not Emissivity.
+                description: Long-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.
                 type: object
                 properties:
                   '@id':
@@ -354,8 +347,7 @@ allOf:
       type: array
       items: &id010
         title: Emissivity Maximum
-        description: Fitted maximum emissivity (Christiansen feature) for this measurement. Record 'N/A'
-          where Measurement Type is not Emissivity.
+        description: Fitted maximum emissivity (Christiansen feature) for this measurement. Record 'N/A' where Measurement Type is not Emissivity.
         type: object
         properties:
           '@id':

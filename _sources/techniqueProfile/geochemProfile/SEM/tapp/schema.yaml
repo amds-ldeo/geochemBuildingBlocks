@@ -1,8 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: SEM Technique-Aligned Protocol Profile (semTAPP)
-description: Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension
-  of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v85.csv via the path-driven
-  pipeline.
+description: Scanning electron microscopy superset (imaging + EDS/WDS composition + EBSD + FIB-SEM) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_TAPP_v85.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -13,12 +11,10 @@ allOf:
 - type: object
   properties:
     ada:imageRegistration3DDefault:
-      description: Method used to align consecutive SEM image slices in the 3D stack to correct for drift,
-        vibration, and curtaining artifacts. Include software used.
+      description: Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.
       type: string
     ada:segmentationMethod3DDefault:
-      description: Method and software used to separate distinct phases or features in the reconstructed
-        3D volume, turning the grayscale volume into labelled regions.
+      description: Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
       anyOf:
       - type: string
         enum:
@@ -53,17 +49,12 @@ allOf:
                 - type: number
                 - type: string
               ada:beamDiameterDefault:
-                description: Nominal electron beam diameter (spot size) at the sample surface for point
-                  analysis, in nanometres or micrometres, as set by the condenser aperture and working
-                  distance. The beam used for mapping is recorded under Mapping Beam Diameter.
+                description: Nominal electron beam diameter (spot size) at the sample surface for point analysis, in nanometres or micrometres, as set by the condenser aperture and working distance. The beam used for mapping is recorded under Mapping Beam Diameter.
                 anyOf:
                 - type: number
                 - type: string
               ada:beamMode:
-                description: Whether the electron beam was operated as a stationary focused spot, defocused
-                  to a specified diameter, or rastered over a small area during a single-point analysis.
-                  Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping,
-                  beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.
+                description: Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during a single-point analysis. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping, beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.
                 anyOf:
                 - type: string
                   enum:
@@ -91,9 +82,7 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Type of backscattered electron detector. Segmented detectors can
-                            operate in composition mode (segments summed) or topography mode (differential
-                            signal between segments).
+                          description: Type of backscattered electron detector. Segmented detectors can operate in composition mode (segments summed) or topography mode (differential signal between segments).
                           anyOf:
                           - type: string
                             enum:
@@ -136,10 +125,7 @@ allOf:
                     then:
                       properties:
                         schema:description:
-                          description: EDS detector type, manufacturer, number of detector elements, active
-                            area and solid angle, window type, and geometry (take-off angle, position).
-                            List multiple detectors separately. Record 'N/A' where the procedure has no
-                            EDS detector.
+                          description: EDS detector type, manufacturer, number of detector elements, active area and solid angle, window type, and geometry (take-off angle, position). List multiple detectors separately. Record 'N/A' where the procedure has no EDS detector.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -201,9 +187,7 @@ allOf:
                     then:
                       properties:
                         schema:name:
-                          description: Number, type, and crystal range of WDS spectrometers on the instrument.
-                            Include manufacturer, model, and crystal range. For SEM-WDS configurations
-                            (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.
+                          description: Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.
                           anyOf:
                           - type: string
                             readOnly: true
@@ -233,9 +217,7 @@ allOf:
                 items:
                   anyOf:
                   - title: CL Detector Configuration
-                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic
-                      mirror, elliptical mirror, light guide), and spectral detection configuration (PMT
-                      for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
                     type: object
                     properties:
                       '@id':
@@ -258,9 +240,7 @@ allOf:
                     - schema:value
                     readOnly: true
                   - title: CL Grating
-                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition,
-                      including groove density and blaze wavelength. Not applicable to panchromatic-only
-                      acquisition.
+                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
                     type: object
                     properties:
                       '@id':
@@ -285,9 +265,7 @@ allOf:
                 allOf:
                 - contains:
                     title: CL Detector Configuration
-                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic
-                      mirror, elliptical mirror, light guide), and spectral detection configuration (PMT
-                      for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
+                    description: CL detector type, manufacturer, model, collection optics (e.g., parabolic mirror, elliptical mirror, light guide), and spectral detection configuration (PMT for panchromatic, CCD/EMCCD for spectral, multi-channel for pseudo-color CL).
                     type: object
                     properties:
                       '@id':
@@ -313,9 +291,7 @@ allOf:
                   maxContains: 1
                 - contains:
                     title: CL Grating
-                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition,
-                      including groove density and blaze wavelength. Not applicable to panchromatic-only
-                      acquisition.
+                    description: Diffraction grating specification for spectral or hyperspectral CL acquisition, including groove density and blaze wavelength. Not applicable to panchromatic-only acquisition.
                     type: object
                     properties:
                       '@id':
@@ -343,10 +319,7 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Manufacturer of the instrument that performs the measurement, recorded
-                      as a controlled value. Where a procedure couples a sample-introduction system to
-                      an analysing instrument, this records the analysing instrument. Instrument Model
-                      gives the specific designation.
+                    description: Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.
                     type: string
                     enum:
                     - JEOL
@@ -366,24 +339,13 @@ allOf:
                 type: object
                 properties:
                   schema:name:
-                    description: Model designation of the instrument that performs the measurement, including
-                      any generation or configuration suffix. Conventionally written with the manufacturer
-                      name included; Instrument Manufacturer records the vendor separately, as a controlled
-                      value, so that procedures remain findable by vendor.
+                    description: Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.
                     type: string
                     readOnly: true
                 required:
                 - schema:name
               schema:description:
-                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only
-                  SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables
-                  TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM'': variable-pressure
-                  SEM, a dry gas at low chamber pressure for uncoated or charging specimens. ''ESEM'':
-                  environmental SEM, water vapour at higher pressure for hydrated specimens, requiring
-                  a gaseous secondary electron detector. Where an instrument combines categories, join
-                  them with ''; '' — ''FIB-SEM dual-beam; VP-SEM'' — rather than looking for a combined
-                  member. This field records the COLUMN AND CHAMBER configuration only: field emission
-                  is a source type and belongs in Electron Source, not here.'
+                description: 'Broad platform type of the instrument. ''Standard SEM'': dedicated electron-only SEM column. ''FIB-SEM dual-beam'': combined focused ion beam and SEM columns (enables TEM specimen preparation, 3D serial sectioning, ion-beam milling). ''VP-SEM'': variable-pressure SEM, a dry gas at low chamber pressure for uncoated or charging specimens. ''ESEM'': environmental SEM, water vapour at higher pressure for hydrated specimens, requiring a gaseous secondary electron detector. Where an instrument combines categories, join them with ''; '' — ''FIB-SEM dual-beam; VP-SEM'' — rather than looking for a combined member. This field records the COLUMN AND CHAMBER configuration only: field emission is a source type and belongs in Electron Source, not here.'
                 anyOf:
                 - type: string
                   enum:
@@ -433,9 +395,7 @@ allOf:
                     - missing
                     readOnly: true
               ada:mappingBeamMode:
-                description: Whether the electron beam was focused or defocused to a stated diameter during
-                  X-ray mapping. How the beam or stage moves across the mapped area is recorded by Stage
-                  Scan vs. Beam Scan and Step Size / Pixel Size.
+                description: Whether the electron beam was focused or defocused to a stated diameter during X-ray mapping. How the beam or stage moves across the mapped area is recorded by Stage Scan vs. Beam Scan and Step Size / Pixel Size.
                 anyOf:
                 - type: string
                   enum:
@@ -447,16 +407,12 @@ allOf:
                 - type: string
                 readOnly: true
               ada:mappingBeamCurrentDefault:
-                description: 'Electron beam probe current used while the beam scans an area: an X-ray
-                  or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM
-                  work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used
-                  for milling belong in the milling condition fields.'
+                description: 'Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.'
                 anyOf:
                 - type: number
                 - type: string
               ada:mappingBeamDiameterDefault:
-                description: Diameter of the electron beam in micrometres during X-ray mapping. 0 indicates
-                  a fully focused beam.
+                description: Diameter of the electron beam in micrometres during X-ray mapping. 0 indicates a fully focused beam.
                 anyOf:
                 - type: number
                 - type: string
@@ -502,16 +458,7 @@ allOf:
                       anyOf:
                       - &id001
                         title: Analysis Inclusion and Rejection Criteria
-                        description: 'The rules determining which individual results contribute to a combined
-                          result, together with the outcome of applying them: how many results were obtained,
-                          how many were included, and on what grounds any were excluded. An individual
-                          result is the value of the reported quantity obtained from one acquisition:
-                          a replicate measurement of the same solution or location, a spot or grain within
-                          a sample, or an independently prepared aliquot or digestion, whichever the procedure
-                          combines. Distinct from filtering the acquired signal during data reduction
-                          (removing spikes, cycles or scans, or discarding an acquisition whose signal
-                          is compromised): this field records which finished results enter the combined
-                          result, and on what grounds.'
+                        description: 'The rules determining which individual results contribute to a combined result, together with the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records which finished results enter the combined result, and on what grounds.'
                         type: object
                         properties:
                           '@id':
@@ -541,8 +488,7 @@ allOf:
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                       - &id002
                         title: Crystal Structure Database
-                        description: Crystal structure database used for EBSD phase identification and
-                          Kikuchi pattern simulation.
+                        description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
                         type: object
                         properties:
                           '@id':
@@ -581,10 +527,7 @@ allOf:
                       minContains: 0
                       maxContains: 1
                   ada:ebsdIndexingMethod:
-                    description: Algorithm used to index EBSD diffraction patterns and assign crystal
-                      orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary
-                      indexing (DI) matches experimental patterns to a pre-computed library of simulated
-                      patterns.
+                    description: Algorithm used to index EBSD diffraction patterns and assign crystal orientations. Hough-transform methods fit Kikuchi band positions analytically; dictionary indexing (DI) matches experimental patterns to a pre-computed library of simulated patterns.
                     anyOf:
                     - type: string
                       enum:
@@ -619,25 +562,21 @@ allOf:
               then:
                 properties:
                   ada:coarseMillingConditionsDefault:
-                    description: 'Ion beam voltage and current used for bulk material removal during FIB
-                      milling. For TEM specimen preparation: bulk trenching to isolate the lamella and
-                      intermediate thinning. For 3D tomography: face preparation and initial slice removal.'
+                    description: 'Ion beam voltage and current used for bulk material removal during FIB milling. For TEM specimen preparation: bulk trenching to isolate the lamella and intermediate thinning. For 3D tomography: face preparation and initial slice removal.'
                     anyOf:
                     - type: string
                     - type: array
                       items:
                         type: string
                   ada:finePolishingConditionsDefault:
-                    description: Ion beam voltage and current for final thinning and surface polishing
-                      of the TEM lamella.
+                    description: Ion beam voltage and current for final thinning and surface polishing of the TEM lamella.
                     anyOf:
                     - type: string
                     - type: array
                       items:
                         type: string
                   ada:liftOutMethod:
-                    description: Method used to transfer the FIB-prepared lamella to the TEM support grid.
-                      In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.
+                    description: Method used to transfer the FIB-prepared lamella to the TEM support grid. In-situ lift-out uses a micromanipulator inside the FIB-SEM chamber.
                     anyOf:
                     - type: string
                       enum:
@@ -658,10 +597,7 @@ allOf:
                         - missing
                         readOnly: true
                   ada:protectiveCoatingDepositionDefault:
-                    description: 'Type and deposition conditions of the protective coating applied to
-                      the sample surface before FIB milling. E-beam deposition should be applied as the
-                      initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition
-                      method, beam conditions, and approximate thickness.'
+                    description: 'Type and deposition conditions of the protective coating applied to the sample surface before FIB milling. E-beam deposition should be applied as the initial layer. Typical coatings: platinum (Pt) or carbon (C). State material, deposition method, beam conditions, and approximate thickness.'
                     anyOf:
                     - type: string
                     - type: array
@@ -681,8 +617,7 @@ allOf:
               then:
                 properties:
                   schema:description:
-                    description: Ion beam voltage and current used to mill each slice during FIB-SEM serial
-                      sectioning.
+                    description: Ion beam voltage and current used to mill each slice during FIB-SEM serial sectioning.
                     anyOf:
                     - type: string
                     - type: array
@@ -726,9 +661,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
             - &id003
               title: Target Species Estimation Method
-              description: Whether elemental concentrations were calculated directly from measured X-ray
-                intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation
-                proportions in silicates; carbon from stoichiometry in carbonates).
+              description: Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).
               type: object
               properties:
                 '@id':
@@ -756,9 +689,7 @@ allOf:
               - ada:dataType
             - &id004
               title: Analytical Accuracy
-              description: Offset between measured and accepted reference values for secondary standards,
-                expressed as percent relative bias. Include reference material, reference value source,
-                and the measured value.
+              description: Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.
               type: object
               properties:
                 '@id':
@@ -786,9 +717,7 @@ allOf:
               - ada:dataType
             - &id005
               title: Analytical Precision
-              description: Reproducibility of repeated measurements on the same or equivalent reference
-                material, expressed as 1-sigma relative standard deviation (%). Include reference material
-                name, number of analyses (n), and the measured value.
+              description: Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and the measured value.
               type: object
               properties:
                 '@id':
@@ -816,10 +745,7 @@ allOf:
               - ada:dataType
             - &id006
               title: X-ray Background Correction Method
-              description: 'Method used to estimate and subtract background X-ray intensity beneath the
-                peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN)
-                background model. For EDS: spectral background fitting or top-hat filter applied during
-                spectral processing.'
+              description: 'Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.'
               type: object
               properties:
                 '@id':
@@ -848,9 +774,7 @@ allOf:
               - schema:defaultValue
             - &id007
               title: Beam Current
-              description: Electron beam probe current for point analysis. For sub-nA values use decimal
-                notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an
-                image, is recorded under Mapping Beam Current.
+              description: Electron beam probe current for point analysis. For sub-nA values use decimal notation (e.g., 0.4 nA). The current used while the beam scans an area, for a map or an image, is recorded under Mapping Beam Current.
               type: object
               properties:
                 '@id':
@@ -881,9 +805,7 @@ allOf:
               - schema:defaultValue
             - &id008
               title: Blank Correction
-              description: Method and reference material(s) used to determine and subtract blank signal
-                contributions (e.g., carbon coat contribution to C signal, or background contamination
-                for trace elements).
+              description: Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).
               type: object
               properties:
                 '@id':
@@ -911,11 +833,7 @@ allOf:
               - ada:dataType
             - &id009
               title: Counting Statistics Error
-              description: Uncertainty predicted from counting statistics — the theoretical limit set
-                by the Poisson distribution of the counts accumulated — for each reported quantity per
-                analysis, with the sigma level stated. Derived from the counts on the target species together
-                with those on any background or blank subtracted from it. Distinct from the scatter actually
-                observed within a measurement or between repeated measurements, which is recorded separately.
+              description: Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.
               type: object
               properties:
                 '@id':
@@ -971,8 +889,7 @@ allOf:
               - ada:dataType
             - &id011
               title: X-ray Line Overlap Corrections Applied
-              description: Whether a spectral interference correction was applied. Common interferences
-                include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
+              description: Whether a spectral interference correction was applied. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.
               type: object
               properties:
                 '@id':
@@ -1029,9 +946,7 @@ allOf:
               - ada:dataType
             - &id013
               title: Time-Dependent Intensity Correction
-              description: Type of time-dependent intensity (TDI) correction applied to compensate for
-                beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses,
-                feldspars, carbonates).
+              description: Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilisation or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).
               type: object
               properties:
                 '@id':
@@ -1059,11 +974,7 @@ allOf:
               - ada:dataType
             - &id014
               title: WDS Spectrometer Channel
-              description: WDS spectrometer position(s) assigned to each target species, one entry per
-                assignment. An target species may be assigned to more than one spectrometer with intensities
-                aggregated (aggregate intensity counting), and one spectrometer serves several target
-                species across a run, so the assignment — not the target species — is the unit carrying
-                the spectrometer setup.
+              description: WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.
               type: object
               properties:
                 '@id':
@@ -1138,8 +1049,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
             - &id015
               title: Background Counting Time
-              description: Total time spent counting at off-peak background position(s) in seconds, summed
-                across all background positions.
+              description: Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.
               type: object
               properties:
                 '@id':
@@ -1170,8 +1080,7 @@ allOf:
               - schema:defaultValue
             - &id016
               title: Peak Counting Time
-              description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments
-                stay within procedure-defined bounds.
+              description: Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.
               type: object
               properties:
                 '@id':
@@ -1202,14 +1111,7 @@ allOf:
               - schema:defaultValue
             - &id017
               title: Primary Calibration Standard Name
-              description: Name and reference material identifier of the primary reference material(s)
-                against which the instrument is calibrated — converting raw signal intensities to concentrations,
-                or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give
-                the material name, its source or supplier, and a citation for the accepted values used.
-                Where calibration instead uses the vendor's stored library or theoretical response factors
-                rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification
-                — record that here, naming the library or model used. 'None' means no calibration was
-                performed at all, which is a different answer.
+              description: Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.
               type: object
               properties:
                 '@id':
@@ -1265,8 +1167,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - &id026
               title: Background Position(s)
-              description: Location(s) of off-peak background measurement(s) relative to the peak, in
-                mm or sin-theta, and whether on the high- or low-energy side.
+              description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
               type: object
               properties:
                 '@id':
@@ -1331,10 +1232,7 @@ allOf:
               - schema:defaultValue
             - &id028
               title: Dwell Time per Pixel
-              description: Time the electron beam dwells on each pixel during raster scanning (imaging
-                modes) or on each step position during compositional mapping (EDS and WDS mapping modes),
-                in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per
-                pixel.
+              description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
               properties:
                 '@id':
@@ -1401,11 +1299,7 @@ allOf:
               - ada:dataType
             - &id030
               title: Sequence
-              description: Order in which spectrometer assignments are acquired, and — where the element
-                suite exceeds the number of spectrometers — the passes the acquisition is divided into.
-                Within a single pass all assigned spectrometers collect simultaneously, including at every
-                pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires
-                the acquisition to be run more than once, each pass covering a different subset of elements.
+              description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
               type: object
               properties:
                 '@id':
@@ -1439,9 +1333,7 @@ allOf:
               - ada:dataType
             - &id031
               title: WDS PHA Setting
-              description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts
-                all pulses above a threshold; Differential mode selects a narrow energy window to reject
-                higher-order reflections and escape peaks.
+              description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
               type: object
               properties:
                 '@id':
@@ -1506,10 +1398,7 @@ allOf:
               - schema:defaultValue
             - &id033
               title: X-ray Detection Method per Monitored Element
-              description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive
-                (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional
-                counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts
-                every photon by energy at once. Applies where a procedure uses both.'
+              description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
               type: object
               properties:
                 '@id':
@@ -1571,9 +1460,7 @@ allOf:
         anyOf:
         - &id034
           title: Beam Damage Minimization
-          description: 'Describes any measures taken to reduce electron beam damage to the sample during
-            analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered
-            beam, cooled stage, short acquisition sequences, or rotating between multiple points.'
+          description: 'Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.'
           type: object
           properties:
             '@id':
@@ -1602,9 +1489,7 @@ allOf:
           - ada:fieldScope
         - &id035
           title: Beam Raster Dimensions
-          description: Dimensions of the small area over which the beam is rastered at a single analysis
-            point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the
-            effective spatial footprint of the measurement. Not applicable when mapping.
+          description: Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.
           type: object
           properties:
             '@id':
@@ -1635,9 +1520,7 @@ allOf:
           - ada:fieldScope
         - &id036
           title: Chamber Pressure
-          description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM)
-            and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition.
-            Use 'None' for standard high-vacuum operation.
+          description: Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.
           type: object
           properties:
             '@id':
@@ -1668,8 +1551,7 @@ allOf:
           - ada:fieldScope
         - &id037
           title: CL Wavelength Calibration Reference
-          description: Reference light source or standard material used to calibrate the wavelength axis
-            of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
+          description: Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
           type: object
           properties:
             '@id':
@@ -1698,10 +1580,7 @@ allOf:
           - ada:fieldScope
         - &id038
           title: Drift Correction
-          description: 'Describes whether and how stage or beam drift was monitored and corrected during
-            the measurement session. Examples: periodic stage realignment to a fiducial marker, automated
-            beam drift correction in acquisition software, or reanalysis of a reference point at regular
-            intervals.'
+          description: 'Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.'
           type: object
           properties:
             '@id':
@@ -1760,10 +1639,7 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: EDS Spectral Processing Type
-          description: Method used to process EDS spectra and extract net peak intensities from raw spectral
-            data. Applied before quantification (see Matrix Correction Method). Common approaches include
-            background fitting and subtraction followed by peak integration, and filter fit or Gaussian
-            deconvolution for overlapping peaks.
+          description: Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.
           type: object
           properties:
             '@id':
@@ -1787,9 +1663,7 @@ allOf:
           readOnly: true
         - &id040
           title: Halogen Correction on Oxygen
-          description: Whether oxygen content was adjusted to account for halogen substitution (F and/or
-            Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen
-            is calculated by stoichiometry.
+          description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
           type: object
           properties:
             '@id':
@@ -1818,9 +1692,7 @@ allOf:
           - ada:fieldScope
         - &id041
           title: Image Pixel Size
-          description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area
-            mosaic imaging, report the pixel size of individual tiles and the number and arrangement of
-            tiles.
+          description: Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.
           type: object
           properties:
             '@id':
@@ -1850,9 +1722,7 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: Stage Scan vs. Beam Scan
-          description: For mapping modes, whether the map was acquired by moving the stage while the beam
-            is held fixed (stage scan), or by deflecting the beam across the field while the stage is
-            stationary (beam scan).
+          description: For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).
           type: object
           properties:
             '@id':
@@ -1895,10 +1765,7 @@ allOf:
         maxContains: 1
       - contains:
           title: EDS Spectral Processing Type
-          description: Method used to process EDS spectra and extract net peak intensities from raw spectral
-            data. Applied before quantification (see Matrix Correction Method). Common approaches include
-            background fitting and subtraction followed by peak integration, and filter fit or Gaussian
-            deconvolution for overlapping peaks.
+          description: Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.
           type: object
           properties:
             '@id':
@@ -1930,9 +1797,7 @@ allOf:
         maxContains: 1
       - contains:
           title: Stage Scan vs. Beam Scan
-          description: For mapping modes, whether the map was acquired by moving the stage while the beam
-            is held fixed (stage scan), or by deflecting the beam across the field while the stage is
-            stationary (beam scan).
+          description: For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).
           type: object
           properties:
             '@id':
@@ -1957,9 +1822,7 @@ allOf:
         minContains: 0
         maxContains: 1
     ada:clAcquisitionMode:
-      description: 'CL data collection strategy. Panchromatic: total light intensity collected by PMT
-        across the full detector wavelength range. Spectral point: full CL spectrum at discrete point
-        locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.'
+      description: 'CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.'
       type: string
       enum:
       - Panchromatic
@@ -1972,8 +1835,7 @@ allOf:
       - missing
       readOnly: true
     ada:clIntegrationTimeDefault:
-      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point
-        mode), in ms or s.
+      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.
       anyOf:
       - type: number
       - type: string
@@ -1984,8 +1846,7 @@ allOf:
       - type: string
       readOnly: true
     ada:ebsdDetectorConfiguration:
-      description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and
-        EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
+      description: EBSD detector manufacturer, model, and camera resolution. Include whether EBSD and EDS are acquired simultaneously (common on modern combined EBSD-EDS systems).
       type: string
       readOnly: true
     dqv:hasQualityMeasurement:
@@ -2002,34 +1863,22 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Minimum pattern quality or confidence index threshold applied during EBSD
-                  data processing to exclude unreliably indexed points from orientation maps. Include
-                  metric name and threshold value.
+                description: Minimum pattern quality or confidence index threshold applied during EBSD data processing to exclude unreliably indexed points from orientation maps. Include metric name and threshold value.
                 anyOf:
                 - type: string
                 - type: array
                   items:
                     type: string
     ada:ebsdPhaseListDefault:
-      description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases
-        may be added for specific sample compositions beyond the expected suite for the target material.
+      description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.
       type: string
     ada:ebsdStepSizeDefault:
-      description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller
-        than the smallest grain of interest.
+      description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.
       anyOf:
       - type: number
       - type: string
     ada:edsAcquisitionMode:
-      description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition,
-        line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam
-        rastered over a pixel grid). Specifies how the beam is positioned during data collection within
-        the declared analytical mode. Record ''N/A'' where the procedure has no EDS detector. ''Point''
-        covers what the literature also calls spot or point-spectrum analysis. ''Map'' and ''Spectrum
-        image'' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas
-        a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record
-        which was acquired. Where more than one mode was used, join them with ''; '' rather than looking
-        for a combined member.'
+      description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record ''N/A'' where the procedure has no EDS detector. ''Point'' covers what the literature also calls spot or point-spectrum analysis. ''Map'' and ''Spectrum image'' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with ''; '' rather than looking for a combined member.'
       type: string
       enum:
       - Point
@@ -2061,8 +1910,7 @@ allOf:
           then:
             properties:
               ada:foilThicknessDefault:
-                description: Target thickness of the electron-transparent TEM lamella after final FIB
-                  polishing, in nanometres. Actual thickness may differ from target.
+                description: Target thickness of the electron-transparent TEM lamella after final FIB polishing, in nanometres. Actual thickness may differ from target.
                 anyOf:
                 - type: number
                 - type: string
@@ -2098,11 +1946,7 @@ allOf:
       - missing
       readOnly: true
     ada:matrixCorrectionMethod:
-      description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction.
-        For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps.
-        Where the k-factors or calibration constants themselves came from — measured standards, a vendor
-        library, or theoretical cross-sections — is a separate question answered by this technique's calibration-standard
-        field, not here; a procedure may be both absorption-corrected and standardless.
+      description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps. Where the k-factors or calibration constants themselves came from — measured standards, a vendor library, or theoretical cross-sections — is a separate question answered by this technique's calibration-standard field, not here; a procedure may be both absorption-corrected and standardless.
       anyOf:
       - type: string
         enum:
@@ -2124,10 +1968,7 @@ allOf:
       - type: string
       readOnly: true
     ada:seDetectorType:
-      description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard
-        off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution
-        SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the
-        chamber gas as the signal amplification medium.
+      description: Type of secondary electron detector used. Everhart-Thornley (ET) detector is the standard off-axis collector sensitive to SE2 and some BSE; in-lens (TLD) detectors collect high-resolution SE1 signal at short working distances; GSED/ESED detectors operate in VP/ESEM mode by using the chamber gas as the signal amplification medium.
       type: string
       enum:
       - Everhart-Thornley (ET)
@@ -2139,19 +1980,12 @@ allOf:
       - missing
       readOnly: true
     ada:stepSizePixelSizeDefault:
-      description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels
-        (EDS mapping) in µm.
+      description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.
       anyOf:
       - type: number
       - type: string
     ada:wdsDeadTimeCorrection:
-      description: Method used to correct for WDS proportional counter dead time at high count rates.
-        Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see
-        EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction
-        software. No separate measured WDS dead time value is reported; the correction is applied transparently
-        during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific
-        constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor
-        itself is recorded by Instrument Manufacturer, not by this field's allowed values.
+      description: Method used to correct for WDS proportional counter dead time at high count rates. Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor itself is recorded by Instrument Manufacturer, not by this field's allowed values.
       anyOf:
       - type: string
         enum:
@@ -2174,13 +2008,7 @@ allOf:
     ada:monitoredElements:
       type: array
       items:
-        description: Specific elements monitored in this procedure, grouped by the target species they
-          serve where they serve one. Includes elements monitored only to correct an interference, which
-          serve no target species and so have no parent. The target species list is given by the Target
-          Species field and is never inferred from the elements appearing here. A target species determined
-          by stoichiometry or by difference, rather than measured, has no monitored element. The X-ray
-          line, diffracting crystal, spectrometer assignment and counting times used for each monitored
-          element are recorded in their own fields, keyed to this one.
+        description: Specific elements monitored in this procedure, grouped by the target species they serve where they serve one. Includes elements monitored only to correct an interference, which serve no target species and so have no parent. The target species list is given by the Target Species field and is never inferred from the elements appearing here. A target species determined by stoichiometry or by difference, rather than measured, has no monitored element. The X-ray line, diffracting crystal, spectrometer assignment and counting times used for each monitored element are recorded in their own fields, keyed to this one.
         type: string
         readOnly: true
     ada:analyticalMode:

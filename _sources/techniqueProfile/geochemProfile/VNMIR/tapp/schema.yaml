@@ -1,10 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: VNMIR Technique-Aligned Procedure Profile (vnmirTAPP)
-description: 'Visible, near- and mid-infrared reflectance/emissivity spectroscopy extension of the base
-  TAPP definition. Basic procedure-tier fields are required top-level ada: properties; Advanced procedure-tier
-  fields are schema:additionalProperty[] PropertyValueSpecification entries. VNMIR has no per-element
-  analyte axis, so no ada:targetSpeciesTemplate is defined. DRAFT - generated from draftTAPPs/VNMIR_TAPP_draft_v2.csv
-  by tools/build_tapp.py; the source table has not been through Phase 0 review.'
+description: 'Visible, near- and mid-infrared reflectance/emissivity spectroscopy extension of the base TAPP definition. Basic procedure-tier fields are required top-level ada: properties; Advanced procedure-tier fields are schema:additionalProperty[] PropertyValueSpecification entries. VNMIR has no per-element analyte axis, so no ada:targetSpeciesTemplate is defined. DRAFT - generated from draftTAPPs/VNMIR_TAPP_draft_v2.csv by tools/build_tapp.py; the source table has not been through Phase 0 review.'
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -54,8 +50,7 @@ allOf:
                   anyOf:
                   - &id001
                     title: Sample Heated
-                    description: Whether the sample was heated during measurement. Record 'N/A' where
-                      the procedure does not control sample temperature.
+                    description: Whether the sample was heated during measurement. Record 'N/A' where the procedure does not control sample temperature.
                     type: object
                     properties:
                       '@id':
@@ -84,8 +79,7 @@ allOf:
                     - ada:fieldScope
                   - &id002
                     title: Vacuum Exposed Sample
-                    description: Whether this sample was exposed to vacuum before or during measurement,
-                      which alters adsorbed water and therefore the spectrum.
+                    description: Whether this sample was exposed to vacuum before or during measurement, which alters adsorbed water and therefore the spectrum.
                     type: object
                     properties:
                       '@id':
@@ -133,9 +127,7 @@ allOf:
           required:
           - '@type'
     ada:instrumentManufacturer:
-      description: Manufacturer of the instrument that performs the measurement, recorded as a controlled
-        value. Where a procedure couples a sample-introduction system to an analysing instrument, this
-        records the analysing instrument. Instrument Model gives the specific designation.
+      description: Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.
       type: string
       enum:
       - Thermo Fisher Scientific (Nicolet)
@@ -152,10 +144,7 @@ allOf:
       - missing
       readOnly: true
     ada:instrumentModel:
-      description: Model designation of the instrument that performs the measurement, including any generation
-        or configuration suffix. Conventionally written with the manufacturer name included; Instrument
-        Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable
-        by vendor.
+      description: Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
     ada:detector:
@@ -175,8 +164,7 @@ allOf:
       - type: string
       readOnly: true
     ada:beamsplitter:
-      description: Beamsplitter fitted for this procedure; it sets the accessible spectral range. Record
-        'N/A' where the procedure uses no interferometer.
+      description: Beamsplitter fitted for this procedure; it sets the accessible spectral range. Record 'N/A' where the procedure uses no interferometer.
       anyOf:
       - type: string
         enum:
@@ -212,8 +200,7 @@ allOf:
       items:
         anyOf:
         - title: Spectral Sampling
-          description: 'Spacing between adjacent recorded spectral points. Distinct from resolution: sampling
-            may oversample the instrumental resolution.'
+          description: 'Spacing between adjacent recorded spectral points. Distinct from resolution: sampling may oversample the instrumental resolution.'
           type: object
           properties:
             '@id':
@@ -242,8 +229,7 @@ allOf:
           readOnly: true
         - &id003
           title: Emissivity Maximum Fit Region Minimum
-          description: Short-wavelength limit of the window over which the emissivity maximum is fitted.
-            Record 'N/A' where Measurement Type is not Emissivity.
+          description: Short-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.
           type: object
           properties:
             '@id':
@@ -274,8 +260,7 @@ allOf:
           - ada:fieldScope
         - &id004
           title: Emissivity Maximum Fit Region Maximum
-          description: Long-wavelength limit of the window over which the emissivity maximum is fitted.
-            Record 'N/A' where Measurement Type is not Emissivity.
+          description: Long-wavelength limit of the window over which the emissivity maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.
           type: object
           properties:
             '@id':
@@ -307,8 +292,7 @@ allOf:
       allOf:
       - contains:
           title: Spectral Sampling
-          description: 'Spacing between adjacent recorded spectral points. Distinct from resolution: sampling
-            may oversample the instrumental resolution.'
+          description: 'Spacing between adjacent recorded spectral points. Distinct from resolution: sampling may oversample the instrumental resolution.'
           type: object
           properties:
             '@id':
@@ -374,8 +358,7 @@ allOf:
         - missing
       - type: string
     ada:spotSizeDefault:
-      description: Diameter of the analysed area for a point measurement, or the pixel footprint for a
-        map.
+      description: Diameter of the analysed area for a point measurement, or the pixel footprint for a map.
       anyOf:
       - type: number
       - type: string
@@ -385,12 +368,7 @@ allOf:
       - type: integer
       - type: string
     ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction to calculate the final
-        reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other
-        citable reference values used in a correction or calculation), together with their source. Distinct
-        from the Group 6 reference-material fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable, revisable physical
-        constants feed into this procedure's data reduction.
+      description: Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record "None" if no citable, revisable physical constants feed into this procedure's data reduction.
       type: string
     ada:calibrationStandardsDefault:
       description: Reference materials measured to calibrate the reported quantity, with source.

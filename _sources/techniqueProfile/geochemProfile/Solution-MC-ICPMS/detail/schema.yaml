@@ -1,7 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Analysis Detail
-description: Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing CDIF/schema.org slots
-  on the schema:Dataset root.
+description: Dataset-level analysis-instance detail for solution MC-ICP-MS, reusing CDIF/schema.org slots on the schema:Dataset root.
 allOf:
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/AnalysisIdentification
 - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/AnalysisIdentification
@@ -31,8 +30,7 @@ allOf:
                 then:
                   properties:
                     schema:description:
-                      description: Brief description of sample provenance, form, or preparation state
-                        relevant to this analysis.
+                      description: Brief description of sample provenance, form, or preparation state relevant to this analysis.
                       anyOf:
                       - type: string
                       - type: array
@@ -298,10 +296,7 @@ allOf:
                                     - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
                                     - &id001
                                       title: Doubly-Charged Species Monitor
-                                      description: The mass ratio monitored to estimate doubly-charged
-                                        ion (M²⁺) formation during instrument tuning. The monitor species
-                                        and the mass positions monitored should be stated explicitly.
-                                        Analogous to Oxide Production Method and Threshold for oxide monitoring.
+                                      description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
                                       type: object
                                       properties:
                                         '@id':
@@ -324,10 +319,7 @@ allOf:
                                       - schema:value
                                     - &id002
                                       title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged ion production
-                                        for the monitored species at the time of instrument tuning. The
-                                        acceptable threshold is typically <1% or <3%. Record both the
-                                        threshold and the measured value.
+                                      description: Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.
                                       type: object
                                       properties:
                                         '@id':
@@ -383,8 +375,7 @@ allOf:
               - $ref: ../../../../BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_doubleSpikeMixingRatio
               - &id003
                 title: Error Correlation Between Reported Quantities
-                description: The correlation coefficient between pairs of reported quantities whose uncertainties
-                  are not independent, together with the pair it applies to and how it was obtained.
+                description: The correlation coefficient between pairs of reported quantities whose uncertainties are not independent, together with the pair it applies to and how it was obtained.
                 type: object
                 properties:
                   '@id':
@@ -412,9 +403,7 @@ allOf:
                 - schema:unitText
               - &id004
                 title: Collision/Reaction Gas Mixture Ratio
-                description: Where the collision or reaction cell is supplied with a mixture of gases
-                  rather than a single gas, the identities and proportions of that mixture. Recorded separately
-                  from the gas identity. Record 'N/A' where a single gas is used.
+                description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
                 type: object
                 properties:
                   '@id':
@@ -463,17 +452,10 @@ allOf:
               minContains: 0
               maxContains: 1
           ada:proceduralBlankLevel:
-            description: The measured level of the analytical blank in the session, and — where the reported
-              quantity is a ratio — its composition, since a blank subtracted from a ratio biases the
-              result unless its own composition is known. Companion to the blank correction method.
+            description: The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.
             type: string
           ada:deltaOrEpsilonValueReferenceStandard:
-            description: 'International or community-accepted isotopic reference standard used as the
-              zero-delta anchor for expressing isotopic compositions in delta (δ, per mil) or epsilon
-              (ε, per ten thousand) notation: δⁱX = [(ⁱX/ʲX)sample / (ⁱX/ʲX)reference − 1] × 1000‰. The
-              reporting reference is a per-study or per-publication decision. Specify the standard name,
-              lot or batch number where applicable, and the certified or consensus isotope ratio used
-              for normalization.'
+            description: 'International or community-accepted isotopic reference standard used as the zero-delta anchor for expressing isotopic compositions in delta (δ, per mil) or epsilon (ε, per ten thousand) notation: δⁱX = [(ⁱX/ʲX)sample / (ⁱX/ʲX)reference − 1] × 1000‰. The reporting reference is a per-study or per-publication decision. Specify the standard name, lot or batch number where applicable, and the certified or consensus isotope ratio used for normalization.'
             type: string
         required:
         - ada:deltaOrEpsilonValueReferenceStandard
@@ -484,9 +466,7 @@ allOf:
       items:
         anyOf:
         - title: Dataset variable
-          description: A measured variable of this dataset that is not one of the procedure's declared
-            reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property
-            branches above are permitted members of it, not the whole of it.
+          description: A measured variable of this dataset that is not one of the procedure's declared reported properties. schema:variableMeasured carries the dataset's actual variables; the reported-property branches above are permitted members of it, not the whole of it.
           type: object
           required:
           - '@type'
@@ -499,9 +479,7 @@ allOf:
                 - schema:PropertyValue
         - &id005
           title: Isotope Ratio Reported
-          description: Specific isotope ratio pair(s) reported as primary data output. The denominator
-            isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes,
-            235U for U isotopes). Report all ratio pairs routinely calculated and reported.
+          description: Specific isotope ratio pair(s) reported as primary data output. The denominator isotope is typically the reference mass used in the delta notation (e.g., 54Fe for Fe isotopes, 235U for U isotopes). Report all ratio pairs routinely calculated and reported.
           type: object
           properties:
             '@id':
