@@ -46,8 +46,19 @@ jobs:
     name: Regenerate twice and compare
     runs-on: ubuntu-latest
     steps:
+      # WITH the submodule, unlike the other workflows here. build_tapp_examples reads the
+      # publication columns out of each TAPP's .xlsx twin, so the example stage cannot run
+      # without tapp/ -- it failed for all 16 workbook-based techniques on this check's first
+      # run, which is how we learned CI had never exercised example generation at all.
+      #
+      # This does not undo the `update = none` in .gitmodules. That setting exists to stop OGC's
+      # postprocess workflow from running `git submodule update --remote` and COMMITTING a bumped
+      # pointer, as it did in c0194f7e4. Checking the pinned revision out read-only, in a job that
+      # commits nothing, is a different act.
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
