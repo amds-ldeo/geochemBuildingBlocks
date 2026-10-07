@@ -1174,10 +1174,10 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002 ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "example peakFlatness" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "example goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "example peakFlatness" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "example oxideProduction" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
