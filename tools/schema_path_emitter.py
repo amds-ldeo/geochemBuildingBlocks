@@ -102,6 +102,19 @@ WRAPPER_ITEM_REF = {
     "prov:reagent": "../../../../BaseSchema/geochemProduct/schema.yaml#/$defs/UsedReagent",
 }
 
+# Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name
+# (WRAPPER_ITEM_REF above is keyed by a wrapper ROLE value instead, which is why steps need their
+# own hook). Same reasoning, and the same symptom it cures: a sidecar row places a parameter at
+# schema:step[schema:name='Data reduction'], so the emitter builds the container from that selector
+# and emits a name-keyed if/then carrying no structural typing. Nothing then says a step IS a
+# WorkflowStep, so @type was neither required nor supplied -- 80 generated -P0 steps shipped with
+# no @type at all and validated clean, because the only rule reaching them keyed on schema:name,
+# which they had. The $ref is inserted as the FIRST allOf member so the selector conditionals the
+# sidecar asked for still apply after it.
+ITEM_REF_BY_PROP = {
+    "schema:step": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/WorkflowStep",
+}
+
 # base-owned array properties whose items are rich objects defined in tappDefinition
 # (ComputationalTool). A bare "[]" append leaves items as {type:object} so the base's object shape
 # applies instead of a spurious string-item constraint from the path leaf.
@@ -422,8 +435,16 @@ def to_schema(node):
             out["schema:inDefinedTermSet"] = scheme
         return out
     if isinstance(node, Obj):
-        out = {"type": "object",
-               "properties": {k: to_schema(v) for k, v in node.props.items()}}
+        props = {}
+        for k, v in node.props.items():
+            sch = to_schema(v)
+            ref = ITEM_REF_BY_PROP.get(k)
+            if ref and sch.get("type") == "array":
+                items = sch.setdefault("items", {"type": "object"})
+                if isinstance(items, dict):
+                    items["allOf"] = [{"$ref": ref}] + list(items.pop("allOf", []))
+            props[k] = sch
+        out = {"type": "object", "properties": props}
         req = sorted(n for n in node.required if n in node.props)
         if req:
             out["required"] = req

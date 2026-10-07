@@ -11912,6 +11912,17 @@
           "items": {
             "type": "object",
             "properties": {
+              "schema:actionProcess": {
+                "description": "The workflow actually followed by this analysis event, as a schema:HowTo whose schema:step entries are full workflow steps.\nThe base cdifProvActivity already supplies a schema:HowTo here, but its step shape carries only @type / name / description / position / url. A geochem analysis event needs the same step surface the TAPP plan uses -- per-step instrument, computational tool, reagent, inputs, result, parameters and sub-workflow -- so the step items are pinned to tappDefinition's WorkflowStep. Both apply: the base and this intersect under allOf, and neither the base HowTo nor its step is a closed object, so the richer shape adds to it rather than conflicting.\nWorkflowStep, NOT WorkflowHowTo, is deliberate. The requirement for exactly one \"Sample preparation\" step carrying bios:LabProcess lives on WorkflowHowTo, and it belongs to the TAPP plan -- a protocol must say how the sample was prepared. An analysis EVENT records what was done and may legitimately describe only part of a workflow, so referencing the step shape alone brings the structure without that requirement.\nOnly the object form is constrained. schema:actionProcess may also be a string or an @id reference in the base, and `properties` does not apply to a non-object, so those branches stay reachable.",
+                "properties": {
+                  "schema:step": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/WorkflowStep"
+                    }
+                  }
+                }
+              },
               "prov:used": {
                 "type": "array",
                 "description": "Resources used in the analysis. Each item is one of: an instrument BB instance; a computational tool actually used (schema:SoftwareApplication); a reagent / reference material actually used; a tappDefinition BB instance (inlined); or an @id reference to a TAPP definition node defined elsewhere. The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument / computationalTool / reagent list; these prov:used entries record the ACTUALS used in this specific run.",
@@ -13526,8 +13537,43 @@
                             ]
                           },
                           "schema:actionProcess": {
-                            "$ref": "#/$defs/WorkflowHowTo",
-                            "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps."
+                            "description": "The standard workflow for this method, expressed as a schema:HowTo containing an ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase (sample preparation, calibration, acquisition, data processing, quality control). Steps carry their own parameters, reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation step -- see MethodWorkflowHowTo.",
+                            "allOf": [
+                              {
+                                "$ref": "#/$defs/WorkflowHowTo"
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "schema:step": {
+                                    "type": "array",
+                                    "contains": {
+                                      "type": "object",
+                                      "description": "a sample preparation step is required.",
+                                      "properties": {
+                                        "schema:name": {
+                                          "const": "Sample preparation"
+                                        },
+                                        "schema:additionalType": {
+                                          "type": "array",
+                                          "contains": {
+                                            "const": "bios:LabProcess"
+                                          }
+                                        }
+                                      },
+                                      "required": [
+                                        "schema:name",
+                                        "schema:additionalType"
+                                      ]
+                                    },
+                                    "maxContains": 1
+                                  }
+                                },
+                                "required": [
+                                  "schema:step"
+                                ]
+                              }
+                            ]
                           },
                           "schema:additionalProperty": {
                             "type": "array",
@@ -26655,6 +26701,1254 @@
         }
       ]
     },
+    "WorkflowStep": {
+      "type": "object",
+      "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
+      "properties": {
+        "@type": {
+          "description": "All THREE are required. cdi:Activity and schema:Action carry the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep is what schema.org itself expects of a value of schema:step on a schema:HowTo, and omitting it made these steps invalid against the plain schema.org reading -- and against the base cdifProvActivity, whose own step shape requires schema:HowToStep. The two shapes disagreed, which is observable in the examples: 565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending on which side emitted them.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3,
+          "allOf": [
+            {
+              "contains": {
+                "const": "cdi:Activity"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:Action"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:HowToStep"
+              }
+            }
+          ]
+        },
+        "@id": {
+          "type": "string"
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of this workflow step (e.g. \"Sample preparation\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Detailed description of what this step involves."
+        },
+        "schema:position": {
+          "type": "integer",
+          "description": "Ordinal position in the workflow sequence (1-based)."
+        },
+        "schema:additionalType": {
+          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schema:instrument": {
+          "description": "Instrument or equipment used in this step.",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Instrument"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "bios:computationalTool": {
+          "description": "Software tools used in this step.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "Software application used for data acquisition, reduction, or processing. Follows Bioschemas ComputationalTool pattern.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:SoftwareApplication"
+                }
+              },
+              "@id": {
+                "type": "string"
+              },
+              "schema:name": {
+                "type": "string",
+                "description": "Name of the software (e.g. \"Probe for EPMA\")."
+              },
+              "schema:version": {
+                "type": "string",
+                "description": "Software version string (e.g. \"12.9.5\")."
+              },
+              "schema:description": {
+                "type": "string",
+                "description": "Role or purpose of this tool in the method."
+              },
+              "schema:url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL to the software product or documentation."
+              },
+              "ada:toolRole": {
+                "type": "string",
+                "enum": [
+                  "acquisition",
+                  "dataReduction",
+                  "processing",
+                  "visualization"
+                ],
+                "description": "Role this software plays in the analytical workflow."
+              }
+            },
+            "required": [
+              "schema:name"
+            ]
+          }
+        },
+        "bios:reagent": {
+          "description": "Reference materials, standards, or reagents used in this step.",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "description": "A reference material, calibration standard, or chemical reagent. Follows Bioschemas reagent pattern with extensions for geochemistry reference materials.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "description": "What the material IS, independent of the role it plays here (that is ada:reagentRole). One of the three kinds must be present: schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
+                "contains": {
+                  "enum": [
+                    "schema:DefinedTerm",
+                    "schema:Product",
+                    "schema:ChemicalSubstance"
+                  ]
+                }
+              },
+              "@id": {
+                "type": "string",
+                "description": "Persistent identifier (e.g. IGSN, GeoReM URL)."
+              },
+              "schema:name": {
+                "type": "string",
+                "description": "Name of the material (e.g. \"San Carlos olivine\")."
+              },
+              "schema:description": {
+                "type": "string"
+              },
+              "schema:identifier": {
+                "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "minItems": 1
+                      },
+                      "schema:propertyID": {
+                        "type": "string"
+                      },
+                      "schema:value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "schema:termCode": {
+                "type": "string",
+                "description": "Registry code for the material on the schema:DefinedTerm path (e.g. \"SRM 610\", \"ATHO-G\")."
+              },
+              "schema:inDefinedTermSet": {
+                "description": "The registry the schema:termCode belongs to (GeoReM, NIST SRM catalogue, USGS RM list).",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      "schema:name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "ada:reagentRole": {
+                "type": "string",
+                "enum": [
+                  "primaryStandard",
+                  "secondaryStandard",
+                  "interferenceStandard",
+                  "blankMaterial",
+                  "coatingMaterial",
+                  "referenceMaterial",
+                  "reagent"
+                ],
+                "description": "Role of this material in the method."
+              },
+              "schema:citation": {
+                "description": "Publication reference for the standard's accepted values.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "schema:name": {
+                        "type": "string"
+                      },
+                      "schema:url": {
+                        "type": "string",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "@type",
+              "schema:name"
+            ]
+          }
+        },
+        "prov:used": {
+          "description": "Input entities consumed or referenced by this step (e.g. prepared sample from a prior step).",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "schema:result": {
+          "description": "Output entity produced by this step (can be referenced as input by a subsequent step).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:object": {
+          "description": "Reference to a prior step whose result is the input for this step (action chaining).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:additionalProperty": {
+          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValueSpecification"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
+                  },
+                  "schema:valueName": {
+                    "type": "string",
+                    "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
+                  },
+                  "schema:description": {
+                    "type": "string",
+                    "description": "Guidance text shown to the user in the form."
+                  },
+                  "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/PropertyIDValue"
+                    }
+                  },
+                  "schema:inDefinedTermSet": {
+                    "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uri"
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "description": "Object reference to a vocabulary defined elsewhere.",
+                        "properties": {
+                          "@id": {
+                            "type": "string",
+                            "format": "uri"
+                          }
+                        },
+                        "required": [
+                          "@id"
+                        ]
+                      },
+                      {
+                        "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
+                        "type": "object",
+                        "properties": {
+                          "@type": {
+                            "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
+                            "default": [
+                              "schema:CreativeWork"
+                            ],
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "minItems": 1,
+                            "anyOf": [
+                              {
+                                "contains": {
+                                  "const": "schema:CreativeWork"
+                                }
+                              },
+                              {
+                                "contains": {
+                                  "const": "dcat:Relationship"
+                                }
+                              }
+                            ]
+                          },
+                          "schema:name": {
+                            "type": "string"
+                          },
+                          "schema:description": {
+                            "type": "string"
+                          },
+                          "schema:url": {
+                            "type": "string",
+                            "format": "uri"
+                          },
+                          "dcat:hadRole": {
+                            "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
+                            "anyOf": [
+                              {
+                                "$ref": "#/$defs/DcatRole"
+                              },
+                              {
+                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
+                              }
+                            ]
+                          },
+                          "dcterms:relation": {
+                            "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
+                            "anyOf": [
+                              {
+                                "title": "Object Reference",
+                                "description": "A reference to a node defined elsewhere, by its @id.",
+                                "type": "object",
+                                "properties": {
+                                  "@id": {
+                                    "type": "string",
+                                    "description": "resolvable @id of the referenced node"
+                                  }
+                                },
+                                "required": [
+                                  "@id"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "string",
+                                "format": "uri"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "@type"
+                        ],
+                        "allOf": [
+                          {
+                            "if": {
+                              "required": [
+                                "@type"
+                              ],
+                              "properties": {
+                                "@type": {
+                                  "contains": {
+                                    "const": "schema:CreativeWork"
+                                  }
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
+                        "properties": {
+                          "@type": {
+                            "const": "schema:DefinedTermSet"
+                          },
+                          "schema:hasDefinedTerm": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "@type": {
+                                  "const": "schema:DefinedTerm"
+                                },
+                                "schema:termCode": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@type",
+                                "schema:termCode"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "@type",
+                          "schema:hasDefinedTerm"
+                        ]
+                      }
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "boolean"
+                      }
+                    ]
+                  },
+                  "schema:readonlyValue": {
+                    "type": "boolean",
+                    "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
+                  },
+                  "schema:valueRequired": {
+                    "type": "boolean",
+                    "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
+                  },
+                  "schema:minValue": {
+                    "type": "number",
+                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
+                  },
+                  "schema:maxValue": {
+                    "type": "number",
+                    "description": "Maximum allowed numeric value. Upper bound of valid range."
+                  },
+                  "schema:stepValue": {
+                    "type": "number",
+                    "description": "Granularity expected of the value (e.g. 0.1 for nA)."
+                  },
+                  "schema:valuePattern": {
+                    "type": "string",
+                    "description": "Regex pattern for validating string values."
+                  },
+                  "schema:multipleValues": {
+                    "type": "boolean",
+                    "description": "Whether multiple values are allowed (default false)."
+                  },
+                  "ada:fieldScope": {
+                    "type": "string",
+                    "enum": [
+                      "method",
+                      "session",
+                      "element"
+                    ],
+                    "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
+                  },
+                  "ada:category": {
+                    "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                      }
+                    ]
+                  },
+                  "ada:dataType": {
+                    "type": "string",
+                    "enum": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "date",
+                      "uri"
+                    ],
+                    "description": "Expected data type for the parameter value."
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+                  },
+                  "schema:unitCode": {
+                    "description": "URI for unit of measure (QUDT preferred).",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/TappDefinition_DefinedTerm"
+                      }
+                    ]
+                  },
+                  "ada:cdifPropertyPath": {
+                    "type": "string",
+                    "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
+                  },
+                  "ada:tier": {
+                    "type": "string",
+                    "enum": [
+                      "M",
+                      "R",
+                      "O"
+                    ],
+                    "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "ada:fieldScope",
+                  "ada:dataType"
+                ]
+              },
+              {
+                "type": "object",
+                "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:PropertyValue"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
+                  },
+                  "schema:propertyID": {
+                    "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "$ref": "#/$defs/PropertyIDValue"
+                    }
+                  },
+                  "schema:value": {
+                    "description": "The fixed protocol value for this read-only parameter."
+                  },
+                  "schema:unitText": {
+                    "type": "string",
+                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
+                  }
+                },
+                "required": [
+                  "schema:name",
+                  "schema:value"
+                ]
+              }
+            ]
+          }
+        },
+        "schema:actionProcess": {
+          "$ref": "#/$defs/WorkflowHowTo",
+          "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat)."
+        },
+        "dqv:hasQualityMeasurement": {
+          "description": "Quality measurements specific to this workflow step.",
+          "type": "array",
+          "items": {
+            "title": "definitions for simple quality measure property",
+            "type": "object",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "dqv:QualityMeasurement"
+                },
+                "minItems": 1
+              },
+              "dqv:isMeasurementOf": {
+                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@id": {
+                        "type": "string",
+                        "description": "a resolvable reference to a representation of a quality measure"
+                      }
+                    }
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              },
+              "dqv:value": {
+                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "dqv:isMeasurementOf",
+              "dqv:value"
+            ]
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name",
+        "schema:position"
+      ]
+    },
+    "TappDefinition_DefinedTerm": {
+      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:DefinedTerm"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "text label for the term that is useful to human user"
+        },
+        "schema:identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:PropertyValue"
+                  },
+                  "minItems": 1
+                },
+                "schema:propertyID": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "@id"
+                      ],
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ],
+                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                },
+                "schema:value": {
+                  "type": "string",
+                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                },
+                "schema:url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:value"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:url"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "schema:inDefinedTermSet": {
+          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "schema:termCode": {
+          "type": "string",
+          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        }
+      },
+      "allOf": [
+        {
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "schema:name"
+              ]
+            },
+            {
+              "required": [
+                "schema:identifier"
+              ]
+            },
+            {
+              "required": [
+                "schema:termCode"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Organization_cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/Concept"
+            }
+          ]
+        }
+      ]
+    },
+    "DcatRole": {
+      "description": "A dcat:Role -- DCAT's declared range for dcat:hadRole. Defined inline rather than as its own building block because nothing else in the register needs it yet; dcat:hadRole's domain is owl:unionOf [prov:Attribution, dcat:Relationship], so promote it to a block if a qualified attribution ever needs the same shape.\ndcat:Role rdfs:subClassOf skos:Concept, so the skos:prefLabel / skos:inScheme furniture of a concept is permitted alongside; it is not required here because DCAT states no cardinality constraints on the class -- dcat.ttl declares no rdfs:subClassOf and no owl:Restriction on dcat:Relationship, and the \"mandatory\" wording in the DCAT-3 document is prose in the spec tables rather than an axiom in the vocabulary.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "IRI of the role concept, ideally from a controlled vocabulary."
+        },
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "dcat:Role"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "LabeledLink_cdifConceptOrTermOrString": {
+      "title": "CDIF Concept-or-Term-or-String",
+      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
+          "anyOf": [
+            {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "reference to a skos concept for the data type"
+                }
+              }
+            },
+            {
+              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:DefinedTerm"
+                  },
+                  "minItems": 1
+                },
+                "schema:name": {
+                  "type": "string",
+                  "description": "text label for the term that is useful to human user"
+                },
+                "schema:identifier": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:PropertyValue"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:propertyID": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "object",
+                              "additionalProperties": false,
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          ],
+                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
+                        },
+                        "schema:value": {
+                          "type": "string",
+                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
+                        }
+                      },
+                      "allOf": [
+                        {
+                          "required": [
+                            "@type"
+                          ]
+                        },
+                        {
+                          "anyOf": [
+                            {
+                              "required": [
+                                "schema:value"
+                              ]
+                            },
+                            {
+                              "required": [
+                                "schema:url"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "schema:inDefinedTermSet": {
+                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "@id"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "schema:termCode": {
+                  "type": "string",
+                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+                }
+              },
+              "allOf": [
+                {
+                  "required": [
+                    "@type"
+                  ]
+                },
+                {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:identifier"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "schema:termCode"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$ref": "#/$defs/Concept"
+            }
+          ]
+        }
+      ]
+    },
     "Instrument_cdifConceptOrTermOrString": {
       "title": "CDIF Concept-or-Term-or-String",
       "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
@@ -27149,581 +28443,6 @@
       "required": [
         "@type",
         "schema:name"
-      ]
-    },
-    "TappDefinition_DefinedTerm": {
-      "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:DefinedTerm"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "text label for the term that is useful to human user"
-        },
-        "schema:identifier": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:PropertyValue"
-                  },
-                  "minItems": 1
-                },
-                "schema:propertyID": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "required": [
-                        "@id"
-                      ],
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ],
-                  "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                },
-                "schema:value": {
-                  "type": "string",
-                  "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                },
-                "schema:url": {
-                  "type": "string",
-                  "format": "uri",
-                  "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:value"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:url"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "schema:inDefinedTermSet": {
-          "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:termCode": {
-          "type": "string",
-          "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-        }
-      },
-      "allOf": [
-        {
-          "required": [
-            "@type"
-          ]
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "schema:name"
-              ]
-            },
-            {
-              "required": [
-                "schema:identifier"
-              ]
-            },
-            {
-              "required": [
-                "schema:termCode"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "Organization_cdifConceptOrTermOrString": {
-      "title": "CDIF Concept-or-Term-or-String",
-      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
-          "anyOf": [
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
-            },
-            {
-              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:DefinedTerm"
-                  },
-                  "minItems": 1
-                },
-                "schema:name": {
-                  "type": "string",
-                  "description": "text label for the term that is useful to human user"
-                },
-                "schema:identifier": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "contains": {
-                            "const": "schema:PropertyValue"
-                          },
-                          "minItems": 1
-                        },
-                        "schema:propertyID": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          ],
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                        },
-                        "schema:value": {
-                          "type": "string",
-                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                        },
-                        "schema:url": {
-                          "type": "string",
-                          "format": "uri",
-                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                        }
-                      },
-                      "allOf": [
-                        {
-                          "required": [
-                            "@type"
-                          ]
-                        },
-                        {
-                          "anyOf": [
-                            {
-                              "required": [
-                                "schema:value"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "schema:inDefinedTermSet": {
-                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "schema:termCode": {
-                  "type": "string",
-                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:identifier"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:termCode"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "$ref": "#/$defs/Concept"
-            }
-          ]
-        }
-      ]
-    },
-    "WorkflowHowTo": {
-      "type": "object",
-      "description": "The method's standard workflow expressed as a schema:HowTo. Contains an ordered array of workflow steps in schema:step, where each step is a cdi:Activity + schema:Action.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "schema:HowTo"
-          },
-          "minItems": 1
-        },
-        "@id": {
-          "type": "string"
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Name of the workflow (e.g. \"EPMA WDS analytical workflow\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Overview of the workflow."
-        },
-        "schema:url": {
-          "type": "string",
-          "format": "uri",
-          "description": "URL to a published protocol document."
-        },
-        "schema:step": {
-          "type": "array",
-          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action describing a distinct phase of the analytical procedure. Must include exactly one sample-preparation step (schema:name \"Sample preparation\" with schema:additionalType containing \"bios:LabProcess\"); its schema:position is left to the protocol author.",
-          "items": {
-            "$ref": "#/$defs/WorkflowStep"
-          },
-          "contains": {
-            "type": "object",
-            "description": "a sample preparation step is required.",
-            "properties": {
-              "schema:name": {
-                "const": "Sample preparation"
-              },
-              "schema:additionalType": {
-                "type": "array",
-                "contains": {
-                  "const": "bios:LabProcess"
-                }
-              }
-            },
-            "required": [
-              "schema:name",
-              "schema:additionalType"
-            ]
-          },
-          "maxContains": 1
-        }
-      },
-      "required": [
-        "@type",
-        "schema:step"
-      ]
-    },
-    "DcatRole": {
-      "description": "A dcat:Role -- DCAT's declared range for dcat:hadRole. Defined inline rather than as its own building block because nothing else in the register needs it yet; dcat:hadRole's domain is owl:unionOf [prov:Attribution, dcat:Relationship], so promote it to a block if a qualified attribution ever needs the same shape.\ndcat:Role rdfs:subClassOf skos:Concept, so the skos:prefLabel / skos:inScheme furniture of a concept is permitted alongside; it is not required here because DCAT states no cardinality constraints on the class -- dcat.ttl declares no rdfs:subClassOf and no owl:Restriction on dcat:Relationship, and the \"mandatory\" wording in the DCAT-3 document is prose in the spec tables rather than an axiom in the vocabulary.",
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "description": "IRI of the role concept, ideally from a controlled vocabulary."
-        },
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "dcat:Role"
-          },
-          "minItems": 1
-        }
-      },
-      "required": [
-        "@type"
-      ]
-    },
-    "LabeledLink_cdifConceptOrTermOrString": {
-      "title": "CDIF Concept-or-Term-or-String",
-      "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
-      "anyOf": [
-        {
-          "type": "string"
-        },
-        {
-          "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
-          "anyOf": [
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
-            },
-            {
-              "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
-              "type": "object",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "schema:DefinedTerm"
-                  },
-                  "minItems": 1
-                },
-                "schema:name": {
-                  "type": "string",
-                  "description": "text label for the term that is useful to human user"
-                },
-                "schema:identifier": {
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
-                      "type": "object",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "contains": {
-                            "const": "schema:PropertyValue"
-                          },
-                          "minItems": 1
-                        },
-                        "schema:propertyID": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          ],
-                          "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
-                        },
-                        "schema:value": {
-                          "type": "string",
-                          "description": "the identifier string. E.g. 10.5066/F7VX0DMQ"
-                        },
-                        "schema:url": {
-                          "type": "string",
-                          "format": "uri",
-                          "description": "web-resolveable string for the identifier; host name part is location of a resolver that will return some representation for the given identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ "
-                        }
-                      },
-                      "allOf": [
-                        {
-                          "required": [
-                            "@type"
-                          ]
-                        },
-                        {
-                          "anyOf": [
-                            {
-                              "required": [
-                                "schema:value"
-                              ]
-                            },
-                            {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "schema:inDefinedTermSet": {
-                  "description": "The controlled vocabulary responsible for this keyword, as EITHER a plain URI string identifying the vocabulary, OR an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere in the document. Both forms are already in use across CDIF profiles and downstream ADA building blocks; permitting only the string form made the object form - the natural JSON-LD spelling of a reference - invalid, while this class's own union-type policy above explicitly anticipates both.",
-                  "anyOf": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "object",
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  ]
-                },
-                "schema:termCode": {
-                  "type": "string",
-                  "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
-                }
-              },
-              "allOf": [
-                {
-                  "required": [
-                    "@type"
-                  ]
-                },
-                {
-                  "anyOf": [
-                    {
-                      "required": [
-                        "schema:name"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:identifier"
-                      ]
-                    },
-                    {
-                      "required": [
-                        "schema:termCode"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "$ref": "#/$defs/Concept"
-            }
-          ]
-        }
       ]
     },
     "SpatialExtent_cdifConceptOrTermOrString": {
@@ -28911,6 +29630,49 @@
             }
           ]
         }
+      ]
+    },
+    "WorkflowHowTo": {
+      "type": "object",
+      "description": "The method's standard workflow expressed as a schema:HowTo. Contains an ordered array of workflow steps in schema:step, where each step is a cdi:Activity + schema:Action.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:HowTo"
+          },
+          "minItems": 1
+        },
+        "@id": {
+          "type": "string"
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of the workflow (e.g. \"EPMA WDS analytical workflow\")."
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Overview of the workflow."
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to a published protocol document."
+        },
+        "schema:step": {
+          "type": "array",
+          "description": "Ordered sequence of workflow steps. Each step is a cdi:Activity + schema:Action + schema:HowToStep describing a distinct phase of the analytical procedure. This shape carries NO sample-preparation requirement, because it is used for a STEP's sub-workflow as well as for a method's top-level workflow; see MethodWorkflowHowTo for the method form that does require one.",
+          "items": {
+            "$ref": "#/$defs/WorkflowStep"
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "schema:step"
       ]
     },
     "QualityMeasure_DefinedTerm": {
@@ -34631,736 +35393,6 @@
       "required": [
         "@type",
         "cdif:isComposedOf"
-      ]
-    },
-    "WorkflowStep": {
-      "type": "object",
-      "description": "A single step in the analytical workflow, modeled as a cdi:Activity + schema:Action. Each step describes a distinct phase such as sample preparation, instrument calibration, data acquisition, data processing, or quality control. Steps carry their own parameters, instruments, reagents, and may contain sub-steps via schema:actionProcess.",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 2,
-          "allOf": [
-            {
-              "contains": {
-                "const": "cdi:Activity"
-              }
-            },
-            {
-              "contains": {
-                "const": "schema:Action"
-              }
-            }
-          ]
-        },
-        "@id": {
-          "type": "string"
-        },
-        "schema:name": {
-          "type": "string",
-          "description": "Name of this workflow step (e.g. \"Sample preparation\")."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Detailed description of what this step involves."
-        },
-        "schema:position": {
-          "type": "integer",
-          "description": "Ordinal position in the workflow sequence (1-based)."
-        },
-        "schema:additionalType": {
-          "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps).",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "schema:instrument": {
-          "description": "Instrument or equipment used in this step.",
-          "anyOf": [
-            {
-              "$ref": "#/$defs/Instrument"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            }
-          ]
-        },
-        "bios:computationalTool": {
-          "description": "Software tools used in this step.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "description": "Software application used for data acquisition, reduction, or processing. Follows Bioschemas ComputationalTool pattern.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "schema:SoftwareApplication"
-                }
-              },
-              "@id": {
-                "type": "string"
-              },
-              "schema:name": {
-                "type": "string",
-                "description": "Name of the software (e.g. \"Probe for EPMA\")."
-              },
-              "schema:version": {
-                "type": "string",
-                "description": "Software version string (e.g. \"12.9.5\")."
-              },
-              "schema:description": {
-                "type": "string",
-                "description": "Role or purpose of this tool in the method."
-              },
-              "schema:url": {
-                "type": "string",
-                "format": "uri",
-                "description": "URL to the software product or documentation."
-              },
-              "ada:toolRole": {
-                "type": "string",
-                "enum": [
-                  "acquisition",
-                  "dataReduction",
-                  "processing",
-                  "visualization"
-                ],
-                "description": "Role this software plays in the analytical workflow."
-              }
-            },
-            "required": [
-              "schema:name"
-            ]
-          }
-        },
-        "bios:reagent": {
-          "description": "Reference materials, standards, or reagents used in this step.",
-          "type": "array",
-          "items": {
-            "type": "object",
-            "description": "A reference material, calibration standard, or chemical reagent. Follows Bioschemas reagent pattern with extensions for geochemistry reference materials.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "minItems": 1,
-                "description": "What the material IS, independent of the role it plays here (that is ada:reagentRole). One of the three kinds must be present: schema:DefinedTerm for a material identified by a registry entry (GeoReM, NIST SRM, USGS); schema:Product for a specific catalogued specimen or purchased lot (Smithsonian NMNH number, IGSN, in-house standard); schema:ChemicalSubstance for a bulk chemical or coating stock.",
-                "contains": {
-                  "enum": [
-                    "schema:DefinedTerm",
-                    "schema:Product",
-                    "schema:ChemicalSubstance"
-                  ]
-                }
-              },
-              "@id": {
-                "type": "string",
-                "description": "Persistent identifier (e.g. IGSN, GeoReM URL)."
-              },
-              "schema:name": {
-                "type": "string",
-                "description": "Name of the material (e.g. \"San Carlos olivine\")."
-              },
-              "schema:description": {
-                "type": "string"
-              },
-              "schema:identifier": {
-                "description": "Formal identifier (IGSN, catalog number, GeoReM ID).",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "minItems": 1
-                      },
-                      "schema:propertyID": {
-                        "type": "string"
-                      },
-                      "schema:value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
-              },
-              "schema:termCode": {
-                "type": "string",
-                "description": "Registry code for the material on the schema:DefinedTerm path (e.g. \"SRM 610\", \"ATHO-G\")."
-              },
-              "schema:inDefinedTermSet": {
-                "description": "The registry the schema:termCode belongs to (GeoReM, NIST SRM catalogue, USGS RM list).",
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      "schema:name": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                ]
-              },
-              "ada:reagentRole": {
-                "type": "string",
-                "enum": [
-                  "primaryStandard",
-                  "secondaryStandard",
-                  "interferenceStandard",
-                  "blankMaterial",
-                  "coatingMaterial",
-                  "referenceMaterial",
-                  "reagent"
-                ],
-                "description": "Role of this material in the method."
-              },
-              "schema:citation": {
-                "description": "Publication reference for the standard's accepted values.",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "schema:name": {
-                        "type": "string"
-                      },
-                      "schema:url": {
-                        "type": "string",
-                        "format": "uri"
-                      }
-                    }
-                  }
-                ]
-              }
-            },
-            "required": [
-              "@type",
-              "schema:name"
-            ]
-          }
-        },
-        "prov:used": {
-          "description": "Input entities consumed or referenced by this step (e.g. prepared sample from a prior step).",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
-              }
-            ]
-          }
-        },
-        "schema:result": {
-          "description": "Output entity produced by this step (can be referenced as input by a subsequent step).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:object": {
-          "description": "Reference to a prior step whose result is the input for this step (action chaining).",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
-            }
-          ]
-        },
-        "schema:additionalProperty": {
-          "description": "Step-specific parameters (e.g. beam conditions for the acquisition step, matrix correction settings for the data processing step). Editable parameters are schema:PropertyValueSpecification entries (a default the analyst may override); read-only parameters are schema:PropertyValue entries carrying the fixed protocol value.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "description": "A parameter specification for the method, typed as schema:PropertyValueSpecification. Uses schema.org properties for value constraints (defaultValue, minValue, maxValue, readonlyValue, valueRequired) and ada: extensions for analytical method semantics (fieldScope, category, tier). Link to a controlled vocabulary via schema:inDefinedTermSet.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValueSpecification"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "description": "Human-readable display label (e.g. \"Accelerating Voltage\")."
-                  },
-                  "schema:valueName": {
-                    "type": "string",
-                    "description": "Machine-readable parameter name for serialization (e.g. \"acceleratingVoltage\")."
-                  },
-                  "schema:description": {
-                    "type": "string",
-                    "description": "Guidance text shown to the user in the form."
-                  },
-                  "schema:propertyID": {
-                    "description": "URI identifying this parameter type in a formal vocabulary. Links to a skos:Concept or similar term definition. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "$ref": "#/$defs/PropertyIDValue"
-                    }
-                  },
-                  "schema:inDefinedTermSet": {
-                    "description": "Controlled vocabulary providing allowed values for this parameter. When present, form renders a dropdown/select populated from the vocabulary. Four shapes are accepted: (1) a plain URI string identifying an external SKOS ConceptScheme; (2) an object reference ({\"@id\": \"<uri>\"}) to a vocabulary defined elsewhere; (3) a LabeledLink (LinkRole with name and URL); (4) an inline schema:DefinedTermSet enumerating the allowed values\n    as schema:DefinedTerm objects (replaces the prior ada:enumeration).",
-                    "anyOf": [
-                      {
-                        "type": "string",
-                        "format": "uri"
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "Object reference to a vocabulary defined elsewhere.",
-                        "properties": {
-                          "@id": {
-                            "type": "string",
-                            "format": "uri"
-                          }
-                        },
-                        "required": [
-                          "@id"
-                        ]
-                      },
-                      {
-                        "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
-                        "type": "object",
-                        "properties": {
-                          "@type": {
-                            "description": "Either construct, or both. A labeled link is a schema:CreativeWork at a URL; a dcat:Relationship is DCAT's association class for a typed relation to another resource. A node may declare both -- CDIF's own relation examples do -- but NEITHER IS REQUIRED TO ACCOMPANY THE OTHER.\nThat is the whole point of the anyOf. Until 2026-09-08 this block's Relation half required contains: dcat:Relationship while the labeled-link half required contains: schema:CreativeWork, and under allOf both applied to every instance, so an ordinary labeled link was unsatisfiable. Of profile-core's licenses the 29 plain strings and 1 @id-reference passed while the 10 that followed schema.org's own recommendation -- \"use schema:CreativeWork to provide a label (name) for the license\" -- failed. 412782113 fixed that by deleting the dcat:Relationship mandate outright, which left the JSON Schema with no notion of dcat:Relationship at all while rules.shacl went on targeting it as a class. A pure DCAT relation then met a SHACL requirement with no schema counterpart. This anyOf restores the type to the schema WITHOUT restoring the conjunction.",
-                            "default": [
-                              "schema:CreativeWork"
-                            ],
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "minItems": 1,
-                            "anyOf": [
-                              {
-                                "contains": {
-                                  "const": "schema:CreativeWork"
-                                }
-                              },
-                              {
-                                "contains": {
-                                  "const": "dcat:Relationship"
-                                }
-                              }
-                            ]
-                          },
-                          "schema:name": {
-                            "type": "string"
-                          },
-                          "schema:description": {
-                            "type": "string"
-                          },
-                          "schema:url": {
-                            "type": "string",
-                            "format": "uri"
-                          },
-                          "dcat:hadRole": {
-                            "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
-                            "anyOf": [
-                              {
-                                "$ref": "#/$defs/DcatRole"
-                              },
-                              {
-                                "$ref": "#/$defs/LabeledLink_cdifConceptOrTermOrString"
-                              }
-                            ]
-                          },
-                          "dcterms:relation": {
-                            "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
-                            "anyOf": [
-                              {
-                                "title": "Object Reference",
-                                "description": "A reference to a node defined elsewhere, by its @id.",
-                                "type": "object",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "resolvable @id of the referenced node"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false
-                              },
-                              {
-                                "type": "string",
-                                "format": "uri"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ],
-                        "allOf": [
-                          {
-                            "if": {
-                              "required": [
-                                "@type"
-                              ],
-                              "properties": {
-                                "@type": {
-                                  "contains": {
-                                    "const": "schema:CreativeWork"
-                                  }
-                                }
-                              }
-                            },
-                            "then": {
-                              "required": [
-                                "schema:url"
-                              ]
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "Inline schema:DefinedTermSet listing the allowed values as schema:DefinedTerm objects. Use when no external vocabulary URI is available; replaces the deprecated ada:enumeration property.",
-                        "properties": {
-                          "@type": {
-                            "const": "schema:DefinedTermSet"
-                          },
-                          "schema:hasDefinedTerm": {
-                            "type": "array",
-                            "minItems": 1,
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "@type": {
-                                  "const": "schema:DefinedTerm"
-                                },
-                                "schema:termCode": {
-                                  "type": "string"
-                                }
-                              },
-                              "required": [
-                                "@type",
-                                "schema:termCode"
-                              ]
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type",
-                          "schema:hasDefinedTerm"
-                        ]
-                      }
-                    ]
-                  },
-                  "schema:defaultValue": {
-                    "description": "The default value for this parameter. For constant parameters (readonlyValue=true), this is the fixed value. For editable parameters, this is the pre-filled default.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "boolean"
-                      }
-                    ]
-                  },
-                  "schema:readonlyValue": {
-                    "type": "boolean",
-                    "description": "true = constant, fixed for every session (read-only in form). false = editable (default or optional depending on valueRequired)."
-                  },
-                  "schema:valueRequired": {
-                    "type": "boolean",
-                    "description": "true = must be provided (mandatory). false = optional. Combined with readonlyValue: readonly+required = constant mandatory; !readonly+required = editable mandatory; !readonly+!required = optional."
-                  },
-                  "schema:minValue": {
-                    "type": "number",
-                    "description": "Minimum allowed numeric value. Defines the lower bound of a valid range at the method level; specific values within this range may be set per element in ada:targetSpeciesTemplate."
-                  },
-                  "schema:maxValue": {
-                    "type": "number",
-                    "description": "Maximum allowed numeric value. Upper bound of valid range."
-                  },
-                  "schema:stepValue": {
-                    "type": "number",
-                    "description": "Granularity expected of the value (e.g. 0.1 for nA)."
-                  },
-                  "schema:valuePattern": {
-                    "type": "string",
-                    "description": "Regex pattern for validating string values."
-                  },
-                  "schema:multipleValues": {
-                    "type": "boolean",
-                    "description": "Whether multiple values are allowed (default false)."
-                  },
-                  "ada:fieldScope": {
-                    "type": "string",
-                    "enum": [
-                      "method",
-                      "session",
-                      "element"
-                    ],
-                    "description": "Whether this parameter is fixed at the method level, varies per analytical session, or is element-specific."
-                  },
-                  "ada:category": {
-                    "description": "Grouping label for form layout (e.g. \"Beam Conditions\", \"Data Processing\", \"Quality Control\"). String for simple cases; DefinedTerm to link to a controlled vocabulary of parameter categories.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/TappDefinition_DefinedTerm"
-                      }
-                    ]
-                  },
-                  "ada:dataType": {
-                    "type": "string",
-                    "enum": [
-                      "string",
-                      "number",
-                      "integer",
-                      "boolean",
-                      "date",
-                      "uri"
-                    ],
-                    "description": "Expected data type for the parameter value."
-                  },
-                  "schema:unitText": {
-                    "type": "string",
-                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-                  },
-                  "schema:unitCode": {
-                    "description": "URI for unit of measure (QUDT preferred).",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/TappDefinition_DefinedTerm"
-                      }
-                    ]
-                  },
-                  "ada:cdifPropertyPath": {
-                    "type": "string",
-                    "description": "The CDIF building block property path this parameter maps to. Used for JSON-LD serialisation."
-                  },
-                  "ada:tier": {
-                    "type": "string",
-                    "enum": [
-                      "M",
-                      "R",
-                      "O"
-                    ],
-                    "description": "Mandatory / Recommended / Optional tier from the metadata profile. Informs validation strictness."
-                  }
-                },
-                "required": [
-                  "schema:name",
-                  "ada:fieldScope",
-                  "ada:dataType"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "A read-only method parameter carrying the fixed protocol value, typed as schema:PropertyValue. Used for Advanced-protocol parameters that the analyst cannot change (the value is set by the protocol). The value is in schema:value; the human-readable label is in schema:name. Contrast with MethodParameter (schema:PropertyValueSpecification), used for editable parameters.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValue"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "description": "Human-readable display label (e.g. \"Ablation Cell Type\")."
-                  },
-                  "schema:propertyID": {
-                    "description": "URI identifying this parameter type in a formal vocabulary. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}).",
-                    "type": "array",
-                    "minItems": 1,
-                    "items": {
-                      "$ref": "#/$defs/PropertyIDValue"
-                    }
-                  },
-                  "schema:value": {
-                    "description": "The fixed protocol value for this read-only parameter."
-                  },
-                  "schema:unitText": {
-                    "type": "string",
-                    "description": "Unit of measure label (e.g. \"kV\", \"nA\", \"um\")."
-                  }
-                },
-                "required": [
-                  "schema:name",
-                  "schema:value"
-                ]
-              }
-            ]
-          }
-        },
-        "schema:actionProcess": {
-          "$ref": "#/$defs/WorkflowHowTo",
-          "description": "Sub-workflow for this step, expressed as a nested schema:HowTo with its own ordered steps. Use for steps that have a multi-phase internal procedure (e.g. sample preparation with mount, grind, polish, coat)."
-        },
-        "dqv:hasQualityMeasurement": {
-          "description": "Quality measurements specific to this workflow step.",
-          "type": "array",
-          "items": {
-            "title": "definitions for simple quality measure property",
-            "type": "object",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "dqv:QualityMeasurement"
-                },
-                "minItems": 1
-              },
-              "dqv:isMeasurementOf": {
-                "description": "specify the quality measure that is reported, by name, with an ID ref, or as a Defined Term",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "a resolvable reference to a representation of a quality measure"
-                      }
-                    }
-                  },
-                  {
-                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
-                  }
-                ]
-              },
-              "dqv:value": {
-                "description": "the reported result of the quality measure, as a string, a number, or a defined term from a vocabulary",
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "$ref": "#/$defs/QualityMeasure_DefinedTerm"
-                  }
-                ]
-              }
-            },
-            "required": [
-              "dqv:isMeasurementOf",
-              "dqv:value"
-            ]
-          }
-        }
-      },
-      "required": [
-        "@type",
-        "schema:name",
-        "schema:position"
       ]
     },
     "PropertyIDValue": {
