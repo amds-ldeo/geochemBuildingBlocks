@@ -323,6 +323,7 @@ Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`
 - `tools/validate_examples.py` — validate example JSON files against resolved schemas
 - `tools/validate_instance.py` — profile-aware validation of ADA metadata instances
 - `tools/compare_schemas.py` — detect drift between schema.yaml and *Schema.json
+- `tools/constraint_census.py` — count what the resolved schemas **constrain** and fail when a constraint disappears. Deleting a restriction only makes a schema more permissive, so `validate_examples` stays green through a loss; this counts `required` names, `enum` members, `const`, `$ref` targets, closed objects and branch counts against the committed baseline in `docs/constraint_census.json`. `--write` to record an intended change, `--explain <block>` for a breakdown.
 
 ### Data collection
 
