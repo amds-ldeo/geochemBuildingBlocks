@@ -32,7 +32,15 @@ concurrency:
 
 jobs:
   deploy-viewer:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # One clause per trigger above. The `push` clause is NOT redundant: on a push event
+    # github.event.workflow_run is null, so the workflow_run clause is false and the job was
+    # skipped -- which is exactly what happened on 9496e7c15, the first build PR merge. The
+    # push trigger was added to close the gap where Pages sits one change behind, and without
+    # this clause it closed nothing.
+    if: >-
+      ${{ github.event_name == 'workflow_dispatch' ||
+          github.event_name == 'push' ||
+          github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
