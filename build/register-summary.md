@@ -34,17 +34,17 @@ Supplemental documents for calibration, methods, and analysis info. Defines prop
 
 Supplemental document images including analysis locations and context photos. Defines properties: @type, componentType, numPixelsX, numPixelsY, schema:isBasedOn.
 
-### `ogch.BaseSchema.image` — Image Type
-
-**Type:** schema
-
-ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
-
 ### `ogch.BaseSchema.otherFile` — Other File Type
 
 **Type:** schema
 
 Non-standard file formats approved for ADA submission. Defines properties: @type, componentType, schema:encodingFormat, formatDescription. Uses building blocks: detailSLS (geochemProperties).
+
+### `ogch.BaseSchema.image` — Image Type
+
+**Type:** schema
+
+ADA image with componentType classification for analytical images. Defines properties: @type, acquisitionTime, componentType, channel1, channel2, channel3, pixelSize, illuminationType, imageType.
 
 ### `ogch.BaseSchema.spatialRegistration` — Spatial Registration Type
 
@@ -1138,6 +1138,18 @@ Path-driven ADA product profile for ADA NI-MI Product Profile.
 
 Path-driven ADA product profile for ADA PCD-AFM Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.QRIS.profile` — ADA QRIS Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA QRIS Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.RAMAN.profile` — ADA Raman Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA Raman Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.S-XRF.profile` — ADA S-XRF Product Profile
 
 **Type:** schema
@@ -1216,11 +1228,29 @@ Path-driven ADA product profile for ADA TEM Product Profile.
 
 Path-driven ADA product profile for ADA TIMS Product Profile.
 
+### `ogch.techniqueProfile.geochemProfile.VNMIR.profile` — ADA VNMIR Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA VNMIR Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.XANES.profile` — ADA XANES Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA XANES Product Profile.
+
 ### `ogch.techniqueProfile.geochemProfile.XCT.profile` — ADA Lab-XCT Product Profile
 
 **Type:** schema
 
 Path-driven ADA product profile for ADA Lab-XCT Product Profile.
+
+### `ogch.techniqueProfile.geochemProfile.XRD.profile` — ADA XRD Product Profile
+
+**Type:** schema
+
+Path-driven ADA product profile for ADA XRD Product Profile.
 
 ### `ogch.techniqueProfile.adaProfile.AIVA.profile-ada` — ADA AIVA Profile
 
