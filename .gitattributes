@@ -1,0 +1,53 @@
+# Line endings and binary files.
+#
+# Why this exists: the generators write LF, Windows checkouts with core.autocrlf=true want CRLF in
+# the working tree, and a regeneration then marks files as modified whose content is
+# byte-identical. The committed blobs are ALREADY LF, so this does not rewrite history or content
+# for them -- it pins the WORKING TREE to LF as well, which is what removes the phantom
+# modifications. Measured on 2026-10-07: one `resolve_schema.py --all` left 203 files listed as
+# modified of which 127 were phantom, and a full regeneration left 135 listed with ZERO real
+# content diff. In a repository several sessions share, that makes "whose change is this?"
+# unanswerable by eye -- it cost a blocked rebase and several wrong readings of `git status` in a
+# single day.
+#
+# Scope, measured with `git add --renormalize`: 238 files actually change, every one of them a
+# build/**/_visited_properties.tsv whose blob is CRLF because it was committed from Windows. No
+# _sources file, no tool, no schema, no .py or .yaml. The drift check compares _sources, whose
+# blobs are already LF, so it cannot be affected -- and normalising those .tsv blobs makes them
+# AGREE with what the Linux postprocess produces.
+
+# Default: let git detect text, and keep LF in both the index and the worktree.
+* text=auto eol=lf
+
+# The formats the tooling reads and writes, named explicitly so a generated file never depends on
+# auto-detection.
+*.json    text eol=lf
+*.jsonld  text eol=lf
+*.yaml    text eol=lf
+*.yml     text eol=lf
+*.ttl     text eol=lf
+*.shacl   text eol=lf
+*.py      text eol=lf
+*.md      text eol=lf
+*.html    text eol=lf
+*.jsx     text eol=lf
+*.txt     text eol=lf
+
+# Tabular text: diffable, so text -- but no filter should touch the cell contents, which carry
+# superscripts and degree signs.
+*.csv     text eol=lf
+*.tsv     text eol=lf
+
+# Binary. Explicit rather than auto-detected, because a workbook mangled by an eol filter is
+# corrupt in a way nobody notices until they open it, and the 67 xlsx files here are the TAPP
+# deliveries.
+*.xlsx    binary
+*.xlsm    binary
+*.xltx    binary
+*.docx    binary
+*.pdf     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.zip     binary
