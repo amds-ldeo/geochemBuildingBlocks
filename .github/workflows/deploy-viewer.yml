@@ -5,6 +5,20 @@ on:
     workflows: ["Validate and process Building Blocks"]
     types: [completed]
     branches: [main]
+  # build/ now reaches main through a pull request, not through a direct push from the
+  # postprocess, so the workflow_run trigger above is no longer sufficient on its own: the
+  # postprocess run that OPENS that PR completes before the PR merges, so it would publish
+  # the build/ the PR is about to replace. The run that follows the merge is skipped by the
+  # loop-breaker in process-bblocks.yml and so concludes "skipped", never "success", and
+  # would not reach the job below.
+  #
+  # Triggering on the merge itself closes that gap. A paths filter is safe here because this
+  # is a deploy, not a required status check -- the hazard that a required check which never
+  # runs deadlocks a PR does not apply.
+  push:
+    branches: [main]
+    paths:
+      - 'build/**'
   workflow_dispatch:
 
 permissions:

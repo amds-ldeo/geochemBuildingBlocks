@@ -28,9 +28,17 @@ jobs:
     # a feature branch with no PR yet still needs a signal, and skip the duplicate by
     # running the pull_request event only for forks, where the push event never
     # reaches this repository.
+    #
+    # The `bblocks-build` branch is the exception the dedupe cannot cover. Its commits are
+    # made by GITHUB_TOKEN inside the postprocess, and a GITHUB_TOKEN push triggers no
+    # workflow at all, so there is no push run to dedupe against. Without this third clause
+    # the pull_request run is skipped too, "Validate and annotate (no pages)" never reports,
+    # and a required check that never reports can never be satisfied -- the build PR would
+    # sit open forever.
     if: >-
       github.event_name != 'pull_request' ||
-      github.event.pull_request.head.repo.full_name != github.repository
+      github.event.pull_request.head.repo.full_name != github.repository ||
+      github.event.pull_request.head.ref == 'bblocks-build'
     steps:
       - name: Checkout
         uses: actions/checkout@v7
