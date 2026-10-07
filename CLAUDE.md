@@ -156,11 +156,62 @@ profiles on a missing `ada:componentType` — the reasoning that motivated it (E
 says "Dataset-level analysis-instance detail ... on the schema:Dataset root") generalised from the
 wrong family.
 
-Four techniques are inconsistent today and it is latent, not harmless: TEM, XCT, SEM-FIBSEM and
-SEM-Imaging have hasPart-item detail blocks composed at the **top level** by their path-driven
-`profile/`. No record uses those profile names — the corpus reaches `adaTEM` and `adaSEM`, not
-`adaTEMFull` or `adaSEMImaging` — so nothing exercises the mismatch. It will surface the moment a
-record conforms to one of them.
+This mismatch is the NORM, not four exceptions. Measured 2026-10-06, after this paragraph claimed
+TEM, XCT, SEM-FIBSEM and SEM-Imaging were the only inconsistent ones:
+
+  29 of 29  `profile/` schemas compose `../detail/schema.yaml` as a top-level `allOf` entry,
+            i.e. on the `schema:Dataset` root
+  47 of 59  detail blocks describe themselves as "Detail block for <TECH> hasPart items"
+   0 of 59  detail blocks CONSTRAIN `ada:componentType` anywhere — in XCT's it appears only in
+            its own description, and EPMA's does not mention it at all
+  29 of 29  `profile/` descriptions say they constrain "valid component types on
+            schema:distribution.hasPart", and NONE of them constrains `schema:hasPart` at all —
+            in XCT's profile the word appears once, in that sentence
+   0 of 59  detail blocks constrain anything at the hasPart level either, so nothing in a
+            technique profile reaches a component. The sealed componentType enums live in the
+            base file-type BBs (image, imageMap, tabularData, …), which is layer 1 above
+
+**The composition is right and the DESCRIPTIONS are wrong — not the other way round.** A technique's
+detail must apply to a monolithic dataset, one reconstructed volume with no `hasPart` collection, as
+well as to a component collection. Dataset-root composition covers both; pinning
+`ada:componentType` would break the monolithic case outright, because there is no hasPart item to
+carry it. So `0 of 59` is the correct design, and the 47 descriptions that call themselves
+hasPart-item blocks are the error. Do not "fix" the pin.
+
+The monolithic case is barely exercised, which is why the descriptions survived: of 7446 ADA
+records, 7442 carry `hasPart` and 4 are monolithic. Rare is not optional.
+
+**Three levels, and only one works both ways.** When placing a property, this is the choice:
+
+  dataset root   `$Dataset.<prop>`                                     both
+  distribution   `$Dataset.schema:distribution[].<prop>`               both — the volume when
+                                                                       monolithic, the collection
+                                                                       when not
+  hasPart        `$Dataset.schema:distribution[].schema:hasPart[].…`   COLLECTION ONLY; there is no
+                                                                       such node in a monolithic
+                                                                       dataset
+
+Anything that must hold either way belongs at the root or on the distribution. Put a property on
+hasPart only when it genuinely VARIES per component, and then the monolithic equivalent still has
+to exist at distribution level or the fact becomes unsayable. `Output Data Format` is the worked
+example: `$Dataset.schema:distribution[].schema:encodingFormat[]`, unselected, so it holds for a
+lone volume and for a collection alike. A `[@type = schema:Collection]` selector would exclude the
+monolithic case, which is the one to be careful of.
+
+Reproduce
+with: parse each `profile/schema.yaml`, check whether any `allOf` entry `$ref`s `../detail/schema.yaml`;
+then dump each `detail/schema.yaml` with its `description` and `title` removed and grep for
+`componentType`. Do NOT grep the file whole — the description says the word, which is exactly how
+this went unnoticed.
+
+The consequence is scope, not failure: a `$Dataset.schema:distribution…` path in a detail block
+constrains EVERY distribution item of a conforming dataset rather than only the components whose
+`ada:componentType` the block names. Nothing is invalid today, because no record exercises the
+narrowing that was never built.
+
+Measure before relocating any of it. The twelve `adaProfile` hasPart-item blocks were moved to the
+top level on a copy on 2026-09-05 and failed all 218 records of the affected profiles; the reverse
+move is equally capable of surprising, and it would now touch 47 blocks rather than four.
 
 One standing gotcha bites spot regenerations:
 
