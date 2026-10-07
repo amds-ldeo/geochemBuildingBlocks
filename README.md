@@ -14,6 +14,14 @@ The scheme involves three components:
 
 `_sources/` has three top-level areas: the shared base schemas, the shared registries, and one directory per analytical technique.
 
+> **Most of `_sources/` is generated, despite the name.** Of its 242 `schema.yaml`, about 169 are
+> written by a generator — the `tapp/`, `detail/` and `profile/` schemas from the TAPP tables and
+> sidecars, the composition modules, the shared registries — along with all 242
+> `resolvedSchema.json`, all 242 `<name>Schema.json`, and the generated examples. What you edit
+> directly is `BaseSchema/*` and the `adaProfile/` profiles. Editing a generated file instead of
+> its generator is the most common way to lose work here; `CLAUDE.md` has the per-directory table
+> of what writes what.
+
 ```
 _sources/
   BaseSchema/           18 shared BBs: geochemProduct (domain-neutral base),
@@ -201,7 +209,7 @@ arrives the same way every other change does, as a pull request:
 3. a pull request is opened from it and auto-merge is armed, so it lands once the three required
    checks pass.
 
-Nothing bypasses protection: the regenerated `build/` is reviewed by the same checks as hand-written
+Nothing bypasses protection: the regenerated `build/` is reviewed by the same checks as authored
 source. Step 3 uses a fine-grained PAT (`BBLOCKS_PR_TOKEN`, Contents:read + PullRequests:write on
 this repository only) for one reason — a pull request opened by `GITHUB_TOKEN` triggers no
 workflows, so its required checks would never report and it could never merge.
