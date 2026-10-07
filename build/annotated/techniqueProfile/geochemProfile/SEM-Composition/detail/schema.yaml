@@ -574,6 +574,63 @@ allOf:
                                       - schema:name
                                       - schema:value
                                       - schema:unitText
+                                    - title: Mapping Beam Current
+                                      description: Probe current in nanoamperes (nA)
+                                        used during X-ray mapping.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/semCompositionTAPP/mappingBeamCurrent
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/semCompositionTAPP/mappingBeamCurrent
+                                        schema:name:
+                                          const: Mapping Beam Current
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    - title: Mapping Beam Diameter
+                                      description: Diameter of the electron beam in
+                                        micrometres during X-ray mapping. 0 indicates
+                                        a fully focused beam.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/semCompositionTAPP/mappingBeamDiameter
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/semCompositionTAPP/mappingBeamDiameter
+                                        schema:name:
+                                          const: Mapping Beam Diameter
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
                                   allOf:
                                   - contains:
                                       title: Accelerating Voltage
@@ -658,6 +715,69 @@ allOf:
                                           - '@id': ada:parameter/semCompositionTAPP/workingDistance
                                         schema:name:
                                           const: Working Distance
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains:
+                                      title: Mapping Beam Current
+                                      description: Probe current in nanoamperes (nA)
+                                        used during X-ray mapping.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/semCompositionTAPP/mappingBeamCurrent
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/semCompositionTAPP/mappingBeamCurrent
+                                        schema:name:
+                                          const: Mapping Beam Current
+                                        schema:value:
+                                          anyOf:
+                                          - type: number
+                                          - type: string
+                                        schema:unitText:
+                                          type: string
+                                      required:
+                                      - '@id'
+                                      - '@type'
+                                      - schema:propertyID
+                                      - schema:name
+                                      - schema:value
+                                      - schema:unitText
+                                    minContains: 0
+                                    maxContains: 1
+                                  - contains:
+                                      title: Mapping Beam Diameter
+                                      description: Diameter of the electron beam in
+                                        micrometres during X-ray mapping. 0 indicates
+                                        a fully focused beam.
+                                      type: object
+                                      properties:
+                                        '@id':
+                                          const: ada:parameter/semCompositionTAPP/mappingBeamDiameter
+                                        '@type':
+                                          const:
+                                          - schema:PropertyValue
+                                        schema:propertyID:
+                                          const:
+                                          - '@id': ada:parameter/semCompositionTAPP/mappingBeamDiameter
+                                        schema:name:
+                                          const: Mapping Beam Diameter
                                         schema:value:
                                           anyOf:
                                           - type: number

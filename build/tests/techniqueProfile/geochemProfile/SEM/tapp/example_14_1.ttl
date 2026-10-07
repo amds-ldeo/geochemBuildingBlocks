@@ -20,20 +20,20 @@
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action ;
-                    schema1:additionalType "bios:LabProcess" ;
                     schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "missing" ;
                     ada:finePolishingConditionsDefault "missing" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action ;
+                    schema1:additionalType "bios:LabProcess" ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "missing" ;
     schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
@@ -80,6 +80,8 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
     ada:workingDistanceDefault -9999 .
@@ -101,7 +103,10 @@
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
-    ada:ionBeamSource "missing" .
+    ada:ionBeamSource "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" .
 
 <ex:instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
@@ -134,6 +139,18 @@
     schema1:valueName "chamberPressureDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

@@ -93,7 +93,10 @@
           "@id": "ex:instrument/EPMA/part/WDS-Spectrometer"
         }
       ],
-      "schema:name": "example instrumentName"
+      "schema:name": "example instrumentName",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     },
     {
       "schema:additionalType": [
@@ -274,6 +277,26 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/epmaTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",

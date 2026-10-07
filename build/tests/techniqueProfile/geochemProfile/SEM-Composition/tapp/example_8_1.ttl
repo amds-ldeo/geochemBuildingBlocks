@@ -57,12 +57,14 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" ;
-    bios:computationalTool [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ] .
 
 <ex:instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -80,6 +82,9 @@
     ada:acceleratingVoltageDefault -9999 ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "missing" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -101,6 +106,18 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

@@ -107,6 +107,7 @@
         ]
       },
       "schema:description": "FIB-SEM dual-beam",
+      "ada:mappingBeamCurrentDefault": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -115,7 +116,9 @@
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:seDetectorType": "In-lens / TLD (through-the-lens)",
@@ -135,6 +138,26 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",

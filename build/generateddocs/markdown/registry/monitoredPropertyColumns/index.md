@@ -21,44 +21,6 @@ description: Registry of reusable schema:PropertyValueSpecification channel colu
   $defs; it has no instantiable properties of its own.
 type: object
 $defs:
-  epma_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds,
-      summed across all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/epmaTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items:
-            anyOf:
-            - type: number
-            - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
   epma_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the
@@ -141,44 +103,6 @@ $defs:
         const: dwellTimePerPixel
       schema:name:
         const: Dwell Time per Pixel
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items:
-            anyOf:
-            - type: number
-            - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  epma_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds.
-      Adjustments stay within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/epmaTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
       ada:dataType:
         const: number
       schema:readonlyValue:
@@ -975,44 +899,6 @@ $defs:
     - schema:valueName
     - schema:name
     - ada:dataType
-  semComposition_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds,
-      summed across all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semCompositionTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items:
-            anyOf:
-            - type: number
-            - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
   semComposition_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the
@@ -1096,44 +982,6 @@ $defs:
         const: dwellTimePerPixel
       schema:name:
         const: Dwell Time per Pixel
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items:
-            anyOf:
-            - type: number
-            - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  semComposition_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds.
-      Adjustments stay within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semCompositionTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
       ada:dataType:
         const: number
       schema:readonlyValue:
@@ -1334,44 +1182,6 @@ $defs:
     - schema:name
     - ada:dataType
     - schema:defaultValue
-  sem_backgroundCountingTime:
-    title: Background Counting Time
-    description: Total time spent counting at off-peak background position(s) in seconds,
-      summed across all background positions.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semTAPP/backgroundCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: backgroundCountingTime
-      schema:name:
-        const: Background Counting Time
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items:
-            anyOf:
-            - type: number
-            - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
   sem_backgroundPosition:
     title: Background Position(s)
     description: Location(s) of off-peak background measurement(s) relative to the
@@ -1455,44 +1265,6 @@ $defs:
         const: dwellTimePerPixel
       schema:name:
         const: Dwell Time per Pixel
-      ada:dataType:
-        const: number
-      schema:readonlyValue:
-        const: false
-      ada:tier:
-        const: M
-      schema:defaultValue:
-        anyOf:
-        - anyOf:
-          - type: number
-          - type: string
-        - type: array
-          items:
-            anyOf:
-            - type: number
-            - type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:valueName
-    - schema:name
-    - ada:dataType
-    - schema:defaultValue
-  sem_peakCountingTime:
-    title: Peak Counting Time
-    description: Time spent counting X-ray intensity at the peak position, in seconds.
-      Adjustments stay within procedure-defined bounds.
-    type: object
-    properties:
-      '@id':
-        const: ada:monitoredPropertyColumn/semTAPP/peakCountingTime
-      '@type':
-        const:
-        - schema:PropertyValueSpecification
-      schema:valueName:
-        const: peakCountingTime
-      schema:name:
-        const: Peak Counting Time
       ada:dataType:
         const: number
       schema:readonlyValue:

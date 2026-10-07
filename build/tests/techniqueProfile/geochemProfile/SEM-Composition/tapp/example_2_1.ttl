@@ -14,15 +14,15 @@
             schema1:step [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:name "Data reduction" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "missing" ],
+                    schema1:description "missing" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action ;
                     schema1:additionalType "bios:LabProcess" ;
-                    schema1:description "missing" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data reduction" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "missing" ] ] ;
     schema1:datePublished "missing" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <ex:instrument/SEM> ;
@@ -55,6 +55,8 @@
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
@@ -74,6 +76,9 @@
     ada:acceleratingVoltageDefault "15 kV" ;
     ada:beamDiameterDefault -9999 ;
     ada:beamMode "all: Focused — 'The accelerating voltage was 15 kV and the beam current was 2.0 nA, with a focused beam' (p.2)" ;
+    ada:mappingBeamCurrentDefault -9999 ;
+    ada:mappingBeamDiameterDefault -9999 ;
+    ada:mappingBeamMode "missing" ;
     ada:workingDistanceDefault -9999 .
 
 <ex:instrument/SEM/part/EDS-Detector> a schema1:Product,
@@ -95,6 +100,18 @@
     schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Background Counting Time" ;
+    schema1:valueName "backgroundCountingTime" ;
+    ada:dataType "number" .
+
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1 ;
+    schema1:name "Peak Counting Time" ;
+    schema1:valueName "peakCountingTime" ;
+    ada:dataType "number" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "example value" ;

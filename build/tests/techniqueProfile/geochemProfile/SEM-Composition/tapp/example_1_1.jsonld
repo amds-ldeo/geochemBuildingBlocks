@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "semComposition protocol \u2014 Genge2025",
-  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v82.csv).",
+  "schema:description": "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v83.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Al-Cu alloy phases; associated minerals \u2014 Micrometeorite NG-1, Al-Cu-alloy-bearing, CV3-like composition; Democratic Republic of Congo",
     "ada:defaultTargetMaterials": [
@@ -43,6 +43,26 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
@@ -133,6 +153,9 @@
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],

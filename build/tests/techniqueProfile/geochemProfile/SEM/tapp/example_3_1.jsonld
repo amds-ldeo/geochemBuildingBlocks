@@ -25,7 +25,7 @@
     "bios:LabProtocol"
   ],
   "schema:name": "sem protocol \u2014 Genge2025",
-  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v84.csv).",
+  "schema:description": "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | BSE Imaging (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v85.csv).",
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -115,7 +115,10 @@
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -134,6 +137,26 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",

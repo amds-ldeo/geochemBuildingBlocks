@@ -34,6 +34,26 @@
         "schema:name": "example instrumentName"
       },
       {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semCompositionTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
         "@id": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName",
         "@type": [
           "schema:PropertyValueSpecification"
@@ -114,6 +134,7 @@
       ],
       "schema:description": "ESEM",
       "ada:acceleratingVoltageDefault": "20 kV",
+      "ada:mappingBeamDiameterDefault": "N \u2014 a 60 \u03bcm aperture is stated (p.3), not a beam diameter",
       "@type": [
         "schema:Product",
         "schema:Thing"
@@ -122,6 +143,8 @@
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
       "ada:beamMode": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamMode": "missing",
       "ada:workingDistanceDefault": -9999
     }
   ],

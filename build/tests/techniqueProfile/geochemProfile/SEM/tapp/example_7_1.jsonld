@@ -116,7 +116,10 @@
       "@id": "ex:instrument/SEM",
       "schema:name": "example instrumentName",
       "ada:beamDiameterDefault": -9999,
-      "ada:ionBeamSource": "missing"
+      "ada:ionBeamSource": "missing",
+      "ada:mappingBeamCurrentDefault": -9999,
+      "ada:mappingBeamDiameterDefault": -9999,
+      "ada:mappingBeamMode": "missing"
     }
   ],
   "ada:targetMaterialTemplate": {
@@ -135,6 +138,26 @@
           "schema:PropertyValueSpecification"
         ],
         "schema:name": "example instrumentName"
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/backgroundCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "backgroundCountingTime",
+        "schema:name": "Background Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
+      },
+      {
+        "@id": "ada:targetMaterialColumn/semTAPP/peakCountingTime",
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:valueName": "peakCountingTime",
+        "schema:name": "Peak Counting Time",
+        "ada:dataType": "number",
+        "schema:defaultValue": 1
       },
       {
         "@id": "ada:targetMaterialColumn/semTAPP/primaryCalibrationStandardName",
