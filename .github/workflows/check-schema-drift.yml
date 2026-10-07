@@ -121,6 +121,21 @@ jobs:
           git --no-pager diff -- _sources
           exit 1
 
+      # Counts what the resolved schemas CONSTRAIN and compares that to
+      # docs/constraint_census.json. The drift check above compares bytes,
+      # which catches a forgotten regeneration but says nothing about
+      # whether a regeneration LOST a constraint -- and dropping a
+      # constraint only makes a schema more permissive, so
+      # validate_examples stays green through it. Twice has.
+      #
+      # Runs here rather than as its own required check: adding a required
+      # context is the thing that deadlocks PRs when it does not report,
+      # and this needs no separate signal. It also runs AFTER regeneration,
+      # so it censuses what the sources actually produce, not what happens
+      # to be committed.
+      - name: Constraint census
+        run: python tools/constraint_census.py
+
       # Only reachable when the diff is clean, so this catches the other
       # half: a generated file that regeneration does not produce at all.
       - name: Check for untracked generated files

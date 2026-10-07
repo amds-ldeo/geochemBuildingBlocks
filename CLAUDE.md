@@ -41,6 +41,7 @@ python tools/validate_examples.py --filter <name> # single BB/example — the "r
 python tools/validate_instance.py --dir <dir>     # profile-aware (auto-detects dcterms:conformsTo)
 python tools/audit_building_blocks.py             # completeness, schema<->JSON consistency, resolvedSchema freshness, SHACL
 python tools/check_componentType.py               # componentType vocab/enum drift (annotation-only base layer, so JSON Schema alone misses it)
+python tools/constraint_census.py                 # did a regeneration LOSE a constraint? (validate_examples cannot see that)
 ```
 
 `resolve_schema.py` REFUSES to write a schema whose refs did not resolve, and exits 1 naming each
@@ -49,6 +50,23 @@ should be; reach for it only to get past a known-broken ref deliberately. The ch
 `validate_examples` reads `resolvedSchema.json`, so a schema quietly missing a branch makes the
 examples that should have failed pass instead — and because a transient file-read error in an
 earlier stage would otherwise become a permanently degraded artifact on the next run.
+
+**`constraint_census.py` answers the question `validate_examples` structurally cannot.** A
+schema is a set of restrictions, so deleting one makes it more PERMISSIVE and every instance that
+validated still validates — no corpus of positive examples can detect a loss, however large. The
+census counts the constraints themselves (`required` names, `enum` members, `const`, `$ref`
+targets, closed objects, branch counts — 1,299,304 of them across 242 blocks) and compares the
+counts to `docs/constraint_census.json`. Counts give magnitude and direction; a per-block digest
+catches a SWAP that leaves counts equal, which a count alone cannot see.
+
+It is NOT a stage of `regenerate.py`, deliberately — a baseline rewritten on every run agrees with
+whatever just happened and records nothing, the same reasoning as `docs/modules/emitted.json`. A
+deliberate constraint change is therefore two steps: regenerate, then `--write` and commit the
+manifest in the same PR, where the diff shows which constraints moved. Array indices are elided
+from its pointers, so `allOf`/`anyOf` reordering does not register (branch order carries no
+meaning, and the upstream postprocess is known to reorder lists —
+opengeospatial/bblocks-postprocess#91). It runs as a step of `check-schema-drift.yml`, after
+regeneration, rather than as its own required check.
 
 Render the human-readable pages (dataset record + TAPP definition, into `build/htmlViews/`):
 
