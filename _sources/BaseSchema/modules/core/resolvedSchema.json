@@ -6521,11 +6521,12 @@
                 }
               }
             },
-            "countRows": {
-              "type": "integer"
-            },
-            "countColumns": {
-              "type": "integer"
+            "schema:additionalProperty": {
+              "description": "Soft-typed extension properties. The row and column counts live here rather than as bare properties, so that each carries a schema:propertyID identifying the concept it quantifies - DDI Discovery caseQuantity for the row count and variableQuantity for the column count. As bare unprefixed `countRows`/`countColumns` they were the only two properties on this class with no namespace and no definition, so nothing said what they meant or tied them to a vocabulary.",
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/CdifTabularData_AdditionalProperty"
+              }
             }
           },
           "oneOf": [
@@ -21680,6 +21681,67 @@
         }
       ]
     },
+    "CdifTabularData_AdditionalProperty": {
+      "type": "object",
+      "title": "additionalProperty PropertyValue",
+      "description": "PropertyValue values required to define a soft-typed property with a value. ",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValue"
+          },
+          "minItems": 1
+        },
+        "schema:propertyID": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/propertyID_item"
+          },
+          "minItems": 1,
+          "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
+        },
+        "schema:name": {
+          "type": "string"
+        },
+        "schema:value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        },
+        "schema:unitCode": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
+            }
+          ]
+        },
+        "schema:unitText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema:name",
+        "schema:value"
+      ]
+    },
     "WebAPI_DefinedTerm": {
       "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
       "type": "object",
@@ -24089,11 +24151,12 @@
                     }
                   }
                 },
-                "countRows": {
-                  "type": "integer"
-                },
-                "countColumns": {
-                  "type": "integer"
+                "schema:additionalProperty": {
+                  "description": "Soft-typed extension properties. The row and column counts live here rather than as bare properties, so that each carries a schema:propertyID identifying the concept it quantifies - DDI Discovery caseQuantity for the row count and variableQuantity for the column count. As bare unprefixed `countRows`/`countColumns` they were the only two properties on this class with no namespace and no definition, so nothing said what they meant or tied them to a vocabulary.",
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/CdifTabularData_AdditionalProperty"
+                  }
                 }
               },
               "oneOf": [
