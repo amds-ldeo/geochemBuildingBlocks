@@ -16,14 +16,19 @@ name: Check generated schemas are current
 on:
   push:
     branches: [main]
+  # NO paths filter, deliberately, because this is a REQUIRED check. A required check that does
+  # not RUN is not neutral -- it sits pending and the PR can never merge -- so filtering by path
+  # would deadlock every PR that happens to touch none of the listed files.
+  #
+  # It became required after it twice failed to stop what it had detected: #31 merged with a red
+  # determinism check and #32 merged with red drift, both because auto-merge waits only on
+  # REQUIRED checks and this one was advisory. #32 left registry/monitoredPropertyColumns'
+  # artifacts stale on main for two days as a result.
+  #
+  # Affordable now for a reason that was not true before: caching the parsed source files took a
+  # full --all from ~62 minutes to under 6, and this job from 59m to 3m37s. At an hour a run,
+  # filtering was a reasonable trade; at three minutes it is not.
   pull_request:
-    paths:
-      - '_sources/**/schema.yaml'
-      - '_sources/**/resolvedSchema.json'
-      - '_sources/**/*Schema.json'
-      - 'tools/resolve_schema.py'
-      - 'tools/regenerate_schema_json.py'
-      - '.github/workflows/check-schema-drift.yml'
   workflow_dispatch:
 
 permissions:
